@@ -92,6 +92,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 				</div>				
 				<div style="float:right;width:20%;"> 
 					<button
+						id="presentacion-4000g"
 						data-action="next"
 						data-target="2" 
 						data-value="4000g" 
@@ -101,6 +102,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 				</div>
 				<div style="float:right;width:20%;"> 
 					<button
+						id="presentacion-2000g"
 						data-action="next"
 						data-target="2" 
 						data-value="2000g" 
@@ -111,6 +113,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 				</div>  
 				<div style="float:right;width:20%;"> 
 					<button
+						id="presentacion-900g"
 						data-action="next"
 						data-target="2" 
 						data-value="900g" 
@@ -130,7 +133,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 		data-fase="3" 
 		class="container purchase animated text-center bounceInRight hidden" 
 	>
-		<article class="text-center col-sm-4 separation-top">
+		<article id="plan-Quincenal" class="text-center col-sm-4 separation-top">
 			<img class="img-responsive" src="http://marca.dev/img/Quincenal.png" width="300px" height="370px">
 			<button 
 				class="btn btn-sm-kmibox btn-sm-kmibox-price" 
@@ -144,11 +147,11 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 				Quincenal
 			</button>
 		</article>
-		<article class="text-center col-sm-4 separation-top">
+		<article id="plan-Mensual" class="text-center col-sm-4 separation-top">
 			<img class="img-responsive" src="http://marca.dev/img/Mensual.png" width="300px" height="370px">
 			<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-action="next" data-value="Mensual" data-target="3" data-object="220" data-color="#94d400" style="background: rgb(144, 14, 156);">Mensual</button>
 		</article>
-		<article class="text-center col-sm-4 separation-top">
+		<article id="plan-Bimestral" class="text-center col-sm-4 separation-top">
 			<img class="img-responsive" src="http://marca.dev/img/Bimestral.png" width="300px" height="370px">
 			<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-action="next" data-value="Bimestral" data-target="3" data-object="219" data-color="#94d400" style="background: rgb(144, 14, 156);">Bimestral</button>
 		</article>
@@ -227,12 +230,14 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 				
 			<header class="row">
 				<article class="col-md-2">Producto</article>
-				<article class="col-md-4 hidden-xs ">Descripci&oacute;n</article>
+				<article class="col-md-6 hidden-xs ">Descripci&oacute;n</article>
 				<article class="col-md-2 hidden-xs ">Frecuencia</article>
 				<!--article class="col-md-2 hidden-xs ">Cantidad</article-->
 				<article class="col-md-2 hidden-xs ">Total</article>
 			</header>
-			<section id="cart-items" class="row"></section>
+			<section id="cart-items" class="row">
+				
+			</section>
 			<aside id="totales" class="row">
 				<div class="col-xs-12 col-md-6 pull-right">
 					<article class="row">

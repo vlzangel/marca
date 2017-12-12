@@ -40,53 +40,69 @@ function loadFase(fase_id){
 					var producto = service[ kmibox_param['fase1'] ];					
 					var product_id=0;
 
-					$.each(service[kmibox_param['fase1']], function(key, val){
+					$.each(PRODUCTOS,  function(key, val){
 
-						// Crear item del producto
-						if( jQuery("#presentaciones").attr("data-value") == "" ){
-							jQuery("#presentaciones").attr("data-value", key );
-							CARRITO["producto"] = key;
+						//console.log(val);
+						
+						if( val['tamanos'][ CARRITO["tamano"] ] == 1 ){
+
+							if( jQuery("#presentaciones").attr("data-value") == "" ){
+								CARRITO["producto"] = key;
+								jQuery("#presentaciones").attr("data-value", key );
+
+								jQuery("#presentaciones button").css("display", "none");
+								$.each(val["presentaciones"],  function(key, val){
+									if( val > 0 ){
+										jQuery("#presentacion-"+key).css("display", "block");
+									}
+								});
+							}
+
+							$('[data-fase="2"]')
+							.attr({
+								'color': color_default,
+							})
+							.append(
+								$('<span></span>').append( 
+									$('<img data-id="'+key+'">')
+										.attr({'src' : TEMA+"/productos/imgs/"+val.dataextra.img,
+											   'width': '270px',
+											   })),
+									$('#name').text('s')
+									
+							);
+
 						}
 
-						$('[data-fase="2"]')
-						.attr({
-							'color': color_default,
-						})
-						.append(
-							$('<span></span>')
-							.append( 
-								$('<img data-id="'+key+'">')
-									.attr({'src' : val['gallery']['thumnbnail'],
-										   'width': '270px',
-										   })),
-								$('#name').text('s')
-								
-							)
-								
-						});
+					});
+	
+					$("#carrousel1").waterwheelCarousel({
+						flankingItems: 3,
+						movingToCenter: function ($item) {
+							$('#callback-output name').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+						},
+						movedToCenter: function ($item) {
+							jQuery("#presentaciones").attr("data-value", jQuery("#carrousel1 .carousel-center").attr("data-id") );
+							CARRITO["producto"] = jQuery("#carrousel1 .carousel-center").attr("data-id");
 
-						
-									
-						$("#carrousel1").waterwheelCarousel({
-				            flankingItems: 3,
-				            movingToCenter: function ($item) {
-				              	$('#callback-output name').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
-				            },
-				            movedToCenter: function ($item) {
-				            	jQuery("#presentaciones").attr("data-value", jQuery("#carrousel1 .carousel-center").attr("data-id") );
-				            	CARRITO["producto"] = jQuery("#carrousel1 .carousel-center").attr("data-id");
-				              	$('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
-				            },
-				            movingFromCenter: function ($item) {
-				              	$('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
-				            },
-				            movedFromCenter: function ($item) {
-				              	$('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
-				            },
-				            clickedCenter: function ($item) {
-				              	$('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-				            }
-						});
+							jQuery("#presentaciones button").css("display", "none");
+							$.each(PRODUCTOS[ CARRITO["producto"] ]["presentaciones"],  function(key, val){
+								if( val > 0 ){
+									jQuery("#presentacion-"+key).css("display", "block");
+								}
+							});
+							$('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+						},
+						movingFromCenter: function ($item) {
+							$('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+						},
+						movedFromCenter: function ($item) {
+							$('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+						},
+						clickedCenter: function ($item) {
+							$('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+						}
+					});
 					 
 				break;
 				// ***************************************
@@ -94,72 +110,12 @@ function loadFase(fase_id){
 				// ***************************************
 				case 3:
 				$('#header').text('Selecciona el tiempo de suscripción');
-					// Omitir paso
-					// Cargar Items
-					/*var plan = service[ CARRITO["edad"] ][ CARRITO["producto"] ]['plan'];
-					var image= service[ CARRITO["edad"] ][ CARRITO["producto"] ]['gallery']['thumnbnail'];				
-					var color= service[ CARRITO["edad"] ][ CARRITO["producto"] ]['color'];				
-					var col  = 2; //cal_column(plan);
-					var offset = 'col-md-offset-2';
-					
-					$('[data-fase="3"]').empty();					
-				
-					
-					$.each(order_plan, function(key, _val){
-						if( 'undefined' != typeof plan[_val] ){
-							var key = _val;
-							var val = plan[_val];
-							var price = val["price"];
-
-							var ahorro = val["ahorro"];
-							var ahorro_porcent = 0;
-							var off_class = 'hidden';
-							if( ahorro>0 ){
-								ahorro_porcent = val["ahorro_porcent"];
-								off_class = '';
-							}
-
-							$('[data-fase="3"]')
-								.addClass('text-center')
-								.append(
-									$('<article class="text-center col-sm-4 separation-top"></article>')
-									.append( 
-									$('<img/>')
-									.addClass('img-responsive')
-									.attr({
-										'src': icons[key],
-										'width': '300px',
-										'height' : '370px',
-									}),
-										$('<button>'+ucfirst(key)+'</button>')
-											.addClass('btn btn-sm-kmibox btn-sm-kmibox-price')
-											.css('background', color)
-											.attr({
-												'data-action': 'next',
-												'data-value': key,
-												'data-target': '3',
-												'data-object': val['ID'],
-												'data-color': color_default,
-											})
-											
-									)
-								);
-							offset = '';
+					jQuery("#plan article").css("display", "none");
+					$.each(PRODUCTOS[ CARRITO["producto"] ]["planes"],  function(key, val){
+						if( val == 1 ){
+							jQuery("#plan-"+key).css("display", "inline-block");
 						}
 					});
-
-					$('[data-fase="3"]')
-						.attr({
-								'color': color_default,
-							})
-						.append(
-						$('<span>') 
-						.append( 
-								$('<br>'),
-								$('<span class="text-center col-sm-12 separation-top fontspan">')
-								.text('Descuento en comparación con el precio unitario mensual*')
-						
-						))*/
 				break;
 				// ***************************************
 				// Fase #4 - Extras
@@ -185,53 +141,40 @@ function loadFase(fase_id){
 					$('#btn-omitir').addClass('hidden');
 					$('#header').text('Verifica tu compra');
 
-					var xdata = {'key':'get_cart'}
-					$.post( urlbase+"/ajax/admin_cart.php", {xdata}, function(result) {
-						$( '#cart-items' ).empty();
+					console.log( "Hola" );
 
-						if( result != ''){
-							var cart = $.parseJSON(result);
-							console.log(cart);
-							var subtotal = 0;
-							var iva = 0;
-							var total = 0;
-							var cant_item = 0;
+					var subtotal = 0;
+					var iva = 0;
+					var total = 0;
+					var cant_item = 0;
 
-							$.each( cart['items'], function(index, item){ 
-								add_item_cart(
-									item.ID,
-									item.name,
-									item.type,
-									item.thumnbnail,
-									item.price,
-									item.cant,
-									item.total									
-								);
+					add_item_cart(
+						CARRITO["producto"],
+						PRODUCTOS[ CARRITO["producto"] ].nombre,
+						CARRITO['plan'],
+						TEMA+"/productos/imgs/"+PRODUCTOS[ CARRITO["producto"] ].dataextra.img,
+						PRODUCTOS[ CARRITO["producto"] ]["presentaciones"][ CARRITO["presentacion"] ],
+						1,
+						PRODUCTOS[ CARRITO["producto"] ]["presentaciones"][ CARRITO["presentacion"] ]									
+					);
 
-								subtotal += item.total;
-								iva += subtotal ;
-								total += subtotal + iva;
+					subtotal += PRODUCTOS[ CARRITO["producto"] ]["presentaciones"][ CARRITO["presentacion"] ];
+					//iva += subtotal ;
+					total += subtotal + iva;
 
-								cant_item += parseInt( item.cant );
-								console.log(item.cant);
-							});
+					cant_item += parseInt( 1 );
 
-							$('#cant-item').html(cant_item);
-							$('#subtotal').html('$ '+subtotal);
-							$('#iva').html('$ '+iva);
-							console.log("iva: "+iva);
-							$('#total').html('$ '+total);
-						}
-					})
-					.fail(function() {
-						console.log( "error al registrar los datos al carrito de compras" );
-					})
+					$('#cant-item').html(cant_item);
+					$('#subtotal').html('$ '+subtotal);
+					$('#iva').html('$ '+iva);
+					$('#total').html('$ '+total);
+
 				break;
 			}
 		}
 	}
 
-	function add_item_cart( ID, name, type, thumnbnail, price, cant, total ){
+	function add_item_cart( ID, name, frecuencia, thumnbnail, price, cant, total ){
 		$( '#cart-items' )
 		.append( 
 			$('<article class="item-cart-container" id="art'+ID+'"></article>')
@@ -245,7 +188,7 @@ function loadFase(fase_id){
 					.addClass('col-xs-12 col-md-2')
 					.append(
 						
-						$('<a data-target="delete" data-type="box'+type+'" data-parent="'+ID+'"></a>')
+						$('<a data-target="delete" data-type="box" data-parent="'+ID+'"></a>')
 							.append(
 								$('<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg">Remover</span>')
 							)
@@ -263,20 +206,28 @@ function loadFase(fase_id){
 							)
 					)	
 					,$('<div></div>')
-					.addClass('col-xs-12 col-md-4')
+					.addClass('col-xs-12 col-md-6')
 					.append(
 						$('<label></label>').html( name )
 					)
+					,
+					$('<div></div>')
+					.addClass('col-xs-12 col-md-2 currency')
+					.append(
+						$('<label>') 
+						.html( frecuencia )
+					)
 
-
-					,$('<div></div>')
+					,
+					$('<div></div>')
 					.addClass('col-xs-12 col-md-2 currency')
 					.append(
 						$('<label>') 
 						.html( '$ '+ price )
 					)
-
-					,$('<div></div>')
+					/*
+					,
+					$('<div></div>')
 					.addClass('col-xs-12 col-md-2 cantidad')
 					.append(
 						$('<input>') 
@@ -287,7 +238,6 @@ function loadFase(fase_id){
 								,'type':"numeric" 
 								,'id':"cant-" + ID 
 								,'value': cant
-								,'data-type':type
 							})
 						,$("<div></div>") 
 							.addClass("col-xs-6 col-md-4 items-cant-cart")
@@ -296,23 +246,21 @@ function loadFase(fase_id){
 								$("<button></button>") 
 									.attr({
 										'data-action':"sumarItems",
-										'data-type': type,
 										'data-id': ID	
 									})
 									.append('<i class="fa fa-plus"></i>')
 								,$("<button></button>") 
 									.attr({
 										'data-action':"restarItems",
-										'data-type': type,
 										'data-id': ID	
 									})
 									.append('<i class="fa fa-minus"></i>')
 							)
 							
-					)
+					) 
 					,$('<div></div>') 
 						.addClass("col-xs-12 text-center bg-dark col-md-2 currency")
-						.append( $('<label>').html( '$ '+total ) )
+						.append( $('<label>').html( '$ '+total ) )*/
 				)
 			)
 		);
@@ -623,8 +571,9 @@ function loadFase(fase_id){
 	}
 
 	
-
+var PRODUCTOS = [];
 $(document).ready(function() {
+
 
 	carrousel();
 	CARRITO["tamano"] = jQuery("#carrousel img")[0].id;
@@ -640,6 +589,17 @@ $(document).ready(function() {
 	jQuery("#plan button").on("click", function(e){
 		CARRITO["plan"] = jQuery(this).attr("data-value");
 	});
+
+	jQuery.post(
+		TEMA+"assets/ajax/productos.php",
+		{},
+		function(data){
+			PRODUCTOS = data;
+			console.log( data );
+		}, "json"
+	).fail(function(e) {
+		console.log( e );
+  	});
 
 });
 
