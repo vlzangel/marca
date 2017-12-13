@@ -261,48 +261,33 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 		
 		<article class="col-md-12 text-center">
 
-			<a href="#"   data-toggle="modal" data-target="#suscription"><img src='<?php echo get_home_url(); ?>/img/Bot¢n-1.png'   alt="Cinque Terre"  width="220" height="60"/></a>
+			<a href="#" data-toggle="modal" data-target="#suscription"><img src='<?php echo get_home_url(); ?>/img/Bot¢n-1.png'   alt="Cinque Terre"  width="220" height="60"/></a>
 
 		</article>		
 	</section>	
 
 </section>
 
-			<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
-
-			  <div class="modal-dialog" id="suscription">
-
-			    <!-- Modal content-->
-			    <div class="Modal content" id="suscription" >			     
-			      
-
-			      <div  class="btn btn-sm-kmibox"  style="border-color:#fffff1; border-style: solid; border-width: 14px;">
-
-			      	<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
-
-					<div class="row" >
-							<div  style='clear:both;'></div>
-				    
-					    <div style="float:left;width:50%;">    
-					       <img src='<?php echo get_home_url(); ?>/img/tarjeta.png'  alt="Cinque Terre" class="img-responsive" width="250" height="240"/>
-
-				      		<a href="<?php echo get_home_url(); ?>/pagar-mi-marca"  id="pagar" role="button"  data-target="suscription"><img src='<?php echo get_home_url(); ?>/img/btn_tarjeta.png' class="img-responsive" alt="Cinque Terre" width="220" height="80"/></a>
-						</div>
-						<div style="float:left;width:50%;" >    
-							<img src='<?php echo get_home_url(); ?>/img/efectivo.png'  alt="Cinque Terre" class="img-responsive" width="250" height="250"/>
-
-							<a href="#" type="button" id="tienda" data-target="suscription"><img src='<?php echo get_home_url(); ?>/img/btn_efectivo.png'   alt="Cinque Terre"  width="220" height="60"/></a>
-
-							<!--button type="button" id="tienda" class="btn btn-sm-kmibox btn-extend"><img src='<?php echo get_home_url(); ?>/img/btn_efectivo.png'   alt="Cinque Terre"  width="220" height="70"/></button-->
-
-						</div>		
-					
+<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" id="suscription">
+		<div class="Modal content" id="suscription" >			     
+			<div  class="btn btn-sm-kmibox"  style="border-color:#fffff1; border-style: solid; border-width: 14px;">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
+				<div class="row" >
+					<div  style='clear:both;'></div>
+					<div style="float:left;width:50%;">    
+						<img src='<?php echo get_home_url(); ?>/img/tarjeta.png'  alt="Cinque Terre" class="img-responsive" width="250" height="240"/>
+						<a href="<?php echo get_home_url(); ?>/pagar-mi-marca"  id="pagar" role="button"  data-target="suscription"><img src='<?php echo get_home_url(); ?>/img/btn_tarjeta.png' class="img-responsive" alt="Cinque Terre" width="220" height="80"/></a>
+					</div>
+					<div style="float:left;width:50%;" >    
+						<img src='<?php echo get_home_url(); ?>/img/efectivo.png'  alt="Cinque Terre" class="img-responsive" width="250" height="250"/>
+						<a href="#" type="button" id="tienda" data-target="suscription"><img src='<?php echo get_home_url(); ?>/img/btn_efectivo.png'   alt="Cinque Terre"  width="220" height="60"/></a>
+					</div>		
 				</div>
-						     
-			    </div>
-			   </div>
-			  </div>
-			</div>	
+			</div>
+		</div>
+	</div>
+</div>	
 
 
 		<div id="pago_efectivo" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">

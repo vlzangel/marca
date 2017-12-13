@@ -27,6 +27,26 @@ jQuery(document).ready(function() {
 		change_fase( jQuery(this).attr("data-value") );
 	});
 
+	jQuery("#pagar").on("click", function(e){
+		jQuery.post(
+			TEMA+"assets/ajax/carrito.php", 
+			{
+				edad: CARRITO["edad"],
+				plan: CARRITO["plan"],
+				presentacion: CARRITO["presentacion"],
+				producto: CARRITO["producto"],
+				tamano: CARRITO["tamano"],
+				total: CARRITO["total"]
+			},
+			function(data){
+				/*console.log(data);*/
+				location.href = HOME+"/pagar-mi-marca";
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
+	});
+
 	jQuery.post(
 		TEMA+"assets/ajax/productos.php", {},
 		function(data){
@@ -255,6 +275,8 @@ function loadFase(fase){
 			jQuery('#subtotal').html( FN(subtotal)+" MXN" );
 			jQuery('#iva').html( FN(iva)+" MXN" );
 			jQuery('#total').html( FN(total)+" MXN" );
+
+			CARRITO["total"] = total;
 
 		break;
 	}

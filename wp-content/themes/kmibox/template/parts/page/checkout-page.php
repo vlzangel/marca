@@ -1,41 +1,42 @@
 <?php
-$result = ['visible'=>false, 'msg'=>''];
-$visible = false;
-$cart = get_cart();
-$resumen = get_resumen();
 
+	global $TOTAL_PAGO;
+	$result = ['visible'=>false, 'msg'=>''];
+	$visible = false;
+	$cart = get_cart();
+	$resumen = get_resumen();
 
-/*print_r($resumen);*/
+	$resumen['total'] = $TOTAL_PAGO;
 
-$order_id = 0;
-if( get_current_user_id() > 0 ){
-	if( $_POST ){
+	$order_id = 0;
+	if( get_current_user_id() > 0 ){
+		if( $_POST ){
 
-		if( $_POST['order_id'] > 0 ){
-			$order_id = $_POST['order_id'];
-		}else{
-			$o = create_order();
-			$order_id = $o->id;
-		}
-		if( $order_id > 0){
-			$param = $_POST;
-			$param['order_id'] = $order_id;
-			try{
-				$result = procesar_pago( $param );
-			}catch(Exception $e){
-				// $result['msg'] = "Error: ".$e->getCode()."<pre>".  $e->getMessage() .'</pre>';
-				$result['msg'] = "Hemos tenido inconveniente al procesar tu pago <br>".$e->getMessage();
+			if( $_POST['order_id'] > 0 ){
+				$order_id = $_POST['order_id'];
+			}else{
+				$o = create_order();
+				$order_id = $o->id;
+			}
+			if( $order_id > 0){
+				$param = $_POST;
+				$param['order_id'] = $order_id;
+				try{
+					$result = procesar_pago( $param );
+				}catch(Exception $e){
+					// $result['msg'] = "Error: ".$e->getCode()."<pre>".  $e->getMessage() .'</pre>';
+					$result['msg'] = "Hemos tenido inconveniente al procesar tu pago <br>".$e->getMessage();
+				}
 			}
 		}
 	}
-}
 
 
-$disabled = '';
-if( $resumen['total'] <= 0 ){
-	$hidden = 'hidden';
-	$disabled = 'disabled';
-}
+	$disabled = '';
+	if( $resumen['total'] <= 0 ){
+		$hidden = 'hidden';
+		$disabled = 'disabled';
+	}
 
 
 ?>

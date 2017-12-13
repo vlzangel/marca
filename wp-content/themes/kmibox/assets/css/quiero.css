@@ -205,3 +205,9 @@ span.separador_presentacion {
     font-size: 20px;
    	color: #900e9c;
 }
+
+#plan > div {
+	display: block;
+	margin: 0px auto;
+	max-width: 900px;
+}
