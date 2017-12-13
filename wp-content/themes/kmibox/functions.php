@@ -1,5 +1,24 @@
-
 <?php
+
+
+if(!function_exists('comprimir')){
+    function comprimir($HTML){
+        $HTML = str_replace("\t", "", $HTML);
+        $HTML = str_replace("      ", " ", $HTML);
+        $HTML = str_replace("     ", " ", $HTML);
+        $HTML = str_replace("    ", " ", $HTML);
+        $HTML = str_replace("   ", " ", $HTML);
+        $HTML = str_replace("  ", " ", $HTML);
+        return $HTML = str_replace("\n", " ", $HTML);
+    }
+}
+
+function _remove_script_version( $src ){
+    $parts = explode( '?ver', $src );
+    return $parts[0]."?ver=".time();
+    // return $parts[0];
+}
+
 add_action('admin_menu','kb_admin_menu');
 function kb_admin_menu(){
 	add_submenu_page( 
