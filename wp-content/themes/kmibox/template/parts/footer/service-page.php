@@ -60,8 +60,8 @@
 
 </script>
 <script type='text/javascript' src="<?php echo get_home_url(); ?>/js/functions.js"></script>
-<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/admin_user.js"></script>
+<!-- <script type='text/javascript' src="<?php echo get_home_url(); ?>/js/admin_user.js"></script>
 <script type='text/javascript' src="<?php echo get_home_url(); ?>/js/admin_cart.js"></script>
-<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/init.js"></script>
+<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/init.js"></script> -->
 
 <script type='text/javascript' src="<?php echo get_home_url(); ?>/plugins/bootstrap-validator/bootstrapValidator.js"></script>

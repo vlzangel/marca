@@ -1,0 +1,207 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+#content-primary {
+	width: 100%;
+	height: 100%;
+}
+
+.vlz_header {
+	overflow: hidden;
+    background: #94d400;
+    padding: 15px 20px;
+}
+
+.header_titulo{
+	float: right;
+	color: #ffffff; 
+	font-size: 18px;
+	font-family: caviar_dreamsregular;
+}
+
+section {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.comprar_container {
+    width: 100%;
+    height: calc( 100% - 60px );
+    box-sizing: border-box;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}
+
+.comprar_footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 50px 15px;
+    background: #FFF;
+    #border-top: solid 3px;
+    text-align: center;
+}
+
+.comprar_footer button {
+    position: relative;
+    color: #900e9c;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: caviar_dreamsregular;
+    font-size: 18px;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+.comprar_box {  
+    position: absolute;
+    top: 0px;  
+    width: 100%;
+    height: calc( 100% - 72px );
+}
+
+.vlz_carrousel {
+	width: 800px;
+    height: 300px;
+    margin: 60px auto;
+}
+
+.vlz_carrousel img {
+    cursor: pointer;
+}
+
+.comprar_container > section {
+	#display: none;
+}
+
+.vlz_activo{
+	background-color: #900e9c !important;
+	color: #FFF !important;
+}
+
+.factura{
+	margin: 50px auto;
+    background-color: #FFF;
+    box-shadow: 1px 5px 10px #8c8c8c;
+    max-width: 900px;
+}
+
+table {
+	width: 100%;
+    font-family: caviar_dreamsregular;
+}
+
+#desglose th{    
+	text-align: left;
+    background-color: #930e9e;
+    color: #FFF;
+    padding: 10px 20px;
+}
+
+#desglose td {    
+    padding: 10px 20px;
+}
+
+#desglose td hr {        
+	margin-top: 0px;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 2px solid #dfdfdf;
+}
+
+#desglose td.separador {        
+    padding: 0px 20px !important;
+}
+
+#totales{
+	overflow: hidden;
+	text-align: right;
+	padding: 0px 20px 15px;
+}
+
+#cart-items {
+	border: 0 !important;
+}
+
+#totales table {    
+	text-align: right !important;
+}
+
+#totales table th{    
+	text-align: right !important;
+}
+
+#totales table td {    
+	text-align: right !important;
+	color: #00c7c7;
+	font-weight: 600;
+	width: 200px;
+}
+
+th.style_total {
+	font-size: 20px;
+	color: #94d400 !important;
+}
+
+td.style_total {
+	font-size: 20px;
+	color: #900e9c !important;
+}
+
+.cintillo_factura{
+	overflow: hidden;
+	text-align: center;
+}
+
+.cintillo_factura #izq{
+	/*float: left;    */
+	height: 80px;
+    margin: 20px;
+}
+
+.cintillo_factura #der{
+	/*float: right;    */
+	height: 80px;
+    margin: 20px;
+}
+
+.cintillo_factura #cen{    
+	height: 55px;
+    margin: 25px auto;
+}
+
+#fase_4 {
+	overflow: auto !important;
+}
+
+#nombre_producto{
+	font-size: 50px;
+    color: #94d400;
+    font-weight: 800;
+    font-family: caviar_dreamsregular;
+    display: inline-block;
+    margin-right: 50px;
+}
+
+#no_aparece {
+	position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-weight: 600;
+}
+
+#no_aparece a{
+	text-decoration: none;
+}
+
+span.separador_presentacion {
+    font-size: 20px;
+   	color: #900e9c;
+}

@@ -34,7 +34,10 @@
 	<link rel="stylesheet" href="<?php echo get_home_url(); ?>/css/CaviarDreams.css">
 	<link rel="stylesheet" href="<?php echo get_home_url(); ?>/css/PoetsenOne.css">
 
-	<script type="text/javascript"> var TEMA = "<?php echo get_template_directory_uri(); ?>/"; </script>
+	<script type="text/javascript"> 
+		var TEMA = "<?php echo get_template_directory_uri(); ?>/"; 
+		var HOME = "<?php echo get_home_url(); ?>/"; 
+	</script>
 
 	<?php #wp_head(); ?>
 </head>
