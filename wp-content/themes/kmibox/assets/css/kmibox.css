@@ -257,7 +257,7 @@ select{
 }
 
 #header{
-	padding-bottom:40px;
+	
 }
 .no-margin{
 	margin: 0px;
@@ -1369,7 +1369,7 @@ select{
 }
 
 .marca{
-background: #ffffff;
+	background: #ffffff;
 	border-radius: 40px;
 	border : 1px solid #fff;
 	font-size: 20px;
@@ -1378,3 +1378,11 @@ background: #ffffff;
 	margin-top: 20px;
 }
  
+#presentaciones {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 99999999999999999;
+    background: #FFF;
+}

@@ -31,10 +31,6 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 			</div>
 		</div>
 
-		<section>
-			
-		</section>
-
 		<div id="edad">
 			<br> <br> <br> 
 			<div style="float:left;width:35%;">    
@@ -76,21 +72,18 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 	<!-- Fase #2 Producto -->
 	<section 
 		data-fase="2"
-		id="carrousel1"
 		class ="hidden"
 		>		
 
-			<section id="carrousel1">
-			</section>	
+			<section id="carrousel1"></section>	
 
 			<div id="presentaciones" data-value="" >
-				<br> <br> <br> <br> 
-				<label style="font-size: 20px">Selección</label>
-				<hr style="border-width: 3px; color: #000000">
 				<div style="float:left;width:35%;">    
-					<label id="name" style="margin-left: 35px;font-weight: bold;font-family: PoetsenOne_Regular; font-size:30px; color:#900e9c;"><B></B></label>
-				</div>				
-				<div style="float:right;width:20%;"> 
+					<label style="margin-left: 35px;font-weight: bold;font-family: PoetsenOne_Regular; font-size:30px; color:#900e9c;">
+						<B>Selecciona la presentaci&oacute;n:</B>
+					</label>
+				</div>	
+				<div style="float:right;width:20%;    padding: 10px;"> 
 					<button
 						id="presentacion-4000g"
 						data-action="next"
@@ -100,7 +93,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 							<b>G</b> (4000g)
 					</button>
 				</div>
-				<div style="float:right;width:20%;"> 
+				<div style="float:right;width:20%;    padding: 10px;"> 
 					<button
 						id="presentacion-2000g"
 						data-action="next"
@@ -111,7 +104,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 						<b>M</b> (2000g) |
 					</button>
 				</div>  
-				<div style="float:right;width:20%;"> 
+				<div style="float:right;width:20%;    padding: 10px;"> 
 					<button
 						id="presentacion-900g"
 						data-action="next"
