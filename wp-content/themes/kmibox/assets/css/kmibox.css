@@ -1153,9 +1153,9 @@ select{
 	}
 	
 	.border-curvo{
-	    border-radius: 100px;
-	    border: 10px solid #7ad2c4;
-	    height: 73px;
+	 border-radius: 100px;
+    border: 10px solid #ffffff;
+    height: 93px
 	}
 	.border-curvo .row {
 	    position: relative; 
