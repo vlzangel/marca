@@ -23,26 +23,60 @@
 
 			<section id="fase_1">
 				<div class="comprar_box">
-					<div id="vlz_carrousel" class="vlz_carrousel">
+					<div id="vlz_carrousel" class="vlz_carrousel hidden-xs">
 						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="400px" id="Grande" />
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
 					</div>
+					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-lg">
+						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="250px" id="Grande" />
+						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="250px" id="Mediano" />	
+						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="250px" id="Pequeño" />
+					</div>
 				</div>
-
-				<div id="edad" class="comprar_footer">
-
-					<button data-value="Cachorro">
-						<b>Cachorro</b>
-					</button>
-
-					<button data-value="Adulto">
-						<b>Adulto</b>
-					</button>
-
-					<button data-value="Maduro">
-						<b>Maduro</b>
-					</button>
+				<div id="edad" class="comprar_footer hidden-xs">
+					<div class="col-xs-6">
+						<p>Selecciona la edad</p>
+					</div>
+					<div class="col-xs-6">
+						<div class="col-xs-4">
+							<button data-value="Cachorro" id="edad-btn">
+								<b>Cachorro</b>
+							</button>
+						</div>	
+						<div class="col-xs-4">
+							<button data-value="Adulto" id="edad-btn">
+								<b>Adulto</b>
+							</button>
+						</div>	
+						<div class="col-xs-4">
+							<button data-value="Maduro" id="edad-btn">
+								<b>Maduro</b>
+							</button>
+						</div>	
+					</div>
+				</div>
+				<div id="edad" class="comprar_footer hidden-md hidden-lg">
+					<div class="col-xs-6">
+						<p>Selecciona la edad</p>
+					</div>
+					<div class="col-xs-6">
+						<div class="col-xs-4">
+							<button data-value="Cachorro" id="edad-btn" style="margin-right: 20%;">
+								<b>Cachorro</b>
+							</button>
+						</div>	
+						<div class="col-xs-4">
+							<button data-value="Adulto" id="edad-btn" style="margin-right: -165%;">
+								<b>Adulto</b>
+							</button>
+						</div>	
+						<div class="col-xs-4">
+							<button data-value="Maduro" id="edad-btn" style="margin-right: -305%;">
+								<b>Maduro</b>
+							</button>
+						</div>	
+					</div>
 				</div>
 
 			</section>

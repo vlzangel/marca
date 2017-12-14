@@ -145,7 +145,11 @@ p span{
 	font-size: 35px;
 }
 
-
+.comprar_footer p {
+    font-size: 16pt;
+    font-family: PoetsenOne_Regular;
+    color: #900e9c;
+}
 
 
 .progress-text{
@@ -1316,6 +1320,28 @@ select{
 	}
 	#logo img{
 		width: 150px;
+	}
+	#carrousel_responsive {
+	    width: 240%!important;
+	    height: 80%!important;
+	    margin-left: -69%!important;
+	}
+	.comprar_box {
+	    top: -10%!important;
+	}
+
+	.comprar_footer p {
+	    font-size: 11pt;
+	    font-family: PoetsenOne_Regular;
+	    color: #900e9c;
+	    margin-top: 60%;
+	    margin-left: -20%;
+	}
+	#edad-btn {
+	    font-size: 11pt;
+	    margin-top: 530%;
+	    margin-left: -370%;
+	    padding: 4%;
 	}
 
 }
