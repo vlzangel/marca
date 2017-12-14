@@ -20,10 +20,12 @@
 					<i class="fa fa-user inter-input"></i>
 					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email">
 				</div>
+
 					
 				<div class="form-group" style="margin-bottom: 0px; color: #ffffff">
 					<a style="color: #ffffff;"class="pull-right" href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
 				</div>
+
 
 				<div class="form-group input-icon">
 					<i class="fa fa-lock inter-input"></i>

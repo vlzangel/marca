@@ -29,7 +29,7 @@ if ( isset( $user, $user->user_login, $user->user_status ) && 0 == (int) $user->
 
 $info['user_login'] = $username;
 $info['user_password'] = sanitize_text_field($_POST['clave']);
-$info['remember'] = $rememberme;
+$info['remember'] = $rememberme; 
 
 $dat = 0;
 $dat = kmibox_login([

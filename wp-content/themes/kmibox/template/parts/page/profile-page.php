@@ -33,7 +33,7 @@
 					<input type="text" name="apellido" class="form-control profile-content-input"  placeholder="Apellido"
 						value="<?php echo $user['last_name']; ?>">
 				</div>
-			</div>
+			</div> 
 			<div class="col-md-12">
 				<div class="col-md-6 col-sm-6">
 					<div class="row">

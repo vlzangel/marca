@@ -36,7 +36,7 @@
 						<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/quiero-mi-marca"  >
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
 						<span class="hidden-xs hidden-sm">Comprar</span></a>
-						</li>
+						</li> 
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
