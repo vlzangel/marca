@@ -34,7 +34,7 @@
 				<div class="form-group col-xs-10 text-center" style="margin-bottom: 0px; color: #ffffff">
 					<a style="color: #ffffff;"class="pull-right" href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
 				</div>
-
+ 
 				<div class="form-group">
 					<div class="text-center">
 						<button id="btn-login" type="submit" class="btn btn-sm-kmibox">Iniciar sesion</button>

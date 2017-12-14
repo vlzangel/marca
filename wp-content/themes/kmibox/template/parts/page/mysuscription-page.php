@@ -32,7 +32,7 @@ foreach ($suscripciones as $key => $value) {
 				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
 				<span class="caviar">Cargando datos, porfavor espere...</span>
 			</span>
-	</div> 
+	</div>  
 	<div style="float:left;width:100%;">    
 			<div class="col-md-6 col-md-offset-3 text-center">
 					<img id="imagen" src="<?php echo get_home_url(); ?>/img/NUPEC.png" class="img-responsive" >
