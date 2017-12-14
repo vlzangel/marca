@@ -16,7 +16,7 @@ if(!array_key_exists('rememberme', $_POST)){
 
 // $info['user_login'] = $_POST['usuario'];
 // $info['user_password'] = sanitize_text_field($_POST['clave']);
-// $info['remember'] = ($rememberme == true)? true : false ;
+// $info['remember'] = ($rememberme == true)? true : false ; 
 
 $info = array();
 $username = sanitize_user($_POST['usuario'], true);
