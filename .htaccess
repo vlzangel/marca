@@ -5,7 +5,7 @@ RewriteBase /
 
 RewriteRule ^ajax/(.*)  /wp-content/themes/kmibox/assets/ajax/$1 [QSA,L]
 RewriteRule ^css/(.*)   /wp-content/themes/kmibox/assets/css/$1 [QSA,L]
-RewriteRule ^img/(.*)   /wp-content/themes/kmibox/assets/img/$1 [QSA,L]
+RewriteRule ^img/(.*)   /wp-content/themes/kmibox/imgs/$1 [QSA,L]
 RewriteRule ^js/(.*)    /wp-content/themes/kmibox/assets/js/$1 [QSA,L]
 RewriteRule ^font/(.*)    /wp-content/themes/kmibox/assets/font/$1 [QSA,L]
 RewriteRule ^plugins/(.*)  /wp-content/themes/kmibox/assets/plugins/$1 [QSA,L]

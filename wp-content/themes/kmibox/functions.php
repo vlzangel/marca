@@ -1,5 +1,76 @@
 <?php
 
+function cargarTablaProductos(){
+	$tamanos = array(
+		"Pequeño" => 1,
+		"Mediano" => 1,
+		"Grande" => 1
+	);
+
+	$edad = array(
+		"Cachorro" => 1,
+		"Adulto" => 1,
+		"Maduro" => 1
+	);
+
+	$presentaciones = array(
+		"900g" => 500,
+		"2000g" => 500,
+		"4000g" => 500
+	);
+
+	$planes = array(
+		"Quincenal" => 1,
+		"Mensual" => 1,
+		"Bimestral" => 1
+	);
+
+	$imgs = array(
+		"9" => "NUPEC.png",
+		"22" => "dow-chow.png",
+		"164" => "Tier-holistic.png",
+		"173" => "Royal-canin.png",
+		"188" => "Belenes-max.png"
+	);
+
+	global $wpdb;
+
+	$productos = $wpdb->get_results("SELECT * FROM wp_posts WHERE post_type = 'product' AND post_status = 'publish' ");
+
+	$base = 500;
+	$contador = 100;
+
+	echo "<pre>";
+
+		foreach ($productos as $key => $producto) {
+			$extras = array(
+				"img" => $imgs[$producto->ID]
+			);
+			$presentaciones = array(
+				"900g" => $base+$contador,
+				"2000g" => $base+$contador,
+				"4000g" => $base+$contador
+			);
+			$sql = "
+				INSERT INTO productos VALUES (
+					NULL, 
+					'".strtolower($producto->post_title)."', 
+					'".serialize($tamanos)."', 
+					'".serialize($edad)."', 
+					'".serialize($presentaciones)."', 
+					'".serialize($planes)."', 
+					'".serialize($extras)."',
+					'activo'
+				);
+			";
+
+			$wpdb->query($sql);
+
+			$contador += 100;
+		}
+		
+	echo "</pre>";
+}
 
 if(!function_exists('comprimir')){
     function comprimir($HTML){
@@ -509,7 +580,7 @@ function get_user_info(){
 }
 
 function get_source_url(){
-	return ( array_key_exists('source', $_GET) )? $_GET['source'] : '' ;
+	return ( array_key_exists('source', $_GET) ) ? "?source=".$_GET['source'] : '' ;
 }
 
 function get_resumen(){

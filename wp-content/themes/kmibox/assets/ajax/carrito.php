@@ -2,9 +2,23 @@
  
 	if(!session_id()){session_start();}
 
-	$_SESSION["CARRITO"] = serialize($_POST);
+	$data = explode("===", $_POST["CART"]);
 
-	echo json_encode($_POST);
+	$info = array(
+		"total" => $data[0]
+	);
+
+	$productos = explode("|", $data[1]);
+
+	foreach ($productos as $key => $producto) {
+		$productos[ $key ] = json_decode($producto);
+	}
+
+	$info["productos"] = $productos;
+
+	$_SESSION["CARRITO"] = serialize($info);
+
+	echo json_encode($info);
 
 	exit;
 

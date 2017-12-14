@@ -24,9 +24,9 @@
 			<section id="fase_1">
 				<div class="comprar_box">
 					<div id="vlz_carrousel" class="vlz_carrousel">
-						<img src="'.get_home_url().'/img/Adulto.png"  class="img-responsive"  width="400px" id="Grande" />
-						<img src="'.get_home_url().'/img/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
-						<img src="'.get_home_url().'/img/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
+						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="400px" id="Grande" />
+						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
+						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
 					</div>
 				</div>
 
@@ -84,18 +84,18 @@
 
 			<section id="fase_3" class="hidden">
 				<div class="comprar_box" id="plan">
-					<div>
+					<div id="planes">
 						<article id="plan-Quincenal" class="text-center col-sm-4 separation-top">
-							<img class="img-responsive" src="http://marca.dev/img/Quincenal.png" width="300px" height="370px">
-							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Quincenal" style="background: rgb(144, 14, 156);" > Quincenal </button>
+							<img class="img-responsive" src="'.get_home_url().'/img/Quincenal.png" width="300px" height="370px">
+							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;" > Quincenal </button>
 						</article>
 						<article id="plan-Mensual" class="text-center col-sm-4 separation-top">
-							<img class="img-responsive" src="http://marca.dev/img/Mensual.png" width="300px" height="370px">
-							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Mensual" style="background: rgb(144, 14, 156);">Mensual</button>
+							<img class="img-responsive" src="'.get_home_url().'/img/Mensual.png" width="300px" height="370px">
+							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual</button>
 						</article>
 						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top">
-							<img class="img-responsive" src="http://marca.dev/img/Bimestral.png" width="300px" height="370px">
-							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="background: rgb(144, 14, 156);">Bimestral</button>
+							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
+							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
 						</article>
 					</div>
 				</div>
@@ -154,6 +154,7 @@
 				</div>
 				
 				<article class="col-md-12 text-center">
+					<span id="agregar_plan" >Agregar otro plan</span>
 					<a href="#" data-toggle="modal" data-target="#suscription"><img src="'.get_home_url().'/img/Boton-2.png" width="220" height="60"/></a>
 				</article>		
 			</section>	

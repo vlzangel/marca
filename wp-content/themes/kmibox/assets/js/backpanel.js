@@ -1,10 +1,11 @@
+var urlbase = "";
 $(function($){
 
 	// *******************************
 	// Backpanel Control Envio
 	// *******************************
 	var protocol = window.location.href.split('#')[0].split('?')[0].split('/')[0];
-	var urlbase = protocol+'//'+window.location.href.split('#')[0].split('?')[0].split('/')[2];
+	urlbase = protocol+'//'+window.location.href.split('#')[0].split('?')[0].split('/')[2];
 	
 	$(document).on('change', '[data-target="estatus_envio"]', function(){
 		var id = $(this).attr('data-id');		

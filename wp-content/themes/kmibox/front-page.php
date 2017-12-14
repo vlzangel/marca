@@ -24,7 +24,7 @@ get_header(); ?>
 					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
 					<h2>Es una dotación mensual de alimento<br> para tu mascota</h2>
 					<br>	
-					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/?source=<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 				<div class="col-xs-12 col-sm-6 hidden" id="banner-dog">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.png" class="img-responsive">
