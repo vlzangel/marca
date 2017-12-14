@@ -44,7 +44,7 @@
 						<label class="hidden-xs hidden-sm caviar">Recibida</label>
 						<li class="hidden-sm hidden-md hidden-lg list-inline list-unstyle" id="leyenda"><span></span><label class="caviar">Recibida</label></li>
 
-					</div>
+					</div> 
 					<label id="mobile-estatus" class="hidden-md hidden-lg"></label>
 				</div>
 			</div>

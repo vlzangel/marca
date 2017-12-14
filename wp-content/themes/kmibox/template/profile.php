@@ -13,7 +13,7 @@ if ( is_user_logged_in() ){
 		<?php get_template_part( 'template/parts/header/suscription', 'checkout' ); ?>
 	</header>
 <br>
-	<div class="row" class="profile-content">
+	<div class="row" class="profile-content"> 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="col-sm-3 col-xs-6 col-md-3 tab-especial caviar"><a href="#mi_senvios" aria-controls="mi_senvios" role="tab" data-toggle="tab">Mis envios</a></li>

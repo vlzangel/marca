@@ -19,8 +19,6 @@
 					<i class="fa fa-user inter-input"></i>
 					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email">
 				</div>
-					
-				
 
 				<div class="form-group input-icon">
 					<i class="fa fa-lock inter-input"></i>
