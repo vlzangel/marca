@@ -13,7 +13,7 @@
 
 						<li>
 
-						<a href="http://kmibox.git/quiero-mi-kmibox/?source="  class="btn-kmibox-link-suscription">
+						<a href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
 						<span class="hidden-xs hidden-sm">Quiero mi marca</span></a>
 						</li>
