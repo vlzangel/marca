@@ -27,7 +27,7 @@
 							id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url();?>">
 							<i class="fa fa-chevron-left" aria-hidden="true"></i>
 							Atras
-						</a>
+						</a> 
 					</div>
 
 					<div style="float:left;width:50%;">    
