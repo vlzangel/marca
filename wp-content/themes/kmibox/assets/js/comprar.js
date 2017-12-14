@@ -1,22 +1,16 @@
 var PRODUCTOS = [];
 jQuery(document).ready(function() {
-
 	carrousel();
-
 	CARRITO["tamano"] = jQuery("#carrousel img")[0].id;
-
 	jQuery("#edad button").on("click", function(e){
 		CARRITO["edad"] = jQuery(this).attr("data-value");
 	});
-
 	jQuery("#presentaciones button").on("click", function(e){
 		CARRITO["presentacion"] = jQuery(this).attr("data-value");
 	});
-
 	jQuery("#plan button").on("click", function(e){
 		CARRITO["plan"] = jQuery(this).attr("data-value");
 	});
-
 	jQuery.post(
 		TEMA+"assets/ajax/productos.php",
 		{},
@@ -27,9 +21,7 @@ jQuery(document).ready(function() {
 	).fail(function(e) {
 		console.log( e );
   	});
-
 	jQuery("#fase_1").css("display", "block");
-
 });
 
 function carrousel(){

@@ -71,6 +71,8 @@ section {
 	width: 800px;
     height: 300px;
     margin: 60px auto;
+    top: 50%;
+    margin-top: -150px;
 }
 
 .vlz_carrousel img {
@@ -204,4 +206,28 @@ td.style_total {
 span.separador_presentacion {
     font-size: 20px;
    	color: #900e9c;
+}
+
+#plan > div {
+    position: relative;
+	display: block;
+	margin: 0px auto;
+	max-width: 900px;
+    overflow: hidden;
+    height: 420px;
+
+    top: 50%;
+    margin-top: -210px;
+}
+
+#agregar_plan {
+    padding: 10px 20px;
+    font-family: caviar_dreamsregular;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
+    background: rgb(144, 14, 156) !important;
 }
