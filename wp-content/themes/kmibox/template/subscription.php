@@ -127,7 +127,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 		class="container purchase animated text-center bounceInRight hidden" 
 	>
 		<article id="plan-Quincenal" class="text-center col-sm-4 separation-top">
-			<img class="img-responsive" src="http://marca2.git/img/Quincenal.png" width="300px" height="370px">
+			<img class="img-responsive" src="http://marca.dev/img/Quincenal.png" width="300px" height="370px">
 			<button 
 				class="btn btn-sm-kmibox btn-sm-kmibox-price" 
 				data-action="next" 
@@ -141,11 +141,11 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 			</button>
 		</article>
 		<article id="plan-Mensual" class="text-center col-sm-4 separation-top">
-			<img class="img-responsive" src="http://marca2.git/img/Mensual.png" width="300px" height="370px">
+			<img class="img-responsive" src="http://marca.dev/img/Mensual.png" width="300px" height="370px">
 			<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-action="next" data-value="Mensual" data-target="3" data-object="220" data-color="#94d400" style="background: rgb(144, 14, 156);">Mensual</button>
 		</article>
 		<article id="plan-Bimestral" class="text-center col-sm-4 separation-top">
-			<img class="img-responsive" src="http://marca2.git/img/Bimestral.png" width="300px" height="370px">
+			<img class="img-responsive" src="http://marca.dev/img/Bimestral.png" width="300px" height="370px">
 			<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-action="next" data-value="Bimestral" data-target="3" data-object="219" data-color="#94d400" style="background: rgb(144, 14, 156);">Bimestral</button>
 		</article>
 		<span><br><span class="text-center col-sm-12 separation-top fontspan">Descuento en comparación con el precio unitario mensual*</span></span>
