@@ -15,6 +15,7 @@ jQuery(document).ready(function() {
 	change_fase(1);
 
 	carrousel();
+	carrousel_responsive();
 	CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = jQuery("#vlz_carrousel img")[0].id;
 
 	jQuery("#edad button").on("click", function(e){
@@ -50,6 +51,7 @@ jQuery(document).ready(function() {
 		jQuery("button").removeClass("vlz_activo");
 
 		carrousel();
+		carrousel_responsive();
 
 		change_fase( 1 );
 	});
@@ -112,11 +114,58 @@ function change_fase(fase, _this = ""){
 	loadFase(fase);
 }
 
+/*$(window).resize(function() {
+	ventana_ancho = $(window).width();
+	ventana_alto = $(window).height();
+  switch(ventana_ancho) {
+	    case 360: 
+	    case 375:
+	    case 400:
+	    case 412:
+	    case 414:
+	        jQuery('#vlz_carrousel').addClass('hidden');
+	        jQuery('#vlz_carrousel_responsive').removeClass('hidden');
+	        alert('Cambio a pequeña');
+	        break;
+	    default:
+	        jQuery('#vlz_carrousel_responsive').addClass('hidden');
+	        jQuery('#vlz_carrousel').removeClass('hidden');
+	        alert('Cambio a grande');
+	        break;
+	}
+});*/
+
+
 function carrousel(){
 	jQuery('#vlz_carrousel').waterwheelCarousel({
 		separation: 300,
 		edgeFadeEnabled: true,     	 
 		flankingItems: 3,
+		orientation: 'horizontal',
+		movingToCenter: function ($item) {
+			CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = $item.attr('id');
+			jQuery('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+		},
+		movedToCenter: function ($item) {
+			jQuery('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+		},
+		movingFromCenter: function ($item) {
+			jQuery('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+		},
+		movedFromCenter: function ($item) {
+			jQuery('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+		},
+		clickedCenter: function ($item) {
+			jQuery('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+		}
+	});
+}
+function carrousel_responsive(){
+	jQuery('#carrousel_responsive').waterwheelCarousel({
+		separation: 150,
+		edgeFadeEnabled: true,     	 
+		flankingItems: 3,
+		orientation: 'vertical',
 		movingToCenter: function ($item) {
 			CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = $item.attr('id');
 			jQuery('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
