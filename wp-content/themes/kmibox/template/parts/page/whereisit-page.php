@@ -20,7 +20,7 @@
 
 	<div class="col-md-8 col-xs-12 col-md-offset-2 progreso-entrega">
 		<div class="row">
-			<div class=" col-md-12 col-sm-12 col-md-12 text-center">				
+			<div class="border-curvo col-md-12 col-sm-12 col-md-12 text-center">				
 				<div class="row" id="content-estatus">
 					<div data-ubicacion="armada" class="col-xs-6 col-sm-3 col-md-3 pull-left selected">
 						<img src="<?php echo get_home_url(); ?>/img/progress-box.png" class="img-responsive" >
