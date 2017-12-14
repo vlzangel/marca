@@ -92,6 +92,10 @@
 				</div>	
 			</div>
 
+				<div class="row">
+					<h2 class="col-sm-6">Información del usuario</h2>
+				</div>
+
 			<div class="col-md-12">
 				<div class="col-md-12">
 					<input readonly class="readonly form-control profile-content-input col-md-12" name="r_usuario" placeholder="Email"
