@@ -8,7 +8,7 @@ foreach ($suscripciones as $key => $value) {
 	foreach ($d as $key => $q) {
 		print_r($q->get_order_id());
 		print_r($q->get_product()->get_name());
-		echo '<hr>'; 
+		echo '<hr>';
 	}
 }  
 */
@@ -20,9 +20,9 @@ foreach ($suscripciones as $key => $value) {
 	<div style="float:left;width:70%;">    
 		<div class="col-md-4 col-xs-12 col-md-offset-2"
 			style="margin-top:20px;">
-			<h3 style="color: #000000">Selecciona una suscripción</h3>
+			<h3>Selecciona una suscripción</h3>
 			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
-				<option class="caviar">Selecciona una Marca</option>
+				<option>Selecciona una Marca</option>
 				<?php foreach ($suscripciones as $key => $kmibox) { ?>
 					<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
 				<?php } ?>
@@ -30,7 +30,7 @@ foreach ($suscripciones as $key => $value) {
 
 			<span class="loading hidden">
 				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-				<span class="caviar">Cargando datos, porfavor espere...</span>
+				<span>Cargando datos, porfavor espere...</span>
 			</span>
 	</div>
 	<div style="float:left;width:100%;">    
@@ -46,9 +46,9 @@ foreach ($suscripciones as $key => $value) {
 	<div style="float:left;width:100%;">    
 		<div class="col-md-4 col-xs-12 col-md-offset-2"
 			style="margin-top:20px;">
-			<h3 style="color:#94d400">Selecciona una suscripción</h3>
+			<h3>Selecciona una suscripción</h3>
 			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
-				<option class="caviar">Selecciona una Marca</option>
+				<option>Selecciona una Marca</option>
 				<?php foreach ($suscripciones as $key => $kmibox) { ?>
 					<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
 				<?php } ?>
@@ -56,7 +56,7 @@ foreach ($suscripciones as $key => $value) {
 
 			<span class="loading hidden">
 				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-				<span class="caviar">Cargando datos, porfavor espere...</span>
+				<span>Cargando datos, porfavor espere...</span>
 			</span>
 	</div>
 	<div style="float:left;width:100%;">    
@@ -74,79 +74,82 @@ foreach ($suscripciones as $key => $value) {
 
 		
 		<div class="row text-center">
-			<div class="col-md-4 col-xs-6">
-				<label class="caviar">Tipo de suscripción</label>
+			<div class="col-md-4">
+				<label>Tipo de suscripción</label>
 			      <input readonly id="tipo_suscripcion" class="profile-content-input form-control"  value="">
 			</div>
-			<div class="col-md-4 col-xs-6">
-				<label class="caviar">Tipo de ALimento</label>
+			<div class="col-md-4">
+				<label>Tipo de ALimento</label>
 				<input readonly id="tipo_kmibox" class="profile-content-input form-control"  value="">
 			</div>
-			<div class="col-md-4 col-xs-6">
-				<label class="caviar">Próxima entrega</label>
+			<div class="col-md-4">
+				<label>Próxima entrega</label>
 				<input readonly id="proxima_entrega" class="profile-content-input form-control"  value="">				
-			</div>
-			<div class="col-md-6 col-xs-6 visible-xs">
-				<label class="caviar">Estatus:</label>
-				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
 		</div>
 		<div class="row text-center">
-			<div class="col-md-6 col-xs-6 hidden-xs">
-				<label class="caviar">Estatus:</label>
+			<div class="col-md-6">
+				<label>Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
-			<div class="col-md-6 col-xs-12">
-				<label class="caviar">Artículos añadidos:</label>
+			<div class="col-md-6">
+				<label>Artículos añadidos:</label>
 				<select id="articulos" class="profile-content-input form-control"></select>
 			</div>
 		</div>
 		<div class="row text-center">
-			<label style="color: #94d400" class="caviar">Entregas</label>
+			<label>Entregas</label>
 			<div class="calendar">
 				<ul class="list-inline list-unstyle" id="leyenda">
-					<li><span></span><label class="caviar">Enero</label></li> 
-					<li><span></span><label class="caviar">Febrero</label></li>
-					<li><span></span><label class="caviar">Marzo</label></li>
-					<li><span></span><label class="caviar">Abril</label></li>
-					<li><span></span><label class="caviar">Mayo</label></li>
-					<li><span></span><label class="caviar">Junio</label></li>
+					<li><span></span><label>Enero</label></li> 
+					<li><span></span><label>Febrero</label></li>
+					<li><span></span><label>Marzo</label></li>
+					<li><span></span><label>Abril</label></li>
+					<li><span></span><label>Mayo</label></li>
+					<li><span></span><label>Junio</label></li>
 				</ul>				
 			</div>
 			<div class="calendar">
 				<ul class="list-inline list-unstyle" id="leyenda">
-					<li><span></span><label class="caviar">Julio</label></li> 
-					<li><span></span><label class="caviar">Agosto</label></li>
-					<li><span></span><label class="caviar">Septiembre</label></li>
-					<li><span></span><label class="caviar">Octubre</label></li>
-					<li><span></span><label class="caviar">Noviembre</label></li>
-					<li><span></span><label class="caviar">Diciembre</label></li>
+					<li><span></span><label>Julio</label></li> 
+					<li><span></span><label>Agosto</label></li>
+					<li><span></span><label>Septiembre</label></li>
+					<li><span></span><label>Octubre</label></li>
+					<li><span></span><label>Noviembre</label></li>
+					<li><span></span><label>Diciembre</label></li>
 				</ul>				
 			</div>
 		</div>
+		<div class="row text-center">
+			<ul class="list-inline list-unstyle" id="leyenda">
+				<li><span></span><label>Entregado</label></li> 
+				<li><span></span><label>Por entregar</label></li>
+			</ul>
+		</div>
+
 		<div class="hidden row progreso-entrega form-horizontal">
-			<h2 class="col-md-6 caviar">Estatus del envío</h2>
+			<h2 class="col-md-6">Estatus del envío</h2>
 			<div class="progress-content">
-				<div class="col-md-12 text-center">
+				<div class="border-curvo col-md-12 text-center">
 					
 					<div class="row">
 						<div id="armada" class="col-xs-12 col-sm-12 col-md-3  pull-left">
 							<img src="<?php echo get_home_url(); ?>/img/progress-box.png" class="img-responsive" >
-							<label class="caviar">Armada</label>
+							<label>Armada</label>
 						</div>
 						<div class="col-md-2 flecha hidden-xs hidden-sm">
-							<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="120">
+							<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="128">
 						</div>
 						<div id="enviada" class="col-md-3 hidden-xs hidden-sm">
 							<img src="<?php echo get_home_url(); ?>/img/progress-cart.png" class="img-responsive" >
-							<label class="caviar">Enviada</label>
+							<label>Enviada</label>
 						</div>
 						<div class="col-md-2 flecha hidden-xs hidden-sm">
-							<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="120">
+							<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="128">
 						</div>
-						<div id="recibida" class="col-md-3 hidden-xs hidden-sm pull-right">
-						    <img src="<?php echo get_home_url(); ?>/img/progress-house.png" class="img-responsive" >
-							<label class="caviar">Recibida</label>
+						<div id="recibida" class="col-md-3 hidden-xs hidden-sm">
+							<img src="<?php echo get_home_url(); ?>/img/progress-house.png" class="img-responsive pull-right" >
+							<label>Recibida</label>
 						</div>
 					</div>
 
