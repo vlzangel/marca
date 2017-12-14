@@ -86,7 +86,8 @@ foreach ($suscripciones as $key => $value) {
 				<label class="caviar">Próxima entrega</label>
 				<input readonly id="proxima_entrega" class="profile-content-input form-control"  value="">				
 			</div>
-			<div class="col-md-6 col-xs-6 visible-xs">
+			<div class="col-md-4 col-xs-6 hidden-sm
+			hidden-md hidden-lg">
 				<label class="caviar">Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
