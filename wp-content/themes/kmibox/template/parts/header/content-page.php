@@ -4,7 +4,7 @@
  		<aside id="top"> 
 			<div class="container">
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/km-logo.png"  >
+					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  >
 				</a>
 				
 			<ul class="option-menu list-unstyled list-inline col-xs-6 col-md-6 pull-right text-right">
