@@ -18,6 +18,13 @@
 			</div>
 
 			<div class="col-md-12">
+				<div class="col-md-12">
+					<input readonly class="readonly form-control profile-content-input col-md-12" name="r_usuario" placeholder="Email"
+						value="<?php echo $user['email']; ?>">				
+				</div>
+			</div>
+
+			<div class="col-md-12">
 				<div class="col-md-6 col-sm-6 form-group">
 					<input type="text" name="nombre" class="form-control profile-content-input"  placeholder="Nombre"
 						value="<?php echo $user['first_name']; ?>">
@@ -82,7 +89,7 @@
 
 					<select class="has-error form-control profile-content-input" name="dondo_conociste" value="<?php echo $user['dondo_conociste']; ?>">	
 
-						<option value="otros"><?php echo $user['dondo_conociste']; ?></option>
+						<option value=""><?php echo $user['dondo_conociste']; ?></option>
 						<option value="redes sociales">Redes Sociales</option>
 						<option value="google">Google</option>
 						<option value="amigos/familiares">Amigos/Familiares</option>
@@ -90,13 +97,6 @@
 					</select>
 					
 				</div>	
-			</div>
-
-			<div class="col-md-12">
-				<div class="col-md-12">
-					<input readonly class="readonly form-control profile-content-input col-md-12" name="r_usuario" placeholder="Email"
-						value="<?php echo $user['email']; ?>">				
-				</div>
 			</div>
 			 			
 			<div class="col-sm-12 hidden">
