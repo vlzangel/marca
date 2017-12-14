@@ -87,7 +87,7 @@
 					</div>
 					<div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="email" name="r_usuario_c" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Confirmar email"  maxlength="200">
+						<input type="email" name="r_usuario_c" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Confirmar email"  maxlength="20">
 					</div>
 				</div>
 				<div class="row row-special">					
