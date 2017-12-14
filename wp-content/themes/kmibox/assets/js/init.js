@@ -343,6 +343,7 @@ $(function($){
 	$('#form-pago')
 	.on('success.form.bv', function(e) {
 	    e.preventDefault();
+	    jQuery("#btn_pagar_1").text("Procesando...");
 	    jQuery.post(
 			TEMA+"assets/ajax/suscribir_tarjeta.php",
 			jQuery(this).serialize(),
@@ -352,6 +353,7 @@ $(function($){
 				if( data["error"] == "" ){
 					alert("Suscripcion completada!");
 					location.href = HOME+"/perfil-usuario/";
+					jQuery("#btn_pagar_1").text("Realizar Pago");
 				}else{
 					alert("Error, ver en la consola javascript");
 				}

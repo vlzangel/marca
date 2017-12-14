@@ -147,9 +147,9 @@
 			  <div class="form-group">
 			    <div class="col-sm-offset-4	col-sm-4">
 
-			      <a href="<?php echo get_home_url(); ?>/quiero-mi-kmibox" class="btn  <?php echo (isset($hidden))? '' : 'hidden' ; ?>  btn-sm-kmibox" id="btn_pagar">Realizar Pago</a>
+			      <a href="<?php echo get_home_url(); ?>/quiero-mi-kmibox" class="btn  <?php echo (isset($hidden))? '' : 'hidden' ; ?>  btn-sm-kmibox" id="btn_pagar_2">Realizar Pago</a>
 
-			      <button id="btn_pagar" type="submit" class="btn <?php echo (isset(
+			      <button id="btn_pagar_1" type="submit" class="btn <?php echo (isset(
 			      	$hidden))? 'hidden' : '' ; ?> btn-sm-kmibox">Realizar Pago</button>
 			    </div>
 				<div class="col-sm-3">
