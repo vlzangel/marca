@@ -42,12 +42,16 @@
 						<label class="hidden-xs hidden-sm caviar">Recibida</label>
 						<li class="hidden-sm hidden-md hidden-lg list-inline list-unstyle" id="leyenda"><span></span><label class="caviar">Recibida</label></li>
 
+
+					</div>  
+
 					</div> 
 
 					<div data-ubicacion="recibida" class="col-xs-4 col-md-3 col-sm-3 selected">
 						<img src="<?php echo get_home_url(); ?>/img/progress-house.png" class="img-responsive pull-right" >
 						<label class="hidden-xs hidden-sm">Recibida</label>
 					</div>
+
 
 					<label id="mobile-estatus" class="hidden-md hidden-lg"></label>
 				</div>
