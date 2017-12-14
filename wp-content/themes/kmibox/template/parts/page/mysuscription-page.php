@@ -128,7 +128,7 @@ foreach ($suscripciones as $key => $value) {
 		<div class="hidden row progreso-entrega form-horizontal">
 			<h2 class="col-md-6 caviar">Estatus del envío</h2>
 			<div class="progress-content">
-				<div class="col-md-12 text-center">
+				<div class="border-curvo col-md-12 text-center">
 					
 					<div class="row">
 						<div id="armada" class="col-xs-12 col-sm-12 col-md-3  pull-left">
