@@ -252,11 +252,10 @@ select{
 }
 
 .form-horizontal h2{
-	background-color: #94d400;
 	border-radius: 50px!important;
-	padding: 5px 30px;
-	color:white;
-	font-size: 18px;
+    padding: 5px 30px;
+    color: #94d400;
+    font-size: 18px;
 }
 
 #header{
@@ -703,7 +702,7 @@ select{
 
 .border-curvo{
     border-radius: 100px;
-    border: 10px solid #7ad2c4;
+    border: 10px solid #ffffff;
     position: relative;
     vertical-align: top;
     height: 73px;
@@ -891,7 +890,7 @@ select{
 
 .selected
 {
-    opacity: 0.2;
+   
 }
 
 #f4-slider-prev i{
@@ -1154,9 +1153,9 @@ select{
 	}
 	
 	.border-curvo{
-	    border-radius: 100px;
-	    border: 10px solid #7ad2c4;
-	    height: 73px;
+	 border-radius: 100px;
+    border: 10px solid #ffffff;
+    height: 93px
 	}
 	.border-curvo .row {
 	    position: relative; 

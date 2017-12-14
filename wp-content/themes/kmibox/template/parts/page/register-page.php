@@ -27,7 +27,7 @@
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<input data-charset="xlf" type="text" name="apellido" class="form-control col-md-6" id="inputEmail3" placeholder="Apellido"  maxlength="50">
 					</div>
-				</div> 
+				</div>
 				<div class="row row-special">					
 					<div class="col-md-6">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
@@ -83,11 +83,11 @@
 				<div class="row row-special">					
 					<div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="email" name="r_usuario" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Email"  maxlength="200">
+						<input type="email" name="r_usuario" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Email"  maxlength="40">
 					</div>
 					<div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="email" name="r_usuario_c" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Confirmar email"  maxlength="200">
+						<input type="email" name="r_usuario_c" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Confirmar email"  maxlength="40">
 					</div>
 				</div>
 				<div class="row row-special">					
@@ -108,7 +108,7 @@
 				<div class="row row-special">					
 					<div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="dir_calle" class="form-control col-md-6" data-charset="xlfnumesp" id="inputEmail3" placeholder="Calle" maxlength="200">
+						<input type="text" name="dir_calle" class="form-control col-md-6" data-charset="xlfnumesp" id="inputEmail3" placeholder="Calle" maxlength="50">
 					</div>
 					<div class="col-md-6 form-group">
 						<div class="row">
@@ -153,7 +153,7 @@
 					</div>
 					<div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="dir_codigo_postal" data-charset="numalf" class="form-control col-md-6" id="inputEmail3" placeholder="Código postal" maxlength="15">
+						<input type="text" name="dir_codigo_postal" data-charset="numalf" class="form-control col-md-6" id="inputEmail3" placeholder="Código postal" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="15">
 					</div>
 				</div>
 
