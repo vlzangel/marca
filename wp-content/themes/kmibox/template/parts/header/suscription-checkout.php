@@ -31,7 +31,7 @@
 						</li>
 					<?php }else{ ?>
 
-						<a href="http://kmibox.git/quiero-mi-kmibox/?source="  class="btn-kmibox-link">Quiero mi marca</a>
+						<a href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>"  class="btn-kmibox-link">Quiero mi marca</a>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
