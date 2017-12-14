@@ -4,7 +4,7 @@
  		<aside id="top"> 
 			<div class="container">
 								
-			<ul class="option-menu list-unstyled list-inline col-xs-4 col-md-12  text-left">
+			<ul class="option-menu list-unstyled list-inline col-xs-12 col-md-12 pull-right text-right">
 					<div  class="col-sm-12 text-left" >
 						<a class="btn-kmibox-white"
 							id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
