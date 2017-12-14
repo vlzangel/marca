@@ -1,7 +1,7 @@
 <footer id="footer" class="row text-center">
 	<div class="container">
 		<div style="float:right;width:50%;"> 
-		<article class="col-sm-4 text-left">
+		<article class="col-sm-8  text-left">
 			<h3>Contáctanos</h3>
 			<ul class="list-unstyled">
 				<li>+52 (55) 1791.4931</li>
@@ -11,7 +11,7 @@
 		</article>
 	</div>
 		<div style="float:right;width:50%;"> 
-		<article class="col-sm-4 text-left">			
+		<article class="col-sm-8  text-left">			
 			<h3>Navega</h3>
 			<ul class="list-unstyled">
 				<li>Nosotros</li>
@@ -23,7 +23,7 @@
 			</ul>
 		</article>
 	</div>
-		<article class="col-sm-4 text-left">
+		<article class="col-sm-8  text-left">
 			<h3>Búscanos en redes sociales</h3>
 			<ul class="list-inline" id="social-network">
 				<li><img src="<?php echo get_home_url(); ?>/img/facebook.png"></li>
@@ -32,7 +32,7 @@
 				<li><img src="<?php echo get_home_url(); ?>/img/yt.png"></li>
 			</ul>
 		</article>
-		<div id="footer-logo" class="col-xs-12 col-md-12">
+		<div id="footer-logo" class="col-xs-12 text-center col-md-12">
 			<img src="<?php echo get_home_url(); ?>/img/marca-logo.png" class="img-responsive">
 		</div>
 	</div>
