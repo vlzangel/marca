@@ -23,6 +23,7 @@
 	<script type="text/javascript"> 
 		var TEMA = "<?php echo get_template_directory_uri(); ?>/"; 
 		var HOME = "<?php echo get_home_url(); ?>/"; 
+		var urlbase = "<?php echo get_home_url(); ?>/"; 
 	</script>
 
 	<?php #wp_head(); ?>

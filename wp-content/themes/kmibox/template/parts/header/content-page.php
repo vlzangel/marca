@@ -19,7 +19,7 @@
 							
 							<i class="fa fa-close" aria-hidden="true"></i>
 							<span class="hidden-xs hidden-sm">Salir</span></a><!--href="<?php echo wp_logout_url( get_home_url() );?> ">-->
-						</li>
+						</li> 
 					<?php }else{ ?>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">

@@ -22,7 +22,7 @@
 							<a class="btn-kmibox-link" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
 							<i class="fa fa-user" aria-hidden="true"></i>
 							<span class="hidden-xs hidden-sm"><?php echo $user->display_name; ?></span></a>
-						</li>
+						</li> 
 						<li>
 							<a class="btn-kmibox-link" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">

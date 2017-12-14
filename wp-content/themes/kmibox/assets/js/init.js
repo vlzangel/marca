@@ -845,6 +845,7 @@ $(function($){
 	// ***************************************
 	$('#form-login')
 	.on('init.field.fv', function(e, data) {
+
     })
 	.on('success.form.bv', function(e) {
 
@@ -866,15 +867,7 @@ $(function($){
 			rememberme: $('[name="rememberme"]').val()
 		}, function(r) {
 			if(r==1){
-				var redirect = $('[name="redirect"]').val();
-				if($('[name="redirect"]').val() == 'undefined'){
-					redirect = '';
-				}
-				if( redirect != '' ){
-					window.location = redirect;
-				}else{
-					window.location.reload();				
-				}
+				window.location.reload();
 			}else{
 				$('#login-mensaje').html('Usuario o Clave invalidos');
 				$('#login-mensaje').removeClass('hidden');

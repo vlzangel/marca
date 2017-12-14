@@ -99,9 +99,9 @@
 					</div>
 					<label id="mobile-estatus" class="hidden-md hidden-lg"></label>
 				</div>
-			</div>
+			</div> 
 			
-	</div>
+	</div> 
 		
 
 	</div>
