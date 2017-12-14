@@ -86,7 +86,7 @@
 				<div class="comprar_box" id="plan">
 					
 					<article id="plan-Quincenal" class="text-center col-sm-4 separation-top">
-						<img class="img-responsive" src="http://marca.dev/img/Quincenal.png" width="300px" height="370px">
+						<img class="img-responsive" src="http://marca2.git/img/Quincenal.png" width="300px" height="370px">
 						<button 
 							class="btn btn-sm-kmibox btn-sm-kmibox-price" 
 							data-value="Quincenal" 
@@ -96,11 +96,11 @@
 						</button>
 					</article>
 					<article id="plan-Mensual" class="text-center col-sm-4 separation-top">
-						<img class="img-responsive" src="http://marca.dev/img/Mensual.png" width="300px" height="370px">
+						<img class="img-responsive" src="http://marca2.git/img/Mensual.png" width="300px" height="370px">
 						<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Mensual" style="background: rgb(144, 14, 156);">Mensual</button>
 					</article>
 					<article id="plan-Bimestral" class="text-center col-sm-4 separation-top">
-						<img class="img-responsive" src="http://marca.dev/img/Bimestral.png" width="300px" height="370px">
+						<img class="img-responsive" src="http://marca2.git/img/Bimestral.png" width="300px" height="370px">
 						<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="background: rgb(144, 14, 156);">Bimestral</button>
 					</article>
 				</div>
