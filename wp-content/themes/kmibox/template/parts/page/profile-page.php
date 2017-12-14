@@ -93,7 +93,7 @@
 			</div>
 
 				<div class="row">
-					<h2 class="col-sm-6">Información del usuario</h2>
+					<h2 class="col-sm-6">Información de cuenta</h2>
 				</div>
 
 			<div class="col-md-12">
@@ -103,7 +103,7 @@
 				</div>
 			</div>
 			 			
-			<div class="col-sm-12 hidden">
+			<div class="col-sm-12 ">
 				<div class="row">
 					<h2 class="col-sm-6">Dirección</h2>
 				</div>
