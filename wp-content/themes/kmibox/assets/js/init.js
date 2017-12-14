@@ -342,15 +342,26 @@ $(function($){
 	// ***************************************
 	$('#form-pago')
 	.on('success.form.bv', function(e) {
+	    e.preventDefault();
+	    jQuery("#btn_pagar_1").text("Procesando...");
+	    jQuery.post(
+			TEMA+"assets/ajax/suscribir_tarjeta.php",
+			jQuery(this).serialize(),
+			function(data){
+				console.log( data );
 
-	    // Prevent form submission
-	    // e.preventDefault();
+				if( data["error"] == "" ){
+					alert("Suscripcion completada!");
+					location.href = HOME+"/perfil-usuario/";
+					jQuery("#btn_pagar_1").text("Realizar Pago");
+				}else{
+					alert("Error, ver en la consola javascript");
+				}
 
-	    // Get the form instance
-	    // var $form = $(e.target);
-
-	    // Get the FormValidation instance
-	    // var bv = $form.data('formValidation');						
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
 	})
 	.bootstrapValidator({
 	    feedbackIcons: {
@@ -436,29 +447,22 @@ $(function($){
 	});
 
 
-			jQuery("#tienda").on("click", function(e){
-
-        
-            jQuery("#tienda").val("Procesando...");
-            jQuery("#tienda").attr("disabled", true);
-            jQuery(".perfil_cargando").css("display", "inline-block");
-
-            $.get( urlbase+"/ajax/checkout_page_cash.php",{}, function(data){
-
-            	var r = $.parseJSON(data);
-            	var pdf = r.pdf;
-				console.log(pdf);
-
+	jQuery("#tienda").on("click", function(e){
+        jQuery("#tienda").val("Procesando...");
+        jQuery("#tienda").attr("disabled", true);
+        jQuery(".perfil_cargando").css("display", "inline-block");
+        $.get( urlbase+"/ajax/checkout_page_cash.php",{}, function(data){
+        	var r = $.parseJSON(data);
+        	var pdf = r.pdf;
+			console.log(pdf);
 			$("#Descarga").attr('href',pdf);
 			$("#pago_efectivo").modal('show');
 
-					});
-        
-            jQuery("#tienda").val("pago efectivo");
-            jQuery("#tienda").attr("disabled", false);
-            jQuery(".perfil_cargando").css("display", "none");
-
-					});
+		});
+        jQuery("#tienda").val("pago efectivo");
+        jQuery("#tienda").attr("disabled", false);
+        jQuery(".perfil_cargando").css("display", "none");
+	});
 
 
 	// ***************************************
@@ -1011,7 +1015,5 @@ $(function($){
 	// ***************************************
 	// Iniciar fase 
 	// ***************************************
-	loadFase( faseID );	
-	autoload_execute();
-
+	
 });
