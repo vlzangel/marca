@@ -17,7 +17,7 @@ foreach ($suscripciones as $key => $value) {
 
 <article class="row profile-content">
 <div style="margin-left: 250px" class="hidden-xs">
-	<div style="float:left;width:70%; border-radius:10px; border:1px solid #ccc;">    
+	<div style="float:left;width:70%;">    
 		<div class=" col-md-4 col-xs-12 col-md-offset-2"
 			style="margin-top:20px;">
 			<h3 style="color: #94d400">Selecciona una suscripción</h3>
@@ -33,7 +33,7 @@ foreach ($suscripciones as $key => $value) {
 				<span class="caviar">Cargando datos, porfavor espere...</span>
 			</span>
 	</div>
-	<div style="float:left;width:100%;">    
+	<div style="float:left;width:100%; border-radius:10px; border:1px solid #ccc;">    
 			<div class="col-md-6 col-md-offset-3 text-center">
 					<img id="imagen" src="<?php echo get_home_url(); ?>/img/NUPEC.png" class="img-responsive" >
 			</div>
