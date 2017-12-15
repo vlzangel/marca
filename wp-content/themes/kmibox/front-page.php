@@ -205,7 +205,7 @@ get_header(); ?>
 				<p style="font-size: 12px">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
 				él se nutre y tu amigo o familiar no se preocupa más</p>			
 				<br><br>	
-				<a href="" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
+				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
 		</div>
 	</section>
 	<br>
