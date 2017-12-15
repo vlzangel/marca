@@ -6,7 +6,7 @@ $HTML = "
 			margin-bottom:20px;
 			text-align:center;
 		\">
-			<img src=\"".get_home_url()."/img/marca-logo.png\">
+			<img src=\"".get_home_url()."/wp-content/themes/kmibox/imgs/marca-logo.png\">
 		</div>
 		<div style=\"
 				border: 1px solid #ccc; 
