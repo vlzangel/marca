@@ -203,7 +203,7 @@
 						<div class="row" >
 							<div  style="clear:both;"></div>
 							<div style="float:left;width:50%;">    
-								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre" class="img-responsive" width="250" height="240"/>
+								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  class="img-responsive" width="250" height="240"/>
 								<a href="#"  id="pagar" role="button"  data-target="suscription"><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
 							</div>
 							<div style="float:left;width:50%;" >    
