@@ -1,7 +1,7 @@
 <?php
 /* 
  *
- * Template Name: checkout 
+ * Template Name: Pago Tienda 
  *
  */
  
@@ -30,7 +30,7 @@
 		</aside>
 	<?php	
 		}else{
-			get_template_part( 'template/parts/page/checkout', 'page' ); 
+			get_template_part( 'template/parts/page/checkout-tienda', 'page' ); 
 		}
 	?>
 </section>
