@@ -82,8 +82,8 @@
 			</section>
 
 			<section id="fase_2" class="hidden">
-				<div class="comprar_box">
-					<div id="vlz_carrousel_2" class="vlz_carrousel"></div>
+				<div class="comprar_box ">
+					<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
 					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md"></div>
 				</div>
 
@@ -199,7 +199,7 @@
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" id="suscription">
 				<div class="Modal content" id="suscription" >			     
-					<div  class="btn btn-sm-marca"  style="border-color:#fffff1; border-style: solid; border-width: 14px;">
+					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="row" >
 							<div  style="clear:both;"></div>
