@@ -96,6 +96,10 @@
 		echo "</pre>";
 	}
 
+	function crearPlanes(){
+		
+	}
+
 	if(!function_exists('comprimir')){
 	    function comprimir($HTML){
 	        $HTML = str_replace("\t", "", $HTML);
