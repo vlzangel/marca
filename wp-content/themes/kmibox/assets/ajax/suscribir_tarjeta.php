@@ -47,7 +47,7 @@
 
 		$subscriptionDataRequest = array(
 		    "trial_end_date" => "2014-01-01", 
-		    'plan_id' => 'pm65iqu66o2umlx1zfsa',
+		    'plan_id' => 'pkfvsow1n7vxmv1vaj34',
 		    'card_id' => $card->id
 		);
 
