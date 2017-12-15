@@ -10,26 +10,26 @@
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
 				<h4 style="color: #ffffff; font-family: caviar_dreamsregular">Inicia Sesión para continuar</h4>
-				<h1 style="color: #ffffff; font-family: caviar_dreamsregular; font-weight: bold;">Marca</h1>
+				<h1 style="color: #ffffff; font-family: PoetsenOne_Regular; font-weight: bold;">Marca</h1>
 			</aside>
 
 			<form id='form-login' class="form-horizontal">
 				<div class="clearfix"></div>
 				<div class="form-group input-icon">
 					<i class="fa fa-user inter-input"></i>
-					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email">
+					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email" maxlength="40">
 				</div>
 					
 				
 
 				<div class="form-group input-icon">
 					<i class="fa fa-lock inter-input"></i>
-					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave">
+					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40">
 				</div>
 
 				<div class="form-group text-center">
 					<label style="color: #ffffff;">
-						<input type="checkbox" name="rememberme"> Recordar mi perfil 	
+						<input type="checkbox" name="rememberme"> Recuerdame 	
 					</label>
 				</div>
 
