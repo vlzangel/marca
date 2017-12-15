@@ -13,7 +13,7 @@
 
 						<li>
 
-						<a href="http://kmibox.git/quiero-mi-kmibox/?source="  class="btn-kmibox-link-suscription">
+						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
 						<span class="hidden-xs hidden-sm">Quiero mi marca</span></a>
 						</li>
@@ -31,7 +31,7 @@
 						</li>
 					<?php }else{ ?>
 
-						<a href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>"  class="btn-kmibox-link">Quiero mi marca</a>
+						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link">Quiero mi marca</a>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">

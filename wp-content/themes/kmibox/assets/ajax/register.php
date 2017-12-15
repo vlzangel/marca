@@ -37,7 +37,7 @@ if( $user_id < 1 ){
 			include( realpath( __DIR__ . '/../../template/email/usuario_registrado_Kmibox.php' ) );
 				wp_mail(
 					$email, 	
-					"Usuario registrado Kmibox", 
+					"Usuario registrado marca", 
 					$HTML
 		);
 				// ****************************

@@ -322,6 +322,17 @@ select{
     padding: 10px 60px 10px 60px;;;
 	margin-top: 10px;
 }	
+
+#btn-sm-marca{
+    background: #ffffff;
+    border-radius: 40px;
+    border : 1px solid #fff;
+    color:#fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 60px 10px 60px;;;
+    margin-top: 10px;
+}
 	
 .btn-kmibox-white:hover{
 	background: #fff;
