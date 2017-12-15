@@ -157,7 +157,7 @@
 							<th>Producto</th>
 							<th>Descripci&oacute;n</th>
 							<th>Frecuencia</th>
-							<th>Total</th>
+							<th>Precio</th>
 						</thead>
 						<tbody id="cart-items"></tbody>
 					</table>
