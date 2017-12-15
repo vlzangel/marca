@@ -245,10 +245,8 @@ select{
 }
 
 .desc_value{
-	color:white;
-	background: #ccc;
-	border-radius: 50px;
-	text-align: center;
+	color: black;
+    text-align: left;
 }
 .desc_name{
 	color:#00d8b5;

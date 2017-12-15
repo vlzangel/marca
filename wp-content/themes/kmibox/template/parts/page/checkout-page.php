@@ -1,55 +1,42 @@
 <?php
 
-	global $TOTAL_PAGO;
-	$result = ['visible'=>false, 'msg'=>''];
-	$visible = false;
-	$cart = get_cart();
-	$resumen = get_resumen();
+	global $CARRITO;
+	global $wpdb;
 
-	$resumen['total'] = $TOTAL_PAGO;
+	$_productos = $wpdb->get_results("SELECT * FROM productos");
+	$productos = array();
+	foreach ($_productos as $key => $value) {
+		$productos[ $value->id ] = $value;
+	}
 
-	$order_id = 0;
-	if( get_current_user_id() > 0 ){
-		if( $_POST ){
-
-			if( $_POST['order_id'] > 0 ){
-				$order_id = $_POST['order_id'];
-			}else{
-				$o = create_order();
-				$order_id = $o->id;
-			}
-			if( $order_id > 0){
-				$param = $_POST;
-				$param['order_id'] = $order_id;
-				try{
-					$result = procesar_pago( $param );
-				}catch(Exception $e){
-					// $result['msg'] = "Error: ".$e->getCode()."<pre>".  $e->getMessage() .'</pre>';
-					$result['msg'] = "Hemos tenido inconveniente al procesar tu pago <br>".$e->getMessage();
-				}
-			}
+	$suscripciones = "";
+	foreach ($CARRITO["productos"] as $key => $value) {
+		if( isset($value->edad) ){
+			$suscripciones .= "
+				<div style='font-weight: normal;'>
+					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
+				</div>
+				<div style='font-weight: normal;'>
+					<strong>Plan: </strong> ".$value->plan."
+				</div>
+				<div style='font-weight: normal;'>
+					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
+				</div>
+			";
 		}
 	}
-
-
-	$disabled = '';
-	if( $resumen['total'] <= 0 ){
-		$hidden = 'hidden';
-		$disabled = 'disabled';
-	}
-
 
 ?>
 <!-- Fase #6 Pagos -->
 <section data-fase="6" class="container">
 
 	<!-- Mensaje de Error -->
-	<?php if ($result['msg']!=''){ ?>
+	<?php if ($result['msg'] != ''){ ?>
 		<aside class="col-md-10 col-md-offset-1 alert alert-danger"> <?php echo $result['msg']; ?> </aside>
 	<?php } ?>
 
 	<!-- Mensaje Success -->
-	<article class="col-md-6 col-md-offset-3 text-center <?php echo ($result['visible'])? '' : 'hidden' ; ?>"  style="border-radius:30px;padding:20px;border:1px solid #ccc;">
+	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden;">
 		<aside class="col-md-12 text-center">
 			<h1 style="font-size: 60px; font-weight: bold; color: #94d400;">¡Felicidades!</h1>
 			<h4 style="color:#ccc;">Tu suscripción a Marca ha sido un éxito</h4>
@@ -60,15 +47,17 @@
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
 				<div class="col-xs-4 col-md-6 desc_name">Tu suscripción:</div>
-				<div class="col-xs-6 col-md-6 desc_value"><?php echo $resumen['kmibox']['plan']; ?></div>
+				<div class="col-xs-6 col-md-6 desc_value">
+					<?php echo $suscripciones; ?>
+				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name">Tamaño de kmibox:</div>
-				<div class="col-xs-6 col-md-6 desc_value"><?php echo $resumen['kmibox']['size']; ?></div>
-			</div>
-			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name">Items agregados:</div>
-				<div class="col-xs-6 col-md-6 desc_value"><?php echo $resumen['cant_item']; ?></div>
+				<div class="col-xs-4 col-md-6 desc_name">Total Suscripci&oacute;n:</div>
+				<div class="col-xs-6 col-md-6 desc_value">
+					<?php 
+						echo "$".number_format($CARRITO["total"], 2, ',', '.');
+					?>
+				</div>
 			</div>
 		</aside>
 		<aside class="col-md-12">
@@ -79,8 +68,7 @@
 
 	<!-- Plantilla de Pago -->
 
-	<article class="col-md-10 col-xs-12 col-md-offset-1 text-center <?php echo ($result['visible'])? 'hidden' : '' ; ?>" style="border-radius:30px;padding:20px; margin-top:0%;border:1px solid #ccc;">
-
+	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin-top:0%;border:1px solid #ccc;">
 
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" method="post" action="#" id="form-pago" >
@@ -140,7 +128,7 @@
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label">Total a pagar</label>
 			    <div class="col-sm-8">
-			      <input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($resumen['total'], 2, ',', '.'); ?>">
+			      <input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>">
 			    </div>
 			  </div>
 

@@ -59,6 +59,9 @@
 		$_POST["suscripcion"] = $subscription->id;
 		$_POST["error"] = "";
 
+		if( !isset($_SESSION) ){ session_start(); }
+		unset($_SESSION["CARRITO"]);
+		
 		echo json_encode($_POST);
 
 	} catch (Exception $e) {

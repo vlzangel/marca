@@ -69,12 +69,33 @@ jQuery(document).ready(function() {
 				CART: _json
 			},
 			function(data){
-				/*console.log( data );*/
 				location.href = HOME+"/pagar-mi-marca";
 			}, "json"
 		).fail(function(e) {
 			console.log( e );
 	  	});
+	});
+
+	jQuery("#tienda").on("click", function(e){
+		e.preventDefault();
+
+		var _json = JSON.stringify( CARRITO["total"] )+"===";
+		jQuery.each(CARRITO["productos"],  function(key, producto){
+			_json += JSON.stringify( producto )+"|";
+		});
+
+		jQuery.post(
+			TEMA+"assets/ajax/carrito.php", 
+			{
+				CART: _json
+			},
+			function(data){
+				location.href = HOME+"/pago-tienda";
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
+		
 	});
 
 	jQuery.post(
