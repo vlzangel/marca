@@ -21,10 +21,17 @@ foreach ($suscripciones as $key => $value) {
 		<div class=" col-md-4 col-xs-12 col-md-offset-2"
 			style="margin-top:20px;">
 			<h3 style="color: #94d400">Selecciona una suscripción</h3>
-			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
+			<!--select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
 				<option class="caviar">Selecciona una Marca</option>
 				<?php foreach ($suscripciones as $key => $kmibox) { ?>
 					<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
+				<?php } ?>
+			</select-->
+
+			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
+				<option class="caviar" >Selecciona una marca</option>
+				<?php foreach ($suscripciones as $key => $kmibox) { ?>
+				<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
 				<?php } ?>
 			</select>
 
