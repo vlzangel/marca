@@ -114,7 +114,7 @@ function change_fase(fase, _this = ""){
 	loadFase(fase);
 }
 
-/*$(window).resize(function() {
+$(window).resize(function() {
 	ventana_ancho = $(window).width();
 	ventana_alto = $(window).height();
   switch(ventana_ancho) {
@@ -122,18 +122,22 @@ function change_fase(fase, _this = ""){
 	    case 375:
 	    case 400:
 	    case 412:
-	    case 414:
-	        jQuery('#vlz_carrousel').addClass('hidden');
-	        jQuery('#vlz_carrousel_responsive').removeClass('hidden');
-	        alert('Cambio a pequeña');
+	    case 414: 
+	        console.log('Cambio a pequeña '+ventana_ancho);
 	        break;
+	    case 500: 
+	    case 600: 
+	    case 700: 
+	    case 768: 
+	    case 800: 
+	        console.log('Cambio a grande '+ventana_ancho);
+	        break;
+	    
 	    default:
-	        jQuery('#vlz_carrousel_responsive').addClass('hidden');
-	        jQuery('#vlz_carrousel').removeClass('hidden');
-	        alert('Cambio a grande');
+	        console.log('va cambiando '+ventana_ancho);
 	        break;
 	}
-});*/
+});
 
 
 function carrousel(){
@@ -184,7 +188,68 @@ function carrousel_responsive(){
 		}
 	});
 }
+function carrousel_productos() {
+	jQuery("#vlz_carrousel_2").waterwheelCarousel({
+			flankingItems: 3,
+			movingToCenter: function (jQueryitem) {
 
+			},
+			movedToCenter: function (jQueryitem) {
+				jQuery("#presentaciones").attr("data-value", jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id") );
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id");
+
+				jQuery("#nombre_producto").html( jQuery("#vlz_carrousel_2 .carousel-center").attr("data-name") );
+
+				jQuery("#presentaciones .button_presentacion").css("display", "none");
+				jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["presentaciones"],  function(key, val){
+					if( val > 0 ){
+						jQuery("#presentacion-"+key).css("display", "inline-block");
+					}
+				});
+			},
+			movingFromCenter: function (jQueryitem) {
+
+			},
+			movedFromCenter: function (jQueryitem) {
+
+			},
+			clickedCenter: function (jQueryitem) {
+
+			}
+	});
+	
+}
+function carrousel_productos_responsive() {
+		jQuery("#carrousel_2").waterwheelCarousel({
+			flankingItems: 5,
+			separation: 100,
+			orientation: 'vertical',
+			movingToCenter: function (jQueryitem) {
+
+			},
+			movedToCenter: function (jQueryitem) {
+				jQuery("#presentaciones").attr("data-value", jQuery("#carrousel_2 .carousel-center").attr("data-id") );
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = jQuery("#carrousel_2 .carousel-center").attr("data-id");
+
+				jQuery("#nombre_producto").html( jQuery("#carrousel_2 .carousel-center").attr("data-name"));
+				jQuery("#presentaciones .button_presentacion").css("display", "none", "");
+				jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["presentaciones"],  function(key, val){
+					if( val > 0 ){
+						jQuery("#presentacion-"+key).css("display", "inline-block");
+					}
+				});
+			},
+			movingFromCenter: function (jQueryitem) {
+
+			},
+			movedFromCenter: function (jQueryitem) {
+
+			},
+			clickedCenter: function (jQueryitem) {
+
+			}
+		});
+}
 function loadProductos(){
 	var actual_select = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
 	jQuery('#vlz_carrousel_2').html("");
@@ -214,6 +279,44 @@ function loadProductos(){
 					}
 				)
 			);
+
+		// }
+	});
+
+	if( actual_select != undefined ){
+		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = "#item_"+actual_select;
+	}
+}
+function loadProductosResponsive(){
+	var actual_select = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
+	jQuery('#carrousel_2').html("");
+	jQuery.each(PRODUCTOS,  function(key, val){
+		// if( val['tamanos'][ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] ] == 1 ){
+			
+
+			if( CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] == undefined ){
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = key;
+				jQuery("#presentaciones").attr("data-value", key );
+				jQuery("#nombre_producto").html( val.nombre );
+				jQuery("#presentaciones .button_presentacion").css("display", "none");
+				jQuery.each(val["presentaciones"],  function(key2, val2){
+					if( val2 > 0 ){
+						jQuery("#presentacion-"+key2).css("display", "inline-block");
+					}
+				});
+			}
+
+			jQuery('#carrousel_2')
+			.append(
+				jQuery('<img id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">')
+				.attr(
+					{
+						'src': TEMA+"/productos/imgs/"+val.dataextra.img,
+					   	'width': '270px',
+					}
+				)
+			);
+
 		// }
 	});
 
@@ -267,35 +370,9 @@ function loadFase(fase){
 			change_title('Escoge la marca de tu preferencia');
 
 			loadProductos();
-
-			jQuery("#vlz_carrousel_2").waterwheelCarousel({
-				flankingItems: 3,
-				movingToCenter: function (jQueryitem) {
-
-				},
-				movedToCenter: function (jQueryitem) {
-					jQuery("#presentaciones").attr("data-value", jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id") );
-					CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id");
-
-					jQuery("#nombre_producto").html( jQuery("#vlz_carrousel_2 .carousel-center").attr("data-name") );
-
-					jQuery("#presentaciones .button_presentacion").css("display", "none");
-					jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["presentaciones"],  function(key, val){
-						if( val > 0 ){
-							jQuery("#presentacion-"+key).css("display", "inline-block");
-						}
-					});
-				},
-				movingFromCenter: function (jQueryitem) {
-
-				},
-				movedFromCenter: function (jQueryitem) {
-
-				},
-				clickedCenter: function (jQueryitem) {
-
-				}
-			});
+			loadProductosResponsive()
+			carrousel_productos();
+			carrousel_productos_responsive();
 
 			setTimeout(
 				function(){

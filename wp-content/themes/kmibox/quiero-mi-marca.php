@@ -84,6 +84,7 @@
 			<section id="fase_2" class="hidden">
 				<div class="comprar_box">
 					<div id="vlz_carrousel_2" class="vlz_carrousel"></div>
+					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md"></div>
 				</div>
 
 				<div id="presentaciones" class="comprar_footer" data-value="">
