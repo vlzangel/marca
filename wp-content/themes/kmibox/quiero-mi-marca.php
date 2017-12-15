@@ -163,16 +163,7 @@
 						<tbody id="cart-items"></tbody>
 					</table>
 
-					<table id="desglose" class="visible-xs" cellspacing=0 cellpadding=0>	
-						<thead>
-							
-							<th>Producto</th>
-							<th>Descripci&oacute;n</th>
-							<th>Frecuencia</th>
-							<th>Precio</th>
-						</thead>
-						<tbody id="cart-items"></tbody>
-					</table>
+					
 
 					<div id="totales">
 					

@@ -333,6 +333,9 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg">Remover</span>';
 	HTML += '	 	</span>';
+	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
+	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-xs"></span>';
+	HTML += '	 	</span>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<span href="#">';
