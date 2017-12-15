@@ -229,15 +229,34 @@ span.separador_presentacion {
 }
 
 #btn-sm-marca{
-    background: #ffffff;
-    border-radius: 40px;
-    border : 1px solid #fff;
-    color:#fff;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 60px 10px 60px;;;
-    margin-top: 10px;
+   
 }
 .btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
     background: rgb(144, 14, 156) !important;
+}
+@media all and (max-width:959px) {
+  table {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+}
+@media all and (min-width:959px) {
+    table {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+}
+@media all and (max-width:959px) and (min-width:600px) {
+    table {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+}  
+
+@media (max-width:599px) and (min-width:200px) {
+   table {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+
 }
