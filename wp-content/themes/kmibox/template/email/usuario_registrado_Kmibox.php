@@ -6,7 +6,7 @@ $HTML = "
 			background-color:#94d400;
 			margin-bottom:20px;
 		\">
-		<h3 style=\"width:850; text-align:center; color: #ffffff; font-family: Arial; font-size: 25px; \">Estas a un paso de conseguir tu <img src=\"".get_home_url()."imgs/marca-logo.png\"/></h3>
+		<h3 style=\"width:850; text-align:center; color: #ffffff; font-family: Arial; font-size: 25px; \">Estas a un paso de conseguir tu <img src=\"".get_home_url()."wp-content/themes/kmibox/imgs/marca-logo.png\"/></h3>
 			</div>
 		
 		<div style=\"
