@@ -1,7 +1,7 @@
 <?php $suscripciones = get_suscripcion( ); ?>
 <article class="row profile-content whereisit-kmibox">
 
-	<div class="col-md-4 col-xs-12 col-md-offset-2"
+	<div class=" border-radius:10px; border:1px solid #ccc; col-md-4 col-xs-12 col-md-offset-2"
 		style="margin-top:20px;">
 		<h3 class="responsive-marca caviar" style="color: #94d400">Selecciona una suscripción</h3>
 		<select class="form-control" id="select_kmibox_ubicacion">
