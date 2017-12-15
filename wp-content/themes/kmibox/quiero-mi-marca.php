@@ -154,7 +154,8 @@
 					
 					<table id="desglose" class="hidden-xs" cellspacing=0 cellpadding=0>	
 						<thead>
-							<th width="40">&nbsp;</th>
+							<th class="hidden-xs"width="40">&nbsp;</th>
+							<th class="hidden-sm hidden-md hidden-lg"width="40"></th>
 							<th>Producto</th>
 							<th>Descripci&oacute;n</th>
 							<th>Frecuencia</th>
