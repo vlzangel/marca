@@ -350,12 +350,9 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	var HTML = "";
 
 	HTML += '<tr>';
-	HTML += '	 <td class="">';
+	HTML += '	 <td class=" hidden-xs">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
-	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg">Remover</span>';
-	HTML += '	 	</span>';
-	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
-	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-xs"></span>';
+	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
