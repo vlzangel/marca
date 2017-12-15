@@ -18,9 +18,9 @@ foreach ($suscripciones as $key => $value) {
 <article class="row profile-content">
 <div style="margin-left: 250px" class="hidden-xs">
 	<div style="float:left;width:70%;">    
-		<div class="col-md-4 col-xs-12 col-md-offset-2"
+		<div class="border-radius:10px; border:1px solid #ccc; col-md-4 col-xs-12 col-md-offset-2"
 			style="margin-top:20px;">
-			<h3 style="color: #000000">Selecciona una suscripción</h3>
+			<h3 style="color: #94d400">Selecciona una suscripción</h3>
 			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
 				<option class="caviar">Selecciona una Marca</option>
 				<?php foreach ($suscripciones as $key => $kmibox) { ?>

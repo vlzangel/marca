@@ -4,9 +4,9 @@
 
 	<div class="col-md-4 col-xs-12 col-md-offset-2"
 		style="margin-top:20px;">
-		<h3 class="caviar">Selecciona un envio</h3>
+		<h3 class="caviar" style="color: #94d400">Selecciona un envio</h3>
 		<select class="form-control" data-id="select_kmibox" data-target="content-shipments">
-			<option class="caviar" style="color: #94d400">Selecciona una marca</option>
+			<option class="caviar" >Selecciona una marca</option>
 			<?php foreach ($suscripciones as $key => $kmibox) { ?>
 			<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
 			<?php } ?>
