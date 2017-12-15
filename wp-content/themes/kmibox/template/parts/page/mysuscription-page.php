@@ -19,7 +19,7 @@ foreach ($suscripciones as $key => $value) {
 <div style="margin-left: 250px" class="hidden-xs">
 	<div style="float:left;width:70%;">    
 		<div class=" col-md-4 col-xs-12 col-md-offset-2"
-			style="margin-top:20px;">
+			style="margin-top:20px;  margin-left: 0;    width: 55%;">
 			<h3 style="color: #94d400">Selecciona una suscripción</h3>
 			<!--select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
 				<option class="caviar">Selecciona una Marca</option>
