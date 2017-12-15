@@ -235,26 +235,26 @@ span.separador_presentacion {
     background: rgb(144, 14, 156) !important;
 }
 @media all and (max-width:959px) {
-  table {
+  table desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
 }
 @media all and (min-width:959px) {
-    table {
+    table desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
 }
 @media all and (max-width:959px) and (min-width:600px) {
-    table {
+    table desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
 }  
 
 @media (max-width:599px) and (min-width:200px) {
-   table {
+   table desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
