@@ -235,28 +235,93 @@ span.separador_presentacion {
     background: rgb(144, 14, 156) !important;
 }
 @media all and (max-width:959px) {
-  table desglose {
+  table  #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
 }
 @media all and (min-width:959px) {
-    table desglose {
+    table  #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
 }
 @media all and (max-width:959px) and (min-width:600px) {
-    table desglose {
+    table  #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
 }  
 
 @media (max-width:599px) and (min-width:200px) {
-   table desglose {
+   table #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
+}
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
 }
 
 }
