@@ -1305,8 +1305,9 @@ select{
 	.btn-kmibox{
 		width: 100%;
 	}
-	.btn-sm-kmibox{
-	    font-size: 16px;
+	.btn-sm-kmibox {
+	    font-size: 12px;
+	    padding: 4px!important;
 	}
 	#section-comment{
 		background-size: cover;
@@ -1402,7 +1403,9 @@ select{
 	    font-size: 20pt!important;
 	    margin-right: 10%!important;
 	}
-
+	.arriba {
+	    margin-top: -1px;
+	}
 }
 
 #contenerdor_carga{
