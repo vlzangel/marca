@@ -1241,6 +1241,37 @@ select{
 	#regalo{
 		width: 20%;
 	}
+	#carrousel_responsive {
+	    width: 240%!important;
+	    height: 80%!important;
+	    margin-left: -55%!important;
+	    top: 10%!important;
+	}
+	.comprar_box {
+	    top: -10%!important;
+	}
+
+	.comprar_footer{
+		bottom: -10%!important;
+	}
+	.comprar_footer p {
+	    font-size: 16pt;
+	    font-family: PoetsenOne_Regular;
+	    color: #900e9c;
+	    margin-top: 125%;
+	    margin-left: 5%;
+	}
+	#edad-btn {
+	    font-size: 15pt;
+	    margin-top: 504%;
+	    margin-left: -185%;
+	    padding: 4%;
+	    margin-right: -20%!important;
+	    margin-bottom: 40%;
+	}
+	.header_titulo {
+	    font-size: 16px!important;
+	}
 }
 /*@media all and (max-width:599px) and (min-width:359px) {
 	.h-3x{
@@ -1353,6 +1384,23 @@ select{
 	    margin-top: 530%;
 	    margin-left: -370%;
 	    padding: 4%;
+	}
+	.header_titulo {
+	    font-size: 15px!important;
+	}
+	.tamano{
+		width: 250px!important;
+	}
+	#carrousel_2 {
+		margin-left: -80%!important;
+	}
+	#carrousel_2 img {
+	    width: 25%!important;
+	    height: 50%!important;
+	}
+	#nombre_producto {
+	    font-size: 20pt!important;
+	    margin-right: 10%!important;
 	}
 
 }
