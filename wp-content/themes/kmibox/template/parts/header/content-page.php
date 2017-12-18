@@ -7,7 +7,7 @@
 					<img src="<?php echo get_home_url(); ?>/img/logo-text-white.png"  >
 				</a>
 				
-			<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 pull-right text-right">
+			<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 pull-right text-right" style="    font-size: 10px;">
 					<?php if ( is_user_logged_in() ){ ?>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/perfil-usuario">

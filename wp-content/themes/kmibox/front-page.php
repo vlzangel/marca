@@ -22,7 +22,7 @@ get_header(); ?>
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5">
 					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
-					<h2>Es una dotación mensual de alimento<br> para tu mascota</h2>
+					<h2><b>Es una dotación mensual de alimento<br> para tu mascota</b>></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
@@ -36,7 +36,7 @@ get_header(); ?>
 	<section id='section-comment' class="row text-center ">
 		<div class="container">
 			<h3><B>¿No encuentras el alimento de tu perrito en la tienda?</B></h3>
-			<h2 style="font-family: PoetsenOne_Regular"><i>¡Eso se acabó!</i></h2>
+			<h2 style="font-family: PoetsenOne_Regular">¡Eso se acabó!</h2>
 		</div>
 	</section>
 
