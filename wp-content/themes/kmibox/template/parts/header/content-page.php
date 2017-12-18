@@ -24,11 +24,11 @@
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
+							<span >Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Registro</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
+							<i class="fa fa-user-plus" aria-hidden="true"></i> <span >Registro</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
 						</li>
 					<?php } ?>
 
