@@ -4,7 +4,8 @@ CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
 	"presentacion": "",
-	"plan": ""
+	"plan": "",
+	"cantidad": 1
 });
 
 
@@ -44,7 +45,8 @@ jQuery(document).ready(function() {
 			"tamano": "",
 			"edad": "",
 			"presentacion": "",
-			"plan": ""
+			"plan": "",
+			"cantidad": 1
 		});
 
 		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = undefined;
@@ -144,18 +146,18 @@ $(window).resize(function() {
 	    case 400:
 	    case 412:
 	    case 414: 
-	        console.log('Cambio a pequeña '+ventana_ancho);
+	        //console.log('Cambio a pequeña '+ventana_ancho);
 	        break;
 	    case 500: 
 	    case 600: 
 	    case 700: 
 	    case 768: 
 	    case 800: 
-	        console.log('Cambio a grande '+ventana_ancho);
+	        //console.log('Cambio a grande '+ventana_ancho);
 	        break;
 	    
 	    default:
-	        console.log('va cambiando '+ventana_ancho);
+	        //console.log('va cambiando '+ventana_ancho);
 	        break;
 	}
 });
@@ -346,7 +348,7 @@ function loadProductosResponsive(){
 	}
 }
 
-function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presentacion ){
+function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presentacion, cantidad = 1 ){
 	var HTML = "";
 
 	HTML += '<tr>';
@@ -369,14 +371,38 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	HTML += '	 <td class="">';
 	HTML += '	 	<label>$ '+price+' MXN</label>';
 	HTML += '	 </td>';
+	HTML += '	 <td class="">';
+	HTML += '	 	<label id="cant_'+index+'"> '+cantidad+' </label> <div class="cantidad_controls"> <i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i> <i class="fa fa-minus-circle menos" onclick="menos_cantidad('+index+')"></i> </div>';
+	HTML += '	 </td>';
+	HTML += '	 <td class="">';
+	HTML += '	 	<label>$ '+(price*cantidad)+' MXN</label>';
+	HTML += '	 </td>';
 	HTML += '</tr>';
 	HTML += '<tr>';
-	HTML += '	 <td colspan=5 class="separador">';
+	HTML += '	 <td colspan=7 class="separador">';
 	HTML += '	 	<hr>';
 	HTML += '	 </td>';
 	HTML += '</tr>';
 
 	jQuery( '#cart-items' ).append(HTML);
+}
+
+function mas_cantidad(index){
+	var valor = jQuery("#cant_"+index).html();
+	valor++;
+	jQuery("#cant_"+index).html(valor);
+	CARRITO["productos"][index]["cantidad"] = valor;
+	loadFase(4);
+}
+
+function menos_cantidad(index){
+	var valor = jQuery("#cant_"+index).html();
+	if( valor > 1){
+		valor--;
+		jQuery("#cant_"+index).html(valor);
+		CARRITO["productos"][index]["cantidad"] = valor;
+		loadFase(4);
+	}
 }
 
 function loadFase(fase){
@@ -453,10 +479,11 @@ function loadFase(fase){
 					producto['plan'],
 					TEMA+"/productos/imgs/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
 					PRODUCTOS[ producto["producto"] ]["presentaciones"][ producto["presentacion"] ],
-					producto["presentacion"]									
+					producto["presentacion"],
+					producto["cantidad"]								
 				);
 				
-				subtotal += PRODUCTOS[ producto["producto"] ]["presentaciones"][ producto["presentacion"] ];
+				subtotal += ( PRODUCTOS[ producto["producto"] ]["presentaciones"][ producto["presentacion"] ] * producto["cantidad"] );
 			});
 			
 			total = subtotal + iva;

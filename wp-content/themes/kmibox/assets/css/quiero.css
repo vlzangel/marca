@@ -234,6 +234,18 @@ span.separador_presentacion {
 .btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
     background: rgb(144, 14, 156) !important;
 }
+
+.cantidad_controls{
+    display: inline-block;
+    width: 10px;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.cantidad_controls i{
+    font-size: 20px;
+}
+
 @media all and (max-width:959px) {
   table  #desglose {
     width: 50%;
@@ -355,6 +367,4 @@ span.separador_presentacion {
     color: #FFF;
     padding: 10px 20px;
     font-size: 9px;
-}
-
 }

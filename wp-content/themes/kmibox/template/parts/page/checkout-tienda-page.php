@@ -91,9 +91,6 @@
 			<h1 style="font-size: 60px; font-weight: bold; color: #94d400;">¡Felicidades!</h1>
 			<h4 style="color:#ccc;">Tu suscripción a Marca ha sido un éxito</h4>
 		</aside>
-		<aside class="col-md-12 text-center thankyou-img">					
-			<img src="<?php echo $resumen['kmibox']['thumnbnail']; ?>" class="img-responsive">
-		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
 				<div class="col-xs-4 col-md-6 desc_name">Tu suscripción:</div>
