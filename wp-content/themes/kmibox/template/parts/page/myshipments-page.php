@@ -26,17 +26,21 @@
 		</div>
 
 		<div class="row text-center">
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-6">
 				<label class="caviar">Tipo de suscripción</label>
 			      <input id="tipo_suscripcion" class="disabled form-control profile-content-input" readonly value="">
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-6">
 				<label class="caviar">Tipo de marca</label>
 				<input id="tipo_kmibox" class="disabled form-control profile-content-input " readonly value="">
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-6">
 				<label class="caviar">Próxima entrega</label>
 				<input id="proxima_entrega" class="disabled form-control profile-content-input " readonly value="">				
+			</div>
+			<div class="col-md-6 hidden-xs col-xs-6">
+				<label class="caviar">Estatus:</label>
+				<input id="estatus" class="disabled form-control profile-content-input " readonly value="">				
 			</div>
 		</div>
 		

@@ -9,39 +9,39 @@
 				</a> 		
 				
 
-		    	<ul class="option-menu list-unstyled list-inline col-xs-6 col-md-6 pull-right text-right">
+		    	<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 pull-right text-right">
 					<?php if ( is_user_logged_in() ){ ?>
 
 						<li>
 						<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/quiero-mi-marca">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs hidden-sm">comprar</span></a>
+						<span class="">comprar</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/perfil-usuario">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm"><?php echo $user->user_email; ?></span></a>
+							<span class=""><?php echo $user->user_email; ?></span></a>
 						</li>
 						
 						<li>
 							<a class="btn-kmibox-link" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm">Salir</span></a>
+							<span class="">Salir</span></a>
 						</li>
 					<?php }else{ ?>
 
 						<li>
 						<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/quiero-mi-marca"  >
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs hidden-sm">Comprar</span></a>
+						<span class="">Comprar</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm">Iniciar Sesion</span></a>
+							<span class="">Iniciar Sesion</span></a>
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
