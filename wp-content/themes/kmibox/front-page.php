@@ -22,7 +22,7 @@ get_header(); ?>
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
-					<h2 style=""><b>Es una dotación mensual de alimento<br> para tu mascota</b></h2>
+					<h2 style="font-size: 14px"><b>Es una dotación mensual de alimento<br> para tu mascota</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
@@ -31,7 +31,7 @@ get_header(); ?>
 					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
 					<h2 style="font-size: 25px"><b>Es una dotación mensual de alimento<br> para tu mascota</b></h2>
 					<br>	
-					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div class="col-xs-12 col-sm-6 hidden" id="banner-dog">
@@ -119,8 +119,7 @@ get_header(); ?>
 			<h2 style="color: #ffffff;font-weight: none; font-size: 55px">¿Cómo funciona la <span style="font-family: PoetsenOne_Regular">Marca</span>?</h2>
 		</div>
 		<div class="container hidden-sm hidden-lg hidden-md">
-			<h2 style="color: #ffffff;font-weight: none; font-size: 25px">¿Cómo funciona la <span style="font-family: 
-			">Marca</span>?</h2>
+			<h2 style="color: #ffffff;font-weight: none; font-size: 25px">¿Cómo funciona la <span style="font-family:PoetsenOne_Regular">Marca</span>?</h2>
 		</div>
 	</section>
  
@@ -221,7 +220,7 @@ get_header(); ?>
 				<img src="<?php echo get_home_url(); ?>/img/Elemento.png" id="regalo" class="img-responsive" >
 			</div>
 			<br>			<br>
-				<p style="font-size: 12px">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
+				<p style="font-size: 14px">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
 				él se nutre y tu amigo o familiar no se preocupa más</p>			
 				<br><br>	
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
