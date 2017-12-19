@@ -8,7 +8,7 @@
 				</a> 		
 				
 
-		    	<ul class="option-menu list-unstyled list-inline col-xs-6 col-md-6 pull-right text-right">
+		    	<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 pull-right text-right">
 					<?php if ( is_user_logged_in() ){ ?>
 
 						<li>
