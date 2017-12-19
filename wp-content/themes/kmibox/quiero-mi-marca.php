@@ -153,9 +153,21 @@
 						<span id="cart-alerta"></span>
 					</div>
 					
-					<table id="desglose" cellspacing=0 cellpadding=0>	
+					<table id="desglose" cellspacing=0 cellpadding=0 class="hidden-xs">	
 						<thead>
 							<th class="hidden-xs"width="40">&nbsp;</th>
+							<th>Producto</th>
+							<th>Descripci&oacute;n</th>
+							<th>Frecuencia</th>
+							<th>Precio</th>
+							<th>Cantidad</th>
+							<th>Subtotal</th>
+						</thead>
+						<tbody id="cart-items"></tbody>
+					</table>
+
+					<table id="desglose" cellspacing=0 cellpadding=0 clas="hidden-lg hidden-md">	
+						<thead>
 							<th>Producto</th>
 							<th>Descripci&oacute;n</th>
 							<th>Frecuencia</th>
