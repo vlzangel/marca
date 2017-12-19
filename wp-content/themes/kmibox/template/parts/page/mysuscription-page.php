@@ -101,14 +101,14 @@ foreach ($suscripciones as $key => $value) {
 				<label class="caviar">Próxima entrega</label>
 				<input readonly id="proxima_entrega" class="profile-content-input form-control"  value="">				
 			</div>
-			<div class="col-md-4 col-xs-6 hidden-xs ">
+			<div class="col-md-4 col-xs-6 hidden-sm
+			hidden-md hidden-lg visible-xs ">
 				<label class="caviar">Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
 		</div>
 		<div class="row text-center">
-			<div class="col-md-6 col-xs-6 hidden-sm
-			hidden-md hidden-lg">
+			<div class="col-md-6 col-xs-6 hidden-xs ">
 				<label class="caviar">Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
