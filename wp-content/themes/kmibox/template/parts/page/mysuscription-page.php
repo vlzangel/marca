@@ -34,7 +34,7 @@ foreach ($suscripciones as $key => $value) {
 			</span>
 	</div>
 	<div class=" col-md-4 col-xs-12 col-md-offset-2 visible-sm"
-			style="margin-top:20px;  margin-left: 0;    width: 55%;">
+			style="margin-top:20px;  margin-left: 0; ">
 			<h3 style="color: #94d400">Selecciona una suscripción</h3>
 			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
 				<option class="caviar">Selecciona una Marca</option>
