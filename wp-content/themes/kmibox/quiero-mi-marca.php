@@ -28,7 +28,7 @@
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
 					</div>
-					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-lg">
+					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg">
 						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="250px" id="Grande" />
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="250px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="250px" id="Pequeño" />

@@ -1231,7 +1231,7 @@ select{
 		background-size: auto; 
 	}
 }
-@media all and (max-width:959px) and (min-width:800px) {
+@media all and (max-width:959px) and (min-width:600px) {
 	.h-3x{
 		font-size: 20px;
 	}
