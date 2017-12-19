@@ -315,7 +315,8 @@ function loadFase(fase){
 
 				cant_item += parseInt( producto["cantidad"] );
 			});
-			
+			iva = subtotal * 0.12;
+			subtotal= subtotal - iva;
 			total = subtotal + iva;
 
 			jQuery('#cant-item').html(cant_item);
