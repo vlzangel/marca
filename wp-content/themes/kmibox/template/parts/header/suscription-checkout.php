@@ -15,19 +15,19 @@
 
 						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs hidden-sm">Quiero mi marca</span></a>
+						<span class="">Quiero mi marca</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm"><?php echo $user->display_name; ?></span></a>
+							<span class=""><?php echo $user->display_name; ?></span></a>
 						</li> 
 						<li>
 							<a class="btn-kmibox-link" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm">Salir</span></a>
+							<span class="">Salir</span></a>
 						</li>
 					<?php }else{ ?>
 
@@ -36,7 +36,7 @@
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm">Iniciar Sesion</span></a>
+							<span class="">Iniciar Sesion</span></a>
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
