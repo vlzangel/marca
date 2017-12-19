@@ -1,30 +1,30 @@
 <footer id="footer" class="row text-center">
 	<div class="container">
 		<div style="float:right;width:50%;"> 
-		<article class="col-sm-8  text-left">
-			<h3>Contáctanos</h3>
+		<article class="col-sm-10  text-left">
+			<h3 class="caviar">Contáctanos</h3>
 			<ul class="list-unstyled">
-				<li>+52 (55) 1791.4931</li>
-				<li>+52 (55) 66319264</li>
-				<li>Email: contactomex@kmimos.la</li>
+				<li class="caviar">+52 (55) 1791.4931</li>
+				<li class="caviar">+52 (55) 66319264</li>
+				<li class="caviar">Email: contactomex@kmimos.la</li>
 			</ul>
 		</article>
 	</div>
 		<div style="float:right;width:50%;"> 
 		<article class="col-sm-8  text-left">			
-			<h3>Navega</h3>
+			<h3 class="caviar">Navega</h3>
 			<ul class="list-unstyled">
-				<li>Nosotros</li>
-				<li>Nuestra promesa</li>
-				<li>Blog</li>
-				<li>Términos y condiciones</li>
-				<li>Nuestros aliados</li>
-				<li>Preguntas y respuestas</li>
+				<li class="caviar">Nosotros</li>
+				<li class="caviar">Nuestra promesa</li>
+				<li class="caviar">Blog</li>
+				<li class="caviar">Términos y condiciones</li>
+				<li class="caviar">Nuestros aliados</li>
+				<li class="caviar">Preguntas y respuestas</li>
 			</ul>
 		</article>
 	</div>
 		<article class="col-sm-8  text-left">
-			<h3>Búscanos en redes sociales</h3>
+			<h3 class="caviar">Búscanos en redes sociales</h3>
 			<ul class="list-inline" id="social-network">
 				<li><img src="<?php echo get_home_url(); ?>/img/facebook.png"></li>
 				<li><img src="<?php echo get_home_url(); ?>/img/instagram.png"></li>

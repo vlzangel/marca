@@ -18,7 +18,22 @@ foreach ($suscripciones as $key => $value) {
 <article class="row profile-content">
 <div style="margin-left: 250px" class="hidden-xs">
 	<div style="float:left;width:70%;">    
-		<div class=" col-md-4 col-xs-12 col-md-offset-2"
+		<div class=" col-md-4 col-xs-12 col-md-offset-2 hidden-sm"
+			style="margin-top:20px;  margin-left: 0;    width: 55%;">
+			<h3 style="color: #94d400">Selecciona una suscripción</h3>
+			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
+				<option class="caviar">Selecciona una Marca</option>
+				<?php foreach ($suscripciones as $key => $kmibox) { ?>
+					<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
+				<?php } ?>
+			</select>
+
+			<span class="loading hidden">
+				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+				<span class="caviar">Cargando datos, porfavor espere...</span>
+			</span>
+	</div>
+	<div class=" col-md-4 col-xs-12 col-md-offset-2 visible-sm"
 			style="margin-top:20px;  margin-left: 0;    width: 55%;">
 			<h3 style="color: #94d400">Selecciona una suscripción</h3>
 			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
@@ -79,21 +94,21 @@ foreach ($suscripciones as $key => $value) {
 			      <input readonly id="tipo_suscripcion" class="profile-content-input form-control"  value="">
 			</div>
 			<div class="col-md-4 col-xs-6">
-				<label class="caviar">Tipo de ALimento</label>
+				<label class="caviar">Tipo de Alimento</label>
 				<input readonly id="tipo_kmibox" class="profile-content-input form-control"  value="">
 			</div>
 			<div class="col-md-4 col-xs-6">
 				<label class="caviar">Próxima entrega</label>
 				<input readonly id="proxima_entrega" class="profile-content-input form-control"  value="">				
 			</div>
-			<div class="col-md-4 col-xs-6 hidden-sm
-			hidden-md hidden-lg">
+			<div class="col-md-4 col-xs-6 hidden-xs ">
 				<label class="caviar">Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
 		</div>
 		<div class="row text-center">
-			<div class="col-md-6 col-xs-6 hidden-xs">
+			<div class="col-md-6 col-xs-6 hidden-sm
+			hidden-md hidden-lg">
 				<label class="caviar">Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>

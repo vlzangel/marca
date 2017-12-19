@@ -134,7 +134,7 @@
 							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777; margin-top: 0px">Bimestral</button>
 						</article>
 
-						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-xs hidden-lg hidden-md" style="display: inline-block;margin-top: 7%;">
+						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-xs hidden-lg hidden-md visible-sm" style="display: inline-block;margin-top: 7%;">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
 							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
 						</article>
