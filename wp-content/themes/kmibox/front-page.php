@@ -22,7 +22,7 @@ get_header(); ?>
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs">
 					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
-					<h2 style="font-size: 40px"><b>Es una dotación mensual de alimento<br> para tu mascota</b>></h2>
+					<h2 style=""><b>Es una dotación mensual de alimento<br> para tu mascota</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
@@ -112,8 +112,7 @@ get_header(); ?>
 
 	<section id='section-comment1' class="row text-center ">
 		<div class="container hidden-xs">
-			<h2 style="color: #ffffff;font-weight: none; font-size: 55px">¿Cómo funciona la <span style="font-family: 
-			">Marca</span>?</h2>
+			<h2 style="color: #ffffff;font-weight: none; font-size: 55px">¿Cómo funciona la <span style="font-family: PoetsenOne_Regular">Marca</span>?</h2>
 		</div>
 		<div class="container hidden-sm hidden-lg hidden-md">
 			<h2 style="color: #ffffff;font-weight: none; font-size: 25px">¿Cómo funciona la <span style="font-family: 
@@ -202,10 +201,10 @@ get_header(); ?>
 	</section>
 
 	<section style="color:#ffffff;	background: #f2bc3d;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
-		<div class="container hidden-md hidden-sm hidden-lg">
+		<div class="container hidden-xs">
 			<h4 style="color:#ffffff; font-size: 25px; font-family: caviar_dreamsregular; ">*Paga en efectivo en miles de tienda de conveniencia</h4>
 		</div>
-		<div class="container hidden-xs">
+		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
 			<h4 style="color:#ffffff; font-size: 12px; font-family: caviar_dreamsregular; ">*Paga en efectivo en miles de tienda de conveniencia</h4>
 		</div>
 	</section>
