@@ -109,10 +109,14 @@ get_header(); ?>
 		<div class="container">
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" >
 		</div>
-		<div class="container">
-			<label style="color: #a9d433">Un alimento<span style="color: #ebb931">especial<span></label>
-			<label style="color: #a9d433">Para un<span style="color: #ebb931">compañero especial<span></label>
-		</div>				
+		<div class="container hidden-md hidden-lg">
+			<label style="color: #a9d433;font-size: 20px;font-family: PoetsenOne_Regular;margin-left: -31%;">Un alimento<span style="color: #ebb931">especial</span></label>
+			<label style="color: #a9d433;font-size: 20px;font-family:  PoetsenOne_Regular;margin-left: 10%;">Para un<span style="color: #ebb931">compañero </span><span style="color: #a9d433">especial</span></label>
+		</div>	
+		<div class="container hidden-xs">
+			<label style="color: #a9d433;font-size: 75px;font-family: PoetsenOne_Regular;margin-left: -31%;">Un alimento<span style="color: #ebb931">especial</span></label>
+			<label style="color: #a9d433;font-size: 75px;font-family:  PoetsenOne_Regular;margin-left: 10%;">Para un<span style="color: #ebb931">compañero </span><span style="color: #a9d433">especial</span></label>
+		</div>			
 	</section>
 
 	<section id='section-comment1' class="row text-center ">
