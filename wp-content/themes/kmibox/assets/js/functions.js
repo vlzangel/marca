@@ -527,7 +527,7 @@ function eliminarProducto(id){
 add_action('phpmailer_init','send_smtp_email');
 	function send_smtp_email( $phpmailer )
 	{
-	   /* // Define que estamos enviando por SMTP
+	   // Define que estamos enviando por SMTP
 	    $phpmailer->isSMTP();
 	 
 	    // La dirección del HOST del servidor de correo SMTP p.e. mail.midominio.com o pa IP del servidor
@@ -548,7 +548,7 @@ add_action('phpmailer_init','send_smtp_email');
 	    // El tipo de encriptación que usamos al conectar - ssl (deprecated) o tls
 	    $phpmailer->SMTPSecure = "tls";
 	 
-	    $phpmailer->From = "clubpatitasfelices@kmimos.la";*/
+	    $phpmailer->From = "clubpatitasfelices@kmimos.la";
 	    $phpmailer->FromName = "Marca";
 	}
 
