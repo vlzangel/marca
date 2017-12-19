@@ -20,12 +20,20 @@ get_header(); ?>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.png" 	 class="img-responsive">
 				</div>
-				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5">
+				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs">
 					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
-					<h2>Es una dotación mensual de alimento<br> para tu mascota</h2>
+					<h2 style="font-size: 40px"><b>Es una dotación mensual de alimento<br> para tu mascota</b>></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
+
+				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
+					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
+					<h2 style="font-size: 40px"><b>Es una dotación mensual de alimento<br> para tu mascota</b>></h2>
+					<br>	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+				</div>
+
 				<div class="col-xs-12 col-sm-6 hidden" id="banner-dog">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.png" class="img-responsive">
 				</div>
@@ -36,7 +44,7 @@ get_header(); ?>
 	<section id='section-comment' class="row text-center ">
 		<div class="container">
 			<h3><B>¿No encuentras el alimento de tu perrito en la tienda?</B></h3>
-			<h2 style="font-family: PoetsenOne_Regular"><i>¡Eso se acabó!</i></h2>
+			<h2 style="font-family: PoetsenOne_Regular">¡Eso se acabó!</h2>
 		</div>
 	</section>
 
@@ -103,8 +111,13 @@ get_header(); ?>
 	</section>
 
 	<section id='section-comment1' class="row text-center ">
-		<div class="container">
-			<h2 style="color: #ffffff;font-weight: none; font-size: 25px">¿Cómo funciona la <B>Marca</B>?</h2>
+		<div class="container hidden-xs">
+			<h2 style="color: #ffffff;font-weight: none; font-size: 55px">¿Cómo funciona la <span style="font-family: 
+			">Marca</span>?</h2>
+		</div>
+		<div class="container hidden-sm hidden-lg hidden-md">
+			<h2 style="color: #ffffff;font-weight: none; font-size: 25px">¿Cómo funciona la <span style="font-family: 
+			">Marca</span>?</h2>
 		</div>
 	</section>
  
@@ -189,7 +202,10 @@ get_header(); ?>
 	</section>
 
 	<section style="color:#ffffff;	background: #f2bc3d;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
-		<div class="container">
+		<div class="container hidden-md hidden-sm hidden-lg">
+			<h4 style="color:#ffffff; font-size: 25px; font-family: caviar_dreamsregular; ">*Paga en efectivo en miles de tienda de conveniencia</h4>
+		</div>
+		<div class="container hidden-xs">
 			<h4 style="color:#ffffff; font-size: 12px; font-family: caviar_dreamsregular; ">*Paga en efectivo en miles de tienda de conveniencia</h4>
 		</div>
 	</section>
