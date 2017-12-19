@@ -98,7 +98,7 @@ get_header(); ?>
 
 	<section class="row text-center ">
 		<div class="container  hidden-xs">
-			<img src="<?php echo get_home_url(); ?>/img/bar-1.png" class="img-responsive">			
+			<img src="<?php echo get_home_url(); ?>/img/bar-1.png" class="img-responsive">	
 		</div>
 		<div class="container1 visible-xs" style="background-color: #007bd8; color: #ffffff">
 			<p style="color: #ffffff; font-size: 14px">
@@ -110,7 +110,8 @@ get_header(); ?>
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" >
 		</div>
 		<div class="container">
-			<img src="<?php echo get_home_url(); ?>/img/letras.jpg" class="img-responsive" >
+			<label style="color: #a9d433">Un alimento<span style="color: #ebb931">especial<span></label>
+			<label style="color: #a9d433">Para un<span style="color: #ebb931">compañero especial<span></label>
 		</div>				
 	</section>
 
