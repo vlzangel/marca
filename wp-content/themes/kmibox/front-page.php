@@ -42,7 +42,11 @@ get_header(); ?>
 	</header>
 
 	<section id='section-comment' class="row text-center ">
-		<div class="container">
+		<div class="container hidden-xs">
+			<h3 style="font-size: 35px"><B>¿No encuentras el alimento de tu perrito en la tienda?</B></h3>
+			<h2 style="font-family: PoetsenOne_Regular">¡Eso se acabó!</h2>
+		</div>
+		<div class="container hidden-md hidden-sm hidden-lg">
 			<h3><B>¿No encuentras el alimento de tu perrito en la tienda?</B></h3>
 			<h2 style="font-family: PoetsenOne_Regular">¡Eso se acabó!</h2>
 		</div>
