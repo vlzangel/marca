@@ -84,7 +84,7 @@
 			<section id="fase_2" class="hidden">
 				<div class="comprar_box ">
 					<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
-					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md"></div>
+					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm"></div>
 				</div>
 
 				<div id="presentaciones" class="comprar_footer" data-value="">
@@ -129,10 +129,16 @@
 							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual</button>
 						</article>
 						<!-- <article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-offset-3 col-xs-6 arriba"> -->
-						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6" style="display: inline-block;margin-left: 26%;margin-top: 1%;">
+						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm" style="display: inline-block;margin-left: 26%;margin-top: 1%;">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
 							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777; margin-top: 0px">Bimestral</button>
 						</article>
+
+						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-xs hidden-lg hidden-md" style="display: inline-block;margin-top: 7%;">
+							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
+							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
+						</article>
+
 					</div>
 				</div>
 				<div class="comprar_footer">
