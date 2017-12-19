@@ -348,6 +348,7 @@ $(function($){
 			TEMA+"assets/ajax/suscribir_tarjeta.php",
 			jQuery(this).serialize(),
 			function(data){
+				console.log( data );
 				if( data["error"] == "" ){
 					jQuery("#pagar").addClass("hidden");
 					jQuery("#pago_exitoso").removeClass("hidden");
