@@ -88,7 +88,7 @@ foreach ($suscripciones as $key => $value) {
 		style="border-radius:10px;  margin-top:20px;">
 
 		
-		<div class="row text-center">
+		<div class="row text-center " style="font-size: 12px">
 			<div class="col-md-4 col-xs-6">
 				<label class="caviar">Tipo de suscripción</label>
 			      <input readonly id="tipo_suscripcion" class="profile-content-input form-control"  value="">

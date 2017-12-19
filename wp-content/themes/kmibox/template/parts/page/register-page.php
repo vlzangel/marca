@@ -104,7 +104,7 @@
 				<div class="row">					
 					<h2 class="col-sm-6">Dirección</h2>
 				</div>
-		
+		 
 				<div class="row row-special">					
 					<div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>

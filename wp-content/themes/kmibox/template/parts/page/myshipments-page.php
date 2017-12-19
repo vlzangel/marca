@@ -25,7 +25,7 @@
 			</div>
 		</div>
 
-		<div class="row text-center">
+		<div class="row text-center" style="font-size: 12px">
 			<div class="col-md-4 col-xs-6">
 				<label class="caviar">Tipo de suscripción</label>
 			      <input id="tipo_suscripcion" class="disabled form-control profile-content-input" readonly value="">
