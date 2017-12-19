@@ -380,7 +380,13 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	HTML += '</tr>';
 	HTML += '<tr>';
 	HTML += '	 <td colspan=7 class="separador">';
-	HTML += '	 	<hr>';
+	HTML += '	 	<hr>';	$('#label-titulo').html('Notificaci&oacute;n');
+		if(tipo=="extra"){
+			$('#label-mensaje').html('La cantidad del artículo adicional seleccionado posee el máximo permitido por cada Kmibox');
+		}else{
+			$('#label-mensaje').html('Excedio la cantidad maxima de kmibox permitida');
+		}
+			$('#mensaje').modal('show');
 	HTML += '	 </td>';
 	HTML += '</tr>';
 
@@ -389,10 +395,22 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 
 function mas_cantidad(index){
 	var valor = jQuery("#cant_"+index).html();
-	valor++;
-	jQuery("#cant_"+index).html(valor);
-	CARRITO["productos"][index]["cantidad"] = valor;
-	loadFase(4);
+	var max= 20;
+	
+	if( valor <= max ){
+		valor++;
+		jQuery("#cant_"+index).html(valor);
+		CARRITO["productos"][index]["cantidad"] = valor;
+		loadFase(4);
+	}else{
+			$('#label-titulo').html('Notificaci&oacute;n');
+		if(tipo=="extra"){
+			$('#label-mensaje').html('La cantidad del artículo adicional seleccionado posee el máximo permitido por cada marca');
+		}else{
+			$('#label-mensaje').html('Excedio la cantidad maxima de marca permitida');
+		}
+			$('#mensaje').modal('show');
+	}
 }
 
 function menos_cantidad(index){
@@ -487,6 +505,7 @@ function loadFase(fase){
 			});
 			
 			total = subtotal + iva;
+			iva = subtotal *0.12;
 
 			cant_item += parseInt( 1 );
 
