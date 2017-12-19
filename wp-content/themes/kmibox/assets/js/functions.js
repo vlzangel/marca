@@ -1,15 +1,19 @@
 var CARRITO = [];
+CARRITO["cantidad"] = 0;
 CARRITO["productos"] = [];
 CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
 	"presentacion": "",
 	"plan": "",
-	"cantidad": 1
+	"plan_id": "",
+	"cantidad": 1,
+	"subtotal": 0.00
 });
 
 
 var PRODUCTOS = [];
+var PLANES = [];
 
 jQuery(document).ready(function() {
 
@@ -31,6 +35,17 @@ jQuery(document).ready(function() {
 
 	jQuery("#plan button").on("click", function(e){
 		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan"] = jQuery(this).attr("data-value");
+
+		var nombre_producto = PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["nombre"];
+
+		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan_id"] = 
+			PLANES[ 
+				get_slug_producto(nombre_producto)+"_"+
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["presentacion"]+"_"+
+				get_slug_producto( CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan"] )
+			]["openpay_id"];
+		
+
 		change_fase(4, this);
 	});
 
@@ -40,34 +55,27 @@ jQuery(document).ready(function() {
 
 	jQuery("#agregar_plan").on("click", function(e){
 		e.preventDefault();
-
 		CARRITO["productos"].push({
 			"tamano": "",
 			"edad": "",
 			"presentacion": "",
 			"plan": "",
-			"cantidad": 1
+			"plan_id": "",
+			"cantidad": 1,
+			"subtotal": 0.00
 		});
-
 		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = undefined;
 		jQuery("button").removeClass("vlz_activo");
-
 		carrousel();
 		carrousel_responsive();
-
 		change_fase( 1 );
 	});
 
 	jQuery("#pagar").on("click", function(e){
-
-		var _json = JSON.stringify( CARRITO["total"] )+"===";
-		jQuery.each(CARRITO["productos"],  function(key, producto){
-			_json += JSON.stringify( producto )+"|";
-		});
-
+		e.preventDefault();
+		var _json = get_json_cart();
 		jQuery.post(
-			TEMA+"assets/ajax/carrito.php", 
-			{
+			TEMA+"assets/ajax/carrito.php", {
 				CART: _json
 			},
 			function(data){
@@ -80,15 +88,9 @@ jQuery(document).ready(function() {
 
 	jQuery("#tienda").on("click", function(e){
 		e.preventDefault();
-
-		var _json = JSON.stringify( CARRITO["total"] )+"===";
-		jQuery.each(CARRITO["productos"],  function(key, producto){
-			_json += JSON.stringify( producto )+"|";
-		});
-
+		var _json = get_json_cart();
 		jQuery.post(
-			TEMA+"assets/ajax/carrito.php", 
-			{
+			TEMA+"assets/ajax/carrito.php", {
 				CART: _json
 			},
 			function(data){
@@ -101,9 +103,10 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery.post(
-		TEMA+"assets/ajax/productos.php", {},
+		TEMA+"assets/ajax/productos_planes.php", {},
 		function(data){
-			PRODUCTOS = data;
+			PRODUCTOS = data["PRODUCTOS"];
+			PLANES = data["PLANES"];
 		}, "json"
 	).fail(function(e) {
 		console.log( e );
@@ -111,241 +114,38 @@ jQuery(document).ready(function() {
 
 });
 
+function get_json_cart(){
+	var _json = JSON.stringify( CARRITO["total"] )+"===";
+	_json += JSON.stringify( CARRITO["cantidad"] )+"===";
+	jQuery.each(CARRITO["productos"],  function(key, producto){
+		_json += JSON.stringify( producto )+"|";
+	});
+	return _json;
+}
+
+function get_slug_producto(name){
+	return String(name).replace(" ", "_").toLowerCase();
+}
+
 function change_title(txt){
 	jQuery("#header").html(txt);
 }
 
 function change_fase(fase, _this = ""){
-
 	jQuery(".comprar_container section").addClass("hidden");
-
 	jQuery("#fase_"+fase).addClass("bounceInRight animated");
 	jQuery("#fase_"+fase).removeClass('hidden');
-
 	if( fase > 0 ){
 		jQuery("#btn-atras").attr("data-value", fase-1);
 	}else{
 		location.href = HOME;
 	}
-
 	if( _this != "" ){
 		var padre = jQuery(_this).parent().parent().attr("id");
 		jQuery("#"+padre+" button").removeClass("vlz_activo");
 		jQuery(_this).addClass("vlz_activo");
 	}
-
 	loadFase(fase);
-}
-
-$(window).resize(function() {
-	ventana_ancho = $(window).width();
-	ventana_alto = $(window).height();
-  switch(ventana_ancho) {
-	    case 360: 
-	    case 375:
-	    case 400:
-	    case 412:
-	    case 414: 
-	        //console.log('Cambio a pequeña '+ventana_ancho);
-	        break;
-	    case 500: 
-	    case 600: 
-	    case 700: 
-	    case 768: 
-	    case 800: 
-	        //console.log('Cambio a grande '+ventana_ancho);
-	        break;
-	    
-	    default:
-	        //console.log('va cambiando '+ventana_ancho);
-	        break;
-	}
-});
-
-
-function carrousel(){
-	jQuery('#vlz_carrousel').waterwheelCarousel({
-		separation: 300,
-		edgeFadeEnabled: true,     	 
-		flankingItems: 3,
-		orientation: 'horizontal',
-		movingToCenter: function ($item) {
-			CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = $item.attr('id');
-			jQuery('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
-		},
-		movedToCenter: function ($item) {
-			jQuery('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
-		},
-		movingFromCenter: function ($item) {
-			jQuery('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
-		},
-		movedFromCenter: function ($item) {
-			jQuery('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
-		},
-		clickedCenter: function ($item) {
-			jQuery('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-		}
-	});
-}
-function carrousel_responsive(){
-	jQuery('#carrousel_responsive').waterwheelCarousel({
-		separation: 150,
-		edgeFadeEnabled: true,     	 
-		flankingItems: 3,
-		orientation: 'vertical',
-		movingToCenter: function ($item) {
-			CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = $item.attr('id');
-			jQuery('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
-		},
-		movedToCenter: function ($item) {
-			jQuery('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
-		},
-		movingFromCenter: function ($item) {
-			jQuery('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
-		},
-		movedFromCenter: function ($item) {
-			jQuery('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
-		},
-		clickedCenter: function ($item) {
-			jQuery('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-		}
-	});
-}
-function carrousel_productos() {
-	jQuery("#vlz_carrousel_2").waterwheelCarousel({
-			flankingItems: 3,
-			movingToCenter: function (jQueryitem) {
-
-			},
-			movedToCenter: function (jQueryitem) {
-				jQuery("#presentaciones").attr("data-value", jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id") );
-				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id");
-
-				jQuery("#nombre_producto").html( jQuery("#vlz_carrousel_2 .carousel-center").attr("data-name") );
-
-				jQuery("#presentaciones .button_presentacion").css("display", "none");
-				jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["presentaciones"],  function(key, val){
-					if( val > 0 ){
-						jQuery("#presentacion-"+key).css("display", "inline-block");
-					}
-				});
-			},
-			movingFromCenter: function (jQueryitem) {
-
-			},
-			movedFromCenter: function (jQueryitem) {
-
-			},
-			clickedCenter: function (jQueryitem) {
-
-			}
-	});
-	
-}
-function carrousel_productos_responsive() {
-		jQuery("#carrousel_2").waterwheelCarousel({
-			flankingItems: 5,
-			separation: 100,
-			orientation: 'vertical',
-			movingToCenter: function (jQueryitem) {
-
-			},
-			movedToCenter: function (jQueryitem) {
-				jQuery("#presentaciones").attr("data-value", jQuery("#carrousel_2 .carousel-center").attr("data-id") );
-				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = jQuery("#carrousel_2 .carousel-center").attr("data-id");
-
-				jQuery("#nombre_producto").html( jQuery("#carrousel_2 .carousel-center").attr("data-name"));
-				jQuery("#presentaciones .button_presentacion").css("display", "none", "");
-				jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["presentaciones"],  function(key, val){
-					if( val > 0 ){
-						jQuery("#presentacion-"+key).css("display", "inline-block");
-					}
-				});
-			},
-			movingFromCenter: function (jQueryitem) {
-
-			},
-			movedFromCenter: function (jQueryitem) {
-
-			},
-			clickedCenter: function (jQueryitem) {
-
-			}
-		});
-}
-function loadProductos(){
-	var actual_select = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
-	jQuery('#vlz_carrousel_2').html("");
-	jQuery.each(PRODUCTOS,  function(key, val){
-		// if( val['tamanos'][ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] ] == 1 ){
-			
-
-			if( CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] == undefined ){
-				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = key;
-				jQuery("#presentaciones").attr("data-value", key );
-				jQuery("#nombre_producto").html( val.nombre );
-				jQuery("#presentaciones .button_presentacion").css("display", "none");
-				jQuery.each(val["presentaciones"],  function(key2, val2){
-					if( val2 > 0 ){
-						jQuery("#presentacion-"+key2).css("display", "inline-block");
-					}
-				});
-			}
-
-			jQuery('#vlz_carrousel_2')
-			.append(
-				jQuery('<img id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">')
-				.attr(
-					{
-						'src': TEMA+"/productos/imgs/"+val.dataextra.img,
-					   	'width': '270px',
-					}
-				)
-			);
-
-		// }
-	});
-
-	if( actual_select != undefined ){
-		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = "#item_"+actual_select;
-	}
-}
-function loadProductosResponsive(){
-	var actual_select = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
-	jQuery('#carrousel_2').html("");
-	jQuery.each(PRODUCTOS,  function(key, val){
-		// if( val['tamanos'][ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] ] == 1 ){
-			
-
-			if( CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] == undefined ){
-				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = key;
-				jQuery("#presentaciones").attr("data-value", key );
-				jQuery("#nombre_producto").html( val.nombre );
-				jQuery("#presentaciones .button_presentacion").css("display", "none");
-				jQuery.each(val["presentaciones"],  function(key2, val2){
-					if( val2 > 0 ){
-						jQuery("#presentacion-"+key2).css("display", "inline-block");
-					}
-				});
-			}
-
-			jQuery('#carrousel_2')
-			.append(
-				jQuery('<img id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">')
-				.attr(
-					{
-						'src': TEMA+"/productos/imgs/"+val.dataextra.img,
-					   	'width': '270px',
-					}
-				)
-			);
-
-		// }
-	});
-
-	if( actual_select != undefined ){
-		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = "#item_"+actual_select;
-	}
 }
 
 function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presentacion, cantidad = 1 ){
@@ -392,6 +192,7 @@ function mas_cantidad(index){
 	valor++;
 	jQuery("#cant_"+index).html(valor);
 	CARRITO["productos"][index]["cantidad"] = valor;
+	CARRITO["cantidad"]++;
 	loadFase(4);
 }
 
@@ -401,6 +202,7 @@ function menos_cantidad(index){
 		valor--;
 		jQuery("#cant_"+index).html(valor);
 		CARRITO["productos"][index]["cantidad"] = valor;
+		CARRITO["cantidad"]--;
 		loadFase(4);
 	}
 }
@@ -439,6 +241,13 @@ function loadFase(fase){
 			jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["planes"],  function(key, val){
 				if( val == 1 ){
 					jQuery("#plan-"+key).css("display", "inline-block");
+
+					var producto = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
+					var presentacion = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["presentacion"];
+
+					jQuery(".value_900g button").html( "$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * 1 )+" MXN" );
+					jQuery(".value_2000g button").html("$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * 2 )+" MXN" );
+					jQuery(".value_4000g button").html("$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * 4 )+" MXN" );
 				}
 			});
 		break;
@@ -470,26 +279,44 @@ function loadFase(fase){
 			var total = 0;
 			var cant_item = 0;
 
+
+
 			jQuery( '#cart-items' ).html("");
 			jQuery.each( CARRITO["productos"],  function(key, producto){
+
+				var plan = 1;
+				switch( producto['plan'] ){
+					case "Mensual":
+						plan = 2;
+					break;
+					case "Bimestral":
+						plan = 4;
+					break;
+				}
+
+				var _producto = producto["producto"];
+				var presentacion = producto["presentacion"];
+				var precio_plan = PRODUCTOS[ _producto ]["presentaciones"][ presentacion ]*plan;
+
 				add_item_cart(
 					key,
 					producto["producto"],
-					PRODUCTOS[ producto["producto"] ].nombre,
+					PRODUCTOS[ _producto ].nombre,
 					producto['plan'],
 					TEMA+"/productos/imgs/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
-					PRODUCTOS[ producto["producto"] ]["presentaciones"][ producto["presentacion"] ],
+					precio_plan,
 					producto["presentacion"],
 					producto["cantidad"]								
 				);
-				
-				subtotal += ( PRODUCTOS[ producto["producto"] ]["presentaciones"][ producto["presentacion"] ] * producto["cantidad"] );
+
+				var temp_total = ( precio_plan * producto["cantidad"] );
+				CARRITO["productos"][key]["subtotal"] = temp_total;
+				subtotal += temp_total;
+
+				cant_item += parseInt( producto["cantidad"] );
 			});
-			iva = subtotal *0.12;
+			
 			total = subtotal + iva;
-
-
-			cant_item += parseInt( 1 );
 
 			jQuery('#cant-item').html(cant_item);
 			jQuery('#subtotal').html( FN(subtotal)+" MXN" );
@@ -497,6 +324,7 @@ function loadFase(fase){
 			jQuery('#total').html( FN(total)+" MXN" );
 
 			CARRITO["total"] = total;
+			CARRITO["cantidad"] = cant_item;
 
 		break;
 	}
@@ -524,33 +352,238 @@ function eliminarProducto(id){
     }
 }
 
-add_action('phpmailer_init','send_smtp_email');
-	function send_smtp_email( $phpmailer )
-	{
-	   // Define que estamos enviando por SMTP
-	    $phpmailer->isSMTP();
-	 
-	    // La dirección del HOST del servidor de correo SMTP p.e. mail.midominio.com o pa IP del servidor
-	    $phpmailer->Host = "smtp.gmail.com";
-	 
-	    // Uso autenticación por SMTP (true|false)
-	    $phpmailer->SMTPAuth = true;
-	 
-	    // Puerto SMTP - Suele ser el 25, 465 o 587
-	    $phpmailer->Port = "587";
-	 
-	    // Usuario de la cuenta de correo
-	    $phpmailer->Username = "clubpatitasfelices@kmimos.la";
-	 
-	    // Contraseña para la autenticación SMTP
-	    $phpmailer->Password = "Kmimos2017";
-	 
-	    // El tipo de encriptación que usamos al conectar - ssl (deprecated) o tls
-	    $phpmailer->SMTPSecure = "tls";
-	 
-	    $phpmailer->From = "clubpatitasfelices@kmimos.la";
-	    $phpmailer->FromName = "Marca";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carruseles */
+
+
+	jQuery(window).resize(function() {
+		ventana_ancho = jQuery(window).width();
+		ventana_alto = jQuery(window).height();
+	  	switch(ventana_ancho) {
+		    case 360: 
+		    case 375:
+		    case 400:
+		    case 412:
+		    case 414: 
+		        //console.log('Cambio a pequeña '+ventana_ancho);
+		        break;
+		    case 500: 
+		    case 600: 
+		    case 700: 
+		    case 768: 
+		    case 800: 
+		        //console.log('Cambio a grande '+ventana_ancho);
+		        break;
+		    
+		    default:
+		        //console.log('va cambiando '+ventana_ancho);
+		        break;
+		}
+	});
+
+	function loadProductos(){
+		var actual_select = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
+		jQuery('#vlz_carrousel_2').html("");
+		jQuery.each(PRODUCTOS,  function(key, val){
+			// if( val['tamanos'][ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] ] == 1 ){
+				
+
+				if( CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] == undefined ){
+					CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = key;
+					jQuery("#presentaciones").attr("data-value", key );
+					jQuery("#nombre_producto").html( val.nombre );
+					jQuery("#presentaciones .button_presentacion").css("display", "none");
+					jQuery.each(val["presentaciones"],  function(key2, val2){
+						if( val2 > 0 ){
+							jQuery("#presentacion-"+key2).css("display", "inline-block");
+						}
+					});
+				}
+
+				jQuery('#vlz_carrousel_2')
+				.append(
+					jQuery('<img id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">')
+					.attr(
+						{
+							'src': TEMA+"/productos/imgs/"+val.dataextra.img,
+						   	'width': '270px',
+						}
+					)
+				);
+
+			// }
+		});
+
+		if( actual_select != undefined ){
+			CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = "#item_"+actual_select;
+		}
 	}
+	function loadProductosResponsive(){
+		var actual_select = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
+		jQuery('#carrousel_2').html("");
+		jQuery.each(PRODUCTOS,  function(key, val){
+			// if( val['tamanos'][ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] ] == 1 ){
+				
+
+				if( CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] == undefined ){
+					CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = key;
+					jQuery("#presentaciones").attr("data-value", key );
+					jQuery("#nombre_producto").html( val.nombre );
+					jQuery("#presentaciones .button_presentacion").css("display", "none");
+					jQuery.each(val["presentaciones"],  function(key2, val2){
+						if( val2 > 0 ){
+							jQuery("#presentacion-"+key2).css("display", "inline-block");
+						}
+					});
+				}
+
+				jQuery('#carrousel_2')
+				.append(
+					jQuery('<img id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">')
+					.attr(
+						{
+							'src': TEMA+"/productos/imgs/"+val.dataextra.img,
+						   	'width': '270px',
+						}
+					)
+				);
+
+			// }
+		});
+
+		if( actual_select != undefined ){
+			CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = "#item_"+actual_select;
+		}
+	}
+
+	function carrousel(){
+		jQuery('#vlz_carrousel').waterwheelCarousel({
+			separation: 300,
+			edgeFadeEnabled: true,     	 
+			flankingItems: 3,
+			orientation: 'horizontal',
+			movingToCenter: function ($item) {
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = $item.attr('id');
+				jQuery('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+			},
+			movedToCenter: function ($item) {},
+			movingFromCenter: function ($item) {},
+			movedFromCenter: function ($item) {},
+			clickedCenter: function ($item) {}
+		});
+	}
+
+	function carrousel_responsive(){
+		jQuery('#carrousel_responsive').waterwheelCarousel({
+			separation: 150,
+			edgeFadeEnabled: true,     	 
+			flankingItems: 3,
+			orientation: 'vertical',
+			movingToCenter: function ($item) {
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = $item.attr('id');
+				jQuery('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+			},
+			movedToCenter: function ($item) {},
+			movingFromCenter: function ($item) {},
+			movedFromCenter: function ($item) {},
+			clickedCenter: function ($item) {}
+		});
+	}
+
+	function carrousel_productos() {
+		jQuery("#vlz_carrousel_2").waterwheelCarousel({
+			flankingItems: 3,
+			movingToCenter: function (jQueryitem) { },
+			movedToCenter: function (jQueryitem) {
+				jQuery("#presentaciones").attr("data-value", jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id") );
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = jQuery("#vlz_carrousel_2 .carousel-center").attr("data-id");
+				jQuery("#nombre_producto").html( jQuery("#vlz_carrousel_2 .carousel-center").attr("data-name") );
+				jQuery("#presentaciones .button_presentacion").css("display", "none");
+				jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["presentaciones"],  function(key, val){
+					if( val > 0 ){
+						jQuery("#presentacion-"+key).css("display", "inline-block");
+					}
+				});
+			},
+			movingFromCenter: function (jQueryitem) {},
+			movedFromCenter: function (jQueryitem) {},
+			clickedCenter: function (jQueryitem) {}
+		});
+		
+	}
+	function carrousel_productos_responsive() {
+		jQuery("#carrousel_2").waterwheelCarousel({
+			flankingItems: 5,
+			separation: 100,
+			orientation: 'vertical',
+			movingToCenter: function (jQueryitem) {},
+			movedToCenter: function (jQueryitem) {
+				jQuery("#presentaciones").attr("data-value", jQuery("#carrousel_2 .carousel-center").attr("data-id") );
+				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] = jQuery("#carrousel_2 .carousel-center").attr("data-id");
+				jQuery("#nombre_producto").html( jQuery("#carrousel_2 .carousel-center").attr("data-name"));
+				jQuery("#presentaciones .button_presentacion").css("display", "none", "");
+				jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["presentaciones"],  function(key, val){
+					if( val > 0 ){
+						jQuery("#presentacion-"+key).css("display", "inline-block");
+					}
+				});
+			},
+			movingFromCenter: function (jQueryitem) {},
+			movedFromCenter: function (jQueryitem) {},
+			clickedCenter: function (jQueryitem) {}
+		});
+	}
+
 
 
 
