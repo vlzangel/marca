@@ -3,7 +3,7 @@
 
  		<aside id="top"> 
 			<div class="container hidden-xs">							
-			<ul class="option-menu list-unstyled list-inline col-md-12 pull-right text-left">
+			<ul class="option-menu list-unstyled list-inline col-md-12 col-sm-12 pull-right text-left">
 					<div  class="col-sm-12 col-xs-4 text-left" >
 						<a class="btn-kmibox-white"
 							id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
@@ -13,7 +13,7 @@
 					</div>
 
 					<div style="float:left;width:75%;" class="col-xs-12 col-md-12 text-center">    
-						<label style="text-align: center; color: #ffffff; font-size: 18px;margin-left: 80%; font-family: caviar_dreamsregular;">Registro de Usuario
+						<label style="text-align: center; color: #ffffff; font-size: 18px;margin-left: 70%; font-family: caviar_dreamsregular;">Registro de Usuario
 					    </label>
 					</div>  
 				</ul>
