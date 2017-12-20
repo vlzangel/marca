@@ -34,7 +34,7 @@
 						<div class="list-inline form-group list-unstiled">
 							
 								
-									<div class="checkbox" style="margin-left: 40px">
+									<div class="checkbox caviar" style="margin-left: 40px">
 										<label>Sexo</label>
 										<label>
 											<input <?php echo ($user['sexo']=='m')? 'checked': '' ; ?> 

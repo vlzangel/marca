@@ -6,9 +6,9 @@
 								
 			<ul class="option-menu list-unstyled list-inline col-xs-4 col-md-12  text-left">
 					<div  class="col-sm-12 text-left" >
-						<a class="btn-kmibox-white"
+						<a class="btn-kmibox-white" style="font-family: caviar_dremasregular"
 							id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
-							<i class="fa fa-chevron-left caviar" aria-hidden="true"></i>
+							<i class="fa fa-chevron-left" aria-hidden="true"></i>
 							Atras
 						</a>
 					</div>

@@ -6,6 +6,7 @@
 		<script type='text/javascript' src="<?php echo get_home_url(); ?>/plugins/bootstrap-validator/bootstrapValidator.js"></script>
 		<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/backpanel.js"></script>
 		<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/init.js"></script>
+		<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/carousel.js"></script>
 
 		<?php 
 			/* wp_footer(); */
