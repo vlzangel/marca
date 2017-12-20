@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		
-		<div class="row text-center">
+		<div class="row text-center" style="font-size: 12px">
 			<div class="col-md-6 hidden-xs hidden-sm">
 				<label class="caviar">Estatus:</label>
 				<input id="estatus" class="disabled form-control profile-content-input " readonly value="">				
