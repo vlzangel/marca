@@ -13,6 +13,10 @@
 
 	$CARRITO = unserialize( $_SESSION["CARRITO"] );
 
+/*	echo "<pre>";
+		print_r($CARRITO);
+	echo "</pre>";*/
+
 	get_header(); 
 	get_template_part( 'template/parts/header/suscription', 'checkout' );
 
