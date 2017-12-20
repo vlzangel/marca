@@ -259,7 +259,7 @@ function loadFase(fase_id){
 					.addClass('col-xs-12 col-md-2 currency')
 					.append(
 						$('<label>') 
-						.html( '$'+ price )
+						.html( '$ '+ price )
 					)
 					/*
 					,
