@@ -12,23 +12,23 @@
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/perfil-usuario">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm caviar" style="font-family: caviar_dremasregular"><?php echo $user->user_email; ?></span></a><!--href="<?php echo get_home_url(); ?>/perfil-usuario">-->
+							<span class="hidden-xs hidden-sm caviar" ><?php echo $user->user_email; ?></span></a><!--href="<?php echo get_home_url(); ?>/perfil-usuario">-->
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo wp_logout_url( get_home_url() );?>">
 							
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm caviar" style="font-family: caviar_dremasregular">Salir</span></a><!--href="<?php echo wp_logout_url( get_home_url() );?> ">-->
+							<span class="hidden-xs hidden-sm caviar">Salir</span></a><!--href="<?php echo wp_logout_url( get_home_url() );?> ">-->
 						</li> 
 					<?php }else{ ?>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key fa-lg" aria-hidden="true"></i>
-							<span class="caviar" style="font-family: caviar_dremasregular">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
+							<span class="caviar">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus fa-lg" aria-hidden="true"></i> <span class="caviar" style="font-family: caviar_dremasregular">Registro</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
+							<i class="fa fa-user-plus fa-lg" aria-hidden="true"></i> <span class="caviar">Registro</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
 						</li>
 					<?php } ?>
 
