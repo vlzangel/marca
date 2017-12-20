@@ -251,7 +251,7 @@ span.separador_presentacion {
 }
 
 @media all and (max-width:959px) {
-   #desglose {
+  table  #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
@@ -283,7 +283,8 @@ span.separador_presentacion {
 
 }
 @media all and (min-width:959px) {
-  #desglose {
+  
+    table  #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
@@ -314,7 +315,8 @@ span.separador_presentacion {
  
 }
 @media all and (max-width:959px) and (min-width:600px) {
-#desglose {
+   
+    table  #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
@@ -343,9 +345,8 @@ span.separador_presentacion {
 }
 
 }  
-
-@media (max-width:599px) and (min-width:200px) {
-   #desglose {
+@media all and (max-width:959px) and (min-width:600px) {
+    table #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
@@ -371,4 +372,37 @@ span.separador_presentacion {
     color: #FFF;
     padding: 10px 20px;
     font-size: 9px;
+}
+
+    }
+
+@media (max-width:599px) and (min-width:200px) {
+  
+table #desglose {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
+#desglose th{    
+    text-align: left;
+    background-color: #930e9e;
+    color: #FFF;
+    padding: 10px 20px;
+    font-size: 9px;
+}
 }
