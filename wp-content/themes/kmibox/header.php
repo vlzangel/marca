@@ -12,6 +12,7 @@
 	<!-- BEGIN Style -->
 	<link rel="stylesheet" href="<?php echo get_home_url(); ?>/css/animate.css">
 	<link rel="stylesheet" href="<?php echo get_home_url(); ?>/css/kmibox.css">
+	<link rel="stylesheet" href="<?php echo get_home_url(); ?>/css/quiero.css">
 	<!-- END Style -->
 
 	<!-- BEGIN Font -->

@@ -15,32 +15,32 @@
 
 						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs caviar" style="font-family: caviar_dremasregular">Quiero mi marca</span></a>
+						<span class="hidden-xs caviar">Quiero mi marca</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs caviar" style="font-family: caviar_dremasregular"><?php echo $user->display_name; ?></span></a>
+							<span class="hidden-xs caviar"><?php echo $user->display_name; ?></span></a>
 						</li> 
 						<li>
 							<a class="btn-kmibox-link" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs caviar" style="font-family: caviar_dremasregular">Salir</span></a>
+							<span class="hidden-xs caviar">Salir</span></a>
 						</li>
 					<?php }else{ ?>
 
-						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link caviar" style="font-family: caviar_dremasregular">Quiero mi marca</a>
+						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link caviar">Quiero mi marca</a>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key" aria-hidden="true"></i>
-							<span class="hidden-xs caviar" style="font-family: caviar_dremasregular">Iniciar Sesion</span></a>
+							<span class="hidden-xs caviar">Iniciar Sesion</span></a>
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs  caviar" style="font-family: caviar_dremasregular">Registro</span></a>
+							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs  caviar">Registro</span></a>
 						</li>
 					<?php } ?>
 

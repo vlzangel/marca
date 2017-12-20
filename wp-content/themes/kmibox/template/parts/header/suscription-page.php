@@ -2,7 +2,7 @@
 	
 				
 	<div id="header-purchase-title" class="col-sm-12 text-center">
-			<a class="btn btn-sm btn-kmibox-white pull-left hidden" style="font-family: caviar_dremasregular"
+			<a class="btn btn-sm btn-kmibox-white pull-left hidden caviar" 
 			id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url();?>">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i>
 			Atras

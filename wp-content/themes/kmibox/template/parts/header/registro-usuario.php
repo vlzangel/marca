@@ -23,7 +23,7 @@
 		<div class="container visible-xs">							
 			<ul class="option-menu list-unstyled list-inline col-xs-12 col-md-6  text-left">
 					<div  class="col-sm-12 col-xs-4 text-left" >
-						<a class="btn-kmibox-white" style="font-family: caviar_dremasregular"
+						<a class="btn-kmibox-white"
 							id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url();?>">
 							<i class="fa fa-chevron-left caviar" aria-hidden="true"></i>
 							Atras
