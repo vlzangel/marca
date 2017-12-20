@@ -1304,8 +1304,8 @@ select{
 		width: 100%;
 	}
 	.btn-sm-kmibox {
-	    font-size: 12px;
-	    padding: 4px!important;
+	   /* font-size: 12px;
+	    padding: 4px!important;*/
 	}
 	#section-comment{
 		background-size: cover;
