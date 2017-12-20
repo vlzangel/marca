@@ -251,7 +251,7 @@ span.separador_presentacion {
 }
 
 @media all and (max-width:959px) {
-  table  #desglose {
+   #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
@@ -262,7 +262,7 @@ span.separador_presentacion {
 
 .cintillo_factura #der {
     /* float: right; */
-    height: 50px;
+    height: 50px; 
     margin: 20px;
 }
 
@@ -283,7 +283,7 @@ span.separador_presentacion {
 
 }
 @media all and (min-width:959px) {
-    table  #desglose {
+  #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
@@ -314,7 +314,7 @@ span.separador_presentacion {
  
 }
 @media all and (max-width:959px) and (min-width:600px) {
-    table  #desglose {
+#desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
@@ -345,7 +345,7 @@ span.separador_presentacion {
 }  
 
 @media (max-width:599px) and (min-width:200px) {
-   table #desglose {
+   #desglose {
     width: 50%;
     font-family: caviar_dreamsregular;
 }
