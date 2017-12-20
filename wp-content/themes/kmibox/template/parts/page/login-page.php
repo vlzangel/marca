@@ -28,23 +28,23 @@
 				</div>
 
 				<div class="form-group text-center">
-					<label style="color: #ffffff;">
+					<label style="color: #ffffff; ">
 						<input type="checkbox" name="rememberme"> Recuerdame 	
 					</label>
 				</div>
 
-				<div class="form-group col-xs-10 text-center" style="margin-bottom: 0px; color: #ffffff">
+				<div class="form-group col-xs-10 text-center caviar" style="margin-bottom: 0px; color: #ffffff">
 					<a style="color: #ffffff;"class="pull-right" href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
 				</div>
 
 				<div class="form-group">
 					<div class="text-center">
-						<button id="btn-login" type="submit" class="btn btn-sm-kmibox">Iniciar sesion</button>
+						<button id="btn-login" type="submit" class="btn btn-sm-kmibox caviar">Iniciar sesion</button>
 						<br>
 						<br>
-						<label style="color: #ffffff">¿Aún no tienes perfil Marca? </label>
+						<label style="color: #ffffff" class="caviar">¿Aún no tienes perfil Marca? </label>
 						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" >
-							<span style="color: #000000">Regístrate aquí</span>
+							<span style="color: #000000" class="caviar">Regístrate aquí</span>
 						</a>
 					</div>
 				</div>

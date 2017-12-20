@@ -1,7 +1,7 @@
 <?php
 /* 
  *
- * Template Name: checkout 
+ * Template Name: Pago Tienda 
  *
  */
  
@@ -12,10 +12,6 @@
 	}
 
 	$CARRITO = unserialize( $_SESSION["CARRITO"] );
-
-/*	echo "<pre>";
-		print_r($CARRITO);
-	echo "</pre>";*/
 
 	get_header(); 
 	get_template_part( 'template/parts/header/suscription', 'checkout' );
@@ -34,7 +30,7 @@
 		</aside>
 	<?php	
 		}else{
-			get_template_part( 'template/parts/page/checkout', 'page' ); 
+			get_template_part( 'template/parts/page/checkout-tienda', 'page' ); 
 		}
 	?>
 </section>

@@ -1,18 +1,29 @@
 <?php 
 
+	if( !isset($_SESSION) ){ session_start(); }
+
 	define('WP_USE_THEMES', false);
 	$url = realpath( __DIR__ . '/../../../../../wp-load.php' );
 	include_once( $url );
 
- 	include_once("../../lib/openpay/Openpay.php");
-
  	global $wpdb;
+
+ 	$current_user = wp_get_current_user();
+    $user_id = $current_user->ID;
 
  	extract($_POST);
 
- 	$dataOpenpay = dataOpenpay();
+ 	$orden_id = crearPedido();
 
- 	$_POST["OP"] = $dataOpenpay;
+ 	$respuesta = array();
+ 	$respuesta["orden_id"] = $orden_id;
+ 	$respuesta["error"] = "";
+
+ 	// echo json_encode($respuesta);
+
+ 	// exit();
+ 	
+ 	$dataOpenpay = dataOpenpay();
 
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
@@ -42,24 +53,38 @@
 		    'expiration_year' => $exp_year
 		);
 
-		$customer = $openpay->customers->get($openpay_cliente_id);
+	    try {
+			$customer = $openpay->customers->get($openpay_cliente_id);
+		} catch (Exception $e) {
+	    	$customerData = array(
+		     	'name' => $nombre,
+		     	'email' => $email
+		  	);
+			$customer = $openpay->customers->add($customerData);
+			$openpay_cliente_id = $customer->id;
+			update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
+	    }
+
 		$card = $customer->cards->add($cardDataRequest);
+		$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = '{$orden_id}'");
+		foreach ($suscripciones as $suscripcion) {
+			$subscriptionDataRequest = array(
+			    "trial_end_date" => "2014-01-01", 
+			    'plan_id' => $suscripcion->plan_id,
+			    'card_id' => $card->id
+			);
+			$customer = $openpay->customers->get($openpay_cliente_id);
+			$subscription = $customer->subscriptions->add($subscriptionDataRequest);
+			$wpdb->query("UPDATE items_ordenes SET suscripcion_id = '{$subscription->id}' WHERE id = '{$suscripcion->id}'");
+			$respuesta["suscripciones"][] = $subscription->id;
+		}
+		
+		$respuesta["cliente"] = $openpay_cliente_id;
+		$respuesta["tarjeta"] = $card->id;
 
-		$subscriptionDataRequest = array(
-		    "trial_end_date" => "2014-01-01", 
-		    'plan_id' => 'pkfvsow1n7vxmv1vaj34',
-		    'card_id' => $card->id
-		);
-
-		$customer = $openpay->customers->get($openpay_cliente_id);
-		$subscription = $customer->subscriptions->add($subscriptionDataRequest);
-
-		$_POST["cliente"] = $openpay_cliente_id;
-		$_POST["tarjeta"] = $card->id;
-		$_POST["suscripcion"] = $subscription->id;
-		$_POST["error"] = "";
-
-		echo json_encode($_POST);
+		unset($_SESSION["CARRITO"]);
+		
+		echo json_encode($respuesta);
 
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();

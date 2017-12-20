@@ -323,18 +323,7 @@ $(function($){
 	// ***************************************
 	// Load municipios 
 	// ***************************************
-	$('[name="dir_estado"]').on('change', function(){
-
-		$.get( urlbase+"/ajax/admin_municipio.php?estado="+$(this).val(), function(r) {
-			var options = '<option value="0">Delegación</option>';
-			var rx = $.parseJSON(r);
-			$.each( rx, function(id, row){
-				options = options  + '<option value="'+row.id+'">'+row.name+'</option>';
-			});
-			$('[name="dir_ciudad"]').html( options );
-		});
-
-	});
+	
 
  	
 	// ***************************************
@@ -349,15 +338,13 @@ $(function($){
 			jQuery(this).serialize(),
 			function(data){
 				console.log( data );
-
 				if( data["error"] == "" ){
-					alert("Suscripcion completada!");
-					location.href = HOME+"/perfil-usuario/";
+					jQuery("#pagar").addClass("hidden");
+					jQuery("#pago_exitoso").removeClass("hidden");
 					jQuery("#btn_pagar_1").text("Realizar Pago");
 				}else{
 					alert("Error, ver en la consola javascript");
 				}
-
 			}, "json"
 		).fail(function(e) {
 			console.log( e );

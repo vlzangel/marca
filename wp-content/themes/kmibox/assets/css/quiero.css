@@ -23,9 +23,12 @@ html, body {
 
 section {
 	width: 100%;
-	height: 100%;
 	box-sizing: border-box;
 	overflow: hidden;
+}
+
+.caviar{
+    font-family: caviar_dreamsregular !important;
 }
 
 .comprar_container {
@@ -229,15 +232,196 @@ span.separador_presentacion {
 }
 
 #btn-sm-marca{
-    background: #ffffff;
-    border-radius: 40px;
-    border : 1px solid #fff;
-    color:#fff;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 60px 10px 60px;;;
-    margin-top: 10px;
+   
 }
 .btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
     background: rgb(144, 14, 156) !important;
+}
+
+.cantidad_controls{
+    display: inline-block;
+    width: 10px;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.cantidad_controls i{
+    font-size: 20px;
+}
+
+@media all and (max-width:959px) {
+  table  #desglose {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px; 
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
+#desglose th{    
+    text-align: left;
+    background-color: #930e9e;
+    color: #FFF;
+    padding: 10px 10px;
+    font-size: 9px;
+}
+
+#desglose td {    
+    padding: 0px;
+}
+
+}
+@media all and (min-width:959px) {
+  
+    table  #desglose {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
+#desglose th{    
+    text-align: left;
+    background-color: #930e9e;
+    color: #FFF;
+    padding: 10px 10px;
+    font-size: 9px;
+}
+ 
+#desglose td {    
+    padding: 0px;
+}
+
+}
+@media all and (max-width:959px) and (min-width:600px) {
+   
+    table  #desglose {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
+#desglose th{    
+    text-align: left;
+    background-color: #930e9e;
+    color: #FFF;
+    padding: 10px 10px;
+    font-size: 9px;
+}
+
+#desglose td {    
+    padding: 0px;
+}
+
+}  
+@media all and (max-width:959px) and (min-width:600px) {
+    table #desglose {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
+#desglose th{    
+    text-align: left;
+    background-color: #930e9e;
+    color: #FFF;
+    padding: 10px 10px;
+    font-size: 9px;
+}
+
+#desglose td {    
+    padding: 0px;
+}
+
+    }
+
+@media (max-width:599px) and (min-width:200px) {
+  
+table #desglose {
+    width: 50%;
+    font-family: caviar_dreamsregular;
+}
+.cintillo_factura #cen {
+    height: 15px;
+    margin: 25px auto;
+}
+.cintillo_factura #der {
+    /* float: right; */
+    height: 50px;
+    margin: 20px;
+}
+
+.cintillo_factura #izq {
+    /* float: left; */
+    height: 50px;
+    margin: 20px;
+}
+
+#desglose th{    
+    text-align: left;
+    background-color: #930e9e;
+    color: #FFF;
+    padding: 10px 10px;
+    font-size: 9px;
+}
+
+#desglose td {    
+    padding: 0px;
+}
+
 }

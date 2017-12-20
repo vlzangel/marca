@@ -34,7 +34,7 @@
 						<div class="list-inline form-group list-unstiled">
 							
 								
-									<div class="checkbox" style="margin-left: 40px">
+									<div class="checkbox caviar" style="margin-left: 40px">
 										<label>Sexo</label>
 										<label>
 											<input <?php echo ($user['sexo']=='m')? 'checked': '' ; ?> 
@@ -81,8 +81,8 @@
 
 
 					<select class="has-error form-control profile-content-input" name="dondo_conociste" value="<?php echo $user['dondo_conociste']; ?>">	
-
 						
+						<option value="otros"><?php echo $user['dondo_conociste']; ?></option>
 						<option value="redes sociales">Redes Sociales</option>
 						<option value="google">Google</option>
 						<option value="amigos/familiares">Amigos/Familiares</option>

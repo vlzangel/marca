@@ -4,43 +4,46 @@
 			<div class="container">
 				
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  >
-				</a> 		
+					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  class="hidden-xs"  >
+				</a> 
+				<a href="<?php echo get_home_url(); ?>">
+					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  class="hidden-sm hidden-md hidden-lg visible-xs" width="25%;" >
+				</a>		
 				
 
-		    	<ul class="option-menu list-unstyled list-inline col-xs-6 col-md-6 pull-right text-right">
+		    	<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 pull-right text-right">
 					<?php if ( is_user_logged_in() ){ ?>
 
 						<li>
 
 						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs hidden-sm">Quiero mi marca</span></a>
+						<span class="hidden-xs caviar">Quiero mi marca</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm"><?php echo $user->display_name; ?></span></a>
+							<span class="hidden-xs caviar"><?php echo $user->display_name; ?></span></a>
 						</li> 
 						<li>
 							<a class="btn-kmibox-link" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm">Salir</span></a>
+							<span class="hidden-xs caviar">Salir</span></a>
 						</li>
 					<?php }else{ ?>
 
-						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link">Quiero mi marca</a>
+						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link caviar">Quiero mi marca</a>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm">Iniciar Sesion</span></a>
+							<span class="hidden-xs caviar">Iniciar Sesion</span></a>
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Registro</span></a>
+							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs  caviar">Registro</span></a>
 						</li>
 					<?php } ?>
 

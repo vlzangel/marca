@@ -5,10 +5,11 @@
 	$data = explode("===", $_POST["CART"]);
 
 	$info = array(
-		"total" => $data[0]
+		"total" => $data[0],
+		"cantidad" => $data[1]
 	);
 
-	$productos = explode("|", $data[1]);
+	$productos = explode("|", $data[2]);
 
 	foreach ($productos as $key => $producto) {
 		$productos[ $key ] = json_decode($producto);
