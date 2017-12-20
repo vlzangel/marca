@@ -28,7 +28,7 @@
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
 					</div>
-					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg">
+					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg style="margin-top:12%">
 						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="250px" id="Grande" />
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="250px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="250px" id="Pequeño" />
@@ -82,7 +82,7 @@
 			</section>
 
 			<section id="fase_2" class="hidden">
-				<div class="comprar_box ">
+				<div class="comprar_box" style="margin-left: 15%">
 					<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
 					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm"></div>
 				</div>
@@ -112,7 +112,7 @@
 						</button>
 					</div>
 
-					<span id="no_aparece">Si no aparece tu marca haz <a href="#">click aqui</a></span>
+					<span id="no_aparece" class="caviar">Si no aparece tu marca haz <a href="#">click aqui</a></span>
 				</div>
 
 			</section>
@@ -219,7 +219,7 @@
 						<div class="row" >
 							<div  style="clear:both;"></div>
 							<div style="float:left;width:50%;">    
-								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  class="img-responsive" width="250" height="240"/>
+								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  class="img-responsive" width="250" height="250"/>
 								<a href="#"  id="pagar" role="button"  data-target="suscription"><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
 							</div>
 							<div style="float:left;width:50%;" >    
