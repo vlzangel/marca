@@ -38,14 +38,14 @@
 				<label class="caviar">Próxima entrega</label>
 				<input id="proxima_entrega" class="disabled form-control profile-content-input " readonly value="">				
 			</div>
-			<div class="col-md-6 visible-xs col-xs-6">
+			<div class="col-md-6 visible-xs visible-sm col-xs-6">
 				<label class="caviar">Estatus:</label>
 				<input id="estatus" class="disabled form-control profile-content-input " readonly value="">				
 			</div>
 		</div>
 		
-		<div class="row text-center">
-			<div class="col-md-6 hidden-xs">
+		<div class="row text-center" style="font-size: 12px">
+			<div class="col-md-6 hidden-xs hidden-sm">
 				<label class="caviar">Estatus:</label>
 				<input id="estatus" class="disabled form-control profile-content-input " readonly value="">				
 			</div>
@@ -84,21 +84,21 @@
 			<div class="border-curvo col-md-12 col-sm-12 col-md-12 text-center">				
 				<div class="row" id="content-estatus">
 					<div data-ubicacion="armada" class="col-xs-4 col-sm-3 col-md-3 pull-left selected">
-						<img src="<?php echo get_home_url(); ?>/img/progress-box.png" class="img-responsive" >
+						<img src="<?php echo get_home_url(); ?>/img/box-marca.png" class="img-responsive" >
 						<label class="hidden-xs hidden-sm caviar">Armada</label>
 					</div>
 					<div class="col-md-2 col-sm-2 flecha hidden-xs ">
 						<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="128">
 					</div>
 					<div data-ubicacion="enviada" class="col-xs-4 col-md-3 col-sm-3 selected">
-						<img src="<?php echo get_home_url(); ?>/img/progress-cart.png" class="img-responsive" >
+						<img src="<?php echo get_home_url(); ?>/img/truck.png" class="img-responsive" >
 						<label class="hidden-xs hidden-sm caviar">Enviada</label>
 					</div>
 					<div class="col-md-2 col-sm-2 flecha hidden-xs">
 						<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="128">
 					</div>
 					<div data-ubicacion="recibida" class="col-xs-4 col-md-3 col-sm-3 selected">
-						<img src="<?php echo get_home_url(); ?>/img/progress-house.png" class="img-responsive pull-right" >
+						<img src="<?php echo get_home_url(); ?>/img/guy.png" class="img-responsive pull-right" >
 						<label class="hidden-xs hidden-sm caviar">Recibida</label>
 					</div>
 					<label id="mobile-estatus" class="hidden-md hidden-lg"></label>

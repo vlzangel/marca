@@ -102,14 +102,14 @@ foreach ($suscripciones as $key => $value) {
 				<label class="caviar">Próxima entrega</label>
 				<input readonly id="proxima_entrega" class="profile-content-input form-control"  value="">				
 			</div>
-			<div class="col-md-4 col-xs-6 hidden-sm
-			hidden-md hidden-lg visible-xs ">
+			<div class="col-md-4 col-xs-6 
+			hidden-md hidden-lg visible-xs visible-sm">
 				<label class="caviar">Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
 		</div>
-		<div class="row text-center">
-			<div class="col-md-6 col-xs-6 hidden-xs ">
+		<div class="row text-center" style="font-size: 12px">
+			<div class="col-md-6 col-xs-6 hidden-xs hidden-sm">
 				<label class="caviar">Estatus:</label>
 				<input readonly id="estatus" class="profile-content-input form-control"  value="">
 			</div>
@@ -148,21 +148,21 @@ foreach ($suscripciones as $key => $value) {
 					
 					<div class="row">
 						<div id="armada" class="col-xs-12 col-sm-12 col-md-3  pull-left">
-							<img src="<?php echo get_home_url(); ?>/img/progress-box.png" class="img-responsive" >
+							<img src="<?php echo get_home_url(); ?>/img/box-marca.png" class="img-responsive" >
 							<label class="caviar">Armada</label>
 						</div>
 						<div class="col-md-2 flecha hidden-xs hidden-sm">
 							<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="120">
 						</div>
 						<div id="enviada" class="col-md-3 hidden-xs hidden-sm">
-							<img src="<?php echo get_home_url(); ?>/img/progress-cart.png" class="img-responsive" >
+							<img src="<?php echo get_home_url(); ?>/img/truck.png" class="img-responsive" >
 							<label class="caviar">Enviada</label>
 						</div>
 						<div class="col-md-2 flecha hidden-xs hidden-sm">
 							<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="120">
 						</div>
 						<div id="recibida" class="col-md-3 hidden-xs hidden-sm pull-right">
-						    <img src="<?php echo get_home_url(); ?>/img/progress-house.png" class="img-responsive" >
+						    <img src="<?php echo get_home_url(); ?>/img/guy.png" class="img-responsive" >
 							<label class="caviar">Recibida</label>
 						</div>
 					</div>

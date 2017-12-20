@@ -10,11 +10,12 @@
 	<!-- BEGIN Style - Plugins -->
 	
 	<!-- BEGIN Style -->
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/globales.css<?php echo VERSION(); ?>">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/responsive/globales.css<?php echo VERSION(); ?>">
+  	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/globales.css<?php echo VERSION(); ?>">
+	  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/responsive/globales.css<?php echo VERSION(); ?>">
 
-	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/animate.css">
-	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/kmibox.css">
+	  <link rel="stylesheet" href="<?php echo HOME(); ?>/css/animate.css">
+	  <link rel="stylesheet" href="<?php echo HOME(); ?>/css/kmibox.css">
+	  <link rel="stylesheet" href="<?php echo get_home_url(); ?>/css/quiero.css">
 	<!-- END Style -->
 
 	<!-- BEGIN Font -->

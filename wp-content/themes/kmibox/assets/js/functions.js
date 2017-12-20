@@ -315,7 +315,8 @@ function loadFase(fase){
 
 				cant_item += parseInt( producto["cantidad"] );
 			});
-			
+			iva = subtotal * 0.12;
+			subtotal= subtotal - iva;
 			total = subtotal + iva;
 
 			jQuery('#cant-item').html(cant_item);
@@ -565,7 +566,7 @@ function eliminarProducto(id){
 		jQuery("#carrousel_2").waterwheelCarousel({
 			flankingItems: 5,
 			separation: 100,
-			orientation: 'vertical',
+			orientation: 'horizontal',
 			movingToCenter: function (jQueryitem) {},
 			movedToCenter: function (jQueryitem) {
 				jQuery("#presentaciones").attr("data-value", jQuery("#carrousel_2 .carousel-center").attr("data-id") );

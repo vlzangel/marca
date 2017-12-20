@@ -28,7 +28,7 @@
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
 					</div>
-					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg">
+					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg" style="margin-top:12%"> 
 						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="250px" id="Grande" />
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="250px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="250px" id="Pequeño" />
@@ -82,7 +82,7 @@
 			</section>
 
 			<section id="fase_2" class="hidden">
-				<div class="comprar_box ">
+				<div class="comprar_box" style="margin-left: 15%">
 					<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
 					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm"></div>
 				</div>
@@ -112,7 +112,7 @@
 						</button>
 					</div>
 
-					<span id="no_aparece">Si no aparece tu marca haz <a href="#">click aqui</a></span>
+					<span id="no_aparece" class="caviar">Si no aparece tu marca haz <a href="#">click aqui</a></span>
 				</div>
 
 			</section>
@@ -122,27 +122,31 @@
 					<div id="planes">
 						<article id="plan-Quincenal" class="text-center col-sm-4 separation-top col-xs-6">
 							<img class="img-responsive" src="'.get_home_url().'/img/Quincenal.png" width="300px" height="370px">
-							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;" > Quincenal </button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;" > Quincenal </button>
 						</article>
 						<article id="plan-Mensual" class="text-center col-sm-4 separation-top col-xs-6">
 							<img class="img-responsive" src="'.get_home_url().'/img/Mensual.png" width="300px" height="370px">
-							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual</button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual</button>
 						</article>
 						<!-- <article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-offset-3 col-xs-6 arriba"> -->
-						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm" style="display: inline-block;margin-left: 26%;margin-top: 1%;">
+
+						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm hidden-xs" style="display: inline-block;/*margin-left: 26%; margin-top: 7%;*/">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
-							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777; margin-top: 0px">Bimestral</button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777; margin-top: 0px">Bimestral</button>
 						</article>
 
 						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-xs hidden-lg hidden-md visible-sm" style="display: inline-block;margin-top: 7%;">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
-							<button class="btn btn-sm-kmibox btn-sm-kmibox-price" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
+						</article>
+						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm hidden-lg hidden-md visible-xs" style="display: inline-block;margin-left:  26%;margin-top: 0%;">	<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
+							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
 						</article>
 
 					</div>
 				</div>
 				<div class="comprar_footer">
-					<span class="text-center fontspan">Descuento en comparación con el precio unitario mensual*</span>
+					<span class="text-center fontspan caviar">Descuento en comparación con el precio unitario mensual*</span>
 				</div>
 			</section>
 
@@ -215,7 +219,7 @@
 						<div class="row" >
 							<div  style="clear:both;"></div>
 							<div style="float:left;width:50%;">    
-								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  class="img-responsive" width="250" height="240"/>
+								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  class="img-responsive" width="250" height="250"/>
 								<a href="#"  id="pagar" role="button"  data-target="suscription"><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
 							</div>
 							<div style="float:left;width:50%;" >    
