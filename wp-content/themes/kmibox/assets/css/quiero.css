@@ -29,7 +29,7 @@ section {
 }
 
 .caviar{
-    font-family: caviar_dreamsregular;
+    font-family: caviar_dreamsregular !important;
 }
 
 .comprar_container {
