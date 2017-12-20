@@ -16,72 +16,73 @@ foreach ($suscripciones as $key => $value) {
 </pre -->
 
 <article class="row profile-content">
-<div style="margin-left: 250px" class="hidden-xs">
-	<div style="float:left;width:70%;">    
-		<div class=" col-md-4 col-xs-12 col-md-offset-2 hidden-sm"
-			style="margin-top:20px;  margin-left: 0;    width: 55%;">
-			<h3 style="color: #94d400">Selecciona una suscripción</h3>
-			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
-				<option class="caviar">Selecciona una Marca</option>
-				<?php foreach ($suscripciones as $key => $kmibox) { ?>
-					<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
-				<?php } ?>
-			</select>
+	
+	<div style="margin-left: 250px" class="hidden-xs">
+		<div style="float:left;width:70%;">    
+			<div class=" col-md-4 col-xs-12 col-md-offset-2 hidden-sm"
+				style="margin-top:20px;  margin-left: 0;    width: 55%;">
+				<h3 style="color: #94d400">Selecciona una suscripción</h3>
+				<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
+					<option class="caviar">Selecciona una Marca</option>
+					<?php foreach ($suscripciones as $key => $kmibox) { ?>
+						<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
+					<?php } ?>
+				</select>
 
-			<span class="loading hidden">
-				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-				<span class="caviar">Cargando datos, porfavor espere...</span>
-			</span>
-	</div>
-	<div class=" col-md-4 col-xs-12 col-md-offset-2 visible-sm"
-			style="margin-top:20px;  margin-left: 0; ">
-			<h3 style="color: #94d400">Selecciona una suscripción</h3>
-			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
-				<option class="caviar">Selecciona una Marca</option>
-				<?php foreach ($suscripciones as $key => $kmibox) { ?>
-					<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
-				<?php } ?>
-			</select>
+				<span class="loading hidden">
+					<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+					<span class="caviar">Cargando datos, porfavor espere...</span>
+				</span>
+		</div>
+		<div class=" col-md-4 col-xs-12 col-md-offset-2 visible-sm"
+				style="margin-top:20px;  margin-left: 0; ">
+				<h3 style="color: #94d400">Selecciona una suscripción</h3>
+				<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
+					<option class="caviar">Selecciona una Marca</option>
+					<?php foreach ($suscripciones as $key => $kmibox) { ?>
+						<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
+					<?php } ?>
+				</select>
 
-			<span class="loading hidden">
-				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-				<span class="caviar">Cargando datos, porfavor espere...</span>
-			</span>
-	</div>
-	<div style="float:left;width:100%; border-radius:10px; border:1px solid #ccc;">    
-			<div class="col-md-6 col-md-offset-3 text-center">
-					<img id="imagen" src="<?php echo get_home_url(); ?>/img/NUPEC.png" class="img-responsive" >
+				<span class="loading hidden">
+					<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+					<span class="caviar">Cargando datos, porfavor espere...</span>
+				</span>
+		</div>
+		<div style="float:left;width:100%; border-radius:10px; border:1px solid #ccc;">    
+				<div class="col-md-6 col-md-offset-3 text-center">
+						<img id="imagen" src="<?php echo get_home_url(); ?>/img/NUPEC.png" class="img-responsive" >
+				</div>
+
 			</div>
-
 		</div>
 	</div>
-</div>
 
-<div class="visible-xs">
-	<div style="float:left;width:100%;">    
-		<div class="col-md-4 col-xs-12 col-md-offset-2"
-			style="margin-top:20px;">
-			<h3 style="color:#94d400">Selecciona una suscripción</h3>
-			<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
-				<option class="caviar">Selecciona una Marca</option>
-				<?php foreach ($suscripciones as $key => $kmibox) { ?>
-					<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
-				<?php } ?>
-			</select>
+	<div class="visible-xs">
+		<div style="float:left;width:100%;">    
+			<div class="col-md-4 col-xs-12 col-md-offset-2"
+				style="margin-top:20px;">
+				<h3 style="color:#94d400">Selecciona una suscripción</h3>
+				<select class="form-control" data-id="select_kmibox" data-target="content-suscripcion">
+					<option class="caviar">Selecciona una Marca</option>
+					<?php foreach ($suscripciones as $key => $kmibox) { ?>
+						<option value="<?php echo $key; ?>"> Orden No.: <?php echo "{$key} " . $kmibox['meta']['kmibox_size']; ?> </option>
+					<?php } ?>
+				</select>
 
-			<span class="loading hidden">
-				<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-				<span class="caviar">Cargando datos, porfavor espere...</span>
-			</span>
-	</div>
-	<div style="float:left;width:100%;">    
-			<div class="col-md-6 col-md-offset-3 text-center">
-					<img id="imagen" src="<?php echo get_home_url(); ?>/img/NUPEC.png" class="img-responsive" >
+				<span class="loading hidden">
+					<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+					<span class="caviar">Cargando datos, porfavor espere...</span>
+				</span>
+		</div>
+		<div style="float:left;width:100%;">    
+				<div class="col-md-6 col-md-offset-3 text-center">
+						<img id="imagen" src="<?php echo get_home_url(); ?>/img/NUPEC.png" class="img-responsive" >
+				</div>
+
 			</div>
-
 		</div>
 	</div>
-</div>
 
 	<div id="content-suscripcion" 
 		class="col-md-8 col-xs-12 col-md-offset-2" 

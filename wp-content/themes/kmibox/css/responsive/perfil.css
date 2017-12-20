@@ -1,0 +1,20 @@
+@media (max-width: 992px){
+
+}
+
+@media (max-width: 768px){
+
+}
+
+@media (max-width: 500px){
+    .perfil_tabs li {
+	    font-size: 10px;
+	}
+}
+
+@media (max-width: 400px){
+    .perfil_tabs li {
+	    font-size: 9px;
+	    padding: 10px 3px;
+	}
+}
