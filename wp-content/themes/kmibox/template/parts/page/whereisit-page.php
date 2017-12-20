@@ -23,7 +23,7 @@
 			<div class="border-curvo col-md-12 col-sm-12 col-md-12 text-center">				
 				<div class="row" id="content-estatus">
 					<div data-ubicacion="armada" class="col-xs-6 col-sm-3 col-md-3 pull-left selected">
-						<img src="<?php echo get_home_url(); ?>/img/progress-box.png" class="img-responsive" >
+						<img src="<?php echo get_home_url(); ?>/img/box-marca.png" class="img-responsive" >
 						<label class="hidden-xs hidden-sm caviar">Armada</label>
 						<li class="hidden-sm hidden-md hidden-lg list-inline list-unstyle" id="leyenda"><span></span><label class="caviar">Armada</label></li>
 					</div>
@@ -31,7 +31,7 @@
 						<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="128">
 					</div>
 					<div data-ubicacion="enviada" class="col-xs-6 col-md-3 col-sm-3 selected">
-						<img src="<?php echo get_home_url(); ?>/img/progress-cart.png" class="img-responsive" >
+						<img src="<?php echo get_home_url(); ?>/img/truck.png" class="img-responsive" >
 						<label class="hidden-xs hidden-sm caviar">Enviada</label>
 						<li class="hidden-sm hidden-md hidden-lg list-inline list-unstyle" id="leyenda"><span></span><label class="caviar">Enviada</label></li>
 
@@ -40,7 +40,7 @@
 						<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="128">
 					</div>
 					<div data-ubicacion="recibida" class="col-xs-12 col-md-3 col-sm-3 selected">
-						<img src="<?php echo get_home_url(); ?>/img/progress-house.png" class="img-responsive text-center" >
+						<img src="<?php echo get_home_url(); ?>/img/guy.png" class="img-responsive text-center" >
 						<label class="hidden-xs hidden-sm caviar">Recibida</label>
 						<li class="hidden-sm hidden-md hidden-lg list-inline list-unstyle" id="leyenda"><span></span><label class="caviar">Recibida</label></li>
 
