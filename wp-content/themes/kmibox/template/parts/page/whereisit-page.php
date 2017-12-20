@@ -12,7 +12,7 @@
 		</select>
 		<span class="loading hidden">
 			<i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-			<span>Cargando datos, porfavor espere...</span>
+			<span class="caviar">Cargando datos, porfavor espere...</span>
 		</span>
 	</div>
 
