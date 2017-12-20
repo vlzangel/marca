@@ -28,6 +28,10 @@ section {
 	overflow: hidden;
 }
 
+.caviar{
+    font-family: caviar_dreamsregular;
+}
+
 .comprar_container {
     width: 100%;
     height: calc( 100% - 60px );
