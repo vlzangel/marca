@@ -4,8 +4,11 @@
 			<div class="container">
 				
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  >
-				</a> 		
+					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  class="hidden-xs"  >
+				</a> 
+				<a href="<?php echo get_home_url(); ?>">
+					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  class="hidden-sm hidden-md hidden-lg visible-xs" width="25%;" >
+				</a>		
 				
 
 		    	<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 pull-right text-right">
