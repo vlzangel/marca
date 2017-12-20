@@ -4,9 +4,9 @@
 		<article class="col-sm-10  text-left">
 			<h3 class="caviar">Contáctanos</h3>
 			<ul class="list-unstyled">
-				<li class="caviar">+52 (55) 1791.4931</li>
-				<li class="caviar">+52 (55) 66319264</li>
-				<li class="caviar">Email: contactomex@kmimos.la</li>
+				<li style="font-family: caviar_dremasregular">+52 (55) 1791.4931</li>
+				<li style="font-family: caviar_dremasregular">+52 (55) 66319264</li>
+				<li style="font-family: caviar_dremasregular">Email: contactomex@kmimos.la</li>
 			</ul>
 		</article>
 	</div>
@@ -14,12 +14,12 @@
 		<article class="col-sm-8  text-left">			
 			<h3 class="caviar">Navega</h3>
 			<ul class="list-unstyled">
-				<li class="caviar">Nosotros</li>
-				<li class="caviar">Nuestra promesa</li>
-				<li class="caviar">Blog</li>
-				<li class="caviar">Términos y condiciones</li>
-				<li class="caviar">Nuestros aliados</li>
-				<li class="caviar">Preguntas y respuestas</li>
+				<li style="font-family: caviar_dremasregular">Nosotros</li>
+				<li style="font-family: caviar_dremasregular">Nuestra promesa</li>
+				<li style="font-family: caviar_dremasregular">Blog</li>
+				<li style="font-family: caviar_dremasregular">Términos y condiciones</li>
+				<li style="font-family: caviar_dremasregular">Nuestros aliados</li>
+				<li style="font-family: caviar_dremasregular">Preguntas y respuestas</li>
 			</ul>
 		</article>
 	</div>
