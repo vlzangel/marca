@@ -50,7 +50,7 @@
 	echo "</pre>";*/
 
 	$HTML .= '
-		<section id="tab_2" class="section_activo">
+		<section id="tab_2">
 			<div class="section_box">
 				<div class="carrusel_suscripciones_container">
 					<div style="width: '.($W*200).'px;">
