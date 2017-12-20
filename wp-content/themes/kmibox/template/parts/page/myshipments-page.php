@@ -38,14 +38,14 @@
 				<label class="caviar">Próxima entrega</label>
 				<input id="proxima_entrega" class="disabled form-control profile-content-input " readonly value="">				
 			</div>
-			<div class="col-md-6 visible-xs col-xs-6">
+			<div class="col-md-6 visible-xs visible-sm col-xs-6">
 				<label class="caviar">Estatus:</label>
 				<input id="estatus" class="disabled form-control profile-content-input " readonly value="">				
 			</div>
 		</div>
 		
 		<div class="row text-center">
-			<div class="col-md-6 hidden-xs">
+			<div class="col-md-6 hidden-xs hidden-sm">
 				<label class="caviar">Estatus:</label>
 				<input id="estatus" class="disabled form-control profile-content-input " readonly value="">				
 			</div>
