@@ -392,36 +392,40 @@ span.separador_presentacion {
 
 @media (max-width:599px) and (min-width:200px) {
   
-table #desglose {
-    width: 50%;
-    font-family: caviar_dreamsregular;
-}
-.cintillo_factura #cen {
-    height: 15px;
-    margin: 25px auto;
-}
-.cintillo_factura #der {
-    /* float: right; */
-    height: 50px;
-    margin: 20px;
+    table #desglose {
+        width: 50%;
+        font-family: caviar_dreamsregular;
+    }
+    .cintillo_factura #cen {
+        height: 15px;
+        margin: 25px auto;
+    }
+    .cintillo_factura #der {
+        /* float: right; */
+        height: 50px;
+        margin: 20px;
+    }
+
+    .cintillo_factura #izq {
+        /* float: left; */
+        height: 50px;
+        margin: 20px;
+    }
+
+    #desglose th{    
+        text-align: left;
+        background-color: #930e9e;
+        color: #FFF;
+        padding: 10px 10px;
+        font-size: 9px;
+    }
+
+    #desglose td {    
+        padding: 0px;
+    }
+
 }
 
-.cintillo_factura #izq {
-    /* float: left; */
-    height: 50px;
-    margin: 20px;
-}
-
-#desglose th{    
-    text-align: left;
-    background-color: #930e9e;
-    color: #FFF;
-    padding: 10px 10px;
-    font-size: 9px;
-}
-
-#desglose td {    
-    padding: 0px;
-}
-
+#content-primary {
+    padding-top: 0px !important;
 }
