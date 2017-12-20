@@ -15,37 +15,37 @@
 						<li>
 						<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/quiero-mi-marca">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="">comprar</span></a>
+						<span class="caviar">comprar</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/perfil-usuario">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class=""><?php echo $user->user_email; ?></span></a>
+							<span class="caviar"><?php echo $user->user_email; ?></span></a>
 						</li>
 						
 						<li>
 							<a class="btn-kmibox-link" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="">Salir</span></a>
+							<span class="caviar">Salir</span></a>
 						</li>
 					<?php }else{ ?>
 
 						<li>
 						<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/quiero-mi-marca"  >
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="">Comprar</span></a>
+						<span class="caviar">Comprar</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key" aria-hidden="true"></i>
-							<span class="">Iniciar Sesion</span></a>
+							<span class="caviar">Iniciar Sesion</span></a>
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs hidden-sm">Registro</span></a>
+							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs hidden-sm caviar">Registro</span></a>
 						</li>
 					<?php } ?>
 

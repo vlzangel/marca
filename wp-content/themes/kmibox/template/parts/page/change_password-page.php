@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 form-horizontal">
 			<aside class="text-center" style="margin-bottom:40px;">
-				<h1>Recuperar contraseña</h1>
+				<h1 class="caviar">Recuperar contraseña</h1>
 			</aside>
 
 			<form id='form-change-password' class="form-horizontal" method="post">
@@ -25,7 +25,7 @@
 					
 				<div class="form-group">
 					<div class="col-sm-12 text-center">
-						<button id="btn-change-pass" type="submit" class="btn btn-sm-kmibox" >
+						<button id="btn-change-pass" type="submit" class="btn btn-sm-kmibox caviar" >
 							Restablecer contraseña
 						</button>
 					</div>
