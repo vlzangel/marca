@@ -334,18 +334,18 @@ function loadFase(fase_id){
 	}
 	// Change items Slider
 	function changeExtra( count_items, item ){
-		console.log('llego aqui');
+		
 		var itm;
-		console.log();
+	
 		var tmp = service [kmibox_param['fase1']] ['content']['post_title'];
-		console.log("item"+item);
+		
 		if( item >= -1 ){
 			tmp = item;
 		}
 		service[ kmibox_param['fase1'] ];
-		console.log( service[ kmibox_param['fase1'] ]);
+		
 		itm = service[ tmp ];
-		console.log(tmp);
+		
 
 		$("#f4-slider-item"+count_items).empty();
 		$("#f4-slider-item"+count_items)

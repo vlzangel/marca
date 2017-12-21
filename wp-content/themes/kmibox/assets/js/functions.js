@@ -217,11 +217,18 @@ function loadFase(fase){
 
 		case 2: // Fase #2 - Producto
 			change_title('Escoge la marca de tu preferencia');
+			var count_items = 1;
+					
 
 			loadProductos();
 			loadProductosResponsive()
 			carrousel_productos();
 			carrousel_productos_responsive();
+			
+				$.each(PRODUCTOS,  function(key, val){
+					changeExtra( count_items, ind, 0);
+					count_items++;
+				}
 
 			setTimeout(
 				function(){
