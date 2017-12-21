@@ -228,7 +228,7 @@ function loadFase(fase){
 				$.each(PRODUCTOS,  function(key, val){
 					changeExtra( count_items, ind, 0);
 					count_items++;
-				}
+				});
 
 			setTimeout(
 				function(){
