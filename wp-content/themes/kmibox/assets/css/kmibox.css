@@ -1396,11 +1396,11 @@ select{
 		width: 250px!important;
 	}
 	#carrousel_2 {
-		margin-left: -80%!important;
+		margin-left: -95%!important;
 	}
 	#carrousel_2 img {
-	    width: 25%!important;
-	    height: 50%!important;
+	    width: 15%!important;
+	    height: 60%!important;
 	}
 	#nombre_producto {
 	    font-size: 20pt!important;
