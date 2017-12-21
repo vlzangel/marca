@@ -70,7 +70,6 @@
 	}
 
 	function crearPedido(){
-
 		date_default_timezone_set('America/Mexico_City');
 		if( !isset($_SESSION) ){ session_start(); }
 		global $wpdb;
@@ -78,7 +77,6 @@
 	    $user_id = $current_user->ID;
 	    $CARRITO = unserialize( $_SESSION["CARRITO"] );
 	    $hoy = date("Y-m-d H:i:s", time() );
-
 	 	$SQL_PERDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
@@ -89,21 +87,27 @@
 		 		'{$hoy}'
 	 		)
 	 	";
-
 	 	$wpdb->query( $SQL_PERDIDO );
-
 	 	$orden_id = $wpdb->insert_id;
-
 	 	foreach ($CARRITO["productos"] as $producto) {
-
 	 		for ($i=0; $i < $producto->cantidad; $i++) { 
 		 		if( $producto->producto != "" ){
+
+		 			$data = array(
+		 				"tamano" => $producto->tamano,
+		 				"edad" => $producto->edad,
+		 				"presentacion" => $producto->presentacion,
+		 				"plan" => $producto->plan
+		 			);
+
+		 			$data = serialize($data);
+
 				 	$SQL_PERDIDO = "
 				 		INSERT INTO items_ordenes VALUES (
 				 			NULL,
 				 			'{$orden_id}',
 				 			'{$producto->producto}',
-				 			'{$producto->plan}',
+				 			'{$data}',
 				 			'En espera',
 				 			'{$producto->subtotal}',
 				 			'{$hoy}',
@@ -111,16 +115,49 @@
 				 			''
 				 		)
 				 	";
-
 				 	$wpdb->query( $SQL_PERDIDO );
 		 		}
 	 		}
-
 	 	}
-
 	 	return $orden_id;
+	}
 
+	function getSuscripciones(){
+		global $wpdb;
+	 	$current_user = wp_get_current_user();
+	    $user_id = $current_user->ID;
+	    $suscripciones = array();
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE status_suscripcion = 'Activo' AND cliente = ".$user_id);
+		foreach ($ordenes as $orden) {
+			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = ".$orden->id);
+			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
+			foreach ($planes as $plan) {
 
+				$data = unserialize($plan->data);
+
+				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$plan->id_producto );
+				$_data = unserialize( $producto->dataextra );
+				$img = TEMA()."/productos/imgs/".$_data["img"];
+
+				$suscripciones[ $orden->id ]["productos"][] = array(
+					"orden" => $plan->id,
+					"plan" => $data["plan"],
+					"producto" => $plan->id_producto,
+					"total" => $plan->total,
+					"nombre" => $producto->nombre,
+					"img" => $img,
+					"presentacion" => $data["presentacion"],
+					"status" => $plan->status_envio,
+					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega))
+				);
+			}
+		}
+
+/*		echo "<pre>";
+			print_r($suscripciones);
+		echo "</pre>";*/
+
+		return $suscripciones;
 	}
 
 ?>
