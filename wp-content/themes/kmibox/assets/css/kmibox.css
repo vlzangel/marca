@@ -307,6 +307,11 @@ select{
 	background: transparent;
 
 }
+
+.caviar{
+	font-family: caviar_dremasregular;
+}
+
 .btn-sm-kmibox-default{
 	background: #94d400!important;
 }	
