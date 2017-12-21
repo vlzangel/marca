@@ -426,6 +426,19 @@ span.separador_presentacion {
 
 }
 
+@media all and (max-width:599px) and (min-width:359px){
+    #plan > div {
+    position: relative;
+    display: block;
+    margin: 0px auto;
+    max-width: 900px;
+    height: 420px !important;
+    top: 50%;
+    margin-top: -210px;
+}
+   
+}
+
 #content-primary {
     padding-top: 0px !important;
 }
