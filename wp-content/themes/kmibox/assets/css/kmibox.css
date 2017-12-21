@@ -312,6 +312,10 @@ select{
 	font-family: caviar_dremasregular;
 }
 
+.postone{
+	font-family: PoetsenOne_Regular;
+}
+
 .btn-sm-kmibox-default{
 	background: #94d400!important;
 }	
@@ -1621,6 +1625,7 @@ select{
 	}
 	.comprar_box {
 	    top: -10%!important;
+	    height: calc( 100% - 7px ) !important;
 	}
 
 	.comprar_footer p {
