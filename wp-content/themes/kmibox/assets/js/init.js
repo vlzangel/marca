@@ -197,14 +197,14 @@ $(function($){
 	        changeExtra( 4, item, item_last );
 
 	        ++item;
-	        if( item >= extras.length ){
+	        if( item >= PRODUCTOS.length ){
 	        	item = item_last;
 	        }
 	        changeExtra( 5, item, item_last );
 	});
 	// Event.Right Extras
 	$('#f4-slider-prev').on('click', function(){	
-	        var item_last = extras.length - 1;
+	        var item_last = PRODUCTOS.length - 1;
 	        var item = 0;
 	        if( $("#f4-slider-item4").attr('data-index') > 0 ){
 	        	item = $("#f4-slider-item4").attr('data-index');

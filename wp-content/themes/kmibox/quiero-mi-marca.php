@@ -83,9 +83,24 @@
 
 			<section id="fase_2" class="hidden">
 				<div class="comprar_box">
-					<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
-					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm"></div>
+						<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
+						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
 				</div>
+
+				<div class="row hidden-lg hidden-md hidden-sm purchase" id="group-purchase" style="margin-top: 22%">
+				<article id="f4-slider-prev" class="col-md-1 col-md-offset-1 text-center vertical-center">
+					<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+				</article>
+
+				<article id="f4-slider-item1" 
+					class="hidden-xs hidden-sm col-md-1 text-center vertical-center">
+					<img src="" id="vlz_carrousel_2" class="img-responsive" width="300px">
+				</article>
+				
+				<article id="f4-slider-next" class="col-md-1 text-center vertical-center">
+					<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+				</article>
+			</div>
 
 				<div id="presentaciones" class="comprar_footer" data-value="">
 

@@ -217,11 +217,18 @@ function loadFase(fase){
 
 		case 2: // Fase #2 - Producto
 			change_title('Escoge la marca de tu preferencia');
+			var count_items = 1;
+					
 
 			loadProductos();
 			loadProductosResponsive()
 			carrousel_productos();
 			carrousel_productos_responsive();
+			
+				$.each(PRODUCTOS,  function(key, val){
+					changeExtra( count_items, ind, 0);
+					count_items++;
+				});
 
 			setTimeout(
 				function(){
@@ -564,9 +571,10 @@ function eliminarProducto(id){
 	}
 	function carrousel_productos_responsive() {
 		jQuery("#carrousel_2").waterwheelCarousel({
-			flankingItems: 5,
-			separation: 100,
+			flankingItems: 1,
+			separation: 300,
 			orientation: 'horizontal',
+			keyboardNav: true,
 			movingToCenter: function (jQueryitem) {},
 			movedToCenter: function (jQueryitem) {
 				jQuery("#presentaciones").attr("data-value", jQuery("#carrousel_2 .carousel-center").attr("data-id") );
