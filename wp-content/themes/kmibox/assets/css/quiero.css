@@ -218,7 +218,7 @@ span.separador_presentacion {
 	max-width: 900px;
     overflow: hidden;
     height: 420px;
-
+    width: 60%;
     top: 50%;
     margin-top: -210px;
 }
