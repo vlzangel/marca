@@ -2,7 +2,7 @@
 <aside class="col-md-6 col-xs-12 hidden col-md-offset-4 alert alert-danger" id="login-mensaje"></aside>
 <article id="inicio-sesion" 
 		class="col-md-6 col-xs-12 col-md-offset-4" 
-		style=" background-color: #94d400; height: 600px;">
+		style=" background-color: #94d400; height: 600px; margin-left: 25%;">
 
 	
 		<div class="col-md-10 col-md-offset-1 form-horizontal">
@@ -44,7 +44,7 @@
 						<br>
 						<label style="color: #ffffff" class="caviar">¿Aún no tienes perfil Marca? </label>
 						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" >
-							<span style="color: #000000" class="caviar">Regístrate aquí</span>
+							<span style="color: #000000; font-weight: 900;" class="caviar">Regístrate aquí</span>
 						</a>
 					</div>
 				</div>
