@@ -216,10 +216,9 @@ span.separador_presentacion {
 	display: block;
 	margin: 0px auto;
 	max-width: 900px;
-    overflow: hidden;
     height: 420px;
     width: 60%;
-    top: 50%;
+    top: 46%;
     margin-top: -210px;
 }
 
