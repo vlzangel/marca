@@ -87,6 +87,38 @@
 					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm"></div>
 				</div>
 
+				<div class="row hidden-lg hidden-md hidden-sm">
+				<article id="f4-slider-prev" class="col-md-1 col-md-offset-1 text-center vertical-center">
+					<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+				</article>
+
+				<article id="f4-slider-item1" 
+					class="hidden-xs hidden-sm col-md-1 text-center vertical-center">
+					<img src=""  class="img-responsive" width="300px">
+				</article>
+				<article id="f4-slider-item2" 
+					class="hidden-xs hidden-sm col-md-2 text-center vertical-center">
+					<img src=""  class="img-responsive" width="300px">
+				</article>
+
+				<article id="f4-slider-item3" data-target="add"
+					class="col-xs-12 col-sm-12 col-md-4 text-center vertical-center">
+					<img src=""  class="img-responsive" height="300px" width="300px">
+				</article>
+
+				<article id="f4-slider-item4" 
+					class="hidden-xs hidden-sm col-md-2 text-center vertical-center">
+					<img src=""  class="img-responsive" width="300px">
+				</article>
+				<article id="f4-slider-item5" 
+					class="hidden-xs hidden-sm col-md-1 text-center vertical-center">
+					<img src=""  class="img-responsive" width="300px">
+				</article>
+				<article id="f4-slider-next" class="col-md-1 text-center vertical-center">
+					<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+				</article>
+			</div>
+
 				<div id="presentaciones" class="comprar_footer" data-value="">
 
 					<span id="nombre_producto"></span>
