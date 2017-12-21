@@ -228,16 +228,16 @@
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" id="suscription">
 				<div class="Modal content" id="suscription" >			     
-					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
+					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px; /*display: inline-block; */">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="row" >
 							<div  style="clear:both;"></div>
 							<div style="float:left;width:50%;">								
-								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png"  class="img-responsive" alt="Cinque Terre"  width="140" height="90"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
+								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png"   alt="Cinque Terre"  width="240" height="180"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
 							</div>
 							<div style="float:left;width:50%;" >    
 								
-								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png" class="img-responsive" alt="Cinque Terre" width="140" height="90"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
+								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png" alt="Cinque Terre" width="240" height="180"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
 							</div>		
 						</div>
 					</div>
