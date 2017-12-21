@@ -17,7 +17,7 @@
 			<ul class="perfil_tabs">
 				<li class="tab_activo" data-tab="1">Mi Información</li>
 				<li data-tab="2">Mi suscripción</li>
-				<li data-tab="3">¿Dónde está mi Marca?</li>
+				<li data-tab="3">Estatus de envíos</li>
 			</ul>
 
 			<div class="secciones_container">';
