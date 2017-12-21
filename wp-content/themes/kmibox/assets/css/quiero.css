@@ -437,6 +437,17 @@ span.separador_presentacion {
     top: 50%;
     margin-top: -210px;
 }
+
+.comprar_footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 30px 15px;
+    background: #FFF;
+    #border-top: solid 3px;
+    text-align: center;
+}
    
 }
 
