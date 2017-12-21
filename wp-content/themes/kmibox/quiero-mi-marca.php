@@ -83,11 +83,17 @@
 
 			<section id="fase_2" class="hidden">
 				<div class="comprar_box" style="margin-left: 15%">
-					<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
-					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
+					<article id="f4-slider-prev" class="col-md-1 col-md-offset-1 text-center vertical-center">
+						<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+					</article>
+						<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
+						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
+					<article id="f4-slider-next" class="col-md-1 text-center vertical-center">
+						<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+					</article>
 				</div>
 
-				<div class="row hidden-lg hidden-md hidden-sm purchase" id="group-purchase">
+				<div class="row hidden-lg hidden-md hidden-sm purchase" id="group-purchase" style="margin-top: 22%">
 				<article id="f4-slider-prev" class="col-md-1 col-md-offset-1 text-center vertical-center">
 					<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
 				</article>
