@@ -263,13 +263,12 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="row" >
 							<div  style="clear:both;"></div>
-							<div style="float:left;width:50%;">    
-								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  class="img-responsive" width="250" height="250"/>
-								<a href="#"  id="pagar" role="button"  data-target="suscription"><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
+							<div style="float:left;width:50%;">								
+								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  width="140" height="90"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
 							</div>
 							<div style="float:left;width:50%;" >    
-								<img src="'.get_home_url().'/img/efectivo.png"  alt="Cinque Terre" class="img-responsive" width="250" height="250"/>
-								<a href="#" type="button" id="tienda" data-target="suscription"><label style="caviar_dreamsregular">Pago en efectivo</label></a>
+								
+								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png"  alt="Cinque Terre" width="140" height="90"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
 							</div>		
 						</div>
 					</div>
