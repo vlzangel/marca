@@ -8,6 +8,7 @@
 		<script src='".TEMA()."/backend/recursos/js/index.js'></script>
 
 
+		<link rel='stylesheet' href='".HOME()."/plugins/fontawesome/css/font-awesome.css'>
 		<link rel='stylesheet' type='text/css' href='".TEMA()."/backend/recursos/css/bootstrap.css'>
 		<link rel='stylesheet' type='text/css' href='".TEMA()."/backend/recursos/css/dataTables.bootstrap4.min.css'>
 		<link rel='stylesheet' type='text/css' href='".TEMA()."/backend/recursos/css/index.css'>
