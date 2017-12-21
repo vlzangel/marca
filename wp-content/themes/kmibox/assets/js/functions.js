@@ -612,6 +612,7 @@ function movimiento() {
 			clickedCenter: function (jQueryitem) {}
 		
 	});
+	}
 
 	function movimiento1() {
 		jQuery("#movimiento").waterwheelCarousel({
@@ -632,6 +633,6 @@ function movimiento() {
 			clickedCenter: function (jQueryitem) {}
 		
 	});
-
+}
 
 
