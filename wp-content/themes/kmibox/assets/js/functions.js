@@ -330,6 +330,10 @@ function loadFase(fase){
 			jQuery('#subtotal').html( FN(subtotal)+" MXN" );
 			jQuery('#iva').html( FN(iva)+" MXN" );
 			jQuery('#total').html( FN(total)+" MXN" );
+			jQuery('#precio').html( FN(precio_plan)+" MXN" );
+			jQuery('#precio1').html( FN(precio_plan)+" MXN" );
+			jQuery('#precio2').html( FN(precio_plan)+" MXN" );
+
 
 			CARRITO["total"] = total;
 			CARRITO["cantidad"] = cant_item;
