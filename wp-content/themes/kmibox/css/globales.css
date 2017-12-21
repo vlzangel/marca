@@ -3,9 +3,6 @@
 }
 
 nav {
-	position: fixed;
-	top: 0px;
-	left: 0px;
 	width: 100%;
 	box-sizing: border-box;
 	background-color: #94d400;
@@ -13,13 +10,13 @@ nav {
 }
 
 .nav_container {
-	position: relative;
-	display: table;
-	margin: 10px auto;
-	box-sizing: border-box;
-	padding: 0px 10px;
-	max-width: 1180px;
-	width: 100%;
+    position: relative;
+    display: table;
+    margin: 0px auto;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 1180px;
+    width: 100%;
 }
 
 .nav_container > a {

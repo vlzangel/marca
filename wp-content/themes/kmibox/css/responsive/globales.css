@@ -10,9 +10,6 @@
 	.nav_container > a > img {
 		height: 30px;
 	}
-	#content-primary {
-		padding-top: 50px;
-	}
 }
 
 @media (max-width: 500px){
