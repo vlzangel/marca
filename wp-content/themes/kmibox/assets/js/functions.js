@@ -299,6 +299,12 @@ function loadFase(fase){
 					case "Bimestral":
 						plan = 4;
 					break;
+					case "Trimetral":
+						plan = 5;
+					break;
+					case "Semestral":
+						plan = 6;
+					break;
 				}
 
 				var _producto = producto["producto"];
@@ -537,7 +543,7 @@ function eliminarProducto(id){
 
 	function carrousel_responsive(){
 		jQuery('#carrousel_responsive').waterwheelCarousel({
-			separation: 180,
+			separation: 140,
 			edgeFadeEnabled: true,     	 
 			flankingItems: 3,
 			orientation: 'vertical',
