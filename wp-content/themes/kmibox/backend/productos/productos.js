@@ -36,3 +36,14 @@ jQuery(document).ready(function() {
     });
 
 } );
+
+function abrir_link(e){
+	init_modal({
+		"titulo": e.attr("data-titulo"),
+		"modulo": e.attr("data-modulo"),
+		"modal": e.attr("data-modal"),
+		"info": {
+			"ID": e.attr("data-id")
+		}
+	});
+}
