@@ -39,6 +39,7 @@
 .secciones_container > section{
 	display: none;
 	padding: 10px;
+    overflow: hidden;
 }
 
 .secciones_container > section.section_activo {
@@ -174,3 +175,15 @@
     display: block;
     margin-bottom: 20px;
 }
+
+/* Donde esta mi marca */
+
+    #armada,
+    #enviada,
+    #recibida {
+        opacity: 0.5;
+    }
+
+    .border-curvo {
+        border: 10px solid #a7a7a7 !important;
+    }
