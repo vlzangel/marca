@@ -136,8 +136,7 @@
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
 						</article>
 
-						<article id="plan-Trimestral" class="text-center col-sm-4 separation-top col-xs-6" style="display: inline-block;"
-						>
+						<article id="plan-Trimestral" class="text-center col-sm-4 separation-top col-xs-6" style="display: inline-block;">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral-1.png" width="300px" height="370px" ">
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Trimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Trimestral</button>
 						</article>
@@ -234,11 +233,11 @@
 						<div class="row" >
 							<div  style="clear:both;"></div>
 							<div style="float:left;width:50%;">								
-								<a href="#"  id="pagar" role="button"  data-target="suscription"> <img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  width="140" height="90"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
+								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png"  class="img-responsive" alt="Cinque Terre"  width="140" height="90"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
 							</div>
 							<div style="float:left;width:50%;" >    
 								
-								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png"  alt="Cinque Terre" width="140" height="90"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
+								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png" class="img-responsive" alt="Cinque Terre" width="140" height="90"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
 							</div>		
 						</div>
 					</div>
