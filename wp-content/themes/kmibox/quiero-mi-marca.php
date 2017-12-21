@@ -167,9 +167,9 @@
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
 						</article>
 
-						<article id="plan-Mensual" class="text-center col-sm-4 separation-top col-xs-6">
+						<article id="plan-Trimetral" class="text-center col-sm-4 separation-top col-xs-6">
 							<img class="img-responsive" src="'.get_home_url().'/img/Mensual.png" width="300px" height="370px" style="margin-top: -3%;">
-							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">trimestral</button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Trimetral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Trimestral</button>
 						</article>
 
 						<!-- <article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-offset-3 col-xs-6 arriba"> -->

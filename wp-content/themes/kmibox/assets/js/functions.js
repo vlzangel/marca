@@ -299,6 +299,12 @@ function loadFase(fase){
 					case "Bimestral":
 						plan = 4;
 					break;
+					case "Trimetral":
+						plan = 5;
+					break;
+					case "Semestral":
+						plan = 6;
+					break;
 				}
 
 				var _producto = producto["producto"];
