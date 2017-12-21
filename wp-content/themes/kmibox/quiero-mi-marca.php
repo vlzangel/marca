@@ -250,7 +250,7 @@
 				
 				<article class="col-md-12 text-center">
 					<span id="agregar_plan" >Agregar otro plan</span>
-					<a href="#" data-toggle="modal" data-target="#suscription"><img src="'.get_home_url().'/img/Boton-2.png" width="220" height="60"/></a>
+					<a href="#" data-toggle="modal" data-target="#suscription"><img src="'.get_home_url().'/img/Boton-2.png" width="220" height="50"/></a>
 				</article>		
 			</section>	
 
