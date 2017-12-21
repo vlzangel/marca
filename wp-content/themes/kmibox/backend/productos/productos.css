@@ -1,0 +1,7 @@
+.img_reporte{
+	height: 80px;
+}
+
+.table th, .table td{
+	vertical-align: middle !important;
+}

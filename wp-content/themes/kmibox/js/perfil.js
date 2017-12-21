@@ -1,12 +1,29 @@
 jQuery(document).ready(function() {
 
-	jQuery(".suscripcion_item").on("click", function(e){
-
+	jQuery("#tab_2 .suscripcion_item").on("click", function(e){
 		jQuery("#tipo_suscripcion").val( jQuery(this).attr("data-plan") );
 		jQuery("#presentacion").val( jQuery(this).attr("data-type") );
 		jQuery("#status").val( jQuery(this).attr("data-status") );
 		jQuery("#entrega").val( jQuery(this).attr("data-entrega") );
 		jQuery("#img_item").attr("src", jQuery(this).attr("data-img") );
+	});
+
+	jQuery("#tab_3 .suscripcion_item").on("click", function(e){
+		
+		switch( jQuery(this).attr("data-status") ){
+			case 'Armada':
+				jQuery("#armada").css("opacity", 1);
+			break;
+			case 'Enviada':
+				jQuery("#armada").css("opacity", 1);
+				jQuery("#enviada").css("opacity", 1);
+			break;
+			case 'Recibida':
+				jQuery("#armada").css("opacity", 1);
+				jQuery("#enviada").css("opacity", 1);
+				jQuery("#recibida").css("opacity", 1);
+			break;
+		}
 
 	});
 
@@ -29,7 +46,7 @@ jQuery(document).ready(function() {
 
 	});
 
-		jQuery('#form-registro')
+	jQuery('#form-registro')
 	.on('init.field.fv', function(e, data) {
 		scroll(0);
 
