@@ -82,44 +82,18 @@
 			</section>
 
 			<section id="fase_2" class="hidden">
-				<div class="comprar_box" style="margin-left: 15%">
-					<article id="f4-slider-prev" class="col-md-1 col-md-offset-1 text-center vertical-center">
-						<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
-					</article>
+				<div class="comprar_box" style="margin-left: 15%">					
 						<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
 						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
-					<article id="f4-slider-next" class="col-md-1 text-center vertical-center">
-						<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
-					</article>
 				</div>
 
-				<div class="row hidden-lg hidden-md hidden-sm purchase" id="group-purchase" style="margin-top: 22%">
+				<div class="row hidden-lg hidden-md hidden-sm purchase" id="group-purchase" 
+
 				<article id="f4-slider-prev" class="col-md-1 col-md-offset-1 text-center vertical-center">
 					<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
 				</article>
 
-				<article id="f4-slider-item1" 
-					class="hidden-xs hidden-sm col-md-1 text-center vertical-center">
-					<img src="" id="vlz_carrousel_2" class="img-responsive" width="300px">
-				</article>
-				<article id="f4-slider-item2" 
-					class="hidden-xs hidden-sm col-md-2 text-center vertical-center">
-					<img src=""  class="img-responsive" width="300px">
-				</article>
-
-				<article id="f4-slider-item3" data-target="add"
-					class="col-xs-12 col-sm-12 col-md-4 text-center vertical-center">
-					<img src=""  class="img-responsive" height="300px" width="300px">
-				</article>
-
-				<article id="f4-slider-item4" 
-					class="hidden-xs hidden-sm col-md-2 text-center vertical-center">
-					<img src=""  class="img-responsive" width="300px">
-				</article>
-				<article id="f4-slider-item5" 
-					class="hidden-xs hidden-sm col-md-1 text-center vertical-center">
-					<img src=""  class="img-responsive" width="300px">
-				</article>
+				
 				<article id="f4-slider-next" class="col-md-1 text-center vertical-center">
 					<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
 				</article>

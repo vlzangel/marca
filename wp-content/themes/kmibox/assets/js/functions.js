@@ -572,7 +572,7 @@ function eliminarProducto(id){
 	function carrousel_productos_responsive() {
 		jQuery("#carrousel_2").waterwheelCarousel({
 			flankingItems: 1,
-			separation: 200,
+			separation: 350,
 			orientation: 'horizontal',
 			movingToCenter: function (jQueryitem) {},
 			movedToCenter: function (jQueryitem) {
