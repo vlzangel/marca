@@ -94,7 +94,7 @@
 
 				<article id="f4-slider-item1" 
 					class="hidden-xs hidden-sm col-md-1 text-center vertical-center">
-					<img src=""  class="img-responsive" width="300px">
+					<img src="" id="vlz_carrousel_2" class="img-responsive" width="300px">
 				</article>
 				<article id="f4-slider-item2" 
 					class="hidden-xs hidden-sm col-md-2 text-center vertical-center">
