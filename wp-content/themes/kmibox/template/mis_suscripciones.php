@@ -104,35 +104,7 @@
 							<div><span>&nbsp;</span><label>Diciembre</label></div>			
 						</div>
 					</div>
-					<div class="hidden row progreso-entrega form-horizontal">
-						<h2 class="col-md-6 caviar">Estatus del envío</h2>
-						<div class="progress-content">
-							<div class="border-curvo col-md-12 text-center">
-								
-								<div class="row">
-									<div id="armada" class="col-xs-12 col-sm-12 col-md-3  pull-left">
-										<img src="<?php echo get_home_url(); ?>/img/progress-box.png" class="img-responsive" >
-										<label>Armada</label>
-									</div>
-									<div class="col-md-2 flecha hidden-xs hidden-sm">
-										<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="120">
-									</div>
-									<div id="enviada" class="col-md-3 hidden-xs hidden-sm">
-										<img src="<?php echo get_home_url(); ?>/img/progress-cart.png" class="img-responsive" >
-										<label>Enviada</label>
-									</div>
-									<div class="col-md-2 flecha hidden-xs hidden-sm">
-										<img src="<?php echo get_home_url(); ?>/img/flecha.png" width="120">
-									</div>
-									<div id="recibida" class="col-md-3 hidden-xs hidden-sm pull-right">
-									    <img src="<?php echo get_home_url(); ?>/img/progress-house.png" class="img-responsive" >
-										<label>Recibida</label>
-									</div>
-								</div>
 
-							</div>
-						</div>
-					</div>
 				</div>
 
 			</div>

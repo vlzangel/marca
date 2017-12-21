@@ -82,7 +82,11 @@
 			</section>
 
 			<section id="fase_2" class="hidden">
+
 				<div class="comprar_box" style="margin-left: 15%">					
+
+				<div class="comprar_box">
+
 						<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
 						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
 				</div>

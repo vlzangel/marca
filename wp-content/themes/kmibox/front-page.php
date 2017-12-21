@@ -13,8 +13,8 @@
  */ 
 
 get_header(); ?>
+	<?php echo MENU(); ?>
 	<header id="header" class="row">
-		<?php echo MENU(); ?>
 		<article>
 			<div class="container" id="banner">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0">
