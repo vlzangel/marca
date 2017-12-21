@@ -50,7 +50,7 @@
 	echo "</pre>";*/
 
 	$HTML .= '
-		<section id="tab_2">
+		<section id="tab_2" class="section_activo">
 			<div class="section_box">
 				<div class="carrusel_suscripciones_container">
 					<div style="width: '.($W*200).'px;">
@@ -86,7 +86,7 @@
 					</div>
 
 					<div>
-						<label class="subtiulo">Entregas</label>
+						<label class="subtiulo">Entregas realizadas</label>
 						<div class="celda_6 entregas">
 							<div><span> <i class="fa fa-check" aria-hidden="true"></i> </span><label>Enero</label></div> 
 							<div><span>&nbsp;</span><label>Febrero</label></div>
