@@ -435,6 +435,7 @@ span.separador_presentacion {
     height: 420px !important;
     top: 50%;
     margin-top: -210px;
+    width: 100%;
 }
 
 .comprar_footer {
@@ -460,6 +461,7 @@ span.separador_presentacion {
     height: 420px !important;
     top: 50%;
     margin-top: -210px;
+    width: 100%
 }
    
 }
