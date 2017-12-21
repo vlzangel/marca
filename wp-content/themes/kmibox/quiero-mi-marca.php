@@ -87,7 +87,7 @@
 					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
 				</div>
 
-				<div class="row hidden-lg hidden-md hidden-sm">
+				<div class="row hidden-lg hidden-md hidden-sm purchase" id="group-purchase">
 				<article id="f4-slider-prev" class="col-md-1 col-md-offset-1 text-center vertical-center">
 					<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
 				</article>

@@ -420,64 +420,6 @@ function loadFase(fase_id){
 		}
 	}
 
-	function existeTamaño( id, delay=1000, fade=1200, primary=false ){
-		// Eliminar item
-		if(kmibox_param['fase1'][id] >= 0){
-			$("[data-agregado='"+id+"'] span")
-				.css("background", "#94d400")
-				.html("Ha sido añadido")
-			$("[data-agregado='"+id+"']")
-				.fadeIn(fade)
-				.removeClass('hidden');
-			$("[data-index='"+id+"'] img")
-				.addClass('selected')
-		}else{
-		// Agregar item
-			if( !$("[data-agregado='"+id+"']").hasClass('hidden') ){
-				$("[data-agregado='"+id+"'] span")
-					.css("background", "#c16363")
-					.html("Ha sido removido");
-				$("[data-agregado='"+id+"']")
-					.delay(delay).fadeOut(fade)
-				$("[data-index='"+id+"'] img")
-					.removeClass('selected')
-			}
-		}
-		if( primary ){
-			addCart(urlbase);
-		}
-	}
-
-
-	function existeProducto( id, delay=1000, fade=1200, primary=false ){
-		// Eliminar item
-		if(kmibox_param['cart']['extra'][id] >= 0){
-			$("[data-agregado='"+id+"'] span")
-				.css("background", "#94d400")
-				.html("Ha sido añadido")
-			$("[data-agregado='"+id+"']")
-				.fadeIn(fade)
-				.removeClass('hidden');
-			$("[data-index='"+id+"'] img")
-				.addClass('selected')
-		}else{
-		// Agregar item
-			if( !$("[data-agregado='"+id+"']").hasClass('hidden') ){
-				$("[data-agregado='"+id+"'] span")
-					.css("background", "#c16363")
-					.html("Ha sido removido");
-				$("[data-agregado='"+id+"']")
-					.delay(delay).fadeOut(fade)
-				$("[data-index='"+id+"'] img")
-					.removeClass('selected')
-			}
-		}
-		if( primary ){
-			addCart(urlbase);
-		}
-	}
-
-
 
 	function faseNext( _this ){
 		// Config.
