@@ -561,7 +561,8 @@ span.separador_presentacion {
     margin-left: 20%;
 }
 
-.comprar_box {      
+.comprar_box {  
+    position: absolute;
     top: 0px;  
     width: 100%;
     height: calc( 100% - 72px );
@@ -703,12 +704,13 @@ span.separador_presentacion {
 
 @media (max-width: 991px) and (min-width: 768px){
 .vlz_carrousel {
-    width: 1400px;
+        width: 1400px;
     height: 300px;
     margin: 60px auto;
     top: 62%;
     margin-top: -15%;
-    margin-left: -32%;
+    margin-left: -38%;
+}
 }
 
 
@@ -723,23 +725,23 @@ span.separador_presentacion {
     z-index: 2;
 }
 #derecha {
-    font-size: 20pt;
+      font-size: 20pt;
     width: 40px;
     height: 40px;
     border-radius: 30px;
     padding: 8px;
     margin-top: 10%;
-    margin-left: 48%;
+    margin-left: 37%;
 }
 #izquierda {
-    font-size: 20pt;
+        font-size: 20pt;
     /* background: #a09696; */
     width: 40px;
     height: 40px;
     border-radius: 30px;
     padding: 8px;
     margin-top: 10%;
-    margin-left: 23%;
+    margin-left: 27%;
 }
 }
    
