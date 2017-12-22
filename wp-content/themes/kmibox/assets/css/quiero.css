@@ -440,39 +440,40 @@ span.separador_presentacion {
     height: 300px;
     margin: 60px auto;
     top: 50%;
-    margin-top: -150px;
-}
+    margin-top: -76px;
+    margin-left: -40%;
+    }
 
 
-.comprar_descripcion {
-    position: relative;
-    left: 24%;
-    width: 100%;
-    padding: 20px;
-    background: #FFF;
-    top: 80%;
-    font-size: 18pt;
-    z-index: 2;
-}
-#derecha {
-    font-size: 20pt;
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    padding: 8px;
-    margin-top: 10%;
-    margin-left: 55%;
-}
-#izquierda {
-    font-size: 20pt;
-    /* background: #a09696; */
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    padding: 8px;
-    margin-top: 10%;
-    margin-left: 20%;
-}
+    .comprar_descripcion {
+        position: relative;
+        left: 24%;
+        width: 100%;
+        padding: 20px;
+        background: #FFF;
+        top: 80%;
+        font-size: 18pt;
+        z-index: 2;
+    }
+    #derecha {
+        font-size: 20pt;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        padding: 8px;
+        margin-top: 10%;
+        margin-left: 38%;
+    }
+    #izquierda {
+        font-size: 20pt;
+        /* background: #a09696; */
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        padding: 8px;
+        margin-top: 10%;
+        margin-left: 20%;
+    }
     
 }
 
@@ -561,6 +562,20 @@ span.separador_presentacion {
 }
 }
 
+
+@media (max-width: 614px) and (min-width: 200px){
+
+    .vlz_carrousel {
+    width: 1400px;
+    height: 300px;
+    margin: 60px auto;
+    top: 60%;
+    margin-top: -107px;
+    margin-left: -109%;
+}
+}
+
+
 @media all and (max-width:599px) and (min-width:359px){
     #plan > div {
         position: relative;
@@ -585,24 +600,19 @@ span.separador_presentacion {
         text-align: center;
     }
     
-.vlz_carrousel {
-    width: 1400px;
-    height: 300px;
-    margin: 60px auto;
-    top: 50%;
-    margin-top: -150px;
-}
+
 
 
 .comprar_descripcion {
     position: relative;
-    left: 24%;
+    left: 7%;
     width: 100%;
     padding: 20px;
     background: #FFF;
     top: 80%;
     font-size: 18pt;
     z-index: 2;
+    margin-left: -4%;
 }
 #derecha {
     font-size: 20pt;
@@ -611,17 +621,17 @@ span.separador_presentacion {
     border-radius: 30px;
     padding: 8px;
     margin-top: 10%;
-    margin-left: 55%;
+    margin-left: 18%;
 }
 #izquierda {
-    font-size: 20pt;
+        font-size: 20pt;
     /* background: #a09696; */
     width: 40px;
     height: 40px;
     border-radius: 30px;
     padding: 8px;
     margin-top: 10%;
-    margin-left: 20%;
+    margin-left: 35%;
 }
 
 }
@@ -640,17 +650,18 @@ span.separador_presentacion {
 }
 
 .vlz_carrousel {
-    width: 1400px;
+  width: 1400px;
     height: 300px;
-    margin: 60px auto;
+    /* margin: 60px auto; */
     top: 50%;
-    margin-top: -150px;
+    margin-top: -30px;
+    margin-left: -68%;
 }
 
 
 .comprar_descripcion {
     position: relative;
-    left: 24%;
+    left: 10%;
     width: 100%;
     padding: 20px;
     background: #FFF;
@@ -664,8 +675,8 @@ span.separador_presentacion {
     height: 40px;
     border-radius: 30px;
     padding: 8px;
-    margin-top: 10%;
-    margin-left: 55%;
+    margin-top: 7%;
+    margin-left: 27%;
 }
 #izquierda {
     font-size: 20pt;
@@ -675,17 +686,19 @@ span.separador_presentacion {
     border-radius: 30px;
     padding: 8px;
     margin-top: 10%;
-    margin-left: 20%;
+    margin-left: 32%;
 }
 
 }
+
 @media (max-width: 991px) and (min-width: 768px){
 .vlz_carrousel {
     width: 1400px;
     height: 300px;
     margin: 60px auto;
-    top: 50%;
-    margin-top: -150px;
+    top: 62%;
+    margin-top: -15%;
+    margin-left: -32%;
 }
 
 
@@ -706,7 +719,7 @@ span.separador_presentacion {
     border-radius: 30px;
     padding: 8px;
     margin-top: 10%;
-    margin-left: 55%;
+    margin-left: 48%;
 }
 #izquierda {
     font-size: 20pt;
@@ -716,7 +729,7 @@ span.separador_presentacion {
     border-radius: 30px;
     padding: 8px;
     margin-top: 10%;
-    margin-left: 20%;
+    margin-left: 23%;
 }
 }
    
