@@ -1163,7 +1163,10 @@ select{
 	#footer{
 		margin-top: 90px;
 	}
+.carro{
 
+	    margin-left: -41%;
+}
 	#como-funciona p {
     	font-size: 18px;
 	}
@@ -1174,6 +1177,11 @@ select{
 		font-size: 12px;
 	}
 	
+	.carro{
+
+	    margin-left: -41%;
+}
+
 	.border-curvo{
 	 border-radius: 100px;
     border: 10px solid #ffffff;
@@ -1244,7 +1252,10 @@ select{
 	.h-3x{
 		font-size: 20px;
 	}
+.carro{
 
+	    margin-left: -41%;
+}
 	#regalo{
 		width: 20%;
 	}
