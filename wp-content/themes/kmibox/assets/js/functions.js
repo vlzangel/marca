@@ -289,6 +289,9 @@ function loadFase(fase){
 
 
 			jQuery( '#cart-items' ).html("");
+
+			var precio = 0;
+
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 
 				var plan = 1;
@@ -311,6 +314,8 @@ function loadFase(fase){
 				var presentacion = producto["presentacion"];
 				var precio_plan = PRODUCTOS[ _producto ]["presentaciones"][ presentacion ]*plan;
 
+				precio=precio_plan;
+				
 				add_item_cart(
 					key,
 					producto["producto"],
@@ -336,9 +341,9 @@ function loadFase(fase){
 			jQuery('#subtotal').html( FN(subtotal)+" MXN" );
 			jQuery('#iva').html( FN(iva)+" MXN" );
 			jQuery('#total').html( FN(total)+" MXN" );
-			jQuery('#precio').html( FN(precio_plan)+" MXN" );
-			jQuery('#precio1').html( FN(precio_plan)+" MXN" );
-			jQuery('#precio2').html( FN(precio_plan)+" MXN" );
+			jQuery('#precio').html( FN(precio)+" MXN" );
+			jQuery('#precio1').html( FN(precio)+" MXN" );
+			jQuery('#precio2').html( FN(precio)+" MXN" );
 
 
 			CARRITO["total"] = total;

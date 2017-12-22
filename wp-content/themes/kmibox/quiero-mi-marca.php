@@ -129,7 +129,7 @@
 					<div id="planes">
 						<article id="plan-Quincenal" class="text-center col-sm-3 separation-top col-xs-6">
 							<img class="img-responsive" src="'.get_home_url().'/img/Quincenal.png" width="300px" height="370px">
-							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual<span id="precio"></span></button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone" data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual<span id="precio"></span></button>
 						</article>
 
 						<article id="plan-Mensual" class="text-center col-sm-3 separation-top col-xs-6">
