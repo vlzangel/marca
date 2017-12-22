@@ -13,7 +13,7 @@ get_header();
 <section class="container-login">
 
 	<?php if ( !is_user_logged_in() ){ ?>
-		<input type="hidden" name="redirect" value="<?php echo get_home_url().'/perfil-usuario'; ?>">
+		<input type="hidden" name="redirect" value="<?php echo get_home_url().'/perfil/'; ?>">
 		<?php get_template_part( 'template/parts/page/login', 'page' ); ?>
 	<?php } ?>
 
@@ -25,7 +25,7 @@ get_header();
 <?php if ( is_user_logged_in() ){ ?>
 <script type="text/javascript">
 	$(function($){
-		window.location = urlbase + '/perfil-usuario';
+		window.location = urlbase + '/perfil/';
 	});
 </script>
 <?php } ?>

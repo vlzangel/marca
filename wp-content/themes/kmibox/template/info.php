@@ -1,6 +1,6 @@
 <?php
 	$HTML .= '
-		<section id="tab_1" class="">
+		<section id="tab_1">
 			<form id="form-registro">
 				<div id="register" 
 					class="col-md-8 col-xs-12 col-md-offset-2" 

@@ -217,11 +217,18 @@ function loadFase(fase){
 
 		case 2: // Fase #2 - Producto
 			change_title('Escoge la marca de tu preferencia');
+			var count_items = 1;
+					
 
 			loadProductos();
 			loadProductosResponsive()
 			carrousel_productos();
 			carrousel_productos_responsive();
+			
+				$.each(PRODUCTOS,  function(key, val){
+					changeExtra( count_items, ind, 0);
+					count_items++;
+				});
 
 			setTimeout(
 				function(){
@@ -292,6 +299,12 @@ function loadFase(fase){
 					case "Bimestral":
 						plan = 4;
 					break;
+					case "Trimetral":
+						plan = 5;
+					break;
+					case "Semestral":
+						plan = 6;
+					break;
 				}
 
 				var _producto = producto["producto"];
@@ -323,6 +336,10 @@ function loadFase(fase){
 			jQuery('#subtotal').html( FN(subtotal)+" MXN" );
 			jQuery('#iva').html( FN(iva)+" MXN" );
 			jQuery('#total').html( FN(total)+" MXN" );
+			jQuery('#precio').html( FN(precio_plan)+" MXN" );
+			jQuery('#precio1').html( FN(precio_plan)+" MXN" );
+			jQuery('#precio2').html( FN(precio_plan)+" MXN" );
+
 
 			CARRITO["total"] = total;
 			CARRITO["cantidad"] = cant_item;
@@ -526,7 +543,7 @@ function eliminarProducto(id){
 
 	function carrousel_responsive(){
 		jQuery('#carrousel_responsive').waterwheelCarousel({
-			separation: 150,
+			separation: 140,
 			edgeFadeEnabled: true,     	 
 			flankingItems: 3,
 			orientation: 'vertical',
@@ -564,9 +581,10 @@ function eliminarProducto(id){
 	}
 	function carrousel_productos_responsive() {
 		jQuery("#carrousel_2").waterwheelCarousel({
-			flankingItems: 5,
-			separation: 100,
+			flankingItems: 1,
+			separation: 300,
 			orientation: 'horizontal',
+			keyboardNav: true,
 			movingToCenter: function (jQueryitem) {},
 			movedToCenter: function (jQueryitem) {
 				jQuery("#presentaciones").attr("data-value", jQuery("#carrousel_2 .carousel-center").attr("data-id") );
@@ -584,8 +602,6 @@ function eliminarProducto(id){
 			clickedCenter: function (jQueryitem) {}
 		});
 	}
-
-
 
 
 

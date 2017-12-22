@@ -1,0 +1,54 @@
+#producto > div {
+	padding-bottom: 10px;
+}
+
+.img_reporte{
+	height: 80px;
+}
+
+.table th, .table td{
+	vertical-align: middle !important;
+}
+
+.celdas_1 .input_box > label {
+	display: block;
+	font-weight: 600;
+	cursor: default !important;
+}
+
+.celdas_1 .input_box > input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+.celdas_1,
+.celdas_3 {
+    overflow: hidden;
+}
+
+.celdas_3 .input_box > label {
+	display: block;
+	font-weight: 600;
+	cursor: default !important;
+}
+
+.celdas_3 .input_box,
+.celdas_1 .input_text_container .input_text
+ {
+	float: left;
+	width: 33.333333%;
+	box-sizing: border-box;
+    padding: 3px;
+}
+
+.celdas_1 .input_text_container .input_text input
+ {
+	width: 100%;
+}
+
+.botonera_container {
+	border-top: solid 1px #CCC;
+	margin: 5px 0px;
+	padding: 5px 0px;
+}

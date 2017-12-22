@@ -29,9 +29,9 @@
 						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="400px" id="Grande" />
 					</div>
 					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg" style="margin-top:12%"> 
-						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="250px" id="Pequeño" />
-						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="250px" id="Mediano" />	
-						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="250px" id="Grande" />
+						<img src="'.get_home_url().'/img/edad/Cachorro-resp.png"  class="img-responsive" width="250px" id="Pequeño" />
+						<img src="'.get_home_url().'/img/edad/Mediano-resp.png"  class="img-responsive" width="250px" id="Mediano" />	
+						<img src="'.get_home_url().'/img/edad/Adulto-resp.png"  class="img-responsive"  width="250px" id="Grande" />
 					</div>
 				</div>
 				<div id="edad" class="comprar_footer hidden-xs">
@@ -82,17 +82,23 @@
 			</section>
 
 			<section id="fase_2" class="hidden">
-				<div class="comprar_box" style="margin-left: 15%">
-					<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
-					<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm"></div>
+
+				<div class="comprar_box" style="margin-left: 15%">					
+
+				<div class="comprar_box">
+
+						<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
+						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
 				</div>
+
+				
 
 				<div id="presentaciones" class="comprar_footer" data-value="">
 
 					<span id="nombre_producto"></span>
 
 
-					<div id="presentacion-900g" class="button_presentacion">
+					<div id="presentacion-900g" class="button_presentacion" style="margin-left:-4%">
 						<button data-value="900g">
 							<b>P (900g)</b>
 						</button>
@@ -122,25 +128,33 @@
 					<div id="planes">
 						<article id="plan-Quincenal" class="text-center col-sm-4 separation-top col-xs-6">
 							<img class="img-responsive" src="'.get_home_url().'/img/Quincenal.png" width="300px" height="370px">
-							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;" > Quincenal </button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual<span id="precio"></span></button>
 						</article>
+
 						<article id="plan-Mensual" class="text-center col-sm-4 separation-top col-xs-6">
-							<img class="img-responsive" src="'.get_home_url().'/img/Mensual.png" width="300px" height="370px">
-							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual</button>
+							<img class="img-responsive" src="'.get_home_url().'/img/Mensual.png" width="300px" height="370px" style="margin-top: -3%;">
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
 						</article>
+
+						<article id="plan-Trimestral" class="text-center col-sm-4 separation-top col-xs-6" style="display: inline-block;">
+							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral-1.png" width="300px" height="370px" ">
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Trimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Trimestral</button>
+						</article>
+
 						<!-- <article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-offset-3 col-xs-6 arriba"> -->
 
 						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm hidden-xs" style="display: inline-block;/*margin-left: 26%; margin-top: 7%;*/">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
-							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777; margin-top: 0px">Bimestral</button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio2" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777; margin-top: 0px">Semestral</button>
 						</article>
 
 						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-xs hidden-lg hidden-md visible-sm" style="display: inline-block;margin-top: 7%;">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
-							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio2" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Semestral</button>
 						</article>
-						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm hidden-lg hidden-md visible-xs" style="display: inline-block;margin-left:  26%;margin-top: 0%;">	<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
-							<button class="btn btn-sm-marca btn-sm-kmibox-price caviar" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
+
+						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm hidden-lg hidden-md visible-xs" style="display: inline-block;">	<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
+							<button class="btn btn-sm-marca btn-sm-kmibox-price postone" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Semestral</button>
 						</article>
 
 					</div>
@@ -205,7 +219,7 @@
 				
 				<article class="col-md-12 text-center">
 					<span id="agregar_plan" >Agregar otro plan</span>
-					<a href="#" data-toggle="modal" data-target="#suscription"><img src="'.get_home_url().'/img/Boton-2.png" width="220" height="60"/></a>
+					<a href="#" data-toggle="modal" data-target="#suscription"><img src="'.get_home_url().'/img/Boton-2.png" width="220" height="50"/></a>
 				</article>		
 			</section>	
 
@@ -214,17 +228,16 @@
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" id="suscription">
 				<div class="Modal content" id="suscription" >			     
-					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
+					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px; /*display: inline-block; */">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="row" >
 							<div  style="clear:both;"></div>
-							<div style="float:left;width:50%;">    
-								<img src="'.get_home_url().'/img/tarjeta.png"  alt="Cinque Terre"  class="img-responsive" width="250" height="250"/>
-								<a href="#"  id="pagar" role="button"  data-target="suscription"><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
+							<div style="float:left;width:50%;">								
+								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png"   alt="Cinque Terre"  width="240" height="180"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
 							</div>
 							<div style="float:left;width:50%;" >    
-								<img src="'.get_home_url().'/img/efectivo.png"  alt="Cinque Terre" class="img-responsive" width="250" height="250"/>
-								<a href="#" type="button" id="tienda" data-target="suscription"><label style="caviar_dreamsregular">Pago en efectivo</label></a>
+								
+								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png" alt="Cinque Terre" width="240" height="180"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
 							</div>		
 						</div>
 					</div>

@@ -307,6 +307,15 @@ select{
 	background: transparent;
 
 }
+
+.caviar{
+	font-family: caviar_dremasregular;
+}
+
+.postone{
+	font-family: PoetsenOne_Regular;
+}
+
 .btn-sm-kmibox-default{
 	background: #94d400!important;
 }	
@@ -1231,7 +1240,7 @@ select{
 		background-size: auto; 
 	}
 }
-@media all and (max-width:959px) and (min-width:600px) {
+@media all and (max-width:959px) and (min-width:613px) {
 	.h-3x{
 		font-size: 20px;
 	}
@@ -1271,14 +1280,7 @@ select{
 	    font-size: 16px!important;
 	}
 }
-/*@media all and (max-width:599px) and (min-width:359px) {
-	.h-3x{
-		font-size: 20px;
-	}
-	}*/
-	
-
-@media (max-width:599px) and (min-width:200px) {
+@media all and (max-width:599px) and (min-width:359px) {
 	#title{
 		font-size: 14px; 
 	}
@@ -1391,11 +1393,266 @@ select{
 		width: 250px!important;
 	}
 	#carrousel_2 {
-		margin-left: -80%!important;
+		margin-left: -95%!important;
 	}
 	#carrousel_2 img {
 	    width: 25%!important;
-	    height: 50%!important;
+	    height: 90%!important;
+	}
+	#nombre_producto {
+	    font-size: 20pt!important;
+	    margin-right: 10%!important;
+	}
+	.arriba {
+	    margin-top: -1px;
+	}
+	}
+@media (max-width: 614px) and (min-width: 200px){
+	#title{
+		font-size: 14px; 
+	}
+	#top .container{
+		margin-top: 0px;
+	}
+	#top div img{
+		max-width: 50%;
+	}
+	#top div,
+	#banner{
+		text-align: center; 
+		margin-top: 2vh;
+	}
+	#banner-text {
+    	text-align: center;
+	}
+	#banner-text h2{
+		font-size: 18px;
+		margin-top: 5px;
+	}
+	.btn-kmibox{
+		width: 100%;
+	}
+	.btn-sm-kmibox {
+	   /* font-size: 12px;
+	    padding: 4px!important;*/
+	}
+	#section-comment{
+		background-size: cover;
+	}
+	#section-comment h2{
+		font-size: 21px;
+		margin:0px;
+	}
+
+	.h-3x{
+		font-size: 26px;
+	}
+
+	h2{
+		font-size: 18px;
+	}
+
+	p{
+		font-size: 16px;
+	}
+
+	h2 .subtitle{
+	    font-size: 20px;
+	}
+	h3 .subtitle{
+	    font-size: 19px;
+	}
+
+	.back-picture {
+	    padding: 40px 0px 40px 0px;
+	}
+
+	.logo-text{
+	    width: 36%;
+	}
+
+	#footer h2{
+	    font-size: 20px;
+	}
+	
+	#footer article h3{
+    	font-size: 18px;
+	}
+	#footer ul li {
+    	font-size: 13px;
+	}
+	#social-network li img{
+		width: 40px;
+	}
+	#footer-logo{
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	#logo img{
+		width: 150px;
+	}
+	#carrousel_responsive {
+	    width: 240%!important;
+	    height: 80%!important;
+	    margin-left: -69%!important;
+	}
+	.comprar_box {
+	    top: -10%!important;
+	}
+
+	.comprar_footer p {
+	    font-size: 11pt;
+	    font-family: PoetsenOne_Regular;
+	    color: #900e9c;
+	    margin-top: 60%;
+	    margin-left: -20%;
+	}
+	#edad-btn {
+	    font-size: 11pt;
+	    margin-top: 530%;
+	    margin-left: -370%;
+	    padding: 4%;
+	}
+	.header_titulo {
+	    font-size: 15px!important;
+	}
+	.tamano{
+		width: 250px!important;
+	}
+	#carrousel_2 {
+		margin-left: -95%!important;
+	}
+	#carrousel_2 img {
+	    width: 25%!important;
+	    height: 90%!important;
+	}
+	#nombre_producto {
+	    font-size: 20pt!important;
+	    margin-right: 10%!important;
+	}
+	.arriba {
+	    margin-top: -1px;
+	}
+
+@media (max-width:599px) and (min-width:200px) {
+	#title{
+		font-size: 14px; 
+	}
+	#top .container{
+		margin-top: 0px;
+	}
+	#top div img{
+		max-width: 50%;
+	}
+	#top div,
+	#banner{
+		text-align: center; 
+		margin-top: 2vh;
+	}
+	#banner-text {
+    	text-align: center;
+	}
+	#banner-text h2{
+		font-size: 18px;
+		margin-top: 5px;
+	}
+	.btn-kmibox{
+		width: 100%;
+	}
+	.btn-sm-kmibox {
+	   /* font-size: 12px;
+	    padding: 4px!important;*/
+	}
+	#section-comment{
+		background-size: cover;
+	}
+	#section-comment h2{
+		font-size: 21px;
+		margin:0px;
+	}
+
+	.h-3x{
+		font-size: 26px;
+	}
+
+	h2{
+		font-size: 18px;
+	}
+
+	p{
+		font-size: 16px;
+	}
+
+	h2 .subtitle{
+	    font-size: 20px;
+	}
+	h3 .subtitle{
+	    font-size: 19px;
+	}
+
+	.back-picture {
+	    padding: 40px 0px 40px 0px;
+	}
+
+	.logo-text{
+	    width: 36%;
+	}
+
+	#footer h2{
+	    font-size: 20px;
+	}
+	
+	#footer article h3{
+    	font-size: 18px;
+	}
+	#footer ul li {
+    	font-size: 13px;
+	}
+	#social-network li img{
+		width: 40px;
+	}
+	#footer-logo{
+		padding-top:30px;
+		padding-bottom:30px;
+	}
+	#logo img{
+		width: 150px;
+	}
+	#carrousel_responsive {
+	    width: 240%!important;
+	    height: 80%!important;
+	    margin-left: -69%!important;
+	}
+	.comprar_box {
+	    top: -10%!important;
+	    height: calc( 100% - 7px ) !important;
+	}
+
+	.comprar_footer p {
+	    font-size: 11pt;
+	    font-family: PoetsenOne_Regular;
+	    color: #900e9c;
+	    margin-top: 60%;
+	    margin-left: -20%;
+	}
+	#edad-btn {
+	    font-size: 11pt;
+	    margin-top: 530%;
+	    margin-left: -370%;
+	    padding: 4%;
+	}
+	.header_titulo {
+	    font-size: 15px!important;
+	}
+	.tamano{
+		width: 250px!important;
+	}
+	#carrousel_2 {
+		margin-left: -95%!important;
+	}
+	#carrousel_2 img {
+	    width: 25%!important;
+	    height: 90%!important;
 	}
 	#nombre_producto {
 	    font-size: 20pt!important;

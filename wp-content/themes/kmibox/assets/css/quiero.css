@@ -71,7 +71,7 @@ section {
 }
 
 .vlz_carrousel {
-	width: 800px;
+	width: 1400px;
     height: 300px;
     margin: 60px auto;
     top: 50%;
@@ -216,10 +216,9 @@ span.separador_presentacion {
 	display: block;
 	margin: 0px auto;
 	max-width: 900px;
-    overflow: hidden;
     height: 420px;
-
-    top: 50%;
+    width: 100%;
+    top: 46%;
     margin-top: -210px;
 }
 
@@ -392,36 +391,81 @@ span.separador_presentacion {
 
 @media (max-width:599px) and (min-width:200px) {
   
-table #desglose {
-    width: 50%;
-    font-family: caviar_dreamsregular;
-}
-.cintillo_factura #cen {
-    height: 15px;
-    margin: 25px auto;
-}
-.cintillo_factura #der {
-    /* float: right; */
-    height: 50px;
-    margin: 20px;
+    table #desglose {
+        width: 50%;
+        font-family: caviar_dreamsregular;
+    }
+    .cintillo_factura #cen {
+        height: 15px;
+        margin: 25px auto;
+    }
+    .cintillo_factura #der {
+        /* float: right; */
+        height: 50px;
+        margin: 20px;
+    }
+
+    .cintillo_factura #izq {
+        /* float: left; */
+        height: 50px;
+        margin: 20px;
+    }
+
+    #desglose th{    
+        text-align: left;
+        background-color: #930e9e;
+        color: #FFF;
+        padding: 10px 10px;
+        font-size: 9px;
+    }
+
+    #desglose td {    
+        padding: 0px;
+    }
+
 }
 
-.cintillo_factura #izq {
-    /* float: left; */
-    height: 50px;
-    margin: 20px;
+@media all and (max-width:599px) and (min-width:359px){
+    #plan > div {
+    position: relative;
+    display: block;
+    margin: 0px auto;
+    max-width:  469px;
+    overflow: unset !important;
+    height: 420px !important;
+    top: 50%;
+    margin-top: -250px;
+    width: 100%;
 }
 
-#desglose th{    
-    text-align: left;
-    background-color: #930e9e;
-    color: #FFF;
-    padding: 10px 10px;
-    font-size: 9px;
+.comprar_footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 30px 15px;
+    background: #FFF;
+    #border-top: solid 3px;
+    text-align: center;
+}
+   
 }
 
-#desglose td {    
-    padding: 0px;
+@media all and (max-width:620px) and (min-width:490px){
+    #plan > div {
+    position: relative;
+    display: block;
+    margin: 0px auto;
+    max-width:  469px;
+    overflow: unset !important;
+    height: 420px !important;
+    top: 50%;
+    margin-top: -250px;
+    width: 100%
+}
+   
 }
 
+#content-primary {
+    padding-top: 0px !important;
 }
