@@ -1679,7 +1679,7 @@ select{
 	}
 	.comprar_box {
 	    top: -10%!important;
-	    height: calc( 100% - 7px ) !important;
+	    height: calc( 100% - 100px ) !important;
 	}
 
 	.comprar_footer p {
