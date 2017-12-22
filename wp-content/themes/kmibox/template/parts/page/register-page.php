@@ -111,7 +111,7 @@
 						<input type="text" name="dir_calle" class="form-control col-md-6" data-charset="xlfnumesp" id="inputEmail3" placeholder="Calle" maxlength="50">
 					</div>
 					<div class="col-md-6 form-group">
-						<div class="row">
+						<div class="row hidden-sm">
 							<div class="col-md-6">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número exterior"  minlength="1" maxlength="20">
