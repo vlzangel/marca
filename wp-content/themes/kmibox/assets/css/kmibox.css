@@ -1254,7 +1254,7 @@ select{
 	}
 .carro{
 
-	    margin-left: -41%;
+	    margin-left: -41% !important;
 }
 	#regalo{
 		width: 20%;

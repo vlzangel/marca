@@ -126,34 +126,34 @@
 			<section id="fase_3" class="hidden">
 				<div class="comprar_box" id="plan">
 					<div id="planes">
-						<article id="plan-Quincenal" class="text-center col-sm-4 separation-top col-xs-6">
+						<article id="plan-Quincenal" class="text-center col-sm- separation-top col-xs-6">
 							<img class="img-responsive" src="'.get_home_url().'/img/Quincenal.png" width="300px" height="370px">
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  data-value="Quincenal" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Mensual<span id="precio"></span></button>
 						</article>
 
-						<article id="plan-Mensual" class="text-center col-sm-4 separation-top col-xs-6">
+						<article id="plan-Mensual" class="text-center col-sm-3 separation-top col-xs-6">
 							<img class="img-responsive" src="'.get_home_url().'/img/Mensual.png" width="300px" height="370px" style="margin-top: -3%;">
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Mensual" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Bimestral</button>
 						</article>
 
-						<article id="plan-Trimestral" class="text-center col-sm-4 separation-top col-xs-6" style="display: inline-block;">
+						<article id="plan-Trimestral" class="text-center col-sm-3 separation-top col-xs-6" style="style="display: inline-block !important;>
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral-1.png" width="300px" height="370px" ">
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio1" data-value="Trimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Trimestral</button>
 						</article>
 
-						<!-- <article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-offset-3 col-xs-6 arriba"> -->
+						<!-- <article id="plan-Bimestral" class="text-center col-sm-3 separation-top col-xs-offset-3 col-xs-6 arriba"> -->
 
-						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm hidden-xs" style="display: inline-block;/*margin-left: 26%; margin-top: 7%;*/">
+						<article id="plan-Bimestral" class="text-center col-sm-3 separation-top col-xs-6 hidden-sm hidden-xs" style="display: inline-block;/*margin-left: 26%; margin-top: 7%;*/">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio2" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777; margin-top: 0px">Semestral</button>
 						</article>
 
-						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-xs hidden-lg hidden-md visible-sm" style="display: inline-block;margin-top: 7%;">
+						<article id="plan-Bimestral" class="text-center col-sm-3 separation-top col-xs-6 hidden-xs hidden-lg hidden-md visible-sm" style="display: inline-block;margin-top: 7%;">
 							<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone"  id="precio2" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Semestral</button>
 						</article>
 
-						<article id="plan-Bimestral" class="text-center col-sm-4 separation-top col-xs-6 hidden-sm hidden-lg hidden-md visible-xs" style="display: inline-block;">	<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
+						<article id="plan-Bimestral" class="text-center col-sm-3 separation-top col-xs-6 hidden-sm hidden-lg hidden-md visible-xs" style="display: inline-block;">	<img class="img-responsive" src="'.get_home_url().'/img/Bimestral.png" width="300px" height="370px">
 							<button class="btn btn-sm-marca btn-sm-kmibox-price postone" data-value="Bimestral" style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;">Semestral</button>
 						</article>
 
@@ -227,7 +227,7 @@
 
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" id="suscription">
-				<div class="Modal content" id="suscription" >			     
+				<div class="Modal content text-center" id="suscription" >			     
 					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px; /*display: inline-block; */">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="row" >
