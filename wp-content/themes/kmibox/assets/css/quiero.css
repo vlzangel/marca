@@ -446,14 +446,14 @@ span.separador_presentacion {
 
 
     .comprar_descripcion {
-        position: relative;
-        left: 24%;
-        width: 100%;
-        padding: 20px;
-        background: #FFF;
-        top: 80%;
-        font-size: 18pt;
-        z-index: 2;
+    position: relative;
+    left: 24%;
+    width: 100%;
+    padding: 20px;
+    background: #FFF;
+    top: 133% !important;
+    font-size: 18pt;
+    z-index: 2;
     }
     #derecha {
         font-size: 20pt;

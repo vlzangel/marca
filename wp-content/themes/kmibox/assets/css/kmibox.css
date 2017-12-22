@@ -1275,9 +1275,15 @@ select{
 	.h-3x{
 		font-size: 20px;
 	}
-.carro{
+	.carro{
 
 	    margin-left: -41% !important;
+	}
+	.comprar_box {  
+    position: absolute;
+    top: 0px;  
+    width: 100%;
+    /*height: calc( 100% - 72px )*/;
 }
 	#regalo{
 		width: 20%;
@@ -1289,7 +1295,7 @@ select{
 	    top: 10%!important;
 	}
 	.comprar_box {
-	    top: 25%!important;
+	    top: -10%!important;
 	}
 
 	.comprar_footer{
