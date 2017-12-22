@@ -62,7 +62,16 @@ section {
     background-color: #fff;
     border: 1px solid #fff;
 }
-
+.comprar_descripcion {
+    position: relative;
+    left: 40%;
+    width: 100%;
+    padding: 20px;
+    background: #FFF;
+    top: 80%;
+    font-size: 18pt;
+    z-index: 2;
+}
 .comprar_box {  
     position: absolute;
     top: 0px;  
@@ -356,38 +365,38 @@ span.separador_presentacion {
 }  
 @media all and (max-width:959px) and (min-width:600px) {
     table #desglose {
-    width: 50%;
-    font-family: caviar_dreamsregular;
-}
-.cintillo_factura #cen {
-    height: 15px;
-    margin: 25px auto;
-}
-.cintillo_factura #der {
-    /* float: right; */
-    height: 50px;
-    margin: 20px;
-}
-
-.cintillo_factura #izq {
-    /* float: left; */
-    height: 50px;
-    margin: 20px;
-}
-
-#desglose th{    
-    text-align: left;
-    background-color: #930e9e;
-    color: #FFF;
-    padding: 10px 10px;
-    font-size: 9px;
-}
-
-#desglose td {    
-    padding: 0px;
-}
-
+        width: 50%;
+        font-family: caviar_dreamsregular;
     }
+    .cintillo_factura #cen {
+        height: 15px;
+        margin: 25px auto;
+    }
+    .cintillo_factura #der {
+        /* float: right; */
+        height: 50px;
+        margin: 20px;
+    }
+
+    .cintillo_factura #izq {
+        /* float: left; */
+        height: 50px;
+        margin: 20px;
+    }
+
+    #desglose th{    
+        text-align: left;
+        background-color: #930e9e;
+        color: #FFF;
+        padding: 10px 10px;
+        font-size: 9px;
+    }
+
+    #desglose td {    
+        padding: 0px;
+    }
+    
+}
 
 @media (max-width:599px) and (min-width:200px) {
   
@@ -422,33 +431,42 @@ span.separador_presentacion {
     #desglose td {    
         padding: 0px;
     }
-
+    .comprar_descripcion {
+        position: relative;
+        left: 8%;
+        width: 100%;
+        padding: 20px;
+        background: #FFF;
+        top: 77%;
+        font-size: 14pt;
+        z-index: 2;
+    }
 }
 
 @media all and (max-width:599px) and (min-width:359px){
     #plan > div {
-    position: relative;
-    display: block;
-    margin: 0px auto;
-    max-width:  469px;
-    overflow: unset !important;
-    height: 420px !important;
-    top: 50%;
-    margin-top: -250px;
-    width: 100%;
-}
+        position: relative;
+        display: block;
+        margin: 0px auto;
+        max-width:  469px;
+        overflow: unset !important;
+        height: 420px !important;
+        top: 50%;
+        margin-top: -250px;
+        width: 100%;
+    }
 
-.comprar_footer {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    padding: 30px 15px;
-    background: #FFF;
-    #border-top: solid 3px;
-    text-align: center;
-}
-   
+    .comprar_footer {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 30px 15px;
+        background: #FFF;
+        #border-top: solid 3px;
+        text-align: center;
+    }
+    
 }
 
 @media all and (max-width:620px) and (min-width:490px){
