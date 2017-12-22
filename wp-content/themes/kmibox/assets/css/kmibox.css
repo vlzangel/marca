@@ -1039,6 +1039,29 @@ select{
     padding: 20px 20px;
     font-family: caviar_dreamsregular;
 }
+/************* Carrusel prev y next, responsive *****/
+#izquierda {
+    font-size: 20pt;
+    /*background: #a09696;*/
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    padding: 8px;
+    margin-top: 10%;
+    margin-left: 20%;
+}
+#derecha {
+    font-size: 20pt;
+    /*background: #a09696;*/
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    padding: 8px;
+    margin-top: 10%;
+    margin-left: 55%;    
+}
+
+    
 
 @media only screen and (max-width:598px) {
 	#top div img {
@@ -1392,12 +1415,10 @@ select{
 	.tamano{
 		width: 250px!important;
 	}
-	#carrousel_2 {
-		margin-left: -95%!important;
-	}
+	
 	#carrousel_2 img {
-	    width: 25%!important;
-	    height: 90%!important;
+	    width: 21%!important;
+	    height: 100%!important;
 	}
 	#nombre_producto {
 	    font-size: 20pt!important;
@@ -1406,7 +1427,16 @@ select{
 	.arriba {
 	    margin-top: -1px;
 	}
-	}
+	#carrousel_2 {
+        margin-left: -53%;
+    }
+    #izquierda {
+        margin-left: 33%;
+    }
+    #derecha {
+        margin-left: 25%;
+    }
+}
 @media (max-width: 614px) and (min-width: 200px){
 	#title{
 		font-size: 14px; 
@@ -1520,15 +1550,28 @@ select{
 		width: 250px!important;
 	}
 	#carrousel_2 {
-		margin-left: -95%!important;
+		margin-left: -70%!important;
+		top: 40%;
 	}
 	#carrousel_2 img {
-	    width: 25%!important;
-	    height: 90%!important;
+	    width: 20%!important;
+    	height: 85%!important;
 	}
+	#izquierda {
+        margin-left: 39%;
+    	margin-top: 15%;
+    }
+    #derecha {
+        margin-left: 25%;
+        margin-top: 15%;
+    }
 	#nombre_producto {
-	    font-size: 20pt!important;
+	    font-size: 18pt!important;
 	    margin-right: 10%!important;
+	    width: 100%;
+	}
+	.comprar_footer button {
+	    font-size: 15px!important;
 	}
 	.arriba {
 	    margin-top: -1px;
@@ -1648,12 +1691,20 @@ select{
 		width: 250px!important;
 	}
 	#carrousel_2 {
-		margin-left: -95%!important;
+		margin-left: -160%!important;
 	}
 	#carrousel_2 img {
-	    width: 25%!important;
-	    height: 90%!important;
+	    width: 15%!important;
+	    height: 85%!important;
 	}
+	#izquierda {
+        margin-left: 42%;
+    	margin-top: 18%;
+    }
+    #derecha {
+        margin-left: 19%;
+        margin-top: 18%;
+    }
 	#nombre_producto {
 	    font-size: 20pt!important;
 	    margin-right: 10%!important;

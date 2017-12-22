@@ -88,11 +88,12 @@
 				<div class="comprar_box">
 
 						<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs"></div>
-						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md hidden-sm hidden-xs"></div>
+						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md"></div>
 				</div>
 
 				
-
+				
+				<div id="descripciones" class="comprar_descripcion" data-value=""></div>
 				<div id="presentaciones" class="comprar_footer" data-value="">
 
 					<span id="nombre_producto"></span>
