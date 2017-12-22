@@ -135,7 +135,7 @@
 			      <a href="<?php echo get_home_url(); ?>/quiero-mi-kmibox" class="btn  <?php echo (isset($hidden))? '' : 'hidden' ; ?>  btn-sm-kmibox" id="btn_pagar_2 caviar" >Realizar Pago</a>
 
 			      <button id="btn_pagar_1" type="submit" class="btn caviar <?php echo (isset(
-			      	$hidden))? 'hidden' : '' ; ?> btn-sm-kmibox" style="padding: 10px 30px 10px 30px;>Realizar Pago</button>
+			      	$hidden))? 'hidden' : '' ; ?> btn-sm-kmibox" style="padding: 10px 30px 10px 30px;"">Realizar Pago</button>
 			    </div>
 				<div class="col-sm-3">
 			      <a href="<?php echo get_home_url(); ?>/" class="btn btn-sm-kmibox caviar" >Cancelar</a>

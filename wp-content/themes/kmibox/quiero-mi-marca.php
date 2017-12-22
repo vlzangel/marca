@@ -23,7 +23,7 @@
 
 			<section id="fase_1">
 				<div class="comprar_box">
-					<div id="vlz_carrousel" class="vlz_carrousel hidden-xs">
+					<div id="vlz_carrousel" class="vlz_carrousel hidden-xs carro">
 						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
 						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
 						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="400px" id="Grande" />

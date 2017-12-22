@@ -511,7 +511,7 @@ function eliminarProducto(id){
 
 	function carrousel(){
 		jQuery('#vlz_carrousel').waterwheelCarousel({
-			separation: 300,
+			separation: 280,
 			edgeFadeEnabled: true,     	 
 			flankingItems: 3,
 			orientation: 'horizontal',
@@ -528,7 +528,7 @@ function eliminarProducto(id){
 
 	function carrousel_responsive(){
 		jQuery('#carrousel_responsive').waterwheelCarousel({
-			separation: 140,
+			separation: 130,
 			edgeFadeEnabled: true,     	 
 			flankingItems: 3,
 			orientation: 'vertical',
@@ -573,6 +573,7 @@ function eliminarProducto(id){
 		
 	}
 	function carrousel_productos_responsive() {
+
 		var carusel_responsive = jQuery("#carrousel_2").waterwheelCarousel({
 			flankingItems: 0,
 			movingToCenter: function (jQueryitem) {},
