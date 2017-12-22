@@ -560,6 +560,13 @@ span.separador_presentacion {
     margin-top: 10%;
     margin-left: 20%;
 }
+
+.comprar_box {      
+    top: 0px;  
+    width: 100%;
+    height: calc( 100% - 72px );
+}
+
 }
 
 
@@ -570,7 +577,7 @@ span.separador_presentacion {
     height: 300px;
     margin: 60px auto;
     top: 60%;
-    margin-top: -107px;
+    margin-top: -131px;
     margin-left: -109%;
 }
 

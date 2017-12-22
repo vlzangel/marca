@@ -528,7 +528,7 @@ function eliminarProducto(id){
 
 	function carrousel_responsive(){
 		jQuery('#carrousel_responsive').waterwheelCarousel({
-			separation: 130,
+			separation: 150,
 			edgeFadeEnabled: true,     	 
 			flankingItems: 3,
 			orientation: 'vertical',
