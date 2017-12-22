@@ -704,12 +704,12 @@ span.separador_presentacion {
 
 @media (max-width: 991px) and (min-width: 768px){
 .vlz_carrousel {
-        width: 1400px;
+    width: 1400px;
     height: 300px;
     margin: 60px auto;
     top: 62%;
     margin-top: -15%;
-    margin-left: -38%;
+    margin-left: -40%;
 }
 }
 
