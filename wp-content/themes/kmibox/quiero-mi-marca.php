@@ -83,7 +83,7 @@
 
 			<section id="fase_2" class="hidden">
 
-				<div class="comprar_box" style="margin-left: 15%">					
+				<div class="comprar_box">					
 
 				<div class="comprar_box">
 

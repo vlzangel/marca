@@ -424,34 +424,24 @@ function eliminarProducto(id){
 /* Carruseles */
 
 
-	jQuery(window).resize(function() {
-		ventana_ancho = jQuery(window).width();
-		ventana_alto = jQuery(window).height();
-	  	switch(ventana_ancho) {
-		    case 360: 
-		    case 375:
-		    case 400:
-		    case 412:
-		    case 414: 
-		        //console.log('Cambio a pequeña '+ventana_ancho);
-		        break;
-		    case 500: 
-		    case 600: 
-		    case 700: 
-		    case 768: 
-		    case 800: 
-		        //console.log('Cambio a grande '+ventana_ancho);
-		        break;
-		    
-		    default:
-		        //console.log('va cambiando '+ventana_ancho);
-		        break;
-		}
-	});
-
+	// jQuery("#izq").on("click",function() {
+	// 	alert('Hola izquierda');
+	// 	// jQuery('#vlz_carrousel_2').waterwheelCarousel({
+	// 	// 	clickedCenter: function (jQueryitem) {}
+	// 	// });
+	// });
+	// jQuery("#der").on("click",function() {
+	// 	alert('Hola derecha');
+	// 	// jQuery('#vlz_carrousel_2').waterwheelCarousel({
+	// 	// 	clickedCenter: function (jQueryitem) {}
+	// 	// });
+	// });
+	
 	function loadProductos(){
 		var actual_select = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
 		jQuery('#vlz_carrousel_2').html("");
+		jQuery('#vlz_carrousel_2')
+			.append(jQuery('<a href="#" id="prev"><span id="izq" class="fa fa-chevron-left izq"></span></a>'));
 		jQuery.each(PRODUCTOS,  function(key, val){
 			// if( val['tamanos'][ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] ] == 1 ){
 				
@@ -468,6 +458,7 @@ function eliminarProducto(id){
 					});
 				}
 
+				
 				jQuery('#vlz_carrousel_2')
 				.append(
 					jQuery('<img id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">')
@@ -478,10 +469,11 @@ function eliminarProducto(id){
 						}
 					)
 				);
-
+				
 			// }
 		});
-
+		jQuery('#vlz_carrousel_2')
+			.append(jQuery('<a href="" id="next"><span id="der" class="fa fa-chevron-right der"></span></a>'));
 		if( actual_select != undefined ){
 			CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = "#item_"+actual_select;
 		}
@@ -559,7 +551,7 @@ function eliminarProducto(id){
 	}
 
 	function carrousel_productos() {
-		jQuery("#vlz_carrousel_2").waterwheelCarousel({
+		var carousel = jQuery("#vlz_carrousel_2").waterwheelCarousel({
 			flankingItems: 3,
 			movingToCenter: function (jQueryitem) { },
 			movedToCenter: function (jQueryitem) {
@@ -577,6 +569,14 @@ function eliminarProducto(id){
 			movedFromCenter: function (jQueryitem) {},
 			clickedCenter: function (jQueryitem) {}
 		});
+		jQuery('#prev').bind('click', function () {
+	      carousel.prev();
+	      return false
+	    });
+	    jQuery('#next').bind('click', function () {
+	      carousel.next();
+	      return false;
+	    });
 		
 	}
 	function carrousel_productos_responsive() {
