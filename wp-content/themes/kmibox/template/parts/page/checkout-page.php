@@ -65,7 +65,7 @@
 
 	<!-- Plantilla de Pago -->
 
-	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin-top:7%;border:1px solid #ccc;">
+	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin-top:7%;border:1px solid #ccc; margin-left: -2%;">
 
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" method="post" action="#" id="form-pago" >
