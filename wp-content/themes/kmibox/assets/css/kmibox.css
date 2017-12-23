@@ -1444,9 +1444,7 @@ select{
 	.arriba {
 	    margin-top: -1px;
 	}
-	#carrousel_2 {
-        margin-left: -53%;
-    }
+	
     #izquierda {
         margin-left: 33%;
     }
@@ -1566,10 +1564,7 @@ select{
 	.tamano{
 		width: 250px!important;
 	}
-	#carrousel_2 {
-		margin-left: -70%!important;
-		top: 40%;
-	}
+	
 	#carrousel_2 img {
 	    width: 20%!important;
     	height: 85%!important;
@@ -1707,9 +1702,7 @@ select{
 	.tamano{
 		width: 250px!important;
 	}
-	#carrousel_2 {
-		margin-left: -160%!important;
-	}
+	
 	#carrousel_2 img {
 	    width: 15%!important;
 	    height: 85%!important;
