@@ -47,3 +47,27 @@ function abrir_link(e){
 		}
 	});
 }
+
+function crearProducto(){
+	jQuery.ajax({
+        async:true, 
+        cache:false, 
+        type: 'POST', 
+        url: TEMA+"/backend/productos/ajax/crearProducto.php",
+        data: jQuery("#producto").serialize(), 
+        success:  function(HTML){
+            
+            console.log(HTML);
+
+        },
+        beforeSend:function(){},
+        error:function(e){
+        	console.log(e);
+        }
+    });
+}
+
+function img_cargada(img_reducida){
+	jQuery("#img_reducida").val(img_reducida);
+	jQuery("#img_vista").attr("src", img_reducida);
+}
