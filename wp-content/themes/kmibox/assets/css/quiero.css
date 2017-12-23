@@ -617,37 +617,38 @@ span.separador_presentacion {
     margin: 60px auto;
     top: 60%;
     margin-top: -6px;
-    margin-left: -132%; 
+    margin-left: -167%;
     }
 
 
     .comprar_descripcion {
             position: relative;
-        left: 7% !important;
-        width: 100%;
-        padding: 20px;
-        background: #FFF;
-        top: 80%;
-        font-size: 18pt;
-        z-index: 2;
-        margin-left: -4% !important;
+          position: relative;
+    left: 7% !important;
+    width: 100%;
+    padding: 20px;
+    background: #FFF;
+    top: 96%;
+    font-size: 14pt;
+    z-index: 2;
+    margin-left: -4% !important;
     }
     #derecha {
-        font-size: 20pt;
-        width: 40px;
-        height: 40px;
-        border-radius: 30px;
-        padding: 8px;
-        margin-top: 18%;
-        margin-left: 17% !important;
+            font-size: 20pt;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    padding: 8px;
+    margin-top: 6%;
+    margin-left: 17% !important;
     }
     #izquierda {
-              width: 1400px;
+    width: 1400px;
     height: 300px;
     margin: 60px auto;
     top: 60%;
     margin-top: -6px;
-    margin-left: -132%;
+    margin-left: 46%;
     }
 
 }
