@@ -612,12 +612,12 @@ span.separador_presentacion {
 @media (max-width: 614px) and (min-width: 200px){
 
     .vlz_carrousel {
-    width: 1400px;
+        width: 1400px;
     height: 300px;
     margin: 60px auto;
     top: 60%;
-    margin-top: -131px;
-    margin-left: -109%;
+    margin-top: -6px;
+    margin-left: -132%; 
     }
 
 
@@ -642,14 +642,12 @@ span.separador_presentacion {
         margin-left: 17% !important;
     }
     #izquierda {
-            font-size: 20pt;
-        /* background: #a09696; */
-        width: 40px;
-        height: 40px;
-        border-radius: 30px;
-        padding: 8px;
-        margin-top: 18% !important;
-        margin-left: 43% !important;
+              width: 1400px;
+    height: 300px;
+    margin: 60px auto;
+    top: 60%;
+    margin-top: -6px;
+    margin-left: -132%;
     }
 
 }
@@ -742,14 +740,13 @@ span.separador_presentacion {
 
 @media (max-width: 991px) and (min-width: 768px){
     .vlz_carrousel {
-            width: 1400px;
-        height: 300px;
-        margin: 60px auto;
-        top: 62%;
-        margin-top: -24%;
-        margin-left: -21%;
+             width: 1400px;
+    height: 300px;
+    margin: 60px auto;
+    top: 62%;
+    margin-top: -24%;
+    margin-left: -38% !important;
     }
-
 
     .comprar_descripcion {
         position: relative;
