@@ -4,13 +4,12 @@
 <div class="container_listados">
 
     <div class='titulos'>
-        <h2>Control de Productos</h2>
-        <hr>
+        <h2>Control de Productos</h2> <hr>
     </div>
 
 	<div class="botones_container">
 	    <input type='button' value='Nuevo' 		onClick='abrir_link( jQuery(this) )'  data-titulo="Nuevo Producto" data-modulo="productos" data-modal="nuevo" data-id="" class="button button-primary button-large" />
-	    <input type='button' value='Actualizar' onClick='actualizar()' 		class="button button-primary button-large" />
+	    <input type='button' value='Actualizar' onClick='actualizar()' class="button button-primary button-large" />
 	</div>
 
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
