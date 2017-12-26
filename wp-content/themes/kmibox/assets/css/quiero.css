@@ -647,8 +647,8 @@ span.separador_presentacion {
     height: 300px;
     margin: 60px auto;
     top: 60%;
-    margin-top: -6px;
-    margin-left: 46%;
+    margin-top: 93px;
+    margin-left: 47%;
     }
 
 }
@@ -679,7 +679,9 @@ span.separador_presentacion {
     }
     
 
-
+    .responsive_modal{
+        
+    }
 
 
 }

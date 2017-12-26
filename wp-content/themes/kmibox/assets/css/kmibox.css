@@ -356,7 +356,7 @@ select{
 }
 	
 .btn-kmibox{
-	background: #900e9c;
+	background: #091705;
 	border-radius: 40px;
 	border:0px;
 	color:#fff;
@@ -446,7 +446,7 @@ select{
 
 #section-comment{
 	color:#fff;
-	background: #94d400;
+	background: #091705;
 	font-family: cursive;
 	background-size: contain;
 	padding: 25px 0px 25px 0px;
@@ -454,7 +454,7 @@ select{
 
 #section-comment1{
 	color:#FFFFFF;
-	background: #900e9c;
+	background: #ffffff;
 	background-size: contain;
 	padding: 25px 0px 25px 0px;
 	font-family: caviar_dreamsregular;
@@ -550,7 +550,7 @@ select{
 }
 
 #footer{
-	background: #94d400;
+	background: #091705;
 	background-size: cover;
 	padding-bottom: 60px;
 }
