@@ -656,14 +656,14 @@ span.separador_presentacion {
 
 @media all and (max-width:599px) and (min-width:359px){
     #plan > div {
-        position: relative;
+       position: relative;
     display: block;
     margin: 0px auto;
     max-width: 469px;
     overflow: unset !important;
     height: 420px !important;
     top: 50%;
-    margin-top: -200px;
+    margin-top: -206px;
     width: 100%;
     }
 
