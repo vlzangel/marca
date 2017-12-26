@@ -634,13 +634,13 @@ span.separador_presentacion {
     margin-left: -4% !important;
     }
     #derecha {
-            font-size: 20pt;
+    font-size: 20pt;
     width: 40px;
     height: 40px;
     border-radius: 30px;
     padding: 8px;
     margin-top: 6%;
-    margin-left: 17% !important;
+    margin-left: 18% !important;
     }
     #izquierda {
     width: 1400px;
@@ -656,15 +656,15 @@ span.separador_presentacion {
 
 @media all and (max-width:599px) and (min-width:359px){
     #plan > div {
-        position: relative;
-        display: block;
-        margin: 0px auto;
-        max-width:  469px;
-        overflow: unset !important;
-        height: 420px !important;
-        top: 50%;
-        margin-top: -250px;
-        width: 100%;
+       position: relative;
+    display: block;
+    margin: 0px auto;
+    max-width: 469px;
+    overflow: unset !important;
+    height: 420px !important;
+    top: 50%;
+    margin-top: -206px;
+    width: 100%;
     }
 
     .comprar_footer {
