@@ -15,7 +15,7 @@
 			'.cssPAGE("perfil").'
 
 			<ul class="perfil_tabs">
-				<li class="tab_activo" data-tab="2">Mi suscripción</li>
+				<li class="tab_activo" data-tab="2">Mis suscripciones</li>
 				<li data-tab="3">Estatus de envíos</li>
 				<li data-tab="1">Mi Información</li>
 			</ul>
