@@ -1,6 +1,6 @@
 <footer id="footer" class="row text-center">
-	<div class="container">		
-		<div style="float:right;width:50%;"> 
+<div class="container">		
+	<div style="float:right;width:50%;"> 
 		<article class="col-sm-8  text-left">			
 			<h3 class="caviar">Navega</h3>
 			<ul class="list-unstyled">
@@ -12,17 +12,7 @@
 				<li class="caviar">Preguntas y respuestas</li>
 			</ul>
 		</article>
-	</div>
-		<article class="col-sm-8  text-left">
-			<h3 class="caviar">Búscanos en redes sociales</h3>
-			<ul class="list-inline" id="social-network">
-				<li><img src="<?php echo get_home_url(); ?>/img/fb.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/ig.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/tw.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/yt.png"></li>
-			</ul>
-		</article>
-
+	</div>		 	
 	<div style="float:right;width:50%;"> 
 		<article class="col-sm-12  text-left">
 			<h3 class="caviar">Contáctanos</h3>
@@ -34,9 +24,19 @@
 			</ul>
 		</article>
 	</div>
+	<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive" width="31%">
+	<article class="col-sm-6  text-left">
+			<h3 class="caviar">Búscanos en redes sociales</h3>
+			<ul class="list-inline" id="social-network">
+				<li><img src="<?php echo get_home_url(); ?>/img/fb.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/ig.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/tw.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/yt.png"></li>
+			</ul>
+		</article>
 
 		<div id="footer-logo" class="col-xs-12 text-center col-md-12">
-			<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive">
+			
 		</div>
 	</div>
 </footer>
