@@ -160,9 +160,7 @@
 
 					</div>
 				</div>
-				<div class="comprar_footer">
-					<span class="text-center fontspan caviar">Descuento en comparación con el precio unitario mensual*</span>
-				</div>
+				
 			</section>
 
 			<section id="fase_4" class="hidden">
