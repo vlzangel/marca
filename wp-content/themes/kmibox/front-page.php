@@ -21,7 +21,7 @@ get_header(); ?>
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive">
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
-					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 45%">
 					<h2 style="font-size: 14px"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
@@ -132,19 +132,19 @@ get_header(); ?>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 14px">
+							<p style="margin-left: 5px; font-size: 14px; color: #000000">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 20px; font-size: 12px">
+							<p style="margin-left: 20px; font-size: 12px; color: #000000">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 12px">
+							<p style="font-size: 12px; color: #000000">
 								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
 					</div> 
@@ -153,8 +153,8 @@ get_header(); ?>
 
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px">
-								Recibe el producto en tu casa u <br>oficina sin costo adicional
+							<p style="font-size: 12px; color: #000000">
+								Recibe el producto en tu casa u <br> oficina sin costo adicional
 							</p>
 					</div> 
 
@@ -164,26 +164,26 @@ get_header(); ?>
 				<div class="row visible-xs" > 	
 						<div class="col-xs-6">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style=" font-size: 9px">
+							<p style=" font-size: 12px; color: #000000">
 									Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-xs-6"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 5px ; font-size: 9px">
+							<p style="margin-left: 12px ; font-size: 9px; color: #000000">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-xs-6"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 8px">
+							<p style="font-size: 12px; color: #000000">
 								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
 					<div class="col-xs-6" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 9px">
-								Recibe el producto en tu casa u <br>oficina sin costo adicional<B>Paga</B> con tarjeta o *efectivo
+							<p style="font-size: 12px; color: #000000">
+								Recibe el producto en tu casa u <br>oficina sin costo adicional 
 							</p>
 					</div> 
 
@@ -201,7 +201,7 @@ get_header(); ?>
 			<h4 style="color:#ffffff; font-size: 25px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un comñero especial</h4>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
-			<h4 style="color:#ffffff; font-size: 12px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un comñero especial</h4>
+			<h4 style="color:#ffffff; font-size: 14px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un comñero especial</h4>
 		</div>
 	</section>
 
