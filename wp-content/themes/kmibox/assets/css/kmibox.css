@@ -172,10 +172,10 @@ p span{
 	text-decoration: none;
 }
 .btn-kmibox-link{
-	background: transparent;
+	background: #000000;
 	padding: 5px 17px;
 	border-radius: 50px;
-	border: 1px solid #fff;
+	border: 1px solid #000;
 	color: #fff;
 	text-decoration: none;
 }
@@ -394,7 +394,7 @@ select{
 
 
 #top{
-	background: #94d400;
+	background: #ffffff;
 	min-height: 10vh;
 	padding: 10px 0px;
 }

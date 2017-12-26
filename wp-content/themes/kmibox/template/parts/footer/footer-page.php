@@ -12,6 +12,7 @@
 				<li class="caviar">Preguntas y respuestas</li>
 			</ul>
 		</article>
+		<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive" width="50%" style="margin-top: 34%">
 	</div>		 	
 	<div style="float:right;width:50%;"> 
 		<article class="col-sm-12  text-left">
@@ -24,7 +25,7 @@
 			</ul>
 		</article>
 	</div>
-	<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive" width="31%">
+
 	<article class="col-sm-6  text-left">
 			<h3 class="caviar">Búscanos en redes sociales</h3>
 			<ul class="list-inline" id="social-network">

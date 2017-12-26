@@ -217,7 +217,7 @@ get_header(); ?>
 				<img src="<?php echo get_home_url(); ?>/img/box.png" id="regalo" class="img-responsive" >
 			</div>
 			<br>			<br>
-				<p style="font-size: 14px">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
+				<p style="font-size: 20px; color: #000000">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
 				él se <br> nutre y tu amigo o familiar no se preocupa más</p>			
 				<br><br>	
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
