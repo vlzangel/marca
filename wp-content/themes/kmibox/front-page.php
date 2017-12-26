@@ -16,20 +16,20 @@ get_header(); ?>
 	<?php echo MENU(); ?>
 	<header id="header" class="row">
 		<article>
-			<div class="container" id="banner">
+			<div class="container" id="banner" style="margin-bottom: 3%">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0">
-					<img src="<?php echo get_home_url(); ?>/img/Image_1.png" 	 class="img-responsive">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive">
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
-					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
-					<h2 style="font-size: 14px"><b>Es una dotación mensual de alimento<br> para tu mascota</b></h2>
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
+					<h2 style="font-size: 14px"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs ">
-					<img src="<?php echo get_home_url(); ?>/img/marca.jpg" class="img-responsive">
-					<h2 style="font-size: 25px"><b>Es una dotación mensual de alimento<br> para tu mascota</b></h2>
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
+					<h2 style="font-size: 25px"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
@@ -43,34 +43,33 @@ get_header(); ?>
 
 	<section id='section-comment' class="row text-center ">
 		<div class="container hidden-xs">
-			<h3 style="font-size: 35px"><B>¿No encuentras el alimento de tu perrito en la tienda?</B></h3>
-			<h2 style="font-family: PoetsenOne_Regular">¡Eso se acabó!</h2>
+			<h3 style="font-size: 24px"><B>La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento <br> a tu casa u oficina, sin costo de envío</B></h3>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
-			<h3><B>¿No encuentras el alimento de tu perrito en la tienda?</B></h3>
-			<h2 style="font-family: PoetsenOne_Regular">¡Eso se acabó!</h2>
+			<h3><B>La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</B></h3>
 		</div>
 	</section>
 
-	<section id="como-funciona" class="row text-center">
+	<section id="como-funciona" class="row text-center" style="margin-top: 5%">
 		<div class="container hidden-xs" >
+
 			<div style="float:left;width:33%;">    
 				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" >
 					<p>
-						<B>No mas viajes largos</B> a comprar <br>alimento para tu perrito
+						<b>Asesores nutricionales<br>certificados</b>
 						</p>									    
 			</div>
 			<div style="float:left;width:33%;">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" >
 					<p>
-						Con <i><strong>Marca</strong></i> tienes la seguridad <br>que <i><strong>le das lo mejor</strong></i>
+						<b>Entregado en tu <br> casa sin costo adicional</b>
 					</p>
 		    </div>
 		    <div style="float:left;width:33%;">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" >
 					<p>
-						No más cambios de precio, con <i><strong>Marca</strong></i> siempre <i><strong>sabes cuánto vas a pagar</strong></i>
+						<b>Más barato que en una<br> veterinaria</b>
 					</p>
 			</div>
 		</div>	
@@ -78,159 +77,147 @@ get_header(); ?>
 				<div class="col-xs-6"  >    				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive">
 					<p style="font-size: 9px">
-						<B>No más viajes largos</B> a comprar <br>alimento para tu perrito
+						<b>Asesores nutricionales<br>certificados</b>
 						</p>									    
 				</div>
 				<div class="col-xs-6">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive">
 					<p style="font-size: 9px">
-						Con <i><strong>Marca</strong></i> tienes la seguridad <br>que <i><strong>le das lo mejor</strong></i>
+						<b>Entregado en tu <br> casa sin costo adicional</b>
 					</p>
 		  	    </div>
 		    	<div class="col-xs-6 col-xs-offset-3">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive">
 					<p style="font-size: 9px">
-						No más cambios de precio, con <i><strong>Marca</strong></i> siempre <i><strong>sabes cuánto vas a pagar</strong></i>
+						<b>Más barato que en una<br> veterinaria</b>
 					</p> 
 				</div>
 		</div>			
 	</section>
 
 	<section class="row text-center ">
-		<div class="container  hidden-xs">
-			<img src="<?php echo get_home_url(); ?>/img/bar-1.png" class="img-responsive">	
-		</div>
-		<div class="container1 visible-xs" style="background-color: #007bd8; color: #ffffff">
-			<p style="color: #ffffff; font-size: 14px">
-				Recibe en la puerta de tu casa una dotación de alimento de que si nutre
-			</p>
-				<h2 style="color: #ffffff; font-family:PoetsenOne_Regular">¡Suficiente para un mes!</h2>
-		</div>
+		
 		<div class="container">
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" >
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
-			<label style="color: #a9d433;font-size: 20px;font-family: PoetsenOne_Regular;margin-left: -31%;">Un alimento <span style="color: #ebb931">especial</span></label>
-			<label style="color: #a9d433;font-size: 20px;font-family:  PoetsenOne_Regular;margin-left: 10%;">Para un <span style="color: #ebb931">compañero </span><span style="color: #a9d433">especial</span></label>
+			<label style="color: #ebb931;font-size: 20px;font-family: PoetsenOne_Regular;margin-left: -5%;">Las mejores marcas <span style="color: #000000">TODAS EN UN MISMO LUGAR</span></label>
+			<br>
+			<label style="text-align: center; font-weight: normal; font-size: 16px">Puedes escoger la mejor para tu mascota</label>
 		</div>	
 		<div class="container hidden-xs hidden-sm">
-			<label style="color: #a9d433;font-size: 75px;font-family: PoetsenOne_Regular;margin-left: -31%;">Un alimento<span style="color: #ebb931">especial</span></label>
-			<label style="color: #a9d433;font-size: 75px;font-family:  PoetsenOne_Regular;margin-left: 10%;">Para un<span style="color: #ebb931">compañero </span><span style="color: #a9d433">especial</span></label>
+			<label style="color: #a9d433;font-size: 41px;font-family: PoetsenOne_Regular;margin-left: -5%;">Las mejores marcas<span style="color: #000000">TODAS EN UN MISMO LUGAR</span></label>
+			<br>
+			<label style="text-align: center; font-weight: normal; font-size: 23px">Puedes escoger la mejor para tu mascota</label>
 		</div>	
 		<div class="container hidden-xs hidden-md hidden-lg visible-sm">
-			<label style="color: #a9d433;font-size: 45px;font-family: PoetsenOne_Regular;margin-left: -31%;">Un alimento<span style="color: #ebb931">especial</span></label>
-			<label style="color: #a9d433;font-size: 45px;font-family:  PoetsenOne_Regular;margin-left: 10%;">Para un<span style="color: #ebb931">compañero </span><span style="color: #a9d433">especial</span></label>
+			<label style="color: #a9d433;font-size: 45px;font-family: PoetsenOne_Regular;margin-left: -5%;">Las mejores marcas<span style="color: #000000">TODAS EN UN MISMO LUGAR</span></label>
+			<br>
+			<label style="text-align: center; font-weight: normal; font-size: 23px">Puedes escoger la mejor para tu mascota</label>
 		</div>			
 	</section>
 
 	<section id='section-comment1' class="row text-center ">
 		<div class="container hidden-xs">
-			<h2 style="color: #ffffff;font-weight: none; font-size: 55px">¿Cómo funciona la <span style="font-family: PoetsenOne_Regular">Marca</span>?</h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 34px">¿Cómo funciona la Marca?</h2>
 		</div>
 		<div class="container hidden-sm hidden-lg hidden-md">
-			<h2 style="color: #ffffff;font-weight: none; font-size: 25px">¿Cómo funciona la <span style="font-family:PoetsenOne_Regular">Marca</span>?</h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 25px">¿Cómo funciona la Marca?</h2>
 		</div>
 	</section>
  
 	<section id="como-consigo-kmibox" class="rowtext-center">
-		<div class="container">
+		<div class="container" style="margin-top: 5%">
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 				<div class="row hidden-xs">
-					<div style="float:left;width:33%;">
+					<div class="col-md-4 col-sm-4">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px">
-								<B>Elige</B> si tu perrito es
-								cachorro o adulto
+							<p style="margin-left: 5px; font-size: 14px">
+								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
-					<div style="float:left;width:33%;"> 	
+					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 20px">
-								Selecciona el alimento<br>ideal para él
+							<p style="margin-left: 20px; font-size: 12px">
+								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
-					<div style="float:left;width:33%;"> 
+					<div class="col-md-4 col-sm-4"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p>
-								Si lo deseas <B>Añade</B> un jueguete
-								o regalo 
+							<p style="font-size: 12px">
+								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
 					</div> 
 					
 							<div  style='clear:both;'></div>
 
-					<div style="float:left;width:50%;"> 
+					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p>
-								<B>Paga</B> con tarjeta o *efectivo
+							<p style="font-size: 12px">
+								Recibe el producto en tu casa u <br>oficina sin costo adicional
 							</p>
 					</div> 
-					<div style="float:left;width:50%;"> 
-						<img src="<?php echo get_home_url(); ?>/img/Icon-5.png" class="img-responsive" >
-						<p>
-							<B>Recibe</B> tu marca en la puerta de tu casa
-						</p>
-					</div> 	
+
+					<label style="text-align: center; font-size: 171%; font-weight: normal">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
+					
 				</div>
 				<div class="row visible-xs" > 	
 						<div class="col-xs-6">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
 							<p style=" font-size: 9px">
-								<B>Elige</B> si tu perrito es
-								cachorro o adulto
+									Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-xs-6"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
 							<p style="margin-left: 5px ; font-size: 9px">
-								Selecciona el alimento ideal para él
+								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-xs-6"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
 							<p style="font-size: 8px">
-								Si lo deseas <B>Añade</B> un jueguete
-								o regalo 
+								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
-					<div class="col-xs-6"> 
+					<div class="col-xs-6" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
 							<p style="font-size: 9px">
-								<B>Paga</B> con tarjeta o *efectivo
+								Recibe el producto en tu casa u <br>oficina sin costo adicional<B>Paga</B> con tarjeta o *efectivo
 							</p>
 					</div> 
+
+					<label style="text-align: center; font-size: 171%; font-weight: normal">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
 							<div  style='clear:both;'></div>
-					<div class="col-xs-7 col-xs-offset-2"> 
-						<img src="<?php echo get_home_url(); ?>/img/Icon-5.png" class="img-responsive" >
-						<p style="font-size: 9px">
-							<B>Recibe</B> tu marca en la puerta de tu casa
-						</p>
-					</div> 
+					
 				</div> 	
 				
 			
 		</div>
 	</section>
 
-	<section style="color:#ffffff;	background: #f2bc3d;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
+	<section style="color:#ffffff;	background: #091705;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
 		<div class="container hidden-xs">
-			<h4 style="color:#ffffff; font-size: 25px; font-family: caviar_dreamsregular; ">*Paga en efectivo en miles de tienda de conveniencia</h4>
+			<h4 style="color:#ffffff; font-size: 25px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un comñero especial</h4>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
-			<h4 style="color:#ffffff; font-size: 12px; font-family: caviar_dreamsregular; ">*Paga en efectivo en miles de tienda de conveniencia</h4>
+			<h4 style="color:#ffffff; font-size: 12px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un comñero especial</h4>
 		</div>
 	</section>
 
 	<section class="row text-center">
-		<div class="container">
-			<h2 style="color:#94d400;font-weight: bold; font-size:30px; font-family: caviar_dreamsregular; " >¡Regálasela a un amigo o un familiar!</h2>
+		<div class="container" style="margin-bottom: 3%">
+			<div class="container  hidden-xs">
+			<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg" class="img-responsive">	
+		</div>
+			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: caviar_dreamsregular; " >¡Regálasela a un amigo o un familiar!</h2>
 				<br>
 			<div class="col-sm-12">
-				<img src="<?php echo get_home_url(); ?>/img/Elemento.png" id="regalo" class="img-responsive" >
+				<img src="<?php echo get_home_url(); ?>/img/box.png" id="regalo" class="img-responsive" >
 			</div>
 			<br>			<br>
 				<p style="font-size: 14px">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
-				él se nutre y tu amigo o familiar no se preocupa más</p>			
+				él se <br> nutre y tu amigo o familiar no se preocupa más</p>			
 				<br><br>	
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
 		</div>
@@ -242,6 +229,7 @@ get_header(); ?>
 	<?php get_template_part( 'template/parts/footer/footer', 'page' ); ?>
 
 <?php get_footer(); ?>
+
 
 
  
