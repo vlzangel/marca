@@ -322,6 +322,9 @@ span.separador_presentacion {
 
 .select_plan button{
     margin-top: 10px;
+    border: solid 2px rgb(144, 14, 156); 
+    background: #ffffff; 
+    color: #777;
 }
 
 @media all and (max-width:959px) {

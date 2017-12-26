@@ -16,7 +16,6 @@
 				<button 
 					class="btn btn-sm-marca btn-sm-kmibox-price postone" 
 					data-value="'.$plan->id.'" 
-					style="border: solid 2px rgb(144, 14, 156); background: #ffffff; color: #777;"
 				>
 					'.$plan->plan.'
 				</button>
