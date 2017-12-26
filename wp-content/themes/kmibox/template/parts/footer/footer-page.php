@@ -36,7 +36,7 @@
 	</div>
 
 		<div id="footer-logo" class="col-xs-12 text-center col-md-12">
-			<img src="<?php echo get_home_url(); ?>/img/marca-logo.png" class="img-responsive">
+			<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive">
 		</div>
 	</div>
 </footer>
