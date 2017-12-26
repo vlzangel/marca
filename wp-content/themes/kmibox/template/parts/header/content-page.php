@@ -5,10 +5,10 @@
 			<div class="container">
 				<a href="<?php echo get_home_url(); ?>">
 				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="visible-xs" style="margin-left: -2%">
+				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="visible-xs col-xs-6" style="margin-left: -2%">
 				</a>
 				
-			<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 pull-right text-right" style="    font-size: 10px;">
+			<ul class="option-menu list-unstyled list-inline col-xs-6 col-md-6 pull-right text-right" style="    font-size: 10px;">
 					<?php if ( is_user_logged_in() ){ ?>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/perfil-usuario">

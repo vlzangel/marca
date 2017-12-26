@@ -22,6 +22,7 @@
 	<!-- END Font -->
 	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/CaviarDreams.css">
 	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/PoetsenOne.css">
+	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/GothamMediumRegular.css">
 
 	<script type="text/javascript" src="<?php echo get_home_url(); ?>/plugins/jquery/jquery-3.2.1.min.js"></script>
 
