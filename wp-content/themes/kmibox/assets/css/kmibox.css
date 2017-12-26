@@ -173,7 +173,7 @@ p span{
 }
 .btn-kmibox-link{
 	background: #000000;
-	padding: 5px 17px;
+	padding: 15px 50px;
 	border-radius: 50px;
 	border: 1px solid #000;
 	color: #fff;
@@ -401,7 +401,7 @@ select{
 
 #top div img{
 	text-align: center; 
-	max-width: 19%;
+	max-width: 46%;
 }
 
 .separation-top{
