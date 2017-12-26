@@ -8,8 +8,7 @@
     </div>
 
 	<div class="botones_container">
-	    <input type='button' value='Nuevo' 		onClick='abrir_link( jQuery(this) )'  data-titulo="Nuevo Producto" data-modulo="productos" data-modal="nuevo" data-id="" class="button button-primary button-large" />
-	    <input type='button' value='Actualizar' onClick='actualizar()' class="button button-primary button-large" />
+	    <input type='button' value='Nuevo' onClick='abrir_link( jQuery(this) )'  data-titulo="Nuevo Producto" data-modulo="productos" data-modal="nuevo" data-id="" class="button button-primary button-large" />
 	</div>
 
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
@@ -23,6 +22,7 @@
                 <th>Presentaciones</th>
                 <th>Planes</th>
                 <th>Status</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody></tbody>

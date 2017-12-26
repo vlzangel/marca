@@ -258,7 +258,7 @@ span.separador_presentacion {
    	color: #900e9c;
 }
 
-#plan > div {
+/*#plan > div {
     position: relative;
 	display: block;
 	margin: 0px auto;
@@ -267,7 +267,7 @@ span.separador_presentacion {
     width: 100%;
     top: 46%;
     margin-top: -210px;
-}
+}*/
 
 #agregar_plan {
     padding: 10px 20px;
@@ -293,151 +293,180 @@ span.separador_presentacion {
 
 .cantidad_controls i{
     font-size: 20px;
+    cursor: pointer;
+}
+
+#plan {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#planes{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.select_plan_box{
+    overflow: hidden;
+    width: auto;
+}
+
+.select_plan{
+    width: 24%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: inline-block;
+}
+
+.select_plan button{
+    margin-top: 10px;
 }
 
 @media all and (max-width:959px) {
-  table  #desglose {
-    width: 50%;
-    font-family: caviar_dreamsregular;
-}
-.cintillo_factura #cen {
-    height: 15px;
-    margin: 25px auto;
-}
+    table  #desglose {
+        width: 50%;
+        font-family: caviar_dreamsregular;
+    }
+    .cintillo_factura #cen {
+        height: 15px;
+        margin: 25px auto;
+    }
 
-.cintillo_factura #der {
-    /* float: right; */
-    height: 50px; 
-    margin: 20px;
-}
+    .cintillo_factura #der {
+        /* float: right; */
+        height: 50px; 
+        margin: 20px;
+    }
 
-.cintillo_factura #izq {
-    /* float: left; */
-    height: 50px;
-    margin: 20px;
-}
+    .cintillo_factura #izq {
+        /* float: left; */
+        height: 50px;
+        margin: 20px;
+    }
 
-#desglose th{    
-    text-align: left;
-    background-color: #930e9e;
-    color: #FFF;
-    padding: 10px 10px;
-    font-size: 15px;
-}
+    #desglose th{    
+        text-align: left;
+        background-color: #930e9e;
+        color: #FFF;
+        padding: 10px 10px;
+        font-size: 15px;
+    }
 
-#desglose td {    
-    padding: 0px;
-}
+    #desglose td {    
+        padding: 0px;
+    }
 
 }
 @media all and (min-width:959px) {
   
     table  #desglose {
-    width: 50%;
-    font-family: caviar_dreamsregular;
-}
-.cintillo_factura #cen {
-    height: 15px;
-    margin: 25px auto;
-}
+        width: 50%;
+        font-family: caviar_dreamsregular;
+    }
+    .cintillo_factura #cen {
+        height: 15px;
+        margin: 25px auto;
+    }
 
-.cintillo_factura #der {
-    /* float: right; */
-    height: 50px;
-    margin: 20px;
-}
+    .cintillo_factura #der {
+        /* float: right; */
+        height: 50px;
+        margin: 20px;
+    }
 
-.cintillo_factura #izq {
-    /* float: left; */
-    height: 50px;
-    margin: 20px;
-}
+    .cintillo_factura #izq {
+        /* float: left; */
+        height: 50px;
+        margin: 20px;
+    }
 
-#desglose th{    
-    text-align: left;
-    background-color: #930e9e;
-    color: #FFF;
-    padding: 10px 10px;
-    font-size: 9px;
-}
- 
-#desglose td {    
-    padding: 0px;
-}
+    #desglose th{    
+        text-align: left;
+        background-color: #930e9e;
+        color: #FFF;
+        padding: 10px 10px;
+        font-size: 9px;
+    }
+     
+    #desglose td {    
+        padding: 0px;
+    }
 
 }
 @media all and (max-width:959px) and (min-width:600px) {
    
     table  #desglose {
-    width: 50%;
-    font-family: caviar_dreamsregular;
-}
-.cintillo_factura #cen {
-    height: 15px;
-    margin: 25px auto;
-}
-.cintillo_factura #der {
-    /* float: right; */
-    height: 50px;
-    margin: 20px;
-}
+        width: 50%;
+        font-family: caviar_dreamsregular;
+    }
+    .cintillo_factura #cen {
+        height: 15px;
+        margin: 25px auto;
+    }
+    .cintillo_factura #der {
+        /* float: right; */
+        height: 50px;
+        margin: 20px;
+    }
 
-.cintillo_factura #izq {
-    /* float: left; */
-    height: 50px;
-    margin: 20px;
-}
+    .cintillo_factura #izq {
+        /* float: left; */
+        height: 50px;
+        margin: 20px;
+    }
 
-#desglose th{    
-    text-align: left;
-    background-color: #930e9e;
-    color: #FFF;
-    padding: 10px 10px;
-    font-size: 9px;
-}
+    #desglose th{    
+        text-align: left;
+        background-color: #930e9e;
+        color: #FFF;
+        padding: 10px 10px;
+        font-size: 9px;
+    }
 
-#desglose td {    
-    padding: 0px;
-}
+    #desglose td {    
+        padding: 0px;
+    }
 
-.vlz_carrousel {
-    width: 1400px;
-    height: 300px;
-    margin: 60px auto;
-    top: 50%;
-    margin-top: -150px;
-}
+    .vlz_carrousel {
+        width: 1400px;
+        height: 300px;
+        margin: 60px auto;
+        top: 50%;
+        margin-top: -150px;
+    }
 
 
-.comprar_descripcion {
-    position: relative;
-    left: 24%;
-    width: 100%;
-    padding: 20px;
-    background: #FFF;
-    top: 80%;
-    font-size: 18pt;
-    z-index: 2;
-}
-#derecha {
-    font-size: 20pt;
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    padding: 8px;
-    margin-top: 10%;
-    margin-left: 55%;
-}
-#izquierda {
-    font-size: 20pt;
-    /* background: #a09696; */
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    padding: 8px;
-    margin-top: 10%;
-    margin-left: 20%;
-}
+    .comprar_descripcion {
+        position: relative;
+        left: 24%;
+        width: 100%;
+        padding: 20px;
+        background: #FFF;
+        top: 80%;
+        font-size: 18pt;
+        z-index: 2;
+    }
+    #derecha {
+        font-size: 20pt;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        padding: 8px;
+        margin-top: 10%;
+        margin-left: 55%;
+    }
+    #izquierda {
+        font-size: 20pt;
+        /* background: #a09696; */
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        padding: 8px;
+        margin-top: 10%;
+        margin-left: 20%;
+    }
 
 }  
 @media all and (max-width:959px) and (min-width:600px) {
@@ -655,18 +684,6 @@ span.separador_presentacion {
 
 
 @media all and (max-width:599px) and (min-width:359px){
-    #plan > div {
-       position: relative;
-    display: block;
-    margin: 0px auto;
-    max-width: 469px;
-    overflow: unset !important;
-    height: 420px !important;
-    top: 50%;
-    margin-top: -206px;
-    width: 100%;
-    }
-
     .comprar_footer {
         position: fixed;
         bottom: 0px;
@@ -687,17 +704,7 @@ span.separador_presentacion {
 }
 
 @media all and (max-width:620px) and (min-width:490px){
-    #plan > div {
-    position: relative;
-    display: block;
-    margin: 0px auto;
-    max-width:  469px;
-    overflow: unset !important;
-    height: 420px !important;
-    top: 50%;
-    margin-top: -250px;
-    width: 100%
-    }
+
 
     .vlz_carrousel {
       width: 1400px;

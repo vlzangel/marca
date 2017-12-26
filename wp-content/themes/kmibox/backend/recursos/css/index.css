@@ -125,3 +125,15 @@ a:focus, a:focus .media-icon img {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding-bottom: 15px;
 }
+
+.table th, .table td{
+    vertical-align: middle !important;
+}
+
+.enlace{
+    cursor: pointer;
+}
+
+.enlace:hover{
+    color: blue;
+}

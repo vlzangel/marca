@@ -6,18 +6,10 @@
     include( $raiz."/wp-load.php" );
 
 	global $wpdb;
+/*
+	$despachos = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
 
-	$productos = $wpdb->get_results("SELECT * FROM productos ORDER BY id DESC");
-	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
-	$_planes = array();
-	foreach ($data_planes as $plan) {
-		$_planes[ $plan->id ] = $plan->plan;
-	}
-
-	foreach ($productos as $producto) {
-
-		$dataextra = unserialize( $producto->dataextra );
-		$img = TEMA()."/productos/imgs/".$dataextra["img"];
+	foreach ($despachos as $producto) {
 
 		$tamanos = array();
 		foreach (unserialize($producto->tamanos) as $key => $value) {
@@ -39,7 +31,7 @@
 		$planes = array();
 		foreach (unserialize($producto->planes) as $key => $value) {
 			if( $value > 0 ){ 
-				$planes[] = $_planes[ $key ]; 
+				$planes[] = $key; 
 			}
 		}
 
@@ -64,7 +56,16 @@
 	        	<span onclick='eliminar_producto( jQuery( this ) )' data-id='".$producto->id."' class='enlace'>Eliminar</span><br>
 	        "
 	    );
-	}
+	}*/
+
+	$data["data"][] = array(
+	        "1",
+	        "2",
+	        "3",
+	        "4",
+	        "5",
+	        "6"
+	    );
 
     echo json_encode($data);
 

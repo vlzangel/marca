@@ -3,11 +3,9 @@
 }
 
 .img_reporte{
-	height: 80px;
-}
-
-.table th, .table td{
-	vertical-align: middle !important;
+    height: 80px;
+    display: block;
+    margin: 0px auto;
 }
 
 .celdas_1 .input_box > label {
