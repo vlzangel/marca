@@ -4,10 +4,10 @@
 			<div class="container">
 				
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  class="hidden-xs"  >
+					<img src="<?php echo get_home_url(); ?>/img/Image-Header.png"  class="hidden-xs"  >
 				</a> 
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/marca-logo.png"  class="hidden-sm hidden-md hidden-lg visible-xs" width="25%;" >
+					<img src="<?php echo get_home_url(); ?>/img/Image-Header.png"  class="hidden-sm hidden-md hidden-lg visible-xs" width="25%;" >
 				</a>		
 				
 

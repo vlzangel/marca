@@ -13,22 +13,23 @@
  */ 
 
 get_header(); ?>
-	<?php echo MENU(); ?>
+	<!--?php echo MENU(); ?-->
 	<header id="header" class="row">
+		<?php get_template_part( 'template/parts/header/content', 'page' ); ?>
 		<article>
 			<div class="container" id="banner" style="margin-bottom: 3%">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive">
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
-					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 45%">
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive"> 
 					<h2 style="font-size: 14px"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs ">
-					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 45%">
 					<h2 style="font-size: 25px"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
@@ -132,19 +133,19 @@ get_header(); ?>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 14px; color: #000000">
+							<p style="margin-left: 5px; font-size: 14px; color: #000000; text-align: center;">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 20px; font-size: 12px; color: #000000">
+							<p style="margin-left: 20px; font-size: 12px; color: #000000; text-align: center;">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 12px; color: #000000">
+							<p style="font-size: 12px; color: #000000; text-align: center;">
 								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
 					</div> 
@@ -153,36 +154,36 @@ get_header(); ?>
 
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #000000">
+							<p style="font-size: 12px; color: #000000 ; text-align: center;">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
 							</p>
 					</div> 
 
-					<label style="text-align: center; font-size: 171%; font-weight: normal">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
+					<label style="text-align: center; font-size: 171%; font-weight: normal; margin-left: 14%">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
 					
 				</div>
 				<div class="row visible-xs" > 	
 						<div class="col-xs-6">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style=" font-size: 12px; color: #000000">
+							<p style=" font-size: 12px; color: #000000; text-align: center;">
 									Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-xs-6"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 12px ; font-size: 9px; color: #000000">
+							<p style="margin-left: 12px ; font-size: 9px; color: #000000; text-align: center;">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-xs-6"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 12px; color: #000000">
+							<p style="font-size: 12px; color: #000000; text-align: center;">
 								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
 					<div class="col-xs-6" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #000000">
+							<p style="font-size: 12px; color: #000000; text-align: center;">
 								Recibe el producto en tu casa u <br>oficina sin costo adicional 
 							</p>
 					</div> 
