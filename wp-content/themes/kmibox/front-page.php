@@ -199,18 +199,24 @@ get_header(); ?>
 
 	<section style="color:#ffffff;	background: #091705;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
 		<div class="container hidden-xs">
-			<h4 style="color:#ffffff; font-size: 25px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un comñero especial</h4>
+			<h4 style="color:#ffffff; font-size: 25px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un compañero especial</h4>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
-			<h4 style="color:#ffffff; font-size: 14px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un comñero especial</h4>
+			<h4 style="color:#ffffff; font-size: 14px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>
 		</div>
 	</section>
 
 	<section class="row text-center">
 		<div class="container" style="margin-bottom: 3%">
 			<div class="container  hidden-xs">
-			<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg" class="img-responsive">	
-		</div>
+				<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg" class="img-responsive">	
+				<span style="padding: 5px 570px; background: #52fa0a"></span>
+			</div>
+
+			<div class="container visible-xs">
+				<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg" class="img-responsive">	
+				<span style="padding: 1px 320px; background: #52fa0a"></span>
+			</div>
 			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: GothanMedium_regular; " >¡Regálasela a un amigo o un familiar!</h2>
 				<br>
 			<div class="col-sm-12">
