@@ -44,30 +44,30 @@ get_header(); ?>
 
 	<section id='section-comment' class="row text-center ">
 		<div class="container hidden-xs">
-			<h3 style="font-size: 24px"><B>La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento <br> a tu casa u oficina, sin costo de envío</B></h3>
+			<h3 style="font-size: 24px; font-family: GothanMedium_regular"><B>La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento <br> a tu casa u oficina, sin costo de envío</B></h3>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
-			<h3><B>La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</B></h3>
+			<h3 style="font-family: GothanMedium_regular"><B>La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</B></h3>
 		</div>
 	</section>
 
 	<section id="como-funciona" class="row text-center" style="margin-top: 5%">
 		<div class="container hidden-xs" >
 
-			<div style="float:left;width:33%;">    
+			<div style="float:left;width:33%; font-family: GothanMedium_regular">    
 				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" >
 					<p>
 						<b>Asesores nutricionales<br>certificados</b>
 						</p>									    
 			</div>
-			<div style="float:left;width:33%;">  
+			<div style="float:left;width:33%; font-family: GothanMedium_regular">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" >
 					<p>
 						<b>Entregado en tu <br> casa sin costo adicional</b>
 					</p>
 		    </div>
-		    <div style="float:left;width:33%;">  
+		    <div style="float:left;width:33%; font-family: GothanMedium_regular">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" >
 					<p>
 						<b>Más barato que en una<br> veterinaria</b>
@@ -77,19 +77,19 @@ get_header(); ?>
 		<div  class="container hidden-sm hidden-md hidden-lg" >
 				<div class="col-xs-6"  >    				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive">
-					<p style="font-size: 9px">
+					<p style="font-size: 9px; font-family: GothanMedium_regular">
 						<b>Asesores nutricionales<br>certificados</b>
 						</p>									    
 				</div>
 				<div class="col-xs-6">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive">
-					<p style="font-size: 9px">
+					<p style="font-size: 9px; font-family: GothanMedium_regular">
 						<b>Entregado en tu <br> casa sin costo adicional</b>
 					</p>
 		  	    </div>
 		    	<div class="col-xs-6 col-xs-offset-3">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive">
-					<p style="font-size: 9px">
+					<p style="font-size: 9px; font-family: GothanMedium_regular">
 						<b>Más barato que en una<br> veterinaria</b>
 					</p> 
 				</div>
@@ -120,10 +120,10 @@ get_header(); ?>
 
 	<section id='section-comment1' class="row text-center ">
 		<div class="container hidden-xs">
-			<h2 style="color: #000000;font-weight: bold; font-size: 34px">¿Cómo funciona la Marca?</h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 34px; font-family: GothanMedium_regular">¿Cómo funciona la Marca?</h2>
 		</div>
 		<div class="container hidden-sm hidden-lg hidden-md">
-			<h2 style="color: #000000;font-weight: bold; font-size: 25px">¿Cómo funciona la Marca?</h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 25px; font-family: GothanMedium_regular">¿Cómo funciona la Marca?</h2>
 		</div>
 	</section>
  
@@ -133,19 +133,19 @@ get_header(); ?>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 14px; color: #000000; text-align: center;">
+							<p style="margin-left: 5px; font-size: 14px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 20px; font-size: 12px; color: #000000; text-align: center;">
+							<p style="margin-left: 20px; font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 12px; color: #000000; text-align: center;">
+							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
 					</div> 
@@ -154,41 +154,41 @@ get_header(); ?>
 
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #000000 ; text-align: center;">
+							<p style="font-size: 12px; color: #000000 ; text-align: center; font-family: GothanMedium_regular">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
 							</p>
 					</div> 
 
-					<label style="text-align: center; font-size: 171%; font-weight: normal; margin-left: 14%">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
+					<label style="text-align: center; font-size: 171%; font-weight: normal; margin-left: 14%; font-family: GothanMedium_regular">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
 					
 				</div>
 				<div class="row visible-xs" > 	
 						<div class="col-xs-6">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style=" font-size: 12px; color: #000000; text-align: center;">
+							<p style=" font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 									Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-xs-6"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 12px ; font-size: 9px; color: #000000; text-align: center;">
+							<p style="margin-left: 12px ; font-size: 9px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-xs-6"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 12px; color: #000000; text-align: center;">
+							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
 					<div class="col-xs-6" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #000000; text-align: center;">
+							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 								Recibe el producto en tu casa u <br>oficina sin costo adicional 
 							</p>
 					</div> 
 
-					<label style="text-align: center; font-size: 171%; font-weight: normal">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
+					<label style="text-align: center; font-size: 171%; font-weight: normal; font-family: GothanMedium_regular">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
 							<div  style='clear:both;'></div>
 					
 				</div> 	
@@ -211,13 +211,13 @@ get_header(); ?>
 			<div class="container  hidden-xs">
 			<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg" class="img-responsive">	
 		</div>
-			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: caviar_dreamsregular; " >¡Regálasela a un amigo o un familiar!</h2>
+			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: GothanMedium_regular; " >¡Regálasela a un amigo o un familiar!</h2>
 				<br>
 			<div class="col-sm-12">
 				<img src="<?php echo get_home_url(); ?>/img/box.png" id="regalo" class="img-responsive" >
 			</div>
 			<br>			<br>
-				<p style="font-size: 20px; color: #000000" >Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
+				<p style="font-size: 20px; color: #000000; font-family: GothanMedium_regular;" >Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
 				él se <br> nutre y tu amigo o familiar no se preocupa más</p>			
 				<br><br>	
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
