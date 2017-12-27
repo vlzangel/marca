@@ -18,11 +18,11 @@ get_header(); ?>
 		<?php get_template_part( 'template/parts/header/content', 'page' ); ?>
 		<article>
 			<div class="container" id="banner" style="margin-bottom: 3%">
-				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0">
+				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 75%;">
 				</div>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
-					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 85%;">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 230px;margin-left: -29%;">
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive"> 
@@ -123,7 +123,7 @@ get_header(); ?>
 
 	<section id='section-comment1' class="row text-center ">
 		<div class="container hidden-xs">
-			<h2 style="color: #000000;font-weight: bold; font-size: 34px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive">?</h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 34px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive"></h2>
 		</div>
 		<div class="container hidden-sm hidden-lg hidden-md">
 			<h2 style="color: #000000;font-weight: bold; font-size: 25px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive"></h2>
@@ -203,7 +203,7 @@ get_header(); ?>
 
 	<section style="color:#ffffff;	background: #091705;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
 		<div class="container hidden-xs">
-			<h4 style="color:#ffffff; font-size: 25px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un compañero especial</h4>
+			<h4 style="color:#ffffff; font-size: 48px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un compañero especial</h4>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
 			<h4 style="color:#ffffff; font-size: 14px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>

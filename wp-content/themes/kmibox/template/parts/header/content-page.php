@@ -24,12 +24,12 @@
 					<?php }else{ ?>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
-							<i class="fa fa-key fa-lg" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm gothan">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
+							<i class="fa fa-key fa-2x" aria-hidden="true"></i>
+							<span class="hidden-xs hidden-sm gothan" style="font-size: 16px">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus fa-lg " aria-hidden="true"></i> <span class=" hidden-xs hidden-sm gothan">Registrarse</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
+							<i class="fa fa-user-plus fa-2x " aria-hidden="true"></i> <span class=" hidden-xs hidden-sm gothan" style="font-size: 16px">Registrarse</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
 						</li>
 					<?php } ?>
 
