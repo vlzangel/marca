@@ -12,7 +12,7 @@
  * @version 1.0
  */ 
 
-get_header(); ?>
+//get_header(); ?>
 	<!--?php echo MENU(); ?-->
 	<header id="header" class="row">
 		<?php get_template_part( 'template/parts/header/content', 'page' ); ?>

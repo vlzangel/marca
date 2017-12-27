@@ -9,7 +9,7 @@
 
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
-				<h4 style="color: #000000; font-family: caviar_dreamsregular">Inicia Sesión para continuar</h4>
+				<h4 style="color: #000000; font-family: GothanMedium_regular">Inicia Sesión para continuar</h4>
 				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
 			</aside>
 
