@@ -58,19 +58,19 @@ get_header(); ?>
 				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" >
 					<p>
-						<b>Asesores nutricionales<br>certificados</b>
+						Asesores nutricionales<br>certificados
 						</p>									    
 			</div>
 			<div style="float:left;width:33%; font-family: GothanMedium_regular">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" >
 					<p>
-						<b>Entregado en tu <br> casa sin costo adicional</b>
+						Entregado en tu <br> casa sin costo adicional
 					</p>
 		    </div>
 		    <div style="float:left;width:33%; font-family: GothanMedium_regular">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" >
 					<p>
-						<b>Más barato que en una<br> veterinaria</b>
+						Más barato que en una<br> veterinaria
 					</p>
 			</div>
 		</div>	
@@ -78,19 +78,19 @@ get_header(); ?>
 				<div class="col-xs-6"  >    				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive">
 					<p style="font-size: 9px; font-family: GothanMedium_regular">
-						<b>Asesores nutricionales<br>certificados</b>
+						Asesores nutricionales<br>certificados
 						</p>									    
 				</div>
 				<div class="col-xs-6">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive">
 					<p style="font-size: 9px; font-family: GothanMedium_regular">
-						<b>Entregado en tu <br> casa sin costo adicional</b>
+						Entregado en tu <br> casa sin costo adicional
 					</p>
 		  	    </div>
 		    	<div class="col-xs-6 col-xs-offset-3">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive">
 					<p style="font-size: 9px; font-family: GothanMedium_regular">
-						<b>Más barato que en una<br> veterinaria</b>
+						Más barato que en una<br> veterinaria
 					</p> 
 				</div>
 		</div>			
@@ -133,19 +133,19 @@ get_header(); ?>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 14px; color: #000000; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 5px; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 20px; font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular;   margin-top: 8%;">
+							<p style="margin-left: 20px; font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular;   margin-top: 8%;">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive" style="margin-top: 5%; ">
-							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular; margin-top: 10%;">
+							<p style="font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular; margin-top: 10%;">
 								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
 					</div> 
@@ -154,7 +154,7 @@ get_header(); ?>
 
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #000000 ; text-align: center; font-family: GothanMedium_regular; margin-top: 3%;">
+							<p style="font-size: 12px; color: #878a87 ; text-align: center; font-family: GothanMedium_regular; margin-top: 3%;">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
 							</p>
 					</div> 
@@ -165,26 +165,26 @@ get_header(); ?>
 				<div class="row visible-xs" > 	
 					<div class="col-xs-6">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style=" font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
+							<p style=" font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 									Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-xs-6"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 12px ; font-size: 9px; color: #000000; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 12px ; font-size: 9px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 							<div  style='clear:both;'></div>
 					<div class="col-xs-6"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
+							<p style="font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
 					<div class="col-xs-6"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
+							<p style="font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Recibe el producto en tu casa u <br>oficina sin costo adicional 
 							</p>
 					</div> 
@@ -224,7 +224,7 @@ get_header(); ?>
 				<img src="<?php echo get_home_url(); ?>/img/box.png" id="regalo" class="img-responsive" >
 			</div>
 			<br>			<br>
-				<p style="font-size: 20px; color: #000000; font-family: GothanMedium_regular;" >Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
+				<p style="font-size: 20px; color: #878a87; font-family: GothanMedium_regular;" >Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
 				él se <br> nutre y tu amigo o familiar no se preocupa más</p>			
 				<br><br>	
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
