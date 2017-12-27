@@ -182,7 +182,7 @@ get_header(); ?>
 								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
-					<div class="col-xs-6" style="margin-top: 4%"> 
+					<div class="col-xs-6"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
 							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 								Recibe el producto en tu casa u <br>oficina sin costo adicional 
