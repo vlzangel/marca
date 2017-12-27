@@ -39,9 +39,13 @@
 }
 
 .secciones_container > section{
-	display: none;
-	padding: 10px;
+    display: none;
+    padding: 10px;
     overflow: hidden;
+}
+
+.secciones_container > section > h1{
+	text-align: center;
 }
 
 .secciones_container > section.section_activo {
@@ -223,9 +227,35 @@ input, select {
     #armada,
     #enviada,
     #recibida {
-        opacity: 0.5;
+        #opacity: 0.5;
     }
 
     .border-curvo {
-        border: 10px solid #a7a7a7 !important;
+
+    }
+
+    .border-curvo .row label {
+        font-size: 18px;
+        color: #000000;
+        text-transform: uppercase;
+    }
+
+    .border-curvo .row label i {
+        margin-right: 5px; 
+    }
+
+    .progress-content i{
+        display: none;
+    }
+
+    .progress-content i.fa-square-o{
+        display: inline-block;
+    }
+
+    .progress-content .paso_completado i.fa-check-square-o {
+        display: inline-block;
+    }
+
+    .progress-content .paso_completado i.fa-square-o {
+        display: none;
     }

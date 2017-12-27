@@ -10,18 +10,20 @@ jQuery(document).ready(function() {
 
 	jQuery("#tab_3 .suscripcion_item").on("click", function(e){
 		
+		jQuery(".progress-content > div > div > div").removeClass("paso_completado");
+
 		switch( jQuery(this).attr("data-status") ){
 			case 'Armada':
-				jQuery("#armada").css("opacity", 1);
+				jQuery("#armada").addClass("paso_completado");
 			break;
 			case 'Enviada':
-				jQuery("#armada").css("opacity", 1);
-				jQuery("#enviada").css("opacity", 1);
+				jQuery("#armada").addClass("paso_completado");
+				jQuery("#enviada").addClass("paso_completado");
 			break;
 			case 'Recibida':
-				jQuery("#armada").css("opacity", 1);
-				jQuery("#enviada").css("opacity", 1);
-				jQuery("#recibida").css("opacity", 1);
+				jQuery("#armada").addClass("paso_completado");
+				jQuery("#enviada").addClass("paso_completado");
+				jQuery("#recibida").addClass("paso_completado");
 			break;
 		}
 
