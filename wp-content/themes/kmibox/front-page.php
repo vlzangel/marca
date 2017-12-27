@@ -165,33 +165,33 @@ get_header(); ?>
 					
 				</div>
 				<div class="row visible-xs" > 	
-					<div class="col-xs-6">
+					<div class="col-xs-12" style="margin-left: 3%">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style=" font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style=" font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 									Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
-					<div class="col-xs-6"> 	
+					<div class="col-xs-12"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 12px ; font-size: 9px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 14px ; font-size: 9px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 							<div  style='clear:both;'></div>
-					<div class="col-xs-6"> 
+					<div class="col-xs-12" style="margin-left: -5%"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
-					<div class="col-xs-6"> 
+					<div class="col-xs-12"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Recibe el producto en tu casa u <br>oficina sin costo adicional 
 							</p>
 					</div> 
 
-					<label style="text-align: center; font-size: 171%; font-weight: normal; font-family: GothanMedium_regular; color: #878a87">"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tienda por conveniencia"</label>
+					<label style="text-align: center; font-size: 114%; font-weight: normal; font-family: GothanMedium_regular; color: #878a87">"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tienda por conveniencia"</label>
 							<div  style='clear:both;'></div>
 					
 				</div> 	
