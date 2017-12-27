@@ -34,9 +34,10 @@ function subirImg(evt){
             var reader = new FileReader();
             reader.onload = (function(theFile) {
                 return function(e) {
-                    redimencionar(e.target.result, function(img_reducida){
+                    /*redimencionar(e.target.result, function(img_reducida){
                         img_cargada(img_reducida);
-                    });      
+                    }); */   
+                    img_cargada(e.target.result);  
                 };
            })(files[0]);
            reader.readAsDataURL(files[0]);

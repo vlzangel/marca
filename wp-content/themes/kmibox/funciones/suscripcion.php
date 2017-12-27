@@ -48,11 +48,12 @@
 	function get_planes(){
 		global $wpdb;
 
-		$_plans = $wpdb->get_results("SELECT * FROM plan WHERE status = 'activo' ");
+		$_plans = $wpdb->get_results("SELECT * FROM planes WHERE status = 'Activo' ");
 		$plans = array();
 		foreach ($_plans as $plan) {
-			$plans[$plan->nombre] = array(
-				"openpay_id" => $plan->openpay_id
+			$plans[$plan->id] = array(
+				"nombre" => $plan->plan,
+				"meses" => $plan->meses
 			);
 		}
 
@@ -111,8 +112,7 @@
 				 			'En espera',
 				 			'{$producto->subtotal}',
 				 			'{$hoy}',
-				 			'{$producto->plan_id}',
-				 			''
+				 			'{$producto->plan}'
 				 		)
 				 	";
 				 	$wpdb->query( $SQL_PERDIDO );
@@ -120,6 +120,11 @@
 	 		}
 	 	}
 	 	return $orden_id;
+	}
+
+	function crearCobro(){
+		date_default_timezone_set('America/Mexico_City');
+		
 	}
 
 	function getSuscripciones(){

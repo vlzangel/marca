@@ -37,26 +37,41 @@
 	}
 	foreach ($planes as $key => $value) { $_planes[$value] = 1; }
 
-	$img = guardarImg(
-		dirname(dirname(dirname(__DIR__)))."/productos/imgs/", 
-		$img_producto
-	);
+	$img = "";
+	if( $img_producto != "" ){
+		$img = guardarImg(
+			dirname(dirname(dirname(__DIR__)))."/productos/imgs/", 
+			$img_producto
+		);
+		if( $img != "" ){
+			unlink( dirname(dirname(dirname(__DIR__)))."/productos/imgs/".$img_old );
+		}
+	}
 
-	$dataextra = array(
-		"img" => $img
-	);
+	$dataextra = array("img" => $img);
+
+	$_tamanos 			= serialize($_tamanos);
+	$_edades 			= serialize($_edades);
+	$_presentaciones 	= serialize($_presentaciones);
+	$_planes 			= serialize($_planes);
+
+	$_dataextra = "";
+	if( $img != "" ){
+		$_dataextra = ", dataextra = '".serialize($dataextra)."'";
+	}
+	
 
 	$SQL = "
-		INSERT INTO productos VALUES (
-			NULL,
-			'$nombre',
-			'".serialize($_tamanos)."',
-			'".serialize($_edades)."',
-			'".serialize($_presentaciones)."',
-			'".serialize($_planes)."',
-			'".serialize($dataextra)."',
-			'Activo'
-		);
+		UPDATE 
+			productos 
+		SET 
+			nombre = '{$nombre}',
+			tamanos = '{$_tamanos}',
+			edades = '{$_edades}',
+			presentaciones = '{$_presentaciones}',
+			planes = '{$_planes}' {$_dataextra}
+		WHERE 
+			id = {$ID}
 	";
 
 	$wpdb->query( $SQL );

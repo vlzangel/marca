@@ -34,18 +34,8 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery("#plan button").on("click", function(e){
-		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan"] = jQuery(this).attr("data-value");
-
-		var nombre_producto = PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["nombre"];
-
-		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan_id"] = 
-			PLANES[ 
-				get_slug_producto(nombre_producto)+"_"+
-				CARRITO["productos"][ (CARRITO["productos"].length-1) ]["presentacion"]+"_"+
-				get_slug_producto( CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan"] )
-			]["openpay_id"];
-		
-
+		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan"] = PLANES[ jQuery(this).attr("data-value") ].nombre;
+		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["plan_id"] = jQuery(this).attr("data-value");
 		change_fase(4, this);
 	});
 
@@ -226,7 +216,6 @@ function loadFase(fase){
 			carrousel_productos_responsive();
 			
 				$.each(PRODUCTOS,  function(key, val){
-					changeExtra( count_items, ind, 0);
 					count_items++;
 				});
 
@@ -245,18 +234,21 @@ function loadFase(fase){
 		case 3:
 			change_title('Selecciona el tiempo de suscripción');
 			jQuery("#plan article").css("display", "none");
-			jQuery.each(PRODUCTOS[ CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"] ]["planes"],  function(key, val){
+
+			var actual = getCarritoActual();
+
+			jQuery.each(PRODUCTOS[ actual["producto"] ]["planes"],  function(key, val){
 				if( val == 1 ){
-					jQuery("#plan-"+key).css("display", "inline-block");
+					jQuery( "#plan-"+PLANES[ key ].nombre ).css("display", "inline-block");
 
-					var producto = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["producto"];
-					var presentacion = CARRITO["productos"][ (CARRITO["productos"].length-1) ]["presentacion"];
+					var producto = actual["producto"];
+					var presentacion = actual["presentacion"];
+					var meses = PLANES[ key ].meses;
 
-					jQuery(".value_900g button").html( "$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * 1 )+" MXN" );
-					jQuery(".value_2000g button").html("$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * 2 )+" MXN" );
-					jQuery(".value_4000g button").html("$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * 4 )+" MXN" );
+					jQuery( "#plan-"+PLANES[ key ].nombre+" button" ).html( "$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * meses )+" MXN" );
 				}
 			});
+
 		break;
 		// ***************************************
 		// Fase #4 - Extras
@@ -286,30 +278,13 @@ function loadFase(fase){
 			var total = 0;
 			var cant_item = 0;
 
-
-
 			jQuery( '#cart-items' ).html("");
 
 			var precio = 0;
 
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 
-				var plan = 1;
-				switch( producto['plan'] ){
-					case "Mensual":
-						plan = 2;
-					break;
-					case "Bimestral":
-						plan = 4;
-					break;
-					case "Trimetral":
-						plan = 5;
-					break;
-					case "Semestral":
-						plan = 6;
-					break;
-				}
-
+				var plan = PLANES[ producto['plan_id'] ].meses;
 				var _producto = producto["producto"];
 				var presentacion = producto["presentacion"];
 				var precio_plan = PRODUCTOS[ _producto ]["presentaciones"][ presentacion ]*plan;
@@ -351,6 +326,10 @@ function loadFase(fase){
 
 		break;
 	}
+}
+
+function getCarritoActual(){
+	return CARRITO["productos"][ (CARRITO["productos"].length-1) ];
 }
 
 function FN(number){

@@ -48,17 +48,19 @@ function abrir_link(e){
 	});
 }
 
-function crearProducto(){
+function crearProducto(e){
+	var name = e.attr("name");
+	var URL = TEMA+"/backend/productos/ajax/crearProducto.php";
+	if( name == "update" ){ URL = TEMA+"/backend/productos/ajax/updateProducto.php"; }
 	jQuery.ajax({
         async:true, 
         cache:false, 
         type: 'POST', 
-        url: TEMA+"/backend/productos/ajax/crearProducto.php",
+        url: URL,
         data: jQuery("#producto").serialize(), 
         success:  function(HTML){
-            
-            console.log(HTML);
-
+            table.ajax.reload();
+            cerrar();
         },
         beforeSend:function(){},
         error:function(e){
@@ -70,4 +72,31 @@ function crearProducto(){
 function img_cargada(img_reducida){
 	jQuery("#img_reducida").val(img_reducida);
 	jQuery("#img_vista").attr("src", img_reducida);
+}
+
+function editar_producto(e){
+	var id = e.attr("data-id");
+
+}
+
+function eliminar_producto(e){
+	var id_producto = e.attr("data-id");
+    var confirmed = confirm("Esta seguro de eliminar este producto?");
+    if (confirmed == true) {
+		jQuery.ajax({
+	        async:true, 
+	        cache:false, 
+	        type: 'POST', 
+	        url: TEMA+"/backend/productos/ajax/eliminarProducto.php",
+	        data: {id: id_producto}, 
+	        success:  function(HTML){
+	            table.ajax.reload();
+	            alert("Producto eliminado exitosamente!");
+	        },
+	        beforeSend:function(){},
+	        error:function(e){
+	        	console.log(e);
+	        }
+	    });
+    }
 }
