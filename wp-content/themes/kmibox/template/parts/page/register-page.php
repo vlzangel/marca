@@ -9,7 +9,7 @@
 		<div class="row">
 			<form class="form-horizontal" id="form-registro" method="post">
 				<div class="row">					
-					<h2 class="col-sm-6">Información del usuario</h2>
+					<h2 class="col-sm-6">Información del usuario </h2>
 				</div>
 				<div class="row row-special campos-obligatorios">
 					<span class="fa fa-asterisk" aria-hidden="true"></span>

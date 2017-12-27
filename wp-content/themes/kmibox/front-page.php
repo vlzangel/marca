@@ -14,8 +14,7 @@
 
 get_header(); ?>
 	<?php echo MENU(); ?>
-	<header id="header" class="row">
-		<?php get_template_part( 'template/parts/header/content', 'page' ); ?>
+	<header id="header" class="row">		
 		<article>
 			<div class="container" id="banner" style="margin-bottom: 3%">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs">

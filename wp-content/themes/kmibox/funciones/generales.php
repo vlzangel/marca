@@ -59,7 +59,7 @@
 					<div class="nav_container">
 
 						<a href="'.$home.'">
-							<img src="'.$home.'/img/marca-logo-1.png"  >
+							<img src="'.$home.'/img/Image-Header.png"  >
 						</a> 
 
 				    	<ul>';
@@ -105,6 +105,8 @@
 	        ';
 	        return $HTML;
 	    }
+
+	    
 	}
 
 
