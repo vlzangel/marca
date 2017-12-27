@@ -153,7 +153,7 @@
     z-index: 99999;
     padding: 3px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
     font-size: 11px;
 }
@@ -201,6 +201,14 @@
     text-align: center;
 }
 
+.form_suscripcion .entregas span i {
+    display: none;
+}
+
+.form_suscripcion .entregas span.entregado i {
+    display: inline-block;
+}
+
 .form_suscripcion .entregas label {
     display: inline-block !important;
     padding-left: 10px;
@@ -220,6 +228,15 @@
 input, select {
     border-radius: 5px !important;
     margin: 5px 0px;
+}
+
+
+.item_activo .item_carrusel_orden{
+    color: #60C21E !important;
+}
+
+.item_activo .item_carrusel_total{
+    color: #000 !important;
 }
 
 /* Donde esta mi marca */

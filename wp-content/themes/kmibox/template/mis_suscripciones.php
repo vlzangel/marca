@@ -8,14 +8,17 @@
 			foreach ($planes["productos"] as $suscripcion) {
 				$id_suscripcion = str_pad($suscripcion["orden"], 5, "0", STR_PAD_LEFT);
 
+				$activo = "";
 				if( count($inicial) == 0 ){
 					$inicial = array(
 						"plan" => $suscripcion["plan"],
 						"type" => "{$suscripcion["nombre"]} {$suscripcion["presentacion"]}",
 						"status" => "{$suscripcion["status"]}",
 						"entrega" => "{$suscripcion["entrega"]}",
-						"img" => "{$suscripcion["img"]}"
+						"img" => "{$suscripcion["img"]}",
+						"entregados" => $suscripcion["entredagos"]
 					);
+					$activo = "item_activo";
 				}
 
 				$carrusel .= "
@@ -26,13 +29,12 @@
 						data-status='{$suscripcion["status"]}'
 						data-entrega='{$suscripcion["entrega"]}'
 						data-img='{$suscripcion["img"]}'
-						class='suscripcion_item'
+						data-entregados='{$suscripcion["entredagos"]}'
+						class='suscripcion_item {$activo}'
 					>
 						<div>
 							<div class='item_carrusel_orden'> <strong>Orden:</strong> {$id_suscripcion} </div>
-
 							<div class='item_carrusel_img' style='background-image: url({$suscripcion["img"]});'></div>
-
 							<div class='item_carrusel_total'>
 								{$suscripcion["nombre"]}
 							</div>
@@ -50,6 +52,8 @@
 	if( count($mis_despachos) > 0 ){
 		foreach ($mis_despachos as $despacho) {
 			$id_suscripcion = str_pad($despacho["orden"], 5, "0", STR_PAD_LEFT);
+
+			$activo = "";
 			if( count($despacho_inicial) == 0 ){
 				$despacho_inicial = array(
 					"plan" => $despacho["orden"],
@@ -57,6 +61,7 @@
 					"status" => "{$despacho["status"]}",
 					"img" => "{$despacho["img"]}"
 				);
+				$activo = "item_activo";
 			}
 			$carrusel_despachos .= "
 				<div 
@@ -64,7 +69,7 @@
 					data-nombre='{$despacho["nombre"]}'
 					data-status='{$despacho["status"]}'
 					data-img='{$despacho["img"]}'
-					class='suscripcion_item'
+					class='suscripcion_item {$activo}'
 				>
 					<div>
 						<div class='item_carrusel_orden'> <strong>Orden:</strong> {$id_suscripcion} </div>
@@ -125,20 +130,20 @@
 						<div>
 							<label class="subtiulo">Entregas realizadas</label>
 							<div class="celda_6 entregas">
-								<div><span> <i class="fa fa-check" aria-hidden="true"></i> </span><label>Enero</label></div> 
-								<div><span>&nbsp;</span><label>Febrero</label></div>
-								<div><span>&nbsp;</span><label>Marzo</label></div>
-								<div><span>&nbsp;</span><label>Abril</label></div>
-								<div><span>&nbsp;</span><label>Mayo</label></div>
-								<div><span>&nbsp;</span><label>Junio</label></div>
+								<div><span id="mes_01"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Enero</label></div> 
+								<div><span id="mes_02"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Febrero</label></div>
+								<div><span id="mes_03"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Marzo</label></div>
+								<div><span id="mes_04"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Abril</label></div>
+								<div><span id="mes_05"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Mayo</label></div>
+								<div><span id="mes_06"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Junio</label></div>
 							</div>
 							<div class="celda_6 entregas">
-								<div><span>&nbsp;</span><label>Julio</label></div> 
-								<div><span>&nbsp;</span><label>Agosto</label></div>
-								<div><span>&nbsp;</span><label>Septiembre</label></div>
-								<div><span>&nbsp;</span><label>Octubre</label></div>
-								<div><span>&nbsp;</span><label>Noviembre</label></div>
-								<div><span>&nbsp;</span><label>Diciembre</label></div>			
+								<div><span id="mes_07"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Julio</label></div> 
+								<div><span id="mes_08"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Agosto</label></div>
+								<div><span id="mes_09"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Septiembre</label></div>
+								<div><span id="mes_10"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Octubre</label></div>
+								<div><span id="mes_11"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Noviembre</label></div>
+								<div><span id="mes_12"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; </span><label>Diciembre</label></div>			
 							</div>
 						</div>
 					</div>

@@ -146,6 +146,7 @@
 	}
 
 	function getSuscripciones(){
+    	date_default_timezone_set('America/Mexico_City');
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
@@ -159,6 +160,21 @@
 				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$plan->id_producto );
 				$_data = unserialize( $producto->dataextra );
 				$img = TEMA()."/productos/imgs/".$_data["img"];
+
+				$anio = date("Y")."-12-31";
+
+				$entregas = $wpdb->get_results("SELECT * FROM despachos WHERE sub_orden = {$plan->id} AND status = 'Recibida' AND mes <= '{$anio}'");
+				$_entregas = array();
+				foreach ($entregas as $value) {
+					$mes = date( "m", strtotime($value->mes) );
+					$_entregas[] = $mes;
+				}
+
+				$_entregados_str = "-";
+				if( count($_entregas) > 0 ){
+					$_entregados_str = implode(",", $_entregas);
+				}
+
 				$suscripciones[ $orden->id ]["productos"][] = array(
 					"orden" => $plan->id,
 					"plan" => $data["plan"],
@@ -168,7 +184,8 @@
 					"img" => $img,
 					"presentacion" => $data["presentacion"],
 					"status" => $plan->status_envio,
-					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega))
+					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
+					"entredagos" => $_entregados_str
 				);
 			}
 		}

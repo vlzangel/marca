@@ -1,17 +1,29 @@
 jQuery(document).ready(function() {
 
 	jQuery("#tab_2 .suscripcion_item").on("click", function(e){
+		jQuery(".suscripcion_item").removeClass("item_activo");
+		jQuery(this).addClass("item_activo");
 		jQuery("#tipo_suscripcion").val( jQuery(this).attr("data-plan") );
 		jQuery("#presentacion").val( jQuery(this).attr("data-type") );
 		jQuery("#status").val( jQuery(this).attr("data-status") );
 		jQuery("#entrega").val( jQuery(this).attr("data-entrega") );
 		jQuery("#img_item").attr("src", jQuery(this).attr("data-img") );
+
+		var entregados = jQuery(this).attr("data-entregados");
+		jQuery(".entregas span").removeClass("entregado");
+		if( entregados != "-" ){
+			entregados = entregados.split(",");
+			jQuery.each(entregados, function( index, value ) {
+			  	jQuery(".entregas #mes_"+value).addClass("entregado");
+			});
+		}
 	});
 
 	jQuery("#tab_3 .suscripcion_item").on("click", function(e){
-		
-		jQuery(".progress-content > div > div > div").removeClass("paso_completado");
 
+		jQuery(".suscripcion_item").removeClass("item_activo");
+		jQuery(this).addClass("item_activo");
+		jQuery(".progress-content > div > div > div").removeClass("paso_completado");
 		switch( jQuery(this).attr("data-status") ){
 			case 'Armada':
 				jQuery("#armada").addClass("paso_completado");
@@ -26,8 +38,9 @@ jQuery(document).ready(function() {
 				jQuery("#recibida").addClass("paso_completado");
 			break;
 		}
-
 	});
+
+	jQuery("#tab_2 .suscripcion_item.item_activo").click();
 
 	jQuery(".perfil_tabs li").on("click", function(e){
 		jQuery(".secciones_container section").removeClass("section_activo");
