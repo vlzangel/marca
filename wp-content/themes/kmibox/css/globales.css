@@ -41,8 +41,8 @@ nav {
 }
 
 .nav_container > ul > li a {
-    background: transparent;
-    padding: 5px 17px;
+    background: #000000;
+    padding: 11px 30px;
     border-radius: 50px;
     border: 1px solid #fff;
     color: #fff;
