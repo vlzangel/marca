@@ -13,7 +13,7 @@
 					</div>
 
 					<div style="float:left;width:100%;" class="col-xs-12 col-md-12 text-center">    
-						<label style="text-align: center; color: #000000; font-size: 18px;margin-left: 70%; font-family: caviar_dreamsregular;">Registro de Usuario
+						<label style="text-align: center; color: #000000; font-size: 18px;margin-left: 70%; font-family: GothanMedium_regular;">Registro de Usuario
 					    </label>
 					</div>  
 				</ul>
@@ -25,7 +25,7 @@
 					<div  class="col-sm-12 col-xs-4 text-left" >
 						<a class="btn-kmibox-white"
 							id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url();?>">
-							<i class="fa fa-chevron-left caviar" aria-hidden="true"></i>
+							<i class="fa fa-chevron-left gothan" aria-hidden="true"></i>
 							Atras
 						</a>
 					</div>
