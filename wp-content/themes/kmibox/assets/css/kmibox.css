@@ -399,7 +399,7 @@ select{
 
 
 #top{
-	background: #ffffff;
+	background: #000000;
 	min-height: 10vh;
 	padding: 10px 0px;
 }
@@ -555,9 +555,9 @@ select{
 }
 
 #footer{
-	background: #091705;
+	background: #94d400;
 	background-size: cover;
-	padding-bottom: 60px;
+	padding-bottom: 31px;
 }
 
 #footer,
