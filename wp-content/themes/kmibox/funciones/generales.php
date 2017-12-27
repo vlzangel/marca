@@ -85,12 +85,7 @@
 									</li>';
 							}else{
 				    			$HTML .= '
-									<li>
-										<a href="'.$home.'/quiero-mi-marca/">
-											<i class="fa fa-plus-circle"></i>
-											<span>Quiero mi marca</span>
-										</a>
-									</li>
+									
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
 											<i class="fa fa-key"></i>

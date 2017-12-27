@@ -256,7 +256,7 @@ select{
 .form-horizontal h2{
 	border-radius: 50px!important;
     padding: 5px 30px;
-    color: #94d400;
+    color: #000000;
     font-size: 18px;
 }
 
@@ -322,10 +322,10 @@ select{
 }
 
 .btn-sm-kmibox-default{
-	background: #94d400!important;
+	background: #000000!important;
 }	
 .btn-sm-kmibox{
-	background: #94d400;
+	background: #000000;
 	border-radius: 40px;
 	border : 1px solid #fff;
 	color:#fff;
@@ -555,7 +555,7 @@ select{
 }
 
 #footer{
-	background: #94d400;
+	background: #000000;
 	background-size: cover;
 	padding-bottom: 31px;
 }

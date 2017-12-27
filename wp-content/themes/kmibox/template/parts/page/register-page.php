@@ -4,9 +4,8 @@
 	<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 		
 	</aside>
-	<div id="register" 
-		class="col-md-8 col-xs-12 col-md-offset-2"  
-		style="border-radius:10px;   border:1px solid #ccc;">
+	<div id="register"	class="col-md-12 col-xs-12 col-md-offset-0"  
+		style="border-radius:10px;   border:1px solid #ccc; margin-bottom: 2%">
 		<div class="row">
 			<form class="form-horizontal" id="form-registro" method="post">
 				<div class="row">					
@@ -47,10 +46,11 @@
 								<?php } ?>
 							</select>
 						</div>
+						<div class="col-md-4 form-group">
+							<input type="text" name="mascota" data-charset="alf" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre de la Mascota"  maxlength="50">
+						</div>
 					</div>
-					<div class="col-md-4 form-group">
-						<input type="text" name="mascota" data-charset="alf" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre de la Mascota"  maxlength="50">
-					</div>
+					
 				</div>
 				<div class="row row-special">					
 					
@@ -135,7 +135,7 @@
 				</div>
 				<div class="row row-special">					
 
-					<div class="col-md-6 form-group">
+					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
 						<select class="form-control col-md-4" name="dir_estado">
 							<option>Estado</option>
@@ -150,7 +150,7 @@
 							<?php } ?>
 						</select>
 					</div>
-					<div class="col-md-6 form-group">
+					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
 							<option>Delegación</option>
@@ -170,7 +170,7 @@
 
 				<div class="row">
 					<div class="col-sm-offset-1	col-sm-11 text-center">
-						<button id="btn-register_" class="btn btn-sm-kmibox">Registrarme</button>
+						<button id="btn-register_" class="btn btn-sm-kmibox" style="margin-left: 68%;margin-top: 14%;">Registrarme</button>
 						<br>
 						<br>
 <!--
