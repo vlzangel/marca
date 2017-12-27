@@ -26,7 +26,16 @@
 		}
 	}
 
+	$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
+	$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
+	$OPENPAY_PRUEBAS = 1;
+
 ?>
+
+<script type="text/javascript" src="<?php echo TEMA()."/js/openpay.v1.min.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo TEMA()."/js/openpay-data.v1.min.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo TEMA()."/js/pago_tarjeta.js"; ?>"></script>
+
 <!-- Fase #6 Pagos -->
 <section data-fase="6" class="container">
 
@@ -65,6 +74,12 @@
 
 	<!-- Plantilla de Pago -->
 
+	<script> 
+		var OPENPAY_TOKEN = '<?php echo $MERCHANT_ID ?>';
+		var OPENPAY_PK = '<?php echo $OPENPAY_KEY_PUBLIC ?>';
+		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
+	</script>
+
 	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin-top:7%;border:1px solid #ccc; margin-left: -2%;">
 
 		<div class="col-md-8 col-md-offset-2">
@@ -82,21 +97,22 @@
 			      	placeholder="Titular de la tarjeta" 
 			      	maxlength="25"
 			      	value=""
-			      	data-charset="xlf">
+			      	data-charset="xlf"
+			      	data-openpay-card="holder_name">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar">Numero de Tarjeta</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="num_cart" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="16" data-charset="num" value="4111111111111111">
+			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="16" data-charset="num" value="4111111111111111" data-openpay-card="card_number">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Fecha vencimiento</label>
 			    <div class="col-sm-4">
-			    	<select name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> >
+			    	<select name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" >
 			    		<option>Mes</option>
 			    		<?php for ($i=1; $i <= 12; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -106,7 +122,7 @@
 			    </div>
 			    <div class="col-sm-4">
 			      <!-- input type="text" name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="Año" -->
-			    	<select name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  >
+			    	<select name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year"  >
 			    		<option>Año</option>
 			    		<?php for ($i=date('y'); $i < date('y') + 15; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -118,7 +134,7 @@
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >CVV</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="3" data-charset="num" >
+			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="3" data-charset="num" data-openpay-card="cvv2" >
 			    </div>
 			  </div>
 

@@ -49,7 +49,7 @@ if( $_POST ){
 			    'trial_end_date' => '2000-01-01', 
 			    'plan_id' => '',
 			    'card' => [
-			         'card_number' => $_POST['num_cart'],  //'4111111111111111',
+			         'card_number' => $_POST['num_card'],  //'4111111111111111',
 			         'holder_name' => $_POST['holder_name'],
 			         'expiration_year' => $_POST['exp_year'],
 			         'expiration_month' => $_POST['exp_month'],

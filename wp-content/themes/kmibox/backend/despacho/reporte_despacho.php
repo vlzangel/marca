@@ -15,11 +15,11 @@
         <thead>
             <tr>
                 <th>Orden</th>
+                <th>Cliente</th>
                 <th>Producto</th>
                 <th>Presentaci&oacute;n</th>
                 <th>Plan</th>
                 <th>Status</th>
-                <th>Acciones</th>
             </tr>
         </thead>
         <tbody></tbody>
