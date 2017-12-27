@@ -170,7 +170,7 @@
 
 				<div class="row">
 					<div class="col-sm-offset-1	col-sm-11 text-center">
-						<button id="btn-register_" class="btn btn-sm-kmibox" style="margin-left: 68%;margin-top: -15%;">Registrarme</button>
+						<button id="btn-register_" class="btn btn-sm-kmibox" style="margin-left: 68%;margin-top: -15%; color: #94d400">Registrarme</button>
 						<br>
 						<br>
 <!--
