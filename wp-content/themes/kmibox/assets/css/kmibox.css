@@ -289,8 +289,8 @@ select{
 .btn-sm-kmibox:hover,
 .btn-sm-kmibox-price:hover,
 .btn-kmibox:hover{
-	background: #94d400;
-	color:#fff!important;
+	background: #ffffff;
+	color:#000!important;
 }
 
 .btn-kmibox-efectivo:hover{
