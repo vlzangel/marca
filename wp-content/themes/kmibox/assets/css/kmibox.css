@@ -312,6 +312,11 @@ select{
 	font-family: caviar_dreamsregular;
 }
 
+.gothan{
+
+	font-family: GothanMedium_regular;
+
+}
 .postone{
 	font-family: PoetsenOne_Regular;
 }
@@ -1265,7 +1270,7 @@ select{
 		font-size: 26px;
 	}
 	#regalo{
-		width: 20%;
+		width: 15%;
 	}
 	.back-picture{
 		background-size: auto; 
