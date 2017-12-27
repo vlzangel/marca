@@ -163,7 +163,7 @@ get_header(); ?>
 					
 				</div>
 				<div class="row visible-xs" > 	
-						<div class="col-xs-6">
+					<div class="col-xs-6">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
 							<p style=" font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
 									Escoge la marca y presentacion <br> de tu preferencia
@@ -175,6 +175,7 @@ get_header(); ?>
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
+							<div  style='clear:both;'></div>
 					<div class="col-xs-6"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
 							<p style="font-size: 12px; color: #000000; text-align: center; font-family: GothanMedium_regular">
