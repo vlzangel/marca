@@ -31,10 +31,10 @@
 					class='suscripcion_item'
 				>
 					<div>
+						<div class='item_carrusel_orden'> <strong>Orden:</strong> {$id_suscripcion} </div>
+
 						<div class='item_carrusel_img' style='background-image: url({$suscripcion["img"]});'></div>
-						<div class='item_carrusel_orden'>
-							<strong>Orden:</strong> {$id_suscripcion}
-						</div>
+
 						<div class='item_carrusel_total'>
 							{$suscripcion["nombre"]}
 						</div>
@@ -52,21 +52,26 @@
 	$HTML .= '
 		<section id="tab_2" class="section_activo">
 			<div class="section_box">
-				<div class="carrusel_suscripciones_container">
-					<div style="width: '.($W*200).'px;">
-						'.$carrusel.'
+
+				<div class="carrusel_suscripciones_box">
+					<div class="carrusel_suscripciones_container_general">
+						<label class="gothan">Selecciona un suscripci&oacute;n</label>
+						<div class="carrusel_suscripciones_container">
+							<div style="width: '.($W*200).'px;">
+								'.$carrusel.'
+							</div>
+						</div>
+					</div>
+					<div class="img_grande">
+						<div class="">
+							<img id="img_item" src="'.$inicial["img"].'" />
+						</div>
 					</div>
 				</div>
 
 				<div class="form_suscripcion">
 					
-					<div class="">
-						<div class="">
-							<img id="img_item" src="'.$inicial["img"].'" />
-						</div>
-					</div>
-					
-					<div class="celda_4">
+					<div class="celda_4" style="margin-bottom: 0px;">
 						<div class="">
 							<label>Tipo de suscripción</label>
 						    <input readonly id="tipo_suscripcion" class="profile-content-input form-control"  value="'.$inicial["plan"].'">
@@ -76,11 +81,11 @@
 							<input readonly id="presentacion" class="profile-content-input form-control"  value="'.$inicial["type"].'">				
 						</div>
 						<div class="">
-							<label>Estatus:</label>
+							<label>Estatus</label>
 							<input readonly id="status" class="profile-content-input form-control"  value="'.$inicial["status"].'">
 						</div>
 						<div class="">
-							<label>Proxima Entrega:</label>
+							<label>Proxima entrega</label>
 							<input readonly id="entrega" class="profile-content-input form-control"  value="'.$inicial["entrega"].'">
 						</div>
 					</div>
