@@ -21,6 +21,9 @@ get_header(); ?>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 75%;">
 				</div>
+				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 85%;">
+				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive"> 
 					<h2 style="font-size: 14px"><b>El camino de una correcta nutrición</b></h2>
@@ -120,10 +123,10 @@ get_header(); ?>
 
 	<section id='section-comment1' class="row text-center ">
 		<div class="container hidden-xs">
-			<h2 style="color: #000000;font-weight: bold; font-size: 34px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="img-responsive">?</h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 34px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive">?</h2>
 		</div>
 		<div class="container hidden-sm hidden-lg hidden-md">
-			<h2 style="color: #000000;font-weight: bold; font-size: 25px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="img-responsive"></h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 25px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive"></h2>
 		</div>
 	</section>
  
@@ -159,7 +162,7 @@ get_header(); ?>
 							</p>
 					</div> 
 
-					<label style="text-align: center; font-size: 171%; font-weight: normal; margin-left: 14%; font-family: GothanMedium_regular">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
+					<label style="text-align: center; font-size: 171%; font-weight: normal; margin-left: 14%; font-family: GothanMedium_regular; color: #878a87">"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tienda por conveniencia"</label>
 					
 				</div>
 				<div class="row visible-xs" > 	
@@ -189,7 +192,7 @@ get_header(); ?>
 							</p>
 					</div> 
 
-					<label style="text-align: center; font-size: 171%; font-weight: normal; font-family: GothanMedium_regular">"Podrás pagar <b>en efectivo</b> en miles de tienda por conveniencia"</label>
+					<label style="text-align: center; font-size: 171%; font-weight: normal; font-family: GothanMedium_regular; color: #878a87">"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tienda por conveniencia"</label>
 							<div  style='clear:both;'></div>
 					
 				</div> 	
