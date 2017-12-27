@@ -173,7 +173,7 @@ get_header(); ?>
 					</div> 
 					<div class="col-xs-12"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 14px ; font-size: 9px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 12px ; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
