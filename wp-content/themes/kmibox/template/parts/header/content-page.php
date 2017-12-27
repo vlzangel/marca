@@ -1,7 +1,7 @@
 <?php $user = get_user_by( 'id', get_current_user_id() ); 
 ?>
 
- 		<aside id="top"> 
+ 		<aside id="tophome"> 
 			<div class="container">
 				<a href="<?php echo get_home_url(); ?>">
 				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs">

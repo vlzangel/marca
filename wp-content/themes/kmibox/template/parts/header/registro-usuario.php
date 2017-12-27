@@ -1,7 +1,7 @@
 <?php $user = get_user_by( 'id', get_current_user_id() ); 
 ?>
 
- 		<aside id="top"> 
+ 		<aside id="tophome"> 
 			<div class="container hidden-xs">							
 			<ul class="option-menu list-unstyled list-inline col-md-12 col-sm-12 pull-right text-left">
 					<div  class="col-sm-12 col-xs-4 text-left" >
@@ -13,7 +13,7 @@
 					</div>
 
 					<div style="float:left;width:100%;" class="col-xs-12 col-md-12 text-center">    
-						<label style="text-align: center; color: #ffffff; font-size: 18px;margin-left: 70%; font-family: caviar_dreamsregular;">Registro de Usuario
+						<label style="text-align: center; color: #000000; font-size: 18px;margin-left: 70%; font-family: caviar_dreamsregular;">Registro de Usuario
 					    </label>
 					</div>  
 				</ul>
@@ -31,7 +31,7 @@
 					</div>
 
 					<div style="float:left;width:50%;">    
-						<label style="text-align: right;color: #ffffff; font-size: 18px; font-family: caviar_dreamsregular;">Registro de Usuario
+						<label style="text-align: right;color: #000000; font-size: 18px; font-family: GothanMedium_regular;">Registro de Usuario
 					    </label>
 					</div>  
 			</ul>
@@ -47,7 +47,7 @@
 					</div>
 
 					<div style="float:left;width:50%;">    
-						<label style="text-align: center;color: #ffffff;font-size: 18px;margin-left: 60%;margin-right: -90%;font-family: caviar_dreamsregular;">Registro de Usuario
+						<label style="text-align: center;color: #000000;font-size: 18px;margin-left: 60%;margin-right: -90%;font-family: GothanMedium_regular;">Registro de Usuario
 					    </label>
 					</div>  
 			</ul>
