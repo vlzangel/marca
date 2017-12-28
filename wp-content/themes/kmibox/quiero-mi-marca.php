@@ -71,9 +71,9 @@
 				</div>
 				<div class="text-center col-xs-12 col-md-8 col-md-offset-2">
 					<h2>Selecciona la edad</h2>
-					<button id="edad-btn" data-value="Cachorro" class="col-md-3 btn btn-black">CACHORRO</button>
-					<button id="edad-btn" data-value="Adulto" class="col-md-3 btn btn-black">ADULTO</button>
-					<button id="edad-btn" data-value="Maduro" class="col-md-3 btn btn-black">SENIOR</button>
+					<button id="edad-btn1" data-value="Cachorro" class="col-md-3 btn btn-black">CACHORRO</button>
+					<button id="edad-btn1" data-value="Adulto" class="col-md-3 btn btn-black">ADULTO</button>
+					<button id="edad-btn1" data-value="Maduro" class="col-md-3 btn btn-black">SENIOR</button>
 				</div>
 			</section>
 

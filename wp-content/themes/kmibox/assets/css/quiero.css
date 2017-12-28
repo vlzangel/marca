@@ -125,7 +125,9 @@ html, body {
         font-size:35px;
     }
 
-
+    .header_titulo {
+        font-size: 15px!important;
+    }
     /* Agregar scroll */
     .comprar_container {
         overflow: visible!important; 
@@ -133,6 +135,11 @@ html, body {
     }
 }
 
+@media only screen and (max-width: 360px) {
+    .btn-black {
+        width: 37%;
+    }
+}
 /******************/
 /* END Carrousel  */
 /******************/
