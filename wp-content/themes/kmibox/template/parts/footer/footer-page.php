@@ -12,7 +12,7 @@
 				<li class="caviar">Preguntas y respuestas</li>
 			</ul>
 		</article>
-		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-sm hidden-ms hidden-lg" width="85%" style="margin-top: 34%">
+		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-sm hidden-md hidden-lg" width="85%" style="margin-top: 34%">
 		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-xs" width="50%" style="margin-top: -46%; margin-left: 55%;">
 	</div>		 	
 	<div style="float:right;width:50%;"> 

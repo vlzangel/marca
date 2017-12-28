@@ -155,14 +155,15 @@
 						<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
 							<option>Delegación</option>
 							<?php
-								$municipios = get_municipios();
-								if( count($estados) > 0 ){ 
-									foreach ($municipios as $municipio) { ?>
-										<option value="<?php echo utf8_decode($municipio->id);?>">
-											<?php echo utf8_decode($municipio->name);?>
-										</option>	
-								<?php } ?>
+							$municipios  = get_municipios($user['estado']);
+							if( count($municipios) > 0 ){ 
+								foreach ($municipios as $municipio) { ?>
+									<?php $select_estado = ($municipio->id == $user['city'])? 'selected' : '';?>
+									<option <?php echo $select_estado; ?> value="<?php echo utf8_decode($municipio->id);?>">
+										<?php echo utf8_decode($municipio->name);?>
+									</option>	
 							<?php } ?>
+						<?php } ?>
 						</select>
 					</div>
 				</div>
