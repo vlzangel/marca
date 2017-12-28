@@ -153,17 +153,7 @@
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
-							<option>Delegación</option>
-							<?php
-							$municipios  = get_municipios($user['estado']);
-							if( count($municipios) > 0 ){ 
-								foreach ($municipios as $municipio) { ?>
-									<?php $select_estado = ($municipio->id == $user['city'])? 'selected' : '';?>
-									<option <?php echo $select_estado; ?> value="<?php echo utf8_decode($municipio->id);?>">
-										<?php echo utf8_decode($municipio->name);?>
-									</option>	
-							<?php } ?>
-						<?php } ?>
+							<option>Delegación</option>							
 						</select>
 					</div>
 				</div>
@@ -180,8 +170,8 @@
 
 				<div class="row">
 					<div class="col-sm-offset-1	col-sm-11 text-center">
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs" style="margin-left: 68%;margin-top: -15%; color: #94d400">Registrarme</button>
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400">Registrarme</button>
+						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs" style="margin-left: 68%;margin-top: -15%; color: #94d400;     border: 2px solid #091705;">Registrarme</button>
+						<button id="btn-register_" class="btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400;     border: 2px solid #091705;">Registrarme</button>
 						<br>
 						<br>
 <!--
