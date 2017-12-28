@@ -142,19 +142,19 @@ get_header(); ?>
 					<div class="col-md-4 col-sm-4">
 							
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 5px; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 20px; font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular;   margin-top: 8%;">
+							<p style="margin-left: 20px; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular;   margin-top: 8%;">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive" style="margin-top: 5%; ">
-							<p style="font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular; margin-top: 10%;">
+							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular; margin-top: 10%;">
 								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
 					</div> 
@@ -164,7 +164,7 @@ get_header(); ?>
 
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 6%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 12px; color: #878a87 ; text-align: center; font-family: GothanMedium_regular; margin-top: 3%;">
+							<p style="font-size: 14px; color: #878a87 ; text-align: center; font-family: GothanMedium_regular; margin-top: 3%;">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
 							</p>
 					</div> 
