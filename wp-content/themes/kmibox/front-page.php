@@ -135,7 +135,7 @@ get_header(); ?>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 5px; font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
