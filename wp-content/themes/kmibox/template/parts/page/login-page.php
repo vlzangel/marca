@@ -42,7 +42,7 @@
 						<button id="btn-login" type="submit" class="btn btn-sm-kmibox gothan">Iniciar sesion</button>
 						<br>
 						<br>
-						<label style="color: #878a87" class="gothan">¿Aún no tienes perfil NutriHeroes? </label>
+						<label style="color: #878a87; font-size: 12px" class="gothan">¿Aún no tienes perfil NutriHeroes? </label>
 						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" >
 							<span style="color: #000000; font-weight: 900;" class="gothan">Regístrate aquí</span>
 						</a>
