@@ -26,12 +26,23 @@
 	$HTML = '
 		<link rel="stylesheet" href="'.get_home_url().'/css/quiero.css">
 
+		<div class="marca-breadcrumb col-xs-1 pull-right text-right">
+			<ul class="list-unstyled">
+				<li><i class="fa fa-circle selected"></i></li>
+				<li><i class="fa fa-circle"></i></li>
+				<li><i class="fa fa-circle"></i></li>
+				<li><i class="fa fa-circle"></i></li>
+				<li><i class="fa fa-circle"></i></li>
+			</ul>
+		</div>
+
 		<div class="vlz_header">
 			<a class="btn btn-sm btn-black pull-left" id="btn-atras" href="#" data-value="0">
 				<i class="fa fa-chevron-left" aria-hidden="true"></i> Atras
 			</a>
 			<label class="header_titulo" id="header">Prueba</label>
 		</div>
+
 
 		<div class="comprar_container">
 

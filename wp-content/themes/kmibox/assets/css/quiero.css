@@ -21,6 +21,20 @@ html, body {
     margin: 10px 4% 10px 4%;
 }
 
+.marca-breadcrumb .selected{
+    color:black; 
+}
+.marca-breadcrumb{
+    top: 10px;
+    position: absolute;
+    right: 10px;
+}
+.marca-breadcrumb i{
+    font-size: 18px;
+    color:#E1F8C2;
+    margin: 1px;    
+}
+
 /*************/
 /* Carrousel */
 /*************/
@@ -122,6 +136,8 @@ html, body {
 /******************/
 /* END Carrousel  */
 /******************/
+
+
 
 
 
