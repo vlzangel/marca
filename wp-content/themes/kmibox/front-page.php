@@ -132,8 +132,12 @@ get_header(); ?>
 	<section id="como-consigo-kmibox" class="rowtext-center">
 		<div class="container" style="margin-top: 5%">
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
+				<span style="/* text-align:  center; */margin-left: 14%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">1</span>
+				<span style="/* text-align:  center; */margin-left: 30%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">2</span>
+				<span style="/* text-align:  center; */margin-left: 31%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">3</span>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
+							
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
 							<p style="margin-left: 5px; font-size: 12px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
 								Escoge la marca y presentacion <br> de tu preferencia
@@ -153,7 +157,7 @@ get_header(); ?>
 					</div> 
 					
 							<div  style='clear:both;'></div>
-
+					<span style="/* text-align:  center; */margin-left: -25%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">4</span>
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 4%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
 							<p style="font-size: 12px; color: #878a87 ; text-align: center; font-family: GothanMedium_regular; margin-top: 3%;">
