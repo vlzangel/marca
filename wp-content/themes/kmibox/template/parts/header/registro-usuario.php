@@ -31,7 +31,7 @@
 					</div>
 
 					<div style="float:left;width:50%;">    
-						<label style="text-align: right;color: #000000; font-size: 16px; font-family: GothanMedium_regular;">Registro de Usuario
+						<label style="text-align: right;color: #000000; font-size: 16px; font-family: GothanMedium_regular; margin-right: -36%;">Registro de Usuario
 					    </label>
 					</div>  
 			</ul>
