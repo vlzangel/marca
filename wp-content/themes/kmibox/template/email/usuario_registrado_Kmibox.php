@@ -16,7 +16,7 @@ $HTML = "
 				text-align:center;\">
 			<img src=\"".get_home_url()."/img/Logo.png\">
 			<br>
-			<p style=\"font-family: Arial; font-size: 18px; \">Hola <stronge>".$email."</stronge>, tu registro <img src=\"".get_home_url()."/wp-content/themes/kmibox/imgs/Image-Header.png\"/> se realizo de manera exitosa.</p>
+			<p style=\"font-family: Arial; font-size: 18px; \">Hola <stronge>".$email."</stronge>, tu registro NutriHeroes se realizo de manera exitosa.</p>
 			<br>
 			<br>
 			<br>

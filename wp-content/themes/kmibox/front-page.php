@@ -27,14 +27,14 @@ get_header(); ?>
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive"> 
 					<h2 style="font-size: 14px; font-family: caviar_dreamsregular"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
-					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs ">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 28%">
 					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
-					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2% ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular" ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div class="col-xs-12 col-sm-6 hidden" id="banner-dog">
