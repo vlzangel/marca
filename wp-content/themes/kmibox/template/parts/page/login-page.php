@@ -34,7 +34,7 @@
 				</div>
 
 				<div class="form-group col-xs-10 text-center gothan" style="margin-bottom: 0px; color: #ffffff">
-					<a style="color: #000000; margin-left: 24%"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
+					<a style="color: #000000; margin-left: 24%; font-size: 12px"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
 				</div>
 
 				<div class="form-group">
