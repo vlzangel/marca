@@ -2,11 +2,11 @@
 $HTML = "
 		<div style=\"
 			padding: 30px 20px;
-			background-color:#94d400;
+			background-color:#091705;
 			margin-bottom:20px;
 			text-align:center;
 		\">
-			<img src=\"".get_home_url()."/wp-content/themes/kmibox/imgs/marca-logo.png\">
+			<img src=\"".get_home_url()."/wp-content/themes/kmibox/imgs/Image-footer.png\">
 		</div>
 		<div style=\"
 				border: 1px solid #ccc; 
@@ -14,7 +14,7 @@ $HTML = "
 				padding: 15px;
 				text-align:center;\">
 			<h1>Solicitud para restablecer contraseña</h1>
-			<p>Hola <stronge>".$name."</stronge>, hemos recibido una solicitud para restablecer la contraseña de tu perfil marca.</p>
+			<p>Hola <stronge>".$name."</stronge>, hemos recibido una solicitud para restablecer la contraseña de tu perfil NutriHeroes.</p>
 			<p>Para continuar da click en el siguiente botón.</p>
 			<br>
 			<br>
@@ -22,7 +22,7 @@ $HTML = "
 				style=\"
 					padding: 15px 30px;
 					border-radius: 50px;
-					background-color:#94d400;
+					background-color:#091705;
 					color: #fff;
 					margin: 20px 0px;
 				\"
