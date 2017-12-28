@@ -275,6 +275,9 @@ select{
     vertical-align: middle;
 }
 
+.gothanligth{
+	font-family: Gothamlight_Regular;
+}
 
 .btn-price{
 	font-size: 32px; 

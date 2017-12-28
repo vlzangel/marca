@@ -165,7 +165,7 @@ get_header(); ?>
 							</p>
 					</div> 
 
-					<label style="text-align: center; font-size: 171%; font-weight: normal; margin-left: 14%; font-family: GothanMedium_regular; color: #878a87">"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tienda por conveniencia"</label>
+					<label style="text-align: center; font-size: 171%; font-weight: normal; margin-left: 14%; font-family: Gothamlight_Regular; color: #878a87">"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tienda por conveniencia"</label>
 					
 				</div>
 				<div class="row visible-xs" > 	
