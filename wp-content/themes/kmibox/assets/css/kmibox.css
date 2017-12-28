@@ -362,6 +362,15 @@ select{
 	font-weight: bold;
 	padding: 5px 15px 5px 15px;
 }
+.btn-kmibox-white1{
+	background: #94d400;
+	border-radius: 40px;
+	border: 1px solid #091705;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 15px 5px 15px;
+}
 	
 .btn-kmibox{
 	background: #091705;
