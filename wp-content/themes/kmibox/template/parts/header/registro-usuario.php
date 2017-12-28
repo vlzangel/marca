@@ -12,7 +12,7 @@
 						</a>
 					</div>
 
-					<div style="float:left;width:100%;" class="col-xs-12 col-md-12 text-center">    
+					<div style="float:left;width:100%; margin-top: -2%" class="col-xs-8 col-md-12 text-center">    
 						<label style="text-align: center; color: #000000; font-size: 18px;margin-left: 70%; font-family: GothanMedium_regular;">Registro de Usuario
 					    </label>
 					</div>  
