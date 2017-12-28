@@ -175,7 +175,7 @@ get_header(); ?>
 				<div class="row visible-xs" > 	
 					<div class="col-xs-12" style="margin-left: 3%">
 						<div style="margin-bottom: 2%">
-						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 38%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">1</span>
+						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 38%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">1</span>
 						</div>
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
 							<p style=" font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
@@ -184,7 +184,7 @@ get_header(); ?>
 					</div> 
 					<div class="col-xs-12"> 
 						<div style="margin-bottom: 2%">
-						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 43%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">2</span>	
+						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 43%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">2</span>	
 					</div>
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
 							<p style="margin-left: 12px ; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
@@ -194,7 +194,7 @@ get_header(); ?>
 							<div  style='clear:both;'></div>
 					<div class="col-xs-12" style="margin-left: -5%"> 
 						<div style="margin-bottom: 2%">
-						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left:49%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">3</span>
+						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left:49%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">3</span>
 					</div>
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
 							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
@@ -203,7 +203,7 @@ get_header(); ?>
 					</div> 	
 					<div class="col-xs-12"> 
 						<div style="margin-bottom: 2%">
-						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 45%;font-size: 22px;color: #000000;  text-align: center;font-family: GothanMedium_regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">4</span>
+						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 45%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">4</span>
 						</div>
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
 							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
