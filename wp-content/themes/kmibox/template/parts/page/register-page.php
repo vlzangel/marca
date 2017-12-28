@@ -1,7 +1,7 @@
 <article class="row">
 	<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 
-	<aside class="col-md-12 text-center" style="margin-bottom:40px;">
+	<aside class="col-md-12 text-center" >
 		
 	</aside>
 	<div id="register"	class="col-md-12 col-xs-12 col-md-offset-0"  
