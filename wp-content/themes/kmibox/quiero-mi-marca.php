@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="'.get_home_url().'/css/quiero.css">
 
 		<div class="vlz_header">
-			<a class="btn btn-sm btn-kmibox-white pull-left" id="btn-atras" href="#" data-value="0">
+			<a class="btn btn-sm btn-black pull-left" id="btn-atras" href="#" data-value="0">
 				<i class="fa fa-chevron-left" aria-hidden="true"></i> Atras
 			</a>
 			<label class="header_titulo" id="header">Prueba</label>
@@ -35,65 +35,38 @@
 
 		<div class="comprar_container">
 
-			<section id="fase_1">
-				<div class="comprar_box">
-					<div id="vlz_carrousel" class="vlz_carrousel hidden-xs carro">
-						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
-						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
-						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="400px" id="Grande" />
-					</div>
-					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg" style="margin-top:12%"> 
-						<img src="'.get_home_url().'/img/edad/Cachorro-resp.png"  class="img-responsive" width="250px" id="Pequeño" />
-						<img src="'.get_home_url().'/img/edad/Mediano-resp.png"  class="img-responsive" width="250px" id="Mediano" />	
-						<img src="'.get_home_url().'/img/edad/Adulto-resp.png"  class="img-responsive"  width="250px" id="Grande" />
-					</div>
-				</div>
-				<div id="edad" class="comprar_footer hidden-xs">
-					<div class="col-xs-6">
-						<p>Selecciona la edad</p>
-					</div>
-					<div class="col-xs-6">
-						<div class="col-xs-4">
-							<button data-value="Cachorro" id="edad-btn">
-								<b>Cachorro</b>
-							</button>
-						</div>	
-						<div class="col-xs-4">
-							<button data-value="Adulto" id="edad-btn">
-								<b>Adulto</b>
-							</button>
-						</div>	
-						<div class="col-xs-4">
-							<button data-value="Maduro" id="edad-btn">
-								<b>Maduro</b>
-							</button>
-						</div>	
-					</div>
-				</div>
-				<div id="edad" class="comprar_footer hidden-md hidden-lg">
-					<div class="col-xs-6">
-						<p>Selecciona la edad</p>
-					</div>
-					<div class="col-xs-6">
-						<div class="col-xs-4">
-							<button data-value="Cachorro" id="edad-btn" style="margin-right: 20%;">
-								<b>Cachorro</b>
-							</button>
-						</div>	
-						<div class="col-xs-4">
-							<button data-value="Adulto" id="edad-btn" style="margin-right: -165%;">
-								<b>Adulto</b>
-							</button>
-						</div>	
-						<div class="col-xs-4">
-							<button data-value="Maduro" id="edad-btn" style="margin-right: -305%;">
-								<b>Maduro</b>
-							</button>
-						</div>	
-					</div>
-				</div>
 
+			<section id="fase_1">
+
+				<div class="carrousel-items col-xs-12 col-md-10 col-md-offset-1">
+					<article>
+						<div>
+							<img src="'.get_home_url().'/img/edad/p_pequeno.png" class="img-responsive img-circle" id="Grande"/>
+							<p  class="col-md-12">Pequeño</p>
+						</div>
+					</article>
+					<article>
+						<div>
+							<img src="'.get_home_url().'/img/edad/p_mediano.png" class="img-responsive img-circle" id="Mediano"/>
+							<p  class="col-md-12">Mediano</p>
+						</div>
+					</article>
+					<article>
+						<div>
+							<img src="'.get_home_url().'/img/edad/p_adulto.png" class="img-responsive img-circle" id="Pequeño"/>
+							<p  class="col-md-12">Grande</p>
+						</div>
+					</article>
+				</div>
+				<div class="text-center col-xs-12 col-md-8 col-md-offset-2">
+					<h2>Selecciona la edad</h2>
+					<button id="edad-btn" data-value="Cachorro" class="col-md-3 btn btn-black">CACHORRO</button>
+					<button id="edad-btn" data-value="Adulto" class="col-md-3 btn btn-black">ADULTO</button>
+					<button id="edad-btn" data-value="Maduro" class="col-md-3 btn btn-black">SENIOR</button>
+				</div>
 			</section>
+
+ 
 
 			<section id="fase_2" class="hidden">
 
@@ -135,7 +108,6 @@
 
 					<span id="no_aparece" class="caviar">Si no aparece tu marca haz <a href="#">click aqui</a></span>
 				</div>
-
 			</section>
 
 			<section id="fase_3" class="hidden">
@@ -146,7 +118,6 @@
 						</div>
 					</div>
 				</div>
-				
 			</section>
 
 			<section id="fase_4" class="hidden">
