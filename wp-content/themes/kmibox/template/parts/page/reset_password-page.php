@@ -19,7 +19,7 @@
 					
 				<div class="form-group">
 					<div class="col-sm-12 text-center">
-						<button id="btn-reset-pass" type="submit" class="btn btn-sm-kmibox caviar" >
+						<button id="btn-reset-pass" type="submit" class="btn btn-sm-kmibox1 caviar" >
 							Restablecer contraseña
 						</button>
 					</div>
