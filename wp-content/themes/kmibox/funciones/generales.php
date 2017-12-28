@@ -95,7 +95,7 @@
 									<li>
 										<a href="'.$home.'/registro/">
 											<i class="fa fa-user-plus"></i> 
-											<span>Registro</span>
+											<span>Registrarme</span>
 										</a>
 									</li>';
 							} $HTML .= '
