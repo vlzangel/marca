@@ -20,7 +20,7 @@
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<input type="text" name="nombre" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre y Apellido"
-						data-charset="xlf" maxlength="50">
+						data-charset="xlf" maxlength="50" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  maxlength="13">
 					</div>
 					<!--div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
@@ -154,6 +154,15 @@
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
 							<option>Delegación</option>
+							<?php
+								$municipios = get_municipios();
+								if( count($estados) > 0 ){ 
+									foreach ($municipios as $municipio) { ?>
+										<option value="<?php echo utf8_decode($municipio->id);?>">
+											<?php echo utf8_decode($municipio->name);?>
+										</option>	
+								<?php } ?>
+							<?php } ?>
 						</select>
 					</div>
 				</div>
