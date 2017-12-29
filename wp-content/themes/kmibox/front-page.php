@@ -149,7 +149,7 @@ get_header(); ?>
 					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
 							<p style="margin-left: 20px; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular;   margin-top: 8%;">
-								Brindale a tu asesor nutricional tu <br> información básica para el envio 
+								Brindale a tu asesor nutricional tu <br> información básica para el envío 
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
