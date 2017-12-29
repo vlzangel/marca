@@ -284,6 +284,7 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    background: #0b1806;
 	    color: #CCC;
 	    cursor: pointer;
+	    margin: 0px 5px;
 	}
 
 	.selector_presentaciones span.btn_activo{
@@ -494,4 +495,25 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    text-transform: uppercase;
 	    font-weight: 600;
 	    font-family: GothanMedium_regular;
+	}
+
+	.fondo_opciones{
+	    position: relative;
+	    top: -14px;
+	    left: -14px;
+	    width: calc( 100% + 28px );
+	    height: 200px;
+	}
+	
+	.opciones_pago {
+	    overflow: hidden;
+	}
+
+	.opciones_pago a {
+	    text-transform: uppercase;
+	    color: #091705;
+	}
+
+	.modal-dialog {
+	    width: 700px;
 	}

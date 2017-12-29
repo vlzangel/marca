@@ -147,15 +147,15 @@
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog">
 				<div class="Modal content text-center" >			     
-					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
-						<div class="row" >
-							<div  style="clear:both;"></div>
-							<div style="float:left;width:50%;">								
-								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png" width="240" height="180"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
+					<div style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
+						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="fondo_opciones" />
+
+						<div class="opciones_pago" >
+							<div style="float:left; width:50%;">								
+								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/card.svg"/><br><label style="caviar_dreamsregular">Tarjeta d&eacute;bito / cr&eacute;dito</label></a>
 							</div>
-							<div style="float:left;width:50%;" > 
-								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png" width="240" height="180"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
+							<div style="float:left; width:50%;" > 
+								<a href="#" id="tienda"><img src="'.TEMA().'/imgs/opciones_pago/cash.svg"/><br><label style="caviar_dreamsregular">Efectivo</label></a>
 							</div>		
 						</div>
 					</div>
