@@ -1,6 +1,497 @@
+html, body, #content-primary, .comprar_container, .comprar_container section {
+	height: 100%;
+}
+
 .controles_generales{
 	position: fixed;
-
-	background: #CCC;
-	padding: 10px;
+	#background: #CCC;
+    padding: 5px 15px 5px 15px;
+	top: 20px;
+	box-sizing: border-box;
 }
+
+#vlz_atras {
+	left: 20px;
+    width: 100px;
+    background: #091705;
+    border-radius: 40px;
+    border: 1px solid #091705;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+    z-index: 9999999999999;
+}
+
+#vlz_atras i {
+	margin-right: 5px;
+}
+
+#vlz_titulo {
+    width: calc( 100% - 230px );
+    left: 140px;
+    top: 35px;
+    text-align: center;
+    font-family: GothanMedium_regular;
+    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#vlz_controles_fases {
+    right: 20px;
+    width: 50px;
+}
+
+#vlz_controles_fases span {
+    display: block;
+    margin: 0px auto 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #9BFF00;
+    opacity: 0.4;
+    border-radius: 50%;
+}
+
+#vlz_controles_fases span.fase_activa {
+    background-color: #181E0D; 
+}
+
+.comprar_container {
+    overflow: hidden;
+}
+
+/* Fase 1 */
+
+	.carrusel_1{
+	    width: 100%;
+	    box-sizing: border-box;
+	    height: calc( 100% - 155px );
+	    padding: 100px 0px 0px;
+	    text-align: center;
+	}
+
+	.carrusel_1 img{
+        max-height: 100%;
+        max-width: 30%;
+        cursor: pointer;
+        opacity: 0.5;
+        border: solid 1px #FFF;
+	}
+
+	.carrusel_1 img.tamano_activo{
+        border: solid 1px #afafaf;
+    	border-radius: 15px;
+        opacity: 1;
+	}
+
+	.carrusel_1 span{
+	    vertical-align: middle;
+	    height: 100%;
+	    width: 0px;
+	    display: inline-block;
+	}
+
+	.selector_edad_container{
+	    position: fixed;
+	    bottom: 30px;
+	    left: 0px;
+	    width: 100%;
+        height: 130px;
+	}
+
+	.selector_edad_container label{
+	    text-align: center;
+	    font-family: GothanMedium_regular;
+	    font-size: 20px;
+	    display: block;
+	    padding: 20px;
+	}
+
+	.selector_edad_container .selector_edad_box{
+	    text-align: center;
+	    display: block;
+	}
+
+	.selector_edad_container .selector_edad_box span{
+		display: inline-block;
+	    background: #091705;
+	    text-align: center;
+	    font-family: GothanMedium_regular;
+	    font-size: 18px;
+	    color: #FFF;
+	    padding: 7px 35px;
+	    min-width: 150px;
+	    margin: 0px 10px;
+	    border-radius: 20px;
+	    cursor: pointer;
+	    text-transform: uppercase;
+	}
+
+	.selector_edad_container .selector_edad_box span:hover{
+	    background: #255d15;
+	}
+
+	.selector_edad_container .selector_edad_box span.btn_activo{
+	    background: #48a52d !important;
+	}
+
+/* Fase 2 */
+	
+	.carrusel_2{
+		width: calc( 100% - 100px );
+	    box-sizing: border-box;
+	    height: calc( 100% - 250px );
+	    padding: 100px 0px 0px;
+	    text-align: center;
+	    overflow: hidden;
+	    margin: 0px auto;
+	}
+
+	i#anterior {
+	    position: absolute;
+	    top: 50%;
+	    left: 25px;
+	    font-size: 20px;
+	    cursor: pointer;
+	}
+
+	i#siguiente {
+	    position: absolute;
+	    top: 50%;
+	    right: 25px;
+	    font-size: 20px;
+	    cursor: pointer;
+	}
+
+	.carrusel_2 > div{
+        max-height: 100%;
+        max-width: 100%;
+        cursor: pointer;
+        filter: grayscale(100%);
+        border: solid 1px #FFF;
+        display: inline-block;
+        position: relative;
+	    vertical-align: middle;
+	}
+
+	.carrusel_2 > div > img{
+        margin-bottom: 40px;
+        width: 100%;
+	}
+
+	.carrusel_2 > div > div{
+	    position: absolute;
+	    bottom: 0px;
+	    left: 0px;
+	    width: 100%;
+	    font-family: Gothamlight_Regular;
+	    font-size: 17px;
+	    font-weight: 400;
+	    padding: 5px;
+	}
+
+	.carrusel_2 .producto_activo{
+        border: solid 1px #afafaf;
+    	border-radius: 15px;
+        filter: grayscale(0%);
+	    font-size: 20px !important;
+	}
+
+	.carrusel_2 .producto_activo > div{
+	    font-size: 25px !important;
+	}
+
+	.carrusel_2 span{
+	    vertical-align: middle;
+	    height: 100%;
+	    width: 0px;
+	    display: inline-block;
+	}
+
+	.selector_producto_container_interno{
+		position: relative;
+		display: block;
+		margin: 0px auto;
+		max-width: 800px;
+	}
+
+	.selector_producto_container{
+	    position: fixed;
+	    bottom: 0px;
+	    left: 0px;
+	    width: 100%;
+        height: 240px;
+	}
+
+	.selector_producto_container label{
+		text-align: center;
+	    font-family: 'GothanMedium_regular';
+	    font-size: 20px;
+	    display: block;
+	    padding: 20px;
+	    text-transform: uppercase;
+	    position: absolute;
+	    top: 30px;
+	    left: 30px;
+	}
+
+	.selector_producto_box{
+	    position: absolute;
+	    top: 25px;
+	    left: 300px;
+	}
+
+	#nombre_producto{
+	    font-size: 72px;
+	    color: #60C21E;
+	}
+
+	#descripcion_producto {
+	    font-size: 24px;
+	    text-transform: uppercase;
+	}
+
+	.selector_producto_footer {
+	    background: #0b1806;
+	    position: absolute;
+	    bottom: 0px;
+	    width: 100%;
+	    padding: 20px;
+	    color: #FFF;
+	    text-align: center;
+	    font-family: 'Gothamlight_Regular';
+	    font-size: 22px;
+	    font-weight: 400;
+	}
+
+	.selector_producto_footer a {
+	    color: #FFF;
+	    font-weight: 600;
+	}
+
+	.selector_presentaciones {
+	    display: block;
+	    margin: 0px auto;
+	    text-align: center;
+	}
+
+	.selector_presentaciones span {
+	    display: inline-block;
+	    padding: 5px 10px;
+	    border-radius: 50%;
+	    background: #0b1806;
+	    color: #CCC;
+	    cursor: pointer;
+	}
+
+	.selector_presentaciones span.btn_activo{
+	    background: #48a52d !important;
+	}
+
+/* Fase 3 */
+
+	#fase_3 div {
+	    vertical-align: middle;
+	    height: 100%;
+	}
+
+	.select_plan_box span{
+	    vertical-align: middle;
+	    height: 100%;
+	    width: 0px;
+	    display: inline-block;
+	}
+
+	.select_plan_box article{
+		display: inline-block;
+		width: 24%;
+		vertical-align: middle;
+		padding: 10px;
+		cursor: pointer;
+	}
+
+	.select_plan_box article:hover{
+		background: #e2e2e2;
+	    border-radius: 20px;
+	}
+
+	.select_plan_box article.plan_activo{
+		background: #e2e2e2;
+	    border-radius: 20px;
+	}
+
+	.select_plan div{
+	    text-align: center;
+	    font-family: 'Gothamlight_Regular';
+	    font-size: 16px;
+	    font-weight: 400;
+	    padding: 0px 20px;
+	    height: 100px !important;
+	}
+
+/* Fase 4 */
+
+	#fase_4 {
+		overflow: auto !important;
+	}
+
+	#agregar_plan {
+	    padding: 10px 20px;
+	    font-family: Gothamlight_Regular;
+	    font-size: 20px;
+	    font-weight: 600;
+	    cursor: pointer;
+	}
+
+	#btn-sm-marca{
+	   
+	}
+	.btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
+	    background: rgb(144, 14, 156) !important;
+	}
+
+	.cantidad_controls{
+	    display: inline-block;
+	    width: 10px;
+	    vertical-align: middle;
+	    margin-left: 15px;
+	}
+
+	.cantidad_controls i{
+	    font-size: 20px;
+	    cursor: pointer;
+	}
+
+	.factura{
+		margin: 120px auto 50px;
+	    background-color: #FFF;
+	    box-shadow: 1px 5px 10px #8c8c8c;
+	    max-width: 900px;
+	}
+
+	table {
+		width: 100%;
+	    font-family: Gothamlight_Regular;
+	}
+
+	#desglose th{    
+		
+	}
+
+	#desglose th span{   
+		display: block; 
+		text-align: center;
+	    background-color: #181E0D; 
+	    color: #FFF;
+	    padding: 3px 20px;
+	    text-transform: uppercase;
+	    margin: 5px;
+	    font-size: 12px;
+	}
+
+	#desglose td {    
+	    padding: 10px 20px;
+	}
+
+	#desglose td hr {        
+		margin-top: 0px;
+	    margin-bottom: 0px;
+	    border: 0;
+	    border-top: 2px solid #dfdfdf;
+	}
+
+	#desglose td.separador {        
+	    padding: 0px 20px !important;
+	}
+
+
+	#derecha {
+	    font-size: 20pt;
+	    width: 40px;
+	    height: 40px;
+	    border-radius: 30px;
+	    padding: 8px;
+	    margin-top: 10%;
+	    margin-left: 52%;
+	}
+
+
+	#izquierda {
+	    font-size: 20pt;
+	    /* background: #a09696; */
+	    width: 40px;
+	    height: 40px;
+	    border-radius: 30px;
+	    padding: 8px;
+	    margin-top: 10%;
+	    margin-left: 20%;
+	}
+
+	#totales{
+		overflow: hidden;
+		text-align: right;
+		padding: 0px 20px 15px;
+	}
+
+	#cart-items {
+		border: 0 !important;
+	}
+
+	#totales table {    
+		text-align: right !important;
+	}
+
+	#totales table th{    
+		text-align: right !important;
+	}
+
+	#totales table td {    
+		text-align: right !important;
+		color: #4b7300;
+		font-weight: 600;
+		width: 200px;
+	}
+
+	th.style_total {
+		font-size: 20px;
+		color: #181E0D !important;
+	}
+
+	td.style_total {
+		font-size: 20px;
+		color: #181E0D !important;
+	}
+
+	.cintillo_factura{
+		overflow: hidden;
+		text-align: center;
+	}
+
+	.cintillo_factura #cen{    
+		height: 60px;
+	    margin: 15px auto;
+	}
+
+	.btn_pagar{	
+	    width: 100px;
+	    background: #091705;
+	    border-radius: 40px;
+	    border: 1px solid #091705;
+	    color: #ffffff;
+	    font-size: 20px;
+	    font-weight: bold;
+	    text-align: center;
+	    text-decoration: none !important;
+	    z-index: 9999999999999;
+	    padding: 10px 50px;
+	    font-family: Gothamlight_Regular;
+	}
+
+	.resaltar_desglose{
+		color: #091705;
+	    text-transform: uppercase;
+	    font-weight: 600;
+	    font-family: GothanMedium_regular;
+	}

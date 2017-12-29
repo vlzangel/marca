@@ -13,10 +13,7 @@
 		$PLANES .= '
 			<article id="plan-'.$plan->plan.'" class="select_plan">
 				<img class="img-responsive" src="'.get_home_url().'/img/x'.$plan->plan.'.png">
-				<button 
-					class="btn btn-sm-marca btn-sm-kmibox-price postone" 
-					data-value="'.$plan->id.'" 
-				>
+				<button class="btn btn-sm-marca btn-sm-kmibox-price postone" data-value="'.$plan->id.'">
 					'.$plan->plan.'
 				</button>
 			</article>
