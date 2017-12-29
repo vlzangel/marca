@@ -26,6 +26,10 @@
 	$HTML = '
 		<link rel="stylesheet" href="'.get_home_url().'/css/quiero.css">
 
+		<!-- BEGIN Estilos nuevos -->
+		<link rel="stylesheet" href="'.get_home_url().'/css/marca.css">
+		<!-- END Estilos nuevos -->
+
 		<div class="marca-breadcrumb col-xs-1 pull-right text-right">
 			<ul class="list-unstyled">
 				<li><i class="fa fa-circle selected"></i></li>
@@ -43,11 +47,9 @@
 			<label class="header_titulo" id="header">Prueba</label>
 		</div>
 
-
 		<div class="comprar_container">
 
-
-			<section id="fase_1">
+			<section id="fase_1.1" class="hidden">
 
 				<div class="carrousel-items col-xs-12 col-md-10 col-md-offset-1">
 					<article>
@@ -77,140 +79,70 @@
 				</div>
 			</section>
 
- 
+			<section id="fase_1">
 
-			<section id="fase_2" class="hidden">
+				<div class="carrousel2-items col-xs-12 col-md-10 col-md-offset-1">
+					
+					<article data-text="Belenes Max">
+						<div>
+							<img src="'.get_home_url().'/img/productos/Belenes-max.png" class="img-responsive" id=""/>
+							<p  class="col-md-12">Belenes Max</p>
+						</div>
+					</article>
+					<article data-text="Dog Chow">
+						<div>
+							<img src="'.get_home_url().'/img/productos/dow-chow.png" class="img-responsive" id=""/>
+							<p  class="col-md-12">Dog Chow</p>
+						</div>
+					</article>
+					<article data-text="Nupec">
+						<div>
+							<img src="'.get_home_url().'/img/productos/NUPEC.png" class="img-responsive" id=""/>
+							<p  class="col-md-12">Nupec</p>
+						</div>
+					</article>
+					<article data-text="Royal Canin">
+						<div>
+							<img src="'.get_home_url().'/img/productos/Royal-canin.png" class="img-responsive" id=""/>
+							<p  class="col-md-12">Royal Canin</p>
+						</div>
+					</article>
+					<article data-text="Tier Holistic">
+						<div>
+							<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+							<p  class="col-md-12">Tier Holistic</p>
+						</div>
+					</article>
 
-				<div class="comprar_box">					
-
-				<div class="comprar_box">
-
-						<div id="vlz_carrousel_2" class="vlz_carrousel hidden-xs hidden-sm"></div>
-						<div id="carrousel_2" class="vlz_carrousel hidden-lg hidden-md"></div>
 				</div>
-
-				
-				
-				<div id="descripciones" class="comprar_descripcion" data-value=""></div>
-				<div id="presentaciones" class="comprar_footer" data-value="">
-
-					<span id="nombre_producto"></span>
-
-
-					<div id="presentacion-900g" class="button_presentacion" style="margin-left:-4%">
-						<button data-value="900g">
-							<b>P (900g)</b>
-						</button>
-						<span class="separador_presentacion">|</span>
-					</div>
-
-					<div id="presentacion-2000g" class="button_presentacion">
-						<button data-value="2000g">
-							<b>M (2000g)</b>
-						</button>
-						<span class="separador_presentacion">|</span>
-					</div>
-
-					<div id="presentacion-4000g" class="button_presentacion">
-						<button data-value="4000g">
-							<b>G (4000g)</b>
-						</button>
-					</div>
-
-					<span id="no_aparece" class="caviar">Si no aparece tu marca haz <a href="#">click aqui</a></span>
+				<div class="text-center col-xs-12 col-md-8 col-md-offset-2">
+					<ul class="tamano-list list-inline list-unstyled">
+						<li>P</li>
+						<li>M</li>
+						<li class="selected">G</li>
+						<li>XL</li>
+					</ul>
 				</div>
-			</section>
-
-			<section id="fase_3" class="hidden">
-				<div class="comprar_box" id="plan">
-					<div id="planes">
-						<div class="select_plan_box">
-							'.$PLANES.'
+				<div class="text-center col-xs-12 col-md-12" style="line-height:50%">
+					<div class="col-md-3">
+						<div class="pull-right" style="margin: 19% 0px;">
+							<strong>SELECCION:</strong>
 						</div>
 					</div>
+					<div class="col-md-6 text-center producto-titulo">
+						<h1 data-target="producto_name">ROYAL CANIN</h1>
+						<h2>Raza mediana adulto <span>13.7 KG</span></h2>
+					</div>
+				</div>
+				<div class="text-center col-xs-12 cargar-mas-productos">
+					Si no aparece tu marca, <strong>haz click aqu&iacute;</strong>
 				</div>
 			</section>
-
-			<section id="fase_4" class="hidden">
-				<div class="factura">
-
-					<div class="cintillo_factura">
-						<img id="izq" src="'.get_home_url().'/img/marca/store.png" />
-						<img id="cen" src="'.get_home_url().'/img/marca/Line---escritorio.png" />
-						<img id="der" src="'.get_home_url().'/img/marca/box.png" />
-					</div>
-
-					<div class="alerta" id="cart-content-alerta">
-						<span id="cart-alerta"></span>
-					</div>
-					
-					<table id="desglose" cellspacing=0 cellpadding=0>	
-						<thead>
-							<th class="hidden-xs"width="40">&nbsp;</th>
-							<th>Producto</th>
-							<th>Descripci&oacute;n</th>
-							<th>Frecuencia</th>
-							<th>Precio</th>
-							<th>Cantidad</th>
-							<th>Subtotal</th>
-						</thead>
-						<tbody id="cart-items"></tbody>
-					</table>
-
-					
-
-					<div id="totales">
-					
-						<table cellspacing=0 cellpadding=0>	
-							<tr>
-								<th> Productos en esta compra </th>
-								<td id="cant-item"> </td>
-							</tr>
-							<tr>
-								<th> Total sin IVA </th>
-								<td id="subtotal"> </td>
-							</tr>
-							<tr>
-								<th> IVA </th>
-								<td id="iva"> </td>
-							</tr>
-							<tr>
-								<th class="style_total" > Total </th>
-								<td class="style_total" id="total"> </td>
-							</tr>
-						</table>
-
-					</div>
-
-				</div>
-				
-				<article class="col-md-12 text-center">
-					<span id="agregar_plan" >Agregar otro plan</span>
-					<a href="#" data-toggle="modal" data-target="#suscription"><img src="'.get_home_url().'/img/Boton-2.png" width="220" height="50"/></a>
-				</article>		
-			</section>	
 
 		</div>
 
-		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" id="suscription">
-				<div class="Modal content text-center" id="suscription" >			     
-					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px; /*display: inline-block; */">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
-						<div class="row" >
-							<div  style="clear:both;"></div>
-							<div style="float:left;width:50%;">								
-								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png"   alt="Cinque Terre"  width="240" height="180"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
-							</div>
-							<div style="float:left;width:50%;" >    
-								
-								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png" alt="Cinque Terre" width="240" height="180"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
-							</div>		
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	
+
+			 
 	';
 
 	echo comprimir($HTML);
@@ -218,5 +150,9 @@
 	get_footer();
 
 	echo comprimir('<script type="text/javascript" src="'.get_home_url().'/js/functions.js"></script>');
+
+	/* BEGIN Scripts Nuevos */
+	echo comprimir('<script type="text/javascript" src="'.get_home_url().'/js/marca.js"></script>');
+	/* END Scripts Nuevos */
 ?>
 

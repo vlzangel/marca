@@ -1,24 +1,5 @@
 $(function($){
-
-	// *******************************
-	// Carrousel de Marca
-	// *******************************
-	$('.carrousel-items').on('click', 'article', function(){
-
-		var index = $(this).index() + 1; 
-		// Primer items - Direccion (Izq. a Der.)
-		if( index ==  1 ){
-			$(".carrousel-items article:last")
-				.insertBefore( $(".carrousel-items article:first") );
-		}
-		// Ultimo items - Direccion (Der. a Izq.)
-		if( index == $('.carrousel-items article').length ){
-			$(".carrousel-items article:first")
-				.insertAfter( $(".carrousel-items article:last") );
-		}
-
-	})
-
+ 
 	// *******************************
 	// Change Login
 	// *******************************
