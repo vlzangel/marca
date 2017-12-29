@@ -18,7 +18,7 @@ get_header(); ?>
 		<article>
 			<div class="container" id="banner" style="margin-bottom: 3%">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs">
-					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 75%;">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 65%;">
 				</div>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 230px;margin-left: -29%;">
@@ -130,7 +130,7 @@ get_header(); ?>
 	</section>
  
 	<section id="como-consigo-kmibox" class="rowtext-center">
-		<div class="container" style="margin-top: 5%">
+		<div class="container">
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 				<div style="margin-bottom: 2%">
 					<br>
@@ -232,8 +232,8 @@ get_header(); ?>
 	<section class="row text-center">
 		<div class="container" style="margin-bottom: 3%">
 			<div class="container  hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg" class="img-responsive" style="width: 81%">	
-				<span style="padding: 5px 464px; background: #52fa0a"></span>
+				<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg"  style="width: 148%; margin-left: -25%">	
+				<span style="padding: 4px 151%; background: #52fa0a; margin-left: -28%"></span>
 			</div>
 
 			<div class="container visible-xs">
