@@ -24,6 +24,14 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
     z-index: 9999999999999;
 }
 
+#vlz_atras:hover {
+	left: 20px;
+    width: 140px;
+    background: #FFF;
+    color: #091705;
+    border: solid 2px #091705;
+}
+
 #vlz_atras i {
 	margin-right: 5px;
 }
@@ -542,6 +550,7 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 
 	.carrousel-items article{
 	    opacity: .4;
+	    width: 33.333333%;
 	}
 
 	.carrousel-items article:nth-child(2){
