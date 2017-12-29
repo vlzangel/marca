@@ -122,7 +122,7 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    font-size: 18px;
 	    color: #FFF;
 	    padding: 7px 35px;
-	    min-width: 150px;
+	    min-width: 190px;
 	    margin: 0px 10px;
 	    border-radius: 20px;
 	    cursor: pointer;
@@ -516,4 +516,96 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 
 	.modal-dialog {
 	    width: 700px;
+	}
+
+	.modal-dialog .close {
+	    opacity: .8;
+	    top: 20px;
+	    position: absolute;
+	    right: 20px;
+	}
+
+
+/* Carruseles */
+
+/************************/
+/* Carrousel - Tamaños  */
+/************************/
+
+	.carrousel-items{
+	    width: 80%;
+	    box-sizing: border-box;
+	    height: calc( 100% - 155px );
+	    padding: 100px 0px 0px;
+	    text-align: center;
+	}
+
+	.carrousel-items article{
+	    opacity: .4;
+	}
+
+	.carrousel-items article:nth-child(2){
+	    opacity: 1;
+	}
+	.carrousel-items article:nth-child(2) div img{
+	    border: 2px solid #fff;
+	}
+
+	.carrousel-items article div p{
+	    font-family: "GothanMedium_regular";
+	    font-weight: bold;
+	    color: #9BFF00;
+	    text-transform: uppercase; 
+	}
+	.carrousel-items{   
+	    text-align: center;
+	    margin-top: 0px;
+	    -webkit-transition: width 2s; /* Safari */
+	    transition: width 2s;
+	    margin: 0px 10%;
+	}
+
+/* **********************  */
+/* Carrousel - Productos   */
+/* **********************  */
+
+	.carrousel2-items article:nth-child(1) img,
+	.carrousel2-items article:nth-child(5) img{
+	    width: 100px!important;
+	}
+	.carrousel2-items article:nth-child(2) img,
+	.carrousel2-items article:nth-child(4) img{
+	    width: 150px!important;
+	}
+	.carrousel2-items article:nth-child(3) img{
+	    width: 200px!important;
+	}
+
+
+	.carrousel2-items article:nth-child(3){
+	    opacity: 1;
+	    width: 100px!important;
+	}
+	.carrousel2-items article{
+	    opacity: .4;
+	    width: 50px;
+	}
+	.carrousel2-items article:nth-child(2) div img{
+	    border: 15px solid #fff;
+	}
+
+	.carrousel2-items article div p{
+	    font-family: "Gothan Light";
+	    font-weight: lighter;
+	    color: #181E0D;
+	    text-transform: uppercase; 
+	}
+	.carrousel2-items aside{
+	    margin: auto;
+	    font-size:40px;
+	}   
+	.carrousel2-items{   
+	    text-align: center;
+	    -webkit-transition: width 2s; /* Safari */
+	    transition: width 2s;
 	}

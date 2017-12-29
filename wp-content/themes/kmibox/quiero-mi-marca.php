@@ -23,6 +23,7 @@
 
 	$HTML = '
 		<link rel="stylesheet" href="'.TEMA().'/css/proceso_compra.css">
+		<link rel="stylesheet" href="'.TEMA().'/css/responsive/proceso_compra.css">
 
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
@@ -43,12 +44,44 @@
 		<div class="comprar_container">
 
 			<section id="fase_1">
-				<div class="carrusel_1">
-					<span></span>
-					<img src="'.TEMA().'/imgs/edad/Cachorro.png" data-value="Pequeño" class="tamano_activo" />
-					<img src="'.TEMA().'/imgs/edad/Mediano.png" data-value="Mediano" />
-					<img src="'.TEMA().'/imgs/edad/Adulto.png" data-value="Grande" />
+
+				<div class="carrousel-items">
+
+					<article>
+						<div>
+							<img
+								src="'.get_home_url().'/img/edad/p_pequeno.png" 
+								class="img-responsive img-circle" 
+								id="Grande"
+							/>
+							<p class="col-md-12">Pequeño</p>
+						</div>
+					</article>
+
+					<article>
+						<div>
+							<img
+								src="'.get_home_url().'/img/edad/p_mediano.png" 
+								class="img-responsive img-circle" 
+								id="Mediano"
+							/>
+							<p class="col-md-12">Mediano</p>
+						</div>
+					</article>
+
+					<article>
+						<div>
+							<img
+								src="'.get_home_url().'/img/edad/p_adulto.png" 
+								class="img-responsive img-circle" 
+								id="Grande"
+							/>
+							<p class="col-md-12">Grande</p>
+						</div>
+					</article>
+
 				</div>
+
 				<div class="selector_edad_container">
 					<label>Selecciona la Edad</label>
 					<div class="selector_edad_box" id="edad">
@@ -149,7 +182,7 @@
 				<div class="Modal content text-center" >			     
 					<div style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
 						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="fondo_opciones" />
-
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
 								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/Card.svg"/><br><label style="caviar_dreamsregular">Tarjeta d&eacute;bito / cr&eacute;dito</label></a>

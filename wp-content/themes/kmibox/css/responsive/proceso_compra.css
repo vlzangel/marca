@@ -3,3 +3,139 @@
 	    font-size: 16px;
 	}
 }
+
+@media (max-width: 500px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 11px;
+	    padding: 7px 10px;
+	    min-width: 110px;
+	    margin: 0px 3px;
+	}
+}
+
+
+
+@media only screen and (min-width: 768px) {
+
+    /* GRID */
+	    .carrousel-items article:nth-child(1) img {
+	    	width: 80%;
+	    	height: 80%;
+	    	cursor: pointer;
+	    }
+	    .carrousel-items article:nth-child(2){
+	        z-index:3;
+	    }
+	    .carrousel-items article:nth-child(3) img {
+	    	width: 80%;
+	    	height: 80%;
+	    	cursor: pointer;
+	    }
+
+	    .carrousel-items,
+	    .carrousel-items article {
+	        display: flex;
+	        padding-left: 0px;
+	        padding-right: 0px;
+	    }
+	    .carrousel-items article div{
+	        margin: auto; 
+	    }
+
+    /* Textos */
+    .carrousel-items article:nth-child(1) p{
+        font-size: 32px;
+    }
+    .carrousel-items article:nth-child(2) p{
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+	.carrousel-items img {
+		height: 50px;
+	}
+
+	#vlz_atras {
+	    width: 85px;
+	    font-size: 10px;
+	}
+
+	#vlz_titulo {
+	    width: calc( 100% - 230px );
+	    left: 0px;
+	    top: 55px;
+	    width: 100%;
+	    text-align: center;
+	    font-family: GothanMedium_regular;
+	    font-size: 16px;
+	    font-weight: bold;
+	}
+
+    /* Grid */
+
+    .carrousel-items article{
+        margin: 0 auto;
+    }
+
+    .carrousel-items article:nth-child(1){
+        height: 30%;
+    }
+    .carrousel-items article:nth-child(1) > div{
+        height: 100%;
+    }
+    .carrousel-items article:nth-child(1) > div > img {
+        height: 85%;
+    }
+
+
+    .carrousel-items article:nth-child(2){
+        height: 40%;
+    }
+    .carrousel-items article:nth-child(2) > div{
+        height: 100%;
+    }
+    .carrousel-items article:nth-child(2) > div > img {
+        height: 85%;
+    }
+
+
+    .carrousel-items article:nth-child(3){
+        height: 30%;
+    }
+    .carrousel-items article:nth-child(3) > div{
+        height: 100%;
+    }
+    .carrousel-items article:nth-child(3) > div > img {
+        height: 85%;
+    }
+
+    /* Textos */
+    .carrousel-items article:nth-child(1) p{
+        font-size: 18px;
+    	margin: 0px;
+    }
+    .carrousel-items article:nth-child(2) p{
+        font-size: 25px;
+    }
+
+    .header_titulo {
+        font-size: 15px!important;
+    }
+    /* Agregar scroll */
+    .comprar_container {
+        overflow: visible!important; 
+        position: initial!important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+	.carrousel-items article p{
+        font-size: 10px !important;
+    }
+
+	.carrousel-items article:nth-child(2) p{
+        font-size: 13px !important;
+    }
+} 
