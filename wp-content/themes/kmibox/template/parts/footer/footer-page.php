@@ -1,5 +1,5 @@
 <footer id="footer" class="row text-center">
-<div class="container">		
+<div class="container" style="margin-top: 2%">		
 	<div style="float:right;width:50%;"> 
 		<article class="col-sm-8  text-left">			
 			<h3 class="caviar">Navega</h3>
