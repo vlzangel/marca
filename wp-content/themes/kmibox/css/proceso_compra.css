@@ -12,12 +12,12 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 
 #vlz_atras {
 	left: 20px;
-    width: 100px;
+    width: 140px;
     background: #091705;
     border-radius: 40px;
     border: 1px solid #091705;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     text-decoration: none !important;
@@ -31,7 +31,7 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 #vlz_titulo {
     width: calc( 100% - 230px );
     left: 140px;
-    top: 35px;
+    top: 15px;
     text-align: center;
     font-family: GothanMedium_regular;
     font-size: 20px;
@@ -119,10 +119,10 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    background: #091705;
 	    text-align: center;
 	    font-family: GothanMedium_regular;
-	    font-size: 18px;
+	    font-size: 30px;
 	    color: #FFF;
-	    padding: 7px 35px;
-	    min-width: 190px;
+	    padding: 7px;
+	    min-width: 270px;
 	    margin: 0px 10px;
 	    border-radius: 20px;
 	    cursor: pointer;

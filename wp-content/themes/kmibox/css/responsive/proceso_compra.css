@@ -4,12 +4,37 @@
 	}
 }
 
+@media (max-width: 900px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 22px;
+	    min-width: 220px;
+	}
+}
+
+@media (max-width: 730px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 18px;
+	    min-width: 170px;
+	}
+}
+
+@media (max-width: 600px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 12px;
+	    min-width: 150px;
+        margin: 0px 3px;
+	}
+}
+
 @media (max-width: 500px){
 	.selector_edad_container .selector_edad_box span {
 	    font-size: 11px;
 	    padding: 7px 10px;
 	    min-width: 110px;
 	    margin: 0px 3px;
+	}
+	#vlz_controles_fases {
+	    right: 0px;
 	}
 }
 
