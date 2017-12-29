@@ -110,6 +110,15 @@ jQuery(document).ready(function() {
 
 });
 
+function get_json_cart(){
+	var _json = JSON.stringify( CARRITO["total"] )+"===";
+	_json += JSON.stringify( CARRITO["cantidad"] )+"===";
+	jQuery.each(CARRITO["productos"],  function(key, producto){
+		_json += JSON.stringify( producto )+"|";
+	});
+	return _json;
+}
+
 function initProductosCarrusel(){
 	jQuery(".carrusel_2 > div").on("click", function(e){
 		var prod_actual = getCarritoActual();
