@@ -152,10 +152,10 @@
 
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
-								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/card.svg"/><br><label style="caviar_dreamsregular">Tarjeta d&eacute;bito / cr&eacute;dito</label></a>
+								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/Card.svg"/><br><label style="caviar_dreamsregular">Tarjeta d&eacute;bito / cr&eacute;dito</label></a>
 							</div>
 							<div style="float:left; width:50%;" > 
-								<a href="#" id="tienda"><img src="'.TEMA().'/imgs/opciones_pago/cash.svg"/><br><label style="caviar_dreamsregular">Efectivo</label></a>
+								<a href="#" id="tienda"><img src="'.TEMA().'/imgs/opciones_pago/Cash.svg"/><br><label style="caviar_dreamsregular">Efectivo</label></a>
 							</div>		
 						</div>
 					</div>
