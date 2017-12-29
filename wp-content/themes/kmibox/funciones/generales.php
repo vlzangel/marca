@@ -68,7 +68,7 @@
 									<li>
 										<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
 											<i class="fa fa-plus-circle"></i>
-											<span>Quiero mi marca</span>
+											<span>Quiero mi NutriHeroes</span>
 										</a>
 									</li>
 									<li>
@@ -89,13 +89,13 @@
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
 											<i class="fa fa-key"></i>
-											<span>Iniciar Sesion</span>
+											<span>Iniciar Sesión</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/registro/">
 											<i class="fa fa-user-plus"></i> 
-											<span>Registrarme</span>
+											<span>Registrarse</span>
 										</a>
 									</li>';
 							} $HTML .= '

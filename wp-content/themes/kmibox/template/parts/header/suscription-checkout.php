@@ -18,7 +18,7 @@
 
 						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs caviar">Quiero mi marca</span></a>
+						<span class="hidden-xs caviar">Quiero mi NutriHeroes</span></a>
 						</li>
 
 						<li>
