@@ -174,7 +174,7 @@ p span{
 }
 .btn-kmibox-link{
 	background: #000000;
-	padding: 15px 50px;
+	padding: 14px 33px;
 	border-radius: 50px;
 	border: 1px solid #000;
 	color: #fff;
@@ -191,10 +191,10 @@ p span{
 }
 .btn-kmibox-link-suscription{
 	background: #ffffff;
-	padding: 6px 18px;
+	padding: 13px 33px;
 	border-radius: 50px;
 	border: 1px solid #eee;
-	color: #94d400;
+	color: #000000;
 	text-decoration: none;
 }
 
