@@ -11,7 +11,7 @@
 				</a>		
 				
 
-		    	<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-6 col-sm-9 pull-right text-right">
+		    	<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-8 col-sm-9 pull-right text-right" style="margin-right: -3%;   margin-top: -5%;">
 					<?php if ( is_user_logged_in() ){ ?>
 
 						<li>
@@ -34,7 +34,7 @@
 						</li>
 					<?php }else{ ?>
 
-						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link caviar">Quiero mi marca</a>
+						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link caviar">Quiero mi NutriHeroes</a>
 
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
