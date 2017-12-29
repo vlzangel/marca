@@ -24,135 +24,73 @@
 	}
 
 	$HTML = '
-		<link rel="stylesheet" href="'.get_home_url().'/css/quiero.css">
+		<link rel="stylesheet" href="'.TEMA().'/css/proceso_compra.css">
 
-		<!-- BEGIN Estilos nuevos -->
-		<link rel="stylesheet" href="'.get_home_url().'/css/marca.css">
-		<!-- END Estilos nuevos -->
+		<div class="controles_generales" id="vlz_atras">
+			
+		<div>
 
-		<div class="marca-breadcrumb col-xs-1 pull-right text-right">
-			<ul class="list-unstyled">
-				<li><i class="fa fa-circle selected"></i></li>
-				<li><i class="fa fa-circle"></i></li>
-				<li><i class="fa fa-circle"></i></li>
-				<li><i class="fa fa-circle"></i></li>
-				<li><i class="fa fa-circle"></i></li>
-			</ul>
-		</div>
+		<div class="controles_generales" id="vlz_titulo">
+			
+		<div>
 
-		<div class="vlz_header">
-			<a class="btn btn-sm btn-black pull-left" id="btn-atras" href="#" data-value="0">
-				<i class="fa fa-chevron-left" aria-hidden="true"></i> Atras
+		<div class="controles_generales" id="vlz_controles_fases">
+
+		<div>
+
+
+
+
+			<a class="vlz_boton" id="btn-atras" href="#" data-value="0">
+				<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S
 			</a>
-			<label class="header_titulo" id="header">Prueba</label>
-		</div>
+
+			<label class="header_titulo" id="header"></label>
 
 		<div class="comprar_container">
 
-			<section id="fase_1.1" class="hidden">
-
-				<div class="carrousel-items col-xs-12 col-md-10 col-md-offset-1">
-					<article>
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_pequeno.png" class="img-responsive img-circle" id="Grande"/>
-							<p  class="col-md-12">Pequeño</p>
-						</div>
-					</article>
-					<article>
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_mediano.png" class="img-responsive img-circle" id="Mediano"/>
-							<p  class="col-md-12">Mediano</p>
-						</div>
-					</article>
-					<article>
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_adulto.png" class="img-responsive img-circle" id="Pequeño"/>
-							<p  class="col-md-12">Grande</p>
-						</div>
-					</article>
-				</div>
-				<div class="text-center col-xs-12 col-md-8 col-md-offset-2">
-					<h2>Selecciona la edad</h2>
-					<button id="edad-btn1" data-value="Cachorro" class="col-md-3 btn btn-black">CACHORRO</button>
-					<button id="edad-btn1" data-value="Adulto" class="col-md-3 btn btn-black">ADULTO</button>
-					<button id="edad-btn1" data-value="Maduro" class="col-md-3 btn btn-black">SENIOR</button>
-				</div>
-			</section>
-
 			<section id="fase_1">
-
-				<div class="carrousel2-items col-xs-12 col-md-10 col-md-offset-1">
-					
-					<article data-text="Belenes Max">
-						<div>
-							<img src="'.get_home_url().'/img/productos/Belenes-max.png" class="img-responsive" id=""/>
-							<p  class="col-md-12">Belenes Max</p>
-						</div>
-					</article>
-					<article data-text="Dog Chow">
-						<div>
-							<img src="'.get_home_url().'/img/productos/dow-chow.png" class="img-responsive" id=""/>
-							<p  class="col-md-12">Dog Chow</p>
-						</div>
-					</article>
-					<article data-text="Nupec">
-						<div>
-							<img src="'.get_home_url().'/img/productos/NUPEC.png" class="img-responsive" id=""/>
-							<p  class="col-md-12">Nupec</p>
-						</div>
-					</article>
-					<article data-text="Royal Canin">
-						<div>
-							<img src="'.get_home_url().'/img/productos/Royal-canin.png" class="img-responsive" id=""/>
-							<p  class="col-md-12">Royal Canin</p>
-						</div>
-					</article>
-					<article data-text="Tier Holistic">
-						<div>
-							<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
-							<p  class="col-md-12">Tier Holistic</p>
-						</div>
-					</article>
-
-				</div>
-				<div class="text-center col-xs-12 col-md-8 col-md-offset-2">
-					<ul class="tamano-list list-inline list-unstyled">
-						<li>P</li>
-						<li>M</li>
-						<li class="selected">G</li>
-						<li>XL</li>
-					</ul>
-				</div>
-				<div class="text-center col-xs-12 col-md-12" style="line-height:50%">
-					<div class="col-md-3">
-						<div class="pull-right" style="margin: 19% 0px;">
-							<strong>SELECCION:</strong>
-						</div>
+				<div class="comprar_box">
+					<div id="vlz_carrousel" class="vlz_carrousel hidden-xs carro">
+						<img src="'.get_home_url().'/img/edad/Cachorro.png"  class="img-responsive" width="400px" id="Pequeño" />
+						<img src="'.get_home_url().'/img/edad/Mediano.png"  class="img-responsive" width="400px" id="Mediano" />	
+						<img src="'.get_home_url().'/img/edad/Adulto.png"  class="img-responsive"  width="400px" id="Grande" />
 					</div>
-					<div class="col-md-6 text-center producto-titulo">
-						<h1 data-target="producto_name">ROYAL CANIN</h1>
-						<h2>Raza mediana adulto <span>13.7 KG</span></h2>
+					<div id="carrousel_responsive" class="vlz_carrousel hidden-md hidden-sm hidden-lg" style="margin-top:12%"> 
+						<img src="'.get_home_url().'/img/edad/Cachorro-resp.png"  class="img-responsive" width="250px" id="Pequeño" />
+						<img src="'.get_home_url().'/img/edad/Mediano-resp.png"  class="img-responsive" width="250px" id="Mediano" />	
+						<img src="'.get_home_url().'/img/edad/Adulto-resp.png"  class="img-responsive"  width="250px" id="Grande" />
 					</div>
 				</div>
-				<div class="text-center col-xs-12 cargar-mas-productos">
-					Si no aparece tu marca, <strong>haz click aqu&iacute;</strong>
-				</div>
+				
 			</section>
 
 		</div>
 
-
-			 
+		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" id="suscription">
+				<div class="Modal content text-center" id="suscription" >			     
+					<div  class="btn btn-sm-marca"  style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px; /*display: inline-block; */">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
+						<div class="row" >
+							<div  style="clear:both;"></div>
+							<div style="float:left;width:50%;">								
+								<a href="#"  id="pagar" role="button"  data-target="suscription"><img src="'.get_home_url().'/img/tarjeta.png" width="240" height="180"/><br><label style="caviar_dreamsregular">Pago con tarjeta</label></a>
+							</div>
+							<div style="float:left;width:50%;" > 
+								<a href="#" type="button" id="tienda" data-target="suscription"><img src="'.get_home_url().'/img/efectivo.png" width="240" height="180"/><br><label style="caviar_dreamsregular">Pago en efectivo</label></a>
+							</div>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
 	';
 
 	echo comprimir($HTML);
 
 	get_footer();
 
-	echo comprimir('<script type="text/javascript" src="'.get_home_url().'/js/functions.js"></script>');
-
-	/* BEGIN Scripts Nuevos */
-	echo comprimir('<script type="text/javascript" src="'.get_home_url().'/js/marca.js"></script>');
-	/* END Scripts Nuevos */
+	echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>
 
