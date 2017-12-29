@@ -1,7 +1,7 @@
  <?php
 /* 
  *
- * Template Name: Quiero mi Marca 2
+ * Template Name: Quiero mi Marca
  *
  */
 
@@ -49,7 +49,7 @@
 
 		<div class="comprar_container">
 
-			<section id="fase_1.1" class="hidden">
+			<section id="fase_1" >
 
 				<div class="carrousel-items col-xs-12 col-md-10 col-md-offset-1">
 					<article>
@@ -79,7 +79,7 @@
 				</div>
 			</section>
 
-			<section id="fase_1">
+			<section id="fase_2" class="hidden">
 
 				<div class="carrousel2-items col-xs-12 col-md-10 col-md-offset-1">
 					
