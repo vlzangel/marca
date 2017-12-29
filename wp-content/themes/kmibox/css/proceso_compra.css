@@ -70,36 +70,8 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
     overflow: hidden;
 }
 
+
 /* Fase 1 */
-
-	.carrusel_1{
-	    width: 100%;
-	    box-sizing: border-box;
-	    height: calc( 100% - 155px );
-	    padding: 100px 0px 0px;
-	    text-align: center;
-	}
-
-	.carrusel_1 img{
-        max-height: 100%;
-        max-width: 30%;
-        cursor: pointer;
-        opacity: 0.5;
-        border: solid 1px #FFF;
-	}
-
-	.carrusel_1 img.tamano_activo{
-        border: solid 1px #afafaf;
-    	border-radius: 15px;
-        opacity: 1;
-	}
-
-	.carrusel_1 span{
-	    vertical-align: middle;
-	    height: 100%;
-	    width: 0px;
-	    display: inline-block;
-	}
 
 	.selector_edad_container{
 	    position: fixed;
@@ -569,8 +541,6 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	.carrousel-items{   
 	    text-align: center;
 	    margin-top: 0px;
-	    -webkit-transition: width 2s; /* Safari */
-	    transition: width 2s;
 	    margin: 0px 10%;
 	}
 

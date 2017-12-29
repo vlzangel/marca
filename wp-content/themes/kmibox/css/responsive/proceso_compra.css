@@ -9,6 +9,11 @@
 	    font-size: 22px;
 	    min-width: 220px;
 	}
+
+	.carrousel-items {
+	    width: 98%;
+	    margin: 0px 1%;
+	}
 }
 
 @media (max-width: 730px){

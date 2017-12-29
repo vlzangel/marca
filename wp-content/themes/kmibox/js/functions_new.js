@@ -17,14 +17,6 @@ var PLANES = [];
 
 jQuery(document).ready(function() {
 
-	//CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = jQuery(".carrusel_1 img")[0].id;
-
-	/*jQuery(".carrusel_1 img").on("click", function(e){
-		jQuery(".carrusel_1 img").removeClass("tamano_activo");
-		jQuery(this).addClass("tamano_activo");
-		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = jQuery(this).attr("data-value");
-	});*/
-
 	jQuery('.carrousel-items').on('click', 'article', function(){
 		var index = jQuery(this).index() + 1; 
 		// Primer items - Direccion (Izq. a Der.)
@@ -191,6 +183,7 @@ function change_fase(fase, _this = ""){
 	jQuery(".comprar_container section").addClass("hidden");
 	jQuery("#fase_"+fase).addClass("bounceInRight animated");
 	jQuery("#fase_"+fase).removeClass('hidden');
+
 	if( fase > 0 ){
 		jQuery("#vlz_atras").attr("data-value", fase-1);
 	}else{
@@ -204,9 +197,7 @@ function loadProductos(){
 	var actual_select = prod_actual["producto"];
 	jQuery('.carrusel_2').html("");
 	jQuery('.carrusel_2').append(jQuery('<span></span><i id="anterior" class="fa fa-chevron-left izq"></i>'));
-
 	jQuery.each(PRODUCTOS,  function(key, val){
-
 		if( actual_select == undefined ){
 			prod_actual["producto"] = key;
 			actual_select = key;
@@ -217,7 +208,6 @@ function loadProductos(){
 				'<div>'+val.nombre+'</div>'+
 			'</div>'
 		);
-
 	});
 	if( actual_select != undefined ){
 		prod_actual["actual"] = "#item_"+actual_select;
@@ -231,7 +221,6 @@ function change_title(txt){
 
 function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presentacion, cantidad = 1 ){
 	var HTML = "";
-
 	HTML += '<tr>';
 	HTML += '	 <td class=" hidden-xs">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
@@ -264,7 +253,6 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	HTML += '	 	<hr>';
 	HTML += '	 </td>';
 	HTML += '</tr>';
-
 	jQuery( '#cart-items' ).append(HTML);
 }
 
@@ -297,7 +285,6 @@ function loadFase(fase){
 			change_title('Escoge la marca de tu preferencia');
 			loadProductos();
 			initProductosCarrusel();
-
 			var actual = getCarritoActual();
 			setTimeout(
 				function(){
@@ -320,7 +307,6 @@ function loadFase(fase){
 					jQuery( "#plan-"+PLANES[ key ].nombre+" button" ).html( "$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * meses )+" MXN" );
 				}
 			});
-
 		break;
 		case 4: // Fase #5 - Resumen de Compra
 			change_title('Verifica tu compra');

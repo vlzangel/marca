@@ -44,9 +44,7 @@
 		<div class="comprar_container">
 
 			<section id="fase_1">
-
 				<div class="carrousel-items">
-
 					<article>
 						<div>
 							<img
@@ -57,7 +55,6 @@
 							<p class="col-md-12">Pequeño</p>
 						</div>
 					</article>
-
 					<article>
 						<div>
 							<img
@@ -68,7 +65,6 @@
 							<p class="col-md-12">Mediano</p>
 						</div>
 					</article>
-
 					<article>
 						<div>
 							<img
@@ -79,9 +75,7 @@
 							<p class="col-md-12">Grande</p>
 						</div>
 					</article>
-
 				</div>
-
 				<div class="selector_edad_container">
 					<label>Selecciona la Edad</label>
 					<div class="selector_edad_box" id="edad">
@@ -92,7 +86,7 @@
 				</div>
 			</section>
 
-			<section id="fase_2">
+			<section id="fase_2" class="hidden">
 				<div class="carrusel_2">
 					<span></span>
 				</div>
@@ -116,7 +110,7 @@
 				</div>
 			</section>
 
-			<section id="fase_3">
+			<section id="fase_3" class="hidden">
 				<div class="comprar_box" id="plan">
 					<div id="planes">
 						<div class="select_plan_box">
