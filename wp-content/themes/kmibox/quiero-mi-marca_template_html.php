@@ -49,7 +49,7 @@
 
 		<div class="comprar_container">
 
-			<section id="fase_1" >
+			<section id="fase_11" class="hidden">
 
 				<div class="carrousel-items col-xs-12 col-md-10 col-md-offset-1">
 					<article>
@@ -79,42 +79,45 @@
 				</div>
 			</section>
 
-			<section id="fase_2" class="hidden">
+			<section id="fase_1" >
 
 				<div class="carrousel2-items col-xs-12 col-md-10 col-md-offset-1">
-					
 					<article data-text="Belenes Max">
 						<div>
 							<img src="'.get_home_url().'/img/productos/Belenes-max.png" class="img-responsive" id=""/>
 							<p  class="col-md-12">Belenes Max</p>
 						</div>
 					</article>
+
 					<article data-text="Dog Chow">
 						<div>
 							<img src="'.get_home_url().'/img/productos/dow-chow.png" class="img-responsive" id=""/>
 							<p  class="col-md-12">Dog Chow</p>
 						</div>
 					</article>
+
 					<article data-text="Nupec">
 						<div>
 							<img src="'.get_home_url().'/img/productos/NUPEC.png" class="img-responsive" id=""/>
 							<p  class="col-md-12">Nupec</p>
 						</div>
 					</article>
+
 					<article data-text="Royal Canin">
 						<div>
 							<img src="'.get_home_url().'/img/productos/Royal-canin.png" class="img-responsive" id=""/>
 							<p  class="col-md-12">Royal Canin</p>
 						</div>
 					</article>
+
 					<article data-text="Tier Holistic">
 						<div>
 							<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
 							<p  class="col-md-12">Tier Holistic</p>
 						</div>
 					</article>
-
 				</div>
+
 				<div class="text-center col-xs-12 col-md-8 col-md-offset-2">
 					<ul class="tamano-list list-inline list-unstyled">
 						<li>P</li>
@@ -124,12 +127,12 @@
 					</ul>
 				</div>
 				<div class="text-center col-xs-12 col-md-12" style="line-height:50%">
-					<div class="col-md-3">
-						<div class="pull-right" style="margin: 19% 0px;">
+					<div class="col-xs-12 col-md-3">
+						<div class="no-pull-right pull-right" style="margin: 19% 0px;">
 							<strong>SELECCION:</strong>
 						</div>
 					</div>
-					<div class="col-md-6 text-center producto-titulo">
+					<div class="col-xs-12 col-md-6 text-center producto-titulo">
 						<h1 data-target="producto_name">ROYAL CANIN</h1>
 						<h2>Raza mediana adulto <span>13.7 KG</span></h2>
 					</div>
