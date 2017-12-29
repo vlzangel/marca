@@ -185,9 +185,10 @@ p span{
 	padding-right: 10px;
 }
 .btn-kmibox-link-suscription:hover{
-	color: #000000;
-	background:#ffffff;
+	color: #ffffff;
+	background:#000000;
 	text-decoration: none;
+	border: 1px solid #fff;
 }
 .btn-kmibox-link-suscription{
 	background: #ffffff;
