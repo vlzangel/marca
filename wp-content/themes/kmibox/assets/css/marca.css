@@ -222,6 +222,11 @@
     font-family: 'Gothan Light';
     text-align: center;
 }
+
+.no-pull-right{
+    margin: 19% 0px;
+}
+
 @media only screen and (min-width: 768px) {
 
     /* GRID */
@@ -303,6 +308,7 @@
     }
     .no-pull-right{
         float: none!important; 
+        margin: 0px;
     }
     .header_titulo {
         font-size: 15px!important;

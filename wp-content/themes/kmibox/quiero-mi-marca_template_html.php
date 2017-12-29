@@ -128,7 +128,7 @@
 				</div>
 				<div class="text-center col-xs-12 col-md-12" style="line-height:50%">
 					<div class="col-xs-12 col-md-3">
-						<div class="no-pull-right pull-right" style="margin: 19% 0px;">
+						<div class="no-pull-right pull-right">
 							<strong>SELECCION:</strong>
 						</div>
 					</div>
