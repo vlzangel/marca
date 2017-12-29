@@ -21,7 +21,7 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
     font-weight: bold;
     text-align: center;
     text-decoration: none !important;
-    z-index: 9999999999999;
+    z-index: 99;
 }
 
 #vlz_atras:hover {
@@ -70,6 +70,13 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
     overflow: hidden;
 }
 
+.comprar_container section {
+	overflow: hidden;
+}
+
+.btn-disable {
+    background: #989898 !important;
+}
 
 /* Fase 1 */
 
@@ -117,37 +124,73 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    background: #48a52d !important;
 	}
 
+	#siguiente_pantalla {
+	    width: 200px;
+	    background: #091705;
+	    border-radius: 40px;
+	    border: 1px solid #091705;
+	    color: #ffffff;
+	    font-size: 17px;
+	    font-weight: bold;
+	    text-align: center;
+	    text-decoration: none !important;
+	    z-index: 9999999999999;
+	    padding: 5px;
+	    position: absolute;
+	    bottom: 115px;
+	    right: 40px;
+	    text-transform: UPPERCASE;
+	    cursor: pointer;
+	}
+
+	#siguiente_pantalla:hover {
+	    background: #FFF;
+	    color: #091705;
+	    border: solid 2px #091705;
+	}
+
 /* Fase 2 */
+
+	.carrusel_container{
+	    width: calc( 100% - 100px );
+	    box-sizing: border-box;
+	    height: calc( 100% - 350px );
+	    padding: 0px;
+	    text-align: center;
+	    margin: 0px auto;
+	    position: relative;
+	    top: 100px;
+	}
 	
 	.carrusel_2{
-		width: calc( 100% - 100px );
+	    width: 100%;
+	    height: 100%;
 	    box-sizing: border-box;
-	    height: calc( 100% - 250px );
-	    padding: 100px 0px 0px;
+	    padding: 0px;
 	    text-align: center;
-	    overflow: hidden;
-	    margin: 0px auto;
+        display: inline-block;
+        overflow: hidden;
 	}
 
 	i#anterior {
 	    position: absolute;
-	    top: 50%;
-	    left: 25px;
-	    font-size: 20px;
+	    top: calc( 50% - 20px );
+	    left: -30px;
+	    font-size: 40px;
 	    cursor: pointer;
 	}
 
 	i#siguiente {
 	    position: absolute;
-	    top: 50%;
-	    right: 25px;
-	    font-size: 20px;
+	    top: calc( 50% - 20px );
+	    right: -35px;
+	    font-size: 40px;
 	    cursor: pointer;
 	}
 
 	.carrusel_2 > div{
         max-height: 100%;
-        max-width: 100%;
+        max-width: 20%;
         cursor: pointer;
         filter: grayscale(100%);
         border: solid 1px #FFF;
@@ -194,7 +237,6 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 		position: relative;
 		display: block;
 		margin: 0px auto;
-		max-width: 800px;
 	}
 
 	.selector_producto_container{
@@ -233,6 +275,11 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    text-transform: uppercase;
 	}
 
+	#descripcion_producto span {
+        color: #ab6e00;
+        font-weight: 600;
+	}
+
 	.selector_producto_footer {
 	    background: #0b1806;
 	    position: absolute;
@@ -259,7 +306,7 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 
 	.selector_presentaciones span {
 	    display: inline-block;
-	    padding: 5px 10px;
+	    padding: 10px 15px;
 	    border-radius: 50%;
 	    background: #0b1806;
 	    color: #CCC;
@@ -273,16 +320,27 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 
 /* Fase 3 */
 
-	#fase_3 div {
-	    vertical-align: middle;
-	    height: 100%;
-	}
-
-	.select_plan_box span{
+	.comprar_box > span{
 	    vertical-align: middle;
 	    height: 100%;
 	    width: 0px;
 	    display: inline-block;
+	}
+
+	#fase_3 > div {
+	    vertical-align: middle;
+	    height: 100%;
+	    padding: 50px;
+	    display: table;
+	}
+
+	#planes{
+		vertical-align: middle;
+    	display: table-cell;
+	}
+
+	.select_plan_box {
+		text-align: center;
 	}
 
 	.select_plan_box article{
@@ -294,22 +352,30 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	}
 
 	.select_plan_box article:hover{
-		background: #e2e2e2;
+		background: #f1f1f1;
 	    border-radius: 20px;
 	}
 
 	.select_plan_box article.plan_activo{
-		background: #e2e2e2;
+		background: #f1f1f1;
 	    border-radius: 20px;
 	}
 
-	.select_plan div{
+	.select_plan div {
 	    text-align: center;
 	    font-family: 'Gothamlight_Regular';
 	    font-size: 16px;
 	    font-weight: 400;
-	    padding: 0px 20px;
-	    height: 100px !important;
+	    padding: 0px 20px !important;
+	    height: 100px;
+	}
+
+	.precio_plan {
+	    display: block !important;
+	    text-align: center;
+	    font-weight: 600 !important;
+	    font-size: 16px !important;
+	    width: 100% !important;
 	}
 
 /* Fase 4 */
@@ -330,23 +396,26 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	   
 	}
 	.btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
-	    background: rgb(144, 14, 156) !important;
+	    
 	}
 
 	.cantidad_controls{
-	    display: inline-block;
-	    width: 10px;
+	    display: block;
 	    vertical-align: middle;
-	    margin-left: 15px;
+	}
+
+	.cantidad_controls label{
+	    font-size: 20px;
 	}
 
 	.cantidad_controls i{
-	    font-size: 20px;
+        font-size: 20px;
 	    cursor: pointer;
+	    margin: 0px 5px;
 	}
 
 	.factura{
-		margin: 120px auto 50px;
+		margin: 150px auto 50px;
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
 	    max-width: 900px;
@@ -450,8 +519,8 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 		text-align: center;
 	}
 
-	.cintillo_factura #cen{    
-		height: 60px;
+	.cintillo_factura #cen{        
+		width: 95%;
 	    margin: 15px auto;
 	}
 
@@ -468,6 +537,14 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    z-index: 9999999999999;
 	    padding: 10px 50px;
 	    font-family: Gothamlight_Regular;
+	    border: solid 2px #091705;
+	    cursor: pointer;
+	}
+
+	.btn_pagar:hover{	
+	    background: #FFF;
+	    color: #091705;
+	    border: solid 2px #091705;
 	}
 
 	.resaltar_desglose{
@@ -482,7 +559,6 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    top: -14px;
 	    left: -14px;
 	    width: calc( 100% + 28px );
-	    height: 200px;
 	}
 	
 	.opciones_pago {
@@ -495,7 +571,7 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	}
 
 	.modal-dialog {
-	    width: 700px;
+	    width: 780px;
 	}
 
 	.modal-dialog .close {
@@ -503,6 +579,14 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    top: 20px;
 	    position: absolute;
 	    right: 20px;
+	}
+
+	.solo_movil{
+		display: none;
+	}
+
+	.solo_pc{
+		display: table-cell;
 	}
 
 
@@ -542,49 +626,4 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    text-align: center;
 	    margin-top: 0px;
 	    margin: 0px 10%;
-	}
-
-/* **********************  */
-/* Carrousel - Productos   */
-/* **********************  */
-
-	.carrousel2-items article:nth-child(1) img,
-	.carrousel2-items article:nth-child(5) img{
-	    width: 100px!important;
-	}
-	.carrousel2-items article:nth-child(2) img,
-	.carrousel2-items article:nth-child(4) img{
-	    width: 150px!important;
-	}
-	.carrousel2-items article:nth-child(3) img{
-	    width: 200px!important;
-	}
-
-
-	.carrousel2-items article:nth-child(3){
-	    opacity: 1;
-	    width: 100px!important;
-	}
-	.carrousel2-items article{
-	    opacity: .4;
-	    width: 50px;
-	}
-	.carrousel2-items article:nth-child(2) div img{
-	    border: 15px solid #fff;
-	}
-
-	.carrousel2-items article div p{
-	    font-family: "Gothan Light";
-	    font-weight: lighter;
-	    color: #181E0D;
-	    text-transform: uppercase; 
-	}
-	.carrousel2-items aside{
-	    margin: auto;
-	    font-size:40px;
-	}   
-	.carrousel2-items{   
-	    text-align: center;
-	    -webkit-transition: width 2s; /* Safari */
-	    transition: width 2s;
 	}
