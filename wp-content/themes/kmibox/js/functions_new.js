@@ -72,6 +72,37 @@ jQuery(document).ready(function() {
 		change_fase( 1 );
 	});
 
+	jQuery("#pagar").on("click", function(e){
+		e.preventDefault();
+		var _json = get_json_cart();
+		jQuery.post(
+			TEMA+"assets/ajax/carrito.php", {
+				CART: _json
+			},
+			function(data){
+				location.href = HOME+"/pagar-mi-marca";
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
+	});
+
+	jQuery("#tienda").on("click", function(e){
+		e.preventDefault();
+		var _json = get_json_cart();
+		jQuery.post(
+			TEMA+"assets/ajax/carrito.php", {
+				CART: _json
+			},
+			function(data){
+				location.href = HOME+"/pago-tienda";
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
+		
+	});
+
 	initProductosCarrusel();
 	initProductos_y_Planes();
 
