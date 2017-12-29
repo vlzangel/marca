@@ -1,16 +1,16 @@
 <div class="clear"></div>
 <aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 <article id="inicio-sesion" 
-		class="col-md-6 col-xs-12 col-md-offset-4" 
-		style=" background-color: #94d400; height: 600px; ">
+		class="col-md-6 col-xs-12 col-md-offset-3" 
+		style=" background-color: #ffffff; height: 600px; ">
 
 	
 		<div class="col-md-10 col-md-offset-1 form-horizontal">
 
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
-				<h4 style="color: #ffffff; font-family: caviar_dreamsregular">Inicia Sesión para continuar</h4>
-				<h1 style="color: #ffffff; font-family: PoetsenOne_Regular; font-weight: bold;">Marca</h1>
+				<h4 style="color: #000000; font-family: GothanMedium_regular">Inicia Sesión para continuar</h4>
+				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
 			</aside>
 
 			<form id='form-login' class="form-horizontal">
@@ -28,23 +28,23 @@
 				</div>
 
 				<div class="form-group text-center">
-					<label style="color: #ffffff; ">
+					<label style="color: #000000; ">
 						<input type="checkbox" name="rememberme"> Recuerdame 	
 					</label>
 				</div>
 
-				<div class="form-group col-xs-10 text-center caviar" style="margin-bottom: 0px; color: #ffffff">
-					<a style="color: #ffffff; margin-left: 24%"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
+				<div class="form-group col-xs-10 text-center gothan" style="margin-bottom: 0px; color: #ffffff">
+					<a style="color: #000000; margin-left: 24%; font-size: 12px"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
 				</div>
 
 				<div class="form-group">
 					<div class="text-center">
-						<button id="btn-login" type="submit" class="btn btn-sm-kmibox caviar">Iniciar sesion</button>
+						<button id="btn-login" type="submit" class="btn btn-sm-kmibox gothan">Iniciar sesion</button>
 						<br>
 						<br>
-						<label style="color: #ffffff" class="caviar">¿Aún no tienes perfil Marca? </label>
+						<label style="color: #878a87; font-size: 12px" class="gothan">¿Aún no tienes perfil NutriHeroes? </label>
 						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" >
-							<span style="color: #000000; font-weight: 900;" class="caviar">Regístrate aquí</span>
+							<span style="color: #000000; font-weight: 900;" class="gothan">Regístrate aquí</span>
 						</a>
 					</div>
 				</div>

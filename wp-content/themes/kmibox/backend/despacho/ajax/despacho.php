@@ -6,66 +6,41 @@
     include( $raiz."/wp-load.php" );
 
 	global $wpdb;
-/*
-	$despachos = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
 
-	foreach ($despachos as $producto) {
+	$mes_actual = date("Y-m", time())."-01";
+	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 
-		$tamanos = array();
-		foreach (unserialize($producto->tamanos) as $key => $value) {
-			if( $value == 1 ){ $tamanos[] = $key; }
-		}
+	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
 
-		$edades = array();
-		foreach (unserialize($producto->edades) as $key => $value) {
-			if( $value == 1 ){ $edades[] = $key; }
-		}
+	foreach ($despachos as $despacho) {
 
-		$presentaciones = array();
-		foreach (unserialize($producto->presentaciones) as $key => $value) {
-			if( $value > 0 ){ 
-				$presentaciones[] = "$ ".number_format( $value, 2, ',', '.')." (".$key.")"; 
-			}
-		}
+		$item = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = '{$despacho->sub_orden}' ");
+		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = '{$item->id_producto}' ");
 
-		$planes = array();
-		foreach (unserialize($producto->planes) as $key => $value) {
-			if( $value > 0 ){ 
-				$planes[] = $key; 
-			}
-		}
+		$user_id = $wpdb->get_var("SELECT cliente FROM ordenes WHERE id = '{$despacho->orden}' ");
+
+		$cliente = get_user_meta($user_id, 'first_name', true)." ".get_user_meta($user_id, 'last_name', true);
+
+		$_data = unserialize( $item->data );
 
 		$data["data"][] = array(
-	        "<img class='img_reporte' src='".$img."' />",
-	        $producto->id,
+	        str_pad($despacho->sub_orden, 5, "0", STR_PAD_LEFT),
+	        $cliente,
 	        $producto->nombre,
-	        implode("<br>", $tamanos ),
-	        implode("<br>", $edades ),
-	        implode("<br>", $presentaciones ),
-	        implode("<br>", $planes ),
-	        "<div style='text-align: center;'>".$producto->status."</div>",
+	        $_data['presentacion'],
+	        $_data['plan'],
 	        "
 	        	<span 
 	        		onclick='abrir_link( jQuery( this ) )' 
-	        		data-id='".$producto->id."' 
-	        		data-titulo='Editar Producto' 
-	        		data-modulo='productos' 
-	        		data-modal='nuevo' 
+	        		data-id='".$despacho->id."' 
+	        		data-titulo='Editar Status' 
+	        		data-modulo='despacho' 
+	        		data-modal='editar' 
 	        		class='enlace'
-	        	>Editar</span><br>
-	        	<span onclick='eliminar_producto( jQuery( this ) )' data-id='".$producto->id."' class='enlace'>Eliminar</span><br>
+	        	>".$despacho->status."</span>
 	        "
 	    );
-	}*/
-
-	$data["data"][] = array(
-	        "1",
-	        "2",
-	        "3",
-	        "4",
-	        "5",
-	        "6"
-	    );
+	}
 
     echo json_encode($data);
 

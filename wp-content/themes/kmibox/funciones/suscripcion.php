@@ -28,7 +28,6 @@
 
 	function get_productos(){
 		global $wpdb;
-
 		$_productos = $wpdb->get_results("SELECT * FROM productos WHERE status = 'activo' ");
 		$productos = array();
 		foreach ($_productos as $producto) {
@@ -41,13 +40,11 @@
 				"dataextra" => unserialize($producto->dataextra)
 			);
 		}
-
 		return $productos;
 	}
 
 	function get_planes(){
 		global $wpdb;
-
 		$_plans = $wpdb->get_results("SELECT * FROM planes WHERE status = 'Activo' ");
 		$plans = array();
 		foreach ($_plans as $plan) {
@@ -56,7 +53,6 @@
 				"meses" => $plan->meses
 			);
 		}
-
 		return $plans;
 	}
 	
@@ -93,41 +89,64 @@
 	 	foreach ($CARRITO["productos"] as $producto) {
 	 		for ($i=0; $i < $producto->cantidad; $i++) { 
 		 		if( $producto->producto != "" ){
-
 		 			$data = array(
 		 				"tamano" => $producto->tamano,
 		 				"edad" => $producto->edad,
 		 				"presentacion" => $producto->presentacion,
 		 				"plan" => $producto->plan
 		 			);
-
 		 			$data = serialize($data);
-
 				 	$SQL_PERDIDO = "
 				 		INSERT INTO items_ordenes VALUES (
 				 			NULL,
 				 			'{$orden_id}',
 				 			'{$producto->producto}',
 				 			'{$data}',
-				 			'En espera',
+				 			'Pendiente',
 				 			'{$producto->subtotal}',
 				 			'{$hoy}',
-				 			'{$producto->plan}'
+				 			'{$producto->plan_id}'
 				 		)
 				 	";
 				 	$wpdb->query( $SQL_PERDIDO );
 		 		}
 	 		}
 	 	}
+
 	 	return $orden_id;
 	}
 
-	function crearCobro(){
+	function crearCobro($orden_id, $pago_id){
 		date_default_timezone_set('America/Mexico_City');
-		
+
+	 	$current_user = wp_get_current_user();
+	    $user_id = $current_user->ID;
+
+		global $wpdb;
+		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
+    	foreach ($items as $key => $item) {
+    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW() );";
+    		$wpdb->query( $SQL ); 
+
+
+    		$hoy = date("d", time() );
+    		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
+
+
+    		$proximo_cobro = date("Y-m-d H:i:s", strtotime("+".$meses." month"));
+    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW() );";
+    		$wpdb->query( $SQL ); 
+
+    		for ($i=0; $i < $meses; $i++) { 
+    			if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
+    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', NOW() );";
+    			$wpdb->query( $SQL );
+    		}
+    	}
 	}
 
 	function getSuscripciones(){
+    	date_default_timezone_set('America/Mexico_City');
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
@@ -137,12 +156,24 @@
 			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = ".$orden->id);
 			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
 			foreach ($planes as $plan) {
-
 				$data = unserialize($plan->data);
-
 				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$plan->id_producto );
 				$_data = unserialize( $producto->dataextra );
 				$img = TEMA()."/productos/imgs/".$_data["img"];
+
+				$anio = date("Y")."-12-31";
+
+				$entregas = $wpdb->get_results("SELECT * FROM despachos WHERE sub_orden = {$plan->id} AND status = 'Recibida' AND mes <= '{$anio}'");
+				$_entregas = array();
+				foreach ($entregas as $value) {
+					$mes = date( "m", strtotime($value->mes) );
+					$_entregas[] = $mes;
+				}
+
+				$_entregados_str = "-";
+				if( count($_entregas) > 0 ){
+					$_entregados_str = implode(",", $_entregas);
+				}
 
 				$suscripciones[ $orden->id ]["productos"][] = array(
 					"orden" => $plan->id,
@@ -153,16 +184,41 @@
 					"img" => $img,
 					"presentacion" => $data["presentacion"],
 					"status" => $plan->status_envio,
-					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega))
+					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
+					"entredagos" => $_entregados_str
 				);
 			}
 		}
 
-/*		echo "<pre>";
-			print_r($suscripciones);
-		echo "</pre>";*/
-
 		return $suscripciones;
+	}
+
+	function getDespachosActivos(){
+    	date_default_timezone_set('America/Mexico_City');
+
+    	$mes_actual = date("Y-m", time())."-01";
+		$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
+
+		global $wpdb;
+	 	$current_user = wp_get_current_user();
+	    $user_id = $current_user->ID;
+	    $suscripciones = array();
+		$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE cliente = {$user_id} AND ( mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ) ORDER BY id DESC");
+		
+		foreach ($despachos as $despacho) {
+			$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
+			$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
+			$_data = unserialize( $producto->dataextra );
+			$img = TEMA()."/productos/imgs/".$_data["img"];
+			$_despachos[] = array(
+				"orden" => $sub_orden->id,
+				"nombre" => $producto->nombre,
+				"img" => $img,
+				"status" => $despacho->status
+			);
+		}
+
+		return $_despachos;
 	}
 
 ?>

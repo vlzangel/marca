@@ -1,7 +1,7 @@
 <?php $user = get_user_by( 'id', get_current_user_id() ); 
 ?>
 
- 		<aside id="top"> 
+ 		<aside id="tophome"> 
 			<div class="container">
 				<a href="<?php echo get_home_url(); ?>">
 				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs">
@@ -13,23 +13,23 @@
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/perfil-usuario">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm caviar" ><?php echo $user->user_email; ?></span></a><!--href="<?php echo get_home_url(); ?>/perfil-usuario">-->
+							<span class="hidden-xs hidden-sm gothan" ><?php echo $user->user_email; ?></span></a><!--href="<?php echo get_home_url(); ?>/perfil-usuario">-->
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo wp_logout_url( get_home_url() );?>">
 							
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm caviar">Salir</span></a><!--href="<?php echo wp_logout_url( get_home_url() );?> ">-->
+							<span class="hidden-xs hidden-sm gothan">Salir</span></a><!--href="<?php echo wp_logout_url( get_home_url() );?> ">-->
 						</li> 
 					<?php }else{ ?>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
-							<i class="fa fa-key fa-lg" aria-hidden="true"></i>
-							<span class="hidden-xs hidden-sm caviar">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
+							<i class="fa fa-key fa-2x" aria-hidden="true"></i>
+							<span class="hidden-xs hidden-sm gothan" style="font-size: 16px">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus fa-lg " aria-hidden="true"></i> <span class=" hidden-xs hidden-sm caviar">Registro</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
+							<i class="fa fa-user-plus fa-2x " aria-hidden="true"></i> <span class=" hidden-xs hidden-sm gothan" style="font-size: 16px">Registrarse</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
 						</li>
 					<?php } ?>
 

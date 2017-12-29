@@ -5,7 +5,7 @@
 nav {
 	width: 100%;
 	box-sizing: border-box;
-	background-color: #94d400;
+	background-color: #ffffff;
     z-index: 9999999999999999999999;
 }
 
@@ -41,15 +41,15 @@ nav {
 }
 
 .nav_container > ul > li a {
-    background: transparent;
-    padding: 5px 17px;
+    background: #091705;
+    padding: 5px 18px;
     border-radius: 50px;
-    border: 1px solid #fff;
+    border: 2px solid #091705;
     color: #fff;
     text-decoration: none;
 }
 
 .nav_container > ul > li a:hover {
     background: #FFF;
-    color: #94d400;
+    color: #000000;
 }

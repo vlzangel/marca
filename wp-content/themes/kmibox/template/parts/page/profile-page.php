@@ -19,12 +19,12 @@
 
 			<div class="col-md-12">
 				<div class="col-md-6 col-sm-6 form-group">
-					<input type="text" name="nombre" class="form-control profile-content-input"  placeholder="Nombre"
+					<input type="text" name="nombre" class="form-control profile-content-input"  placeholder="Nombre y Apellido"
 						value="<?php echo $user['first_name']; ?>">
 				</div>
-				<div class="col-md-6 col-sm-6 form-group">
+				<!--div class="col-md-6 col-sm-6 form-group">
 					<input type="text" name="apellido" class="form-control profile-content-input"  placeholder="Apellido"
-						value="<?php echo $user['last_name']; ?>">
+						value="<?php echo $user['last_name']; ?>"-->
 				</div>
 			</div>
 			<div class="col-md-12">

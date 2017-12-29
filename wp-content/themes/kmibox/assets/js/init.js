@@ -335,6 +335,7 @@ $(function($){
 	.on('success.form.bv', function(e) {
 	    e.preventDefault();
 	    jQuery("#btn_pagar_1").text("Procesando...");
+
 	    jQuery.post(
 			TEMA+"assets/ajax/suscribir_tarjeta.php",
 			jQuery(this).serialize(),
@@ -351,6 +352,7 @@ $(function($){
 		).fail(function(e) {
 			console.log( e );
 	  	});
+
 	})
 	.bootstrapValidator({
 	    feedbackIcons: {
@@ -362,7 +364,7 @@ $(function($){
 		    validator.defaultSubmit();
 		},    
 	    fields: {		    
-			num_cart: {
+			num_card: {
 			    message: 'Error',
 			    validators: {
 			        notEmpty: {
@@ -384,7 +386,7 @@ $(function($){
 						message: 'Este campo no debe estar vacío'
 					},
 					cvv: {
-						creditCardField: 'num_cart',
+						creditCardField: 'num_card',
 						message: 'El código de serguridad es invalido'
 					},
 				},
@@ -993,6 +995,24 @@ $(function($){
 				}	
 			}
 	});
+
+
+	// ***************************************
+	// Load municipios 
+	// ***************************************
+	$('[name="dir_estado"]').on('change', function(){
+
+		$.get( urlbase+"/ajax/admin_municipio.php?estado="+$(this).val(), function(r) {
+			var options = '<option value="0">Delegación</option>';
+			var rx = $.parseJSON(r);
+			$.each( rx, function(id, row){
+				options = options  + '<option value="'+row.id+'">'+row.name+'</option>';
+			});
+			$('[name="dir_ciudad"]').html( options );
+		});
+
+	});
+
 
 	// ***************************************
 	// Iniciar fase 

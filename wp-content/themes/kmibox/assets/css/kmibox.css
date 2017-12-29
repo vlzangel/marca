@@ -10,7 +10,7 @@ ul li i{
 h2{
 	color:#94d400;
 	font-size: 21px;
-	font-family: caviar_dreamsregular;
+	font-family: GothanMedium_regular;
 	/*padding: 15px 0px 15px 0px; */
 }
 
@@ -19,13 +19,13 @@ h2{
 h3{
 	color:#ffffff;
 	font-size: 15px;
-	font-family: caviar_dreamsregular;
+	font-family: GothanMedium_regular;
 	/*padding: 15px 0px 15px 0px; */
 }
 
 h4{
 	color:#0ab7a1;
-	font-weight: bold;
+	/*font-weight: bold;*/
 }
 
 section{
@@ -66,7 +66,7 @@ p .img-center{
 	font-size: 10px;
 }
 .campos-obligatorios span{
-	color: #c003ff;
+	color: #94d400;
 	font-size: 7px!important;
 }
 .campos-obligatorios label{
@@ -111,7 +111,7 @@ img{
 p{
 	color:#8e8d8d;
 	font-size: 20px; 
-	font-family: caviar_dreamsregular;
+	font-family: GothanMedium_regular;
 }
 p span{
 	color:#e5dd6a;
@@ -167,7 +167,7 @@ p span{
 	padding-right: 10px;
 }
 .btn-kmibox-link:hover{
-	color: #94d400;
+	color: #000000;
 	background:#fff;
 	text-decoration: none;
 }
@@ -256,7 +256,7 @@ select{
 .form-horizontal h2{
 	border-radius: 50px!important;
     padding: 5px 30px;
-    color: #94d400;
+    color: #000000;
     font-size: 18px;
 }
 
@@ -275,6 +275,9 @@ select{
     vertical-align: middle;
 }
 
+.gothanligth{
+	font-family: Gothamlight_Regular;
+}
 
 .btn-price{
 	font-size: 32px; 
@@ -289,8 +292,8 @@ select{
 .btn-sm-kmibox:hover,
 .btn-sm-kmibox-price:hover,
 .btn-kmibox:hover{
-	background: #94d400;
-	color:#fff!important;
+	background: #ffffff;
+	color:#000!important;
 }
 
 .btn-kmibox-efectivo:hover{
@@ -312,21 +315,38 @@ select{
 	font-family: caviar_dreamsregular;
 }
 
+.gothan{
+
+	font-family: GothanMedium_regular;
+
+}
 .postone{
 	font-family: PoetsenOne_Regular;
 }
 
 .btn-sm-kmibox-default{
-	background: #94d400!important;
+	background: #000000!important;
 }	
 .btn-sm-kmibox{
-	background: #94d400;
+	background: #000000;
 	border-radius: 40px;
 	border : 1px solid #fff;
 	color:#fff;
 	font-size: 16px;
 	font-weight: bold;
-    padding: 10px 60px 10px 60px;;;
+    padding: 10px 60px 10px 60px;
+	margin-top: 10px;
+}	
+
+
+.btn-sm-kmibox1{
+	background: #000000;
+	border-radius: 40px;
+	border : 1px solid #fff;
+	color:#fff;
+	font-size: 16px;
+	font-weight: bold;
+    padding: 13px 20px 10px 14px;
 	margin-top: 10px;
 }	
 
@@ -343,12 +363,21 @@ select{
 	
 .btn-kmibox-white:hover{
 	background: #fff;
-	color:#94d400;
+	color:#000000;
 }
 .btn-kmibox-white{
+	background: #091705;
+	border-radius: 40px;
+	border: 1px solid #091705;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 15px 5px 15px;
+}
+.btn-kmibox-white1{
 	background: #94d400;
 	border-radius: 40px;
-	border: 1px solid #fff;
+	border: 1px solid #091705;
 	color: #ffffff;
 	font-size: 12px;
 	font-weight: bold;
@@ -394,6 +423,13 @@ select{
 
 
 #top{
+	background: #000000;
+	min-height: 10vh;
+	padding: 10px 0px;
+}
+
+
+#tophome{
 	background: #ffffff;
 	min-height: 10vh;
 	padding: 10px 0px;
@@ -427,7 +463,7 @@ select{
 }
 #banner-text h2{
 	color: #828282;
-	padding: 35px 0px;
+	padding: 12px 0px;
 }
 
 
@@ -534,7 +570,7 @@ select{
 
 #register i.fa-asterisk:before {
     font-size: 7px;
-    color: #7d178f;
+    color: #94d400;
     position: absolute;
     left: 5px;
 }
@@ -550,9 +586,15 @@ select{
 }
 
 #footer{
-	background: #091705;
+	background: #000000;
 	background-size: cover;
-	padding-bottom: 60px;
+	padding-bottom: 31px;
+}
+
+#footerlogin{
+	background: #94d400;
+	background-size: cover;
+	padding-bottom: 31px;
 }
 
 #footer,
@@ -1265,7 +1307,7 @@ select{
 		font-size: 26px;
 	}
 	#regalo{
-		width: 20%;
+		width: 15%;
 	}
 	.back-picture{
 		background-size: auto; 
@@ -1597,7 +1639,7 @@ select{
 		margin-top: 0px;
 	}
 	#top div img{
-		max-width: 36%;
+		max-width: 50%;
 	}
 	#top div,
 	#banner{

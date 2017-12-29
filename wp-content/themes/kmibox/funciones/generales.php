@@ -59,7 +59,7 @@
 					<div class="nav_container">
 
 						<a href="'.$home.'">
-							<img src="'.$home.'/img/marca-logo-1.png"  >
+							<img src="'.$home.'/img/Image-Header.png"  >
 						</a> 
 
 				    	<ul>';
@@ -85,12 +85,7 @@
 									</li>';
 							}else{
 				    			$HTML .= '
-									<li>
-										<a href="'.$home.'/quiero-mi-marca/">
-											<i class="fa fa-plus-circle"></i>
-											<span>Quiero mi marca</span>
-										</a>
-									</li>
+									
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
 											<i class="fa fa-key"></i>
@@ -100,7 +95,7 @@
 									<li>
 										<a href="'.$home.'/registro/">
 											<i class="fa fa-user-plus"></i> 
-											<span>Registro</span>
+											<span>Registrarme</span>
 										</a>
 									</li>';
 							} $HTML .= '
@@ -110,6 +105,8 @@
 	        ';
 	        return $HTML;
 	    }
+
+	    
 	}
 
 

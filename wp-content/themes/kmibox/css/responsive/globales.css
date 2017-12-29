@@ -8,8 +8,16 @@
 	}
 
 	.nav_container > a > img {
-		height: 30px;
+		height: 14px;
 	}
+	.nav_container > ul > li a {
+    background: #000000;
+    padding: 7px 16px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+}
 }
 
 @media (max-width: 500px){
@@ -20,4 +28,6 @@
     .nav_container > ul > li a {
 	    padding: 5px 7px;
 	}
+
+
 }

@@ -20,6 +20,17 @@ function init_modal(data){
 
 }
 
+function abrir_link(e){
+    init_modal({
+        "titulo": e.attr("data-titulo"),
+        "modulo": e.attr("data-modulo"),
+        "modal": e.attr("data-modal"),
+        "info": {
+            "ID": e.attr("data-id")
+        }
+    });
+}
+
 function cerrar(e){
     jQuery(".modal").css("display", "none");
     jQuery("body").css("overflow", "auto");

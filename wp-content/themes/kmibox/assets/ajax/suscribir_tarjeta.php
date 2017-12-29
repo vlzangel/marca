@@ -13,16 +13,20 @@
 
  	extract($_POST);
 
- 	$orden_id = crearPedido();
+    $CARRITO = unserialize( $_SESSION["CARRITO"] );
+
+    if( !isset($CARRITO["orden_id"]) ){
+ 		$orden_id = crearPedido();
+ 		$CARRITO["orden_id"] = $orden_id;
+ 		$_SESSION["CARRITO"] = serialize($CARRITO);
+    }else{
+ 		$orden_id = $CARRITO["orden_id"];
+    }
 
  	$respuesta = array();
  	$respuesta["orden_id"] = $orden_id;
  	$respuesta["error"] = "";
 
- 	// echo json_encode($respuesta);
-
- 	// exit();
- 	
  	$dataOpenpay = dataOpenpay();
 
  	try {
@@ -45,14 +49,6 @@
 			update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
 	    }
 
-	    $cardDataRequest = array(
-		    'holder_name' => $holder_name,
-		    'card_number' => $num_cart,
-		    'cvv2' => $cvv,
-		    'expiration_month' => $exp_month,
-		    'expiration_year' => $exp_year
-		);
-
 	    try {
 			$customer = $openpay->customers->get($openpay_cliente_id);
 		} catch (Exception $e) {
@@ -65,27 +61,68 @@
 			update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
 	    }
 
-		$card = $customer->cards->add($cardDataRequest);
-		$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = '{$orden_id}'");
-		foreach ($suscripciones as $suscripcion) {
-			$subscriptionDataRequest = array(
-			    "trial_end_date" => "2014-01-01", 
-			    'plan_id' => $suscripcion->plan_id,
-			    'card_id' => $card->id
+	    $card_id = "";
+	    $tarjeta = get_user_meta($user_id, "openpay_card_".md5($num_card), true);
+	    if ( empty( $tarjeta ) ) {
+		    $cardDataRequest = array(
+			    'holder_name' => $holder_name,
+			    'card_number' => $num_card,
+			    'cvv2' => $cvv,
+			    'expiration_month' => $exp_month,
+			    'expiration_year' => $exp_year
 			);
-			$customer = $openpay->customers->get($openpay_cliente_id);
-			$subscription = $customer->subscriptions->add($subscriptionDataRequest);
-			$wpdb->query("UPDATE items_ordenes SET suscripcion_id = '{$subscription->id}' WHERE id = '{$suscripcion->id}'");
-			$respuesta["suscripciones"][] = $subscription->id;
-		}
-		
-		$respuesta["cliente"] = $openpay_cliente_id;
-		$respuesta["tarjeta"] = $card->id;
+			$card = $customer->cards->add($cardDataRequest);
+			$card_id = $card->id;
+			$cardDataRequest["id"] = $card->id;
+			update_user_meta($user_id, "openpay_card_".md5($num_card), serialize($cardDataRequest) );
+	    }else{
+			$card_id = $tarjeta->id;
+	    }
 
-		unset($_SESSION["CARRITO"]);
-		
-		echo json_encode($respuesta);
+	    try{
+	    	$card = $openpay->cards->get($card_id);
+	    } catch (Exception $e) {
+	    	$cardDataRequest = array(
+			    'holder_name' => $holder_name,
+			    'card_number' => $num_card,
+			    'cvv2' => $cvv,
+			    'expiration_month' => $exp_month,
+			    'expiration_year' => $exp_year
+			);
+			$card = $customer->cards->add($cardDataRequest);
+			$card_id = $card->id;
+			$cardDataRequest["id"] = $card->id;
+			update_user_meta($user_id, "openpay_card_".md5($num_card), serialize($cardDataRequest) );
+	    }
 
+		$chargeData = array(
+		    'method' 			=> 'card',
+		    'source_id' 		=> $card_id,
+		    'amount' 			=> (float) $CARRITO["total"],
+		    'order_id' 			=> $orden_id,
+		    'description' 		=> "Tarjeta",
+		    'device_session_id' => $deviceIdHiddenFieldName
+	    );
+
+		$charge = ""; $error = "";
+
+		try {
+            $charge = $customer->charges->create($chargeData);
+			$respuesta["transaccion"] = $charge->id;
+			$respuesta["cliente"] = $openpay_cliente_id;
+			$respuesta["tarjeta"] = $card->id;
+
+			crearCobro( $orden_id, $charge->id );
+
+			unset($_SESSION["CARRITO"]);
+			echo json_encode($respuesta);
+
+        } catch (Exception $e) {
+        	$error = $e->getErrorCode()." - ".$e->getDescription();
+        	$respuesta["error"] = $error;
+			echo json_encode($respuesta);
+        }
+		
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
     	$error_info = $e->getDescription();
