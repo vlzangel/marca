@@ -486,7 +486,7 @@ select{
 
 #section-comment{
 	color:#fff;
-	background: #091705;
+	background: #181E0D;
 	font-family: cursive;
 	background-size: contain;
 	padding: 25px 0px 25px 0px;
@@ -590,7 +590,7 @@ select{
 }
 
 #footer{
-	background: #000000;
+	background: #181E0D;
 	background-size: cover;
 	padding-bottom: 31px;
 }

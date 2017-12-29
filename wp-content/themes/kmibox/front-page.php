@@ -18,23 +18,23 @@ get_header(); ?>
 		<article>
 			<div class="container" id="banner" style="margin-bottom: 3%">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs">
-					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 65%;">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 62%;">
 				</div>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 230px;margin-left: -29%;">
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive"> 
-					<h2 style="font-size: 14px; font-family: caviar_dreamsregular"><b>El camino de una correcta nutrición</b></h2>
+					<h2 style="font-size: 14px; font-family: caviar_dreamsregular; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
-					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular">COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs ">
-					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 28%">
-					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular"><b>El camino de una correcta nutrición</b></h2>
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png"  style="margin-top: 28%; width: 126%">
+					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular ; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
-					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular" ">Comprar</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular; padding: 22px 114px !important; font-size: 35px !important" >COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div class="col-xs-12 col-sm-6 hidden" id="banner-dog">
@@ -46,32 +46,32 @@ get_header(); ?>
 
 	<section id='section-comment' class="row text-center ">
 		<div class="container hidden-xs">
-			<h3 style="font-size: 24px; font-family: GothanMedium_regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento <br> a tu casa u oficina, sin costo de envío</h3>
+			<h3 style="font-size: 24px; font-family: Gothamlight_Regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento <br> a tu casa u oficina, sin costo de envío</h3>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
-			<h3 style="font-family: GothanMedium_regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</h3>
+			<h3 style="font-family: Gothamlight_Regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</h3>
 		</div>
 	</section>
 
 	<section id="como-funciona" class="row text-center" style="margin-top: 5%">
-		<div class="container hidden-xs" >
+		<div class="container hidden-xs" style="    margin-top: -3%;" >
 
 			<div style="float:left;width:33%; font-family: GothanMedium_regular">    
 				
-					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" >
-					<p>
+					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" style="    margin-bottom: 5%;">
+					<p style="  font-family:  Gothamlight_Regular;">
 						Asesores nutricionales<br>certificados
 						</p>									    
 			</div>
 			<div style="float:left;width:33%; font-family: GothanMedium_regular">  
-					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" >
-					<p>
+					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" style="    margin-bottom: 5%;">
+					<p style="  font-family:  Gothamlight_Regular;">
 						Entregado en tu <br> casa sin costo adicional
 					</p>
 		    </div>
 		    <div style="float:left;width:33%; font-family: GothanMedium_regular">  
-					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" >
-					<p>
+					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" style="    margin-bottom: 5%;">
+					<p style="  font-family:  Gothamlight_Regular;">
 						Más barato que en una<br> veterinaria
 					</p>
 			</div>
@@ -79,19 +79,19 @@ get_header(); ?>
 		<div  class="container hidden-sm hidden-md hidden-lg" >
 				<div class="col-xs-6"  >    				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive">
-					<p style="font-size: 9px; font-family: GothanMedium_regular">
+					<p style="font-size: 9px; font-family: Gothamlight_Regular">
 						Asesores nutricionales<br>certificados
 						</p>									    
 				</div>
 				<div class="col-xs-6">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive">
-					<p style="font-size: 9px; font-family: GothanMedium_regular">
+					<p style="font-size: 9px; font-family: Gothamlight_Regular">
 						Entregado en tu <br> casa sin costo adicional
 					</p>
 		  	    </div>
 		    	<div class="col-xs-6 col-xs-offset-3">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive">
-					<p style="font-size: 9px; font-family: GothanMedium_regular">
+					<p style="font-size: 9px; font-family: Gothamlight_Regular">
 						Más barato que en una<br> veterinaria
 					</p> 
 				</div>
@@ -122,10 +122,10 @@ get_header(); ?>
 
 	<section id='section-comment1' class="row text-center ">
 		<div class="container hidden-xs">
-			<h2 style="color: #000000;font-weight: bold; font-size: 34px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive"></h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 34px; font-family: GothanMedium_regular">¿Cómo funciona Nutriheroes? </h2>
 		</div>
 		<div class="container hidden-sm hidden-lg hidden-md">
-			<h2 style="color: #000000;font-weight: bold; font-size: 25px; font-family: GothanMedium_regular">¿Cómo funciona? <img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="img-responsive"></h2>
+			<h2 style="color: #000000;font-weight: bold; font-size: 25px; font-family: GothanMedium_regular">¿Cómo funciona Nutriheroes?</h2>
 		</div>
 	</section>
  
@@ -134,37 +134,37 @@ get_header(); ?>
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 				<div style="margin-bottom: 2%">
 					<br>
-				<span  class="hidden-xs" style="/* text-align:  center; */margin-left: 14%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">1</span>
+				<span  class="hidden-xs" style="/* text-align:  center; */margin-left: 14%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 11px;">1</span>
 				<span class="hidden-xs" style="/* text-align:  center; */margin-left: 30%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 8px;">2</span>
-				<span class="hidden-xs" style="/* text-align:  center; */margin-left: 31%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">3</span>
+				<span class="hidden-xs" style="/* text-align:  center; */margin-left: 31%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 8px;">3</span>
 				</div>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
 							
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 5px; font-size: 16px; color: #878a87; text-align: center; font-family: Gothamlight_Regular">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
 					<div class="col-md-4 col-sm-4"> 	
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 20px; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular;   margin-top: 8%;">
+							<p style="margin-left: 20px; font-size: 16px; color: #878a87; text-align: center; font-family: Gothamlight_Regular;   margin-top: 8%;">
 								Brindale a tu asesor nutricional tu <br> información básica para el envío 
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive" style="margin-top: 5%; ">
-							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular; margin-top: 10%;">
+							<p style="font-size: 16px; color: #878a87; text-align: center; font-family: Gothamlight_Regular; margin-top: 10%;">
 								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
 					</div> 
 					
 							<div  style='clear:both;'></div>
-					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -27%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 2px 9px;">4</span>
+					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -27%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 8px;">4</span>
 
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 6%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 14px; color: #878a87 ; text-align: center; font-family: GothanMedium_regular; margin-top: 3%;">
+							<p style="font-size: 16px; color: #878a87 ; text-align: center; font-family: Gothamlight_Regular; margin-top: 3%;">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
 							</p>
 					</div> 
@@ -178,7 +178,7 @@ get_header(); ?>
 						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 38%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">1</span>
 						</div>
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style=" font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style=" font-size: 14px; color: #878a87; text-align: center; font-family: Gothamlight_Regular">
 									Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
@@ -187,7 +187,7 @@ get_header(); ?>
 						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 43%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">2</span>	
 					</div>
 							<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-							<p style="margin-left: 12px ; font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="margin-left: 12px ; font-size: 14px; color: #878a87; text-align: center; font-family: Gothamlight_Regular">
 								Brindale a tu asesor nutricional tu <br> información básica para el envio 
 							</p>
 					</div>	
@@ -197,7 +197,7 @@ get_header(); ?>
 						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left:49%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">3</span>
 					</div>
 							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
-							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: Gothamlight_Regular">
 								Recibe tu orden de compra y realiza <br> tu pago  
 							</p>	
 					</div> 	
@@ -206,7 +206,7 @@ get_header(); ?>
 						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 45%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">4</span>
 						</div>
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
-							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: GothanMedium_regular">
+							<p style="font-size: 14px; color: #878a87; text-align: center; font-family: Gothamlight_Regular">
 								Recibe el producto en tu casa u <br>oficina sin costo adicional 
 							</p>
 					</div> 
@@ -220,7 +220,7 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<section style="color:#ffffff;	background: #091705;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
+	<section style="color:#ffffff;	background: #181E0D;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
 		<div class="container hidden-xs">
 			<h4 style="color:#ffffff; font-size: 48px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un compañero especial</h4>
 		</div>
@@ -232,8 +232,8 @@ get_header(); ?>
 	<section class="row text-center">
 		<div class="container" style="margin-bottom: 3%">
 			<div class="container  hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg"  style="width: 148%; margin-left: -25%">	
-				<span style="padding: 4px 151%; background: #52fa0a; margin-left: -28%"></span>
+				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 136%; margin-left: -17%">	
+				<span style="padding: 1px 151%; background: #52fa0a; margin-left: -28%"></span>
 			</div>
 
 			<div class="container visible-xs">
@@ -249,7 +249,7 @@ get_header(); ?>
 				<p style="font-size: 20px; color: #878a87; font-family: GothanMedium_regular;" >Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
 				él se <br> nutre y tu amigo o familiar no se preocupa más</p>			
 				<br><br>	
-				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">Comprar</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
+				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style=" font-family:GothanMedium_regular">COMPRAR</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
 		</div>
 	</section>
 	<br>
