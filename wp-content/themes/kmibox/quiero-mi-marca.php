@@ -45,17 +45,7 @@
 
 			<section id="fase_1">
 				<div class="carrousel-items">
-					<article>
-						<div>
-							<img
-								src="'.get_home_url().'/img/edad/p_pequeno.png" 
-								class="img-responsive img-circle" 
-								id="Grande"
-							/>
-							<p class="col-md-12">Pequeño</p>
-						</div>
-					</article>
-					<article>
+					<article data-value="Mediano">
 						<div>
 							<img
 								src="'.get_home_url().'/img/edad/p_mediano.png" 
@@ -65,7 +55,17 @@
 							<p class="col-md-12">Mediano</p>
 						</div>
 					</article>
-					<article>
+					<article data-value="Pequeño">
+						<div>
+							<img
+								src="'.get_home_url().'/img/edad/p_pequeno.png" 
+								class="img-responsive img-circle" 
+								id="Grande"
+							/>
+							<p class="col-md-12">Pequeño</p>
+						</div>
+					</article>
+					<article data-value="Grande">
 						<div>
 							<img
 								src="'.get_home_url().'/img/edad/p_adulto.png" 

@@ -17,16 +17,23 @@ var PLANES = [];
 
 jQuery(document).ready(function() {
 
+	/*jQuery(".carrusel_1 img").on("click", function(e){
+		jQuery(".carrusel_1 img").removeClass("tamano_activo");
+		jQuery(this).addClass("tamano_activo");
+		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["tamano"] = jQuery(this).attr("data-value");
+	});*/
+
 	jQuery('.carrousel-items').on('click', 'article', function(){
 		var index = jQuery(this).index() + 1; 
-		// Primer items - Direccion (Izq. a Der.)
 		if( index ==  1 ){
 			jQuery(".carrousel-items article:last").insertBefore( jQuery(".carrousel-items article:first") );
 		}
-		// Ultimo items - Direccion (Der. a Izq.)
 		if( index == jQuery('.carrousel-items article').length ){
 			jQuery(".carrousel-items article:first").insertAfter( jQuery(".carrousel-items article:last") );
 		}
+
+		var prod_actual = getCarritoActual();
+		prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
 
 	});
 
