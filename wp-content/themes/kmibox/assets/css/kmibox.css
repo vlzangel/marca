@@ -294,6 +294,8 @@ select{
 .btn-kmibox:hover{
 	background: #ffffff;
 	color:#000!important;
+	border: 2px solid #091705;
+	text-decoration: none;
 }
 
 .btn-kmibox-efectivo:hover{
@@ -552,7 +554,7 @@ select{
 
 #register .row-special,
 #register .form-group {
-    margin-right: 0px!important; 
+   /* margin-right: 0px!important; */
     margin-left: 0px!important; 
 }
 #register .label-group label i{
