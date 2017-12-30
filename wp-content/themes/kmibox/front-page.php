@@ -21,7 +21,7 @@ get_header(); ?>
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 62%;">
 				</div>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
-					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 230px;margin-left: -29%;">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 182px;margin-left: -29%;">
 				</div>
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive"> 
@@ -232,8 +232,8 @@ get_header(); ?>
 	<section class="row text-center">
 		<div class="container" style="margin-bottom: 3%">
 			<div class="container  hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 136%; margin-left: -17%">	
-				<span style="padding: 1px 151%; background: #52fa0a; margin-left: -28%"></span>
+				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 125%; margin-left: -17%">	
+				<span style="padding: 1px 136%; background: #52fa0a; margin-left: -28%"></span>
 			</div>
 
 			<div class="container visible-xs">
