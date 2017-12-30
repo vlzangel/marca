@@ -59,10 +59,10 @@
 					<div class="nav_container">
 
 						<a href="'.$home.'">
-							<img src="'.$home.'/img/Image-Header.png"  >
+							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -25%;" >
 						</a> 
 
-				    	<ul>';
+				    	<ul style="margin-left: -11%;">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>
@@ -78,7 +78,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="'.$salir.'">
+										<a href="'.$salir.'" style="margin-right: -60%;">
 											<i class="fa fa-close"></i>
 											<span>Salir</span>
 										</a>

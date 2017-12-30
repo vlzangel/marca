@@ -34,7 +34,7 @@ get_header(); ?>
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png"  style="margin-top: 28%; width: 126%">
 					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular ; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
-					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular; padding: 22px 114px !important; font-size: 35px !important" >COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular; padding: 22px 92px !important; font-size: 32px !important" >COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
 				<div class="col-xs-12 col-sm-6 hidden" id="banner-dog">
