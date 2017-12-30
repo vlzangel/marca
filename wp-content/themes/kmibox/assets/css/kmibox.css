@@ -472,7 +472,7 @@ select{
 
 
 #como-consigo-kmibox{
-	padding-bottom: 50px;
+	/*padding-bottom: 50px;*/
 }
 
 
@@ -1311,7 +1311,7 @@ select{
 		font-size: 26px;
 	}
 	#regalo{
-		width: 15%;
+		width: 12%;
 	}
 	.back-picture{
 		background-size: auto; 

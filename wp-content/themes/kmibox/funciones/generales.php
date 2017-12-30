@@ -58,7 +58,10 @@
 	        	<nav> 
 					<div class="nav_container">
 
-						<a href="'.$home.'">
+						<a href="'.$home.'" class="hidden-xs">
+							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -10%;" >
+						</a> 
+						<a href="'.$home.'" class="hidden-sm hidden-md hidden-lg">
 							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -25%;" >
 						</a> 
 
