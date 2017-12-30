@@ -16,9 +16,9 @@ get_header(); ?>
 	<?php echo MENU(); ?>
 	<header id="header" class="row">		
 		<article>
-			<div class="container" id="banner" style="margin-bottom: 3%">
+			<div class="container" id="banner" style="margin-bottom: 4%">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs">
-					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 62%;">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 59%;     margin-top: -5%;">
 				</div>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 182px;margin-left: -29%;">
@@ -31,7 +31,7 @@ get_header(); ?>
 				</div>
 
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs ">
-					<img src="<?php echo get_home_url(); ?>/img/Logo.png"  style="margin-top: 28%; width: 126%">
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png"  style="margin-top: 11%; width: 126%">
 					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular ; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular; padding: 22px 92px !important; font-size: 32px !important" >COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
@@ -101,7 +101,7 @@ get_header(); ?>
 	<section class="row text-center ">
 		
 		<div class="container">
-			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" >
+			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 80%;" >
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
 			<label style="color: #ebb931;font-size: 20px;font-family: PoetsenOne_Regular;margin-left: -5%;">Las mejores marcas <span style="color: #000000"> TODAS EN UN MISMO LUGAR</span></label>
@@ -232,8 +232,8 @@ get_header(); ?>
 	<section class="row text-center">
 		<div class="container" style="margin-bottom: 3%">
 			<div class="container  hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 125%; margin-left: -17%">	
-				<span style="padding: 1px 136%; background: #52fa0a; margin-left: -28%"></span>
+				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 131%; margin-left: -17%">	
+				<span style="padding: 2px 142%; background: #52fa0a; margin-left: -28%"></span>
 			</div>
 
 			<div class="container visible-xs">
