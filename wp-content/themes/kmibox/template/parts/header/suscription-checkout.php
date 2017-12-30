@@ -28,7 +28,7 @@
 						</li> 
 						<li>
 							<a class="btn-kmibox-link-suscription" 
-							href="<?php echo wp_logout_url( get_home_url() );?> ">
+							href="<?php echo wp_logout_url( get_home_url() );?> " style="    margin-right: -60%;">
 							<i class="fa fa-close" aria-hidden="true"></i>
 							<span class="hidden-xs caviar">Salir</span></a>
 						</li>
