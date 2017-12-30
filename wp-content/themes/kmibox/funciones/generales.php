@@ -62,10 +62,10 @@
 							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -10%;" >
 						</a> 
 						<a href="'.$home.'" class="hidden-sm hidden-md hidden-lg">
-							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -25%;" >
+							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -3%;" >
 						</a> 
 
-				    	<ul style="margin-left: -11%;">';
+				    	<ul style="margin-left: -11%;" class="hidden-xs">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>
@@ -82,6 +82,45 @@
 									</li>
 									<li>
 										<a href="'.$salir.'" style="margin-right: -60%;">
+											<i class="fa fa-close"></i>
+											<span>Salir</span>
+										</a>
+									</li>';
+							}else{
+				    			$HTML .= '
+									
+									<li>
+										<a href="'.$home.'/iniciar-sesion/">
+											<i class="fa fa-key fa-2x"></i>
+											<span>Iniciar Sesión</span>
+										</a>
+									</li>
+									<li>
+										<a href="'.$home.'/registro/">
+											<i class="fa fa-user-plus fa-2x"></i> 
+											<span>Registrarse</span>
+										</a>
+									</li>';
+							} $HTML .= '
+						</ul>
+
+						<ul style="margin-left: -11%;" class="hidden-sm hidden-lg hidden-md visible-xs pull-left">';
+				    		if ( is_user_logged_in() ){
+				    			$HTML .= '
+									<li>
+										<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
+											<i class="fa fa-plus-circle"></i>
+											<span>Quiero mi NutriHeroes</span>
+										</a>
+									</li>
+									<li>
+										<a href="'.$home.'/perfil/">
+											<i class="fa fa-user"></i>
+											<span>'.$user->display_name.'</span>
+										</a>
+									</li>
+									<li>
+										<a href="'.$salir.'">
 											<i class="fa fa-close"></i>
 											<span>Salir</span>
 										</a>
