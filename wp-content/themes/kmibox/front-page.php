@@ -232,12 +232,12 @@ get_header(); ?>
 	<section class="row text-center">
 		<div class="container" style="margin-bottom: 3%">
 			<div class="container  hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 131%; margin-left: -17%">	
-				<span style="padding: 2px 142%; background: #52fa0a; margin-left: -28%"></span>
+				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 125%; margin-left: -17%">	
+				<span style="padding: 2px 136%; background: #52fa0a; margin-left: -28%"></span>
 			</div>
 
 			<div class="container visible-xs">
-				<img src="<?php echo get_home_url(); ?>/img/Image-3.jpg" class="img-responsive">	
+				<img src="<?php echo get_home_url(); ?>/img/Image_responsive.jpg" class="img-responsive">	
 				<span style="padding: 1px 320px; background: #52fa0a"></span>
 			</div>
 			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: GothanMedium_regular; " >¡Regálasela a un amigo o un familiar!</h2>
