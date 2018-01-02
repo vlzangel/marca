@@ -113,9 +113,75 @@
 					<div id="siguiente_pantalla" class="btn-disable">Siguiente</div>
 
 					<div class="selector_producto_footer">
-						Si no aparece tu marca, <a href="#">haz click aqui</a>
+						Si no aparece tu marca, <a href="javascript:;" data-target="show-list">haz click aqui</a>
 					</div>
+  
 				</div>
+			</section>
+ 
+			<section id="product-list" class="hidden">
+
+				<article class="container">
+					<div class="row">
+						<span>20 RESULTADOS</span>
+						<div class="pull-right text-right">
+							<input type="text" class="form-control" placeholder="Filtrar por"></input>
+						</div>
+					</div>
+					<div id="otras-marcas" class="row listado-productos">
+
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" width="70%" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" width="70%" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" width="70%" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" width="70%" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+   
+					</div>
+				</article>
+
+				<article class="section-seleccion">
+					<div class="container">
+						<h1 data-target="producto_name">ROYAL CANIN</h1>
+						<h2>Raza mediana adulto <span>13.7 KG</span></h2>
+						<div>
+							<span>Presentaci&oacute;n: </span>
+							<div class="selector_presentaciones2">
+								<span id="pres_900g" >P</span>
+								<span id="pres_2000g" >M</span>
+								<span id="pres_4000g" >G</span>
+								<span id="pres_6000g" >XL</span>
+							</div>
+							<span>Cantidad:</span>
+							<select><option>1</option></select>
+							<button class="btn btn-marca pull-right"><i class="fa fa-shopping-cart "></i> AGREGAR AL CARRITO</button>
+						</div>					
+					</div>					
+				</article>
+
+				<div class="clear"></div>
 			</section>
 
 			<section id="fase_3" class="hidden">

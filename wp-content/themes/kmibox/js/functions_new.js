@@ -62,6 +62,9 @@ jQuery(document).ready(function() {
 		change_fase(4, this);
 	});
 	jQuery("#vlz_atras").on("click", function(e){
+		jQuery('.comprar_container')
+			.css("overflow", "hidden")
+			.css("position", "fixed");
 		change_fase( jQuery(this).attr("data-value") );
 	});
 	jQuery("#agregar_plan").on("click", function(e){
@@ -108,6 +111,16 @@ jQuery(document).ready(function() {
 	  	});
 		
 	});
+
+	jQuery('[data-target="show-list"]').on('click', function(){
+		jQuery('.comprar_container')
+			.css("overflow", "initial")
+			.css("position", "initial");
+		jQuery("#fase_2").addClass('hidden');
+		jQuery("#product-list").removeClass('hidden');
+		jQuery('#vlz_titulo').html("Listado de marcas");
+
+	});
 	initProductos_y_Planes();
 	change_fase(1);
 
@@ -152,6 +165,7 @@ function loadProductos(){
 	var prod_actual = getCarritoActual();
 	var actual_select = prod_actual["producto"];
 	jQuery('.carrusel_2').html("");
+	jQuery('#otras-marcas').empty();
 	jQuery('.carrusel_2').append(jQuery('<span></span>'));
 	jQuery.each(PRODUCTOS,  function(key, val){
 		if( actual_select == undefined ){
@@ -164,6 +178,16 @@ function loadProductos(){
 				'<div>'+val.nombre+'</div>'+
 			'</div>'
 		);
+		jQuery('#otras-marcas').append(
+			'<article class="col-xs-6 col-md-3 text-center" id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">'+
+				'<div class="col-xs-12">'+
+					'<img src="'+TEMA+"/productos/imgs/"+val.dataextra.img+'" width="70%" class="img-responsive"/>'+
+					'<div  class="col-md-12"><strong>'+val.nombre+'</strong></div>'+
+					'<div  class="col-md-12">Descripcion corta</div>'+
+				'</div>'+
+			'</article>'
+		);
+
 	});
 	if( actual_select != undefined ){
 		prod_actual["actual"] = "#item_"+actual_select;
