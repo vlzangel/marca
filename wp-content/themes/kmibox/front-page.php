@@ -175,7 +175,7 @@ get_header(); ?>
 				<div class="row visible-xs" > 	
 					<div class="col-xs-12" style="margin-left: 3%">
 						<div style="margin-bottom: 2%">
-						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 38%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">1</span>
+						<span class="hidden-md hidden-lg hidden-sm" style="/* text-align:  center; */margin-left: 38%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">1</span>
 						</div>
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
 							<p style=" font-size: 14px; color: #878a87; text-align: center; font-family: Gothamlight_Regular">
