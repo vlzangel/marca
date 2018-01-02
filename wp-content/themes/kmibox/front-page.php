@@ -142,7 +142,7 @@ get_header(); ?>
 					<div class="col-md-4 col-sm-4">
 							
 							<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-							<p style="margin-left: 5px; font-size: 16px; color: #878a87; text-align: center; font-family: Gothamlight_Regular">
+							<p style="margin-left: 5px; font-size: 16px; color: #878a87; text-align: center; font-family: Gothamlight_Regular; margin-top: 8%;">
 								Escoge la marca y presentacion <br> de tu preferencia
 							</p>
 					</div> 
@@ -153,7 +153,7 @@ get_header(); ?>
 							</p>
 					</div>	
 					<div class="col-md-4 col-sm-4"> 
-							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive" style="margin-top: 5%; ">
+							<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive" style="margin-top: 4%; ">
 							<p style="font-size: 16px; color: #878a87; text-align: center; font-family: Gothamlight_Regular; margin-top: 10%;">
 								Recibe tu orden de compra y realiza <br> tu pago 
 							</p>	
