@@ -1232,10 +1232,10 @@ select{
 	#footer{
 		margin-top: 90px;
 	}
-.carro{
+	.carro{
 
-	    margin-left: -41%;
-}
+		    margin-left: -41%;
+	}
 	#como-funciona p {
     	font-size: 18px;
 	}
@@ -1249,7 +1249,7 @@ select{
 	.carro{
 
 	    margin-left: -41%;
-}
+	}
 
 	.border-curvo{
 	 border-radius: 100px;
@@ -1330,7 +1330,7 @@ select{
     top: 0px;  
     width: 100%;
     /*height: calc( 100% - 72px )*/;
-}
+	}
 	#regalo{
 		width: 20%;
 	}
@@ -1843,3 +1843,5 @@ select{
 section.container {
     margin-top: 20px;
 }
+
+

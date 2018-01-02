@@ -2,7 +2,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 }
-
+ 
 #content-primary {
 	width: 100%;
 	height: 100%;
@@ -10,14 +10,16 @@ html, body {
 
 .vlz_header {
 	overflow: hidden;
-    background: #94d400;
+    background: transparent;
     padding: 15px 20px;
 }
 
 .header_titulo{
-	float: right;
-	color: #ffffff; 
-	font-size: 18px;
+    width: 70%;
+    float:left;
+	text-align: center;
+	color: #000; 
+	font-size: 30px;
 	font-family: caviar_dreamsregular;
 }
 

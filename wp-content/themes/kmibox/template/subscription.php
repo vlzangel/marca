@@ -17,21 +17,21 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 
 <section id="group-purchase" class="purchase">
 	<!-- Fase #1 Tamaño -->
-	<section data-fase="1">
+	<section data-fase="11">
 
-		<div id="carrousel">
-			<div>	
-				<img src='<?php echo get_home_url(); ?>/img/Adulto.png'  class="img-responsive"  width="400px" id="Grande" />		
+		<article data-group="carrousel">
+			<div>	 
+				<img src='<?php echo get_home_url(); ?>/img/p_pequeno.png'  class="img-responsive" id="Grande" />
 			</div>
 			<div>
-				<img src='<?php echo get_home_url(); ?>/img/Mediano.png'  class="img-responsive" width="400px" id="Mediano" />		
+				<img src='<?php echo get_home_url(); ?>/img/p_mediano.png'  class="img-responsive" id="Mediano" />
 			</div>
 			<div>
-				<img src='<?php echo get_home_url(); ?>/img/Cachorro.png'  class="img-responsive" width="400px" id="Pequeño" />.			
+				<img src='<?php echo get_home_url(); ?>/img/p_adulto.png'  class="img-responsive" id="Pequeño" />
 			</div>
-		</div>
+		</article>
 
-		<div id="edad">
+		<div id="edad" class="hidden">
 			<br> <br> <br> 
 			<div style="float:left;width:35%;">    
 				<label style="margin-left: 35px;font-weight: bold;font-family: PoetsenOne_Regular; font-size:30px; color:#900e9c;">
@@ -116,8 +116,6 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 					</button>
 				</div>				
 			</div>
-
-				
 	</section>
 
 	<!-- Fase #3 Plan -->
@@ -125,7 +123,7 @@ get_template_part( 'template/parts/header/suscription', 'page' );
 		id="plan"
 		data-fase="3" 
 		class="container purchase animated text-center bounceInRight hidden" 
-	>
+		>
 		<article id="plan-Quincenal" class="text-center col-sm-4 separation-top">
 			<img class="img-responsive" src="http://marca.dev/img/Quincenal.png" width="300px" height="370px">
 			<button 

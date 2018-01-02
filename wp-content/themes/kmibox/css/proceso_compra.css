@@ -318,6 +318,66 @@ html, body, #content-primary, .comprar_container, .comprar_container section {
 	    background: #48a52d !important;
 	}
 
+/* Fase 2.1  Listado de marcas */
+
+#product-list{	
+    top: 100px;
+    position: relative;
+    margin-bottom: 160px;
+}
+.listado-productos {
+    margin-bottom: 250px;
+}
+.listado-productos article > div{
+    margin-bottom:30px;
+    padding-bottom: 7px;
+    padding-right: 0px;
+    padding-left: 0px;
+    border:1px solid #ccc;
+    background: white;
+}
+.section-seleccion h1,
+.section-seleccion h2
+{
+    margin-top: 0px;
+}
+.section-seleccion select{
+    padding: 5px 15px;
+}
+.section-seleccion ul{
+    display: inline-block;
+}
+.section-seleccion{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: white; 
+    display: inline-block;
+    padding: 15px 0px;
+    box-shadow: 0px 0px 7px 0px #ccc
+}
+.btn-marca{
+    background: #091705;
+    border-radius: 40px;
+    border: 1px solid #091705;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+    z-index: 9999999999999;
+    padding: 5px 20px;
+
+    bottom: 115px;
+    right: 40px;
+    text-transform: UPPERCASE;
+    cursor: pointer;
+}
+
+.selector_presentaciones2{
+	display: inline-block;	
+}
+
 /* Fase 3 */
 
 	.comprar_box > span{

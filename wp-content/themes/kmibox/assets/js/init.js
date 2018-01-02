@@ -1,5 +1,5 @@
 $(function($){
-
+ 
 	// *******************************
 	// Change Login
 	// *******************************
@@ -247,8 +247,10 @@ $(function($){
 		  clickedCenter: function ($item) {
 		    $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
 		  }
-      
     });
+
+
+
   });
  	
 	// ***************************************
