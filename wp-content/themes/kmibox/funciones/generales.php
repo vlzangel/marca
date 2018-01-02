@@ -91,13 +91,13 @@
 									
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
-											<i class="fa fa-key fa-2x"></i>
+											<i class="fa fa-key"></i>
 											<span>Iniciar Sesión</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/registro/">
-											<i class="fa fa-user-plus fa-2x"></i> 
+											<i class="fa fa-user-plus"></i> 
 											<span>Registrarse</span>
 										</a>
 									</li>';
@@ -130,13 +130,13 @@
 									
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
-											<i class="fa fa-key fa-2x"></i>
+											<i class="fa fa-key"></i>
 											<span>Iniciar Sesión</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/registro/">
-											<i class="fa fa-user-plus fa-2x"></i> 
+											<i class="fa fa-user-plus"></i> 
 											<span>Registrarse</span>
 										</a>
 									</li>';
