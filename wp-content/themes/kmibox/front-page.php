@@ -134,9 +134,9 @@ get_header(); ?>
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 				<div style="margin-bottom: 2%">
 					<br>
-				<span  class="hidden-xs" style="/* text-align:  center; */margin-left: 14%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 11px;">1</span>
-				<span class="hidden-xs" style="/* text-align:  center; */margin-left: 30%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 8px;">2</span>
-				<span class="hidden-xs" style="/* text-align:  center; */margin-left: 31%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 8px;">3</span>
+				<span  class="hidden-xs" style="/* text-align:  center; */margin-left: 14%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 9px;">1</span>
+				<span class="hidden-xs" style="/* text-align:  center; */margin-left: 30%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">2</span>
+				<span class="hidden-xs" style="/* text-align:  center; */margin-left: 31%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">3</span>
 				</div>
 				<div class="row hidden-xs">
 					<div class="col-md-4 col-sm-4">
@@ -160,7 +160,7 @@ get_header(); ?>
 					</div> 
 					
 							<div  style='clear:both;'></div>
-					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -27%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 8px;">4</span>
+					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -27%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">4</span>
 
 					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 6%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
