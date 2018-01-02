@@ -242,12 +242,20 @@ get_header(); ?>
 			</div>
 			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: GothanMedium_regular; " >¡Regálasela a un amigo o un familiar!</h2>
 				<br>
-			<div class="col-sm-12">
+			<div class="col-sm-12 hidden-xs">
 				<img src="<?php echo get_home_url(); ?>/img/box.png" id="regalo" class="img-responsive" >
 			</div>
+			<div class="col-sm-12 hidden-md hidden-sm hidden-lg">
+				<img src="<?php echo get_home_url(); ?>/img/box.png" id="regalo" class="img-responsive" style="width: 36% !important">
+			</div>
 			<br>			<br>
-				<p style="font-size: 20px; color: #878a87; font-family: GothanMedium_regular;" >Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
-				él se <br> nutre y tu amigo o familiar no se preocupa más</p>			
+				<p style="font-size: 20px; color: #878a87; font-family: GothanMedium_regular;" class="hidden-xs">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
+				él se <br> nutre y tu amigo o familiar no se preocupa más</p>		
+
+
+				<p style="font-size: 16px; color: #878a87; font-family: GothanMedium_regular;" class="hidden-md hidden-sm hidden-lg">Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
+				él se <br> nutre y tu amigo o familiar no se preocupa más</p>	
+
 				<br><br>	
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style=" font-family:GothanMedium_regular">COMPRAR</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
 		</div>
