@@ -17,6 +17,7 @@ nav {
     padding: 10px;
     max-width: 1180px;
     width: 100%;
+    margin-top: 2%;
 }
 
 .nav_container > a {
@@ -42,7 +43,7 @@ nav {
 
 .nav_container > ul > li a {
     background: #091705;
-    padding: 5px 18px;
+    padding: 17px 48px;
     border-radius: 50px;
     border: 2px solid #091705;
     color: #fff;

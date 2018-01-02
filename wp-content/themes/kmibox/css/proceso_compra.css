@@ -1,6 +1,629 @@
+html, body, #content-primary, .comprar_container, .comprar_container section {
+	height: 100%;
+}
+
 .controles_generales{
 	position: fixed;
-
-	background: #CCC;
-	padding: 10px;
+	#background: #CCC;
+    padding: 5px 15px 5px 15px;
+	top: 20px;
+	box-sizing: border-box;
 }
+
+#vlz_atras {
+	left: 20px;
+    width: 140px;
+    background: #091705;
+    border-radius: 40px;
+    border: 1px solid #091705;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+    z-index: 99;
+}
+
+#vlz_atras:hover {
+	left: 20px;
+    width: 140px;
+    background: #FFF;
+    color: #091705;
+    border: solid 2px #091705;
+}
+
+#vlz_atras i {
+	margin-right: 5px;
+}
+
+#vlz_titulo {
+    width: calc( 100% - 230px );
+    left: 140px;
+    top: 15px;
+    text-align: center;
+    font-family: GothanMedium_regular;
+    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#vlz_controles_fases {
+    right: 20px;
+    width: 50px;
+}
+
+#vlz_controles_fases span {
+    display: block;
+    margin: 0px auto 10px;
+    width: 20px;
+    height: 20px;
+    background-color: #9BFF00;
+    opacity: 0.4;
+    border-radius: 50%;
+}
+
+#vlz_controles_fases span.fase_activa {
+    background-color: #181E0D; 
+}
+
+.comprar_container {
+    overflow: hidden;
+}
+
+.comprar_container section {
+	overflow: hidden;
+}
+
+.btn-disable {
+    background: #989898 !important;
+}
+
+/* Fase 1 */
+
+	.selector_edad_container{
+	    position: fixed;
+	    bottom: 30px;
+	    left: 0px;
+	    width: 100%;
+        height: 130px;
+	}
+
+	.selector_edad_container label{
+	    text-align: center;
+	    font-family: GothanMedium_regular;
+	    font-size: 20px;
+	    display: block;
+	    padding: 20px;
+	}
+
+	.selector_edad_container .selector_edad_box{
+	    text-align: center;
+	    display: block;
+	}
+
+	.selector_edad_container .selector_edad_box span{
+		display: inline-block;
+	    background: #091705;
+	    text-align: center;
+	    font-family: GothanMedium_regular;
+	    font-size: 30px;
+	    color: #FFF;
+	    padding: 7px;
+	    min-width: 270px;
+	    margin: 0px 10px;
+	    border-radius: 20px;
+	    cursor: pointer;
+	    text-transform: uppercase;
+	}
+
+	.selector_edad_container .selector_edad_box span:hover{
+	    background: #255d15;
+	}
+
+	.selector_edad_container .selector_edad_box span.btn_activo{
+	    background: #48a52d !important;
+	}
+
+	#siguiente_pantalla {
+	    width: 200px;
+	    background: #091705;
+	    border-radius: 40px;
+	    border: 1px solid #091705;
+	    color: #ffffff;
+	    font-size: 17px;
+	    font-weight: bold;
+	    text-align: center;
+	    text-decoration: none !important;
+	    z-index: 9999999999999;
+	    padding: 5px;
+	    position: absolute;
+	    bottom: 115px;
+	    right: 40px;
+	    text-transform: UPPERCASE;
+	    cursor: pointer;
+	}
+
+	#siguiente_pantalla:hover {
+	    background: #FFF;
+	    color: #091705;
+	    border: solid 2px #091705;
+	}
+
+/* Fase 2 */
+
+	.carrusel_container{
+	    width: calc( 100% - 100px );
+	    box-sizing: border-box;
+	    height: calc( 100% - 350px );
+	    padding: 0px;
+	    text-align: center;
+	    margin: 0px auto;
+	    position: relative;
+	    top: 100px;
+	}
+	
+	.carrusel_2{
+	    width: 100%;
+	    height: 100%;
+	    box-sizing: border-box;
+	    padding: 0px;
+	    text-align: center;
+        display: inline-block;
+        overflow: hidden;
+	}
+
+	i#anterior {
+	    position: absolute;
+	    top: calc( 50% - 20px );
+	    left: -30px;
+	    font-size: 40px;
+	    cursor: pointer;
+	}
+
+	i#siguiente {
+	    position: absolute;
+	    top: calc( 50% - 20px );
+	    right: -35px;
+	    font-size: 40px;
+	    cursor: pointer;
+	}
+
+	.carrusel_2 > div{
+        max-height: 100%;
+        max-width: 20%;
+        cursor: pointer;
+        filter: grayscale(100%);
+        border: solid 1px #FFF;
+        display: inline-block;
+        position: relative;
+	    vertical-align: middle;
+	}
+
+	.carrusel_2 > div > img{
+        margin-bottom: 40px;
+        width: 100%;
+	}
+
+	.carrusel_2 > div > div{
+	    position: absolute;
+	    bottom: 0px;
+	    left: 0px;
+	    width: 100%;
+	    font-family: Gothamlight_Regular;
+	    font-size: 17px;
+	    font-weight: 400;
+	    padding: 5px;
+	}
+
+	.carrusel_2 .producto_activo{
+        border: solid 1px #afafaf;
+    	border-radius: 15px;
+        filter: grayscale(0%);
+	    font-size: 20px !important;
+	}
+
+	.carrusel_2 .producto_activo > div{
+	    font-size: 25px !important;
+	}
+
+	.carrusel_2 span{
+	    vertical-align: middle;
+	    height: 100%;
+	    width: 0px;
+	    display: inline-block;
+	}
+
+	.selector_producto_container_interno{
+		position: relative;
+		display: block;
+		margin: 0px auto;
+	}
+
+	.selector_producto_container{
+	    position: fixed;
+	    bottom: 0px;
+	    left: 0px;
+	    width: 100%;
+        height: 240px;
+	}
+
+	.selector_producto_container label{
+		text-align: center;
+	    font-family: 'GothanMedium_regular';
+	    font-size: 20px;
+	    display: block;
+	    padding: 20px;
+	    text-transform: uppercase;
+	    position: absolute;
+	    top: 30px;
+	    left: 30px;
+	}
+
+	.selector_producto_box{
+	    position: absolute;
+	    top: 25px;
+	    left: 300px;
+	}
+
+	#nombre_producto{
+	    font-size: 72px;
+	    color: #60C21E;
+	}
+
+	#descripcion_producto {
+	    font-size: 24px;
+	    text-transform: uppercase;
+	}
+
+	#descripcion_producto span {
+        color: #ab6e00;
+        font-weight: 600;
+	}
+
+	.selector_producto_footer {
+	    background: #0b1806;
+	    position: absolute;
+	    bottom: 0px;
+	    width: 100%;
+	    padding: 20px;
+	    color: #FFF;
+	    text-align: center;
+	    font-family: 'Gothamlight_Regular';
+	    font-size: 22px;
+	    font-weight: 400;
+	}
+
+	.selector_producto_footer a {
+	    color: #FFF;
+	    font-weight: 600;
+	}
+
+	.selector_presentaciones {
+	    display: block;
+	    margin: 0px auto;
+	    text-align: center;
+	}
+
+	.selector_presentaciones span {
+	    display: inline-block;
+	    padding: 10px 15px;
+	    border-radius: 50%;
+	    background: #0b1806;
+	    color: #CCC;
+	    cursor: pointer;
+	    margin: 0px 5px;
+	}
+
+	.selector_presentaciones span.btn_activo{
+	    background: #48a52d !important;
+	}
+
+/* Fase 3 */
+
+	.comprar_box > span{
+	    vertical-align: middle;
+	    height: 100%;
+	    width: 0px;
+	    display: inline-block;
+	}
+
+	#fase_3 > div {
+	    vertical-align: middle;
+	    height: 100%;
+	    padding: 50px;
+	    display: table;
+	}
+
+	#planes{
+		vertical-align: middle;
+    	display: table-cell;
+	}
+
+	.select_plan_box {
+		text-align: center;
+	}
+
+	.select_plan_box article{
+		display: inline-block;
+		width: 24%;
+		vertical-align: middle;
+		padding: 10px;
+		cursor: pointer;
+	}
+
+	.select_plan_box article:hover{
+		background: #f1f1f1;
+	    border-radius: 20px;
+	}
+
+	.select_plan_box article.plan_activo{
+		background: #f1f1f1;
+	    border-radius: 20px;
+	}
+
+	.select_plan div {
+	    text-align: center;
+	    font-family: 'Gothamlight_Regular';
+	    font-size: 16px;
+	    font-weight: 400;
+	    padding: 0px 20px !important;
+	    height: 100px;
+	}
+
+	.precio_plan {
+	    display: block !important;
+	    text-align: center;
+	    font-weight: 600 !important;
+	    font-size: 16px !important;
+	    width: 100% !important;
+	}
+
+/* Fase 4 */
+
+	#fase_4 {
+		overflow: auto !important;
+	}
+
+	#agregar_plan {
+	    padding: 10px 20px;
+	    font-family: Gothamlight_Regular;
+	    font-size: 20px;
+	    font-weight: 600;
+	    cursor: pointer;
+	}
+
+	#btn-sm-marca{
+	   
+	}
+	.btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
+	    
+	}
+
+	.cantidad_controls{
+	    display: block;
+	    vertical-align: middle;
+	}
+
+	.cantidad_controls label{
+	    font-size: 20px;
+	}
+
+	.cantidad_controls i{
+        font-size: 20px;
+	    cursor: pointer;
+	    margin: 0px 5px;
+	}
+
+	.factura{
+		margin: 150px auto 50px;
+	    background-color: #FFF;
+	    box-shadow: 1px 5px 10px #8c8c8c;
+	    max-width: 900px;
+	}
+
+	table {
+		width: 100%;
+	    font-family: Gothamlight_Regular;
+	}
+
+	#desglose th{    
+		
+	}
+
+	#desglose th span{   
+		display: block; 
+		text-align: center;
+	    background-color: #181E0D; 
+	    color: #FFF;
+	    padding: 3px 20px;
+	    text-transform: uppercase;
+	    margin: 5px;
+	    font-size: 12px;
+	}
+
+	#desglose td {    
+	    padding: 10px 20px;
+	}
+
+	#desglose td hr {        
+		margin-top: 0px;
+	    margin-bottom: 0px;
+	    border: 0;
+	    border-top: 2px solid #dfdfdf;
+	}
+
+	#desglose td.separador {        
+	    padding: 0px 20px !important;
+	}
+
+
+	#derecha {
+	    font-size: 20pt;
+	    width: 40px;
+	    height: 40px;
+	    border-radius: 30px;
+	    padding: 8px;
+	    margin-top: 10%;
+	    margin-left: 52%;
+	}
+
+
+	#izquierda {
+	    font-size: 20pt;
+	    /* background: #a09696; */
+	    width: 40px;
+	    height: 40px;
+	    border-radius: 30px;
+	    padding: 8px;
+	    margin-top: 10%;
+	    margin-left: 20%;
+	}
+
+	#totales{
+		overflow: hidden;
+		text-align: right;
+		padding: 0px 20px 15px;
+	}
+
+	#cart-items {
+		border: 0 !important;
+	}
+
+	#totales table {    
+		text-align: right !important;
+	}
+
+	#totales table th{    
+		text-align: right !important;
+	}
+
+	#totales table td {    
+		text-align: right !important;
+		color: #4b7300;
+		font-weight: 600;
+		width: 200px;
+	}
+
+	th.style_total {
+		font-size: 20px;
+		color: #181E0D !important;
+	}
+
+	td.style_total {
+		font-size: 20px;
+		color: #181E0D !important;
+	}
+
+	.cintillo_factura{
+		overflow: hidden;
+		text-align: center;
+	}
+
+	.cintillo_factura #cen{        
+		width: 95%;
+	    margin: 15px auto;
+	}
+
+	.btn_pagar{	
+	    width: 100px;
+	    background: #091705;
+	    border-radius: 40px;
+	    border: 1px solid #091705;
+	    color: #ffffff;
+	    font-size: 20px;
+	    font-weight: bold;
+	    text-align: center;
+	    text-decoration: none !important;
+	    z-index: 9999999999999;
+	    padding: 10px 50px;
+	    font-family: Gothamlight_Regular;
+	    border: solid 2px #091705;
+	    cursor: pointer;
+	}
+
+	.btn_pagar:hover{	
+	    background: #FFF;
+	    color: #091705;
+	    border: solid 2px #091705;
+	}
+
+	.resaltar_desglose{
+		color: #091705;
+	    text-transform: uppercase;
+	    font-weight: 600;
+	    font-family: GothanMedium_regular;
+	}
+
+	.fondo_opciones{
+	    position: relative;
+	    top: -14px;
+	    left: -14px;
+	    width: calc( 100% + 28px );
+	}
+	
+	.opciones_pago {
+	    overflow: hidden;
+	}
+
+	.opciones_pago a {
+	    text-transform: uppercase;
+	    color: #091705;
+	}
+
+	.modal-dialog {
+	    width: 780px;
+	}
+
+	.modal-dialog .close {
+	    opacity: .8;
+	    top: 20px;
+	    position: absolute;
+	    right: 20px;
+	}
+
+	.solo_movil{
+		display: none;
+	}
+
+	.solo_pc{
+		display: table-cell;
+	}
+
+
+/* Carruseles */
+
+/************************/
+/* Carrousel - Tamaños  */
+/************************/
+
+	.carrousel-items{
+	    width: 80%;
+	    box-sizing: border-box;
+	    height: calc( 100% - 155px );
+	    padding: 100px 0px 0px;
+	    text-align: center;
+	}
+
+	.carrousel-items article{
+	    opacity: .4;
+	    width: 33.333333%;
+	}
+
+	.carrousel-items article:nth-child(2){
+	    opacity: 1;
+	}
+	.carrousel-items article:nth-child(2) div img{
+	    border: 2px solid #fff;
+	}
+
+	.carrousel-items article div p{
+	    font-family: "GothanMedium_regular";
+	    font-weight: bold;
+	    color: #9BFF00;
+	    text-transform: uppercase; 
+	}
+	.carrousel-items{   
+	    text-align: center;
+	    margin-top: 0px;
+	    margin: 0px 10%;
+	}

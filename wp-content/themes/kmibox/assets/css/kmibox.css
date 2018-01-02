@@ -170,10 +170,11 @@ p span{
 	color: #000000;
 	background:#fff;
 	text-decoration: none;
+	border: 1px solid #000
 }
 .btn-kmibox-link{
 	background: #000000;
-	padding: 15px 50px;
+	padding: 14px 33px;
 	border-radius: 50px;
 	border: 1px solid #000;
 	color: #fff;
@@ -185,15 +186,16 @@ p span{
 }
 .btn-kmibox-link-suscription:hover{
 	color: #ffffff;
-	background:#94d400;
+	background:#000000;
 	text-decoration: none;
+	border: 1px solid #fff;
 }
 .btn-kmibox-link-suscription{
 	background: #ffffff;
-	padding: 6px 18px;
+	padding: 13px 33px;
 	border-radius: 50px;
 	border: 1px solid #eee;
-	color: #94d400;
+	color: #000000;
 	text-decoration: none;
 }
 
@@ -294,6 +296,8 @@ select{
 .btn-kmibox:hover{
 	background: #ffffff;
 	color:#000!important;
+	border: 2px solid #091705;
+	text-decoration: none;
 }
 
 .btn-kmibox-efectivo:hover{
@@ -468,7 +472,7 @@ select{
 
 
 #como-consigo-kmibox{
-	padding-bottom: 50px;
+	/*padding-bottom: 50px;*/
 }
 
 
@@ -482,7 +486,7 @@ select{
 
 #section-comment{
 	color:#fff;
-	background: #091705;
+	background: #181E0D;
 	font-family: cursive;
 	background-size: contain;
 	padding: 25px 0px 25px 0px;
@@ -552,7 +556,7 @@ select{
 
 #register .row-special,
 #register .form-group {
-    margin-right: 0px!important; 
+   /* margin-right: 0px!important; */
     margin-left: 0px!important; 
 }
 #register .label-group label i{
@@ -586,7 +590,7 @@ select{
 }
 
 #footer{
-	background: #000000;
+	background: #181E0D;
 	background-size: cover;
 	padding-bottom: 31px;
 }
@@ -1118,7 +1122,7 @@ select{
 @media only screen and (max-width:599px) {
 	#cart-items div,
 	#totales label{
-		text-align: center!important;
+		
 	}
 	.option-menu{
 		text-align: right!important;
@@ -1307,7 +1311,7 @@ select{
 		font-size: 26px;
 	}
 	#regalo{
-		width: 15%;
+		width: 12%;
 	}
 	.back-picture{
 		background-size: auto; 
