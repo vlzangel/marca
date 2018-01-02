@@ -138,8 +138,267 @@
 					</div>
 				</div>
 				<div class="text-center col-xs-12 cargar-mas-productos">
-					Si no aparece tu marca, <strong>haz click aqu&iacute;</strong>
+					Si no aparece tu marca, <strong data-target="show-list">haz click aqu&iacute;</strong>
 				</div>
+			</section>
+
+			<section id="product-list" class="hidden">
+
+				<article class="container">
+					<div>
+						<span>20 RESULTADOS</span>
+						<div class="pull-right text-right">
+
+						</div>
+					</div>
+					<div class="row listado-productos">
+
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+						<article class="col-xs-6 col-md-3 text-center" data-text="Tier Holistic">
+							<div class="col-xs-12">
+								<img src="'.get_home_url().'/img/productos/Tier-holistic.png" class="img-responsive" id=""/>
+								<div  class="col-md-12"><strong>Tier Holistic</strong></div>
+								<div  class="col-md-12">Small Bites Adulto</div>
+							</div>
+						</article>
+   
+					</div>
+				</article>
+
+				<article class="section-seleccion">
+					<div class="container">
+						<h1 data-target="producto_name">ROYAL CANIN</h1>
+						<h2>Raza mediana adulto <span>13.7 KG</span></h2>
+						<span>Presentaci&oacute;n: </span>
+						<ul class="tamano-list list-inline list-unstyled">
+							<li>P</li>
+							<li>M</li>
+							<li class="selected">G</li>
+							<li>XL</li>
+						</ul>
+						<span>Cantidad:</span>
+						<select><option>1</option></select>
+						<button class="btn btn-lg btn-black pull-right"><i class="fa fa-shopping-cart "></i> AGREGAR AL CARRITO</button>
+					</div>					
+				</article>
+
+				<div class="clear"></div>
 			</section>
 
 		</div>

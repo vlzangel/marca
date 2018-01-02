@@ -1,5 +1,15 @@
 $(function($){
 
+
+	$('[data-target="show-list"]').on('click', function(){
+		$('.comprar_container')
+			.css("overflow", "initial")
+			.css("position", "initial");
+		$("#fase_1").addClass('hidden');
+		$("#product-list").removeClass('hidden');
+
+	});
+
 	// *******************************
 	// Carrousel - Tamaños
 	// *******************************
