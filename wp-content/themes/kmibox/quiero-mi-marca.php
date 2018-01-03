@@ -4,6 +4,9 @@
  * Template Name: Quiero mi Marca 
  *
  */
+	
+	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
+	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
 
 	get_header(); 
 
@@ -22,8 +25,6 @@
 	}
 
 	$HTML = '
-		<link rel="stylesheet" href="'.TEMA().'/css/proceso_compra.css">
-		<link rel="stylesheet" href="'.TEMA().'/css/responsive/proceso_compra.css">
 
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
@@ -170,7 +171,7 @@
 					</div>
 				</div>
 				
-				<article class="col-md-12 text-center">
+				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
 					<span id="agregar_plan" >Agregar otro plan</span>
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		

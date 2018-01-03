@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js no-svg">
+<html class="">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
 		var orientacion;
 	</script>
 
-	<?php #wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body>

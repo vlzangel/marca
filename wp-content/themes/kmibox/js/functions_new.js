@@ -160,8 +160,10 @@ function loadProductos(){
 		}
 		jQuery('.carrusel_2').append(
 			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">'+
-				'<img src="'+TEMA+"/productos/imgs/"+val.dataextra.img+'">'+
-				'<div>'+val.nombre+'</div>'+
+				'<div class="item_box">'+
+					'<div><div class="img_box"><img src="'+TEMA+"/productos/imgs/"+val.dataextra.img+'"></div></div>'+
+					'<div class="title_producto_container"><div class="title_producto_box">'+val.nombre+'</div></div>'+
+				'</div>'+
 			'</div>'
 		);
 	});
@@ -277,8 +279,15 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	HTML += '	 	<label>$ '+price+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
-	HTML += '	 	<div class="cantidad_controls"> <i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>  <label id="cant_'+index+'"> '+cantidad+' </label> <i class="fa fa-minus-circle menos" onclick="menos_cantidad('+index+')"></i> </div>';
-	HTML += '	 	<label class="resaltar_desglose solo_movil" style="text-align: right;">$ '+(price*cantidad)+' MXN</label>';
+
+
+	HTML += '	 	<div class="cantidad_controls">';
+	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
+	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
+	HTML += '	 		<i class="fa fa-minus-circle menos" onclick="menos_cantidad('+index+')"></i>';
+	HTML += '	 		<div class="resaltar_desglose solo_movil" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
+	HTML += '	 	</div>';
+
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc">';
 	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
@@ -313,9 +322,16 @@ function menos_cantidad(index){
 }
 
 function loadFase(fase){
+
 	switch( fase ){
+		case "1":
+			change_title('Elije el tamaño de tu mascota');
+		break;
 		case 1: // Fase #1 - Tamaño
 			change_title('Elije el tamaño de tu mascota');
+		break;
+		case "2":
+			change_title('Escoge la marca de tu preferencia');
 		break;
 		case 2: // Fase #2 - Producto
 			change_title('Escoge la marca de tu preferencia');
@@ -330,6 +346,9 @@ function loadFase(fase){
 				}, 500
 			);
 		break;
+		case "3":
+			change_title('Selecciona el tiempo de suscripción');
+		break;
 		case 3: // Fase #3 - Plan
 			change_title('Selecciona el tiempo de suscripción');
 			jQuery("#plan article").css("display", "none");
@@ -343,6 +362,9 @@ function loadFase(fase){
 					jQuery( "#plan-"+PLANES[ key ].nombre+" .precio_plan" ).html( "$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * meses )+" MXN" );
 				}
 			});
+		break;
+		case "4":
+			change_title('Verifica tu compra');
 		break;
 		case 4: // Fase #5 - Resumen de Compra
 			change_title('Verifica tu compra');

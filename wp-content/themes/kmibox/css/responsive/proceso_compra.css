@@ -38,13 +38,31 @@
 	}
 
 	.carrusel_container {
-	    height: calc( 100% - 335px );
+	    height: calc( 100% - 315px );
 	}
 
-	#siguiente_pantalla {
+	.selector_producto_container {
+	    height: 210px;
+	}
+
+	.selector_producto_box {
 	    position: absolute;
-	    bottom: 80px;
-	    right: calc( 50% - 100px );
+	    top: 45px;
+	    left: 120px;
+	}
+
+	.selector_producto_container label {
+	    font-size: 15px;
+	    padding: 10px 0px;
+	    top: 45px;
+	    left: 10px;
+	}
+	#nombre_producto {
+	    font-size: 30px !important;
+	}
+
+	#descripcion_producto {
+	    font-size: 15px !important;
 	}
 
 }
@@ -52,7 +70,7 @@
 @media (max-width: 900px){
 	.selector_edad_container .selector_edad_box span {
 	    font-size: 22px;
-	    min-width: 220px;
+	    min-width: 210px;
 	}
 
 	.carrousel-items {
@@ -61,7 +79,7 @@
 	}
 
 	.select_plan_box {
-	    padding: 140px 0px 0px;
+	    padding: 0px;
 	}
 
 	.select_plan_box article {
@@ -70,19 +88,6 @@
 }
 
 @media (max-width: 780px){
-	#nombre_producto {
-	    font-size: 45px !important;
-	}
-
-	.selector_producto_box {
-		top: 45px;
-	    left: 190px;
-	}
-
-	.selector_producto_container label {
-	    top: 70px;
-	    left: 15px;
-	}
 
 	.modal-dialog {
 	    width: 95%;
@@ -109,7 +114,8 @@
 	}
 
 	#fase_3 > div {
-	    padding: 10px;
+	    padding: 85px 10px 10px;
+	    height: 100% !important;
 	}
 
 	.solo_movil{
@@ -121,7 +127,7 @@
 	}
 
 	#desglose td *{
-		font-size: 11px !important;
+		font-size: 11px;
 	}
 
 }
@@ -148,76 +154,7 @@
 
 }
 
-@media (max-width: 500px){
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 11px;
-	    padding: 7px 10px;
-	    min-width: 110px;
-	    margin: 0px 3px;
-	}
-	#vlz_controles_fases {
-	    right: 0px;
-	}
-
-	.carrusel_container {
-	    height: calc( 100% - 320px );
-	}
-
-	.selector_producto_container {
-	    height: 210px;
-	}
-
-	.selector_producto_container label {
-	    font-size: 15px;
-	    padding: 10px 0px;
-	    top: 45px;
-	    left: 10px;
-	}
-
-	.selector_producto_box {
-	    position: absolute;
-	    top: 45px;
-	    left: 120px;
-	}
-
-	#nombre_producto {
-        font-size: 35px !important;
-	}
-
-	#descripcion_producto {
-        font-size: 18px !important;
-	}
-
-	.selector_producto_footer {
-	    padding: 10px;
-	    font-size: 15px;
-	}
-
-	.selector_presentaciones span {
-	    padding: 10px 15px;
-	}
-
-	#siguiente_pantalla {
-	    bottom: 48px;
-	}
-
-	.select_plan_box {
-	    padding: 100px 0px 0px;
-	}
-
-	.select_plan div {
-	    font-size: 13px;
-	}
-
-	#desglose th *{
-		font-size: 10px !important;
-	}
-
-}
-
-
-
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
 
     /* GRID */
 	    .carrousel-items article:nth-child(1) img {
@@ -253,7 +190,7 @@
     }
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
 
 	.carrousel-items article{
 	    width: 100%;
@@ -303,7 +240,7 @@
         height: 100%;
     }
     .carrousel-items article:nth-child(2) > div > img {
-        height: 85%;
+        height: 80%;
     }
 
 
@@ -331,7 +268,78 @@
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media ( max-width: 500px ) {
+
+	.comprar_container {
+    	position: relative;
+	}
+
+	.selector_producto_container {
+	    height: 165px;
+	}
+
+	.selector_producto_container label {
+	    font-size: 11px;
+	    top: 30px;
+	    left: 10px;
+	}
+
+	.selector_producto_box {
+	    top: 30px;
+	    left: 90px;
+	}
+
+	#nombre_producto {
+	    font-size: 24px !important;
+	}
+
+	#descripcion_producto {
+	    font-size: 12px !important;
+	}
+
+	.carrusel_container {
+		top: 90px;
+	    height: calc( 100% - 260px );
+	}
+
+	.selector_producto_footer {
+	    padding: 10px;
+	    font-size: 15px;
+	}
+
+	#siguiente_pantalla {
+	    font-size: 12px;
+	    position: absolute;
+	    bottom: 50px;
+	    right: calc( 50% - 100px );
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 11px;
+	    padding: 7px 10px;
+	    min-width: 110px;
+	    margin: 0px 3px;
+	}
+	#vlz_controles_fases {
+	    right: 0px;
+	}
+
+	.selector_presentaciones span {
+	    padding: 5px 10px;
+	}
+
+	.select_plan_box {
+	    padding: 0px;
+	}
+
+	.select_plan div {
+	    font-size: 13px;
+	}
+
+	#desglose th *{
+		font-size: 10px;
+	}
+
 	.carrousel-items article p{
         font-size: 10px !important;
     }
@@ -339,4 +347,105 @@
 	.carrousel-items article:nth-child(2) p{
         font-size: 17px !important;
     }
+
+    #vlz_controles_fases span {
+	    display: block;
+	    margin: 0px auto 5px;
+	    width: 10px;
+	    height: 10px;
+	    background-color: #9BFF00;
+	    opacity: 0.4;
+	    border-radius: 50%;
+	}
+
+	.select_plan_box article {
+	    vertical-align: top;
+	}
+
+	.select_plan div {
+	    height: auto;
+	}
+
+	.select_plan div {
+	    font-size: 10px;
+	}
+
+	#desglose th * {
+	    font-size: 8px;
+	}
+
+	#desglose td * {
+	    font-size: 8px;
+	}
+
+	#totales table th {
+	    font-size: 9px;
+	}
+
+	#totales table td {
+	    font-size: 9px !important;
+	    width: 150px !important;
+	}
+
+	.factura {
+	    margin: 100px auto 10px;
+	}
+
+	.cantidad_controls {
+	    margin-bottom: 6px;
+	}
+
+	.cantidad_controls i {
+	    margin: 0px auto 2px;
+	    text-align: center;
+	}
+
+	.cantidad_controls label {
+	    text-align: center;
+	}
+
+	.cantidad_controls label {
+	   	font-size: 10px !important;
+	}
+
+	.cantidad_controls i{
+	   	font-size: 10px !important;
+	}
 } 
+
+@media (max-width: 400px){
+
+	#vlz_titulo {
+	    top: 60px;
+	    font-size: 14px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 8px;
+	    padding: 7px 10px;
+	    min-width: 85px;
+	    margin: 0px 3px;
+	}
+}
+
+@media (max-height: 600px){
+
+	.carrusel_2 > div img {
+	    height: calc( 100% - 40px );
+	}
+
+	.title_producto_container {
+	    height: 30px;
+	}
+
+	.carrusel_2 > div .title_producto_box {
+	    font-size: 12px;
+	}
+
+	.carrusel_2 > div,
+	.carrusel_2 .item_box,
+	.carrusel_2 > div .img_box {
+        height: 100%;
+    	width: 100%;
+	}
+}
