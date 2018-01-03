@@ -15,17 +15,19 @@
 				<input type="hidden" name="email" value="<?php echo $_GET['e']; ?>">
 				<div class="form-group inter-input-icon">
 					<i class="fa fa-lock"></i>
-					<input type="password" name="clave" maxlength="25" class="form-control" id="inputEmail3" placeholder="Ingrese su nueva contraseña">
+					<input type="password" name="clave" maxlength="25" class="form-control" id="inputEmail3" placeholder="Ingrese su nueva contraseña" style="font-size: 11px;
+">
 				</div>
 
 				<div class="form-group inter-input-icon">
 					<i class="fa fa-lock "></i>
-					<input type="password" name="confirm_clave" maxlength="25" class="form-control" id="inputEmail3" placeholder="Ingrese su nueva contraseña">
+					<input type="password" name="confirm_clave" maxlength="25" class="form-control" id="inputEmail3" placeholder="Ingrese su nueva contraseña" style="font-size: 11px;
+">
 				</div>
 					
 				<div class="form-group">
 					<div class="col-sm-12 text-center">
-						<button id="btn-change-pass" type="submit" class="btn btn-sm-kmibox caviar" >
+						<button id="btn-change-pass" type="submit" class="btn btn-sm-kmibox1 caviar" >
 							Restablecer contraseña
 						</button>
 					</div>

@@ -30,7 +30,7 @@ if( $email != '' ){
 		include( realpath( __DIR__ . '/../../template/email/reset_password.php' ) );
 		wp_mail(
 			$email, 
-			"Cambio de contraseña para tu cuenta marca", 
+			"Cambio de contraseña para tu cuenta Nutrihereoes", 
 			$HTML
 		);
 	}
