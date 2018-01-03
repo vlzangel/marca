@@ -4,10 +4,10 @@
 			<div class="container">
 				
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/Image-Header.png"  class="hidden-xs"  >
+					<img src="<?php echo get_home_url(); ?>/img/Image-footer.png"  class="hidden-xs"  >
 				</a> 
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/Image-Header.png"  class="hidden-sm hidden-md hidden-lg visible-xs" style="margin-left: -2%" >
+					<img src="<?php echo get_home_url(); ?>/img/Image-footer.png"  class="hidden-sm hidden-md hidden-lg visible-xs" style="margin-left: -2%" >
 				</a>		
 				
 
