@@ -65,7 +65,7 @@
 							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -3%;" >
 						</a> 
 
-				    	<ul style="margin-left: -11%;" class="hidden-xs">';
+				    	<ul  class="hidden-xs">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>
@@ -104,7 +104,7 @@
 							} $HTML .= '
 						</ul>
 
-						<ul style="margin-left: -11%;" class="hidden-sm hidden-lg hidden-md visible-xs pull-left">';
+						<ul class="hidden-sm hidden-lg hidden-md visible-xs pull-left">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>

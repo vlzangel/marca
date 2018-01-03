@@ -19,8 +19,7 @@
 				<div class="row row-special">					
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="nombre" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre y Apellido"
-						data-charset="xlf" maxlength="50" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  maxlength="13">
+						<input data-charset="xlf" type="text" name="nombre" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre y Apellido"  maxlength="50" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  maxlength="13">
 					</div>
 					<!--div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
