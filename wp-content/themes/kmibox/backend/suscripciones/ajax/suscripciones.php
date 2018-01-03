@@ -10,13 +10,18 @@
 	$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
 
 	foreach ($suscripciones as $suscripcion) {
-
 		$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$suscripcion->id_orden}");
 		$_meta_cliente = get_user_meta($orden->cliente);
-
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = {$suscripcion->id_producto}");
-
 		$data_suscripcion = unserialize($suscripcion->data);
+
+		$proximo_cobro = $wpdb->get_var("SELECT fecha_cobro FROM cobros WHERE item_orden = {$suscripcion->id} AND openpay_transaccion_id = '---'");
+
+		if( $proximo_cobro."" == "" ){
+			$proximo_cobro = "---";
+		}else{
+			$proximo_cobro = date("d/m/Y", strtotime($proximo_cobro));
+		}
 
 		$data["data"][] = array(
 	        $suscripcion->id,
@@ -27,6 +32,7 @@
 	        $data_suscripcion[ "edad" ],
 	        $data_suscripcion[ "presentacion" ],
 	        $data_suscripcion[ "plan" ],
+	        $proximo_cobro ,
 	        $suscripcion->status_suscripcion
 	    );
 	}

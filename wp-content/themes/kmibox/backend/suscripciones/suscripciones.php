@@ -22,6 +22,7 @@
                 <th>Edad</th>
                 <th>Presentaci&oacute;n</th>
                 <th>Plan</th>
+                <th>Proximo Cobro</th>
                 <th>Status</th>
             </tr>
         </thead>
