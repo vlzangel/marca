@@ -24,12 +24,21 @@
                     'icon'          =>  '',
                 ),
                 array(
-                    'title'         =>  __('Reporte despacho'),
-                    'short-title'   =>  __('Reporte despacho'),
+                    'title'         =>  __('Despacho'),
+                    'short-title'   =>  __('Despacho'),
                     'parent'        =>  'productos',
-                    'slug'          =>  'reporte_despacho',
+                    'slug'          =>  'despacho',
                     'access'        =>  'manage_options',
-                    'page'          =>  'reporte_despacho',
+                    'page'          =>  'despacho',
+                    'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Clientes'),
+                    'short-title'   =>  __('Clientes'),
+                    'parent'        =>  'productos',
+                    'slug'          =>  'clientes',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'clientes',
                     'icon'          =>  '',
                 )
             );
@@ -72,11 +81,20 @@
 
     }
 
-    if(!function_exists('reporte_despacho')){
+    if(!function_exists('despacho')){
 
-        function reporte_despacho(){
+        function despacho(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/despacho/reporte_despacho.php');
+        }
+
+    }
+
+    if(!function_exists('clientes')){
+
+        function clientes(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/clientes/clientes.php');
         }
 
     }
