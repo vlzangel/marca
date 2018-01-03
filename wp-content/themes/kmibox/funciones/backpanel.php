@@ -8,16 +8,25 @@
                     'title'         =>  'Reportes',
                     'short-title'   =>  'Reportes',
                     'parent'        =>  '',
-                    'slug'          =>  'productos',
+                    'slug'          =>  'marcas',
                     'access'        =>  'manage_options',
-                    'page'          =>  'productos',
+                    'page'          =>  'marcas',
                     'icon'          =>  '',
                     'position'      =>  4,
                 ),
                 array(
-                    'title'         =>  __('Productos'),
-                    'short-title'   =>  __('Productos'),
-                    'parent'        =>  'productos',
+                    'title'         =>  __('Marcas'),
+                    'short-title'   =>  __('Marcas'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'marcas',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'marcas',
+                    'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Presentaciones'),
+                    'short-title'   =>  __('Presentaciones'),
+                    'parent'        =>  'marcas',
                     'slug'          =>  'productos',
                     'access'        =>  'manage_options',
                     'page'          =>  'productos',
@@ -26,7 +35,7 @@
                 array(
                     'title'         =>  __('Despacho'),
                     'short-title'   =>  __('Despacho'),
-                    'parent'        =>  'productos',
+                    'parent'        =>  'marcas',
                     'slug'          =>  'despacho',
                     'access'        =>  'manage_options',
                     'page'          =>  'despacho',
@@ -35,7 +44,7 @@
                 array(
                     'title'         =>  __('Clientes'),
                     'short-title'   =>  __('Clientes'),
-                    'parent'        =>  'productos',
+                    'parent'        =>  'marcas',
                     'slug'          =>  'clientes',
                     'access'        =>  'manage_options',
                     'page'          =>  'clientes',
@@ -44,7 +53,7 @@
                 array(
                     'title'         =>  __('Suscripciones'),
                     'short-title'   =>  __('Suscripciones'),
-                    'parent'        =>  'productos',
+                    'parent'        =>  'marcas',
                     'slug'          =>  'suscripciones',
                     'access'        =>  'manage_options',
                     'page'          =>  'suscripciones',
@@ -80,6 +89,13 @@
     }
 
     /* Inclucion de paginas */
+
+    if(!function_exists('marcas')){
+        function marcas(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/marcas/marcas.php');
+        }
+    }
 
     if(!function_exists('productos')){
         function productos(){

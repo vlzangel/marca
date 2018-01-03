@@ -171,8 +171,9 @@ a:focus, a:focus .media-icon img {
     padding: 3px;
 }
 
-.celdas_1 .input_text_container .input_text input
- {
+.celdas_1 .input_text_container .input_text input,
+.celdas_1 .input_text_container .input_text select
+{
     width: 100%;
 }
 
