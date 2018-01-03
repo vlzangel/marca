@@ -49,27 +49,27 @@ get_header(); ?>
 			<h3 style="font-size: 24px; font-family: Gothamlight_Regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento <br> a tu casa u oficina, sin costo de envío</h3>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
-			<h3 style="font-family: Gothamlight_Regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</h3>
+			<h3 style="font-family: Gothamlight_Regular; font-size: 16px;">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</h3>
 		</div>
 	</section>
 
 	<section id="como-funciona" class="row text-center" style="margin-top: 5%">
 		<div class="container hidden-xs" style="    margin-top: -3%;" >
 
-			<div style="float:left;width:33%; font-family: GothanMedium_regular">    
+			<div style="float:left;width:33%; >    
 				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Asesores nutricionales<br>certificados
 						</p>									    
 			</div>
-			<div style="float:left;width:33%; font-family: GothanMedium_regular">  
+			<div style="float:left;width:33%; >  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Entregado en tu <br> casa sin costo adicional
 					</p>
 		    </div>
-		    <div style="float:left;width:33%; font-family: GothanMedium_regular">  
+		    <div style="float:left;width:33%; >  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Más barato que en una<br> veterinaria
