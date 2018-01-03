@@ -40,6 +40,15 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'clientes',
                     'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Suscripciones'),
+                    'short-title'   =>  __('Suscripciones'),
+                    'parent'        =>  'productos',
+                    'slug'          =>  'suscripciones',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'suscripciones',
+                    'icon'          =>  '',
                 )
             );
 
@@ -73,30 +82,31 @@
     /* Inclucion de paginas */
 
     if(!function_exists('productos')){
-
         function productos(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/productos/productos.php');
         }
-
     }
 
     if(!function_exists('despacho')){
-
         function despacho(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/despacho/reporte_despacho.php');
         }
-
     }
 
     if(!function_exists('clientes')){
-
         function clientes(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/clientes/clientes.php');
         }
+    }
 
+    if(!function_exists('suscripciones')){
+        function suscripciones(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/suscripciones/suscripciones.php');
+        }
     }
 
     if(!function_exists('guardarImg')){
