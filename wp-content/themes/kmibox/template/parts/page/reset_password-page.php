@@ -14,7 +14,8 @@
 				<div class="clearfix"></div>
 				<div class="form-group input-icon">
 					<i class="fa fa-user inter-input"></i>
-					<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Introduzca su dirección de E-mail">
+					<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Introduzca su dirección de E-mail" style="font-size: 11px;
+">
 				</div>
 					
 				<div class="form-group">

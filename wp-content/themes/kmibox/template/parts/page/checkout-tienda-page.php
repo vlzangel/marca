@@ -88,8 +88,8 @@
 	<!-- Mensaje Success -->
 	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 60px; font-weight: bold; color: #94d400;">¡Felicidades!</h1>
-			<h4 style="color:#ccc;">Tu suscripción a Marca ha sido un éxito</h4>
+			<h1 style="font-size: 40px; font-weight: bold; color: #94d400;">¡Felicidades!</h1>
+			<h4 style="color:#ccc;">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
@@ -108,10 +108,10 @@
 			</div>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox">Instrucciones para completar el pago</a>
+	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1">Instrucciones para completar el pago</a>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil-usuario" class="btn btn-sm-kmibox">Ir a mi perfil</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox" style="padding: 10px 20px 10px 20px; font-size: 12px;">Ir a mi perfil</a>
 		</aside>
 	</article>
 
