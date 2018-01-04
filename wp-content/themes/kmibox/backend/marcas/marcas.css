@@ -1,0 +1,15 @@
+#marca > div {
+	padding-bottom: 10px;
+}
+
+.img_reporte{
+    width: 80px;
+    display: block;
+    margin: 0px auto;
+}
+
+#img_vista {
+    max-width: 200px;
+    display: block;
+    margin: 5px auto 0px;
+}
