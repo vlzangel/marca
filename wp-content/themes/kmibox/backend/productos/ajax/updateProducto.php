@@ -59,6 +59,7 @@
 			precio = '{$precio}',
 			peso = '{$peso}',
 			marca = '{$marca}',
+			tipo_mascota = '{$tipo_mascota}',
 			tamanos = '{$_tamanos}',
 			edades = '{$_edades}',
 			planes = '{$_planes}' {$_dataextra}

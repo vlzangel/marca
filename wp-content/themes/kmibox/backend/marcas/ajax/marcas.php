@@ -16,8 +16,8 @@
 		$img = TEMA()."/imgs/marcas/".$marca->img;
 
 		$data["data"][] = array(
-	        "<img class='img_reporte' src='".$img."' />",
 	        $marca->id,
+	        "<img class='img_reporte' src='".$img."' />",
 	        $marca->nombre,
 	        "
 	        	<span 

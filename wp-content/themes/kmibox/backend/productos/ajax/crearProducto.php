@@ -44,6 +44,7 @@
 			'$precio',
 			'$peso',
 			'$marca',
+			'$tipo_mascota',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',
 			'---',

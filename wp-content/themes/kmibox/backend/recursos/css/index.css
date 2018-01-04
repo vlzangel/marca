@@ -183,3 +183,7 @@ a:focus, a:focus .media-icon img {
     padding: 15px 0px 0px !important;
     text-align: right;
 }
+
+.celda_1_3{
+    width: 66.6666667% !important;
+}

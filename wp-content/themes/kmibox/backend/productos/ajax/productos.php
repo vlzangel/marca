@@ -14,6 +14,12 @@
 		$_planes[ $plan->id ] = $plan->plan;
 	}
 
+	$_tipos = $wpdb->get_results("SELECT * FROM tipo_mascotas");
+	$tipos = array();
+	foreach ($_tipos as $key => $tipo) {
+		$tipos[ $tipo->id ] = $tipo->tipo;
+	}
+
 	foreach ($productos as $producto) {
 
 		$dataextra = unserialize( $producto->dataextra );
@@ -45,6 +51,7 @@
 	        "$ ".$producto->precio." MXN",
 	        $producto->peso,
 	        $marca,
+	        $tipos[ $producto->tipo_mascota ],
 	        implode("<br>", $tamanos ),
 	        implode("<br>", $edades ),
 	        implode("<br>", $planes ),

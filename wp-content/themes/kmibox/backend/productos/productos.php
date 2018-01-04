@@ -20,6 +20,7 @@
                 <th>Precio</th>
                 <th>Peso</th>
                 <th>Marca</th>
+                <th>Tipo de Mascota</th>
                 <th>Tama&ntilde;os Para:</th>
                 <th>Edades Para:</th>
                 <th>Planes</th>

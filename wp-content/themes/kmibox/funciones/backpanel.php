@@ -58,6 +58,15 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'suscripciones',
                     'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Tipo de mascotas'),
+                    'short-title'   =>  __('Tipo de mascotas'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'tipos',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'tipos',
+                    'icon'          =>  '',
                 )
             );
 
@@ -122,6 +131,13 @@
         function suscripciones(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/suscripciones/suscripciones.php');
+        }
+    }
+
+    if(!function_exists('tipos')){
+        function tipos(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/tipos/tipos.php');
         }
     }
 

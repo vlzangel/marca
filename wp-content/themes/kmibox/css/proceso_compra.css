@@ -658,12 +658,13 @@ html, body, #content-primary {
 	    border: 2px solid #fff;
 	}
 
-	.carrousel-items article div p{
+	.carrousel-items article div p {
 	    font-family: "GothanMedium_regular";
-	    font-weight: bold;
-	    color: #9BFF00;
-	    text-transform: uppercase; 
+	    font-weight: normal;
+	    color: #00bb00;
+	    text-transform: uppercase;
 	}
+	
 	.carrousel-items{   
 	    text-align: center;
 	    margin-top: 0px;

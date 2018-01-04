@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
 		},
         "scrollX": true,
         "ajax": {
-            "url": TEMA+'/backend/marcas/ajax/marcas.php',
+            "url": TEMA+'/backend/tipos/ajax/tipos.php',
             "type": "POST"
         }
 	});
@@ -37,17 +37,17 @@ jQuery(document).ready(function() {
 
 } );
 
-function crearMarca(e){
+function crearTipo(e){
 	var name = e.attr("name");
-	var URL = TEMA+"/backend/marcas/ajax/crearMarca.php";
-	if( name == "update" ){ URL = TEMA+"/backend/marcas/ajax/updateMarca.php"; }
+	var URL = TEMA+"/backend/tipos/ajax/crearTipo.php";
+	if( name == "update" ){ URL = TEMA+"/backend/tipos/ajax/updateTipo.php"; }
 
 	jQuery.ajax({
         async:true, 
         cache:false, 
         type: 'POST', 
         url: URL,
-        data: jQuery("#marca").serialize(), 
+        data: jQuery("#tipo").serialize(), 
         success:  function(HTML){
             table.ajax.reload();
             cerrar();
@@ -59,29 +59,19 @@ function crearMarca(e){
     });
 }
 
-function img_cargada(img_reducida){
-	jQuery("#img_reducida").val(img_reducida);
-	jQuery("#img_vista").attr("src", img_reducida);
-}
-
-function editar_Marca(e){
-	var id = e.attr("data-id");
-
-}
-
-function eliminar_marca(e){
-	var id_Marca = e.attr("data-id");
-    var confirmed = confirm("Esta seguro de eliminar esta Marca?");
+function eliminar_tipo(e){
+	var id_Tipo = e.attr("data-id");
+    var confirmed = confirm("Esta seguro de eliminar este Tipo de Mascota?");
     if (confirmed == true) {
 		jQuery.ajax({
 	        async:true, 
 	        cache:false, 
 	        type: 'POST', 
-	        url: TEMA+"/backend/marcas/ajax/eliminarMarca.php",
-	        data: {id: id_Marca}, 
+	        url: TEMA+"/backend/tipos/ajax/eliminarTipo.php",
+	        data: {id: id_Tipo}, 
 	        success:  function(HTML){
 	            table.ajax.reload();
-	            alert("Marca eliminado exitosamente!");
+	            alert("Tipo de Mascota eliminada exitosamente!");
 	        },
 	        beforeSend:function(){},
 	        error:function(e){

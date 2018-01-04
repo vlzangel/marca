@@ -51,4 +51,4 @@
 		</div>
 	<?php } ?>
 </form>
-<script type="text/javascript"> initImg("img"); </script>
+<script type="text/javascript"> initFileNormal("img"); </script>
