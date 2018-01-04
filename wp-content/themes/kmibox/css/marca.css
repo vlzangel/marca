@@ -1,0 +1,46 @@
+
+
+.marcas-list {
+	margin-top: 90px;
+}
+.marcas-list article {
+	padding: 15px;
+}
+.marcas-list article > div{
+	cursor: pointer;
+	border:2px solid #ccc;
+	border-radius: 30px;
+	padding: 13px;
+	background:#fff;
+}
+.marcas-list article > div:active,
+.marcas-list article > div:hover{
+	border:2px solid #000;
+	border-radius: 30px;
+}
+.marcas-list article > div h2{
+	margin:0px;
+	font-size:18px;
+}
+
+.btn-marca:hover{
+    background: white;
+	color: #091705;
+}
+.btn-marca{
+    background: #091705;
+    border-radius: 40px;
+    border: 1px solid #091705;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+    z-index: 9999999999999;
+    padding: 10px 40px;
+
+    bottom: 115px;
+    right: 40px;
+    text-transform: UPPERCASE;
+    cursor: pointer;
+}
