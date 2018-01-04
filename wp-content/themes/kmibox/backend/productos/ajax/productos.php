@@ -23,7 +23,7 @@
 	foreach ($productos as $producto) {
 
 		$dataextra = unserialize( $producto->dataextra );
-		$img = TEMA()."/productos/imgs/".$dataextra["img"];
+		$img = TEMA()."/imgs/productos/".$dataextra["img"];
 
 		$tamanos = array();
 		foreach (unserialize($producto->tamanos) as $key => $value) {
