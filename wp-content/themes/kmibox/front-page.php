@@ -225,7 +225,7 @@ get_header(); ?>
 			<h4 style="color:#ffffff; font-size: 48px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un compañero especial</h4>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
-			<h4 style="color:#ffffff; font-size: 14px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>
+			<h4 style="color:#ffffff; font-size: 12px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>
 		</div>
 	</section>
 
