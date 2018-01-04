@@ -56,20 +56,20 @@ get_header(); ?>
 	<section id="como-funciona" class="row text-center" style="margin-top: 5%">
 		<div class="container hidden-xs" style="    margin-top: -3%;" >
 
-			<div style="float:left;width:33%; >    
+			<div style="float:left;width:33%;" >    
 				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Asesores nutricionales<br>certificados
 						</p>									    
 			</div>
-			<div style="float:left;width:33%; >  
+			<div style="float:left;width:33%;">  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Entregado en tu <br> casa sin costo adicional
 					</p>
 		    </div>
-		    <div style="float:left;width:33%; >  
+		    <div style="float:left;width:33%;" >  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Más barato que en una<br> veterinaria
