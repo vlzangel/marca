@@ -14,7 +14,7 @@
 
 get_header(); ?>
 	<?php echo MENU(); ?>
-	<header id="header" class="row">		
+	<header id="header" class="row" style="margin-bottom: 2%">		
 		<article>
 			<div class="container" id="banner" style="margin-bottom: 4%">
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs">
@@ -49,27 +49,27 @@ get_header(); ?>
 			<h3 style="font-size: 24px; font-family: Gothamlight_Regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento <br> a tu casa u oficina, sin costo de envío</h3>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
-			<h3 style="font-family: Gothamlight_Regular">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</h3>
+			<h3 style="font-family: Gothamlight_Regular; font-size: 16px;">La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento a tu casa u oficina, sin costo de envío</h3>
 		</div>
 	</section>
 
 	<section id="como-funciona" class="row text-center" style="margin-top: 5%">
 		<div class="container hidden-xs" style="    margin-top: -3%;" >
 
-			<div style="float:left;width:33%; font-family: GothanMedium_regular">    
+			<div style="float:left;width:33%; >    
 				
 					<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Asesores nutricionales<br>certificados
 						</p>									    
 			</div>
-			<div style="float:left;width:33%; font-family: GothanMedium_regular">  
+			<div style="float:left;width:33%; >  
 					<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Entregado en tu <br> casa sin costo adicional
 					</p>
 		    </div>
-		    <div style="float:left;width:33%; font-family: GothanMedium_regular">  
+		    <div style="float:left;width:33%; >  
 					<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive" style="    margin-bottom: 5%;">
 					<p style="  font-family:  Gothamlight_Regular;">
 						Más barato que en una<br> veterinaria
@@ -101,22 +101,22 @@ get_header(); ?>
 	<section class="row text-center ">
 		
 		<div class="container">
-			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 80%;" >
+			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 60%;" >
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg">
 			<label style="color: #ebb931;font-size: 20px;font-family: PoetsenOne_Regular;margin-left: -5%;">Las mejores marcas <span style="color: #000000"> TODAS EN UN MISMO LUGAR</span></label>
 			<br>
-			<label style="text-align: center; font-weight: normal; font-size: 16px">Puedes escoger la mejor para tu mascota</label>
+			<label style="text-align: center; font-weight: normal; font-size: 16px;font-family: Gothamlight_Regular"">Puedes escoger la mejor para tu mascota</label>
 		</div>	
 		<div class="container hidden-xs hidden-sm">
 			<label style="color: #ebb931;font-size: 41px;font-family: PoetsenOne_Regular;margin-left: -5%;">Las mejores marcas<span style="color: #000000"> TODAS EN UN MISMO LUGAR</span></label>
 			<br>
-			<label style="text-align: center; font-weight: normal; font-size: 23px">Puedes escoger la mejor para tu mascota</label>
+			<label style="text-align: center; font-weight: normal; font-size: 23px; font-family: Gothamlight_Regular"">Puedes escoger la mejor para tu mascota</label>
 		</div>	
 		<div class="container hidden-xs hidden-md hidden-lg visible-sm">
 			<label style="color: #ebb931;font-size: 45px;font-family: PoetsenOne_Regular;margin-left: -5%;">Las mejores marcas<span style="color: #000000"> TODAS EN UN MISMO LUGAR</span></label>
 			<br>
-			<label style="text-align: center; font-weight: normal; font-size: 23px">Puedes escoger la mejor para tu mascota</label>
+			<label style="text-align: center; font-weight: normal; font-size: 23px; font-family: Gothamlight_Regular"">Puedes escoger la mejor para tu mascota</label>
 		</div>			
 	</section>
 
@@ -225,7 +225,7 @@ get_header(); ?>
 			<h4 style="color:#ffffff; font-size: 48px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un compañero especial</h4>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
-			<h4 style="color:#ffffff; font-size: 14px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>
+			<h4 style="color:#ffffff; font-size: 12px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>
 		</div>
 	</section>
 
@@ -233,7 +233,7 @@ get_header(); ?>
 		<div class="container" style="margin-bottom: 3%">
 			<div class="container  hidden-xs">
 				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 121%; margin-left: -13%">	
-				<span style="padding: 2px 135%; background: #52fa0a; margin-left: -27%"></span>
+				<span style="padding: 2px 122%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
 
 			<div class="container visible-xs">
