@@ -104,7 +104,7 @@
 							} $HTML .= '
 						</ul>
 
-						<ul class="hidden-sm hidden-lg hidden-md visible-xs pull-left" style=" font-family: GothanMedium_regular;">';
+						<ul class="hidden-sm hidden-lg hidden-md visible-xs pull-left" style=" font-family: GothanMedium_regular;     margin-left: -8%;">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>
