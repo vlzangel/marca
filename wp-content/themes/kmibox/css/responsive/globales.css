@@ -4,7 +4,24 @@
 
 @media (min-width:768px) and (max-width:1024px){
 	.nav_container > ul > li a > span {
-	   /* display: none;*/
+	    display: none ! important;
+	}
+
+	.nav_container > a > img {
+		height: 25px;
+	}
+	.nav_container > ul > li a {
+    background: #000000;
+     padding: 12px 20px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+}
+}
+@media (max-width:768px) {
+	.nav_container > ul > li a > span {
+	    display: none;
 	}
 
 	.nav_container > a > img {
