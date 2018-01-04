@@ -1255,11 +1255,7 @@ margin-top: -31%;
 	#como-funciona p {
     	font-size: 18px;
 	}
-	.LoginNuevo {
-    background-color: #181E0D;
-    height: 950px;
-    margin-top: -2%;
-	}
+	
 
 }
 @media all and (max-width:959px) {
@@ -1338,6 +1334,15 @@ margin-top: -31%;
 		background-size: auto; 
 	}
 }
+
+@media all and (min-width:768px) {
+	
+.LoginNuevo {
+    background-color: #181E0D;
+    height: 950px;
+    margin-top: -2%;
+	}
+	}
 @media all and (max-width:959px) and (min-width:613px) {
 	.h-3x{
 		font-size: 20px;
@@ -1351,7 +1356,7 @@ margin-top: -31%;
     top: 0px;  
     width: 100%;
     /*height: calc( 100% - 72px )*/;
-}
+	}
 	#regalo{
 		width: 20%;
 	}
