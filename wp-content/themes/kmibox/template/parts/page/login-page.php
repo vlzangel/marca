@@ -1,9 +1,8 @@
 <div class="clear"></div>
 <aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
-<div class="col-md-6"><img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%; margin-left: 38%;"></div>
 <article id="inicio-sesion" 
-		class="col-md-6 col-xs-12 col-md-offset-10" 
-		style=" background-color: #181E0D; height: 600px; margin-top: -25%; ">
+		class="col-md-6 col-xs-12 col-md-offset-3" 
+		style=" background-color: #ffffff; height: 600px; ">
 
 	
 		<div class="col-md-10 col-md-offset-1 form-horizontal">
@@ -11,6 +10,7 @@
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
 				<h4 style="color: #000000; font-family: GothanMedium_regular">Inicia Sesión para continuar</h4>
+				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
 			</aside>
 
 			<form id='form-login' class="form-horizontal">
