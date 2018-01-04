@@ -16,15 +16,15 @@
 
 			<form id='form-login' class="form-horizontal">
 				<div class="clearfix"></div>
-				<div class="form-group input-icon" style="color:#000000; margin-left:20%; width: 60%;">
-					<i class="fa fa-user inter-input"></i>
+				<div class="form-group input-icon" style="color:#000000; margin-left:13%; width: 77%;">
+					<i class="fa fa-user inter-input" style="margin-left: 15%;margin-bottom: 68%;"></i>
 					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email" maxlength="40">
 				</div>
 					
 				
 
-				<div class="form-group input-icon" style="color:#000000; margin-left:20%; width: 60%;">
-					<i class="fa fa-lock inter-input"></i>
+				<div class="form-group input-icon" style="color:#000000; margin-left:13%; width: 77%;">
+					<i class="fa fa-lock inter-input" style="margin-left: 15%;margin-bottom: 51%;"></i>
 					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40">
 				</div>
 
@@ -66,7 +66,7 @@
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
 				<h4 style="color: #ffffff; font-family: GothanMedium_regular;    margin-top: 20%;">Inicia Sesión para continuar</h4>
-				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive hidden-sm hidden-ms hidden-lg">
+				<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="img-responsive hidden-sm hidden-ms hidden-lg">
 				
 			</aside>
 
