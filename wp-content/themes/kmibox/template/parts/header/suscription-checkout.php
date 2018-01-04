@@ -7,7 +7,7 @@
 					<img src="<?php echo get_home_url(); ?>/img/Image-footer.png"  class="hidden-xs"  >
 				</a> 
 				<a href="<?php echo get_home_url(); ?>">
-					<img src="<?php echo get_home_url(); ?>/img/Image-footer.png"  class="hidden-sm hidden-md hidden-lg visible-xs" style="margin-left: -2%" >
+					<img src="<?php echo get_home_url(); ?>/img/Image-footer.png"  class="hidden-sm hidden-md hidden-lg visible-xs" style="margin-left: -2%;margin-top: 4%;" >
 				</a>		
 				
 
@@ -49,7 +49,7 @@
 
 				</ul>
 
-				<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-8 col-sm-9 pull-right text-right hidden-lg hidden-md hidden-sm" style="margin-right: -3%;   margin-top: -5%;">
+				<ul class="option-menu list-unstyled list-inline col-xs-8 col-md-8 col-sm-9 pull-right text-right hidden-lg hidden-md hidden-sm" style="margin-right: -3%;margin-top: -9%;"">
 					<?php if ( is_user_logged_in() ){ ?>
 
 						<li>
