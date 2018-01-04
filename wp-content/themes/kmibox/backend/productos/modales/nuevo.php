@@ -26,7 +26,7 @@
 		$_edades = unserialize($producto->edades);
 		$_planes = unserialize($producto->planes);
 		$_dataextra = unserialize($producto->dataextra);
-		$img_url = TEMA()."/productos/imgs/".$_dataextra["img"];
+		$img_url = TEMA()."/imgs/productos/".$_dataextra["img"];
 		$img_old = $_dataextra["img"];
 		$ID_UPDATE = '<input type="hidden" id="ID" name="ID" value="'.$ID.'" />';
 	}

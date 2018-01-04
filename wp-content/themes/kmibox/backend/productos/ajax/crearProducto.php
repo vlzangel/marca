@@ -29,7 +29,7 @@
 	foreach ($planes as $key => $value) { $_planes[$value] = 1; }
 
 	$img = guardarImg(
-		dirname(dirname(dirname(__DIR__)))."/productos/imgs/", 
+		dirname(dirname(dirname(__DIR__)))."/imgs/productos/", 
 		$img_producto
 	);
 
