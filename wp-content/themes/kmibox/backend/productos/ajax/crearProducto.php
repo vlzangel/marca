@@ -41,6 +41,7 @@
 		INSERT INTO productos VALUES (
 			NULL,
 			'$nombre',
+			'$descripcion',
 			'$precio',
 			'$peso',
 			'$marca',

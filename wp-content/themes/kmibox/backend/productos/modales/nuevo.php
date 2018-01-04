@@ -12,6 +12,7 @@
 	$_nombre = "";
 	$img_url = "";
 	$img_old = "";
+	$_descripcion = "";
 	$ID_UPDATE = "";
 
 	if( $ID != "" ){
@@ -21,6 +22,7 @@
 		$_peso = $producto->peso;
 		$_marca = $producto->marca;
 		$_tipo = $producto->tipo;
+		$_descripcion = $producto->descripcion;
 		$_presentaciones = unserialize($producto->presentaciones);
 		$_tamanos = unserialize($producto->tamanos);
 		$_edades = unserialize($producto->edades);
@@ -95,7 +97,7 @@
 		<div class="input_box">
 			<div class="input_text_container">
 				<div class="input_text celda_1_3">
-					<label>Nombre producto:</label>
+					<label>Nombre del producto:</label>
 					<input type="text" id="nombre" name="nombre" value="<?php echo $_nombre; ?>">
 				</div>
 				<div class="input_text">
@@ -104,6 +106,14 @@
 						<?php echo $tipos; ?>
 					</select>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="celdas_1">
+		<div class="input_box">
+			<div class="input_box">
+				<label>Breve descripci&oacute;n del producto:</label>
+				<input type="text" id="descripcion" name="descripcion" value="<?php echo $_descripcion; ?>">
 			</div>
 		</div>
 	</div>

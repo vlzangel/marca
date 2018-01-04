@@ -29,14 +29,31 @@
 		foreach ($_productos as $producto) {
 			$productos[$producto->id] = array(
 				"nombre" => $producto->nombre,
+				"descripcion" => $producto->descripcion,
 				"tamanos" => unserialize($producto->tamanos),
 				"edades" => unserialize($producto->edades),
-				"presentaciones" => unserialize($producto->presentaciones),
+				"precio" => $producto->precio,
+				"peso" => $producto->peso,
+				"marca" => $producto->marca,
+				"tipo" => $producto->tipo_mascota,
 				"planes" => unserialize($producto->planes),
 				"dataextra" => unserialize($producto->dataextra)
 			);
 		}
 		return $productos;
+	}
+
+	function get_marcas(){
+		global $wpdb;
+		$_marcas = $wpdb->get_results("SELECT * FROM marcas");
+		$marcas = array();
+		foreach ($_marcas as $marca) {
+			$marcas[$marca->id] = array(
+				"nombre" => $marca->nombre,
+				"img" => TEMA()."/imgs/marcas/".$marca->img
+			);
+		}
+		return $marcas;
 	}
 
 	function get_planes(){

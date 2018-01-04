@@ -56,6 +56,7 @@
 			productos 
 		SET 
 			nombre = '{$nombre}',
+			descripcion = '{$descripcion}',
 			precio = '{$precio}',
 			peso = '{$peso}',
 			marca = '{$marca}',

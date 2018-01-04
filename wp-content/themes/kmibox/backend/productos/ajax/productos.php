@@ -48,6 +48,7 @@
 	        "<img class='img_reporte' src='".$img."' />",
 	        $producto->id,
 	        $producto->nombre,
+	        $producto->descripcion,
 	        "$ ".$producto->precio." MXN",
 	        $producto->peso,
 	        $marca,

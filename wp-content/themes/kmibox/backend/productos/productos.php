@@ -17,6 +17,7 @@
                 <th>Imagen</th>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Descripci&oacute;n</th>
                 <th>Precio</th>
                 <th>Peso</th>
                 <th>Marca</th>
