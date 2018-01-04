@@ -174,7 +174,7 @@ get_header(); ?>
 							<div  style='clear:both;'></div>
 					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -52%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">4</span>
 
-					<div class="col-md-offset-3 col-sm-12 text-center" style="margin-top: 6%"> 
+					<div class="col-md-3 col-sm-12 text-center" style="margin-top: 6%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
 							<p style="font-size: 16px; color: #878a87 ; text-align: center; font-family: Gothamlight_Regular; margin-top: 3%;">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
@@ -250,7 +250,7 @@ get_header(); ?>
 				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 121%; margin-left: -13%">	
 				<span style="padding: 2px 122%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
-			<div class="container  hidden-xs">
+			<div class="container  hidden-xs hidden-lg hidden-md">
 				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 114%; margin-left: -13%">	
 				<span style="padding: 2px 114%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
