@@ -256,8 +256,8 @@ get_header(); ?>
 			</div>
 
 			<div class="container visible-xs">
-				<img src="<?php echo get_home_url(); ?>/img/Image_responsive.jpg" style="width: 115%; margin-left: -13%; margin-top: -4%;">	
-				<span style="padding: 2px 115%; background: #52fa0a; margin-left: -10%"></span>
+				<img src="<?php echo get_home_url(); ?>/img/Image_responsive.jpg" style="width: 123%; margin-left: -13%; margin-top: -4%;">	
+				<span style="padding: 2px 120%; background: #52fa0a; margin-left: -10%"></span>
 			</div>
 			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: GothanMedium_regular; " >¡Regálasela a un amigo o un familiar!</h2>
 				<br>
