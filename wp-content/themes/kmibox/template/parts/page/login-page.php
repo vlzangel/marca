@@ -2,15 +2,14 @@
 <aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 <div class="col-md-6 hidden-xs"><img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;"></div>
 <article id="inicio-sesion" 
-		class="col-md-6 col-xs-12 col-md-offset-6 hidden-xs" >
-
+		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" >
 	
 		<div class="col-md-10 col-md-offset-1 form-horizontal">
 
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
 				<h4 style="color: #ffffff; font-family: GothanMedium_regular;    margin-top: 20%;">Inicia Sesión para continuar</h4>
-				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive hidden-sm hidden-ms hidden-lg">
+				<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="img-responsive hidden-sm hidden-ms hidden-lg" style="margin-top: 15%;">
 			</aside>
 
 			<form id='form-login' class="form-horizontal">
@@ -27,12 +26,12 @@
 				</div>
 
 				<div class="form-group input-icon hidden-lg hidden-sm hidden-md" style="color:#000000; margin-left:13%; width: 77%;">
-					<i class="fa fa-user inter-input" style="margin-left: 15%;margin-bottom: 68%;"></i>
+					<i class="fa fa-user inter-input" ></i>
 					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email" maxlength="40">
 				</div>
 		
 				<div class="form-group input-icon hidden-lg hidden-sm hidden-md" style="color:#000000; margin-left:13%; width: 77%;">
-					<i class="fa fa-lock inter-input" style="margin-left: 15%;margin-bottom: 51%;"></i>
+					<i class="fa fa-lock inter-input" ></i>
 					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40">
 				</div>
 
