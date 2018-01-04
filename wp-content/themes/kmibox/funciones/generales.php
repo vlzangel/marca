@@ -58,8 +58,11 @@
 	        	<nav> 
 					<div class="nav_container">
 
-						<a href="'.$home.'" class="hidden-xs">
+						<a href="'.$home.'" class="hidden-xs hidden-sm">
 							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -10%;" >
+						</a> 
+						<a href="'.$home.'" class="hidden-xs hidden-md hidden-lg">
+							<img src="'.$home.'/img/Image-Header.png" >
 						</a> 
 						<a href="'.$home.'" class="hidden-sm hidden-md hidden-lg">
 							<img src="'.$home.'/img/Image-Header.png" style="margin-left:  -3%;" >
@@ -71,19 +74,19 @@
 									<li>
 										<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
 											<i class="fa fa-plus-circle"></i>
-											<span>Quiero mi NutriHeroes</span>
+											<span style=" font-family: GothanMedium_regular;>Quiero mi NutriHeroes</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/perfil/">
 											<i class="fa fa-user"></i>
-											<span>'.$user->display_name.'</span>
+											<span style=" font-family: GothanMedium_regular;>'.$user->display_name.'</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$salir.'" style="margin-right: -60%;">
 											<i class="fa fa-close"></i>
-											<span>Salir</span>
+											<span style=" font-family: GothanMedium_regular;>Salir</span>
 										</a>
 									</li>';
 							}else{
@@ -92,13 +95,13 @@
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
 											<i class="fa fa-key"></i>
-											<span>Iniciar Sesión</span>
+											<span style=" font-family: GothanMedium_regular;>Iniciar Sesión</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/registro/">
 											<i class="fa fa-user-plus"></i> 
-											<span>Registrarse</span>
+											<span style=" font-family: GothanMedium_regular;>Registrarse</span>
 										</a>
 									</li>';
 							} $HTML .= '
@@ -110,19 +113,19 @@
 									<li>
 										<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
 											<i class="fa fa-plus-circle"></i>
-											<span>Quiero mi NutriHeroes</span>
+											<span style=" font-family: GothanMedium_regular;>Quiero mi NutriHeroes</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/perfil/">
 											<i class="fa fa-user"></i>
-											<span>'.$user->display_name.'</span>
+											<span style=" font-family: GothanMedium_regular;>'.$user->display_name.'</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$salir.'">
 											<i class="fa fa-close"></i>
-											<span>Salir</span>
+											<span style=" font-family: GothanMedium_regular;>Salir</span>
 										</a>
 									</li>';
 							}else{
@@ -131,37 +134,37 @@
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
 											<i class="fa fa-key"></i>
-											<span>Iniciar Sesión</span>
+											<span style=" font-family: GothanMedium_regular;>Iniciar Sesión</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/registro/">
 											<i class="fa fa-user-plus"></i> 
-											<span>Registrarse</span>
+											<span style=" font-family: GothanMedium_regular;>Registrarse</span>
 										</a>
 									</li>';
 							} $HTML .= '
 						</ul>
 
-						<ul  class="hidden-xs hidden-lg hidden-md">';
+						<ul  class="hidden-xs hidden-lg hidden-md" style=" font-family: GothanMedium_regular;>';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>
 										<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
 											<i class="fa fa-plus-circle"></i>
-											<span>Quiero mi NutriHeroes</span>
+											<span style=" font-family: GothanMedium_regular;>Quiero mi NutriHeroes</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/perfil/">
 											<i class="fa fa-user"></i>
-											<span>'.$user->display_name.'</span>
+											<span style=" font-family: GothanMedium_regular;>'.$user->display_name.'</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$salir.'" style="margin-right: -60%;">
 											<i class="fa fa-close"></i>
-											<span>Salir</span>
+											<span style=" font-family: GothanMedium_regular;>Salir</span>
 										</a>
 									</li>';
 							}else{
@@ -170,13 +173,13 @@
 									<li>
 										<a href="'.$home.'/iniciar-sesion/">
 											<i class="fa fa-key"></i>
-											<span>Iniciar Sesión</span>
+											<span style=" font-family: GothanMedium_regular;>Iniciar Sesión</span>
 										</a>
 									</li>
 									<li>
 										<a href="'.$home.'/registro/">
 											<i class="fa fa-user-plus"></i> 
-											<span>Registrarse</span>
+											<span style=" font-family: GothanMedium_regular;>Registrarse</span>
 										</a>
 									</li>';
 							} $HTML .= '
