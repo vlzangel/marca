@@ -146,7 +146,7 @@
 							} $HTML .= '
 						</ul>
 
-						<ul  class="hidden-xs hidden-lg hidden-md" style=" font-family: GothanMedium_regular;>';
+						<ul  class="hidden-xs hidden-lg hidden-md" style=" font-family: GothanMedium_regular;">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>
