@@ -4,19 +4,15 @@
 
 	function dataOpenpay(){
 		$OPENPAY_PRUEBAS = 1;
-
 		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
-		
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
 		$OPENPAY_KEY_SECRET = "sk_b485a174f8d34df3b52e05c7a9d8cb22";
 		$OPENPAY_KEY_PUBLIC = "pk_dacadd3820984bf494e0f5c08f361022";
-		
 		if( $OPENPAY_PRUEBAS == 1 ){
 			$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
 			$OPENPAY_KEY_SECRET = "sk_684a7f8598784911a42ce52fb9df936f";
 			$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
 		}
-
 		return array(
 			"OPENPAY_PRUEBAS" => $OPENPAY_PRUEBAS,
 			"OPENPAY_URL" => $OPENPAY_URL,
@@ -80,7 +76,6 @@
 	 			'{$user_id}',
 	 			'{$CARRITO["cantidad"]}',
 	 			'{$CARRITO["total"]}',
-	 			'Activo',
 		 		'{$hoy}'
 	 		)
 	 	";
@@ -102,7 +97,7 @@
 				 			'{$orden_id}',
 				 			'{$producto->producto}',
 				 			'{$data}',
-				 			'Pendiente',
+				 			'Activa',
 				 			'{$producto->subtotal}',
 				 			'{$hoy}',
 				 			'{$producto->plan_id}'
@@ -118,25 +113,18 @@
 
 	function crearCobro($orden_id, $pago_id){
 		date_default_timezone_set('America/Mexico_City');
-
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
-
 		global $wpdb;
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW() );";
     		$wpdb->query( $SQL ); 
-
-
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
-
-
     		$proximo_cobro = date("Y-m-d H:i:s", strtotime("+".$meses." month"));
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW() );";
     		$wpdb->query( $SQL ); 
-
     		for ($i=0; $i < $meses; $i++) { 
     			if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
     			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', NOW() );";
@@ -160,21 +148,17 @@
 				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$plan->id_producto );
 				$_data = unserialize( $producto->dataextra );
 				$img = TEMA()."/productos/imgs/".$_data["img"];
-
 				$anio = date("Y")."-12-31";
-
 				$entregas = $wpdb->get_results("SELECT * FROM despachos WHERE sub_orden = {$plan->id} AND status = 'Recibida' AND mes <= '{$anio}'");
 				$_entregas = array();
 				foreach ($entregas as $value) {
 					$mes = date( "m", strtotime($value->mes) );
 					$_entregas[] = $mes;
 				}
-
 				$_entregados_str = "-";
 				if( count($_entregas) > 0 ){
 					$_entregados_str = implode(",", $_entregas);
 				}
-
 				$suscripciones[ $orden->id ]["productos"][] = array(
 					"orden" => $plan->id,
 					"plan" => $data["plan"],
@@ -195,16 +179,13 @@
 
 	function getDespachosActivos(){
     	date_default_timezone_set('America/Mexico_City');
-
     	$mes_actual = date("Y-m", time())."-01";
 		$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
-
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 	    $suscripciones = array();
 		$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE cliente = {$user_id} AND ( mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ) ORDER BY id DESC");
-		
 		foreach ($despachos as $despacho) {
 			$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
 			$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
@@ -217,7 +198,6 @@
 				"status" => $despacho->status
 			);
 		}
-
 		return $_despachos;
 	}
 

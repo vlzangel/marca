@@ -4,6 +4,9 @@
  * Template Name: Quiero mi Marca 
  *
  */
+	
+	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
+	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
 
 	get_header(); 
 
@@ -13,16 +16,15 @@
 		$PLANES .= '
 			<article id="plan-'.$plan->plan.'" data-value="'.$plan->id.'" class="select_plan">
 				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">
+				<span class="precio_plan"></span>
 				<div>
 					'.$plan->descripcion.'
 				</div>
-				<button class="btn btn-sm-marca btn-sm-kmibox-price postone"></button>
 			</article>
 		';
 	}
 
 	$HTML = '
-		<link rel="stylesheet" href="'.TEMA().'/css/proceso_compra.css">
 
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
@@ -43,11 +45,37 @@
 		<div class="comprar_container">
 
 			<section id="fase_1">
-				<div class="carrusel_1">
-					<span></span>
-					<img src="'.TEMA().'/imgs/edad/Cachorro.png" data-value="Pequeño" class="tamano_activo" />
-					<img src="'.TEMA().'/imgs/edad/Mediano.png" data-value="Mediano" />
-					<img src="'.TEMA().'/imgs/edad/Adulto.png" data-value="Grande" />
+				<div class="carrousel-items">
+					<article data-value="Mediano">
+						<div>
+							<img
+								src="'.get_home_url().'/img/edad/p_mediano.png" 
+								class="img-responsive img-circle" 
+								id="Mediano"
+							/>
+							<p class="col-md-12">Mediano</p>
+						</div>
+					</article>
+					<article data-value="Pequeño">
+						<div>
+							<img
+								src="'.get_home_url().'/img/edad/p_pequeno.png" 
+								class="img-responsive img-circle" 
+								id="Grande"
+							/>
+							<p class="col-md-12">Pequeño</p>
+						</div>
+					</article>
+					<article data-value="Grande">
+						<div>
+							<img
+								src="'.get_home_url().'/img/edad/p_adulto.png" 
+								class="img-responsive img-circle" 
+								id="Grande"
+							/>
+							<p class="col-md-12">Grande</p>
+						</div>
+					</article>
 				</div>
 				<div class="selector_edad_container">
 					<label>Selecciona la Edad</label>
@@ -59,9 +87,13 @@
 				</div>
 			</section>
 
-			<section id="fase_2">
-				<div class="carrusel_2">
-					<span></span>
+			<section id="fase_2" class="hidden">
+				<div class="carrusel_container">
+					<i id="anterior" class="fa fa-chevron-left izq"></i>
+					<div class="carrusel_2">
+						<span></span>
+					</div>
+					<i id="siguiente" class="fa fa-chevron-right der"></i>
 				</div>
 				<div class="selector_producto_container">
 					<div class="selector_producto_container_interno">
@@ -76,18 +108,21 @@
 							<div id="nombre_producto" data-value="">ROYAL CANIN</div>
 							<div id="descripcion_producto" data-value="" ><span><span></div>
 						</div>
+
 					</div>
+
+					<div id="siguiente_pantalla" class="btn-disable">Siguiente</div>
+
 					<div class="selector_producto_footer">
 						Si no aparece tu marca, <a href="#">haz click aqui</a>
 					</div>
 				</div>
 			</section>
 
-			<section id="fase_3">
+			<section id="fase_3" class="hidden">
 				<div class="comprar_box" id="plan">
 					<div id="planes">
 						<div class="select_plan_box">
-							<span></span>	
 							'.$PLANES.'
 						</div>
 					</div>
@@ -107,10 +142,10 @@
 							<th class="hidden-xs"width="40">&nbsp;</th>
 							<th> <span> Producto </span> </th>
 							<th> <span> Descripci&oacute;n </span> </th>
-							<th> <span> Periodicidad </span> </th>
-							<th> <span> Precio </span> </th>
+							<th class="solo_pc"> <span> Periodicidad </span> </th>
+							<th class="solo_pc"> <span> Precio </span> </th>
 							<th> <span> Cantidad </span> </th>
-							<th> <span> Subtotal </span> </th>
+							<th class="solo_pc"> <span> Subtotal </span> </th>
 						</thead>
 						<tbody id="cart-items"></tbody>
 					</table>
@@ -136,9 +171,9 @@
 					</div>
 				</div>
 				
-				<article class="col-md-12 text-center">
+				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
 					<span id="agregar_plan" >Agregar otro plan</span>
-					<a class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">Pagar</a>
+					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
 			</section>	
 
@@ -149,13 +184,13 @@
 				<div class="Modal content text-center" >			     
 					<div style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
 						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="fondo_opciones" />
-
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
-								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/Card.svg"/><br><label style="caviar_dreamsregular">Tarjeta d&eacute;bito / cr&eacute;dito</label></a>
+								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/Card.svg" style="width: 80%;" /><br><label style="caviar_dreamsregular">Tarjeta d&eacute;bito / cr&eacute;dito</label></a>
 							</div>
 							<div style="float:left; width:50%;" > 
-								<a href="#" id="tienda"><img src="'.TEMA().'/imgs/opciones_pago/Cash.svg"/><br><label style="caviar_dreamsregular">Efectivo</label></a>
+								<a href="#" id="tienda"><img src="'.TEMA().'/imgs/opciones_pago/Cash.svg" style="width: 80%;" /><br><label style="caviar_dreamsregular">Efectivo</label></a>
 							</div>		
 						</div>
 					</div>

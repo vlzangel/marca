@@ -1,5 +1,451 @@
+@media (min-width: 1400px){
+	i#anterior {
+	    left: 0px;
+	}
+
+	i#siguiente {
+	    right: 0px;
+	}
+}
+
+@media (max-width: 1000px){
+	.carrusel_2{
+	    width: 70%;
+	}
+	.carrusel_2 > div {
+	    max-width: 33.334%;
+	}
+
+	i#anterior {
+	    left: 0px;
+	}
+
+	i#siguiente {
+	    right: 0px;
+	}
+}
+
 @media (max-width: 992px){
 	.select_plan div{
 	    font-size: 16px;
+	}
+}
+
+@media (max-width: 950px){
+
+	.selector_producto_container {
+	    height: 280px;
+	}
+
+	.carrusel_container {
+	    height: calc( 100% - 315px );
+	}
+
+	.selector_producto_container {
+	    height: 210px;
+	}
+
+	.selector_producto_box {
+	    position: absolute;
+	    top: 45px;
+	    left: 120px;
+	}
+
+	.selector_producto_container label {
+	    font-size: 15px;
+	    padding: 10px 0px;
+	    top: 45px;
+	    left: 10px;
+	}
+	#nombre_producto {
+	    font-size: 30px !important;
+	}
+
+	#descripcion_producto {
+	    font-size: 15px !important;
+	}
+
+}
+
+@media (max-width: 900px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 22px;
+	    min-width: 210px;
+	}
+
+	.carrousel-items {
+	    width: 98%;
+	    margin: 0px 1%;
+	}
+
+	.select_plan_box {
+	    padding: 0px;
+	}
+
+	.select_plan_box article {
+	    width: 49%;
+	}
+}
+
+@media (max-width: 780px){
+
+	.modal-dialog {
+	    width: 95%;
+	}
+
+	.opciones_pago label {
+		font-size: 10px;
+	}
+}
+
+@media (max-width: 730px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 18px;
+	    min-width: 170px;
+	}
+}
+
+@media (max-width: 680px){
+	.carrusel_2{
+	    width: 70%;
+	}
+	.carrusel_2 > div {
+	    max-width: 100%;
+	}
+
+	#fase_3 > div {
+	    padding: 85px 10px 10px;
+	    height: 100% !important;
+	}
+
+	.solo_movil{
+		display: block;
+	}
+
+	.solo_pc{
+		display: none;
+	}
+
+	#desglose td *{
+		font-size: 11px;
+	}
+
+}
+
+@media (max-width: 600px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 12px;
+	    min-width: 150px;
+        margin: 0px 3px;
+	}
+
+	#agregar_plan {
+	    display: block;
+	    margin: 10px;
+	}
+
+	.factura {
+	    margin: 150px auto 50px;
+	}
+
+	#desglose td {
+	    padding: 5px 10px;
+	}
+
+}
+
+@media (min-width: 768px) {
+
+    /* GRID */
+	    .carrousel-items article:nth-child(1) img {
+	    	width: 80%;
+	    	height: 80%;
+	    	cursor: pointer;
+	    }
+	    .carrousel-items article:nth-child(2){
+	        z-index:3;
+	    }
+	    .carrousel-items article:nth-child(3) img {
+	    	width: 80%;
+	    	height: 80%;
+	    	cursor: pointer;
+	    }
+
+	    .carrousel-items,
+	    .carrousel-items article {
+	        display: flex;
+	        padding-left: 0px;
+	        padding-right: 0px;
+	    }
+	    .carrousel-items article div{
+	        margin: auto; 
+	    }
+
+    /* Textos */
+    .carrousel-items article:nth-child(1) p{
+        font-size: 32px;
+    }
+    .carrousel-items article:nth-child(2) p{
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 767px) {
+
+	.carrousel-items article{
+	    width: 100%;
+	}
+
+	.carrousel-items img {
+		height: 50px;
+	}
+
+	#vlz_atras {
+	    width: 85px;
+	    font-size: 10px;
+	}
+
+	#vlz_titulo {
+	    width: calc( 100% - 230px );
+	    left: 0px;
+	    top: 55px;
+	    width: 100%;
+	    text-align: center;
+	    font-family: GothanMedium_regular;
+	    font-size: 16px;
+	    font-weight: bold;
+	}
+
+    /* Grid */
+
+    .carrousel-items article{
+        margin: 0 auto;
+    }
+
+    .carrousel-items article:nth-child(1){
+        height: 30%;
+    }
+    .carrousel-items article:nth-child(1) > div{
+        height: 100%;
+    }
+    .carrousel-items article:nth-child(1) > div > img {
+        height: 85%;
+    }
+
+
+    .carrousel-items article:nth-child(2){
+        height: 40%;
+    }
+    .carrousel-items article:nth-child(2) > div{
+        height: 100%;
+    }
+    .carrousel-items article:nth-child(2) > div > img {
+        height: 80%;
+    }
+
+
+    .carrousel-items article:nth-child(3){
+        height: 30%;
+    }
+    .carrousel-items article:nth-child(3) > div{
+        height: 100%;
+    }
+    .carrousel-items article:nth-child(3) > div > img {
+        height: 85%;
+    }
+
+    /* Textos */
+    .carrousel-items article:nth-child(1) p{
+        font-size: 18px;
+    	margin: 0px;
+    }
+    .carrousel-items article:nth-child(2) p{
+        font-size: 25px;
+    }
+
+    .header_titulo {
+        font-size: 15px!important;
+    }
+}
+
+@media ( max-width: 500px ) {
+
+	.comprar_container {
+    	position: relative;
+	}
+
+	.selector_producto_container {
+	    height: 165px;
+	}
+
+	.selector_producto_container label {
+	    font-size: 11px;
+	    top: 30px;
+	    left: 10px;
+	}
+
+	.selector_producto_box {
+	    top: 30px;
+	    left: 90px;
+	}
+
+	#nombre_producto {
+	    font-size: 24px !important;
+	}
+
+	#descripcion_producto {
+	    font-size: 12px !important;
+	}
+
+	.carrusel_container {
+		top: 90px;
+	    height: calc( 100% - 260px );
+	}
+
+	.selector_producto_footer {
+	    padding: 10px;
+	    font-size: 15px;
+	}
+
+	#siguiente_pantalla {
+	    font-size: 12px;
+	    position: absolute;
+	    bottom: 50px;
+	    right: calc( 50% - 100px );
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 11px;
+	    padding: 7px 10px;
+	    min-width: 110px;
+	    margin: 0px 3px;
+	}
+	#vlz_controles_fases {
+	    right: 0px;
+	}
+
+	.selector_presentaciones span {
+	    padding: 5px 10px;
+	}
+
+	.select_plan_box {
+	    padding: 0px;
+	}
+
+	.select_plan div {
+	    font-size: 13px;
+	}
+
+	#desglose th *{
+		font-size: 10px;
+	}
+
+	.carrousel-items article p{
+        font-size: 10px !important;
+    }
+
+	.carrousel-items article:nth-child(2) p{
+        font-size: 17px !important;
+    }
+
+    #vlz_controles_fases span {
+	    display: block;
+	    margin: 0px auto 5px;
+	    width: 10px;
+	    height: 10px;
+	    background-color: #9BFF00;
+	    opacity: 0.4;
+	    border-radius: 50%;
+	}
+
+	.select_plan_box article {
+	    vertical-align: top;
+	}
+
+	.select_plan div {
+	    height: auto;
+	}
+
+	.select_plan div {
+	    font-size: 10px;
+	}
+
+	#desglose th * {
+	    font-size: 8px;
+	}
+
+	#desglose td * {
+	    font-size: 8px;
+	}
+
+	#totales table th {
+	    font-size: 9px;
+	}
+
+	#totales table td {
+	    font-size: 9px !important;
+	    width: 150px !important;
+	}
+
+	.factura {
+	    margin: 100px auto 10px;
+	}
+
+	.cantidad_controls {
+	    margin-bottom: 6px;
+	}
+
+	.cantidad_controls i {
+	    margin: 0px auto 2px;
+	    text-align: center;
+	}
+
+	.cantidad_controls label {
+	    text-align: center;
+	}
+
+	.cantidad_controls label {
+	   	font-size: 10px !important;
+	}
+
+	.cantidad_controls i{
+	   	font-size: 10px !important;
+	}
+} 
+
+@media (max-width: 400px){
+
+	#vlz_titulo {
+	    top: 60px;
+	    font-size: 14px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 8px;
+	    padding: 7px 10px;
+	    min-width: 85px;
+	    margin: 0px 3px;
+	}
+}
+
+@media (max-height: 600px){
+
+	.carrusel_2 > div img {
+	    height: calc( 100% - 40px );
+	}
+
+	.title_producto_container {
+	    height: 30px;
+	}
+
+	.carrusel_2 > div .title_producto_box {
+	    font-size: 12px;
+	}
+
+	.carrusel_2 > div,
+	.carrusel_2 .item_box,
+	.carrusel_2 > div .img_box {
+        height: 100%;
+    	width: 100%;
 	}
 }
