@@ -143,7 +143,7 @@
 							} $HTML .= '
 						</ul>
 
-						<ul  class="hidden-xs">';
+						<ul  class="hidden-xs hidden-lg hidden-md">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
 									<li>

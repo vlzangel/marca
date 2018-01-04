@@ -24,7 +24,7 @@ get_header(); ?>
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 182px;margin-left: -29%;">
 				</div>
 
-				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
+				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0  hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 71%;margin-left: -8%; margin-top: 5%">
 				</div>
 
@@ -251,8 +251,8 @@ get_header(); ?>
 				<span style="padding: 2px 122%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
 			<div class="container  hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 121%; margin-left: -13%">	
-				<span style="padding: 2px 122%; background: #52fa0a; margin-left: -13%"></span>
+				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 114%; margin-left: -13%">	
+				<span style="padding: 2px 114%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
 
 			<div class="container visible-xs">
