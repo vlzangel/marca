@@ -14,27 +14,18 @@
 
 			<form id='form-login' class="form-horizontal">
 				<div class="clearfix"></div>
-				<div class="form-group input-icon hidden-xs"  style="color:#000000; margin-left:20%; width: 60%;">
+				<div class="form-group input-icon inputlogin"  style="color:#000000; margin-left:20%; width: 60%;">
 					<i class="fa fa-user inter-input" ></i>
 					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email" maxlength="40">
 				</div>					
 				
 
-				<div class="form-group input-icon hidden-xs" style="color:#000000; margin-left:20%; width: 60%;" >
+				<div class="form-group input-icon inputlogin" style="color:#000000; margin-left:20%; width: 60%;" >
 					<i class="fa fa-lock inter-input" ></i>
 					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40">
 				</div>
 
-				<div class="form-group input-icon hidden-lg hidden-sm hidden-md" style="color:#000000; margin-left:13%; width: 77%;">
-					<i class="fa fa-user inter-input" ></i>
-					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email" maxlength="40">
-				</div>
-		
-				<div class="form-group input-icon hidden-lg hidden-sm hidden-md" style="color:#000000; margin-left:13%; width: 77%;">
-					<i class="fa fa-lock inter-input" ></i>
-					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40">
-				</div>
-
+				
 
 				<div class="form-group text-center">
 					<label style="color: #ffffff; ">

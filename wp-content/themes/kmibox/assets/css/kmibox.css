@@ -1394,6 +1394,13 @@ margin-top: -31%;
 	height: 636px;
 	margin-top: -2%;
 	}
+
+	.inputlogin{
+	color: #000000 ! important;
+    margin-left: 13% ! important;
+    width: 77% ! important;
+	}
+
 	#top div img{
 		max-width: 50%;
 	}
