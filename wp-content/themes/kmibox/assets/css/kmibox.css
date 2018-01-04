@@ -443,6 +443,12 @@ select{
 }
 
 
+.LoginNuevo{
+background-color: #181E0D;
+height: 636px;
+margin-top: -31%;
+}
+
 #tophome{
 	background: #ffffff;
 	min-height: 10vh;
@@ -1382,6 +1388,10 @@ select{
 	}
 	#top .container{
 		margin-top: 0px;
+	}
+	.LoginNuevo{
+	background-color: #181E0D;
+	height: 636px;
 	}
 	#top div img{
 		max-width: 50%;
