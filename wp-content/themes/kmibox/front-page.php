@@ -42,7 +42,7 @@ get_header(); ?>
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular; padding: 22px 92px !important; font-size: 32px !important" >COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
-				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs " style="margin-left: -19%">
+				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs hidden-lg hidden-md " style="margin-left: -19%">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png"  style="margin-top: 11%; width: 85%; margin-left: 35%">
 					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular ; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
