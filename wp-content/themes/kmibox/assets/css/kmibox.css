@@ -1248,12 +1248,17 @@ margin-top: -31%;
 	#footer{
 		margin-top: 90px;
 	}
-.carro{
+	.carro{
 
-	    margin-left: -41%;
-}
+		    margin-left: -41%;
+	}
 	#como-funciona p {
     	font-size: 18px;
+	}
+	.LoginNuevo {
+    background-color: #181E0D;
+    height: 950px;
+    margin-top: -51%;
 	}
 
 }
