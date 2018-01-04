@@ -445,7 +445,7 @@ select{
 
 .LoginNuevo{
 background-color: #181E0D;
-height: 700px;
+height: 800px;
 margin-top: -31%;
 }
 
@@ -1335,7 +1335,7 @@ margin-top: -31%;
 	}
 }
 
-@media all and (min-width:768px) {
+@media all and (min-width:768px) and (max-width:1024px) {
 	
 .LoginNuevo {
     background-color: #181E0D;
