@@ -172,9 +172,9 @@ get_header(); ?>
 					</div> 
 					
 							<div  style='clear:both;'></div>
-					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -52%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">4</span>
+					<span class="hidden-xs" style="margin-left: -52%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">4</span>
 
-					<div class="col-md-3 col-sm-12 text-center" style="margin-top: 6%"> 
+					<div class="col-md-0 col-sm-12 text-center" style="margin-top: 6%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
 							<p style="font-size: 16px; color: #878a87 ; text-align: center; font-family: Gothamlight_Regular; margin-top: 3%;">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
