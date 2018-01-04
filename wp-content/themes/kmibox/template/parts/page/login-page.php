@@ -1,6 +1,6 @@
 <div class="clear"></div>
 <aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
-<div class="col-md-6 hidden-xs"><img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;"></div>
+<div class="col-md-6 hidden-xs hidden-sm"><img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;"></div>
 <article id="inicio-sesion" 
 		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" >
 	
@@ -9,7 +9,7 @@
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
 				<h4 style="color: #ffffff; font-family: GothanMedium_regular;    margin-top: 20%;">Inicia Sesión para continuar</h4>
-				<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="img-responsive hidden-sm hidden-ms hidden-lg" style="margin-top: 15%;">
+				<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="img-responsive  hidden-ms hidden-lg" style="margin-top: 15%;">
 			</aside>
 
 			<form id='form-login' class="form-horizontal">
