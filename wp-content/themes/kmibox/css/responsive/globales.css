@@ -4,15 +4,15 @@
 
 @media (max-width: 768px){
 	.nav_container > ul > li a > span {
-	    display: none;
+	   /* display: none;*/
 	}
 
 	.nav_container > a > img {
-		height: 17px;
+		height: 25px;
 	}
 	.nav_container > ul > li a {
     background: #000000;
-    padding: 7px 16px;
+     padding: 12px 20px;
     border-radius: 50px;
     border: 1px solid #fff;
     color: #fff;
