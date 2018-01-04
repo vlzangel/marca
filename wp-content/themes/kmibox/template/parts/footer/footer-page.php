@@ -13,7 +13,7 @@
 			</ul>
 		</article>
 		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-sm hidden-md hidden-lg" width="85%" style="margin-top: 34%">
-		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-md hidden-lg" width="85%" style="margin-top: 6%">
+		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-md hidden-xs hidden-lg" width="85%" style="margin-top: 6%">
 		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-xs hidden-sm" width="50%" style="margin-top: -46%; margin-left: 55%;">
 	</div>		 	
 	<div style="float:right;width:50%;"> 
