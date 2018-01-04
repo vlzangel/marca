@@ -17,12 +17,17 @@ get_header(); ?>
 	<header id="header" class="row" style="margin-bottom: 2%">		
 		<article>
 			<div class="container" id="banner" style="margin-bottom: 4%">
-				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs">
+				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-xs hidden-sm">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" 	 class="img-responsive" style="width: 59%;     margin-top: -5%;">
 				</div>
 				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 182px;margin-left: -29%;">
 				</div>
+
+				<div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-7 col-md-offset-0 hidden-sm hidden-lg hidden-md">
+					<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" style="width: 71%;margin-left: -8%; margin-top: 5%">
+				</div>
+
 				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-sm hidden-lg hidden-md">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive"> 
 					<h2 style="font-size: 14px; font-family: caviar_dreamsregular; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
@@ -30,8 +35,15 @@ get_header(); ?>
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular">COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
 				</div>
 
-				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs ">
+				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs hidden-sm">
 					<img src="<?php echo get_home_url(); ?>/img/Logo.png"  style="margin-top: 11%; width: 126%">
+					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular ; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
+					<br>	
+					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular; padding: 22px 92px !important; font-size: 32px !important" >COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
+				</div>
+
+				<div id="banner-text" class="col-xs-12 col-sm-12 col-md-5 hidden-xs " style="margin-left: -19%">
+					<img src="<?php echo get_home_url(); ?>/img/Logo.png"  style="margin-top: 11%; width: 85%; margin-left: 35%">
 					<h2 style="font-size: 22px ; font-family: caviar_dreamsregular ; color: #181E0D !important"><b>El camino de una correcta nutrición</b></h2>
 					<br>	
 					<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox gothan" style="margin-bottom: 2%; font-family: GothanMedium_regular; padding: 22px 92px !important; font-size: 32px !important" >COMPRAR</a> <!--<?php echo get_home_url(); ?>/quiero-mi-kmibox/?source=<?php echo get_source_url(); ?>-->	
@@ -160,9 +172,9 @@ get_header(); ?>
 					</div> 
 					
 							<div  style='clear:both;'></div>
-					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -27%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">4</span>
+					<span class="hidden-xs" style="/* text-align:  center; */margin-left: -52%;font-size: 22px;color: #000000;  text-align: center;font-family: PoetsenOne_Regular;border: 3px solid #091705;   border-radius: 27px;padding: 0px 7px;">4</span>
 
-					<div class="col-md-offset-3 col-sm-6 text-center" style="margin-top: 6%"> 
+					<div class="col-md-offset-3 col-sm-12 text-center" style="margin-top: 6%"> 
 						<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
 							<p style="font-size: 16px; color: #878a87 ; text-align: center; font-family: Gothamlight_Regular; margin-top: 3%;">
 								Recibe el producto en tu casa u <br> oficina sin costo adicional
@@ -221,24 +233,31 @@ get_header(); ?>
 	</section>
 
 	<section style="color:#ffffff;	background: #181E0D;background-size: contain;padding: 25px 0px 25px 0px;" class="row text-center ">
-		<div class="container hidden-xs">
+		<div class="container hidden-xs hidden-sm">
 			<h4 style="color:#ffffff; font-size: 48px; font-family: PoetsenOne_Regular; ">Un alimento especial	para un compañero especial</h4>
 		</div>
 		<div class="container hidden-md hidden-sm hidden-lg visible-xs">
 			<h4 style="color:#ffffff; font-size: 12px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>
 		</div>
+		<div class="container hidden-xs rowAlimento">
+			<h4 style="color:#ffffff; font-size: 29px; font-family: PoetsenOne_Regular; font-weight: normal">Un alimento especial	para un compañero especial</h4>
+		</div>
 	</section>
 
 	<section class="row text-center">
 		<div class="container" style="margin-bottom: 3%">
+			<div class="container  hidden-xs hidden-sm">
+				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 121%; margin-left: -13%">	
+				<span style="padding: 2px 122%; background: #52fa0a; margin-left: -13%"></span>
+			</div>
 			<div class="container  hidden-xs">
 				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 121%; margin-left: -13%">	
 				<span style="padding: 2px 122%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
 
 			<div class="container visible-xs">
-				<img src="<?php echo get_home_url(); ?>/img/Image_responsive.jpg" style="width: 121%; margin-left: -11%; margin-top: -4%;">	
-				<span style="padding: 1px 121%; background: #52fa0a; margin-left: -10%"></span>
+				<img src="<?php echo get_home_url(); ?>/img/Image_responsive.jpg" style="width: 115%; margin-left: -13%; margin-top: -4%;">	
+				<span style="padding: 2px 115%; background: #52fa0a; margin-left: -10%"></span>
 			</div>
 			<h2 style="color:#000000;font-weight: bold; font-size:30px; font-family: GothanMedium_regular; " >¡Regálasela a un amigo o un familiar!</h2>
 				<br>

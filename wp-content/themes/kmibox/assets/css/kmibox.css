@@ -50,6 +50,10 @@ p .img-center{
     margin-right: 0px;
     margin-left: 0px;
 }
+.rowAlimento {
+    /*margin-right: 0px;*/
+    margin-left: 0px;
+}
 .profile-content-input{
 	background-color: #ffffff!important;
 	border: 0px ;
