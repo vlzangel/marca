@@ -15,11 +15,11 @@
 	foreach ($data_planes as $plan) {
 		$PLANES .= '
 			<article id="plan-'.$plan->plan.'" data-value="'.$plan->id.'" class="select_plan">
-				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">
-				<span class="precio_plan"></span>
-				<div>
+				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">				
+				<div class="gothanligth">
 					'.$plan->descripcion.'
 				</div>
+				<span class="precio_plan gothanligth"></span>
 			</article>
 		';
 	}
