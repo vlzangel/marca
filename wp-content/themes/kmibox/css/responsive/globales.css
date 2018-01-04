@@ -4,7 +4,7 @@
 
 @media  (max-width:1024px){
 	.nav_container > ul > li a > span {
-	    display: none ! important;
+	    display: inline-block ! important;
 	}
 
 	.nav_container > a > img {
