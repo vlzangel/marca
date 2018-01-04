@@ -132,7 +132,7 @@
 			<section id="fase_4" class="hidden">
 				<div class="factura">
 					<div class="cintillo_factura">
-						<img id="cen" src="'.TEMA().'/imgs/marca/Elemento-1.png" />
+						<img id="cen" src="'.TEMA().'/imgs/Elemento-1.png" />
 					</div>
 					<div class="alerta" id="cart-content-alerta">
 						<span id="cart-alerta"></span>
