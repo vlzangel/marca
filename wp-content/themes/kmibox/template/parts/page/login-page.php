@@ -33,8 +33,11 @@
 					</label>
 				</div>
 
-				<div class="form-group col-xs-10 text-center gothan" style="margin-bottom: 0px; color: #ffffff">
+				<div class="form-group col-xs-10 text-center gothan hidden-xs" style="margin-bottom: 0px; color: #ffffff">
 					<a style="color: #000000; margin-left: 24%; font-size: 12px"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
+				</div>
+				<div class="form-group col-xs-10 text-center gothan hidden-lg hidden-md hidden-sm" style="margin-bottom: 0px; color: #ffffff">
+					<a style="color: #000000; margin-left: 15%; font-size: 11px"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
 				</div>
 
 				<div class="form-group">
