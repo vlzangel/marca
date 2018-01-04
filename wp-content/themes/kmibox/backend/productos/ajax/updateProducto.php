@@ -31,11 +31,11 @@
 	$img = "";
 	if( $img_producto != "" ){
 		$img = guardarImg(
-			dirname(dirname(dirname(__DIR__)))."/productos/imgs/", 
+			dirname(dirname(dirname(__DIR__)))."/imgs/productos/", 
 			$img_producto
 		);
 		if( $img != "" ){
-			unlink( dirname(dirname(dirname(__DIR__)))."/productos/imgs/".$img_old );
+			unlink( dirname(dirname(dirname(__DIR__)))."/imgs/productos/".$img_old );
 		}
 	}
 
