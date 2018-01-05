@@ -1374,12 +1374,14 @@ margin-top: -31%;
 	 border:1px solid #ccc; 
 	 margin-bottom: 20% ! important; 
 	 margin-top: 9% ! important;
-	 margin-top: -7%;
 	}
 .contenedorsm{
 	       margin-right: -6%
 
 	}
+.botonesheader{
+	 margin-top: -7%;
+}
 }
 @media all and (max-width:959px) and (min-width:613px) {
 	.h-3x{
