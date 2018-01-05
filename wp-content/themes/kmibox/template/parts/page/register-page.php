@@ -25,7 +25,7 @@
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<input data-charset="xlf" type="text" name="apellido" class="form-control col-md-6" id="inputEmail3" placeholder="Apellido"  maxlength="50">
 					</div-->
-					<div class="col-md-6">
+					<div class="col-md-8">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<div class="col-md-4 label-group form-group">
 							<label>Sexo: </label>
