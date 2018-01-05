@@ -350,7 +350,7 @@ function loadFase(fase){
 					producto["producto"],
 					PRODUCTOS[ _producto ].nombre,
 					producto['plan'],
-					TEMA+"/productos/imgs/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
+					TEMA+"/imgs/productos/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
 					precio_plan,
 					PRODUCTOS[ _producto ].descripcion,
 					PRODUCTOS[ _producto ].peso,
