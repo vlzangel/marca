@@ -156,7 +156,7 @@ html, body, #content-primary {
 /* Fase 2 */
 	
 	#marca {
-	    height: calc( 100% - 175px );
+	    height: calc( 100% - 165px );
 	    overflow: auto;
 	    padding: 0px 10px;
 	    margin: 0px 50px 0px;
