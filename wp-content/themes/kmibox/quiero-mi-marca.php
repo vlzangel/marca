@@ -57,7 +57,7 @@
 					</article>
 					<article data-value="Pequeño">
 						<div>
-							<img src="'.get_home_url().'/img/edad/p_pequeno.png" class="img-responsive img-circle" id="Grande" />
+							<img src="'.get_home_url().'/img/edad/p_pequeno_1.png" class="img-responsive img-circle" id="Grande" />
 							<p class="col-md-12">Pequeño</p>
 						</div>
 					</article>
