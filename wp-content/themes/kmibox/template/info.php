@@ -84,7 +84,7 @@
 						</div>
 
 							<div class="row">
-								<h2 class="col-sm-6 gothan" style="margin-left: 3%; font-size: 18px">Información de cuenta</h2>
+								<h2 class="col-sm-6 gothan" style="margin-left: 3%; font-size: 18px; color: #000000">Información de cuenta</h2>
 							</div>
 
 						<div class="col-md-12">
@@ -96,7 +96,7 @@
 						 			
 						<div class="col-sm-12 ">
 							<div class="row">
-								<h2 class="col-sm-6 gothan" style="margin-left: 1%; font-size: 18px">Dirección</h2>
+								<h2 class="col-sm-6 gothan" style="margin-left: 1%; font-size: 18px; color: #000000">Dirección</h2>
 							</div>
 						</div>
 
