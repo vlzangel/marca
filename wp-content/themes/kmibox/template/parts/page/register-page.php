@@ -9,7 +9,7 @@
 		<div class="row">
 			<form class="form-horizontal" id="form-registro" method="post">
 				<div class="row">					
-					<h2 class="col-sm-6">Información del usuario </h2>
+					<h2 class="col-sm-6">INFORMACIÓN DEL USUARIO</h2>
 				</div>
 				<div class="row row-special campos-obligatorios">
 					<span class="fa fa-asterisk" aria-hidden="true"></span>
@@ -78,7 +78,7 @@
 				</div>
 					
 				<div class="row">					
-					<h2 class="col-sm-6">Información de la cuenta</h2>
+					<h2 class="col-sm-6">INFORMACIÓN DE LA CUENTA</h2>
 				</div>
 
 				<div class="row row-special">					
@@ -103,7 +103,7 @@
 				</div>
 
 				<div class="row">					
-					<h2 class="col-sm-6">Dirección</h2>
+					<h2 class="col-sm-6">DIRECCIÓN</h2>
 				</div>
 		 
 				<div class="row row-special">					
