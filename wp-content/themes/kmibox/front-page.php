@@ -252,7 +252,7 @@ get_header(); ?>
 			</div>
 			<div class="container  hidden-xs hidden-lg hidden-md">
 				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 114%; margin-left: -13%">	
-				<span style="padding: 2px 10%; background: #52fa0a; margin-left: -13%"></span>
+				<span style="padding: 2px 80%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
 
 			<div class="container visible-xs">
