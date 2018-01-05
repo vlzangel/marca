@@ -217,6 +217,7 @@ html, body, #content-primary {
 	.btn_siguiente_container{
 		text-align: right;
 		padding: 0px 75px;
+		margin-top: 10px;
 	}
 
 	.btn_siguiente_container button{
@@ -242,11 +243,16 @@ html, body, #content-primary {
 
 /* Fase 3 */
 	
+	.controles_presentaciones_container {
+	    margin: 75px 73px 0px 20px;
+	    overflow: hidden;
+	}
+
 	#presentaciones {
-	    height: calc( 100% - 175px );
+	    height: calc( 100% - 165px );
 	    overflow: auto;
 	    padding: 0px 10px;
-	    margin: 0px 50px 0px;
+	    margin: 0px;
 	}
 
 	#presentaciones > div {
@@ -254,7 +260,7 @@ html, body, #content-primary {
 	    width: 25%;
 	    box-sizing: border-box;
 	    padding: 10px;
-        height: 50%;
+        height: 80%;
 	}
 
 	#presentaciones > div > .item_box {
@@ -275,7 +281,7 @@ html, body, #content-primary {
 	}
 
 	#presentaciones .img_box {
-        height: calc( 100% - 60px );
+        height: calc( 100% - 70px );
 	    background-size: contain;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -307,8 +313,10 @@ html, body, #content-primary {
 	#fase_4 > div {
 	    vertical-align: middle;
 	    height: 100%;
-	    padding: 50px;
+	    padding: 100px 20px 0px;
 	    display: table;
+	    width: 100%;
+	    box-sizing: border-box;
 	}
 
 	#planes{
@@ -317,7 +325,8 @@ html, body, #content-primary {
 	}
 
 	.select_plan_box {
-		text-align: center;
+	    text-align: center;
+	    height: 50%;
 	}
 
 	.select_plan_box article{
@@ -326,6 +335,7 @@ html, body, #content-primary {
 		vertical-align: middle;
 		padding: 10px;
 		cursor: pointer;
+	    box-sizing: border-box;
 	}
 
 	.select_plan_box article:hover{
@@ -582,6 +592,9 @@ html, body, #content-primary {
 		display: table-cell;
 	}
 
+	.cart_descripcion{
+		text-transform: uppercase;
+	}
 
 /* Carruseles */
 

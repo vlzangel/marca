@@ -15,7 +15,8 @@
 		INSERT INTO marcas VALUES (
 			NULL,
 			'$nombre',
-			'$img'
+			'$img',
+			'$tipo'
 		);
 	";
 

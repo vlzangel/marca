@@ -11,6 +11,12 @@
 
 	$data["data"] = array();
 
+	$_tipos = $wpdb->get_results("SELECT * FROM tipo_mascotas");
+	$tipos = array();
+	foreach ($_tipos as $key => $tipo) {
+		$tipos[ $tipo->id ] = $tipo->tipo;
+	}
+
 	foreach ($marcas as $marca) {
 
 		$img = TEMA()."/imgs/marcas/".$marca->img;
@@ -19,6 +25,7 @@
 	        $marca->id,
 	        "<img class='img_reporte' src='".$img."' />",
 	        $marca->nombre,
+	        $tipos[ $marca->tipo ],
 	        "
 	        	<span 
 	        		onclick='abrir_link( jQuery( this ) )' 
