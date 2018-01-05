@@ -81,7 +81,7 @@
 
 @media (max-width: 992px){
 	.select_plan div{
-	    font-size: 16px;
+	    font-size: 14px;
 	}
 }
 
@@ -134,10 +134,12 @@
 
 	.select_plan_box {
 	    padding: 0px;
+	    height: 100%;
 	}
 
 	.select_plan_box article {
 	    width: 49%;
+	    padding: 0px 80px;
 	}
 
     /* Presentaciones */
@@ -268,6 +270,13 @@
     	#presentaciones > div {
 		    width: 33.3334%;
 		}
+
+    /* Planes */
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 0px 50px;
+		}
 }
 
 @media (max-width: 730px){
@@ -302,6 +311,13 @@
 		#presentaciones > div {
 		    width: 50%;
 		    height: 70%;
+		}
+
+    /* Planes */
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 0px 30px;
 		}
 
 }
@@ -344,6 +360,17 @@
         height: 100%;
     	width: 100%;
 	}
+
+    /* Planes */
+
+		.select_plan_box {
+		    height: auto;
+		}
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 0px 10px;
+		}
 
 }
 
@@ -446,7 +473,7 @@
 	}
 
 	.select_plan div {
-	    font-size: 10px;
+	    font-size: 15px;
 	}
 
 	#desglose th * {
@@ -534,6 +561,14 @@
 		    height: 50%;
 		}
 
+    /* Planes */
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 5px;
+		    margin-bottom: 10px;
+		}
+
 } 
 
 @media (max-width: 400px){
@@ -566,5 +601,11 @@
 
 		#presentaciones .img_box {
 		    height: calc( 100% - 50px );
+		}
+
+    /* Planes */
+
+		.select_plan div {
+		    font-size: 13px;
 		}
 }

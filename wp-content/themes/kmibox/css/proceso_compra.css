@@ -312,10 +312,11 @@ html, body, #content-primary {
 
 	#fase_4 > div {
 	    vertical-align: middle;
-	    height: calc( 100% - 100px );
+	    height: 100%;
 	    padding: 100px 20px 0px;
 	    display: table;
 	    width: 100%;
+	    box-sizing: border-box;
 	}
 
 	#planes{
@@ -324,7 +325,8 @@ html, body, #content-primary {
 	}
 
 	.select_plan_box {
-		text-align: center;
+	    text-align: center;
+	    height: 50%;
 	}
 
 	.select_plan_box article{
@@ -333,6 +335,7 @@ html, body, #content-primary {
 		vertical-align: middle;
 		padding: 10px;
 		cursor: pointer;
+	    box-sizing: border-box;
 	}
 
 	.select_plan_box article:hover{
@@ -589,6 +592,9 @@ html, body, #content-primary {
 		display: table-cell;
 	}
 
+	.cart_descripcion{
+		text-transform: uppercase;
+	}
 
 /* Carruseles */
 

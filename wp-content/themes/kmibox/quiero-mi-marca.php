@@ -111,7 +111,7 @@
 			</section>
 
 			<section id="fase_4" class="hidden">
-				<div class="comprar_box" id="plan">
+				<div id="plan">
 					<div id="planes">
 						<div class="select_plan_box">
 							'.$PLANES.'
