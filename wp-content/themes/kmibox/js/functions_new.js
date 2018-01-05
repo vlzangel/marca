@@ -228,7 +228,7 @@ function change_title(txt){
 	jQuery("#vlz_titulo").html(txt);
 }
 
-function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, cantidad = 1 ){
+function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
 	var HTML = "";
 	HTML += '<tr>';
 	HTML += '	 <td class=" hidden-xs">';
@@ -240,7 +240,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
-	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div></label>';
+	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
 	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
 	HTML += '	 </td>';
@@ -347,6 +347,7 @@ function loadFase(fase){
 					TEMA+"/productos/imgs/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
 					precio_plan,
 					PRODUCTOS[ _producto ].descripcion,
+					PRODUCTOS[ _producto ].peso,
 					producto["cantidad"]								
 				);
 				var temp_total = ( precio_plan * producto["cantidad"] );

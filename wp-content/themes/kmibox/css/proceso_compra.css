@@ -593,7 +593,7 @@ html, body, #content-primary {
 	}
 
 	.cart_descripcion{
-		text-transform: uppercase;
+		text-transform: capitalize;
 	}
 
 /* Carruseles */
