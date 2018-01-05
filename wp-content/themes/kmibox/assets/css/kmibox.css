@@ -1876,26 +1876,3 @@ margin-top: -31%;
 .row1{	
 	width: 100%;
 }
-
-.marca{
-	background: #ffffff;
-	border-radius: 40px;
-	border : 1px solid #fff;
-	font-size: 20px;
-	font-weight: bold;
-    padding: 10px 30px 10px 30px;;
-	margin-top: 20px;
-}
- 
-#presentaciones {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    z-index: 99999999999999999;
-    background: #FFF;
-}
-
-section.container {
-    margin-top: 20px;
-}
