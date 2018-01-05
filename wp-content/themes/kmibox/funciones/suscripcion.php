@@ -50,7 +50,8 @@
 		foreach ($_marcas as $marca) {
 			$marcas[$marca->id] = array(
 				"nombre" => $marca->nombre,
-				"img" => TEMA()."/imgs/marcas/".$marca->img
+				"img" => TEMA()."/imgs/marcas/".$marca->img,
+				"tipo" => $marca->tipo
 			);
 		}
 		return $marcas;

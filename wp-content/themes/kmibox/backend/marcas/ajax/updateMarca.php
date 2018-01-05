@@ -26,7 +26,8 @@
 		UPDATE 
 			marcas 
 		SET 
-			nombre = '{$nombre}' {$_dataextra}
+			nombre = '{$nombre}',
+			tipo = '{$tipo}' {$_dataextra}
 		WHERE 
 			id = {$ID}
 	";

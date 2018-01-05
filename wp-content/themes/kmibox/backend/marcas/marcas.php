@@ -17,6 +17,7 @@
                 <th style="width: 50px;">ID</th>
                 <th style="width: 100px;">Imagen</th>
                 <th>Marca</th>
+                <th>Tipo</th>
                 <th style="width: 80px;">Acciones</th>
             </tr>
         </thead>

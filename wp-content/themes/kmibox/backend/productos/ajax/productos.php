@@ -52,7 +52,6 @@
 	        "$ ".$producto->precio." MXN",
 	        $producto->peso,
 	        $marca,
-	        $tipos[ $producto->tipo_mascota ],
 	        implode("<br>", $tamanos ),
 	        implode("<br>", $edades ),
 	        implode("<br>", $planes ),

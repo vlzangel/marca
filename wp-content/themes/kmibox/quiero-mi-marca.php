@@ -16,7 +16,6 @@
 		$PLANES .= '
 			<article id="plan-'.$plan->plan.'" data-value="'.$plan->id.'" class="select_plan">
 				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">
-				<span class="precio_plan"></span>
 				<div>
 					'.$plan->descripcion.'
 				</div>
@@ -98,11 +97,9 @@
 
 			<section id="fase_3" class="hidden">
 				
-				<div class="controles_marca_container">
+				<div class="controles_presentaciones_container">
 					<div class="cantidad_resultados"><span id="cant_precentaciones">0</span> RESULTADOS</div>
-					<div class="tipo_mascota">
-						<select id="tipo_mascota"> '.$tipos.' </select>
-					</div>
+					<div class="tipo_mascota"></div>
 				</div>
 
 				<div id="presentaciones" class="presentaciones_container"> </div>

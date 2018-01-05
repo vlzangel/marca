@@ -242,11 +242,16 @@ html, body, #content-primary {
 
 /* Fase 3 */
 	
+	.controles_presentaciones_container {
+	    margin: 75px 73px 0px 20px;
+	    overflow: hidden;
+	}
+
 	#presentaciones {
 	    height: calc( 100% - 175px );
 	    overflow: auto;
 	    padding: 0px 10px;
-	    margin: 0px 50px 0px;
+	    margin: 0px;
 	}
 
 	#presentaciones > div {
@@ -254,7 +259,7 @@ html, body, #content-primary {
 	    width: 25%;
 	    box-sizing: border-box;
 	    padding: 10px;
-        height: 50%;
+        height: 80%;
 	}
 
 	#presentaciones > div > .item_box {
@@ -306,9 +311,10 @@ html, body, #content-primary {
 
 	#fase_4 > div {
 	    vertical-align: middle;
-	    height: 100%;
-	    padding: 50px;
+	    height: calc( 100% - 100px );
+	    padding: 100px 20px 0px;
 	    display: table;
+	    width: 100%;
 	}
 
 	#planes{
