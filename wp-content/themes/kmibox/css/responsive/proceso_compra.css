@@ -497,12 +497,7 @@
 	    margin: 100px auto 10px;
 	}
 
-	.cantidad_controls {
-	    margin-bottom: 6px;
-	}
-
 	.cantidad_controls i {
-	    margin: 0px auto 2px;
 	    text-align: center;
 	}
 
@@ -511,11 +506,11 @@
 	}
 
 	.cantidad_controls label {
-	   	font-size: 10px !important;
+	   	font-size: 13px !important;
 	}
 
 	.cantidad_controls i{
-	   	font-size: 10px !important;
+	   	font-size: 13px !important;
 	}
 
 	/* Marca */
@@ -567,6 +562,12 @@
 		    width: 49%;
 		    padding: 5px;
 		    margin-bottom: 10px;
+		}
+
+	/* Desglose */
+
+		.total_en_cantidad{
+			font-size: 10px !important;
 		}
 
 } 

@@ -231,12 +231,18 @@ function change_title(txt){
 function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
 	var HTML = "";
 	HTML += '<tr>';
-	HTML += '	 <td class=" hidden-xs">';
+	HTML += '	 <td class="solo_pc">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="" style="text-align: center;">';
+	HTML += '	 <td class="solo_movil" style="text-align: center;">';
+	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
+	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
+	HTML += '	 	</span>';
+	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 </td>';
+	HTML += '	 <td class="solo_pc" style="text-align: center;">';
 	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
@@ -255,8 +261,8 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
 	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
 	HTML += '	 		<i class="fa fa-minus-circle menos" onclick="menos_cantidad('+index+')"></i>';
-	HTML += '	 		<div class="resaltar_desglose solo_movil" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
 	HTML += '	 	</div>';
+	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc">';
 	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';

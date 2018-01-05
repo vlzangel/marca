@@ -130,7 +130,7 @@
 					</div>
 					<table id="desglose" cellspacing=5 cellpadding=5>	
 						<thead>
-							<th class="hidden-xs"width="40">&nbsp;</th>
+							<th class="solo_pc" width="40">&nbsp;</th>
 							<th> <span> Producto </span> </th>
 							<th> <span> Descripci&oacute;n </span> </th>
 							<th class="solo_pc"> <span> Periodicidad </span> </th>

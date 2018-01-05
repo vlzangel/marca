@@ -393,25 +393,27 @@ html, body, #content-primary {
 	.cantidad_controls{
 	    display: block;
 	    vertical-align: middle;
+	    text-align: center;
+	    padding-bottom: 10px;
 	}
 
 	.cantidad_controls label {
-	    font-size: 20px;
-	    display: block;
+	    font-size: 15px !important;
+	    display: inline-block;
 	    text-align: center;
 	    margin: 0px;
 	}
 
 	.cantidad_controls i{
-	    display: block;
-        font-size: 20px;
+	    display: inline-block;
+	    font-size: 15px !important;
 	    cursor: pointer;
 	    text-align: center;
-	    margin: 0px;
+	    margin: 0px 10px;
 	}
 
 	.factura{
-		margin: 150px auto 50px;
+		margin: 120px auto 50px;
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
 	    max-width: 900px;
