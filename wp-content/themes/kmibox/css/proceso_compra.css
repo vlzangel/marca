@@ -12,7 +12,7 @@ html, body, #content-primary {
 	position: fixed;
 	#background: #CCC;
     padding: 5px 15px 5px 15px;
-	top: 20px;
+	top: 15px;
 	box-sizing: border-box;
 }
 
@@ -43,9 +43,8 @@ html, body, #content-primary {
 #vlz_titulo {
     width: calc( 100% - 230px );
     left: 140px;
-    top: 15px;
+    top: 13px;
     text-align: center;
-    font-family: GothanMedium_regular;
     font-size: 20px;
     font-size: 25px;
     font-weight: bold;
@@ -56,14 +55,29 @@ html, body, #content-primary {
     width: 50px;
 }
 
-#vlz_controles_fases span {
-    display: block;
+#vlz_controles_fases > span {
+	display: block;
     margin: 0px auto 10px;
     width: 10px;
     height: 10px;
-    background-color: #9BFF00;
-    opacity: 0.4;
+    background-color: rgba(155, 255, 0, 0.5);
+    opacity: 1;
     border-radius: 50%;
+    position: relative;
+}
+
+#vlz_controles_fases > span > span {
+	position: absolute;
+    left: -55px;
+    top: -4px;
+    font-weight: 600;
+    font-size: 13px;    
+    font-family: GothanMedium_regular;
+    display: none;
+}
+
+#vlz_controles_fases > span.fase_activa > span {
+    display: inline-block;
 }
 
 #vlz_controles_fases span.fase_activa {

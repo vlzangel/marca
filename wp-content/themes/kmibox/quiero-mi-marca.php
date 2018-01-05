@@ -40,10 +40,11 @@
 		</div>
 
 		<div class="controles_generales" id="vlz_controles_fases">
-			<span id="fase_indicador_1" class="fase_activa"></span>
-			<span id="fase_indicador_2" ></span>
-			<span id="fase_indicador_3" ></span>
-			<span id="fase_indicador_4" ></span>
+			<span id="fase_indicador_1" class="fase_activa"> <span>Paso 1</span> </span>
+			<span id="fase_indicador_2" > <span>Paso 2</span> </span>
+			<span id="fase_indicador_3" > <span>Paso 3</span> </span>
+			<span id="fase_indicador_4" > <span>Paso 4</span> </span>
+			<span id="fase_indicador_5" > <span>Paso 5</span> </span>
 		</div>
 
 		<div class="comprar_container">
