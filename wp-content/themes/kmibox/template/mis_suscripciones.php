@@ -1,6 +1,7 @@
 <?php
 	
 	$mis_suscripciones = getSuscripciones();
+
 	$carrusel = ""; $W = 0;
 	$inicial = array();
 	if( count($mis_suscripciones) > 0 ){

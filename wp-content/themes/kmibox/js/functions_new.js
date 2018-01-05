@@ -278,6 +278,12 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 
 function loadFase(fase){
 
+	if( parseInt(fase) == 4 ){
+		jQuery("#vlz_titulo").addClass("titulo_planes");
+	}else{
+		jQuery("#vlz_titulo").removeClass("titulo_planes");
+	}
+
 	switch( fase ){
 		case "1":
 			change_title('Elije el tamaño de tu mascota');
