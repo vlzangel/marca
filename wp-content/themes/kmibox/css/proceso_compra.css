@@ -217,6 +217,7 @@ html, body, #content-primary {
 	.btn_siguiente_container{
 		text-align: right;
 		padding: 0px 75px;
+		margin-top: 10px;
 	}
 
 	.btn_siguiente_container button{
@@ -248,7 +249,7 @@ html, body, #content-primary {
 	}
 
 	#presentaciones {
-	    height: calc( 100% - 175px );
+	    height: calc( 100% - 165px );
 	    overflow: auto;
 	    padding: 0px 10px;
 	    margin: 0px;
@@ -280,7 +281,7 @@ html, body, #content-primary {
 	}
 
 	#presentaciones .img_box {
-        height: calc( 100% - 60px );
+        height: calc( 100% - 70px );
 	    background-size: contain;
 	    background-repeat: no-repeat;
 	    background-position: center;
