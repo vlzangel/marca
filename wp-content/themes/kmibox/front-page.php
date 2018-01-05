@@ -252,7 +252,7 @@ get_header(); ?>
 			</div>
 			<div class="container  hidden-xs hidden-lg hidden-md">
 				<img src="<?php echo get_home_url(); ?>/img/dog.jpg"  style="width: 114%; margin-left: -13%">	
-				<span style="padding: 2px 56%; background: #52fa0a; margin-left: -13%"></span>
+				<span style="padding: 2px 57%; background: #52fa0a; margin-left: -13%"></span>
 			</div>
 
 			<div class="container visible-xs">
@@ -276,7 +276,7 @@ get_header(); ?>
 				él se <br> nutre y tu amigo o familiar no se preocupa más</p>	
 
 				<br><br>	
-				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style=" font-family:GothanMedium_regular">COMPRAR</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
+				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox" style=" font-family:GothanMedium_regular; padding: 22px 92px !important;">COMPRAR</a> <!--<?php echo get_permalink(); ?>/quiero-mi-kmibox/?source=<?php echo (array_key_exists('source', $_GET))? $_GET['source'] : '' ; ?>-->
 		</div>
 	</section>
 	<br>
