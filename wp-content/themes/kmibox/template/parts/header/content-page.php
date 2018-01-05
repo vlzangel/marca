@@ -5,7 +5,8 @@
 			<div class="container">
 				<a href="<?php echo get_home_url(); ?>">
 				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs">
-				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="visible-xs col-xs-6" style="margin-left: -2%">
+				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs hidden-md hidden-lg" style="width: 42%">
+				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-sm hidden-md hidden-lg col-xs-6" style="margin-left: -2%">
 				</a>
 				
 			<ul class="option-menu list-unstyled list-inline col-xs-6 col-md-6 pull-right text-right" style="    font-size: 10px;">
@@ -22,7 +23,7 @@
 							<span class="hidden-xs  gothan">Salir</span></a><!--href="<?php echo wp_logout_url( get_home_url() );?> ">-->
 						</li> 
 					<?php }else{ ?>
-						<li>
+						<li style="margin-left:  -2%;">
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key fa-2x" aria-hidden="true"></i>
 							<span class="hidden-xs  gothan" style="font-size: 16px">Iniciar Sesion</span></a><!--href="<?php echo get_home_url(); ?>/iniciar-sesion">-->
