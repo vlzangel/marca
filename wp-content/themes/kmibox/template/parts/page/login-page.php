@@ -34,7 +34,7 @@
 				</div>
 
 				<div class="form-group col-xs-10 text-center gothan" style="margin-bottom: 0px; color: #ffffff">
-					<a style="color: #ffffff; margin-left: 24%; font-size: 12px"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
+					<a style="color: #ffffff; margin-right: -35%; font-size: 12px"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
 				</div>
 
 				<div class="form-group">
@@ -42,7 +42,8 @@
 						<button id="btn-login" type="submit" class="btn btn-sm-kmibox gothan">Iniciar sesion</button>
 						<br>
 						<br>
-						<label style="color: #ffffff; font-size: 12px" class="gothan">Ya tengo una cuenta </label>
+						<label style="color: #ffffff; font-size: 10px" class="gothan">¿Aún no tienes perfil Nutriheroes? </label>
+						<label style="color: #000000; font-size: 10px" class="gothan">Registrate aquí</label>
 						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" >
 							
 						</a>
