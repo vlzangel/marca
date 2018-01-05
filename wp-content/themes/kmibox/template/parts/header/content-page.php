@@ -4,7 +4,7 @@
  		<aside id="tophome"> 
 			<div class="container">
 				<a href="<?php echo get_home_url(); ?>">
-				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs">
+				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs hidden-sm">
 				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-xs hidden-md hidden-lg" style="width: 42%">
 				<img src="<?php echo get_home_url(); ?>/img/Image-Header.png" class="hidden-sm hidden-md hidden-lg col-xs-6" style="margin-left: -2%">
 				</a>
@@ -30,7 +30,7 @@
 						</li>
 						<li>
 							<a class="btn-kmibox-link" href="<?php echo get_home_url(); ?>/registro">
-							<i class="fa fa-user-plus fa-2x " aria-hidden="true"></i> <span class=" hidden-xs hidden-sm gothan" style="font-size: 16px">Registrarse</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
+							<i class="fa fa-user-plus fa-2x " aria-hidden="true"></i> <span class=" hidden-xs  gothan" style="font-size: 16px">Registrarse</span></a><!--href="<?php echo get_home_url(); ?>/registro">-->
 						</li>
 					<?php } ?>
 
