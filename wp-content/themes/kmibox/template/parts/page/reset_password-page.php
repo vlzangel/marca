@@ -2,7 +2,7 @@
 <aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 <article id="inicio-sesion" 
 		class="col-md-6 col-xs-12 col-md-offset-3 resertpassword" 
-		style="border-radius:10px; padding:20px 50px 20px 50px;   border:1px solid #ccc; margin-bottom: 2%; ">
+		style="border-radius:10px; padding:20px 50px 20px 50px;   border:1px solid #ccc; margin-bottom: 2%; margin-top: 0% ">
 
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1 form-horizontal">
