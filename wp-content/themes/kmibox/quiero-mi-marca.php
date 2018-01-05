@@ -15,13 +15,19 @@
 	foreach ($data_planes as $plan) {
 		$PLANES .= '
 			<article id="plan-'.$plan->plan.'" data-value="'.$plan->id.'" class="select_plan">
-				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">				
-				<div class="gothanligth">
+				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">
+				<span class="precio_plan"></span>
+				<div>
 					'.$plan->descripcion.'
 				</div>
-				<span class="precio_plan gothanligth"></span>
 			</article>
 		';
+	}
+
+	$_tipos = $wpdb->get_results("SELECT * FROM tipo_mascotas");
+	$tipos = "";
+	foreach ($_tipos as $key => $tipo) {
+		$tipos .= "<option value='{$tipo->id}' ".selected($tipo->id, $_tipo, false).">".strtoupper($tipo->tipo)."</option>";
 	}
 
 	$HTML = '
@@ -41,38 +47,24 @@
 			<span id="fase_indicador_4" ></span>
 		</div>
 
-
 		<div class="comprar_container">
-
 			<section id="fase_1">
 				<div class="carrousel-items">
 					<article data-value="Mediano">
 						<div>
-							<img
-								src="'.get_home_url().'/img/edad/p_mediano.png" 
-								class="img-responsive img-circle" 
-								id="Mediano"
-							/>
+							<img src="'.get_home_url().'/img/edad/p_mediano.png" class="img-responsive img-circle" id="Mediano" />
 							<p class="col-md-12">Mediano</p>
 						</div>
 					</article>
 					<article data-value="Pequeño">
 						<div>
-							<img
-								src="'.get_home_url().'/img/edad/p_pequeno.png" 
-								class="img-responsive img-circle" 
-								id="Grande"
-							/>
+							<img src="'.get_home_url().'/img/edad/p_pequeno.png" class="img-responsive img-circle" id="Grande" />
 							<p class="col-md-12">Pequeño</p>
 						</div>
 					</article>
 					<article data-value="Grande">
 						<div>
-							<img
-								src="'.get_home_url().'/img/edad/p_adulto.png" 
-								class="img-responsive img-circle" 
-								id="Grande"
-							/>
+							<img src="'.get_home_url().'/img/edad/p_adulto.png" class="img-responsive img-circle" id="Grande" />
 							<p class="col-md-12">Grande</p>
 						</div>
 					</article>
@@ -88,38 +80,40 @@
 			</section>
 
 			<section id="fase_2" class="hidden">
-				<div class="carrusel_container">
-					<i id="anterior" class="fa fa-chevron-left izq"></i>
-					<div class="carrusel_2">
-						<span></span>
-					</div>
-					<i id="siguiente" class="fa fa-chevron-right der"></i>
-				</div>
-				<div class="selector_producto_container">
-					<div class="selector_producto_container_interno">
-						<div class="selector_presentaciones">
-							<span id="pres_900g" >P</span>
-							<span id="pres_2000g" >M</span>
-							<span id="pres_4000g" >G</span>
-							<span id="pres_6000g" >XL</span>
-						</div>
-						<label>Selecci&oacute;n:</label>
-						<div class="selector_producto_box" id="producto">
-							<div id="nombre_producto" data-value="">ROYAL CANIN</div>
-							<div id="descripcion_producto" data-value="" ><span><span></div>
-						</div>
-
-					</div>
-
-					<div id="siguiente_pantalla" class="btn-disable">Siguiente</div>
-
-					<div class="selector_producto_footer">
-						Si no aparece tu marca, <a href="#">haz click aqui</a>
+				
+				<div class="controles_marca_container">
+					<div class="cantidad_resultados"><span id="cant_marcas">0</span> RESULTADOS</div>
+					<div class="tipo_mascota">
+						<select id="tipo_mascota"> '.$tipos.' </select>
 					</div>
 				</div>
+
+				<div id="marca" class="marcas_container"></div>
+
+				<div class="btn_siguiente_container">
+					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
+				</div>
+
 			</section>
 
 			<section id="fase_3" class="hidden">
+				
+				<div class="controles_marca_container">
+					<div class="cantidad_resultados"><span id="cant_precentaciones">0</span> RESULTADOS</div>
+					<div class="tipo_mascota">
+						<select id="tipo_mascota"> '.$tipos.' </select>
+					</div>
+				</div>
+
+				<div id="presentaciones" class="presentaciones_container"> </div>
+
+				<div class="btn_siguiente_container">
+					<button id="presentacion_select" class="btn_siguiente btn-disable"> Siguente </button>
+				</div>
+
+			</section>
+
+			<section id="fase_4" class="hidden">
 				<div class="comprar_box" id="plan">
 					<div id="planes">
 						<div class="select_plan_box">
@@ -129,10 +123,10 @@
 				</div>
 			</section>
 
-			<section id="fase_4" class="hidden">
+			<section id="fase_5" class="hidden">
 				<div class="factura">
 					<div class="cintillo_factura">
-						<img id="cen" src="'.TEMA().'/imgs/marca/Elemento-1.png" />
+						<img id="cen" src="'.TEMA().'/imgs/Elemento-1.png" />
 					</div>
 					<div class="alerta" id="cart-content-alerta">
 						<span id="cart-alerta"></span>

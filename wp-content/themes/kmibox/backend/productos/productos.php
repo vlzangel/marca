@@ -4,7 +4,7 @@
 <div class="container_listados">
 
     <div class='titulos'>
-        <h2>Control de Productos</h2> <hr>
+        <h2>Control de Presentaciones</h2> <hr>
     </div>
 
 	<div class="botones_container">
@@ -16,10 +16,14 @@
             <tr>
                 <th>Imagen</th>
                 <th>ID</th>
-                <th>Producto</th>
+                <th>Nombre</th>
+                <th>Descripci&oacute;n</th>
+                <th>Precio</th>
+                <th>Peso</th>
+                <th>Marca</th>
+                <th>Tipo de Mascota</th>
                 <th>Tama&ntilde;os Para:</th>
                 <th>Edades Para:</th>
-                <th>Presentaciones</th>
                 <th>Planes</th>
                 <th>Status</th>
                 <th>Acciones</th>

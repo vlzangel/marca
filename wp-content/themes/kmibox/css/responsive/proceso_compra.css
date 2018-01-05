@@ -182,11 +182,13 @@
 	    }
 
     /* Textos */
-    .carrousel-items article:nth-child(1) p{
+    .carrousel-items article:nth-child(1) p,
+    .carrousel-items article:nth-child(3) p
+    {
         font-size: 32px;
     }
     .carrousel-items article:nth-child(2) p{
-        font-size: 45px;
+        font-size: 40px;
     }
 }
 
@@ -260,7 +262,7 @@
     	margin: 0px;
     }
     .carrousel-items article:nth-child(2) p{
-        font-size: 25px;
+        font-size: 22px;
     }
 
     .header_titulo {
