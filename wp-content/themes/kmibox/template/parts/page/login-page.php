@@ -9,7 +9,7 @@
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
 				<h4 style="color: #ffffff; font-family: GothanMedium_regular;    margin-top: 20%;">Inicia Sesión para continuar</h4>
-				<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="img-responsive  hidden-ms hidden-lg" style="margin-top: 15%;">
+				<img src="<?php echo get_home_url(); ?>/img/logo-responsive.png" class="img-responsive  hidden-ms hidden-lg" style="margin-top: 15%;">
 			</aside>
 
 			<form id='form-login' class="form-horizontal">
