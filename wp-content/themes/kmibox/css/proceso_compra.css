@@ -74,7 +74,8 @@ html, body, #content-primary {
     font-size: 13px;    
     font-family: GothanMedium_regular;
     display: none;
-    width: 50px;
+    width: 60px;
+    text-transform: uppercase;
 }
 
 #vlz_controles_fases > span.fase_activa > span {

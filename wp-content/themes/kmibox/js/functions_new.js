@@ -258,9 +258,9 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<div class="cantidad_controls">';
-	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
-	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
 	HTML += '	 		<i class="fa fa-minus-circle menos" onclick="menos_cantidad('+index+')"></i>';
+	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
+	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
 	HTML += '	 	</div>';
 	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
