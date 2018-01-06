@@ -55,7 +55,7 @@
 	    	}
 
 	        $HTML = '
-	        	<nav> 
+	        	<nav class="container"> 
 					<div class="nav_container">
 
 						<a href="'.$home.'" class="hidden-xs hidden-sm">
