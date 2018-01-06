@@ -145,7 +145,9 @@ a:focus, a:focus .media-icon img {
     cursor: default !important;
 }
 
-.celdas_1 .input_box > input {
+.celdas_1 .input_box > input,
+.celdas_1 .input_box > select
+{
     width: 100%;
     box-sizing: border-box;
     padding: 5px;
@@ -171,8 +173,9 @@ a:focus, a:focus .media-icon img {
     padding: 3px;
 }
 
-.celdas_1 .input_text_container .input_text input
- {
+.celdas_1 .input_text_container .input_text input,
+.celdas_1 .input_text_container .input_text select
+{
     width: 100%;
 }
 
@@ -181,4 +184,8 @@ a:focus, a:focus .media-icon img {
     margin: 5px 0px 0px;
     padding: 15px 0px 0px !important;
     text-align: right;
+}
+
+.celda_1_3{
+    width: 66.6666667% !important;
 }

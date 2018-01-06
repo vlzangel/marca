@@ -18,7 +18,7 @@ get_header();
 	<?php } ?>
 
 </section>
-<?php get_template_part( 'template/parts/footer/footer', 'login' ); ?>
+<!--?php get_template_part( 'template/parts/footer/footer', 'login' ); ?-->
 
 <?php get_footer(); ?>
 

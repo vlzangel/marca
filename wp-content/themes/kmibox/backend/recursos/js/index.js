@@ -36,8 +36,6 @@ function cerrar(e){
     jQuery("body").css("overflow", "auto");
 }
 
-
-
 function subirImg(evt){
     var files = evt.target.files;
     getRealMime(this.files[0]).then(function(MIME){
@@ -137,7 +135,22 @@ function getRealMime(file) {
 
 function initImg(id){
     document.getElementById(id).addEventListener("change", subirImg, false);
-}  
+} 
+
+function initFileNormal(id){
+    document.getElementById(id).addEventListener("change", subirFileNormal, false);
+} 
+
+function subirFileNormal(evt){
+    var files = evt.target.files;
+    var reader = new FileReader();
+        reader.onload = (function(theFile) {
+            return function(e) {  
+                img_cargada(e.target.result);  
+            };
+       })(files[0]);
+       reader.readAsDataURL(files[0]);   
+} 
 
 function d(s){ return jQuery(s)[0].outerHTML; }
 function c(i){

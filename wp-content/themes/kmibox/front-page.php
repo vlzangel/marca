@@ -10,7 +10,7 @@
  * @subpackage Twenty_Seventeen
  * @since 1.0
  * @version 1.0
- */ 
+ */ #
 
 wp_enqueue_style( 'home_css', TEMA()."/css/home.css", array(), "1.0.0" );
 
@@ -64,6 +64,7 @@ get_header(); ?>
 					<br class="hidden-sm hidden-xs">
 					veterinaria
 				</p>
+
 			</div>
 		</div>	
 	</section>

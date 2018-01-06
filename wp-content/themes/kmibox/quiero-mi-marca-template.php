@@ -61,7 +61,7 @@
  				<?php for ($i=1; $i < 9; $i++) { ?>
 				<article class="col-xs-12 col-sm-6 col-md-3 text-center">
 					<div class="row"  data-target="items">
-						<img src="<?php echo get_home_url(); ?>/img/productos/marcas/6.PNG" class="img-responsive" id=""/>
+						<img src="<?php echo get_home_url(); ?>/img/productos/marcas/<?php echo $i; ?>.PNG" class="img-responsive" id=""/>
 					</div>
 				</article>
 				<?php } ?>

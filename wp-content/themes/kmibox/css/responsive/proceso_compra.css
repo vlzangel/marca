@@ -1,3 +1,8 @@
+/*****************************************************************
+			MIN-WIDTHs
+/*****************************************************************/
+
+
 @media (min-width: 1400px){
 	i#anterior {
 	    left: 0px;
@@ -7,6 +12,55 @@
 	    right: 0px;
 	}
 }
+
+@media (min-width: 768px) {
+
+    /* GRID */
+	    .carrousel-items article:nth-child(1) img {
+	    	width: 80%;
+	    	height: 80%;
+	    	cursor: pointer;
+	    }
+	    .carrousel-items article:nth-child(2){
+	        z-index:3;
+	    }
+	    .carrousel-items article:nth-child(3) img {
+	    	width: 80%;
+	    	height: 80%;
+	    	cursor: pointer;
+	    }
+
+	    .carrousel-items,
+	    .carrousel-items article {
+	        display: flex;
+	        padding-left: 0px;
+	        padding-right: 0px;
+	    }
+	    .carrousel-items article div{
+	        margin: auto; 
+	    }
+
+    /* Textos */
+    .carrousel-items article:nth-child(1) p,
+    .carrousel-items article:nth-child(3) p
+    {
+        font-size: 32px;
+    }
+    .carrousel-items article:nth-child(2) p{
+        font-size: 40px;
+    }
+
+    .btn_siguiente_container {
+	    margin-top: 5px;
+	}
+}
+
+
+/*****************************************************************
+			MAX-WIDTHs
+/*****************************************************************/
+
+
 
 @media (max-width: 1000px){
 	.carrusel_2{
@@ -27,7 +81,7 @@
 
 @media (max-width: 992px){
 	.select_plan div{
-	    font-size: 16px;
+	    font-size: 14px;
 	}
 }
 
@@ -80,11 +134,19 @@
 
 	.select_plan_box {
 	    padding: 0px;
+	    height: 100%;
 	}
 
 	.select_plan_box article {
 	    width: 49%;
+	    padding: 0px 80px;
 	}
+
+    /* Presentaciones */
+
+    	#presentaciones > div {
+		    width: 33.3334%;
+		}
 }
 
 @media (max-width: 780px){
@@ -98,25 +160,8 @@
 	}
 }
 
-@media (max-width: 730px){
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 18px;
-	    min-width: 170px;
-	}
-}
+@media (max-width: 767px) {
 
-@media (max-width: 680px){
-	.carrusel_2{
-	    width: 70%;
-	}
-	.carrusel_2 > div {
-	    max-width: 100%;
-	}
-
-	#fase_3 > div {
-	    padding: 85px 10px 10px;
-	    height: 100% !important;
-	}
 
 	.solo_movil{
 		display: block;
@@ -125,72 +170,6 @@
 	.solo_pc{
 		display: none;
 	}
-
-	#desglose td *{
-		font-size: 11px;
-	}
-
-}
-
-@media (max-width: 600px){
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 12px;
-	    min-width: 150px;
-        margin: 0px 3px;
-	}
-
-	#agregar_plan {
-	    display: block;
-	    margin: 10px;
-	}
-
-	.factura {
-	    margin: 150px auto 50px;
-	}
-
-	#desglose td {
-	    padding: 5px 10px;
-	}
-
-}
-
-@media (min-width: 768px) {
-
-    /* GRID */
-	    .carrousel-items article:nth-child(1) img {
-	    	width: 80%;
-	    	height: 80%;
-	    	cursor: pointer;
-	    }
-	    .carrousel-items article:nth-child(2){
-	        z-index:3;
-	    }
-	    .carrousel-items article:nth-child(3) img {
-	    	width: 80%;
-	    	height: 80%;
-	    	cursor: pointer;
-	    }
-
-	    .carrousel-items,
-	    .carrousel-items article {
-	        display: flex;
-	        padding-left: 0px;
-	        padding-right: 0px;
-	    }
-	    .carrousel-items article div{
-	        margin: auto; 
-	    }
-
-    /* Textos */
-    .carrousel-items article:nth-child(1) p{
-        font-size: 32px;
-    }
-    .carrousel-items article:nth-child(2) p{
-        font-size: 45px;
-    }
-}
-
-@media (max-width: 767px) {
 
 	.carrousel-items article{
 	    width: 100%;
@@ -260,15 +239,156 @@
     	margin: 0px;
     }
     .carrousel-items article:nth-child(2) p{
-        font-size: 25px;
+        font-size: 22px;
     }
 
     .header_titulo {
         font-size: 15px!important;
     }
+
+
+    /* Marcas */
+
+    	#marca {
+		    margin: 0px;
+		}
+
+    	#marca > div {
+		    width: 33.3334%;
+		}
+
+		.controles_marca_container {
+		    margin: 75px 73px 0px 20px;
+		    overflow: hidden;
+		}
+
+		.cantidad_resultados {
+		    font-size: 15px;
+		}
+
+		#tipo_mascota {
+		    font-size: 12px;
+		}
+
+    /* Presentaciones */
+
+    	#presentaciones {
+		    margin: 0px;
+		}
+
+    	#presentaciones > div {
+		    width: 33.3334%;
+		}
+
+    /* Planes */
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 0px 50px;
+		}
+}
+
+@media (max-width: 730px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 18px;
+	    min-width: 170px;
+	}
+}
+
+@media (max-width: 680px){
+	.carrusel_2{
+	    width: 70%;
+	}
+	.carrusel_2 > div {
+	    max-width: 100%;
+	}
+
+	#desglose td *{
+		font-size: 11px;
+	}
+
+    /* Presentaciones */
+
+		#presentaciones > div {
+		    width: 50%;
+		    height: 70%;
+		}
+
+    /* Planes */
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 0px 30px;
+		}
+
+}
+
+@media (max-width: 600px){
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 12px;
+	    min-width: 150px;
+        margin: 0px 3px;
+	}
+
+	#agregar_plan {
+	    display: block;
+	    margin: 10px;
+	}
+
+	.factura {
+	    margin: 150px auto 50px;
+	}
+
+	#desglose td {
+	    padding: 5px 10px;
+	}
+
+	.carrusel_2 > div img {
+	    height: calc( 100% - 40px );
+	}
+
+	.title_producto_container {
+	    height: 30px;
+	}
+
+	.carrusel_2 > div .title_producto_box {
+	    font-size: 12px;
+	}
+
+	.carrusel_2 > div,
+	.carrusel_2 .item_box,
+	.carrusel_2 > div .img_box {
+        height: 100%;
+    	width: 100%;
+	}
+
+    /* Planes */
+
+		.select_plan_box {
+		    height: auto;
+		}
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 0px 10px;
+		}
+
 }
 
 @media ( max-width: 500px ) {
+
+	.titulo_planes {
+	    top: 44px !important;
+	    font-size: 15px !important;
+	    padding: 4px 80px;
+	}
+
+	#vlz_controles_fases > span > span {
+	    position: absolute;
+	    left: -42px;
+	    top: -1px;
+	    font-size: 9px;
+	}
 
 	.comprar_container {
     	position: relative;
@@ -353,9 +473,6 @@
 	    margin: 0px auto 5px;
 	    width: 10px;
 	    height: 10px;
-	    background-color: #9BFF00;
-	    opacity: 0.4;
-	    border-radius: 50%;
 	}
 
 	.select_plan_box article {
@@ -367,7 +484,7 @@
 	}
 
 	.select_plan div {
-	    font-size: 10px;
+	    font-size: 15px;
 	}
 
 	#desglose th * {
@@ -391,12 +508,7 @@
 	    margin: 100px auto 10px;
 	}
 
-	.cantidad_controls {
-	    margin-bottom: 6px;
-	}
-
 	.cantidad_controls i {
-	    margin: 0px auto 2px;
 	    text-align: center;
 	}
 
@@ -405,19 +517,77 @@
 	}
 
 	.cantidad_controls label {
-	   	font-size: 10px !important;
+	   	font-size: 13px !important;
 	}
 
 	.cantidad_controls i{
-	   	font-size: 10px !important;
+	   	font-size: 13px !important;
 	}
+
+	/* Marca */
+
+		#marca {
+		    height: calc( 100% - 170px );
+		}
+
+		#marca > div {
+		    width: 50%;
+		}
+
+		.cantidad_resultados {
+		    font-size: 12px;
+		    padding: 20px 0px 0px;
+		}
+
+		#tipo_mascota {
+		    font-size: 10px;
+		    margin-top: 15px;
+		}
+
+		.controles_marca_container {
+		    margin: 75px 20px 0px 20px;
+		}
+
+		.btn_siguiente_container {
+		    text-align: center;
+		    padding: 0px 75px;
+		    margin: 10px 0px 3px;
+		    font-size: 12px;
+		}
+
+		.btn_siguiente_container button {
+	        font-size: 12px;
+	    	padding: 3px 25px;
+	    	margin: 5px;
+		}
+
+	/* Precentaciones */
+
+		#presentaciones > div {
+		    height: 50%;
+		}
+
+    /* Planes */
+
+		.select_plan_box article {
+		    width: 49%;
+		    padding: 5px;
+		    margin-bottom: 10px;
+		}
+
+	/* Desglose */
+
+		.total_en_cantidad{
+			font-size: 10px !important;
+		}
+
 } 
 
 @media (max-width: 400px){
 
 	#vlz_titulo {
 	    top: 60px;
-	    font-size: 14px;
+	    font-size: 12px;
 	}
 
 	.selector_edad_container .selector_edad_box span {
@@ -426,26 +596,28 @@
 	    min-width: 85px;
 	    margin: 0px 3px;
 	}
-}
 
-@media (max-height: 600px){
+	/* Precentaciones */
 
-	.carrusel_2 > div img {
-	    height: calc( 100% - 40px );
-	}
+		#presentaciones .title_producto_box {
+		    font-size: 12px;
+		}
 
-	.title_producto_container {
-	    height: 30px;
-	}
+		#presentaciones .descripcion_producto_box {
+		    font-size: 11px;
+		}
 
-	.carrusel_2 > div .title_producto_box {
-	    font-size: 12px;
-	}
+		#presentaciones .peso_producto_box {
+		    font-size: 12px;
+		}
 
-	.carrusel_2 > div,
-	.carrusel_2 .item_box,
-	.carrusel_2 > div .img_box {
-        height: 100%;
-    	width: 100%;
-	}
+		#presentaciones .img_box {
+		    height: calc( 100% - 50px );
+		}
+
+    /* Planes */
+
+		.select_plan div {
+		    font-size: 13px;
+		}
 }

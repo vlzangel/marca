@@ -7,23 +7,28 @@
 
 	$_presentaciones = array();
 	$_nombre = "";
+	$_precio = "";
+	$_marca = "";
+	$_nombre = "";
 	$img_url = "";
 	$img_old = "";
+	$_descripcion = "";
 	$ID_UPDATE = "";
+
 	if( $ID != "" ){
-
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$ID);
-
 		$_nombre = $producto->nombre;
+		$_precio = $producto->precio;
+		$_peso = $producto->peso;
+		$_marca = $producto->marca;
+		$_descripcion = $producto->descripcion;
 		$_presentaciones = unserialize($producto->presentaciones);
 		$_tamanos = unserialize($producto->tamanos);
 		$_edades = unserialize($producto->edades);
 		$_planes = unserialize($producto->planes);
 		$_dataextra = unserialize($producto->dataextra);
-		$img_url = TEMA()."/productos/imgs/".$_dataextra["img"];
-
+		$img_url = TEMA()."/imgs/productos/".$_dataextra["img"];
 		$img_old = $_dataextra["img"];
-
 		$ID_UPDATE = '<input type="hidden" id="ID" name="ID" value="'.$ID.'" />';
 	}
 
@@ -72,24 +77,52 @@
 		';
 		return $HTML;
 	}
+
+	$_marcas = $wpdb->get_results("SELECT * FROM marcas");
+	$marcas = "";
+	foreach ($_marcas as $key => $marca) {
+		$marcas .= "<option value='{$marca->id}' ".selected($marca->id, $_marca, false).">{$marca->nombre}</option>";
+	}
 ?>
 <form id="producto">
 	<?php echo $ID_UPDATE; ?>
 	<div class="celdas_1">
 		<div class="input_box">
-			<label>Nombre producto:</label>
-			<input type="text" id="nombre" name="nombre" value="<?php echo $_nombre; ?>">
+			<div class="input_box">
+				<label>Nombre del producto:</label>
+				<input type="text" id="nombre" name="nombre" value="<?php echo $_nombre; ?>">
+			</div>
 		</div>
 	</div>
 	<div class="celdas_1">
 		<div class="input_box">
-			<label>Presentaciones:</label>
+			<div class="input_box">
+				<label>Breve descripci&oacute;n del producto:</label>
+				<input type="text" id="descripcion" name="descripcion" value="<?php echo $_descripcion; ?>">
+			</div>
+		</div>
+	</div>
+	<div class="celdas_1">
+		<div class="input_box">
 			<div class="input_text_container">
-				<?php
-					foreach ($presentaciones as $key => $value) {
-						echo newInput( $key, $value." (".$key.")", $_presentaciones[$key]);
-					}
-				?>
+				
+				<div class="input_text">
+					<label>Precio</label>
+					<input type="number" id="precio" name="precio" value="<?php echo $_precio; ?>"> 
+				</div>
+			
+				<div class="input_text">
+					<label>Peso</label>
+					<input type="text" id="peso" name="peso" value="<?php echo $_peso; ?>"> 
+				</div>
+			
+				<div class="input_text">
+					<label>Marca</label>
+					<select id="marca" name="marca">
+						<?php echo $marcas; ?>
+					</select>
+				</div>
+
 			</div>
 		</div>
 	</div>

@@ -23,10 +23,10 @@
 	get_footer(); 
 ?>
 
-<section class="container">
+<section class="container3">
 	<?php if ( !is_user_logged_in() ){ ?>
-		<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
-		<aside class="col-md-12 ">
+		<aside class=" container col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
+		<aside class=" container col-md-12 " style="background-color: #0b1706">
 			<?php get_template_part( 'template/parts/page/login', 'page' ); ?>
 		</aside>
 		<aside class="col-md-12 hidden" id="content-register-checkout">

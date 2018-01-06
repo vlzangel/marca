@@ -18,12 +18,6 @@
 		"Maduro" => 0
 	);
 
-	$_presentaciones = array(
-		"900g" => 0,
-		"2000g" => 0,
-		"4000g" => 0
-	);
-
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
 	$_planes = array();
 	foreach ($data_planes as $plan) {
@@ -32,13 +26,10 @@
 
 	foreach ($tamanos as $key => $value) { $_tamanos[$value] = 1; }
 	foreach ($edades as $key => $value) { $_edades[$value] = 1; }
-	foreach ($_presentaciones as $key => $value) { 
-		$_presentaciones[$key] = $_POST[$key]; 
-	}
 	foreach ($planes as $key => $value) { $_planes[$value] = 1; }
 
 	$img = guardarImg(
-		dirname(dirname(dirname(__DIR__)))."/productos/imgs/", 
+		dirname(dirname(dirname(__DIR__)))."/imgs/productos/", 
 		$img_producto
 	);
 
@@ -50,9 +41,13 @@
 		INSERT INTO productos VALUES (
 			NULL,
 			'$nombre',
+			'$descripcion',
+			'$precio',
+			'$peso',
+			'$marca',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',
-			'".serialize($_presentaciones)."',
+			'---',
 			'".serialize($_planes)."',
 			'".serialize($dataextra)."',
 			'Activo'

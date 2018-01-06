@@ -50,6 +50,10 @@ p .img-center{
     margin-right: 0px;
     margin-left: 0px;
 }
+.rowAlimento {
+    /*margin-right: 0px;*/
+    margin-left: 0px;
+}
 .profile-content-input{
 	background-color: #ffffff!important;
 	border: 0px ;
@@ -152,6 +156,21 @@ p span{
 }
 
 
+.atras {
+    padding: 5px 15px 5px 15px;
+    left: 20px;
+    width: 140px;
+    background: #091705;
+    border-radius: 40px;
+    border: 1px solid #091705;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+    z-index: 99;
+}
+
 .progress-text{
 	padding-left: 80px;
 }
@@ -166,12 +185,14 @@ p span{
 .btn-kmibox-link i{
 	padding-right: 10px;
 }
+
 .btn-kmibox-link:hover{
 	color: #000000;
 	background:#fff;
 	text-decoration: none;
 	border: 1px solid #000
 }
+
 .btn-kmibox-link{
 	background: #000000;
 	padding: 14px 33px;
@@ -291,6 +312,7 @@ select{
 .center-box{
 	display: inline;
 }
+.atras:hover,
 .btn-sm-kmibox:hover,
 .btn-sm-kmibox-price:hover,
 .btn-kmibox:hover{
@@ -432,6 +454,18 @@ select{
 	padding: 10px 0px;
 }
 
+#top1{
+	background: #ffffff;
+	min-height: 10vh;
+	padding: 10px 0px;
+}
+
+
+.LoginNuevo{
+background-color: #181E0D;
+height: 800px;
+margin-top: -31%;
+}
 
 #tophome{
 	background: #ffffff;
@@ -477,7 +511,7 @@ select{
 
 
 #como-funciona p{
-	font-size: 16px;
+	font-size: 17px;
 }
 
 #como-funciona{
@@ -1071,6 +1105,14 @@ select{
 	top: 30%;
 }
 
+.resertpassword{
+	border-radius:10px; 
+	padding:20px 50px 20px 50px;  
+	 border:1px solid #ccc; 
+	 margin-bottom: 2%; 
+	 margin-top: 9%;
+	}
+
 /* ***************** Compra ***************** */
 .container{
     max-width: 1170px;
@@ -1232,13 +1274,14 @@ select{
 	#footer{
 		margin-top: 90px;
 	}
-.carro{
+	.carro{
 
-	    margin-left: -41%;
-}
+		    margin-left: -41%;
+	}
 	#como-funciona p {
     	font-size: 18px;
 	}
+	
 
 }
 @media all and (max-width:959px) {
@@ -1317,6 +1360,29 @@ select{
 		background-size: auto; 
 	}
 }
+
+@media all and (min-width:768px) and (max-width:1024px) {
+	
+.LoginNuevo {
+    background-color: #0b1706;
+    height: 950px;
+    margin-top: -2%;
+	}
+.resertpassword{
+	border-radius:10px; 
+	padding:20px 50px 20px 50px;  
+	 border:1px solid #ccc; 
+	 margin-bottom: 18% ! important; 
+	 margin-top: 9%;
+	}
+.contenedorsm{
+	       margin-right: -6%
+
+	}
+.botonesheader{
+	 margin-top: -7%;
+}
+}
 @media all and (max-width:959px) and (min-width:613px) {
 	.h-3x{
 		font-size: 20px;
@@ -1330,7 +1396,7 @@ select{
     top: 0px;  
     width: 100%;
     /*height: calc( 100% - 72px )*/;
-}
+	}
 	#regalo{
 		width: 20%;
 	}
@@ -1373,6 +1439,18 @@ select{
 	#top .container{
 		margin-top: 0px;
 	}
+	.LoginNuevo{
+	background-color: #0b1706;
+	height: 636px;
+	margin-top: -2%;
+	}
+
+	.inputlogin{
+	color: #000000 ! important;
+    margin-left: 13% ! important;
+    width: 77% ! important;
+	}
+
 	#top div img{
 		max-width: 50%;
 	}
@@ -1819,27 +1897,4 @@ select{
 
 .row1{	
 	width: 100%;
-}
-
-.marca{
-	background: #ffffff;
-	border-radius: 40px;
-	border : 1px solid #fff;
-	font-size: 20px;
-	font-weight: bold;
-    padding: 10px 30px 10px 30px;;
-	margin-top: 20px;
-}
- 
-#presentaciones {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    z-index: 99999999999999999;
-    background: #FFF;
-}
-
-section.container {
-    margin-top: 20px;
 }

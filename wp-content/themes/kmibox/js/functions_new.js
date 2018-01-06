@@ -4,15 +4,16 @@ CARRITO["productos"] = [];
 CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
-	"presentacion": "",
 	"plan": "",
 	"plan_id": "",
 	"cantidad": 1,
+	"precio": 0.00,
 	"subtotal": 0.00
 });
 
 
 var PRODUCTOS = [];
+var MARCAS = [];
 var PLANES = [];
 
 jQuery(document).ready(function() {
@@ -37,42 +38,53 @@ jQuery(document).ready(function() {
 		var prod_actual = getCarritoActual();
 		prod_actual["edad"] = jQuery(this).attr("data-value");
 		jQuery("#descripcion_producto").html( "RAZA "+prod_actual["tamano"]+" "+prod_actual["edad"]+" <span><span>" );
-		change_fase(2, this);
+		change_fase(2);
 	});
-	jQuery(".selector_presentaciones span").on("click", function(e){
-		var prod_actual = getCarritoActual();
-		prod_actual["presentacion"] = jQuery(this).attr("data-presentacion");
-		jQuery("#descripcion_producto span").html( jQuery(this).attr("data-presentacion") );
-		jQuery(".selector_presentaciones span").removeClass("btn_activo");
-		jQuery(this).addClass("btn_activo");
 
-		jQuery("#siguiente_pantalla").removeClass("btn-disable");
-	});
-	jQuery("#siguiente_pantalla").on("click", function(e){
+	jQuery("#marca_select").on("click", function(e){
 		if( !jQuery(this).hasClass("btn-disable") ){
-			change_fase(3, this);
+			change_fase(3);
 		}
 	});
+
+	jQuery("#presentacion_select").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			change_fase(4);
+		}
+	});
+
 	jQuery("#plan article").on("click", function(e){
 		var prod_actual = getCarritoActual();
 		prod_actual["plan"] = PLANES[ jQuery(this).attr("data-value") ].nombre;
 		prod_actual["plan_id"] = jQuery(this).attr("data-value");
 		jQuery("#plan article").removeClass("plan_activo");
 		jQuery(this).addClass("plan_activo");
-		change_fase(4, this);
+		change_fase(5);
 	});
+
+
 	jQuery("#vlz_atras").on("click", function(e){
 		change_fase( jQuery(this).attr("data-value") );
 	});
+
+	jQuery("#tipo_mascota").on("change", function(e){
+		var TIPO = jQuery(this).val();
+		jQuery('#marca > div').css("display", "none");
+		jQuery('#marca > .tipo_'+TIPO).css("display", "block");
+
+		jQuery('#cant_marcas').html( jQuery('#marca > .tipo_'+TIPO).length );
+
+	});
+
 	jQuery("#agregar_plan").on("click", function(e){
 		e.preventDefault();
 		CARRITO["productos"].push({
 			"tamano": "",
 			"edad": "",
-			"presentacion": "",
 			"plan": "",
 			"plan_id": "",
 			"cantidad": 1,
+			"precio": 0.00,
 			"subtotal": 0.00
 		});
 		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = undefined;
@@ -127,6 +139,7 @@ function initProductos_y_Planes(){
 		TEMA+"assets/ajax/productos_planes.php", {},
 		function(data){
 			PRODUCTOS = data["PRODUCTOS"];
+			MARCAS = data["MARCAS"];
 			PLANES = data["PLANES"];
 		}, "json"
 	).fail(function(e) {
@@ -134,7 +147,7 @@ function initProductos_y_Planes(){
   	});
 }
 
-function change_fase(fase, _this = ""){
+function change_fase(fase){
 	jQuery("#vlz_controles_fases span").removeClass("fase_activa");
 	jQuery("#fase_indicador_"+fase).addClass("fase_activa");
 	jQuery(".comprar_container section").addClass("hidden");
@@ -148,75 +161,66 @@ function change_fase(fase, _this = ""){
 	loadFase(fase);
 }
 
-function loadProductos(){
+function loadMarcas(){
 	var prod_actual = getCarritoActual();
 	var actual_select = prod_actual["producto"];
-	jQuery('.carrusel_2').html("");
-	jQuery('.carrusel_2').append(jQuery('<span></span>'));
-	jQuery.each(PRODUCTOS,  function(key, val){
-		if( actual_select == undefined ){
-			prod_actual["producto"] = key;
-			actual_select = key;
-		}
-		jQuery('.carrusel_2').append(
-			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+val.nombre+'">'+
+	jQuery('#marca').html("");
+	var CANT = 0;
+	jQuery.each(MARCAS,  function(key, marca){
+		jQuery('#marca').append(
+			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
 				'<div class="item_box">'+
-					'<div><div class="img_box"><img src="'+TEMA+"/productos/imgs/"+val.dataextra.img+'"></div></div>'+
-					'<div class="title_producto_container"><div class="title_producto_box">'+val.nombre+'</div></div>'+
+					'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
 				'</div>'+
 			'</div>'
 		);
+		CANT++;
 	});
-	if( actual_select != undefined ){
-		prod_actual["actual"] = "#item_"+actual_select;
-	}
+	jQuery('#cant_marcas').html( CANT );	
 }
 
-function initProductosCarrusel(){
-	jQuery(".carrusel_2 > div").on("click", function(e){
-		var index = jQuery(this).index() + 1; 
-		var _index = getPosision();
-		if( index != _index ){
-			if( index < _index ){
-				var clicks = _index - index;
-				for (var i = 0; i < clicks; i++) {
-					jQuery("#anterior").click();
-				}
-			}
-			if( index > _index ){
-				var clicks = index - _index;
-				for (var i = 0; i < clicks; i++) {
-					jQuery("#siguiente").click();
-				}
-			}
-		}
+function initMarcas(){
+	jQuery("#marca > div").on("click", function(e){ 
+		var prod_actual = getCarritoActual();
+		prod_actual["marca"] = jQuery(this).attr("data-id");
+		jQuery("#marca > div").removeClass("item_activo");
+		jQuery(this).addClass("item_activo");
+		jQuery("#marca_select").removeClass("btn-disable");
 	});
-	jQuery("#anterior").on("click", function(e){
-		jQuery(".carrusel_2 > div:last").insertBefore( jQuery(".carrusel_2 > div:first") );
-		selectProducto();
-	});
-	jQuery("#siguiente").on("click", function(e){
-		jQuery(".carrusel_2 > div:first").insertAfter( jQuery(".carrusel_2 > div:last") );
-		selectProducto();
-	});
-	selectProducto();
+	jQuery("#tipo_mascota").change();
 }
 
-function selectProducto(){
+function loadPresentaciones(){
+	jQuery('#presentaciones').html("");
+	var CANT = 0;
 	var prod_actual = getCarritoActual();
-	var index = getPosision();
-	var _this = ".carrusel_2 > div:nth-child("+index+")";
-	jQuery(".carrusel_2 > div").removeClass("producto_activo");
-	jQuery(_this).addClass("producto_activo");
-	prod_actual["producto"] = jQuery(_this).attr("data-id");
-	jQuery("#nombre_producto").html( jQuery(_this).attr("data-name") );
-	jQuery(".selector_presentaciones span").css("display", "none");
-	jQuery.each( PRODUCTOS[ jQuery(_this).attr("data-id") ].presentaciones,  function(key, val){
-		jQuery("#pres_"+key).attr("data-value", val);
-		jQuery("#pres_"+key).attr("data-presentacion", key);
-		if( val+0 > 0){
-			jQuery("#pres_"+key).css("display", "inline-block");
+	jQuery.each(PRODUCTOS,  function(key, producto){
+		if( prod_actual["marca"] == producto.marca ){
+			HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
+					'<div class="item_box">'+
+						'<div class="img_box" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
+						'<div class="info_producto_container">'+
+							'<div class="title_producto_box">'+producto.nombre+'</div>'+
+							'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
+							'<div class="peso_producto_box">'+producto.peso+'</div>'+
+						'</div>'+
+					'</div>'+
+				'</div>';
+			jQuery('#presentaciones').append( HTML );
+			CANT++;
 		}
+	});
+	jQuery('#cant_precentaciones').html( CANT );	
+}
+
+function initPresentaciones(){
+	jQuery("#presentaciones > div").on("click", function(e){
+		var prod_actual = getCarritoActual();
+		prod_actual["producto"] = jQuery(this).attr("data-id");
+		prod_actual["precio"] = PRODUCTOS[ jQuery(this).attr("data-id") ].precio;
+		jQuery("#presentaciones > div").removeClass("item_activo");
+		jQuery(this).addClass("item_activo");
+		jQuery("#presentacion_select").removeClass("btn-disable");
 	});
 }
 
@@ -224,51 +228,25 @@ function change_title(txt){
 	jQuery("#vlz_titulo").html(txt);
 }
 
-jQuery( window ).resize(function() {
-	var index = getPosision();
-	var _pre = ".carrusel_2 > div:nth-child("+(index-1)+")";
-	var _this = ".carrusel_2 > div:nth-child("+index+")";
-	var _sig = ".carrusel_2 > div:nth-child("+(index+1)+")";
-	if( !jQuery(_this).hasClass("producto_activo") ){
-		if( jQuery(_sig).hasClass("producto_activo") ){
-			jQuery("#siguiente").click();
-		}
-		if( jQuery(_pre).hasClass("producto_activo") ){
-			jQuery("#anterior").click();
-		}
-		selectProducto();
-	}
-	
-});
-
-function getPosision(){
-	var W = jQuery(window).width();
-	if( W >= 1000 ){
-		return 4;
-	}
-	if( W > 680 && W < 1000 ){
-		return 3;
-	}
-	if( W <= 680 ){
-		return 2;
-	}
-}
-
-function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presentacion, cantidad = 1 ){
+function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
 	var HTML = "";
 	HTML += '<tr>';
-	HTML += '	 <td class=" hidden-xs">';
+	HTML += '	 <td class="solo_pc">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="">';
-	HTML += '	 	<span href="#">';
-	HTML += '	 		<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 <td class="solo_movil" style="text-align: center;">';
+	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
+	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
+	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 </td>';
+	HTML += '	 <td class="solo_pc" style="text-align: center;">';
+	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
-	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> '+presentacion+'</label>';
+	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
 	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
 	HTML += '	 </td>';
@@ -279,15 +257,12 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	HTML += '	 	<label>$ '+price+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
-
-
 	HTML += '	 	<div class="cantidad_controls">';
-	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
-	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
 	HTML += '	 		<i class="fa fa-minus-circle menos" onclick="menos_cantidad('+index+')"></i>';
-	HTML += '	 		<div class="resaltar_desglose solo_movil" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
+	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
+	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
 	HTML += '	 	</div>';
-
+	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc">';
 	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
@@ -301,27 +276,13 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, presenta
 	jQuery( '#cart-items' ).append(HTML);
 }
 
-function mas_cantidad(index){
-	var valor = jQuery("#cant_"+index).html();
-	valor++;
-	jQuery("#cant_"+index).html(valor);
-	CARRITO["productos"][index]["cantidad"] = valor;
-	CARRITO["cantidad"]++;
-	loadFase(4);
-}
-
-function menos_cantidad(index){
-	var valor = jQuery("#cant_"+index).html();
-	if( valor > 1){
-		valor--;
-		jQuery("#cant_"+index).html(valor);
-		CARRITO["productos"][index]["cantidad"] = valor;
-		CARRITO["cantidad"]--;
-		loadFase(4);
-	}
-}
-
 function loadFase(fase){
+
+	if( parseInt(fase) == 4 ){
+		jQuery("#vlz_titulo").addClass("titulo_planes");
+	}else{
+		jQuery("#vlz_titulo").removeClass("titulo_planes");
+	}
 
 	switch( fase ){
 		case "1":
@@ -329,44 +290,55 @@ function loadFase(fase){
 		break;
 		case 1: // Fase #1 - Tamaño
 			change_title('Elije el tamaño de tu mascota');
+			
+			var prod_actual = getCarritoActual();
+			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
 		break;
+
+
 		case "2":
 			change_title('Escoge la marca de tu preferencia');
+			
+			var prod_actual = getCarritoActual();
+			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+
 		break;
 		case 2: // Fase #2 - Producto
+
 			change_title('Escoge la marca de tu preferencia');
-			loadProductos();
-			initProductosCarrusel();
-			var actual = getCarritoActual();
-			setTimeout(
-				function(){
-					if( actual["actual"] != undefined ){
-						jQuery(actual["actual"]).click();
-					}
-				}, 500
-			);
+			loadMarcas();
+			initMarcas();
+
 		break;
+
 		case "3":
+			change_title('Selecciona la presentaci&oacute;n del alimento');
+		break;
+		case 3: // Fase #3 - Presentación
+			change_title('Selecciona la presentaci&oacute;n del alimento');
+			
+			loadPresentaciones();
+			initPresentaciones();
+
+		break;
+		case "4":
 			change_title('Selecciona el tiempo de suscripción');
 		break;
-		case 3: // Fase #3 - Plan
+		case 4: // Fase #4 - Plan
 			change_title('Selecciona el tiempo de suscripción');
 			jQuery("#plan article").css("display", "none");
 			var actual = getCarritoActual();
 			jQuery.each(PRODUCTOS[ actual["producto"] ]["planes"],  function(key, val){
 				if( val == 1 ){
 					jQuery( "#plan-"+PLANES[ key ].nombre ).css("display", "inline-block");
-					var producto = actual["producto"];
-					var presentacion = actual["presentacion"];
-					var meses = PLANES[ key ].meses;
-					jQuery( "#plan-"+PLANES[ key ].nombre+" .precio_plan" ).html( "$ "+( PRODUCTOS[ producto ]["presentaciones"][presentacion] * meses )+" MXN" );
 				}
 			});
 		break;
-		case "4":
+
+		case "5":
 			change_title('Verifica tu compra');
 		break;
-		case 4: // Fase #5 - Resumen de Compra
+		case 5: // Fase #5 - Resumen de Compra
 			change_title('Verifica tu compra');
 			var subtotal = 0;
 			var iva = 0;
@@ -377,17 +349,17 @@ function loadFase(fase){
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 				var plan = PLANES[ producto['plan_id'] ].meses;
 				var _producto = producto["producto"];
-				var presentacion = producto["presentacion"];
-				var precio_plan = PRODUCTOS[ _producto ]["presentaciones"][ presentacion ]*plan;
+				var precio_plan = producto["precio"]*plan;
 				precio = precio_plan;
 				add_item_cart(
 					key,
 					producto["producto"],
 					PRODUCTOS[ _producto ].nombre,
 					producto['plan'],
-					TEMA+"/productos/imgs/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
+					TEMA+"/imgs/productos/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
 					precio_plan,
-					"RAZA "+producto["tamano"]+" "+producto["edad"]+" "+producto["presentacion"],
+					PRODUCTOS[ _producto ].descripcion,
+					PRODUCTOS[ _producto ].peso,
 					producto["cantidad"]								
 				);
 				var temp_total = ( precio_plan * producto["cantidad"] );
@@ -417,4 +389,24 @@ function getCarritoActual(){
 
 function FN(number){
 	return new Intl.NumberFormat("de-DE", {style: "currency", currency: "USD"}).format(number);
+}
+
+function mas_cantidad(index){
+	var valor = jQuery("#cant_"+index).html();
+	valor++;
+	jQuery("#cant_"+index).html(valor);
+	CARRITO["productos"][index]["cantidad"] = valor;
+	CARRITO["cantidad"]++;
+	loadFase(5);
+}
+
+function menos_cantidad(index){
+	var valor = jQuery("#cant_"+index).html();
+	if( valor > 1){
+		valor--;
+		jQuery("#cant_"+index).html(valor);
+		CARRITO["productos"][index]["cantidad"] = valor;
+		CARRITO["cantidad"]--;
+		loadFase(5);
+	}
 }
