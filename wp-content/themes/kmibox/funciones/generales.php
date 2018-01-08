@@ -162,7 +162,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="'.$salir.'" style="margin-right: -60%;">
+										<a href="'.$salir.'" >
 											<i class="fa fa-close"></i>
 											<span style=" font-family: GothanMedium_regular;">Salir</span>
 										</a>
