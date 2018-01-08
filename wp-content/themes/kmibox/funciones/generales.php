@@ -55,58 +55,59 @@
 	    	}
 
 	        $HTML = '
-	        	<nav class="container nav_container"> 
-	        		<div class="col-xs-6 col-sm-5 col-md-5 pull-left" >
-						<a href="'.$home.'">
-							<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
-						</a> 
-					</div>
-			    	<ul class="col-xs-6 col-sm-7 col-md-7 pull-right list-inline list-unstyled" style="padding-right:0px" >';
-			    		if ( is_user_logged_in() ){
-			    			$HTML .= '
-								<li style="padding-right:0px;padding-left:0px;">
-									<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
-										<i class="fa fa-plus-circle"></i>
-										<span style=" font-family: GothanMedium_regular;">
-											Quiero mi NutriHeroes
-										</span>
-									</a>
-								</li>
-								<li style="padding-right:0px;padding-left:0px;">
-									<a href="'.$home.'/perfil/">
-										<i class="fa fa-user"></i>
-										<span style=" font-family: GothanMedium_regular;">
-											'.$user->display_name.'
-										</span>
-									</a>
-								</li>
-								<li style="padding-right:0px;padding-left:0px;">
-									<a href="'.$salir.'">
-										<i class="fa fa-close"></i>
-										<span style=" font-family: GothanMedium_regular;">
-											Salir
-										</span>
-									</a>
-								</li>';
-						}else{
-			    			$HTML .= '									
-								<li>
-									<a href="'.$home.'/iniciar-sesion/">
-										<i class="fa fa-key"></i>
-										<span style=" font-family: GothanMedium_regular;">
-											Iniciar Sesión
-										</span>
-									</a>
-								</li>
-								<li>
-									<a href="'.$home.'/registro/">
-										<i class="fa fa-user-plus"></i> 
-										<span style=" font-family: GothanMedium_regular;">Registrarse</span>
-									</a>
-								</li>';
-						} $HTML .= '
-					</ul>
-
+	        	<nav class="container">
+	        		<div class="nav_container" style="width:100%;">
+		        		<div class="col-xs-6 col-sm-5 col-md-5 pull-left" >
+							<a href="'.$home.'">
+								<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
+							</a> 
+						</div>
+				    	<ul class="col-xs-6 col-sm-7 col-md-7 pull-right list-inline list-unstyled" style="padding-right:0px" >';
+				    		if ( is_user_logged_in() ){
+				    			$HTML .= '
+									<li style="padding-right:0px;padding-left:0px;">
+										<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
+											<i class="fa fa-plus-circle"></i>
+											<span style=" font-family: GothanMedium_regular;">
+												Quiero mi NutriHeroes
+											</span>
+										</a>
+									</li>
+									<li style="padding-right:0px;padding-left:0px;">
+										<a href="'.$home.'/perfil/">
+											<i class="fa fa-user"></i>
+											<span style=" font-family: GothanMedium_regular;">
+												'.$user->display_name.'
+											</span>
+										</a>
+									</li>
+									<li style="padding-right:0px;padding-left:0px;">
+										<a href="'.$salir.'">
+											<i class="fa fa-close"></i>
+											<span style=" font-family: GothanMedium_regular;">
+												Salir
+											</span>
+										</a>
+									</li>';
+							}else{
+				    			$HTML .= '									
+									<li>
+										<a href="'.$home.'/iniciar-sesion/">
+											<i class="fa fa-key"></i>
+											<span style=" font-family: GothanMedium_regular;">
+												Iniciar Sesión
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="'.$home.'/registro/">
+											<i class="fa fa-user-plus"></i> 
+											<span style=" font-family: GothanMedium_regular;">Registrarse</span>
+										</a>
+									</li>';
+							} $HTML .= '
+						</ul>
+					<div>
 				</nav>
 	        ';
 	        return $HTML;
