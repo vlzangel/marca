@@ -55,7 +55,7 @@
 	    	}
 
 	        $HTML = '
-	        	<nav class="col-xs-12">
+	        	<nav>
 	        		<div class="nav_container">
 		        		<div class="col-xs-6 col-sm-5 col-md-5 pull-left" >
 							<a href="'.$home.'">
