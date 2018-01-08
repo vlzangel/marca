@@ -114,7 +114,7 @@ get_header(); ?>
 
 	<section class="row text-center" id="home-dog">
 		<div>
-			<h4>Un alimento especial para un <span class="mayusculas">compañero especial<span></h4>
+			<h4>Un alimento especial para un Compañero especial</h4>
 		</div>
 		<div id="dog" style="background: url(<?php echo get_home_url(); ?>/img/dog.jpg) no-repeat center center;"></div>
 	</section>
