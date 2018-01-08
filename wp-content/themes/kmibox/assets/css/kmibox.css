@@ -353,6 +353,7 @@ select{
 	font-family: PoetsenOne_Regular;
 }
 
+
 .btn-sm-kmibox-default{
 	background: #000000!important;
 }	
@@ -1163,6 +1164,8 @@ margin-top: -31%;
 	    /*background: #94d400 url(../img/footer-mobile.png) no-repeat center bottom;*/
 	    background-size: cover;
 	}
+
+
 }
 @media only screen and (max-width:599px) {
 	#cart-items div,
@@ -1258,6 +1261,20 @@ margin-top: -31%;
 		height: 150px!important;
     	width:  150px!important;
 	}
+	.text-felicidades{
+margin-bottom: 10% !important;
+}
+.text-suscripcionexitosa{
+	margin-bottom: 15% !important;
+}
+.text-tususcripcion{
+	 margin-top: 10% !important;
+}
+.text-btnperfil{
+	margin-top: 10% !important;
+
+}
+
 }
 @media only screen and (max-device-width:780px) and (orientation:landscape) {
 	.logo-text{
@@ -1351,6 +1368,21 @@ margin-top: -31%;
 	.btn-extend{
 		width: 100%;
 	}
+
+	.text-felicidades{
+margin-bottom: 10% !important;
+}
+.text-suscripcionexitosa{
+	margin-bottom: 15% !important;
+}
+.text-tususcripcion{
+	 margin-top: 10% !important;
+}
+.text-btnperfil{
+	margin-top: 10% !important;
+
+}
+
 }
 @media all and (min-width:959px) {
 	.h-3x{
@@ -1385,6 +1417,21 @@ margin-top: -31%;
 .botonesheader{
 	 margin-top: -7%;
 }
+
+.text-felicidades{
+margin-bottom: 10% !important;
+}
+.text-suscripcionexitosa{
+	margin-bottom: 15% !important;
+}
+.text-tususcripcion{
+	 margin-top: 10% !important;
+}
+.text-btnperfil{
+	margin-top: 10% !important;
+
+}
+
 }
 @media all and (max-width:959px) and (min-width:613px) {
 	.h-3x{
