@@ -34,7 +34,7 @@
 						</li>
 					<?php }else{ ?>
 
-						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class=" hidden-xs btn-kmibox-link gothan ">Quiero mi NutriHeroes</a>
+						
 
 						<li>
 							<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/iniciar-sesion">
