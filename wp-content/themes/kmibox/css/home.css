@@ -2,6 +2,9 @@
 section{
 	margin-bottom: 30px;
 }
+.mayusculas{
+	text-transform: uppercase;
+}
 
 /* header */
 
@@ -42,6 +45,11 @@ section{
 
 #como-funciona > div > div > img{
 	margin-bottom: 5%;
+}
+
+.border-lateral{
+	border-left: 2px solid #f3ecec;
+    border-right: 2px solid #f3ecec;
 }
 
 /* home-opciones */
