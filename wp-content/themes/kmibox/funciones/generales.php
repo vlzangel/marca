@@ -110,7 +110,7 @@
 						<ul class="hidden-sm hidden-lg hidden-md visible-xs pull-left" style=" font-family: GothanMedium_regular;     margin-left: -15%;">';
 				    		if ( is_user_logged_in() ){
 				    			$HTML .= '
-									<li>
+									<li class="pull-left">
 										<a href="'.$home.get_source_url().'/quiero-mi-marca/">
 											<i class="fa fa-plus-circle"></i>
 											<span style=" font-family: GothanMedium_regular;">Quiero mi NutriHeroes</span>
