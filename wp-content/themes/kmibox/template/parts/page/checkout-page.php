@@ -13,15 +13,16 @@
 	foreach ($CARRITO["productos"] as $key => $value) {
 		if( isset($value->edad) ){
 			$suscripciones .= "
+			<div style='font-weight: normal;'>
+					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
+				</div>
 				<div style='font-weight: normal;'>
 					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
 				</div>
 				<div style='font-weight: normal;'>
 					<strong>Plan: </strong> ".$value->plan."
 				</div>
-				<div style='font-weight: normal;'>
-					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
-				</div>
+				
 			";
 		}
 	}
@@ -45,29 +46,30 @@
 	<?php } ?>
 
 	<!-- Mensaje Success -->
-	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden;">
+	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #94d400;" class="caviar">¡Felicidades!</h1>
-			<h4 style="color:#ccc;" class="caviar">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 style="font-size: 40px; font-weight: bold; color: #04b804;" class="postone">¡Felicidades!</h1>
+			<h4 style="color:#000; font-weight: bold;" class="gothanligth">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name caviar">Tu suscripción:</div>
-				<div class="col-xs-6 col-md-6 desc_value caviar">
-					<?php echo $suscripciones; ?>
-				</div>
+				<div class="col-xs-12 col-md-12 desc_name caviar" style="font-size: 18px;">TU SUSCRIPCIÓN: </div>				
 			</div>
+					<div class="col-xs-12 col-md-12 desc_value caviar">
+							<?php echo $suscripciones; ?>
+					</div>
 			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name caviar">Total Suscripci&oacute;n:</div>
-				<div class="col-xs-6 col-md-6 desc_value caviar">
+				<div class="col-xs-12 col-md-12 desc_name caviar" style="font-size: 18px;">TOTAL SUSCRIPCI&oacute;N:</div>
+				
+			</div>
+			<div class="col-xs-12 col-md-12 desc_value caviar">
 					<?php 
 						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
 				</div>
-			</div>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox caviar">Ir a mi perfil</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox caviar" style="    margin-left: -50%; margin-top: 10%;">IR A MI PERFIL</a>
 		</aside>
 	</article>
 

@@ -269,11 +269,11 @@ select{
 
 .desc_value{
 	color: black;
-    text-align: left;
+    text-align: center;
 }
 .desc_name{
-	color:#00d8b5;
-	text-align: right;
+	color:#000000;
+	text-align: center;
 }
 
 .form-horizontal h2{
@@ -298,9 +298,7 @@ select{
     vertical-align: middle;
 }
 
-.gothanligth{
-	font-family: Gothamlight_Regular;
-}
+
 
 .btn-price{
 	font-size: 32px; 
@@ -346,6 +344,11 @@ select{
 	font-family: GothanMedium_regular;
 
 }
+
+.gothanligth{
+	font-family: Gothamlight_Regular;
+}
+
 .postone{
 	font-family: PoetsenOne_Regular;
 }

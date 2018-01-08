@@ -1588,7 +1588,7 @@ pre code {
   margin-left: auto;
 }
 
-.container1 {
+.container3 {
   padding-right: 2px !important;
   padding-left: 2px !important;
   margin-right: auto;
@@ -1624,7 +1624,7 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
 }
-.col-xs-12, .col-md-6{
+.col-xs-12, .col-md-6, .col-md-12{
   position: relative;
   min-height: 1px;
   padding-right: 0px !important;
