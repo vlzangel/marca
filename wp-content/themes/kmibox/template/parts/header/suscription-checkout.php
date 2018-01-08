@@ -65,7 +65,8 @@
 							<span class="hidden-xs hidden-sm gothan "><?php echo $user->display_name; ?></span></a>
 						</li> 
 						<li>
-							<a class="btn-kmibox-link-suscription" 
+							<a class="btn-kmibox-link-suscription pull-right
+						" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">
 							<i class="fa fa-close" aria-hidden="true"></i>
 							<span class="hidden-xs hidden-sm gothan ">Salir</span></a>
@@ -80,7 +81,7 @@
 							<span class="hidden-xs gothan ">Iniciar Sesion</span></a>
 						</li>
 						<li>
-							<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/registro">
+							<a class="btn-kmibox-link-suscription pull-right" href="<?php echo get_home_url(); ?>/registro">
 							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs  gothan ">Registro</span></a>
 						</li>
 					<?php } ?>
