@@ -14,7 +14,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 			<div style='font-weight: normal;'>
-					<strong>".$productos[ $value->producto ]->nombre." : </strong>".$productos[ $value->producto ]->descripcion." ".$value->edad.", ".$value->tamano.", ".$value->presentacion.", ".$value->plan."
+					<strong>".$productos[ $value->producto ]->nombre." : </strong>".$productos[ $value->producto ]->descripcion." ".$value->edad.", ".$value->tamano.", ".$value->peso.", ".$value->plan."
 				</div>
 				
 			";
@@ -58,7 +58,7 @@
 			</div>
 			<div class="col-xs-12 col-md-12 desc_value gothan" style="font-size: 18px; font-weight: bold;">
 					<?php 
-						echo "$".number_format($CARRITO["total"], 2, ',', '.');
+						echo "$".number_format($CARRITO["total"], 2, ',', '.')."MXN";
 					?>
 				</div>
 		</aside>
