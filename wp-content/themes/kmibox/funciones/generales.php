@@ -76,7 +76,7 @@
 									<a href="'.$home.'/perfil/">
 										<i class="fa fa-user"></i>
 										<span style=" font-family: GothanMedium_regular;">
-											'.$user->display_name.'
+											Mi perfil
 										</span>
 									</a>
 								</li>
