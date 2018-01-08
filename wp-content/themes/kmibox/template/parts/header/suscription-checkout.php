@@ -18,28 +18,28 @@
 
 						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs gothan ">Quiero mi NutriHeroes</span></a>
+						<span class="hidden-xs hidden-sm gothan ">Quiero mi NutriHeroes</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs gothan "><?php echo $user->display_name; ?></span></a>
+							<span class="hidden-xs  hidden-sm  gothan "><?php echo $user->display_name; ?></span></a>
 						</li> 
 						<li>
 							<a class="btn-kmibox-link-suscription" 
-							href="<?php echo wp_logout_url( get_home_url() );?> " style="    margin-right: -60%;">
+							href="<?php echo wp_logout_url( get_home_url() );?> " >
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs gothan ">Salir</span></a>
+							<span class="hidden-xs  hidden-sm gothan ">Salir</span></a>
 						</li>
 					<?php }else{ ?>
 
-						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class=" hidden-xs btn-kmibox-link gothan ">Quiero mi NutriHeroes</a>
+						
 
 						<li>
 							<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/iniciar-sesion">
 							<i class="fa fa-key" aria-hidden="true"></i>
-							<span class="hidden-xs gothan ">Iniciar Sesion</span></a>
+							<span class="hidden-xs  gothan ">Iniciar Sesion</span></a>
 						</li>
 						<li>
 							<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/registro">
@@ -56,19 +56,20 @@
 
 						<a href="<?php echo get_home_url(); ?>/quiero-mi-marca"  class="btn-kmibox-link-suscription">
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
-						<span class="hidden-xs gothan ">Quiero mi NutriHeroes</span></a>
+						<span class="hidden-xs hidden-sm gothan ">Quiero mi NutriHeroes</span></a>
 						</li>
 
 						<li>
 							<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
 							<i class="fa fa-user" aria-hidden="true"></i>
-							<span class="hidden-xs gothan "><?php echo $user->display_name; ?></span></a>
+							<span class="hidden-xs hidden-sm gothan "><?php echo $user->display_name; ?></span></a>
 						</li> 
 						<li>
-							<a class="btn-kmibox-link-suscription" 
+							<a class="btn-kmibox-link-suscription pull-right
+						" 
 							href="<?php echo wp_logout_url( get_home_url() );?> ">
 							<i class="fa fa-close" aria-hidden="true"></i>
-							<span class="hidden-xs gothan ">Salir</span></a>
+							<span class="hidden-xs hidden-sm gothan ">Salir</span></a>
 						</li>
 					<?php }else{ ?>
 
@@ -80,7 +81,7 @@
 							<span class="hidden-xs gothan ">Iniciar Sesion</span></a>
 						</li>
 						<li>
-							<a class="btn-kmibox-link-suscription" href="<?php echo get_home_url(); ?>/registro">
+							<a class="btn-kmibox-link-suscription pull-right" href="<?php echo get_home_url(); ?>/registro">
 							<i class="fa fa-user-plus" aria-hidden="true"></i> <span class="hidden-xs  gothan ">Registro</span></a>
 						</li>
 					<?php } ?>

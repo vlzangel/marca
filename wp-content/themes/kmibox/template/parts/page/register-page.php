@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				<div class="row row-special">					
-					<div class="col-md-12 form-group">
+					<div class="col-md-10 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<select class="form-control col-md-6" name="dondo_conociste">
 							<option value="">Cuéntanos, dónde nos conociste</option>

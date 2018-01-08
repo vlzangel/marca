@@ -106,6 +106,7 @@
 								</li>';
 						} $HTML .= '
 					</ul>
+
 				</nav>
 	        ';
 	        return $HTML;

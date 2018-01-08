@@ -69,13 +69,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 				<div style='font-weight: normal;'>
-					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Plan: </strong> ".$value->plan."
+					<strong>".$productos[ $value->producto ]->nombre." : </strong>".$productos[ $value->producto ]->descripcion." ".$value->edad.", ".$value->tamano.", ".$value->peso.", ".$value->plan."
 				</div>
 				
 			";
@@ -89,30 +83,30 @@
 	<!-- Mensaje Success -->
 	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #04b804;" class="postone">¡Felicidades!</h1>
-			<h4 style="color:#000; font-weight: bold;" class="gothanligth">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 style="font-size: 40px; font-weight: bold; color: #04b804; margin-bottom: 5%;" class="postone text-felicidades">¡Felicidades!</h1>
+			<h4 style="color:#000; font-weight: bold; margin-bottom: 5%" class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name" style="font-size: 18px;">TU SUSCRIPCIÓN:</div>				
+				<div class="col-xs-12 col-md-12 desc_name gothan" style="font-size: 18px;">TU SUSCRIPCIÓN:</div>				
 			</div>
-			<div class="col-xs-6 col-md-6 desc_value">
+			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px;">
 					<?php echo $suscripciones; ?>
 				</div>
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name" style="font-size: 18px;">TOTAL SUSCRIPCI&oacute;N:</div>				>
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion" style="font-size: 18px;  margin-top: 5%;">TOTAL SUSCRIPCIÓN:</div>				
 			</div>
-			<div class="col-xs-12 col-md-12 desc_value">
+			<div class="col-xs-12 col-md-12 desc_value gothan" style="font-size: 18px; font-weight: bold;">
 					<?php 
 						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
-				</div
+				</div>
 		</aside>
 		<aside class="col-md-12">
 	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 10px 10px 10px;margin-left: -6%;font-size: 12px;">Instrucciones para completar el pago</a>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox" style="padding: 10px 20px 10px 20px; font-size: 12px; margin-left: -50%; margin-top: 10%;">IR A MI PERFIL</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 20px 10px 20px; font-size: 12px;  margin-left: -6%">IR A MI PERFIL</a>
 		</aside>
 	</article>
 
