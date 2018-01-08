@@ -14,7 +14,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 			<div style='font-weight: normal;'>
-					<strong>".$productos[ $value->producto ]->nombre." : </strong> ".$value->edad.", ".$value->tamano.", ".$value->presentacion.", ".$value->plan."
+					<strong>".$productos[ $value->producto ]->nombre." : </strong>".$productos[ $value->producto ]->descripcion." ".$value->edad.", ".$value->tamano.", ".$value->presentacion.", ".$value->plan."
 				</div>
 				
 			";
@@ -42,8 +42,8 @@
 	<!-- Mensaje Success -->
 	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #04b804; margin-bottom: 10%;" class="postone">¡Felicidades!</h1>
-			<h4 style="color:#000; font-weight: bold; margin-bottom: 15%" class="gothan">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 style="font-size: 40px; font-weight: bold; color: #04b804; margin-bottom: 5%;" class="postone text-felicidades">¡Felicidades!</h1>
+			<h4 style="color:#000; font-weight: bold; margin-bottom: 5%" class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
@@ -53,17 +53,17 @@
 							<?php echo $suscripciones; ?>
 					</div>
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name gothan" style="font-size: 18px;    margin-top: 10%;">TOTAL SUSCRIPCIÓN:</div>
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion" style="font-size: 18px;    margin-top: 5%;">TOTAL SUSCRIPCIÓN:</div>
 				
 			</div>
-			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px; font-weight: bold;">
+			<div class="col-xs-12 col-md-12 desc_value gothan" style="font-size: 18px; font-weight: bold;">
 					<?php 
 						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
 				</div>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox gothanligth" style=" margin-top: 10%;">IR A MI PERFIL</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox gothanligth text-btnperfil" style=" margin-top: 5%;">IR A MI PERFIL</a>
 		</aside>
 	</article>
 
