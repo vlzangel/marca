@@ -69,7 +69,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 				<div style='font-weight: normal;'>
-					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
+					<strong>".$productos[ $value->producto ]->nombre.": </strong> ".$value->edad." (".$value->tamano.")
 				</div>
 				<div style='font-weight: normal;'>
 					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
@@ -94,25 +94,25 @@
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name" style="font-size: 18px;">TU SUSCRIPCIÓN:</div>				
+				<div class="col-xs-12 col-md-12 desc_name gothanligth" style="font-size: 18px;">TU SUSCRIPCIÓN:</div>				
 			</div>
-			<div class="col-xs-6 col-md-6 desc_value">
+			<div class="col-xs-6 col-md-6 desc_value gothanligth" style="font-size: 18px;">
 					<?php echo $suscripciones; ?>
 				</div>
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name" style="font-size: 18px;">TOTAL SUSCRIPCI&oacute;N:</div>				>
+				<div class="col-xs-12 col-md-12 desc_name gothanligth" style="font-size: 18px;">TOTAL SUSCRIPCIÓN:</div>				>
 			</div>
-			<div class="col-xs-12 col-md-12 desc_value">
+			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px; font-weight: bold;">
 					<?php 
 						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
-				</div
+				</div>
 		</aside>
 		<aside class="col-md-12">
 	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 10px 10px 10px;margin-left: -6%;font-size: 12px;">Instrucciones para completar el pago</a>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox" style="padding: 10px 20px 10px 20px; font-size: 12px; margin-left: -50%; margin-top: 10%;">IR A MI PERFIL</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox" style="padding: 10px 20px 10px 20px; font-size: 12px;  margin-top: 10%;">IR A MI PERFIL</a>
 		</aside>
 	</article>
 

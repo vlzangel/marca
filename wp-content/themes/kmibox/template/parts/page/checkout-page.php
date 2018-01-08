@@ -14,13 +14,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 			<div style='font-weight: normal;'>
-					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Plan: </strong> ".$value->plan."
+					<strong>".$productos[ $value->producto ]->nombre.": </strong> ".$value->edad." (".$value->tamano.") ( ".$value->presentacion." )".$value->plan."
 				</div>
 				
 			";
@@ -53,23 +47,23 @@
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name caviar" style="font-size: 18px;">TU SUSCRIPCIÓN: </div>				
+				<div class="col-xs-12 col-md-12 desc_name gothanligth" style="font-size: 18px;">TU SUSCRIPCIÓN: </div>				
 			</div>
-					<div class="col-xs-12 col-md-12 desc_value caviar">
+					<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px;">
 							<?php echo $suscripciones; ?>
 					</div>
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name caviar" style="font-size: 18px;">TOTAL SUSCRIPCI&oacute;N:</div>
+				<div class="col-xs-12 col-md-12 desc_name gothanligth" style="font-size: 18px;">TOTAL SUSCRIPCIÓN:</div>
 				
 			</div>
-			<div class="col-xs-12 col-md-12 desc_value caviar">
+			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px; font-weight: bold;">
 					<?php 
 						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
 				</div>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox caviar" style="    margin-left: -50%; margin-top: 10%;">IR A MI PERFIL</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox gothanligth" style=" margin-top: 10%;">IR A MI PERFIL</a>
 		</aside>
 	</article>
 
