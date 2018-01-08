@@ -1119,7 +1119,7 @@ margin-top: -31%;
 
 /* ***************** Compra ***************** */
 .container{
-    max-width: 1170px;
+    /*max-width: 1170px;*/
 }
 .container-login{
     max-width: 100%;
