@@ -106,7 +106,7 @@
 	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 10px 10px 10px;margin-left: -6%;font-size: 12px;">Instrucciones para completar el pago</a>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 20px 10px 20px; font-size: 12px;  margin-top: 5%;">IR A MI PERFIL</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 20px 10px 20px; font-size: 12px;  margin-left: -6%">IR A MI PERFIL</a>
 		</aside>
 	</article>
 
