@@ -15,9 +15,9 @@
 wp_enqueue_style( 'home_css', TEMA()."/css/home.css", array(), "1.0.0" );
 
 get_header(); ?>
-<?php echo MENU(); ?>
 
 	<header id="header" class="row">
+		<?php echo MENU(); ?>
 		<div class="container">
 			<div class="col-xs-12 col-sm-6 col-md-6">
 				<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" class="img-responsive" width="75%">

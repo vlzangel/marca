@@ -55,8 +55,8 @@
 	    	}
 
 	        $HTML = '
-	        	<nav class="container">
-	        		<div class="nav_container" style="width:100%;">
+	        	<nav class="col-xs-12">
+	        		<div class="nav_container">
 		        		<div class="col-xs-6 col-sm-5 col-md-5 pull-left" >
 							<a href="'.$home.'">
 								<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
