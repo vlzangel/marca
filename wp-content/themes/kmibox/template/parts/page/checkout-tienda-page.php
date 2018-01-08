@@ -69,13 +69,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 				<div style='font-weight: normal;'>
-					<strong>".$productos[ $value->producto ]->nombre.": </strong> ".$value->edad." (".$value->tamano.")
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Plan: </strong> ".$value->plan."
+					<strong>".$productos[ $value->producto ]->nombre." : </strong> ".$value->edad.", ".$value->tamano.", ".$value->presentacion.", ".$value->plan."
 				</div>
 				
 			";
@@ -89,18 +83,18 @@
 	<!-- Mensaje Success -->
 	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #04b804;" class="postone">¡Felicidades!</h1>
-			<h4 style="color:#000; font-weight: bold;" class="gothanligth">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 style="font-size: 40px; font-weight: bold; color: #04b804; margin-bottom: 10%;" class="postone">¡Felicidades!</h1>
+			<h4 style="color:#000; font-weight: bold; margin-bottom: 15%" class="gothan">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name gothanligth" style="font-size: 18px;">TU SUSCRIPCIÓN:</div>				
+				<div class="col-xs-12 col-md-12 desc_name gothan" style="font-size: 18px;">TU SUSCRIPCIÓN:</div>				
 			</div>
 			<div class="col-xs-6 col-md-6 desc_value gothanligth" style="font-size: 18px;">
 					<?php echo $suscripciones; ?>
 				</div>
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name gothanligth" style="font-size: 18px;">TOTAL SUSCRIPCIÓN:</div>				>
+				<div class="col-xs-12 col-md-12 desc_name gothan" style="font-size: 18px;  margin-top: 10%;">TOTAL SUSCRIPCIÓN:</div>				>
 			</div>
 			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px; font-weight: bold;">
 					<?php 
