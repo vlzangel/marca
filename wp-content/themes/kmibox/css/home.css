@@ -1,0 +1,251 @@
+
+section{
+	margin-bottom: 30px;
+}
+
+/* header */
+
+#header div:nth-child(2) {
+	margin: 10% 0 0 0;
+}
+
+#header h2{
+	font-family: caviar_dreamsregular; 
+	color: #181E0D;
+}
+
+#header a{
+	margin-bottom: 2%; 
+	font-family: GothanMedium_regular;
+	padding: 22px 92px;
+	font-size: 32px;">
+}
+
+/* section-comment */
+
+#section-comment h3{
+	font-size: 24px; 
+	font-family: Gothamlight_Regular;
+}
+
+/* como-funciona */
+#como-funciona {
+	margin-top: 5%;
+}
+#como-funciona p{
+	font-family: GothanMedium_regular;
+	font-size: 20px;
+}
+#como-funciona > div{
+	margin-top: -3%;
+}
+
+#como-funciona > div > div > img{
+	margin-bottom: 5%;
+}
+
+/* home-opciones */
+#home-opciones > label {
+	color: #ebb931;
+	font-size: 20px;
+	font-family: PoetsenOne_Regular;
+	margin-left: -5%;
+}
+#home-opciones > label{
+}
+
+#home-opciones > div > label span{
+	color: #000000!important;
+}
+
+#home-opciones p {
+	color: #000!important;
+	text-align: center;
+    font-weight: normal;
+    font-size: 23px!important;
+    font-family: Gothamlight_Regular!important;
+}
+#home-opciones > div > label {
+    color: #ebb931;
+    font-weight: bold;
+    font-size: 41px;
+    font-family: PoetsenOne_Regular;
+	text-align: center; 
+	max-width: 100%;
+    margin-bottom: 5px;	
+}
+
+/* como-consigo-kmibox */
+
+#como-consigo-kmibox h2{
+	color: #000000;
+	font-weight: bold;
+	font-size: 34px;
+	font-family: GothanMedium_regular;
+}
+
+#como-consigo-kmibox .marca-circle
+{
+	padding: 0px 9px;
+}
+#como-consigo-kmibox .marca-circle_2 {
+	padding: 0px 7px!important;
+}
+
+#como-consigo-kmibox .marca-circle_2,
+#como-consigo-kmibox .marca-circle{
+	font-size: 22px;
+	color: #000000;
+	font-family: PoetsenOne_Regular;
+	border: 3px solid #091705;
+	border-radius: 27px;
+}
+
+#como-consigo-kmibox img{
+	margin-top:10px;
+	height: 70px;
+}
+
+#como-consigo-kmibox p{
+	margin-left: 20px;
+	font-size: 20px;
+	color: #878a87;
+	font-family: Gothamlight_Regular;
+	margin-top: 15px;
+}
+
+#como-consigo-kmibox div .row {
+	margin: 50px 0px 30px 0px;
+}
+#como-consigo-kmibox label{
+	text-align: center;
+    font-size: 171%;
+    font-weight: normal;
+    font-family: Gothamlight_Regular;
+    color: #878a87;
+    margin-top: 20px;
+}
+
+/* home-dog */
+
+#home-dog{
+	border-bottom:15px solid #4EFF00;
+}
+#home-dog > div{
+	color:#ffffff;	
+	background: #181E0D;
+	padding: 25px 0px 25px 0px;
+}
+#home-dog > div h4{
+	color:#ffffff; 
+	font-size: 48px; 
+	font-family: PoetsenOne_Regular; 	
+}
+#dog {
+	height: 300px;
+	background-size: cover!important;
+} 
+
+/* regalasela-amigo */
+
+#regalasela-amigo h2{
+	color:#000000;
+	font-weight: bold;
+	font-size:30px;
+	font-family: GothanMedium_regular;	
+}
+#regalasela-amigo p{
+	margin: 15px 0px;
+	font-size: 20px;
+	color: #878a87;
+	font-family: GothanMedium_regular;	
+}
+#regalasela-amigo a{
+	padding: 20px 70px;
+	font-family: GothanMedium_regular;
+}
+#regalasela-amigo div{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+
+/* ************************ */
+/* Responsive 				*/
+/* ************************ */
+
+@media (max-width: 780px) and (orientation: landscape){
+	#header div:nth-child(2) {
+		margin: 0 0 0 0;
+	}
+	#header .col-xs-12 {
+		width: 50%;
+	}
+	#home-opciones > div > label{
+		font-size: 28px!important;
+	}
+	#dog{
+		height: 200px!important;
+	}
+}
+@media (max-width: 780px){
+	#header a{
+		padding: 10px 50px;
+	}	
+	#header h2{
+		font-size: 19px!important;
+	}
+	#section-comment h3{
+		font-size: 23px!important;
+	}
+	#como-funciona p {
+    	font-size: 25px;
+	}
+	#home-opciones > div > label{
+		font-size: 30px;
+	}
+	#como-consigo-kmibox p{
+		font-size: 23px;
+	}
+	#home-dog > div h4{
+		font-size: 30px;
+	}
+	#dog{
+		height: 190px;
+	}
+	#regalasela-amigo p{
+		font-size: 25px;
+	}
+}
+
+@media (max-width: 730px){
+}
+
+@media (max-width: 680px){
+	#dog{
+		height: 100px;
+	}
+
+}
+
+@media (max-width: 600px){
+}
+
+@media (min-width: 768px) {
+}
+
+@media (max-width: 767px) {
+}
+
+@media ( max-width: 500px ) {
+} 
+
+@media (max-width: 400px){
+}
+
+@media (max-height: 600px){
+}
+
+
+
+

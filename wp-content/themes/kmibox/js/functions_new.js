@@ -228,19 +228,25 @@ function change_title(txt){
 	jQuery("#vlz_titulo").html(txt);
 }
 
-function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, cantidad = 1 ){
+function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
 	var HTML = "";
 	HTML += '<tr>';
-	HTML += '	 <td class=" hidden-xs">';
+	HTML += '	 <td class="solo_pc">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="" style="text-align: center;">';
+	HTML += '	 <td class="solo_movil" style="text-align: center;">';
+	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
+	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
+	HTML += '	 	</span>';
+	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 </td>';
+	HTML += '	 <td class="solo_pc" style="text-align: center;">';
 	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
-	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div></label>';
+	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
 	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
 	HTML += '	 </td>';
@@ -252,11 +258,11 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<div class="cantidad_controls">';
-	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
-	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
 	HTML += '	 		<i class="fa fa-minus-circle menos" onclick="menos_cantidad('+index+')"></i>';
-	HTML += '	 		<div class="resaltar_desglose solo_movil" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
+	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
+	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
 	HTML += '	 	</div>';
+	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc">';
 	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
@@ -271,6 +277,12 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 }
 
 function loadFase(fase){
+
+	if( parseInt(fase) == 4 ){
+		jQuery("#vlz_titulo").addClass("titulo_planes");
+	}else{
+		jQuery("#vlz_titulo").removeClass("titulo_planes");
+	}
 
 	switch( fase ){
 		case "1":
@@ -344,9 +356,10 @@ function loadFase(fase){
 					producto["producto"],
 					PRODUCTOS[ _producto ].nombre,
 					producto['plan'],
-					TEMA+"/productos/imgs/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
+					TEMA+"/imgs/productos/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
 					precio_plan,
 					PRODUCTOS[ _producto ].descripcion,
+					PRODUCTOS[ _producto ].peso,
 					producto["cantidad"]								
 				);
 				var temp_total = ( precio_plan * producto["cantidad"] );

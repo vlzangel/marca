@@ -162,6 +162,15 @@
 
 @media (max-width: 767px) {
 
+
+	.solo_movil{
+		display: block;
+	}
+
+	.solo_pc{
+		display: none;
+	}
+
 	.carrousel-items article{
 	    width: 100%;
 	}
@@ -294,14 +303,6 @@
 	    max-width: 100%;
 	}
 
-	.solo_movil{
-		display: block;
-	}
-
-	.solo_pc{
-		display: none;
-	}
-
 	#desglose td *{
 		font-size: 11px;
 	}
@@ -375,6 +376,19 @@
 }
 
 @media ( max-width: 500px ) {
+
+	.titulo_planes {
+	    top: 44px !important;
+	    font-size: 15px !important;
+	    padding: 4px 80px;
+	}
+
+	#vlz_controles_fases > span > span {
+	    position: absolute;
+	    left: -42px;
+	    top: -1px;
+	    font-size: 9px;
+	}
 
 	.comprar_container {
     	position: relative;
@@ -459,9 +473,6 @@
 	    margin: 0px auto 5px;
 	    width: 10px;
 	    height: 10px;
-	    background-color: #9BFF00;
-	    opacity: 0.4;
-	    border-radius: 50%;
 	}
 
 	.select_plan_box article {
@@ -497,12 +508,7 @@
 	    margin: 100px auto 10px;
 	}
 
-	.cantidad_controls {
-	    margin-bottom: 6px;
-	}
-
 	.cantidad_controls i {
-	    margin: 0px auto 2px;
 	    text-align: center;
 	}
 
@@ -511,11 +517,11 @@
 	}
 
 	.cantidad_controls label {
-	   	font-size: 10px !important;
+	   	font-size: 13px !important;
 	}
 
 	.cantidad_controls i{
-	   	font-size: 10px !important;
+	   	font-size: 13px !important;
 	}
 
 	/* Marca */
@@ -567,6 +573,12 @@
 		    width: 49%;
 		    padding: 5px;
 		    margin-bottom: 10px;
+		}
+
+	/* Desglose */
+
+		.total_en_cantidad{
+			font-size: 10px !important;
 		}
 
 } 

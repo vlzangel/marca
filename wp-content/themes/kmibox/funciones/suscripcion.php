@@ -157,15 +157,15 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 	    $suscripciones = array();
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE status_suscripcion = 'Activo' AND cliente = ".$user_id);
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
 		foreach ($ordenes as $orden) {
-			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = ".$orden->id);
+			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE  id_orden = ".$orden->id);
 			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
 			foreach ($planes as $plan) {
 				$data = unserialize($plan->data);
 				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$plan->id_producto );
 				$_data = unserialize( $producto->dataextra );
-				$img = TEMA()."/productos/imgs/".$_data["img"];
+				$img = TEMA()."/imgs/productos/".$_data["img"];
 				$anio = date("Y")."-12-31";
 				$entregas = $wpdb->get_results("SELECT * FROM despachos WHERE sub_orden = {$plan->id} AND status = 'Recibida' AND mes <= '{$anio}'");
 				$_entregas = array();
@@ -185,7 +185,7 @@
 					"nombre" => $producto->nombre,
 					"img" => $img,
 					"presentacion" => $data["presentacion"],
-					"status" => $plan->status_envio,
+					"status" => $plan->status_suscripcion,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
 					"entredagos" => $_entregados_str
 				);
@@ -208,7 +208,7 @@
 			$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
 			$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
 			$_data = unserialize( $producto->dataextra );
-			$img = TEMA()."/productos/imgs/".$_data["img"];
+			$img = TEMA()."/imgs/productos/".$_data["img"];
 			$_despachos[] = array(
 				"orden" => $sub_orden->id,
 				"nombre" => $producto->nombre,

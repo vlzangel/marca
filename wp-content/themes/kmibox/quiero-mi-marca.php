@@ -40,10 +40,11 @@
 		</div>
 
 		<div class="controles_generales" id="vlz_controles_fases">
-			<span id="fase_indicador_1" class="fase_activa"></span>
-			<span id="fase_indicador_2" ></span>
-			<span id="fase_indicador_3" ></span>
-			<span id="fase_indicador_4" ></span>
+			<span id="fase_indicador_1" class="fase_activa"> <span>Paso 1</span> </span>
+			<span id="fase_indicador_2" > <span>Paso 2</span> </span>
+			<span id="fase_indicador_3" > <span>Paso 3</span> </span>
+			<span id="fase_indicador_4" > <span>Paso 4</span> </span>
+			<span id="fase_indicador_5" > <span>Paso 5</span> </span>
 		</div>
 
 		<div class="comprar_container">
@@ -57,7 +58,7 @@
 					</article>
 					<article data-value="Pequeño">
 						<div>
-							<img src="'.get_home_url().'/img/edad/p_pequeno.png" class="img-responsive img-circle" id="Grande" />
+							<img src="'.get_home_url().'/img/edad/p_pequeno_1.png" class="img-responsive img-circle" id="Grande" />
 							<p class="col-md-12">Pequeño</p>
 						</div>
 					</article>
@@ -130,7 +131,7 @@
 					</div>
 					<table id="desglose" cellspacing=5 cellpadding=5>	
 						<thead>
-							<th class="hidden-xs"width="40">&nbsp;</th>
+							<th class="solo_pc" width="40">&nbsp;</th>
 							<th> <span> Producto </span> </th>
 							<th> <span> Descripci&oacute;n </span> </th>
 							<th class="solo_pc"> <span> Periodicidad </span> </th>
