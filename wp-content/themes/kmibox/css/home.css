@@ -252,6 +252,11 @@ section{
 		z-index: -3;
 		left: -35%;
 	}
+	.border-lateral{
+		border-left: 0px solid #f3ecec;
+	    border-right: 0px solid #f3ecec;
+	}
+
 
 }
 @media (max-width: 653px) and (orientation: landscape){
