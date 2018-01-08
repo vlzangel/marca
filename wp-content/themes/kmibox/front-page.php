@@ -51,7 +51,7 @@ get_header(); ?>
 					certificados
 				</p>
 			</div>
-			<div class="col-xs-12 col-sm-4 col-md-4">  
+			<div class="col-xs-12 col-sm-4 col-md-4 border-lateral">  
 				<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive">
 				<p>Entregado en tu 
 					<br class="hidden-sm hidden-xs">
@@ -87,7 +87,7 @@ get_header(); ?>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<span class="marca-circle">1</span>
 					<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
-					<p>Escoge la marca y presentacion de tu preferencia</p>
+					<p>Escoge la marca y presentaci&oacute;n de tu preferencia</p>
 				</div> 
 				<div class="col-xs-12 col-sm-4 col-md-4"> 	
 					<span class="marca-circle_2">2</span>
@@ -107,14 +107,14 @@ get_header(); ?>
 			</div>
 
 			<label>
-				"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tienda por conveniencia"
+				"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tiendas por conveniencia"
 			</label>
 		</div>
 	</section>
 
 	<section class="row text-center" id="home-dog">
 		<div>
-			<h4>Un alimento especial para un compañero especial</h4>
+			<h4>Un alimento especial para un <span class="mayusculas">compañero especial<span></h4>
 		</div>
 		<div id="dog" style="background: url(<?php echo get_home_url(); ?>/img/dog.jpg) no-repeat center center;"></div>
 	</section>
