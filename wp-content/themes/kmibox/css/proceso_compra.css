@@ -203,24 +203,24 @@ html, body, #content-primary {
 	    float: left;
 	    width: 25%;
 	    box-sizing: border-box;
-	    padding: 10px;
+	    padding: 5px;
         height: 33.333334%;
 	}
 
 	#marca > div > .item_box {
-		border: solid 3px #CCC;
-	    border-radius: 25px;
-	    padding: 10px;
+	    border: solid 3px transparent;
+	    border-radius: 15px;
+	    padding: 0px;
 	    cursor: pointer;
-        height: 100%;
+	    height: 100%;
 	}
 
 	#marca > div > .item_box:hover {
-		border: solid 3px #777;
+		background: #ededed;
 	}
 
 	#marca > div.item_activo > .item_box {
-		border: solid 3px #777;
+		background: #ededed;
 	}
 
 	.img_box {
@@ -268,36 +268,46 @@ html, body, #content-primary {
 	    height: calc( 100% - 170px );
 	    overflow: auto;
 	    padding: 0px 10px;
-	    margin: 0px;
+	    margin: 0px auto;
+	    max-width: 1400px;
 	}
 
 	#presentaciones > div {
 	    float: left;
-	    width: 25%;
+	    width: 50%;
 	    box-sizing: border-box;
-	    padding: 10px;
-        height: 80%;
+	    padding: 5px;
+        height: 33.3333%;
+        overflow: hidden;
+        border-bottom: solid 1px #CCC;
 	}
 
 	#presentaciones > div > .item_box {
-		border: solid 3px #CCC;
-	    border-radius: 25px;
-	    padding: 10px;
+	    padding: 5px;
 	    cursor: pointer;
         height: 100%;
-        text-align: center;
+        text-align: left;
+        border-radius: 15px;
 	}
 
 	#presentaciones > div > .item_box:hover {
-		border: solid 3px #777;
+		background: #ededed;
 	}
 
 	#presentaciones > div.item_activo > .item_box {
-		border: solid 3px #777;
+		background: #ededed;
+	}
+
+	.info_producto_container {
+	    width: calc( 100% - 180px );
+	    float: right;
+	    text-align: left;
 	}
 
 	#presentaciones .img_box {
-        height: calc( 100% - 70px );
+		width: 180px;
+		float: left;
+        height: 100%;
 	    background-size: contain;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -305,16 +315,24 @@ html, body, #content-primary {
 
 	#presentaciones .title_producto_box {
 	    font-weight: 600;
+	    text-transform: uppercase;
+	    font-size: 24px;
+	    font-family: GothanMedium_regular;
 	}
 
 	#presentaciones .descripcion_producto_box {
 	    font-weight: 400;
 	    color: #888;
+	    font-size: 22px;
+	    font-family: Gothamlight_Regular;
 	}
 
 	#presentaciones .peso_producto_box {
 	    font-weight: 600;
-	    color: #00bc00
+	    color: #00bc00;
+	    font-size: 22px;
+	    font-family: Gothamlight_Regular;
+	    text-transform: uppercase;
 	}
 
 /* Fase 4 */

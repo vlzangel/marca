@@ -62,7 +62,6 @@ jQuery(document).ready(function() {
 		change_fase(5);
 	});
 
-
 	jQuery("#vlz_atras").on("click", function(e){
 		change_fase( jQuery(this).attr("data-value") );
 	});
