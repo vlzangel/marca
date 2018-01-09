@@ -45,7 +45,10 @@
 								<?php } ?>
 							</select>
 						</div>
-						<div class="col-md-4 form-group">
+						<div class="col-md-4 form-group hidden-sm">
+							<input type="text" name="mascota" data-charset="alf" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre de la Mascota"  maxlength="50">
+						</div>
+						<div class="col-md-4 form-group hidden-xs hidden-md hidden-lg visible-sm" style="margin-left: -3%;width: 105%;">
 							<input type="text" name="mascota" data-charset="alf" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre de la Mascota"  maxlength="50">
 						</div>
 					</div>
@@ -112,7 +115,7 @@
 						<input type="text" name="dir_calle" class="form-control col-md-6" data-charset="xlfnumesp" id="inputEmail3" placeholder="Calle" maxlength="50">
 					</div>
 					<div class="col-md-8 form-group">
-						<div class="row hidden-sm">
+						<div class="row hidden-sm hidden-xs">
 							<div class="col-md-4">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número exterior"  minlength="1" maxlength="20">
@@ -121,12 +124,21 @@
 								<input type="text" name="dir_numint" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número interior"  minlength="1" maxlength="20">
 							</div>
 						</div>
-						<div class="row hidden-xs hidden-md hidden-lg visible-sm">
-							<div class="col-md-4" style="margin-left: -2%;width: 105%;">
+						<div class="row hidden-sm hidden-md hidden-lg">
+							<div class="col-md-4" style="width: 112%;margin-left: -7%;">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número exterior"  minlength="1" maxlength="20">
 							</div>
-							<div class="col-md-4" style="margin-left: -2%;width: 105%;">
+							<div class="col-md-4" style="width: 112%;margin-left: -7%;">
+								<input type="text" name="dir_numint" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número interior"  minlength="1" maxlength="20">
+							</div>
+						</div>
+						<div class="row hidden-xs hidden-md hidden-lg visible-sm">
+							<div class="col-md-4" style="margin-left: -3%;width: 105%;">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número exterior"  minlength="1" maxlength="20">
+							</div>
+							<div class="col-md-4" style="margin-left: -3%;width: 105%;">
 								<input type="text" name="dir_numint" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número interior"  minlength="1" maxlength="20">
 							</div>
 						</div>
@@ -169,9 +181,10 @@
 
 				<div class="row">
 					<div class="col-sm-offset-1	col-sm-11 text-center">
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs" style="margin-left: 68%;margin-top: -15%; color: #94d400;     border: 2px solid #091705;">Registrarme</button>
+						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-sm" style="margin-left: 68%;margin-top: -15%; color: #94d400;     border: 2px solid #091705;">Registrarme</button>
 						
 						<button id="btn-register_" class="btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400;     border: 2px solid #091705;">Registrarme</button>
+						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-lg hidden-md " style=" color: #94d400;     border: 2px solid #091705;">Registrarme</button>
 						<br>
 						<br>
 <!--

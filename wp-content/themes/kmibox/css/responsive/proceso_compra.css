@@ -111,13 +111,6 @@
 	    top: 45px;
 	    left: 10px;
 	}
-	#nombre_producto {
-	    font-size: 30px !important;
-	}
-
-	#descripcion_producto {
-	    font-size: 15px !important;
-	}
 
 }
 
@@ -144,8 +137,21 @@
 
     /* Presentaciones */
 
-    	#presentaciones > div {
-		    width: 33.3334%;
+    	#presentaciones .img_box {
+		    width: 150px;
+		}
+
+		.info_producto_container {
+		    width: calc( 100% - 150px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 20px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 18px;
 		}
 }
 
@@ -277,7 +283,24 @@
 		}
 
     	#presentaciones > div {
-		    width: 33.3334%;
+		    width: 100%;
+		}
+
+    	#presentaciones .img_box {
+		    width: 180px;
+		}
+
+		.info_producto_container {
+		    width: calc( 100% - 180px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 24px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 22px;
 		}
 
     /* Planes */
@@ -309,10 +332,10 @@
 
     /* Presentaciones */
 
-		#presentaciones > div {
+		/*#presentaciones > div {
 		    width: 50%;
 		    height: 70%;
-		}
+		}*/
 
     /* Planes */
 
@@ -561,10 +584,23 @@
 	    	margin: 5px;
 		}
 
-	/* Precentaciones */
+    /* Presentaciones */
 
-		#presentaciones > div {
-		    height: 50%;
+    	#presentaciones .img_box {
+		    width: 150px;
+		}
+
+		.info_producto_container {
+		    width: calc( 100% - 150px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 20px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 18px;
 		}
 
     /* Planes */
@@ -597,27 +633,49 @@
 	    margin: 0px 3px;
 	}
 
-	/* Precentaciones */
+    /* Presentaciones */
 
 		#presentaciones .title_producto_box {
-		    font-size: 12px;
+		    font-size: 16px;
 		}
 
-		#presentaciones .descripcion_producto_box {
-		    font-size: 11px;
-		}
-
+		#presentaciones .descripcion_producto_box,
 		#presentaciones .peso_producto_box {
-		    font-size: 12px;
-		}
-
-		#presentaciones .img_box {
-		    height: calc( 100% - 50px );
+		    font-size: 14px;
 		}
 
     /* Planes */
 
 		.select_plan div {
 		    font-size: 13px;
+		}
+}
+
+@media (max-width: 350px){
+
+    /* Plan */
+
+    .select_plan div {
+	    font-size: 11px;
+	}
+
+    /* Presentaciones */
+
+
+    	#presentaciones .img_box {
+		    width: 85px;
+		}
+
+		.info_producto_container {
+		    width: calc( 100% - 85px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 16px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 14px;
 		}
 }

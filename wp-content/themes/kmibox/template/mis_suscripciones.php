@@ -31,7 +31,9 @@
 						data-entrega='{$suscripcion["entrega"]}'
 						data-img='{$suscripcion["img"]}'
 						data-entregados='{$suscripcion["entredagos"]}'
-						class='suscripcion_item {$activo}'
+						class='suscripcion_item {$activo} slide' 
+						data-scale='small' 
+						data-position='top'
 					>
 						<div>
 							<div class='item_carrusel_orden'> <strong>Orden:</strong> {$id_suscripcion} </div>
@@ -70,7 +72,9 @@
 					data-nombre='{$despacho["nombre"]}'
 					data-status='{$despacho["status"]}'
 					data-img='{$despacho["img"]}'
-					class='suscripcion_item {$activo}'
+					class='suscripcion_item {$activo} slide' 
+					data-scale='small' 
+					data-position='top'
 				>
 					<div>
 						<div class='item_carrusel_orden'> <strong>Orden:</strong> {$id_suscripcion} </div>
@@ -97,10 +101,8 @@
 					<div class="carrusel_suscripciones_box">
 						<div class="carrusel_suscripciones_container_general">
 							<label class="gothan">Selecciona un suscripci&oacute;n</label>
-							<div class="carrusel_suscripciones_container">
-								<div style="width: '.($W*200).'px;">
-									'.$carrusel.'
-								</div>
+							<div class="carrusel_suscripciones_container slider_suscripciones">
+								'.$carrusel.'
 							</div>
 						</div>
 						<div class="img_grande">
