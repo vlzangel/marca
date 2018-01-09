@@ -5,6 +5,9 @@
 	 *
 	*/
 
+	wp_enqueue_style( 'jquery.bxslider', TEMA()."/css/jquery.bxslider.css", array(), "1.0.0" );
+    wp_enqueue_script('bxslider', TEMA()."/js/jquery.bxslider.js", array(), '1.0.0');
+
 	get_header();
 
 		echo MENU();

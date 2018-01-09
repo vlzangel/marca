@@ -93,6 +93,28 @@
     height: 100%;
 }
 
+.bx-wrapper .bx-pager {
+    display: none;
+}
+
+.bx-viewport{
+    height: 200px !important;
+}
+
+.bx-wrapper{
+    max-width: 100% !important;
+}
+
+.xborder-curvo .img-responsive {
+    height: 135px;
+}
+
+.xborder-curvo .row label {
+    font-size: 18px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
 .carrusel_suscripciones_container {
     padding: 0px;
     overflow-x: hidden;
@@ -104,16 +126,10 @@
     position: relative;
     float: left;
     height: 100%;
+    width: 200px !important;
 }
 
 .carrusel_suscripciones_container > div > div {
-    position: relative;
-    float: left;
-    width: 200px;
-    height: 100%;
-}
-
-.carrusel_suscripciones_container > div > div > div{
     width: calc( 100% - 10px );
     height: calc( 100% - 10px );
     margin: 5px;

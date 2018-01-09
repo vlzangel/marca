@@ -1,5 +1,23 @@
 jQuery(document).ready(function() {
 
+	jQuery('.slider_suscripciones').bxSlider({
+	    infiniteLoop: false,
+	    slideWidth: 200,
+	    slideHeight: 200,
+	    minSlides: 1,
+	    maxSlides: 3,
+	    slideMargin: 10
+	});
+
+	jQuery('.slider_despachos').bxSlider({
+	    infiniteLoop: false,
+	    slideWidth: 200,
+	    slideHeight: 200,
+	    minSlides: 1,
+	    maxSlides: 3,
+	    slideMargin: 10
+	});
+
 	jQuery("#tab_2 .suscripcion_item").on("click", function(e){
 		jQuery(".suscripcion_item").removeClass("item_activo");
 		jQuery(this).addClass("item_activo");
@@ -7,7 +25,7 @@ jQuery(document).ready(function() {
 		jQuery("#presentacion").val( jQuery(this).attr("data-type") );
 		jQuery("#status").val( jQuery(this).attr("data-status") );
 		jQuery("#entrega").val( jQuery(this).attr("data-entrega") );
-		jQuery("#img_item").attr("src", jQuery(this).attr("data-img") );
+		jQuery("#tab_2 #img_item").attr("src", jQuery(this).attr("data-img") );
 
 		var entregados = jQuery(this).attr("data-entregados");
 		jQuery(".entregas span").removeClass("entregado");
@@ -24,6 +42,9 @@ jQuery(document).ready(function() {
 		jQuery(".suscripcion_item").removeClass("item_activo");
 		jQuery(this).addClass("item_activo");
 		jQuery(".progress-content > div > div > div").removeClass("paso_completado");
+
+		jQuery("#img_item_2").attr("src", jQuery(this).attr("data-img") );
+
 		switch( jQuery(this).attr("data-status") ){
 			case 'Armada':
 				jQuery("#armada").addClass("paso_completado");
