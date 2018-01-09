@@ -112,16 +112,8 @@
 			</ul>
 		</aside>
 
-		<aside class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-defaut" 
-				style="
-				    width: 93%;
-				    font-size: 13px;
-				    text-align: center;
-				    background: #000;
-				    border-color: #000;
-				    border-radius: 25px;
-			    ">Instrucciones para completar el pago</a>
+		<aside class="col-md-12">
+	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 10px 10px 10px; margin:0 auto; font-size: 12px;">Instrucciones para completar el pago</a>
 		</aside>
 		<aside class="col-md-12">
 	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 20px 10px 20px; font-size: 12px;  margin-left: -6%">IR A MI PERFIL</a>
