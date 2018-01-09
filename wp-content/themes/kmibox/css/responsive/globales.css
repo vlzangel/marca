@@ -19,7 +19,7 @@
     text-decoration: none;
 }
 }
-@media (max-width:768px) {
+@media (max-width:767px) {
 	.nav_container > ul > li a > span {
 	    display: none;
 	}
