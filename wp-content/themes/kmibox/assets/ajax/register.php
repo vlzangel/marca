@@ -74,7 +74,7 @@ if( $user_id > 0 ){
     $request = Requests::post('http://kmimosmx.sytes.net/QA2/services/users.php', array(), $options );
     $is_user_kmimos = "NO";
     if( $request->body+0 > 0 ){
-    	$is_user_kmimos = "YES";
+    	$is_user_kmimos = "SI";
     }
 	update_user_meta( $user_id, 'is_user_kmimos', $is_user_kmimos );
 

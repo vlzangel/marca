@@ -22,13 +22,18 @@
 			$donde = "otros";
 		}
 
+		if( !isset($metadata["is_user_kmimos"]) ){
+			$metadata["is_user_kmimos"] = "NO";
+		}
+
 		$data["data"][] = array(
 	        $cliente->ID,
 	        date("d/m/Y", strtotime($cliente->user_registered)),
 	        $metadata[ "first_name" ]." ".$metadata[ "last_name" ],
 	        $cliente->user_email,
 	        $metadata[ "telef_movil" ],
-	        strtoupper( $donde )
+	        strtoupper( $donde ),
+	        $metadata["is_user_kmimos"]
 	    );
 	}
 
