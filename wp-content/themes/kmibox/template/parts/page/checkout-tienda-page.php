@@ -102,6 +102,16 @@
 					?>
 				</div>
 		</aside>
+		
+		<aside class="gothanligth col-xs-12 col-md-8 col-md-offset-2">
+			<h2>¿QUÉ DEBO HACER AHORA?</h2>
+			<ul class="text-left">
+				<li>Revisa tu correo, all&iacute; encontrar&aacute;s las instrucciones para que realices t&uacute; pago en la tienda de tu preferencia.</li>
+				<li>Luego de confirmar t&uacute; pago, te enviaremos un correo con la confirmaci&oacute;n de tu suscripci&oacute;n.</li>
+				<li>En caso de dudas contáctanos al (01) 800 056 4667, y te atenderemos de inmediato.</li>
+			</ul>
+		</aside>
+
 		<aside class="col-md-12">
 	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 10px 10px 10px;margin-left: -6%;font-size: 12px;">Instrucciones para completar el pago</a>
 		</aside>
