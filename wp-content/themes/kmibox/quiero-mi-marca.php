@@ -176,8 +176,9 @@
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog">
 				<div class="Modal content text-center" >			     
-					<div style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
-						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="fondo_opciones" />
+					<div style=" background-color:#ffffff; border-color:#fffff1;">
+						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="img-responsive" />
+						<div style="background-color: #000000;color:  #ffffff; text-align:left">Elije tu forma de pago</div>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
