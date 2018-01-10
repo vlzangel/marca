@@ -484,7 +484,7 @@ $(function($){
 		$('#login-mensaje').html('');
 		$('#login-mensaje').addClass('hidden');
 		
-		$.post( urlbase+"/ajax/register.php", {
+		$.post( urlbase+"ajax/register.php", {
 			key:'registro',
 
 			email: $('[name="r_usuario"]').val(),
