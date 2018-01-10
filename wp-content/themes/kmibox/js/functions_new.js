@@ -392,11 +392,17 @@ function FN(number){
 
 function mas_cantidad(index){
 	var valor = jQuery("#cant_"+index).html();
+	var max = 20;
+	if(valor < max){
 	valor++;
 	jQuery("#cant_"+index).html(valor);
 	CARRITO["productos"][index]["cantidad"] = valor;
 	CARRITO["cantidad"]++;
 	loadFase(5);
+	}else{
+		jQuery('#label-mensaje').html('La cantidad del artículo adicional seleccionado posee el máximo  de productos nutriheoes permitido');
+		jQuery('#mensaje').modal('show');
+	}
 }
 
 function menos_cantidad(index){

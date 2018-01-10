@@ -164,7 +164,8 @@
 				</div>
 				
 				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
-					<span id="agregar_plan" >Agregar otro plan</span>
+				<i class="fa fa-plus-circle"></i>
+					<span id="agregar_plan" class="btn-kmibox-link-suscription" >Agregar otro plan</span>
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
 			</section>	
