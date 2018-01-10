@@ -12,14 +12,14 @@
 	}
 	.nav_container > ul > li a {
     background: #000000;
-     padding: 12px 20px !important;
+     padding: 12px 17px !important;
     border-radius: 50px;
     border: 1px solid #fff;
     color: #fff;
     text-decoration: none;
 }
 }
-@media (max-width:768px) {
+@media (max-width:767px) {
 	.nav_container > ul > li a > span {
 	    display: none;
 	}
