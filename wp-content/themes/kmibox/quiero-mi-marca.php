@@ -178,7 +178,7 @@
 				<div class="Modal content text-center" >			     
 					<div style=" background-color:#ffffff; border-color:#fffff1;">
 						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="img-responsive" />
-						<div style="background-color: #000000;color:  #ffffff; text-align:left">Elije tu forma de pago</div>
+						<div class="gothanligth" style="background-color: #000000;color:  #ffffff; text-align:left">ELIJE TU FORMA DE PAGO</div>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
