@@ -19,7 +19,7 @@
 				<div class="row row-special">					
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input data-charset="xlf" type="text" name="nombre" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre y Apellido"  maxlength="50" >
+						<input data-charset="xlf" type="text" name="nombre" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre y Apellido"  maxlength="40" >
 					</div>
 					<!--div class="col-md-6 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>

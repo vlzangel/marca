@@ -95,7 +95,7 @@ get_header(); ?>
 					<p>Brindale a tu asesor nutricional tu información básica para el envío </p>
 				</div>	
 				<div class="col-xs-12 col-sm-4 col-md-4"> 
-					<span class="marca-circle_2">3</span>
+					<span class="marca-circle_2" style="    margin-right: -7%;">3</span>
 					<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive">
 					<p>Recibe tu orden de compra y realiza tu pago </p>	
 				</div> 
