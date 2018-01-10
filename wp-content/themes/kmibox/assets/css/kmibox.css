@@ -215,7 +215,7 @@ p span{
 	background: #ffffff;
 	padding: 13px 33px;
 	border-radius: 50px;
-	border: 1px solid #eee;
+	border: 1px solid #000;
 	color: #000000;
 	text-decoration: none;
 }
@@ -468,7 +468,7 @@ select{
 .LoginNuevo{
 background-color: #181E0D;
 height: 800px;
-margin-top: -32%;
+margin-top: -34%;
 }
 
 #tophome{
