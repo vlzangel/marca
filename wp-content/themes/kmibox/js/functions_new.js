@@ -400,8 +400,9 @@ function mas_cantidad(index){
 	CARRITO["cantidad"]++;
 	loadFase(5);
 	}else{
-		jQuery('#label-mensaje').html('La cantidad del artículo adicional seleccionado posee el máximo  de productos nutriheoes permitido');
 		jQuery('#mensaje').modal('show');
+		jQuery('#label-mensaje').html('Excedio la cantidad maxima de productos nutriheoes permitido');
+		
 	}
 }
 

@@ -126,9 +126,10 @@
 					<div class="cintillo_factura">
 						<img id="cen" src="'.TEMA().'/imgs/Elemento-1.png" />
 					</div>
+					<h5 id="label-mensaje"></h5>
 					<div class="alerta" id="cart-content-alerta">
 						<span id="cart-alerta"></span>
-					</div>
+					</div>					
 					<table id="desglose" cellspacing=5 cellpadding=5>	
 						<thead>
 							<th class="solo_pc" width="40">&nbsp;</th>
@@ -164,8 +165,8 @@
 				</div>
 				
 				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
-				<i class="fa fa-plus-circle"></i>
-					<span id="agregar_plan" class="btn-kmibox-link-suscription" >Agregar otro plan</span>
+					
+					<span id="agregar_plan" class="btn-kmibox-link-suscription" ><i class="fa fa-plus-circle"></i>Agregar otro plan</span>
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
 			</section>	
