@@ -10,7 +10,7 @@ nav {
 }
 
 .nav_container {
-    position: relative;
+  /*  position: relative;*/
     display: table;
     margin: 0px auto;
     box-sizing: border-box;
