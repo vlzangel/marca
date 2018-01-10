@@ -5,7 +5,7 @@ define('WP_USE_THEMES', false);
 $url = realpath( __DIR__ . '/../../../../../wp-load.php' );
 include_once( $url );
 
-include_once( dirname(dirname(__DIR__))."/lib/Requests/Requests.php" );
+/*include_once( dirname(dirname(__DIR__))."/lib/Requests/Requests.php" );*/
 
 send_nosniff_header();
 nocache_headers();
@@ -44,7 +44,7 @@ if( $user_id < 1 ){
 					$r = kmibox_login([
 						'user_login' => $email,
 						'user_password' => $password,
-						'remember' => false ,
+						'remember' => false 
 					]);
 				}
 			}
@@ -70,13 +70,14 @@ if( $user_id > 0 ){
 		'funcion' => "is_user",
 		'email' => $email
 	);
+	/*
     Requests::register_autoloader();
     $request = Requests::post('http://kmimosmx.sytes.net/QA2/services/users.php', array(), $options );
     $is_user_kmimos = "NO";
     if( $request->body+0 > 0 ){
     	$is_user_kmimos = "SI";
     }
-	update_user_meta( $user_id, 'is_user_kmimos', $is_user_kmimos );
+	update_user_meta( $user_id, 'is_user_kmimos', $is_user_kmimos );*/
 
 	$msg = 'Carga de usuario completo';
 	$sexo = $_POST['sexo'];
