@@ -69,7 +69,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 				<div style='font-weight: normal;'>
-					<strong>".$productos[ $value->producto ]->nombre." : </strong>".$productos[ $value->producto ]->descripcion." ".$value->edad.", ".$value->tamano.", ".$value->peso.", ".$value->plan."
+					<strong>".$productos[ $value->producto ]->nombre." : </strong>".$productos[ $value->producto ]->descripcion." ".$value->edad.", ".$value->tamano.", ".$productos[ $value->producto ]->peso.", ".$value->plan."
 				</div>
 				
 			";
