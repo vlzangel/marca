@@ -64,7 +64,7 @@
 		$productos[ $value->id ] = $value;
 	}
 
-	$suscripciones = "";
+/*	$suscripciones = "";
 	foreach ($CARRITO["productos"] as $key => $value) {
 		if( isset($value->edad) ){
 			$suscripciones .= "
@@ -74,9 +74,42 @@
 				
 			";
 		}
+	}*/
+
+	$suscripciones = "
+		<table cellspacing=0 cellpadding=0 class='desglose_final'>
+			<tr>
+				<th colspan=2 > <div> Producto </div> </th>
+				<th> <div> Periodicidad </div> </th>
+				<th> <div> Mascota </div> </th>
+			</tr>";
+	foreach ($CARRITO["productos"] as $key => $value) {
+		$data = unserialize( $productos[ $value->producto ]->dataextra );
+		if( isset($value->edad) ){
+			$suscripciones .= "
+				<tr>
+					<td>
+						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+					</td>
+					<td class='info'>
+						<div>
+							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
+							<div>".$productos[ $value->producto ]->descripcion."</div>
+							<div>".$productos[ $value->producto ]->peso."</div>
+						</div>
+					</td>
+					<td class='periodicidad'>".$value->plan."</td>
+					<td>".$value->tamano." - ".$value->edad."</td>
+				</tr>
+			";
+		}
 	}
+	$suscripciones .= "</table>";
 
 ?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css"; ?>">
+
 <!-- Fase #6 Pagos -->
 <section data-fase="6" class="container">
 
