@@ -228,5 +228,5 @@
 	    $phpmailer->Password = "1a2b3c4d5e6f$$";
 	    $phpmailer->SMTPSecure = "tls";
 	    $phpmailer->From = "marca@kmimos.la";
-	    $phpmailer->FromName = "Marca";
+	    $phpmailer->FromName = "Nutriheroes";
 	}
