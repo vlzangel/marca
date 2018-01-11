@@ -1,0 +1,54 @@
+.desglose_final{
+	width: 100%;
+	border-right: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+}
+
+.desglose_final th {
+	border-left: solid 1px #CCC;
+	border-top: solid 1px #CCC;
+}
+
+.desglose_final th div {
+    font-family: GothanMedium_regular;
+	border: solid 1px #CCC;
+    margin: 10px 10px 5px;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.desglose_final td {
+	border-left: solid 1px #CCC;
+    font-size: 14px;
+    font-weight: 800;
+    font-family: GothanMedium_regular;
+}
+
+.desglose_final td.info {
+	text-align: left;
+	padding: 10px;
+	border-left: solid 0px #CCC;
+    font-family: Gothamlight_Regular;
+}
+
+.desglose_final td img {
+	height: 100px;
+    margin-right: 10px;
+}
+
+.desglose_final td.info > div {
+	display: inline-block;
+    text-align: center;
+}
+
+.desglose_final td.info  .info_2 {
+    font-family: GothanMedium_regular;
+    text-transform: uppercase;
+}
+
+.desglose_final td.periodicidad {
+    font-family: GothanMedium_regular;
+    text-transform: uppercase;
+}

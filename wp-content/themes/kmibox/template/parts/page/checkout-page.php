@@ -9,23 +9,43 @@
 		$productos[ $value->id ] = $value;
 	}
 
-	$suscripciones = "";
+	$suscripciones = "
+		<table cellspacing=0 cellpadding=0 class='desglose_final'>
+			<tr>
+				<th colspan=2 > <div> Producto </div> </th>
+				<th> <div> Periodicidad </div> </th>
+				<th> <div> Mascota </div> </th>
+			</tr>";
 	foreach ($CARRITO["productos"] as $key => $value) {
+		$data = unserialize( $productos[ $value->producto ]->dataextra );
 		if( isset($value->edad) ){
 			$suscripciones .= "
-			<div style='font-weight: normal;'>
-					<strong>".$productos[ $value->producto ]->nombre." : </strong>".$productos[ $value->producto ]->descripcion." ".$value->edad.", ".$value->tamano.", ".$productos[ $value->producto ]->peso.", ".$value->plan."
-				</div>
-				
+				<tr>
+					<td>
+						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+					</td>
+					<td class='info'>
+						<div>
+							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
+							<div>".$productos[ $value->producto ]->descripcion."</div>
+							<div>".$productos[ $value->producto ]->peso."</div>
+						</div>
+					</td>
+					<td class='periodicidad'>".$value->plan."</td>
+					<td>".$value->tamano." - ".$value->edad."</td>
+				</tr>
 			";
 		}
 	}
+	$suscripciones .= "</table>";
 
 	$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
 	$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
-	$OPENPAY_PRUEBAS = 1;
+	$OPENPAY_PRUEBAS = 1; // width: 100%;
 
 ?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css"; ?>">
 
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay.v1.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay-data.v1.min.js"; ?>"></script>
@@ -42,8 +62,8 @@
 	<!-- Mensaje Success -->
 	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #04b804; margin-bottom: 5%;" class="postone text-felicidades">¡Felicidades!</h1>
-			<h4 style="color:#000; font-weight: bold; margin-bottom: 5%" class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 style="font-size: 40px; font-weight: bold; color: #04b804; margin-bottom: 20px;" class="postone text-felicidades">¡Felicidades!</h1>
+			<h4 style="color:#000; font-weight: bold; margin-bottom: 20px;" class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
@@ -53,7 +73,7 @@
 							<?php echo $suscripciones; ?>
 					</div>
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion" style="font-size: 18px;    margin-top: 5%;">TOTAL SUSCRIPCIÓN:</div>
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion" style="font-size: 18px; margin-top: 20px;">TOTAL SUSCRIPCIÓN:</div>
 				
 			</div>
 			<div class="col-xs-12 col-md-12 desc_value gothan" style="font-size: 18px; font-weight: bold;">
