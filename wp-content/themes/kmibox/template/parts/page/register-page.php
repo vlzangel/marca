@@ -64,6 +64,7 @@
 						<input type="text" name="telef_movil" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Teléfono móvil" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  maxlength="13">
 					</div>
 					<div class="col-md-4 form-group">
+						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<input type="text" name="telef_fijo" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Teléfono fijo"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
 					</div>
 				</div>
