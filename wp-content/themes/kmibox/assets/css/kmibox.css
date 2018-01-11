@@ -1369,19 +1369,9 @@ margin-bottom: 10% !important;
 		width: 100%;
 	}
 
-	.text-felicidades{
-margin-bottom: 10% !important;
-}
-.text-suscripcionexitosa{
-	margin-bottom: 15% !important;
-}
-.text-tususcripcion{
-	 margin-top: 10% !important;
-}
-.text-btnperfil{
-	margin-top: 10% !important;
-
-}
+	.text-btnperfil{
+		margin-top: 10% !important;
+	}
 
 }
 @media all and (min-width:959px) {

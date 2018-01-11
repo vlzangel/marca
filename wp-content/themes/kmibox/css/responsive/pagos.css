@@ -1,0 +1,38 @@
+@media (max-width: 650px){
+
+	.desglose_final th div {
+	    font-size: 12px;
+	}
+
+	.desglose_final td {
+	    font-size: 10px;
+	}
+
+	.desglose_final td img {
+	    height: 60px;
+	    margin-left: 10px;
+	}
+
+}
+
+@media (max-width: 500px){
+
+	.solo_pc{
+		display: none !important;
+	}
+
+	.solo_movil{
+		display: block !important;
+	}
+
+	.desglose_final td.info > div {
+	    text-align: left !important;
+	}
+
+	.col-xs-12, .col-md-6, .col-md-12 {
+	    padding-right: 0px !important;
+	    padding-left: 0px !important;
+	}
+
+}
+

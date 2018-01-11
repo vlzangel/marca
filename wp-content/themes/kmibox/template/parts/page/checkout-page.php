@@ -46,6 +46,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css"; ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/responsive/pago.css"; ?>">
 
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay.v1.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay-data.v1.min.js"; ?>"></script>
