@@ -45,7 +45,7 @@
 
 	$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
 	$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
-	$OPENPAY_PRUEBAS = 1; // width: 100%;
+	$OPENPAY_PRUEBAS = 1;
 
 ?>
 
@@ -65,7 +65,7 @@
 	<?php } ?>
 
 	<!-- Mensaje Success -->
-	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
+	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
 			<h1 class="postone text-felicidades">¡Felicidades!</h1>
 			<h4 class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
@@ -100,7 +100,7 @@
 		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
 	</script>
 
-	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden" style="border-radius:30px;padding:20px; margin-top:7%;border:1px solid #ccc;">
+	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin-top:7%;border:1px solid #ccc;">
 
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" method="post" action="#" id="form-pago" >

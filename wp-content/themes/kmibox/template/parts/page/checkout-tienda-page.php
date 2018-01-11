@@ -5,7 +5,7 @@
 
  	include_once(dirname(dirname(dirname(__DIR__)))."/lib/openpay/Openpay.php");
 
- 	/*$order_id = time();
+ 	$order_id = time();
 
  	$dataOpenpay = dataOpenpay();
 
@@ -55,7 +55,7 @@
     		"codigo" => $error_code,
     		"info" => $error_info
     	);
-    }*/
+    }
 
 
 	$_productos = $wpdb->get_results("SELECT * FROM productos");
