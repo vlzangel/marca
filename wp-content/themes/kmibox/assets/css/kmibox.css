@@ -1261,9 +1261,6 @@ margin-top: -34%;
 		height: 150px!important;
     	width:  150px!important;
 	}
-	.text-btnperfil{
-		margin-top: 10% !important;
-	}
 
 }
 @media only screen and (max-device-width:780px) and (orientation:landscape) {
@@ -1359,10 +1356,6 @@ margin-top: -34%;
 		width: 100%;
 	}
 
-	.text-btnperfil{
-		margin-top: 10% !important;
-	}
-
 }
 @media all and (min-width:959px) {
 	.h-3x{
@@ -1396,10 +1389,6 @@ margin-top: -34%;
 	}
 	.botonesheader{
 		 margin-top: -7%;
-	}
-
-	.text-btnperfil{
-		margin-top: 10% !important;
 	}
 
 }

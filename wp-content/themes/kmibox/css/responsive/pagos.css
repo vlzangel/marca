@@ -17,6 +17,29 @@
 
 @media (max-width: 500px){
 
+	.text-felicidades {
+	    font-size: 25px;
+        margin-bottom: 10px;
+	}
+
+	.text-suscripcionexitosa {
+	    font-size: 14px;
+        margin-bottom: 10px;
+	}
+
+	.text-tususcripcion {
+	    font-size: 14px;
+        margin-bottom: 10px;
+	}
+
+	.text-quedebohacer{
+		font-size: 14px;
+	}
+
+	.text-pasos{
+		font-size: 14px;
+	}
+
 	.solo_pc{
 		display: none !important;
 	}
@@ -32,6 +55,27 @@
 	.col-xs-12, .col-md-6, .col-md-12 {
 	    padding-right: 0px !important;
 	    padding-left: 0px !important;
+	}
+
+}
+
+@media (max-width: 360px){
+
+	.text-felicidades {
+	    font-size: 20px;
+	}
+
+	.text-suscripcionexitosa {
+	    font-size: 11px;
+	}
+
+	.text-tususcripcion {
+	    font-size: 12px;
+        margin-bottom: -10px;
+	}
+
+	.text-pasos{
+		font-size: 12px;
 	}
 
 }

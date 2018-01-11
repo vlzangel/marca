@@ -130,8 +130,8 @@
 		</aside>
 		
 		<aside class="gothanligth col-xs-12 col-md-8 col-md-offset-2">
-			<h2>¿QUÉ DEBO HACER AHORA?</h2>
-			<ul class="text-left">
+			<h2 class="text-quedebohacer">¿QUÉ DEBO HACER AHORA?</h2>
+			<ul class="text-left text-pasos">
 				<li>Revisa tu correo, all&iacute; encontrar&aacute;s las instrucciones para que realices t&uacute; pago en la tienda de tu preferencia.</li>
 				<li>Luego de confirmar t&uacute; pago, te enviaremos un correo con la confirmaci&oacute;n de tu suscripci&oacute;n.</li>
 				<li>En caso de dudas contáctanos al (01) 800 056 4667, y te atenderemos de inmediato.</li>
