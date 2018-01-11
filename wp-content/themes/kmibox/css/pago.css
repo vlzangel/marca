@@ -1,3 +1,19 @@
+#pago_exitoso {
+    margin: 3% auto 0px;
+    width: calc( 100% - 40px );
+    border-radius: 10px !important;
+    padding: 10px !important;
+    max-width: 1000px;
+    display: block;
+    float: none;
+}
+
+#pago_exitoso .col-md-8 {
+    width: calc( 100% - 40px );
+    float: none;
+    margin: 0px auto !important;
+}
+
 .text-felicidades{
 	font-size: 40px; 
 	font-weight: bold; 
