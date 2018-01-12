@@ -355,7 +355,17 @@
 
 	#agregar_plan {
 	    display: block;
-	    margin: 10px;
+	    margin: 25px;
+	    font-size: 14px;
+	}
+
+	.btn_pagar {
+	    font-size: 14px;
+	}
+
+	.btn-kmibox-link-suscription i {
+	    font-size: 15px;
+	    margin-right: 5px;
 	}
 
 	.factura {
