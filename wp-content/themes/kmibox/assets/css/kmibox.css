@@ -594,7 +594,7 @@ margin-top: -34%;
 
 #register .row-special,
 #register .form-group {
-   /* margin-right: 0px!important; */
+    margin-right: 0px!important; 
     margin-left: 0px!important; 
 }
 #register .label-group label i{
@@ -1261,6 +1261,19 @@ margin-top: -34%;
 		height: 150px!important;
     	width:  150px!important;
 	}
+	.text-felicidades{
+margin-bottom: 10% !important;
+}
+.text-suscripcionexitosa{
+	margin-bottom: 15% !important;
+}
+.text-tususcripcion{
+	 margin-top: 10% !important;
+}
+.text-btnperfil{
+	margin-top: 10% !important;
+
+}
 
 }
 @media only screen and (max-device-width:780px) and (orientation:landscape) {
@@ -1356,6 +1369,20 @@ margin-top: -34%;
 		width: 100%;
 	}
 
+	.text-felicidades{
+margin-bottom: 10% !important;
+}
+.text-suscripcionexitosa{
+	margin-bottom: 15% !important;
+}
+.text-tususcripcion{
+	 margin-top: 10% !important;
+}
+.text-btnperfil{
+	margin-top: 10% !important;
+
+}
+
 }
 @media all and (min-width:959px) {
 	.h-3x{
@@ -1387,9 +1414,23 @@ margin-top: -34%;
 	       margin-right: -6%
 
 	}
-	.botonesheader{
-		 margin-top: -7%;
-	}
+.botonesheader{
+	 margin-top: -7%;
+}
+
+.text-felicidades{
+margin-bottom: 10% !important;
+}
+.text-suscripcionexitosa{
+	margin-bottom: 15% !important;
+}
+.text-tususcripcion{
+	 margin-top: 10% !important;
+}
+.text-btnperfil{
+	margin-top: 10% !important;
+
+}
 
 }
 @media all and (max-width:959px) and (min-width:613px) {
