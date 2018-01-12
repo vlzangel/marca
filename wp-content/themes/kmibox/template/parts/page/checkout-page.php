@@ -13,8 +13,8 @@
 		<table cellspacing=0 cellpadding=0 class='desglose_final'>
 			<tr>
 				<th colspan=2 > <div> Producto </div> </th>
-				<th> <div> Periodicidad </div> </th>
-				<th> <div> Mascota </div> </th>
+				<th class='solo_pc'> <div> Periodicidad </div> </th>
+				<th class='solo_pc'> <div> Mascota </div> </th>
 			</tr>";
 	foreach ($CARRITO["productos"] as $key => $value) {
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
@@ -30,9 +30,13 @@
 							<div>".$productos[ $value->producto ]->descripcion."</div>
 							<div>".$productos[ $value->producto ]->peso."</div>
 						</div>
+						<div class='info_3 solo_movil'>
+							<div class='mayuscula'>".$value->plan."</div>
+							<div>".$value->tamano." - ".$value->edad."</div>
+						</div>
 					</td>
-					<td class='periodicidad'>".$value->plan."</td>
-					<td>".$value->tamano." - ".$value->edad."</td>
+					<td class='periodicidad solo_pc'>".$value->plan."</td>
+					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
 			";
 		}
@@ -41,11 +45,12 @@
 
 	$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
 	$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
-	$OPENPAY_PRUEBAS = 1; // width: 100%;
+	$OPENPAY_PRUEBAS = 1;
 
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css"; ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/responsive/pagos.css"; ?>">
 
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay.v1.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay-data.v1.min.js"; ?>"></script>
@@ -62,23 +67,22 @@
 	<!-- Mensaje Success -->
 	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #04b804; margin-bottom: 20px;" class="postone text-felicidades">¡Felicidades!</h1>
-			<h4 style="color:#000; font-weight: bold; margin-bottom: 20px;" class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 class="postone text-felicidades">¡Felicidades!</h1>
+			<h4 class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name gothan" style="font-size: 18px;">TU SUSCRIPCIÓN: </div>				
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion">TU SUSCRIPCIÓN:</div>				
 			</div>
-					<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px;">
-							<?php echo $suscripciones; ?>
-					</div>
+			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px;">
+					<?php echo $suscripciones; ?>
+				</div>
 			<div class="row">
-				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion" style="font-size: 18px; margin-top: 20px;">TOTAL SUSCRIPCIÓN:</div>
-				
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion">TOTAL SUSCRIPCIÓN:</div>				
 			</div>
-			<div class="col-xs-12 col-md-12 desc_value gothan" style="font-size: 18px; font-weight: bold;">
+			<div class="col-xs-12 col-md-12 desc_value gothan total">
 					<?php 
-						echo "$".number_format($CARRITO["total"], 2, ',', '.')."MXN";
+						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
 				</div>
 		</aside>
