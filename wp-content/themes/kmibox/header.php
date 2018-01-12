@@ -20,10 +20,10 @@
 	<!-- BEGIN Font -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 	<!-- END Font -->
-	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/CaviarDreams.css">
-	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/PoetsenOne.css">
-	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/GothamMediumRegular.css">
-	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/GothamLightRegular.css">
+	<link rel="stylesheet" href="<?php echo HOME(); ?>/wp-content/themes/kmibox/assets/css/CaviarDreams.css">
+	<link rel="stylesheet" href="<?php echo HOME(); ?>/wp-content/themes/kmibox/assets/css/PoetsenOne.css">
+	<link rel="stylesheet" href="<?php echo HOME(); ?>/wp-content/themes/kmibox/assets/css/GothamMediumRegular.css">
+	<link rel="stylesheet" href="<?php echo HOME(); ?>/wp-content/themes/kmibox/assets/css/GothamLightRegular.css">
 
 	<script type="text/javascript" src="<?php echo get_home_url(); ?>/plugins/jquery/jquery-3.2.1.min.js"></script>
 
