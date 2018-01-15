@@ -11,33 +11,6 @@
 				font-size: 14px; 
 			}
 
-			.iconos{
-			    width: 16%;
-			    float: left;
-			    margin: 0px 3px;
-			}
-
-			#titulo_header{
-				font-size: 25px;
-			    background: #0b1805;
-			    color: #FFF;
-			    text-align: center;
-			    padding: 30px 20px;
-			    font-weight: 600;
-			}
-
-			#sub_titulo_header{
-				font-size: 17px;
-			    padding: 10px 20px 0px;
-			    font-weight: 400;
-			}
-
-			#img_header{
-				width: 100%;
-			    margin: 0px 0px 10px;
-			    border-bottom: solid 10px #75e417;
-			}
-
 			@media only screen and (max-device-width: 600px) {
 				#img_footer {
 				    height: 50% !important;

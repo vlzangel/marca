@@ -45,10 +45,18 @@
     				<tr>
 
 						<td style="width: 50%; text-align: left; padding: 25px;">
-							<img class="iconos" src="[IMG_PATH]footer/fb.png"  /> <!-- style="width: 25%;" -->
-							<img class="iconos" src="[IMG_PATH]footer/tw.png"  /> <!-- style="width: 25%;" -->
-							<img class="iconos" src="[IMG_PATH]footer/ig.png"  /> <!-- style="width: 25%;" -->
-							<img class="iconos" src="[IMG_PATH]footer/yt.png"  /> <!-- style="width: 25%;" -->
+							<a href="https://www.facebook.com/">
+								<img class="iconos" src="[IMG_PATH]footer/fb.png" style="width: 16%; float: left; margin: 0px 3px;" />
+							</a>
+							<a href="https://twitter.com/">
+								<img class="iconos" src="[IMG_PATH]footer/tw.png" style="width: 16%; float: left; margin: 0px 3px;" />
+							</a>
+							<a href="https://www.instagram.com/">
+								<img class="iconos" src="[IMG_PATH]footer/ig.png" style="width: 16%; float: left; margin: 0px 3px;" />
+							</a>
+							<a href="https://www.youtube.com/">
+								<img class="iconos" src="[IMG_PATH]footer/yt.png" style="width: 16%; float: left; margin: 0px 3px;" />
+							</a>
 						</td>
 
 						<td style="width: 50%; text-align: right; padding: 25px;" >
