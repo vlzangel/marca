@@ -17,6 +17,21 @@
 			    margin: 0px 3px;
 			}
 
+			#titulo_header{
+				font-size: 25px;
+			    background: #0b1805;
+			    color: #FFF;
+			    text-align: center;
+			    padding: 20px;
+			    font-weight: 600;
+			}
+
+			#img_header{
+				width: 100%;
+			    margin: 0px 0px 10px;
+			    border-bottom: solid 10px #75e417;
+			}
+
 			@media only screen and (max-device-width: 600px) {
 				#img_footer {
 				    height: 50% !important;

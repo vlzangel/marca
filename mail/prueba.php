@@ -5,11 +5,11 @@
 	$footer = getTemplate('/generales/footer.php');
 
 	$titulo = '
-		<div style="">
+		<div id="titulo_header">
 			¡Hola Nayely!
 		</div>
 		<div style="">
-			<img src="[IMG_PATH]confirmacion/header.jpg" />
+			<img src="[IMG_PATH]confirmacion/header.png" id="img_header" />
 		</div>
 	';
 
