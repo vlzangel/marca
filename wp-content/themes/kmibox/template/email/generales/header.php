@@ -11,6 +11,12 @@
 				font-size: 14px; 
 			}
 
+			.iconos{
+			    width: 16%;
+			    float: left;
+			    margin: 0px 3px;
+			}
+
 			@media only screen and (max-device-width: 600px) {
 				#img_footer {
 				    height: 50% !important;

@@ -15,7 +15,7 @@
     					margin-top: 25px;">
     				<tr>
 
-						<td style="width: 33%; text-align: center;">
+						<td style="width: 33%; text-align: center; padding: 0px 5px;">
 							<img id="img_footer" src="[IMG_PATH]/footer_img.png" style="width: 100%;" />
 						</td>
 
@@ -39,20 +39,20 @@
 
 			</div>
 
-			<div style="background: #0b1805; color: #FFF;">
+			<div style="background: #0b1805; color: #FFF; margin-top: 25px;">
 				
 				<table style="">
     				<tr>
 
-						<td style="width: 50%; text-align: left;">
-							<img src="[IMG_PATH]/facebook.svg" style="width: 25%;" />
-							<img src="[IMG_PATH]/twitter.svg" style="width: 25%;" />
-							<img src="[IMG_PATH]/instagram.svg" style="width: 25%;" />
-							<img src="[IMG_PATH]/youtube.svg" style="width: 25%;" />
+						<td style="width: 50%; text-align: left; padding: 25px;">
+							<img class="iconos" src="[IMG_PATH]fb.png"  /> <!-- style="width: 25%;" -->
+							<img class="iconos" src="[IMG_PATH]tw.png"  /> <!-- style="width: 25%;" -->
+							<img class="iconos" src="[IMG_PATH]ig.png"  /> <!-- style="width: 25%;" -->
+							<img class="iconos" src="[IMG_PATH]yt.png"  /> <!-- style="width: 25%;" -->
 						</td>
 
-						<td style="width: 50%; text-align: right;" >
-							NUTRIHEROES <img src="[IMG_PATH]/huesitos.svg" style="width: 25%;" />
+						<td style="width: 50%; text-align: right; padding: 25px;" >
+							<img src="[IMG_PATH]logo_nutriheroes.png" style="width: 100%;" />
 						</td>
 
 					</tr>

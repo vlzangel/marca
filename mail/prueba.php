@@ -1,19 +1,20 @@
 <?php
 	include dirname(__DIR__).'/wp-load.php';
 
-	$PATH_TEMPLATE = dirname(__DIR__)."/wp-content/themes/kmibox/template/email/";
-
 	$header = getTemplate('/generales/header.php');
+	$footer = getTemplate('/generales/footer.php');
 
 	$titulo = '
 		<div style="">
-
+			¡Hola Nayely!
+		</div>
+		<div style="">
+			<img src="" />
 		</div>
 	';
 
-	$footer = getTemplate('/generales/footer.php');
 
-	echo $HTML = addImgPath($header.$footer);
+	echo $HTML = addImgPath($header.$titulo.$footer);
 
 	// wp_mail( "vlzangel91@gmail.com", "Prueba", $HTML);
 ?>
