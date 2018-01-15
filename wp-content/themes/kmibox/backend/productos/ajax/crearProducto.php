@@ -15,7 +15,7 @@
 	$_edades = array(
 		"Cachorro" => 0,
 		"Adulto" => 0,
-		"Maduro" => 0
+		"Senior" => 0
 	);
 
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");

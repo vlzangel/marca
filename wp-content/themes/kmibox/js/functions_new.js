@@ -166,15 +166,25 @@ function loadMarcas(){
 	jQuery('#marca').html("");
 	var CANT = 0;
 	jQuery.each(MARCAS,  function(key, marca){
-		jQuery('#marca').append(
-			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
-				'<div class="item_box">'+
-					'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
-				'</div>'+
-			'</div>'
-		);
-		CANT++;
+		jQuery.each(PRODUCTOS,  function(key_2, producto){
+			if( key == producto.marca ){
+				if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
+					if( producto.edades[ prod_actual["edad"] ] == 1 ){
+
+						jQuery('#marca').append(
+							'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
+								'<div class="item_box">'+
+									'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
+								'</div>'+
+							'</div>'
+						);
+						CANT++;
+					}
+				}
+			}
+		});
 	});
+
 	jQuery('#cant_marcas').html( CANT );	
 }
 
@@ -195,18 +205,22 @@ function loadPresentaciones(){
 	var prod_actual = getCarritoActual();
 	jQuery.each(PRODUCTOS,  function(key, producto){
 		if( prod_actual["marca"] == producto.marca ){
-			HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
-					'<div class="item_box">'+
-						'<div class="img_box" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
-						'<div class="info_producto_container">'+
-							'<div class="title_producto_box">'+producto.nombre+'</div>'+
-							'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
-							'<div class="peso_producto_box">'+producto.peso+'</div>'+
-						'</div>'+
-					'</div>'+
-				'</div>';
-			jQuery('#presentaciones').append( HTML );
-			CANT++;
+			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
+				if( producto.edades[ prod_actual["edad"] ] == 1 ){
+					HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
+							'<div class="item_box">'+
+								'<div class="img_box" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
+								'<div class="info_producto_container">'+
+									'<div class="title_producto_box">'+producto.nombre+'</div>'+
+									'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
+									'<div class="peso_producto_box">'+producto.peso+'</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+					jQuery('#presentaciones').append( HTML );
+					CANT++;
+				}
+			}
 		}
 	});
 	jQuery('#cant_precentaciones').html( CANT );	
@@ -239,10 +253,10 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
-	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 	<img src="'+thumnbnail+'"  height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc" style="text-align: center;">';
-	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 	<img src="'+thumnbnail+'"  height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
