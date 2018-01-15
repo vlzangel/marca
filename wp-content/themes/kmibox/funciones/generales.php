@@ -40,6 +40,19 @@
 	    }
 	}
 
+	if(!function_exists('getTemplate')){
+	    function getTemplate($_plantilla){
+	    	$PATH_TEMPLATE = dirname(__DIR__)."/template/email/".$_plantilla;
+			return file_get_contents($PATH_TEMPLATE);
+	    }
+	}
+
+	if(!function_exists('addImgPath')){
+	    function addImgPath($HTML){
+	    	return str_replace('[IMG_PATH]', TEMA()."/imgs/mails/", $HTML);
+	    }
+	}
+
 	if(!function_exists('MENU')){
 	    function MENU($page = ""){
 	    	$user = get_user_by( 'id', get_current_user_id() );
