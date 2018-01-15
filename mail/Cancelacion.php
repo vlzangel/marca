@@ -21,5 +21,5 @@
 
 	echo $HTML = addImgPath($header.$titulo.$footer);
 
-	//wp_mail( "vlzangel91@gmail.com", "Prueba", $HTML);
+	wp_mail( "vlzangel91@gmail.com", "Prueba", $HTML);
 ?>
