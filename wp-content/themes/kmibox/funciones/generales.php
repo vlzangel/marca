@@ -49,7 +49,9 @@
 
 	if(!function_exists('addImgPath')){
 	    function addImgPath($HTML){
-	    	return str_replace('[IMG_PATH]', TEMA()."/imgs/mails/", $HTML);
+	    	$PATH = TEMA()."/imgs/mails/";
+	    	$PATH = "http://nutriheroes.com.mx/QA/wp-content/themes/kmibox/imgs/mails/";
+	    	return str_replace('[IMG_PATH]', $PATH, $HTML);
 	    }
 	}
 
