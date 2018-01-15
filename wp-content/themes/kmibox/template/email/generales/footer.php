@@ -16,7 +16,7 @@
     				<tr>
 
 						<td style="width: 33%; text-align: center; padding: 0px 5px;">
-							<img id="img_footer" src="[IMG_PATH]/footer_img.png" style="width: 100%;" />
+							<img id="img_footer" src="[IMG_PATH]footer/footer_img.png" style="width: 100%;" />
 						</td>
 
 						<td id="recuerda" style="
@@ -45,14 +45,14 @@
     				<tr>
 
 						<td style="width: 50%; text-align: left; padding: 25px;">
-							<img class="iconos" src="[IMG_PATH]fb.png"  /> <!-- style="width: 25%;" -->
-							<img class="iconos" src="[IMG_PATH]tw.png"  /> <!-- style="width: 25%;" -->
-							<img class="iconos" src="[IMG_PATH]ig.png"  /> <!-- style="width: 25%;" -->
-							<img class="iconos" src="[IMG_PATH]yt.png"  /> <!-- style="width: 25%;" -->
+							<img class="iconos" src="[IMG_PATH]footer/fb.png"  /> <!-- style="width: 25%;" -->
+							<img class="iconos" src="[IMG_PATH]footer/tw.png"  /> <!-- style="width: 25%;" -->
+							<img class="iconos" src="[IMG_PATH]footer/ig.png"  /> <!-- style="width: 25%;" -->
+							<img class="iconos" src="[IMG_PATH]footer/yt.png"  /> <!-- style="width: 25%;" -->
 						</td>
 
 						<td style="width: 50%; text-align: right; padding: 25px;" >
-							<img src="[IMG_PATH]logo_nutriheroes.png" style="width: 100%;" />
+							<img src="[IMG_PATH]footer/logo_nutriheroes.png" style="width: 100%;" />
 						</td>
 
 					</tr>
