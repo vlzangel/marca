@@ -63,7 +63,8 @@
 
 	    $card_id = "";
 	    $tarjeta = get_user_meta($user_id, "openpay_card_".md5($num_card), true);
-	    if ( empty( $tarjeta ) ) {
+
+	    if ( strlen($tarjeta) == 0 ) {
 		    $cardDataRequest = array(
 			    'holder_name' => $holder_name,
 			    'card_number' => $num_card,
@@ -76,11 +77,12 @@
 			$cardDataRequest["id"] = $card->id;
 			update_user_meta($user_id, "openpay_card_".md5($num_card), serialize($cardDataRequest) );
 	    }else{
-			$card_id = $tarjeta->id;
+	    	$tarjeta = unserialize($tarjeta);
+			$card_id = $tarjeta["id"];
 	    }
 
 	    try{
-	    	$card = $openpay->cards->get($card_id);
+	    	$card = $customer->cards->get($card_id);
 	    } catch (Exception $e) {
 	    	$cardDataRequest = array(
 			    'holder_name' => $holder_name,
