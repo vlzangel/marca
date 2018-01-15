@@ -22,8 +22,14 @@
 			    background: #0b1805;
 			    color: #FFF;
 			    text-align: center;
-			    padding: 20px;
+			    padding: 30px 20px;
 			    font-weight: 600;
+			}
+
+			#sub_titulo_header{
+				font-size: 17px;
+			    padding: 10px 20px 0px;
+			    font-weight: 400;
 			}
 
 			#img_header{

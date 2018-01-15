@@ -7,6 +7,11 @@
 	$titulo = '
 		<div id="titulo_header">
 			¡Hola Nayely!
+
+			<div id="sub_titulo_header"> 
+				Tu suscripci&oacute;n ha sido cancelada con ex&iacute;to
+			</div>
+
 		</div>
 		<div style="">
 			<img src="[IMG_PATH]confirmacion/header.png" id="img_header" />
