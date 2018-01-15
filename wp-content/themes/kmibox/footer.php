@@ -8,6 +8,7 @@
 
 		<?php 
 			/* wp_footer(); */
+			
 			// cargarTablaProductos()
 		?>
 	</body>

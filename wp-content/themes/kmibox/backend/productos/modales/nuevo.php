@@ -5,7 +5,6 @@
 
 	extract($_POST);
 
-	$_presentaciones = array();
 	$_nombre = "";
 	$_precio = "";
 	$_marca = "";
@@ -22,7 +21,6 @@
 		$_peso = $producto->peso;
 		$_marca = $producto->marca;
 		$_descripcion = $producto->descripcion;
-		$_presentaciones = unserialize($producto->presentaciones);
 		$_tamanos = unserialize($producto->tamanos);
 		$_edades = unserialize($producto->edades);
 		$_planes = unserialize($producto->planes);
@@ -41,13 +39,7 @@
 	$edades = array(
 		"cachorros" => "Cachorro",
 		"adultos" => "Adulto",
-		"maduros" => "Maduro"
-	);
-
-	$presentaciones = array(
-		"900g" => "Pequeño",
-		"2000g" => "Mediano",
-		"4000g" => "Grande"
+		"senior" => "Senior"
 	);
 
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");

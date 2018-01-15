@@ -30,7 +30,6 @@
 	}
 
 	$HTML = '
-
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
 		</a>

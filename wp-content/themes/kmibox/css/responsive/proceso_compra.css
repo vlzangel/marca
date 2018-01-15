@@ -355,7 +355,17 @@
 
 	#agregar_plan {
 	    display: block;
-	    margin: 10px;
+	    margin: 25px;
+	    font-size: 14px;
+	}
+
+	.btn_pagar {
+	    font-size: 14px;
+	}
+
+	.btn-kmibox-link-suscription i {
+	    font-size: 15px;
+	    margin-right: 5px;
 	}
 
 	.factura {
@@ -402,8 +412,7 @@
 
 	.titulo_planes {
 	    top: 44px !important;
-	    font-size: 15px !important;
-	    padding: 4px 80px;
+	    font-size: 13px !important;
 	}
 
 	#vlz_controles_fases > span > span {
@@ -550,7 +559,7 @@
 	/* Marca */
 
 		#marca {
-		    height: calc( 100% - 170px );
+		    height: calc( 100% - 175px );
 		}
 
 		#marca > div {
@@ -568,13 +577,13 @@
 		}
 
 		.controles_marca_container {
-		    margin: 75px 20px 0px 20px;
+		    margin: 80px 20px 0px 20px;
 		}
 
 		.btn_siguiente_container {
 		    text-align: center;
 		    padding: 0px 75px;
-		    margin: 10px 0px 3px;
+		    margin: 4px 0px 3px;
 		    font-size: 12px;
 		}
 
@@ -653,11 +662,26 @@
 
 @media (max-width: 350px){
 
+	#vlz_titulo {
+	    top: 55px;
+	    font-size: 12px;
+	    width: calc( 100% - 20px );
+	}
+
+	.selector_edad_container label {
+	    font-size: 15px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    padding: 7px 0px;
+	    min-width: 75px;
+	}
+
     /* Plan */
 
-    .select_plan div {
-	    font-size: 11px;
-	}
+	    .select_plan div {
+		    font-size: 11px;
+		}
 
     /* Presentaciones */
 
