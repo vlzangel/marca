@@ -132,7 +132,7 @@ body {
 	    display: block;
 	}
 
-	.selector_edad_container .selector_edad_box span{
+	.selector_edad_container .selector_edad_box div{
 		display: inline-block;
 	    background: #091705;
 	    text-align: center;
@@ -147,11 +147,11 @@ body {
 	    text-transform: uppercase;
 	}
 
-	.selector_edad_container .selector_edad_box span:hover{
+	.selector_edad_container .selector_edad_box div:hover{
 	    background: #255d15;
 	}
 
-	.selector_edad_container .selector_edad_box span.btn_activo{
+	.selector_edad_container .selector_edad_box div.btn_activo{
 	    background: #48a52d !important;
 	}
 

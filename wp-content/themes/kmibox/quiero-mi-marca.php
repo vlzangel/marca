@@ -71,9 +71,9 @@
 				<div class="selector_edad_container">
 					<label>Selecciona la Edad</label>
 					<div class="selector_edad_box" id="edad">
-						<span id="edad_Cachorro" data-value="Cachorro">Cachorro</span>
-						<span id="edad_Adulto" data-value="Adulto" >Adulto</span>
-						<span id="edad_Senior" data-value="Senior" >Senior</span>
+						<div id="edad_Cachorro" data-value="Cachorro">Cachorro</div>
+						<div id="edad_Adulto" data-value="Adulto" >Adulto</div>
+						<div id="edad_Senior" data-value="Senior" >Senior</div>
 					</div>
 				</div>
 			</section>
