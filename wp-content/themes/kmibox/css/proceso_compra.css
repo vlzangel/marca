@@ -4,6 +4,10 @@ html, body, #content-primary {
 	margin-top: 0px !important;
 }
 
+body {
+    line-height: inherit;
+}
+
 #content-primary, .comprar_container, .comprar_container section {
 	height: 100%;
 }
@@ -187,6 +191,7 @@ html, body, #content-primary {
 	    float: left;
 	    font-size: 20px;
 	    padding: 10px 0px 0px;
+	    font-weight: 600;
 	}
 
 	.tipo_mascota {
@@ -534,6 +539,7 @@ html, body, #content-primary {
 
 	#totales table th{    
 		text-align: right !important;
+		padding: 2px 0px;
 	}
 
 	#totales table td {    
