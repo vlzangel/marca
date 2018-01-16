@@ -8,6 +8,13 @@ body {
     line-height: inherit;
 }
 
+.col-xs-12, .col-md-6, .col-md-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
 #content-primary, .comprar_container, .comprar_container section {
 	height: 100%;
 }
@@ -669,6 +676,7 @@ body {
 	    font-weight: normal;
 	    color: #00bb00;
 	    text-transform: uppercase;
+	    padding: 3px;
 	}
 	
 	.carrousel-items{   
