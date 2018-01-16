@@ -23,28 +23,21 @@
 				<label>Si hay un error, y no has cancelado tu suscripci&oacute;n o quieres volver <strong>haz click en el siguiente enlace</strong></label> 	
 				<br>
 				<a 	href="" 
-				style=\"
+				style="
 					padding: 15px 30px;
 					border-radius: 50px;
-					background-color:#091705;
-					color: #fff;
+					background-color:#ffffff;
+					color: #000;
 					margin: 20px 0px;
-				\"
+					border: solid 2px #091705;
+					text-align: center;
+				"
 			>click aqui</a>
-
+<br><br>
 		</div>
-		<div>
-			<label>para cualquier duda o informaci&oacute;n no dudes en escribirnos por esta via o por whatsapp al <strong>5540034824</strong> donde con gusto te atenderemos</label>
-		</div>	
-	
+		
 
-		<div style="float:left;width:50%;>
-			<img src="[IMG_PATH]confirmacion/general.jpg" style="width: 50%; margin: 0px 0px 10px; " />
-		</div>
-
-			<div style="float:left;width:50%;>
-			<label>Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODOS los servicios kmimos durante todo un año acumulables con otras promociones <br> Kmimos es la mayor red de cuidadores certificados de Mexico, que cuidan a las mascotas en el hogar del cuidador, sin jaulas ni encierros</label>
-		</div>
+		
 
 	';
 
