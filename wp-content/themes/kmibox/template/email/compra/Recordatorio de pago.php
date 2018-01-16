@@ -14,7 +14,7 @@
 
 		</div> 
 		<div>
-			<img src="[IMG_PATH]recordatorio/recordatorio01.jpg" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
+			<img src="[IMG_PATH]recordatorio/recordatorio01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div>
 				<strong>Recuerda hacer el pago de tu suscripci&oacute;n</strong>

@@ -14,46 +14,40 @@
 
 		</div> 
 		<div>
-			<img src="[IMG_PATH]registro/registro01.jpg" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
+			<img src="[IMG_PATH]registro/registro01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div>
 				<label><strong>¡Gracias por registrarte en Nutriheroes!</strong> ahora necesitas confirmar tu correo para activar tu cuenta.</label>
 
 		</div>
+		<br>
 		<div>
 		<h3>la direci&oacute;n asosciada a tu cuenta es:</h3>
 		<label>r.rodriguez@kmimos.la</label>
-		<br>
 		</div>
-
+<br>
 			<div>
 
-				<label>para confirmar la direccion de correo electr&oacute;nico<strong>haz click en este enlace:</strong> </label> 	
+				<label>para confirmar la direccion de correo electr&oacute;nico <strong>haz click en este enlace:</strong> </label> 
+				</div>
+				<div>	
 				<br>
+				
 				<a 	href="" 
-				style=\"
+				style="
 					padding: 15px 30px;
 					border-radius: 50px;
-					background-color:#091705;
-					color: #fff;
+					background-color:#ffffff;
+					color: #000;
 					margin: 20px 0px;
-				\"
+					border: solid 2px #091705;
+					text-align: center;
+				"
 			>confirmar correo</a>
-			<br>
-			<label class="text-center">si recibiste este correo sin haberte registrado, por favor ignoralo.</label> 
 			</div>
-		
+		<br>
+			<label>si recibiste este correo sin haberte registrado, por favor ignoralo.</label> 
 
-
-	
-
-		<div style="float:left;width:50%;>
-			<img src="[IMG_PATH]confirmacion/general.jpg" style="width: 50%; margin: 0px 0px 10px; " />
-		</div>
-
-			<div style="float:left;width:50%;>
-			<label>Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODOS los servicios kmimos durante todo un año acumulables con otras promociones <br> Kmimos es la mayor red de cuidadores certificados de Mexico, que cuidan a las mascotas en el hogar del cuidador, sin jaulas ni encierros</label>
-		</div>
 
 
 	';

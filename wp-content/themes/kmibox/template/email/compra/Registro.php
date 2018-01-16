@@ -14,7 +14,7 @@
 
 		</div> 
 		<div>
-			<img src="[IMG_PATH]registro/registro01.jpg" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
+			<img src="[IMG_PATH]registro/registro01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div>
 				<label><strong>¡Gracias por registrarte en Nutriheroes!</strong> ahora necesitas confirmar tu correo para activar tu cuenta.</label>

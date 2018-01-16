@@ -10,7 +10,7 @@
 
 		</div> 
 		<div>
-			<img src="[IMG_PATH]modificacion/modificacion_suscripcion01.jpg" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
+			<img src="[IMG_PATH]modificacion/modificacion_suscripcion01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div>
 				<strong>Tu suscripci&oacute;n ha siso modificada con &ecute;xito</strong>. 
