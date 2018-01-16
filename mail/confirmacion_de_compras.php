@@ -18,21 +18,30 @@
 		</div>
 		<div>
 		<h3>Direci&oacute;n de envio</h3>
+		<label></label>
 		</div>
+		<br>
 		<div>
 		<h3>Fecha de entrega estimada</h3>
+		<label></label>
 		</div>
+		<br>
 		<div>
 		<h3>tipo de env&iacute;o</h3>
+		<label></label>
 		</div>
+		<br>
 		<div>
 		<h3>guia de rastreo</h3>
+		<label></label>
 		</div>
-
+		<br>
 		<div>
 		<h3>Entra en <strong>WWW.fedex.com</strong> e ingresa tu numero de gu&iacute;a para monitorear tu entrega</h3>
 		<hr>
 		</div>
+		<br>
+
 		<div>
 		<h3>detalles del pedido</h3>
 
@@ -60,24 +69,15 @@
 					<td>".$value->plan."</td>
 					<td>".$value->tamano." - ".$value->edad."</td>
 				</tr>
-			
+			</table>
 		</div>
-
+<br>
 		<div>
 		<h3>total de suscripcion</h3>
+		<label></label>
 		</div>
 
-		<div>
-		<label>para cualquier duda o informaci&oacute;n no dudes en escribirnos por esta via o por whatsapp al <strong>5540034824</strong> donde con gusto te atenderemos</label>
-		</div>
-		<div style="float:left;width:50%;>
-			<img src="[IMG_PATH]confirmacion/general.jpg" style="width: 50%; margin: 0px 0px 10px; " />
-		</div>
-
-			<div style="float:left;width:50%;>
-			<label>Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODOS los servicios kmimos durante todo un año acumulables con otras promociones <br> Kmimos es la mayor red de cuidadores certificados de Mexico, que cuidan a las mascotas en el hogar del cuidador, sin jaulas ni encierros</label>
-		</div>
-
+		
 
 
 	';
