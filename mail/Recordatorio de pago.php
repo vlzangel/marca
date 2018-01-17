@@ -22,7 +22,7 @@
 		</div>
 				<br>
 		<div class="pull-center" style="text-align:center; font-size: 30px ! important;">
-		<table cellspacing=0 cellpadding=0 style="text-align: center;">
+		<table cellspacing=5 cellpadding=0 style="text-align: center;">
 			<tr>
 					<td>
 						<img src="[IMG_PATH]confirmacion/general.jpg"/>
