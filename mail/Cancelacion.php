@@ -21,7 +21,7 @@
 				<strong>Esperamos que regreses pronto para poder llevar el alimento de tu peludo a casa sin ning&uacute;n costo adicional.</strong>
 				<br><br><br><br>
 				
-				<label style="text-align: center;font-size: 17px;line-height: 27px;">Si hay un error, y no has cancelado tu suscripci&oacute;n o quieres volver <strong>haz click en el siguiente enlace</strong></label> 	
+				<label style="text-align: left;font-size: 17px;line-height: 27px;">Si hay un error, y no has cancelado tu suscripci&oacute;n o quieres volver <strong>haz click en el siguiente enlace</strong></label> 	
 				<br><br><br><br>
 				<a 	href="" 
 				style="

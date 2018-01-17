@@ -10,15 +10,18 @@
 				font-family: Arial; 
 				font-size: 14px; 
 			}
+			.kmimos{
+				 height: 17px;
+			}
 
 			@media only screen and (max-device-width: 600px) {
 				#img_footer {
-				    height: 50% !important;
+				    height: 100% !important;
 				}
 				#recuerda {
 				    line-height: 15px !important;
 				    padding: 5px !important;
-				    font-size: 14px !important;
+				    font-size: 16px !important;
 				}
 				#body{
 				width: 919px;
@@ -29,6 +32,10 @@
 				.text{
 					font-size: 14px ! important; 
 				}
+				.kmimos{
+				 height: 40px;
+			}
+
 			}
 
 		</style>

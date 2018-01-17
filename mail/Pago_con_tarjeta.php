@@ -52,7 +52,7 @@
 		</div>
 			<br><br>
 
-		<label  style="text-align: center;font-size: 17px;line-height: 27px;">¡Gracias por tu compra!</label>
+		<label style="text-align: center; font-size: 17px;line-height: 27px; margin-left: 22%;">¡Gracias por tu compra!</label>
 
 
 	

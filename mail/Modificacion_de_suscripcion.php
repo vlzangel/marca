@@ -22,9 +22,9 @@
 		</div>
 			<br>
 		<div>
-			<h3 style="text-align: center;font-size: 17px;line-height: 27px;">detalles del pedido</h3>
+			<h3 style="text-align: left;font-size: 17px;line-height: 27px;">detalles del pedido</h3>
 
-		<table cellspacing=0 cellpadding=0 >
+		<table cellspacing=0 cellpadding=0 style="text-align: center;>
 			<tr>
 				<th colspan=2 > <div> Producto </div> </th>
 				<th> <div> Periodicidad </div> </th>

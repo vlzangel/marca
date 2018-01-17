@@ -79,7 +79,7 @@
 				<br>
 				<label>$1703,4 MXN</label>
 			</div>
-	<br>	<br>
+	<br>	<br><br>	<br>
 
 
 
