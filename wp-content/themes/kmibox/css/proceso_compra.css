@@ -209,6 +209,7 @@ body {
 	    padding: 5px 20px;
 	    outline: none !important;
 	    box-shadow: 0px 0px 0px #000 !important;
+	    border-radius: 5px !important;
 	}
 
 	#marca > div {
