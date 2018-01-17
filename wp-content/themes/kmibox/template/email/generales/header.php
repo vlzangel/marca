@@ -28,13 +28,20 @@
 				margin: 0px auto;
 				font-family: Arial; 
 				font-size: 14px ! important; 
+				text-align: center;
 				}
 				.text{
 					font-size: 14px ! important; 
 				}
 				.kmimos{
 				 height: 40px;
-			}
+				}
+				.min-text{
+					font-size: 12px ! important; 
+				}
+				.mayuscula{
+					text-transform: uppercase;
+				}
 
 			}
 

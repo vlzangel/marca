@@ -22,27 +22,27 @@
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>tu fecha estimada de entrega es</h3>
+			<h3 class="mayuscula">tu fecha estimada de entrega es</h3>
 			<label>lunes 15 de enero - jueves 18 de enero</label>
 		</div>
 				<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>tipo de envio</h3>
+			<h3 class="mayuscula">tipo de envio</h3>
 			<label>fedex</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>tu pedido sera enviado a</h3>
+			<h3 class="mayuscula">tu pedido sera enviado a</h3>
 			<label>rob cuevas paseo de la luna 370, interior 124 Paseo de solares Zapopan, Jalisco 45019 M&eacute;xico</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>detalles del pedido</h3>
+			<h3 class="mayuscula">detalles del pedido</h3>
 			<label>pedido No.123456 realizado el lunes 08 de enero</label>
 		</div>
 			<br>
 
-		<table cellspacing=0 cellpadding=0 >
+		<table cellspacing=0 cellpadding=0 style="text-align: center;">
 			<tr>
 				<th colspan=2 > <div> Producto </div> </th>
 				<th> <div> Periodicidad </div> </th>
@@ -54,27 +54,27 @@
 					</td>
 					<td >
 						<div>
-							<div>"royal canin"</div>
-							<div>"Raza Media Adulta</div>
-							<div>"10kg"</div>
+							<div>royal canin</div>
+							<div>Raza Media Adulta</div>
+							<div>10kg</div>
 						</div>
 						<div>
-							<div>"semestral"</div>
-							<div>"Pequeño - Adulto"</div>
+							<div>semestral</div>
+							<div>Pequeño - Adulto</div>
 						</div>
 					</td>
-					<td>".$value->plan."</td>
-					<td>".$value->Pequeño - Adulto"</td>
+					<td>semestral</td>
+					<td>Pequeño - Adulto</td>
 				</tr>
 			</table>
 
 			<hr>
-			<div style="float:left;width:50%;">
+			<div style="float:right;width:50%;">
 				<label>Subtotal</label>
 				<br>
 				<label>Total(IVA incluido)</label>
 			</div>
-			<div style="float:left;width:50%;">
+			<div style="float:right;width:50%;">
 				<label>$1500 MXN</label>
 				<br>
 				<label>$1703,4 MXN</label>
