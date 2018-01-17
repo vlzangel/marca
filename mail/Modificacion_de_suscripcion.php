@@ -24,33 +24,23 @@
 		<div>
 			<h3 style="text-align: left;font-size: 17px;line-height: 27px;" class="mayuscula">detalles del pedido</h3>
 		</div>
-		<div class="pull-center" style="text-align:center; font-size: 30px ! important;">
+		<div class="pull-center" style="text-align:center;font-size: 30px ! important;">
 		<table cellspacing=0 cellpadding=0 style="text-align: center;">
-			<tr>
-				<th colspan=2 > <div> Producto </div> </th>
-				<th> <div> Periodicidad </div> </th>
-				<th> <div> Mascota </div> </th>
-			</tr>
+			
 			<tr>
 					<td>
 						<img src="[IMG_PATH]confirmacion/general.jpg"/>
 					</td>
 					<td >
 						<div>
-							<div>royal canin</div>
-							<div>Raza Media Adulta</div>
-							<div>10kg</div>
-						</div>
-						<div>
-							<div>semestral</div>
-							<div>Pequeño - Adulto</div>
+							<div class="mayuscula">royal canin</div>							
 						</div>
 					</td>
-					<td>semestral</td>
-					<td>Pequeño - Adulto</td>
+					<td><div>Raza Media Adulta 10kg Mensual</td>
+					<td>$938,4 MXN</td>
 				</tr>
 			</table>
-		</div>
+			</div>
 <br>
 		<div style="text-align: center;font-size: 17px;line-height: 27px;">
 			<h3 class="mayuscula">total de suscripcion</h3>
