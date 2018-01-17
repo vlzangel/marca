@@ -1,5 +1,5 @@
 <?php
-	//include dirname(__DIR__).'/wp-load.php';
+	include dirname(__DIR__).'/wp-load.php';
 
 	$header = getTemplate('/generales/header.php');
 	$footer = getTemplate('/generales/footer.php');
@@ -21,7 +21,7 @@
 
 				<label>r.rodriguez@kmimos.la</label>
 
-<br><br><br><br>
+			<br><br><br><br>
 				<label>Si no haz sido tu, ignora este mensaje.<strong>Para continuar con la recuperacion de la contraseña de tu cuenta haz click en el siguiente enlace:</strong> </label> 	
 				<br><br><br><br><br>
 				<a 	href="" 
