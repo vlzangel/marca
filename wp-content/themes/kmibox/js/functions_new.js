@@ -430,3 +430,21 @@ function menos_cantidad(index){
 		loadFase(5);
 	}
 }
+
+function eliminarProducto(id){
+	var confirmed = confirm("Esta seguro de quitar este producto.?");
+    if (confirmed == true) {
+    	var TEMP = [];
+    	jQuery.each( CARRITO["productos"],  function(key, producto){
+    		if(key != id){
+				TEMP.push(producto);
+    		}
+		});
+		CARRITO["productos"] = TEMP;
+		if( CARRITO["productos"].length == 0 ){
+			jQuery("#agregar_plan").click();
+		}else{
+			change_fase(5);
+		}
+    }
+}
