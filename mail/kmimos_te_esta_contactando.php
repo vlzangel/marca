@@ -12,16 +12,16 @@
 		<div>
 			<img src="[IMG_PATH]contacto/contacto_kmimos1.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;"/>
 		</div>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;>
+		<div>
 				sabemos que quiere el<strong>alimento de tu peludo en tu casa</strong> y sin costo adicional 
 
 		</div>
-		<br><br><br><br>
+		<br>
 		<div>
-			<label style="font-size: 17px;line-height: 27px;>por eso te estamos contact&aacute;ndote v&iacute;a telef&oacute;nica</label>
-		<br><br><br><br>
-			<label style="font-size: 17px;line-height: 27px;>si no has recibido contacto de ninguno de nuestros asesores,verifica tus datos ac&aacute;</label>
-		<br><br><br><br>
+		<label>por eso te estamos contact&aacute;ndote v&iacute;a telef&oacute;nica</label>
+		<br>
+		<label>si no has recibido contacto de ninguno de nuestros asesores,verifica tus datos ac&aacute;</label>
+		<br><label></label>
 		<label>para verificar tus datos</label>
 		<a 	href="" 
 				style="
@@ -32,7 +32,6 @@
 					margin: 20px 0px;
 					border: solid 2px #091705;
 					text-align: center;
-					margin-left: 45%;
 				"
 			>has click aqui</a>
 		</div>

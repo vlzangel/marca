@@ -21,24 +21,24 @@
 
 		</div>
 			<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;>
+		<div>
 			<h3>tu fecha estimada de entrega es</h3>
 			<label>lunes 15 de enero - jueves 18 de enero</label>
 		</div>
 				<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;>
+		<div>
 			<h3>tipo de envio</h3>
 			<label>fedex</label>
 		</div>
 			<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;>
+		<div>
 			<h3>tu pedido sera enviado a</h3>
 			<label>rob cuevas paseo de la luna 370, interior 124 Paseo de solares Zapopan, Jalisco 45019 M&eacute;xico</label>
 		</div>
 			<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;>
-			<h3>detalles del pedido</h3>
-			<label>pedido No.123456 realizado el lunes 08 de enero</label>
+		<div>
+		<h3>detalles del pedido</h3>
+		<label>pedido No.123456 realizado el lunes 08 de enero</label>
 		</div>
 			<br>
 
@@ -69,12 +69,12 @@
 			</table>
 			<hr>
 			<div style="float:left;width:50%;>
-				<label>Subtotal</label>
-				<label>Total(IVA incluido)</label>
+			<label>Subtotal</label>
+			<label>Total(IVA incluido)</label>
 			</div>
 			<div style="float:left;width:50%;>
-				<label>$1500 MXN</label>
-				<label>$1703,4 MXN</label>
+			<label>$1500 MXN</label>
+			<label>$1703,4 MXN</label>
 			</div>
 
 
