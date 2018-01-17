@@ -12,7 +12,7 @@
 		<div>
 			<img src="[IMG_PATH]contacto/contacto_kmimos1.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;"/>
 		</div>
-		<div class="mayuscula" style="text-align: center;font-size: 17px;line-height: 27px;">
+		<div class="mayuscula" style="text-align: center;font-size: 14px;line-height: 27px;">
 				sabemos que quieres el<strong> alimento de tu peludo en tu casa</strong> y sin costo adicional 
 
 		</div>
