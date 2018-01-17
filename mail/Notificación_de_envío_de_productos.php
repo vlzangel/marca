@@ -62,14 +62,16 @@
 
 			<hr>
 			<div style="float:right;width:50%;     font-size: 30px !important;">
-				<label>Subtotal</label>
-				<br>
-				<label>Total(IVA incluido)</label>
-			</div>
-			<div style="float:right;width:50%;     font-size: 30px !important;">
+				
 				<label>$1500 MXN</label>
 				<br>
 				<label>$1703,4 MXN</label>
+				
+			</div>
+			<div style="float:right;width:50%;     font-size: 30px !important;">
+				<label>Subtotal</label>
+				<br>
+				<label>Total(IVA incluido)</label>
 			</div>
 	<br>	<br><br>	<br>
 
