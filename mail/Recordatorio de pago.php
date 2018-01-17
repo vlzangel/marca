@@ -21,6 +21,7 @@
 
 		</div>
 				<br>
+		<div class="pull-center" style="text-align:center">
 		<table cellspacing=0 cellpadding=0 style="text-align: center;">
 			<tr>
 				<th colspan=2 > <div> Producto </div> </th>
@@ -46,9 +47,10 @@
 					<td>Pequeño - Adulto</td>
 				</tr>
 			</table>
+			</div>
 				<br>
-			<label style="text-align:center; font-size: 17px;line-height: 27px;">De manera que enviemos el producto a tu casa y no tengas que preocuparte por nada m&aacute;s</label>
-					<br><br><br><br><br><br>
+			<label class="text" style="text-align:center; font-size: 16px;line-height: 27px;">De manera que enviemos el producto a tu casa y no tengas que preocuparte por nada m&aacute;s</label>
+					<br><br><br><br>
 
 			<a 	href="" 
 				style="
