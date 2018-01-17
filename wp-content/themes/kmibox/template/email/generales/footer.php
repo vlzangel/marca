@@ -2,7 +2,7 @@
 
 				<div style="    
 			    		text-align: center;
-			    		font-size: 17px;
+			    		font-size: 16px;
 			    		line-height: 27px;">
 					Para cualquier duda o informaci&oacute;n  no dudes en<br>
 					escribirnos por esta v&iacute;a o por whatsapp al<br>
@@ -21,15 +21,15 @@
 
 						<td id="recuerda" style="
 						        width: 65%;
-							    font-size: 17px;
+							    font-size: 16px;
 							    line-height: 30px;
 							    text-align: justify;
-							    border-top: solid 1px #CCC;
+							    border-top: solid 3px #CCC;
 							    border-bottom: solid 1px #CCC;
 							    padding: 20px;
 							    box-sizing: border-box;"
 						>
-							Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODO los servicios <img src="[IMG_PATH]/footer/logo-kmimos.png" style="height: 17px;" /> durante todo un a&ntilde;o acumulable con otras promociones.<br><br>
+							Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODO los servicios <img src="[IMG_PATH]/footer/logo-kmimos.png" class="kmimos" /> durante todo un a&ntilde;o acumulable con otras promociones.<br><br>
 							Kmimos es <strong>la mayor red de cuidadores certificados de M&eacute;xico</strong>, que cuidan a las mascotas en el hogar del cuidador, sin jaulas ni encierros.
 						</td>
 
