@@ -22,7 +22,7 @@
 		<br><br><br><br>
 			<label style="font-size: 17px;line-height: 27px;">si no has recibido contacto de ninguno de nuestros asesores,verifica tus datos ac&aacute;</label>
 		<br><br><br><br>
-		<label>para verificar tus datos</label>
+		<label style="font-size: 17px;line-height: 27px;">para verificar tus datos</label>
 		<a 	href="" 
 				style="
 					padding: 15px 30px;
@@ -32,14 +32,13 @@
 					margin: 20px 0px;
 					border: solid 2px #091705;
 					text-align: center;
-					margin-left: 45%; 
+					margin-left: 49%; 
 				"
 			>has click aqui</a>
 		</div>
+		<br><br>
+		
 		<br>
-		<div>
-		<h3>detalles del pedido</h3>
-		</div>
 		
 
 	';
