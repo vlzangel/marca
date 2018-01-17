@@ -1,5 +1,5 @@
 <?php
-	include dirname(__DIR__).'/wp-load.php';
+	//include dirname(__DIR__).'/wp-load.php';
 
 	$header = getTemplate('/generales/header.php');
 	$footer = getTemplate('/generales/footer.php');
@@ -8,7 +8,7 @@
 		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: center; padding: 30px 20px; font-weight: 600;">
 		¡Felicidades Rodrigo!
 			
-			<div style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
+			<div  class="text" style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
 				Tu registro fue exitoso
 			</div>
 
@@ -25,7 +25,7 @@
 			<h3>la direci&oacute;n asosciada a tu cuenta es:</h3>
 			<label>r.rodriguez@kmimos.la</label>
 		</div>
-			<br><br><br><br>
+<br><br><br><br>
 			<div style="text-align: center;font-size: 17px;line-height: 27px>
 
 				<label>para confirmar la direccion de correo electr&oacute;nico <strong>haz click en este enlace:</strong> </label> 
@@ -35,7 +35,7 @@
 				<br><br><br><br><br>
 				
 				<a 	href="" 
-				style=" 
+				style="
 					padding: 15px 30px;
 					border-radius: 50px;
 					background-color:#ffffff;
