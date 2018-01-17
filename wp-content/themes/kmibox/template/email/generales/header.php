@@ -21,7 +21,7 @@
 				#recuerda {
 				    line-height: 15px !important;
 				    padding: 5px !important;
-				    font-size: 16px !important;
+				    font-size: 20px !important;
 				}
 				#body{
 				width: 919px;
