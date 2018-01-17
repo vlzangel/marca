@@ -21,7 +21,7 @@
 
 		</div>
 				<br>
-		<table cellspacing=0 cellpadding=0 >
+		<table cellspacing=0 cellpadding=0 style="text-align: center;">
 			<tr>
 				<th colspan=2 > <div> Producto </div> </th>
 				<th> <div> Periodicidad </div> </th>
@@ -33,21 +33,21 @@
 					</td>
 					<td >
 						<div>
-							<div>"royal canin"</div>
-							<div>"Raza Media Adulta</div>
-							<div>"10kg"</div>
+							<div>royal canin</div>
+							<div>Raza Media Adulta</div>
+							<div>10kg</div>
 						</div>
 						<div>
-							<div>"semestral"</div>
-							<div>"Pequeño - Adulto"</div>
+							<div>semestral</div>
+							<div>Pequeño - Adulto</div>
 						</div>
 					</td>
-					<td>".$value->plan."</td>
-					<td>".$value->tamano." - ".$value->edad."</td>
+					<td>semestral</td>
+					<td>Pequeño - Adulto</td>
 				</tr>
 			</table>
 				<br>
-			<label style="text-align: center;font-size: 17px;line-height: 27px;">De manera que enviemos el producto a tu casa y no tengas que preocuparte por nada m&aacute;s</label>
+			<label style="text-align:center; font-size: 17px;line-height: 27px;">De manera que enviemos el producto a tu casa y no tengas que preocuparte por nada m&aacute;s</label>
 					<br><br><br><br><br><br>
 
 			<a 	href="" 
@@ -59,7 +59,6 @@
 					margin: 20px 0px;
 					border: solid 2px #091705;
 					text-align: center;
-					margin-left: 45%; 
 				"
 			>Realizar pago</a>
 			<br><br><br>

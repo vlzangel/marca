@@ -17,42 +17,43 @@
 			<img src="[IMG_PATH]pago_tarjeta/pago_tarjeta01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div  style="text-align: center;font-size: 17px;line-height: 27px;">
-				Verifica<strong>nlos detalles de tu pago</strong>
+				Verifica <strong>los detalles de tu pago</strong>
 
 		</div>
 
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>Titular</h3>
+			<h3 class="mayuscula">Titular</h3>
 			<label>Titular de la tarjeta</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>tipo de envio</h3>
+			<h3 class="mayuscula">tipo de envio</h3>
 			<label>fedex</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>N&uacute;mero de la tarjeta</h3>
+			<h3 class="mayuscula">N&uacute;mero de la tarjeta</h3>
 			<label>41111111111111111111</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>Fecha de vencimiento</h3>
+			<h3 class="mayuscula">Fecha de vencimiento</h3>
 			<label>01/20</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>cvv</h3>
+			<h3 class="mayuscula">cvv</h3>
 			<label>cvv</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>Total a pagar</h3>
+			<h3 class="mayuscula">Total a pagar</h3>
 			<label>$2.400 MXN</label>
 		</div>
 			<br><br>
 
 		<label style="text-align: center; font-size: 17px;line-height: 27px; margin-left: 22%;">¡Gracias por tu compra!</label>
+		<br><br>
 
 
 	
