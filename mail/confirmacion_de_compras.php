@@ -46,7 +46,7 @@
 
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3 class="mayuscula">detalles del pedido</h3>
-	<div class="pull-center" style="text-align:center;font-size: 30px ! important;">
+		<div class="pull-center" style="text-align:center;font-size: 30px ! important;">
 		<table cellspacing=0 cellpadding=0 style="text-align: center;">
 			
 			<tr>
@@ -55,11 +55,11 @@
 					</td>
 					<td >
 						<div>
-							<div class="mayuscula">royal canin</div>							
+							<div class="mayuscula"><strong>royal canin</strong></div>							
 						</div>
 					</td>
 					<td><div>Raza Media Adulta 10kg Mensual</td>
-					<td>$938,4 MXN</td>
+					<td><strong>$938,4 MXN</strong></td>
 				</tr>
 			</table>
 			</div>

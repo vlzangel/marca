@@ -50,10 +50,10 @@
 					</td>
 					<td >
 						<div>
-							<div>royal canin</div>
+							<div><strong>royal canin</strong></div>
 							<div>Raza Media Adulta 10kg</div>
 							<div>Bimestral</div>
-							<div>$ 938.4 MXN</div>
+							<div<strong>$ 938.4 MXN</strong></div>
 						</div>						
 					</td>
 				</tr>
