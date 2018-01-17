@@ -1,4 +1,16 @@
 <?php
+	$donde_conociste = array(
+		"redes sociales" => "Redes Sociales",
+		"google" => "Google",
+		"amigos/familiares" => "Amigos / Familiares",
+		"otros" => "Otros"
+	);
+	$donde_conociste_str = "";
+	foreach ($donde_conociste as $key => $value) {
+		$donde_conociste_str .= '<option value="'.$key.'" '.selected($key, $user['dondo_conociste'], false).' >'.$value.'</option>';
+	}
+
+
 	$HTML .= '
 		<section id="tab_1">
 			<form id="form-registro">
@@ -44,12 +56,9 @@
 									</div>		
 						          </div>
 									<div class="col-md-5 form-group">
-										<select class="form-control profile-content-input col-md-6" name="edad">
-											<option value="'.$user['edad'].'">'.$user['edad'].'</option>';
+										<select class="form-control profile-content-input col-md-6" name="edad">';
 											for ($i=18; $i < 100; $i++) {
-												if( $i != $user['edad'] ){
-													$HTML .= '<option value="'.$i.'>">'.$i.'</option>';
-												}
+												$HTML .= '<option value="'.$i.'" '.selected($i, $user['edad'], false).' >'.$i.'</option>';
 											} $HTML .= '
 										</select>
 									</div>
@@ -72,12 +81,8 @@
 						</div>
 						<div class="col-md-12">
 							<div class="col-md-12 form-group">
-								<select class="has-error form-control profile-content-input" name="dondo_conociste" value="'.$user['dondo_conociste'].'">
-									<option value="otros">'.$user['dondo_conociste'].'</option>
-									<option value="redes sociales">Redes Sociales</option>
-									<option value="google">Google</option>
-									<option value="amigos/familiares">Amigos/Familiares</option>
-									<option value="otros">Otros</option>
+								<select class="has-error form-control profile-content-input" name="dondo_conociste">
+									'.$donde_conociste_str.'
 								</select>
 								
 							</div>	
