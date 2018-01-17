@@ -4,6 +4,17 @@ html, body, #content-primary {
 	margin-top: 0px !important;
 }
 
+body {
+    line-height: inherit;
+}
+
+.col-xs-12, .col-md-6, .col-md-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
 #content-primary, .comprar_container, .comprar_container section {
 	height: 100%;
 }
@@ -128,7 +139,7 @@ html, body, #content-primary {
 	    font-family: GothanMedium_regular;
 	    font-size: 30px;
 	    color: #FFF;
-	    padding: 7px;
+	    padding: 7px 5px 2px;
 	    min-width: 270px;
 	    margin: 0px 10px;
 	    border-radius: 20px;
@@ -187,6 +198,7 @@ html, body, #content-primary {
 	    float: left;
 	    font-size: 20px;
 	    padding: 10px 0px 0px;
+	    font-weight: 600;
 	}
 
 	.tipo_mascota {
@@ -197,6 +209,7 @@ html, body, #content-primary {
 	    padding: 5px 20px;
 	    outline: none !important;
 	    box-shadow: 0px 0px 0px #000 !important;
+	    border-radius: 5px !important;
 	}
 
 	#marca > div {
@@ -534,6 +547,7 @@ html, body, #content-primary {
 
 	#totales table th{    
 		text-align: right !important;
+		padding: 2px 0px;
 	}
 
 	#totales table td {    
@@ -663,6 +677,7 @@ html, body, #content-primary {
 	    font-weight: normal;
 	    color: #00bb00;
 	    text-transform: uppercase;
+	    padding: 3px;
 	}
 	
 	.carrousel-items{   

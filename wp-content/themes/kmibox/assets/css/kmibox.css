@@ -241,7 +241,7 @@ p span{
 
 input,
 select{
-	border-radius: 50px!important;
+	border-radius: 50px;
 	margin:5px 0px;
 }
 #header-profile ul li a{

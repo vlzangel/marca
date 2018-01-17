@@ -351,16 +351,23 @@
 	    font-size: 12px;
 	    min-width: 150px;
         margin: 0px 3px;
+
+	    padding: 7px 5px 2px;
 	}
 
 	#agregar_plan {
-	    display: block;
-	    margin: 25px;
+		display: block;
+	    margin: 25px auto 20px;
 	    font-size: 14px;
+	    width: 255px;
+	    padding: 10px 0px 5px;
 	}
 
-	.btn_pagar {
+	.btn_pagar {    
+		display: inline-block;
 	    font-size: 14px;
+	    width: 255px;
+	    padding: 10px 50px 5px;
 	}
 
 	.btn-kmibox-link-suscription i {
@@ -404,6 +411,12 @@
 		.select_plan_box article {
 		    width: 49%;
 		    padding: 0px 10px;
+		}
+
+	/* Desglose */
+
+		#desglose th span{
+			padding: 7px 20px 4px;
 		}
 
 }
@@ -468,10 +481,12 @@
 
 	.selector_edad_container .selector_edad_box span {
 	    font-size: 11px;
-	    padding: 7px 10px;
 	    min-width: 110px;
 	    margin: 0px 3px;
+
+	    padding: 7px 5px 4px;
 	}
+
 	#vlz_controles_fases {
 	    right: 0px;
 	}
@@ -567,7 +582,7 @@
 		}
 
 		.cantidad_resultados {
-		    font-size: 12px;
+		    font-size: 11px;
 		    padding: 20px 0px 0px;
 		}
 
@@ -636,10 +651,10 @@
 	}
 
 	.selector_edad_container .selector_edad_box span {
-	    font-size: 8px;
-	    padding: 7px 10px;
+	    font-size: 11px;
+	    padding: 7px 5px 4px;
 	    min-width: 85px;
-	    margin: 0px 3px;
+	    margin: 0px !important;
 	}
 
     /* Presentaciones */
@@ -673,7 +688,7 @@
 	}
 
 	.selector_edad_container .selector_edad_box span {
-	    padding: 7px 0px;
+	    padding: 7px 5px 4px;
 	    min-width: 75px;
 	}
 
