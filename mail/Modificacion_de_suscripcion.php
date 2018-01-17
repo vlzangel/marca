@@ -55,6 +55,7 @@
 			<h3>total de suscripcion</h3>
 			<label>total</label>
 		</div>
+		<br><br><br>
 
 		
 		
