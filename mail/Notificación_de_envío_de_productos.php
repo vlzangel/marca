@@ -43,17 +43,17 @@
 			<br>
 
 		<div class="pull-center" style="text-align:center; font-size: 30px ! important;">
-		<table cellspacing=0 cellpadding=0 style="text-align: center;">
+		<table cellspacing=5 cellpadding=0 style="text-align: center;">
 			<tr>
 					<td>
 						<img src="[IMG_PATH]confirmacion/general.jpg"/>
 					</td>
 					<td >
 						<div>
-							<div>royal canin</div>
+							<div><strong>royal canin</strong></div>
 							<div>Raza Media Adulta 10kg</div>
 							<div>Bimestral</div>
-							<div>$ 938.4 MXN</div>
+							<div<strong>$ 938.4 MXN</strong></div>
 						</div>						
 					</td>
 				</tr>
