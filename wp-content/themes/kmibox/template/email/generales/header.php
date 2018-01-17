@@ -13,6 +13,9 @@
 			.kmimos{
 				 height: 17px;
 			}
+			.mayuscula{
+					text-transform: uppercase;
+				}
 
 			@media only screen and (max-device-width: 600px) {
 				#img_footer {
