@@ -66,15 +66,15 @@
 							<div>"Pequeño - Adulto"</div>
 						</div>
 					</td>
-					<td>".$value->plan."</td>
-					<td>".$value->tamano." - ".$value->edad."</td>
+					<td>"semestral"</td>
+					<td>"Pequeño - Adulto"</td>
 				</tr>
 			</table>
 		</div>
 <br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-		<h3>total de suscripcion</h3>
-		<label>total</label>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;">
+		<h2>total de suscripcion</h2>
+		<label style="font-size:35px">total</label>
 		</div>
 
 		

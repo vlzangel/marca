@@ -5,7 +5,7 @@
 	$footer = getTemplate('/generales/footer.php');
 
 	$titulo = '
-		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: center; padding: 30px 20px; font-weight: 600;">
+		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: left; padding: 30px 20px; font-weight: 600;">
 		¡Hola rob!
 			
 			<div  class="text" style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
@@ -21,22 +21,22 @@
 
 		</div>
 			<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3>tu fecha estimada de entrega es</h3>
 			<label>lunes 15 de enero - jueves 18 de enero</label>
 		</div>
 				<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3>tipo de envio</h3>
 			<label>fedex</label>
 		</div>
 			<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3>tu pedido sera enviado a</h3>
 			<label>rob cuevas paseo de la luna 370, interior 124 Paseo de solares Zapopan, Jalisco 45019 M&eacute;xico</label>
 		</div>
 			<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3>detalles del pedido</h3>
 			<label>pedido No.123456 realizado el lunes 08 de enero</label>
 		</div>
@@ -64,23 +64,21 @@
 						</div>
 					</td>
 					<td>".$value->plan."</td>
-					<td>".$value->tamano." - ".$value->edad."</td>
+					<td>".$value->Pequeño - Adulto"</td>
 				</tr>
 			</table>
+
 			<hr>
-			<div style="float:left;width:50%;>
+			<div style="float:left;width:50%;">
 				<label>Subtotal</label>
 				<label>Total(IVA incluido)</label>
 			</div>
-			<div style="float:left;width:50%;>
+			<div style="float:left;width:50%;">
 				<label>$1500 MXN</label>
 				<label>$1703,4 MXN</label>
 			</div>
 
 
-
-
-		
 
 
 	';

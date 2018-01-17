@@ -62,7 +62,7 @@
 					margin-left: 45%; 
 				"
 			>Realizar pago</a>
-			
+			<br><br><br>
 
 	
 

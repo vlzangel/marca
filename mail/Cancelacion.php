@@ -32,11 +32,12 @@
 					margin: 20px 0px;
 					border: solid 2px #091705;
 					text-align: center;
-					margin-left: 45%; 
+					margin-left: 8%; 
 				"
 			>click aqui</a>
-<br><br>
+
 		</div>
+		<br><br>
 		
 
 		
