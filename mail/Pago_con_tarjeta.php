@@ -16,7 +16,7 @@
 		<div>
 			<img src="[IMG_PATH]pago_tarjeta/pago_tarjeta01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
-		<div>
+		<div  style="text-align: center;font-size: 17px;line-height: 27px;">
 				Verifica<strong>nlos detalles de tu pago</strong>
 
 		</div>

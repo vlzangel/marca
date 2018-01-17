@@ -32,7 +32,7 @@
 					margin: 20px 0px;
 					border: solid 2px #091705;
 					text-align: center;
-					margin-left: 49%; 
+					margin-left: 15%; 
 				"
 			>has click aqui</a>
 		</div>

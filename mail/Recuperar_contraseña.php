@@ -18,8 +18,9 @@
 		</div>
 		<div style="text-align: center;font-size: 17px;line-height: 27px:">
 				<label>Recientemente hemos recibido una solicitud para<br> <strong>Recuperar la contraseña de su cuenta</strong></label>
+				<br><br>
 
-				<label>r.rodriguez@kmimos.la</label>
+				<label style="color:blue">r.rodriguez@kmimos.la</label>
 
 <br><br><br><br>
 				<label>Si no haz sido tu, ignora este mensaje.<strong>Para continuar con la recuperacion de la contraseña de tu cuenta haz click en el siguiente enlace:</strong> </label> 	
