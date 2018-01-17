@@ -12,17 +12,17 @@
 		<div>
 			<img src="[IMG_PATH]modificacion/modificacion_suscripcion01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
 				<strong>Tu suscripci&oacute;n ha siso modificada con &ecute;xito</strong>. 
 
 		</div>
-		<br>
+			<br>
 		<div>
-		<label>verifica los detalles de la modificaci&oacute;n que acabas de realizar</label>
+			<label style="text-align: center;font-size: 17px;line-height: 27px;>verifica los detalles de la modificaci&oacute;n que acabas de realizar</label>
 		</div>
-		<br>
+			<br>
 		<div>
-		<h3>detalles del pedido</h3>
+			<h3 style="text-align: center;font-size: 17px;line-height: 27px;>detalles del pedido</h3>
 
 		<table cellspacing=0 cellpadding=0 >
 			<tr>
@@ -51,13 +51,11 @@
 			</table>
 		</div>
 <br>
-		<div>
-		<h3>total de suscripcion</h3>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
+			<h3>total de suscripcion</h3>
 		</div>
 
-		<div>
-		<label>para cualquier duda o informaci&oacute;n no dudes en escribirnos por esta via o por whatsapp al <strong>5540034824</strong> donde con gusto te atenderemos</label>
-		</div>
+		
 		
 
 
