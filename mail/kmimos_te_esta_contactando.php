@@ -1,5 +1,5 @@
 <?php
-	include dirname(__DIR__).'/wp-load.php';
+	//include dirname(__DIR__).'/wp-load.php';
 
 	$header = getTemplate('/generales/header.php');
 	$footer = getTemplate('/generales/footer.php');

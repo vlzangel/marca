@@ -1,5 +1,5 @@
 <?php
-	include dirname(__DIR__).'/wp-load.php';
+	//include dirname(__DIR__).'/wp-load.php';
 
 	$header = getTemplate('/generales/header.php');
 	$footer = getTemplate('/generales/footer.php');
@@ -8,7 +8,7 @@
 		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: center; padding: 30px 20px; font-weight: 600;">
 		¡Hola Rodrigo!
 			
-			<div style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
+			<div   class="text" style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
 				Tu contraseña va hacer recuperada
 			</div>
 
@@ -21,7 +21,7 @@
 
 				<label>r.rodriguez@kmimos.la</label>
 
-			<br><br><br><br>
+<br><br><br><br>
 				<label>Si no haz sido tu, ignora este mensaje.<strong>Para continuar con la recuperacion de la contraseña de tu cuenta haz click en el siguiente enlace:</strong> </label> 	
 				<br><br><br><br><br>
 				<a 	href="" 
