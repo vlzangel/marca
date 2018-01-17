@@ -41,10 +41,11 @@
 		<hr>
 		</div>
 		<br>
+		</div>
 
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3 class="mayuscula">detalles del pedido</h3>
-
+	<div class="pull-center" style="text-align:center;font-size: 30px ! important;">
 		<table cellspacing=0 cellpadding=0 style="text-align: center;">
 			<tr>
 				<th colspan=2 > <div> Producto </div> </th>
@@ -70,7 +71,8 @@
 					<td>Pequeño - Adulto</td>
 				</tr>
 			</table>
-		</div>
+			</div>
+		
 <br>
 		<div style="text-align: center;font-size: 17px;line-height: 27px;">
 		<h2>total de suscripcion</h2>
