@@ -16,7 +16,7 @@
 		<div >
 			<img src="[IMG_PATH]confirmacion/recuperar_contraseña01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
-		<div style="text-align: center;font-size: 17px;line-height: 27px>
+		<div style="text-align: center;font-size: 17px;line-height: 27px:">
 				<label>Recientemente hemos recibido una solicitud para<br> <strong>Recuperar la contraseña de su cuenta</strong></label>
 
 				<label>r.rodriguez@kmimos.la</label>
