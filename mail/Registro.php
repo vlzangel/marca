@@ -49,8 +49,8 @@
 			</div>
 
 		<br><br>
-			<label style="text-align: center;font-size: 17px;line-height: 27px">si recibiste este correo sin haberte registrado, por favor ignoralo.</label> 
-
+			<label style="text-align: center;font-size: 17px;line-height: 27px">Si recibiste este correo sin haberte registrado, por favor ignoralo.</label> 
+<br><br>
 
 
 	';

@@ -45,27 +45,17 @@
 		<div class="pull-center" style="text-align:center; font-size: 30px ! important;">
 		<table cellspacing=0 cellpadding=0 style="text-align: center;">
 			<tr>
-				<th colspan=2 > <div> Producto </div> </th>
-				<th> <div> Periodicidad </div> </th>
-				<th> <div> Mascota </div> </th>
-			</tr>
-			<tr>
 					<td>
 						<img src="[IMG_PATH]confirmacion/general.jpg"/>
 					</td>
 					<td >
 						<div>
 							<div>royal canin</div>
-							<div>Raza Media Adulta</div>
-							<div>10kg</div>
-						</div>
-						<div>
-							<div>semestral</div>
-							<div>Pequeño - Adulto</div>
-						</div>
+							<div>Raza Media Adulta 10kg</div>
+							<div>Bimestral</div>
+							<div>$ 938.4 MXN</div>
+						</div>						
 					</td>
-					<td>semestral</td>
-					<td>Pequeño - Adulto</td>
 				</tr>
 			</table>
 			</div>

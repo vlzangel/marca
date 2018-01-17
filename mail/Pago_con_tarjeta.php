@@ -16,20 +16,17 @@
 		<div>
 			<img src="[IMG_PATH]pago_tarjeta/pago_tarjeta01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
+		<br><br>
 		<div  style="text-align: center;font-size: 17px;line-height: 27px;">
 				Verifica <strong>los detalles de tu pago</strong>
 
 		</div>
-
+		<br><br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3 class="mayuscula">Titular</h3>
 			<label>Titular de la tarjeta</label>
 		</div>
-			<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3 class="mayuscula">tipo de envio</h3>
-			<label>fedex</label>
-		</div>
+				
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
 			<h3 class="mayuscula">N&uacute;mero de la tarjeta</h3>
