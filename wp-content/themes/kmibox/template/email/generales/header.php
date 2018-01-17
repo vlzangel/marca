@@ -19,7 +19,7 @@
 				    height: 100% !important;
 				}
 				#recuerda {
-				    line-height: 15px !important;
+				    line-height: 40px !important;
 				    padding: 5px !important;
 				    font-size: 20px !important;
 				}

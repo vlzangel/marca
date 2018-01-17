@@ -2,7 +2,7 @@
 
 				<div style="    
 			    		text-align: center;
-			    		font-size: 16px;
+			    		font-size: 15px;
 			    		line-height: 27px;">
 					Para cualquier duda o informaci&oacute;n  no dudes en<br>
 					escribirnos por esta v&iacute;a o por whatsapp al<br>
