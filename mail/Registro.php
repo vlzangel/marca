@@ -16,17 +16,17 @@
 		<div>
 			<img src="[IMG_PATH]registro/registro01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
-		<div style="text-align: center;font-size: 17px;line-height: 27px>
+		<div style="text-align: left;font-size: 17px;line-height: 27px">
 				<label><strong>¡Gracias por registrarte en Nutriheroes!</strong> ahora necesitas confirmar tu correo para activar tu cuenta.</label>
 
 		</div>
 		<br>
-		<div style="text-align: center;font-size: 17px;line-height: 27px>
+		<div style="text-align: left;font-size: 17px;line-height: 27px">
 			<h3>la direci&oacute;n asosciada a tu cuenta es:</h3>
 			<label>r.rodriguez@kmimos.la</label>
 		</div>
 <br><br><br><br>
-			<div style="text-align: center;font-size: 17px;line-height: 27px>
+			<div style="text-align: left;font-size: 17px;line-height: 27px">
 
 				<label>para confirmar la direccion de correo electr&oacute;nico <strong>haz click en este enlace:</strong> </label> 
 				</div>

@@ -16,7 +16,7 @@
 		<div>
 			<img src="[IMG_PATH]recordatorio/recordatorio01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
-		<div style="text-align: center;font-size: 17px;line-height: 27px;>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;">
 				<strong>Recuerda hacer el pago de tu suscripci&oacute;n</strong>
 
 		</div>
@@ -47,7 +47,7 @@
 				</tr>
 			</table>
 				<br>
-			<label style="text-align: center;font-size: 17px;line-height: 27px;>De manera que enviemos el producto a tu casa y no tengas que preocuparte por nada m&aacute;s</label>
+			<label style="text-align: center;font-size: 17px;line-height: 27px;">De manera que enviemos el producto a tu casa y no tengas que preocuparte por nada m&aacute;s</label>
 					<br><br><br><br><br><br>
 
 			<a 	href="" 
