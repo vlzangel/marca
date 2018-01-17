@@ -36,8 +36,8 @@
 			<label>numero de guia</label>
 		</div>
 		<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3>Entra en <strong>WWW.fedex.com</strong> e ingresa tu numero de gu&iacute;a para monitorear tu entrega</h3>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;">
+			<label>Entra en <strong>WWW.fedex.com</strong> e ingresa tu numero de gu&iacute;a para monitorear tu entrega</label>
 		<hr>
 		</div>
 		<br>
@@ -76,6 +76,7 @@
 		<h2>total de suscripcion</h2>
 		<label style="font-size:35px">total</label>
 		</div>
+		<br><br>
 
 		
 

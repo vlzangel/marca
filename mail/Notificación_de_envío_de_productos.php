@@ -16,7 +16,7 @@
 		<div>
 			<img src="[IMG_PATH]notificacion_envio/compra01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;">
 				los<strong>detalles de tu pedido</strong> se indican a contici&oacute;n
 
 		</div>
@@ -71,13 +71,15 @@
 			<hr>
 			<div style="float:left;width:50%;">
 				<label>Subtotal</label>
+				<br>
 				<label>Total(IVA incluido)</label>
 			</div>
 			<div style="float:left;width:50%;">
 				<label>$1500 MXN</label>
+				<br>
 				<label>$1703,4 MXN</label>
 			</div>
-
+	<br>	<br>
 
 
 

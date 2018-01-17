@@ -13,7 +13,7 @@
 			<img src="[IMG_PATH]modificacion/modificacion_suscripcion01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div style="text-align: center;font-size: 17px;line-height: 27px;">
-				<strong>Tu suscripci&oacute;n ha siso modificada con e&eacute;xito</strong>. 
+				<strong>Tu suscripci&oacute;n ha siso modificada con &eacute;xito</strong>. 
 
 		</div>
 			<br>
