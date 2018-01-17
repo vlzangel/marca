@@ -16,34 +16,34 @@
 				<strong>Tu suscripci&oacute;n ya est&aacute; en camino</strong>. Por te brindamos la siguiente informac&iacute;on de tu compra
 
 		</div>
-		<div>
-		<h3>Direci&oacute;n de envio</h3>
-		<label></label>
+		<div style="text-align: left;font-size: 17px;line-height: 27px;>
+			<h3>Direci&oacute;n de envio</h3>
+			<label>direccion</label>
 		</div>
 		<br>
-		<div>
-		<h3>Fecha de entrega estimada</h3>
-		<label></label>
+		<div style="text-align: left;font-size: 17px;line-height: 27px;> 
+			<h3>Fecha de entrega estimada</h3>
+			<label>fecha</label>
 		</div>
 		<br>
-		<div>
-		<h3>tipo de env&iacute;o</h3>
-		<label></label>
+		<div style="text-align: left;font-size: 17px;line-height: 27px;>
+			<h3>tipo de env&iacute;o</h3>
+			<label>fedex</label>
 		</div>
 		<br>
-		<div>
-		<h3>guia de rastreo</h3>
-		<label></label>
+		<div style="text-align: left;font-size: 17px;line-height: 27px;>
+			<h3>guia de rastreo</h3>
+			<label>numero de guia</label>
 		</div>
 		<br>
-		<div>
-		<h3>Entra en <strong>WWW.fedex.com</strong> e ingresa tu numero de gu&iacute;a para monitorear tu entrega</h3>
+		<div style="text-align: left;font-size: 17px;line-height: 27px;>
+			<h3>Entra en <strong>WWW.fedex.com</strong> e ingresa tu numero de gu&iacute;a para monitorear tu entrega</h3>
 		<hr>
 		</div>
 		<br>
 
-		<div>
-		<h3>detalles del pedido</h3>
+		<div style="text-align: left;font-size: 17px;line-height: 27px;>
+			<h3>detalles del pedido</h3>
 
 		<table cellspacing=0 cellpadding=0 >
 			<tr>
@@ -72,9 +72,9 @@
 			</table>
 		</div>
 <br>
-		<div>
+		<div style="text-align: left;font-size: 17px;line-height: 27px;>
 		<h3>total de suscripcion</h3>
-		<label></label>
+		<label>total</label>
 		</div>
 
 		

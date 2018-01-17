@@ -17,11 +17,12 @@
 			<img src="[IMG_PATH]cancelacion/cancelacion01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;">
 				<strong>Esperamos que regreses pronto para poder llevar el alimento de tu peludo a casa sin ning&uacute;n costo adicional.</strong>
-				<br>
-				<label>Si hay un error, y no has cancelado tu suscripci&oacute;n o quieres volver <strong>haz click en el siguiente enlace</strong></label> 	
-				<br>
+				<br><br><br><br>
+				
+				<label style="text-align: center;font-size: 17px;line-height: 27px;>Si hay un error, y no has cancelado tu suscripci&oacute;n o quieres volver <strong>haz click en el siguiente enlace</strong></label> 	
+				<br><br><br><br>
 				<a 	href="" 
 				style="
 					padding: 15px 30px;
@@ -31,6 +32,7 @@
 					margin: 20px 0px;
 					border: solid 2px #091705;
 					text-align: center;
+					margin-left: 45%;
 				"
 			>click aqui</a>
 <br><br>
@@ -44,5 +46,5 @@
 
 	echo $HTML = addImgPath($header.$titulo.$footer);
 
-	// wp_mail( "loaiza2610@gmail.com", "Prueba", $HTML);
+	wp_mail( "loaiza2610@gmail.com", "Prueba", $HTML);
 ?>
