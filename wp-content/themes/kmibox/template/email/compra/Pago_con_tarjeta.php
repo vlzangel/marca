@@ -21,32 +21,32 @@
 
 		</div>
 
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
 			<h3>Titular</h3>
 			<label>Titular de la tarjeta</label>
 		</div>
 			<br>
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
 			<h3>tipo de envio</h3>
 			<label>fedex</label>
 		</div>
 			<br>
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
 			<h3>N&uacute;mero de la tarjeta</h3>
 			<label>41111111111111111111</label>
 		</div>
 			<br>
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
 			<h3>Fecha de vencimiento</h3>
 			<label>01/20</label>
 		</div>
 			<br>
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
 			<h3>cvv</h3>
 			<label>cvv</label>
 		</div>
 			<br>
-		<div>
+		<div style="text-align: center;font-size: 17px;line-height: 27px;>
 			<h3>Total a pagar</h3>
 			<label>$2.400 MXN</label>
 		</div>
