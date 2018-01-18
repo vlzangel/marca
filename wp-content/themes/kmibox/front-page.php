@@ -59,7 +59,7 @@ get_header(); ?>
 				</p>
 		    </div>
 		    <div class="col-xs-12 col-sm-4 col-md-4">  
-				<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/Image-4.svg" class="img-responsive">
 				<p>Más barato que en una 
 					<br class="hidden-sm hidden-xs">
 					veterinaria
