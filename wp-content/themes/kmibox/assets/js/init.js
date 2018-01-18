@@ -468,10 +468,14 @@ $(function($){
             $icon.appendTo('#alertSexIcon');
         }
     })
-    
+	.on('error.form.bv', function(e) {
+		jQuery("#error_registrando").css("display", "block");
+	})
 	.on('success.form.bv', function(e) {
 	    // Prevent form submission
 	    e.preventDefault();
+
+		jQuery("#error_registrando").css("display", "none");
 
 	    
 	    // Get the form instance
@@ -541,7 +545,9 @@ $(function($){
 	    },
 		submitHandler: function(validator, form, submitButton){
 		    validator.defaultSubmit();
-		},    
+
+			console.log("Hola");
+		},   
 	    fields: {
 		    
 			nombre: {
