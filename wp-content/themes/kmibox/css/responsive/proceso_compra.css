@@ -359,15 +359,15 @@
 	#agregar_plan {
 		display: block;
 	    margin: 25px auto 20px;
-	    font-size: 14px;
-	    width: 255px;
+	    font-size: 13px;
+	    width: 240px;
 	    padding: 10px 0px 5px;
 	}
 
 	.btn_pagar {    
 		display: inline-block;
-	    font-size: 14px;
-	    width: 255px;
+	    font-size: 13px;
+	    width: 240px;
 	    padding: 10px 50px 5px;
 	}
 

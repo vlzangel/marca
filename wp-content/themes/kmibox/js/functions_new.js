@@ -17,6 +17,13 @@ var MARCAS = [];
 var PLANES = [];
 
 jQuery(document).ready(function() {
+
+	// console.log( navigator.platform );
+
+	if(navigator.platform.substr(0, 2) == 'iP'){
+		jQuery("body").addClass('iOS');
+	}
+
 	jQuery('.carrousel-items').on('click', 'article', function(){
 		var index = jQuery(this).index() + 1; 
 		if( index ==  1 ){
@@ -245,7 +252,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	var HTML = "";
 	HTML += '<tr>';
 	HTML += '	 <td class="solo_pc">';
-	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
+	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="display: inline-block; padding-left: 10px;">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';

@@ -107,6 +107,7 @@ body {
 
 .btn-disable {
     background: #989898 !important;
+    border: 2px solid #989898 !important;
 }
 
 /* Fase 1 */
@@ -139,7 +140,7 @@ body {
 	    font-family: GothanMedium_regular;
 	    font-size: 30px;
 	    color: #FFF;
-	    padding: 7px 5px 2px;
+	    padding: 5px;
 	    min-width: 270px;
 	    margin: 0px 10px;
 	    border-radius: 20px;
@@ -423,11 +424,17 @@ body {
 	}
 
 	#agregar_plan {
-	    padding: 20px 20px;
-	    font-family: Gothamlight_Regular;
-	    font-size: 20px;
+	    padding: 10px 20px;
+	    font-family: GothanMedium_regular;
+	    font-size: 16px;
 	    font-weight: 600;
 	    cursor: pointer;
+        border: solid 2px #091705;
+        text-transform: uppercase;
+	}
+
+	#agregar_plan:hover {
+	    background: #091705;
 	}
 
 	#btn-sm-marca{
@@ -463,7 +470,7 @@ body {
 		margin: 120px auto 50px;
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
-	    max-width: 1500px;
+	    max-width: 900px;
 	}
 
 	table {
@@ -483,6 +490,10 @@ body {
 	    padding: 3px 20px;
 	    text-transform: uppercase;
 	    margin: 5px;
+	}
+
+	body.iOS #desglose th span{
+	    padding: 10px 20px 0px;
 	}
 
 	#desglose th *{
@@ -583,13 +594,13 @@ body {
 	    border-radius: 40px;
 	    border: 1px solid #091705;
 	    color: #ffffff;
-	    font-size: 20px;
+	    font-size: 16px;
 	    font-weight: bold;
 	    text-align: center;
 	    text-decoration: none !important;
 	    z-index: 9999999999999;
-	    padding: 20px 50px;
-	    font-family: Gothamlight_Regular;
+	    padding: 10px 50px;
+	    font-family: GothanMedium_regular;
 	    border: solid 2px #091705;
 	    cursor: pointer;
 	}
