@@ -476,6 +476,7 @@ $(function($){
 	    e.preventDefault();
 
 		jQuery("#error_registrando").css("display", "none");
+		jQuery("#success_registrando").css("display", "block");
 
 	    
 	    // Get the form instance
@@ -519,15 +520,18 @@ $(function($){
 			r = $.parseJSON(r);
 
 			if(r['code']==1){
-				var redirect = $('[name="redirect"]').val();
-				if( typeof $('[name="redirect"]').val() == 'undefined'){
-					redirect = '';
-				}
-				if( redirect != '' ){
-					window.location = redirect;
-				}else{
-					window.location.reload();				
-				}			
+
+				setTimeout(function(){
+					var redirect = $('[name="redirect"]').val();
+					if( typeof $('[name="redirect"]').val() == 'undefined'){
+						redirect = '';
+					}
+					if( redirect != '' ){
+						window.location = redirect;
+					}else{
+						window.location.reload();				
+					}			
+				}, 500);
 			}else{
 				$('#login-mensaje').html(r['msg']);
 				$('#login-mensaje').removeClass('hidden');

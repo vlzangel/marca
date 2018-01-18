@@ -198,12 +198,15 @@
 
 							<div id="error_registrando">
 								Por favor revisar tus datos arriba, hay algún campo incompleto
-							</div>
+							</div> 
+							
+							<div id="success_registrando">
+								Registro Exitoso
+							</div> 
 
-							<br>
-							<br>
+							<br> <br>
 	 					</div>
-	 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
+	 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje">Prueba</aside>
 					</div>
 				</div>
 
