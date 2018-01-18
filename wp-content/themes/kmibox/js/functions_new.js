@@ -173,7 +173,7 @@ function loadMarcas(){
 	jQuery('#marca').html("");
 	var CANT = 0;
 	jQuery.each(MARCAS,  function(key, marca){
-		jQuery.each(PRODUCTOS,  function(key_2, producto){
+		/*jQuery.each(PRODUCTOS,  function(key_2, producto){
 			if( key == producto.marca ){
 				if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 					if( producto.edades[ prod_actual["edad"] ] == 1 ){
@@ -189,7 +189,16 @@ function loadMarcas(){
 					}
 				}
 			}
-		});
+		});*/
+
+		jQuery('#marca').append(
+			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
+				'<div class="item_box">'+
+					'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
+				'</div>'+
+			'</div>'
+		);
+		CANT++;
 	});
 
 	jQuery('#cant_marcas').html( CANT );	
@@ -214,6 +223,12 @@ function loadPresentaciones(){
 		if( prod_actual["marca"] == producto.marca ){
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){
+
+					var existencia = "";
+					if( producto.existencia == undefined || producto.existencia == 0 ){
+						existencia = "Agotado";
+					}
+
 					HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
 							'<div class="item_box">'+
 								'<div class="img_box" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
@@ -221,6 +236,7 @@ function loadPresentaciones(){
 									'<div class="title_producto_box">'+producto.nombre+'</div>'+
 									'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
 									'<div class="peso_producto_box">'+producto.peso+'</div>'+
+									'<div class="existencia_producto_box">'+existencia+'</div>'+
 								'</div>'+
 							'</div>'+
 						'</div>';

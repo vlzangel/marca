@@ -192,9 +192,9 @@
 
 					<div class="col-md-4" style="padding-top: 20px;">	
 						<div class="col-sm-offset-1	col-sm-11 text-center">
-							<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-sm" style="color: #94d400; border: 2px solid #091705;">Registrarme</button>
-							<button id="btn-register_" class="btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400; border: 2px solid #091705;">Registrarme</button>
-							<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-lg hidden-md " style=" color: #94d400; border: 2px solid #091705;">Registrarme</button>
+							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox hidden-xs hidden-sm" style="color: #94d400; border: 2px solid #091705;">Registrarme</button>
+							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400; border: 2px solid #091705;">Registrarme</button>
+							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox hidden-xs hidden-lg hidden-md " style=" color: #94d400; border: 2px solid #091705;">Registrarme</button>
 
 							<div id="error_registrando">
 								Por favor revisar tus datos arriba, hay algún campo incompleto

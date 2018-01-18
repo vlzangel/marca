@@ -476,7 +476,9 @@ $(function($){
 	    e.preventDefault();
 
 		jQuery("#error_registrando").css("display", "none");
-		jQuery("#success_registrando").css("display", "block");
+
+		jQuery(".btn-register_").attr("disabled", true);
+		jQuery(".btn-register_").html("Procesando...");
 
 	    
 	    // Get the form instance
@@ -519,7 +521,14 @@ $(function($){
 
 			r = $.parseJSON(r);
 
+			console.log( r );
+
+			jQuery(".btn-register_").attr("disabled", false);
+			jQuery(".btn-register_").html("Registrarme");
+
 			if(r['code']==1){
+				
+				jQuery("#success_registrando").css("display", "block");
 
 				setTimeout(function(){
 					var redirect = $('[name="redirect"]').val();
@@ -532,6 +541,7 @@ $(function($){
 						window.location.reload();				
 					}			
 				}, 500);
+
 			}else{
 				$('#login-mensaje').html(r['msg']);
 				$('#login-mensaje').removeClass('hidden');
@@ -549,8 +559,6 @@ $(function($){
 	    },
 		submitHandler: function(validator, form, submitButton){
 		    validator.defaultSubmit();
-
-			console.log("Hola");
 		},   
 	    fields: {
 		    
