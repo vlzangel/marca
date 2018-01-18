@@ -7,7 +7,7 @@
 		<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/init.js"></script>
 
 		<?php 
-			/* wp_footer(); */
+			 wp_footer(); 
 			
 			// cargarTablaProductos()
 		?>
