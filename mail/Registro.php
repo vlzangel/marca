@@ -21,7 +21,7 @@
 
 		</div>
 		<br>
-		<div class="mayuscula" style="text-align: left;font-size: 17px;line-height: 27px">
+		<div class="mayuscula" style="text-align: left;font-size: 16px;line-height: 27px">
 			<h3>la direci&oacute;n asosciada a tu cuenta es:</h3>
 			<label>r.rodriguez@kmimos.la</label>
 		</div>

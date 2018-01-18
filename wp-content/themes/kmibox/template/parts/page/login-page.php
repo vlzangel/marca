@@ -56,8 +56,8 @@
 						<br>
 						<br>
 						<label style="color: #ffffff; font-size: 10px" class="gothan">¿Aún no tienes perfil Nutriheroes? </label>
-						<label style="color: #ffffff; font-size: 10px" class="gothan">Registrate aquí</label>
-						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" >
+						<label style="color: #ffffff; font-size: 10px" class="gothan">Registrate aquí
+						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" ></label>
 							
 						</a>
 					</div>
