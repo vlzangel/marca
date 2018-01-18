@@ -44,6 +44,13 @@
 
 		$marca = $wpdb->get_var("SELECT nombre FROM marcas WHERE id = {$producto->marca}");
 
+		if( $producto->existencia == '-1' ){
+			$producto->existencia = "Agotado";
+		}
+		if( $producto->existencia == '0' ){
+			$producto->existencia = "Infinita";
+		}
+
 		$data["data"][] = array(
 	        "<img class='img_reporte' src='".$img."' />",
 	        $producto->id,
