@@ -154,6 +154,7 @@ a:focus, a:focus .media-icon img {
 }
 
 .celdas_1,
+.celdas_2,
 .celdas_3 {
     overflow: hidden;
 }
@@ -175,6 +176,14 @@ a:focus, a:focus .media-icon img {
 .input_text_container
  {
     overflow: hidden;
+}
+
+.celdas_2 .input_text_container .input_text
+ {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 3px;
 }
 
 .celdas_4 .input_text_container .input_text

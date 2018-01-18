@@ -28,7 +28,7 @@
 	foreach ($edades as $key => $value) { $_edades[$value] = 1; }
 	foreach ($planes as $key => $value) { $_planes[$value] = 1; }
 
-	$img = "";
+	$img = $img_old;
 	if( $img_producto != "" ){
 		$img = guardarImg(
 			dirname(dirname(dirname(__DIR__)))."/imgs/productos/", 
@@ -39,7 +39,11 @@
 		}
 	}
 
-	$dataextra = array("img" => $img);
+	$dataextra = array(
+		"img" => $img,
+		"origen_1" => $origen_1,
+		"origen_2" => $origen_2
+	);
 
 	$_tamanos 			= serialize($_tamanos);
 	$_edades 			= serialize($_edades);

@@ -34,7 +34,9 @@
 	);
 
 	$dataextra = array(
-		"img" => $img
+		"img" => $img,
+		"origen_1" => $origen_1,
+		"origen_2" => $origen_2
 	);
 
 	$SQL = "

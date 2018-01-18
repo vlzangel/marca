@@ -353,6 +353,15 @@ div#wpadminbar {
 	    text-transform: uppercase;
 	}
 
+	#presentaciones .existencia_producto_box {
+	    font-weight: 600;
+	    color: #00bc00;
+	    font-size: 16px;
+	    font-family: GothanMedium_regular;
+	    text-transform: uppercase;
+	    color: red;
+	}
+
 /* Fase 4 */
 
 	.comprar_box > span{

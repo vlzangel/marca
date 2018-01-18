@@ -15,6 +15,9 @@
 	$ID_UPDATE = "";
 	$_existencia = "";
 
+	$_origen_1 = "";
+	$_origen_2 = "";
+
 	if( $ID != "" ){
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$ID);
 		$_nombre = $producto->nombre;
@@ -30,6 +33,9 @@
 		$img_url = TEMA()."/imgs/productos/".$_dataextra["img"];
 		$img_old = $_dataextra["img"];
 		$ID_UPDATE = '<input type="hidden" id="ID" name="ID" value="'.$ID.'" />';
+
+		$_origen_1 = $_dataextra["origen_1"];
+		$_origen_2 = $_dataextra["origen_2"];
 	}
 
 	$tamanos = array(
@@ -77,6 +83,16 @@
 	foreach ($_marcas as $key => $marca) {
 		$marcas .= "<option value='{$marca->id}' ".selected($marca->id, $_marca, false).">{$marca->nombre}</option>";
 	}
+
+	$_origenes = $wpdb->get_results("SELECT * FROM ciudades_origen");
+	$origen_1 = "";
+	$origen_2 = "";
+	$origen_1 .= "<option>Seleccione una ciudad</option>";
+	$origen_2 .= "<option>Seleccione una ciudad</option>";	
+	foreach ($_origenes as $key => $origen) {
+		$origen_1 .= "<option value='{$origen->id}' ".selected($origen->id, $_origen_1, false).">{$origen->ciudad}</option>";
+		$origen_2 .= "<option value='{$origen->id}' ".selected($origen->id, $_origen_2, false).">{$origen->ciudad}</option>";
+	}
 ?>
 <form id="producto">
 	<?php echo $ID_UPDATE; ?>
@@ -120,6 +136,27 @@
 				<div class="input_text">
 					<label>Existencia</label>
 					<input type="text" id="existencia" name="existencia" value="<?php echo $_existencia; ?>"> 
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="celdas_2">
+		<div class="input_box">
+			<div class="input_text_container">
+			
+				<div class="input_text">
+					<label>Origen I</label>
+					<select id="origen_1" name="origen_1">
+						<?php echo $origen_1; ?>
+					</select>
+				</div>
+			
+				<div class="input_text">
+					<label>Origen II</label>
+					<select id="origen_2" name="origen_2">
+						<?php echo $origen_2; ?>
+					</select>
 				</div>
 
 			</div>
