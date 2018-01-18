@@ -1,0 +1,9 @@
+#error_registrando{
+	padding: 12px;
+    font-size: 13px;
+    color: red;
+    font-weight: 600;
+    line-height: 100%;
+
+    display: none;
+}

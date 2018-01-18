@@ -7,8 +7,10 @@
 		<script type='text/javascript' src="<?php echo get_home_url(); ?>/js/init.js"></script>
 
 		<?php 
-			/* wp_footer(); */
-			
+			global $post;
+			if( $post->post_name == "quiero-mi-marca" ){
+			 	wp_footer(); 
+			}
 			// cargarTablaProductos()
 		?>
 	</body>

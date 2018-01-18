@@ -145,57 +145,69 @@
 						</div>
 					</div>
 				</div>
-				<div class="row row-special">					
 
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
-						<select class="form-control col-md-4" name="dir_estado">
-							<option>Estado</option>
-							<?php
-								$estados = get_estados();
-								if( count($estados) > 0 ){ 
-									foreach ($estados as $estado) { ?>
-										<option value="<?php echo utf8_decode($estado->id);?>">
-											<?php echo utf8_decode($estado->name);?>
-										</option>	
-								<?php } ?>
-							<?php } ?>
-						</select>
-					</div>
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
-							<option>Delegación</option>							
-						</select>
-					</div>
-				</div>
+				
+
 				<div class="row row-special">					
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="dir_colonia" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Colonia"  maxlength="50">
+					
+					<div class="col-md-8" style="padding: 0px 15px 0px 0px !important;">
+
+						<div class="row row-special">					
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<input type="text" name="dir_colonia" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Colonia"  maxlength="50">
+							</div>
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<input type="text" name="dir_codigo_postal" data-charset="numalf" class="form-control col-md-6" id="inputEmail3" placeholder="Código postal" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="15">
+							</div>
+						</div>
+
+						<div class="row row-special">					
+
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
+								<select class="form-control col-md-4" name="dir_estado">
+									<option>Estado</option>
+									<?php
+										$estados = get_estados();
+										if( count($estados) > 0 ){ 
+											foreach ($estados as $estado) { ?>
+												<option value="<?php echo utf8_decode($estado->id);?>">
+													<?php echo utf8_decode($estado->name);?>
+												</option>	
+										<?php } ?>
+									<?php } ?>
+								</select>
+							</div>
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
+									<option>Delegación</option>							
+								</select>
+							</div>
+						</div>
+
 					</div>
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="dir_codigo_postal" data-charset="numalf" class="form-control col-md-6" id="inputEmail3" placeholder="Código postal" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="15">
+
+					<div class="col-md-4" style="padding-top: 20px;">	
+						<div class="col-sm-offset-1	col-sm-11 text-center">
+							<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-sm" style="color: #94d400; border: 2px solid #091705;">Registrarme</button>
+							<button id="btn-register_" class="btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400; border: 2px solid #091705;">Registrarme</button>
+							<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-lg hidden-md " style=" color: #94d400; border: 2px solid #091705;">Registrarme</button>
+
+							<div id="error_registrando">
+								Por favor revisar tus datos arriba, hay algún campo incompleto
+							</div>
+
+							<br>
+							<br>
+	 					</div>
+	 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-sm-offset-1	col-sm-11 text-center">
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-sm" style="margin-left: 68%;margin-top: -15%; color: #94d400;     border: 2px solid #091705;">Registrarme</button>
-						
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400;     border: 2px solid #091705;">Registrarme</button>
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs hidden-lg hidden-md " style=" color: #94d400;     border: 2px solid #091705;">Registrarme</button>
-						<br>
-						<br>
-<!--
- 						<label>¿Ya tienes un perfil Kmibox? </label>
-						<a href="<?php echo get_home_url(); ?>/iniciar-sesion" id='link-login' data-target="register" >
-							Iniciar Sesion
-						</a>
- -->
- 					</div>
- 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 				</div>
 			</form>
 		</div>

@@ -165,7 +165,7 @@
 				
 				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
 					
-					<span id="agregar_plan" class="btn-kmibox-link-suscription" ><i class="fa fa-plus-circle"></i>Agregar otro plan</span>
+					<span id="agregar_plan" class="btn-kmibox-link-suscription" ><i class="fa fa-plus"></i>Agregar otro plan</span>
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
 			</section>	
@@ -177,7 +177,7 @@
 				<div class="Modal content text-center" >			     
 					<div style=" background-color:#ffffff; border-color:#fffff1;">
 						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="img-responsive" />
-						<div class="gothanligth" style="background-color: #000000;color:  #ffffff; text-align:left">ELIJE TU FORMA DE PAGO</div>
+						<div style="background-color: #000000; color: #ffffff; text-align: left; padding: 5px 25px; font-family: GothanMedium_regular;">ELIJE TU FORMA DE PAGO</div>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
@@ -195,8 +195,10 @@
 
 	echo comprimir($HTML);
 
+	wp_enqueue_script('mascotas', TEMA()."/js/functions_new.js", array(), '1.0.0');
+
 	get_footer();
 
-	echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
+	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>
 

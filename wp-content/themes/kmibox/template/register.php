@@ -4,7 +4,9 @@
  * Template Name: register
  *
  */
-get_header(); 
+	wp_enqueue_style( 'proceso_compra', TEMA()."/css/registro.css", array(), "1.0.0" );
+
+	get_header(); 
 ?>
 
 <header  class="row">
