@@ -13,12 +13,12 @@
 			<img src="[IMG_PATH]confirmacion/header.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div>
-				<strong>Tu producto ya est&aacute; en camino</strong>. Por te brindamos la siguiente informac&iacute;on de tu compra
+				<strong>Tu producto ya est&aacute; en camino</strong>. Por esto te brindamos la siguiente informac&iacute;on de tu compra.
 
 		</div>
 		<br><br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3 class="mayuscula">Direci&oacute;n de envio</h3>
+			<h3 class="mayuscula">Direci&oacute;n de env&iacute;o</h3>
 			<label>direccion</label>
 		</div>
 		<br>
@@ -45,7 +45,7 @@
 		</div>
 
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3 class="mayuscula">detalles del pedido</h3>
+			<h3 class="mayuscula" >detalles del pedido</h3>
 		<div class="pull-center" style="text-align:center;font-size: 30px ! important;">
 		<table cellspacing=5 cellpadding=0 style="text-align: center;">
 			
@@ -66,7 +66,7 @@
 		
 <br>
 		<div style="text-align: center;font-size: 17px;line-height: 27px;">
-		<h2>total de suscripcion</h2>
+		<h2 class="mayuscula" >total de suscripcion</h2>
 		<label style="font-size:35px">total</label>
 		</div>
 		<br><br>

@@ -22,7 +22,7 @@
 			</article>
 		';
 	}
-
+   
 	$_tipos = $wpdb->get_results("SELECT * FROM tipo_mascotas");
 	$tipos = "";
 	foreach ($_tipos as $key => $tipo) {

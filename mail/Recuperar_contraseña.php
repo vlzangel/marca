@@ -16,6 +16,7 @@
 		<div >
 			<img src="[IMG_PATH]recuperar_contraseña/recuperar_contrase_a01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
+		<br>
 		<div class="text" style="text-align: center;font-size: 17px;line-height: 27px:">
 				<label>Recientemente hemos recibido una solicitud para<br> <strong>Recuperar la contraseña de su cuenta</strong></label>
 				<br><br>
@@ -33,8 +34,8 @@
 					color: #000;
 					margin: 20px 0px;
 					border: solid 2px #091705;
-					text-align: center;
-				"
+					text-align: center
+					text-decoration: none;				"
 			>Recuperar contraseña</a>
 
 		</div>

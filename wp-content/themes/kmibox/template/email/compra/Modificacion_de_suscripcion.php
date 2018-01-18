@@ -18,7 +18,7 @@
 		</div>
 			<br>
 		<div>
-			<label style="text-align: center;font-size: 17px;line-height: 27px;>verifica los detalles de la modificaci&oacute;n que acabas de realizar</label>
+			<label style="text-align: center;font-size: 17px;line-height: 27px;>Verifica los detalles de la modificaci&oacute;n que acabas de realizar</label>
 		</div>
 			<br>
 		<div>

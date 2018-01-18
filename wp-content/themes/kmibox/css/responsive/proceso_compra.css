@@ -82,6 +82,7 @@
 @media (max-width: 992px){
 	.select_plan div{
 	    font-size: 14px;
+	    line-height: 20px;
 	}
 }
 
