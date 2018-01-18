@@ -45,7 +45,7 @@ get_header(); ?>
 	<section id="como-funciona" class="row text-center">
 		<div class="container">
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<img src="<?php echo get_home_url(); ?>/img/image-2.png" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/image-2.svg" class="img-responsive">
 				<p>Asesores nutricionales 
 					<br class="hidden-sm hidden-xs">
 					certificados
@@ -125,7 +125,7 @@ get_header(); ?>
 				¡Regálasela a un amigo o un familiar!
 			</h2>
 			<div class="col-sm-12">
-				<img src="<?php echo get_home_url(); ?>/img/box.png" id="regalo" class="img-responsive" >
+				<img src="<?php echo get_home_url(); ?>/img/Box-01.svg" id="regalo" class="img-responsive" >
 			</div>
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
 				<p>

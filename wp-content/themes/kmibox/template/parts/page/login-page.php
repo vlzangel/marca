@@ -16,13 +16,13 @@
 				<div class="clearfix"></div>
 				<div class="form-group input-icon inputlogin"  style="color:#000000; margin-left:20%; width: 60%;">
 					<i class="fa fa-user inter-input" ></i>
-					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email" maxlength="40">
+					<input type="text" name="usuario" class="form-control" id="inputEmail3" placeholder="Email" maxlength="40" style="    border-radius: 50px;">
 				</div>					
 				
 
 				<div class="form-group input-icon inputlogin" style="color:#000000; margin-left:20%; width: 60%;" >
 					<i class="fa fa-lock inter-input" ></i>
-					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40">
+					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40" style="    border-radius: 50px;">
 				</div>
 
 				
