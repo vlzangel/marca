@@ -51,6 +51,7 @@
 					margin: 20px 0px;
 					border: solid 2px #091705;
 					text-align: center;
+					text-decoration: none;
 				"
 			>Realizar pago</a>
 			<br><br><br>

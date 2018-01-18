@@ -17,27 +17,27 @@
 			<img src="[IMG_PATH]notificacion_envio/compra01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div style="text-align: center;font-size: 17px;line-height: 27px;">
-				Los <strong>detalles de tu pedido</strong> se indican a contici&oacute;n
+				Los <strong>detalles de tu pedido</strong> se indican a continuaci&oacute;n
 
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3 class="mayuscula">tu fecha estimada de entrega es</h3>
-			<label>lunes 15 de enero - jueves 18 de enero</label>
+			<h3 class="mayuscula">tu fecha estimada de entrega es.</h3>
+			<label>Lunes 15 de enero - Jueves 18 de enero</label>
 		</div>
 				<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3 class="mayuscula">tipo de envio</h3>
-			<label>fedex</label>
+			<h3 class="mayuscula">tipo de envio.</h3>
+			<label>Fedex</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3 class="mayuscula">tu pedido sera enviado a</h3>
-			<label>rob cuevas paseo de la luna 370, interior 124 Paseo de solares Zapopan, Jalisco 45019 M&eacute;xico</label>
+			<h3 class="mayuscula">tu pedido sera enviado a.</h3>
+			<label>Rob cuevas <br> paseo de la luna 370, interior 124<br> Paseo de solares<br> Zapopan, Jalisco 45019<br> M&eacute;xico</label>
 		</div>
 			<br>
 		<div style="text-align: left;font-size: 17px;line-height: 27px;">
-			<h3 class="mayuscula">detalles del pedido</h3>
+			<h3 class="mayuscula">detalles del pedido.</h3>
 			<label>pedido No.123456 realizado el lunes 08 de enero</label>
 		</div>
 			<br>
