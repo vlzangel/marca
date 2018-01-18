@@ -8,6 +8,10 @@ body {
    /* line-height: inherit;*/
 }
 
+div#wpadminbar {
+    display: none !important;
+}
+
 .col-xs-12, .col-md-6, .col-md-12 {
     position: relative;
     min-height: 1px;
