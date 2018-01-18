@@ -25,11 +25,6 @@
 	foreach ($_origenes as $origen) {
 		$ciudades[ $origen->id ] = $origen->ciudad; 
 	}
-/*
-	echo "<pre>";
-		print_r($_origenes);
-		print_r($ciudades);
-	echo "</pre>";*/
 
 	foreach ($productos as $producto) {
 
