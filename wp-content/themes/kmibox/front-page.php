@@ -52,7 +52,7 @@ get_header(); ?>
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 border-lateral">  
-				<img src="<?php echo get_home_url(); ?>/img/Image-3.png" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/Image-3.svg" class="img-responsive">
 				<p>Entregado en tu 
 					<br class="hidden-sm hidden-xs">
 					casa sin costo adicional
