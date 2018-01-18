@@ -17,28 +17,28 @@
 
 		</div>
 		<br><br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 16px;line-height: 10px;">
 			<h3 class="mayuscula">Direci&oacute;n de env&iacute;o</h3>
 			<label>direccion</label>
 		</div>
 		<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;"> 
+		<div style="text-align: left;font-size: 16px;line-height: 10px;"> 
 			<h3 class="mayuscula">Fecha de entrega estimada</h3>
 			<label>fecha</label>
 		</div>
 		<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 16px;line-height: 10px;">
 			<h3 class="mayuscula">tipo de env&iacute;o</h3>
 			<label>fedex</label>
 		</div>
 		<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 16px;line-height: 10px;">
 			<h3 class="mayuscula">guia de rastreo</h3>
 			<label>numero de guia</label>
 		</div>
 		<br>
 		<div class="text" style="text-align: center;font-size: 17px;line-height: 27px;">
-			<label>Entra en <strong>WWW.fedex.com</strong> e ingresa tu numero de gu&iacute;a para monitorear tu entrega</label>
+			<label>Entra en <strong>www.fedex.com</strong> e ingresa tu numero de gu&iacute;a para monitorear tu entrega</label>
 		<hr>
 		</div>
 		<br>
