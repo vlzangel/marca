@@ -81,24 +81,24 @@
 			    			$HTML .= '
 								<li style="padding-right:0px;padding-left:0px;">
 									<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
-										<i class="fa fa-plus-circle"></i>
-										<span style=" font-family: GothanMedium_regular;">
+										<i class="fa fa-plus-circle fa-2x"></i>
+										<span style=" font-family: GothanMedium_regular; font-size: 22px">
 											Quiero mi NutriHeroes
 										</span>
 									</a>
 								</li>
 								<li style="padding-right:0px;padding-left:0px;">
 									<a href="'.$home.'/perfil/">
-										<i class="fa fa-user"></i>
-										<span style=" font-family: GothanMedium_regular;">
+										<i class="fa fa-user fa-2x"></i>
+										<span style=" font-family: GothanMedium_regular; font-size: 22px">
 											Mi perfil
 										</span>
 									</a>
 								</li>
 								<li style="padding-right:0px;padding-left:0px;">
 									<a href="'.$salir.'">
-										<i class="fa fa-close"></i>
-										<span style=" font-family: GothanMedium_regular;">
+										<i class="fa fa-close fa-2x"></i>
+										<span style=" font-family: GothanMedium_regular; font-size: 22px">
 											Salir
 										</span>
 									</a>
@@ -107,16 +107,16 @@
 			    			$HTML .= '									
 								<li>
 									<a href="'.$home.'/iniciar-sesion/">
-										<i class="fa fa-key"></i>
-										<span style=" font-family: GothanMedium_regular;">
+										<i class="fa fa-key fa-2x"></i>
+										<span style=" font-family: GothanMedium_regular; font-size: 22px">
 											Iniciar Sesión
 										</span>
 									</a>
 								</li>
 								<li>
 									<a href="'.$home.'/registro/">
-										<i class="fa fa-user-plus"></i> 
-										<span style=" font-family: GothanMedium_regular;">Registrarse</span>
+										<i class="fa fa-user-plus fa-2x"></i> 
+										<span style=" font-family: GothanMedium_regular; font-size: 22px">Registrarse</span>
 									</a>
 								</li>';
 						} $HTML .= '
