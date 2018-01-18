@@ -5,7 +5,7 @@ html, body, #content-primary {
 }
 
 body {
-    line-height: inherit;
+   /* line-height: inherit;*/
 }
 
 .col-xs-12, .col-md-6, .col-md-12 {
