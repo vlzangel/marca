@@ -17,28 +17,28 @@
 			<img src="[IMG_PATH]pago_tarjeta/pago_tarjeta01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<br><br>
-		<div  style="text-align: center;font-size: 17px;line-height: 27px;">
+		<div  style="text-align: center;font-size: 16px;line-height: 10px;">
 				Verifica <strong>los detalles de tu pago</strong>
 
 		</div>
 		<br><br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 16px;line-height: 10px;">
 			<h3 class="mayuscula">Titular</h3>
 			<label>Titular de la tarjeta</label>
 		</div>
 				
 			<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 16px;line-height: 10px;">
 			<h3 class="mayuscula">N&uacute;mero de la tarjeta</h3>
 			<label>41111111111111111111</label>
 		</div>
 			<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 16px;line-height: 10px;">
 			<h3 class="mayuscula">Fecha de vencimiento</h3>
 			<label>01/20</label>
 		</div>
 			<br>
-		<div style="text-align: left;font-size: 17px;line-height: 27px;">
+		<div style="text-align: left;font-size: 16px;line-height: 10px;">
 			<h3 class="mayuscula">cvv</h3>
 			<label>cvv</label>
 		</div>
@@ -51,9 +51,6 @@
 
 		<label style="text-align: center; font-size: 17px;line-height: 27px;">¡Gracias por tu compra!</label>
 		<br><br>
-
-
-	
 
 
 	';
