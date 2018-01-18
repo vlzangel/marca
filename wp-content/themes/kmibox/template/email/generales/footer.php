@@ -6,7 +6,7 @@
 			    		line-height: 27px;">
 					Para cualquier duda o informaci&oacute;n  no dudes en<br>
 					escribirnos por esta v&iacute;a o por whatsapp al<br>
-					<strong>5540034824</strong> donde con gusto te tenderemos.
+					<strong>5540034824</strong> donde con gusto te atenderemos.
 				</div>
 
 				<table style="
