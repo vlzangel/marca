@@ -463,7 +463,7 @@ body {
 		margin: 120px auto 50px;
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
-	    max-width: 900px;
+	    max-width: 1500px;
 	}
 
 	table {
@@ -574,7 +574,7 @@ body {
 
 	.cintillo_factura #cen{        
 		width: 95%;
-	    margin: 15px auto;
+	    margin: 30px auto;
 	}
 
 	.btn_pagar{	
