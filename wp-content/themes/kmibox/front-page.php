@@ -45,7 +45,7 @@ get_header(); ?>
 	<section id="como-funciona" class="row text-center">
 		<div class="container">
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<img src="<?php echo get_home_url(); ?>/img/image-2.svg" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/Image-2.svg" class="img-responsive">
 				<p>Asesores nutricionales 
 					<br class="hidden-sm hidden-xs">
 					certificados
