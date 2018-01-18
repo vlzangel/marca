@@ -1,7 +1,7 @@
 <div class="clear"></div>
 <!--aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger hidden-lg hidden-md" id="login-mensaje"></aside-->
-<div class="col-md-6 hidden-xs hidden-sm"><img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;background-color: #ffffff;padding-top: 60px;
-    margin-top: -7%;">
+<div class="col-md-6 hidden-xs hidden-sm" style="background-color: #ffffff;padding-top: 60px;
+    margin-top: -7%;"> 
 	<ul class="option-menu list-unstyled list-inline col-xs-4 col-md-12  text-left">
 					<div class="col-sm-12 text-left">
 						<a class="btn-kmibox-white gothan" id="btn-linkprev" href="http://nutriheroes.com.mx/QA/?source=">
@@ -11,6 +11,8 @@
 					</div>
 
 				</ul>
+
+	<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
 				</div>
 <article id="inicio-sesion" 
 		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" >
