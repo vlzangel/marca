@@ -59,7 +59,7 @@ get_header(); ?>
 				</p>
 		    </div>
 		    <div class="col-xs-12 col-sm-4 col-md-4">  
-				<img src="<?php echo get_home_url(); ?>/img/Image-4.png" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/Image-4.svg" class="img-responsive">
 				<p>Más barato que en una 
 					<br class="hidden-sm hidden-xs">
 					veterinaria
@@ -86,23 +86,23 @@ get_header(); ?>
 			<div class="row">
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<span class="marca-circle">1</span>
-					<img src="<?php echo get_home_url(); ?>/img/Icon-1.png" class="img-responsive">
+					<img src="<?php echo get_home_url(); ?>/img/Icon-1.svg" class="img-responsive">
 					<p>Escoge la marca y presentaci&oacute;n de tu preferencia</p>
 				</div> 
 				<div class="col-xs-12 col-sm-4 col-md-4"> 	
 					<span class="marca-circle_2">2</span>
-					<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
+					<img src="<?php echo get_home_url(); ?>/img/Icon-2.svg" class="img-responsive">
 					<p>Brindale a tu asesor nutricional tu información básica para el envío </p>
 				</div>	
 				<div class="col-xs-12 col-sm-4 col-md-4"> 
 					<span class="marca-circle_2" style="    margin-right: -25%;">3</span>
-					<img src="<?php echo get_home_url(); ?>/img/Icon-3.png" class="img-responsive" style="    margin-left: 26%;">
+					<img src="<?php echo get_home_url(); ?>/img/Icon-3.svg" class="img-responsive" style="    margin-left: 26%;">
 					<p>Recibe tu orden de compra y realiza tu pago </p>	
 				</div> 
 			</div>
 			<div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
 				<span class="marca-circle_2">4</span>
-				<img src="<?php echo get_home_url(); ?>/img/Icon-4.png" class="img-responsive" >
+				<img src="<?php echo get_home_url(); ?>/img/Icon-4.svg" class="img-responsive" >
 				<p>Recibe el producto en tu casa u oficina sin costo adicional</p>
 			</div>
 
