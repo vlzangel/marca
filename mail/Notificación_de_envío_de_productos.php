@@ -5,7 +5,7 @@
 	$footer = getTemplate('/generales/footer.php');
 
 	$titulo = '
-		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: left; padding: 30px 20px; font-weight: 600;">
+		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: center; padding: 30px 20px; font-weight: 600;">
 		¡Hola rob!
 			
 			<div  class="text" style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
@@ -17,7 +17,7 @@
 			<img src="[IMG_PATH]notificacion_envio/compra01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 		</div>
 		<div style="text-align: center;font-size: 17px;line-height: 27px;">
-				los<strong>detalles de tu pedido</strong> se indican a contici&oacute;n
+				Los <strong>detalles de tu pedido</strong> se indican a contici&oacute;n
 
 		</div>
 			<br>
