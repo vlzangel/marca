@@ -540,7 +540,7 @@ $(function($){
 					}else{
 						window.location.reload();				
 					}			
-				}, 500);
+				}, 1000);
 
 			}else{
 				$('#login-mensaje').html(r['msg']);
