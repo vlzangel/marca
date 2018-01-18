@@ -96,7 +96,7 @@ get_header(); ?>
 				</div>	
 				<div class="col-xs-12 col-sm-4 col-md-4"> 
 					<span class="marca-circle_2" style="    margin-right: -25%;">3</span>
-					<img src="<?php echo get_home_url(); ?>/img/Icon-3.svg" class="img-responsive" style="    margin-left: 26%;">
+					<img src="<?php echo get_home_url(); ?>/img/Icon-3.svg" class="img-responsive" >
 					<p>Recibe tu orden de compra y realiza tu pago </p>	
 				</div> 
 			</div>
