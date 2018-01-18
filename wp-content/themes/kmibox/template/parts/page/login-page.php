@@ -15,7 +15,7 @@
 	<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
 				</div>
 <article id="inicio-sesion" 
-		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" >
+		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" style="    padding-left: 0px !important;">
 			<aside class="col-md-8 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 		<div class="col-md-10 col-md-offset-1 form-horizontal">
 
