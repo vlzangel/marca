@@ -118,21 +118,21 @@
 			      	maxlength="25"
 			      	value=""
 			      	data-charset="xlf"
-			      	data-openpay-card="holder_name">
+			      	data-openpay-card="holder_name" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar">Numero de Tarjeta</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="16" data-charset="num" value="4111111111111111" data-openpay-card="card_number">
+			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="16" data-charset="num" value="4111111111111111" data-openpay-card="card_number" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Fecha vencimiento</label>
 			    <div class="col-sm-4">
-			    	<select name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" >
+			    	<select name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" style="border-radius: 50px !important;" >
 			    		<option>Mes</option>
 			    		<?php for ($i=1; $i <= 12; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -142,7 +142,7 @@
 			    </div>
 			    <div class="col-sm-4">
 			      <!-- input type="text" name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="Año" -->
-			    	<select name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year"  >
+			    	<select name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year" style="border-radius: 50px !important;" >
 			    		<option>Año</option>
 			    		<?php for ($i=date('y'); $i < date('y') + 15; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -154,14 +154,14 @@
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >CVV</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="3" data-charset="num" data-openpay-card="cvv2" >
+			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="3" data-charset="num" data-openpay-card="cvv2" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Total a pagar</label>
 			    <div class="col-sm-8">
-			      <input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>">
+			      <input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
