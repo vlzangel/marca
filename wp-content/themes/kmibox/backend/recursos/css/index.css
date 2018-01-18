@@ -164,8 +164,7 @@ a:focus, a:focus .media-icon img {
     cursor: default !important;
 }
 
-.celdas_3 .input_box,
-.celdas_1 .input_text_container .input_text
+.celdas_3 .input_box
  {
     float: left;
     width: 33.333333%;
@@ -173,8 +172,29 @@ a:focus, a:focus .media-icon img {
     padding: 3px;
 }
 
-.celdas_1 .input_text_container .input_text input,
-.celdas_1 .input_text_container .input_text select
+.input_text_container
+ {
+    overflow: hidden;
+}
+
+.celdas_4 .input_text_container .input_text
+ {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.celdas_4 .input_text_container .input_text
+ {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.input_text_container .input_text input,
+.input_text_container .input_text select
 {
     width: 100%;
 }

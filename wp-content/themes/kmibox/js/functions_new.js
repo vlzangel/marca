@@ -225,7 +225,7 @@ function loadPresentaciones(){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){
 
 					var existencia = "";
-					if( producto.existencia == undefined || producto.existencia == 0 ){
+					if( producto.existencia == -1 ){
 						existencia = "Agotado";
 					}
 

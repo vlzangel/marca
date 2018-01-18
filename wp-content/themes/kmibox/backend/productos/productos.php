@@ -19,6 +19,7 @@
                 <th>Nombre</th>
                 <th>Descripci&oacute;n</th>
                 <th>Precio</th>
+                <th>Existencia</th>
                 <th>Peso</th>
                 <th>Marca</th>
                 <th>Tama&ntilde;os Para:</th>

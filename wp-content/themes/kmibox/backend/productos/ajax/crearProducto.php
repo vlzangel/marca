@@ -44,6 +44,7 @@
 			'$descripcion',
 			'$precio',
 			'$peso',
+			'$existencia',
 			'$marca',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',

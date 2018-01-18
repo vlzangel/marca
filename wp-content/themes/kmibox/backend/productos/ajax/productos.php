@@ -50,6 +50,7 @@
 	        $producto->nombre,
 	        $producto->descripcion,
 	        "$ ".$producto->precio." MXN",
+	        $producto->existencia,
 	        $producto->peso,
 	        $marca,
 	        implode("<br>", $tamanos ),

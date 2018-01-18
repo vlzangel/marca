@@ -13,6 +13,7 @@
 	$img_old = "";
 	$_descripcion = "";
 	$ID_UPDATE = "";
+	$_existencia = "";
 
 	if( $ID != "" ){
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$ID);
@@ -20,6 +21,7 @@
 		$_precio = $producto->precio;
 		$_peso = $producto->peso;
 		$_marca = $producto->marca;
+		$_existencia = $producto->existencia;
 		$_descripcion = $producto->descripcion;
 		$_tamanos = unserialize($producto->tamanos);
 		$_edades = unserialize($producto->edades);
@@ -94,7 +96,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="celdas_1">
+	<div class="celdas_4">
 		<div class="input_box">
 			<div class="input_text_container">
 				
@@ -113,6 +115,11 @@
 					<select id="marca" name="marca">
 						<?php echo $marcas; ?>
 					</select>
+				</div>
+			
+				<div class="input_text">
+					<label>Existencia</label>
+					<input type="text" id="existencia" name="existencia" value="<?php echo $_existencia; ?>"> 
 				</div>
 
 			</div>
