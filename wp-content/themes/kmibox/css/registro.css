@@ -21,3 +21,7 @@
     margin: 10px 0px 0px;
     display: none;
 }
+
+aside#login-mensaje {
+    margin: 15px 0px;
+}

@@ -1,6 +1,8 @@
 <?php
 
 	include( __DIR__."/funciones/generales.php" );
+	include( __DIR__."/funciones/db.php" );
+	include( __DIR__."/funciones/emails.php" );
 	include( __DIR__."/funciones/suscripcion.php" );
 	include( __DIR__."/funciones/unico_uso.php" );
 
