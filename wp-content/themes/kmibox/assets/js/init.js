@@ -520,11 +520,7 @@ $(function($){
 
 		}, function(r) {
 
-			console.log( r );
-
 			r = $.parseJSON(r);
-
-			console.log( r );
 
 			jQuery(".btn-register_").attr("disabled", false);
 			jQuery(".btn-register_").html("Registrarme");
@@ -958,7 +954,7 @@ $(function($){
 
 		$('#login-mensaje').html('');
 		$('#login-mensaje').addClass('hidden');
-		$.post( urlbase+"/ajax/reset_password.php", {
+		$.post( TEMA+"/procesos/login/recuperar.php", {
 			email: $('[name="email"]').val(),
 		}, function(r) {
 			var datos = $.parseJSON(r);
