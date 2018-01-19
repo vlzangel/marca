@@ -79,12 +79,12 @@
 	    	}
 	        $HTML = '
 	        	<nav class="container nav_container"> 
-	        		<div class="col-xs-6  col-xs-6-1 col-sm-5 col-md-5 pull-left" >
+	        		<div class="col-xs-6  col-xs-6-1 col-sm-5 col-md-5 pull-left headerResponsive-img" >
 						<a href="'.$home.'">
 							<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
 						</a> 
 					</div>
-			    	<ul class="col-xs-6 col-xs-6-1 col-sm-10 col-md-10 pull-right list-inline list-unstyled headerResponsive" style="padding-right:0px;margin-top: -4%;" >';
+			    	<ul class="col-xs-6  col-sm-10 col-md-10 pull-right list-inline list-unstyled headerResponsive" >';
 			    		if ( is_user_logged_in() ){
 			    			$HTML .= '
 								<li style="padding-right:0px;padding-left:0px;">

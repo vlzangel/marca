@@ -368,6 +368,10 @@ select{
 	margin-top: 10px;
 }	
 
+.col-xs-6-1{
+		    width: 50%;
+	}
+
 
 .btn-sm-kmibox1{
 	background: #000000;
@@ -865,6 +869,16 @@ margin-top: -34%;
 	border-radius: 0px!important;
 	border-bottom:1px solid #7d178f;
 }
+
+.headerResponsive{
+	 margin-right: 0% ! important; 
+    margin-top: -5% ! important;
+	}
+
+.headerResponsive-img{
+	 margin-right: 0% ! important; 
+    margin-top: -6% ! important;
+	}
 
 .compra-titulo{	
 	padding: 12px 30px 12px 30px;
@@ -1667,8 +1681,14 @@ margin-bottom: 10% !important;
 	}
 	.headerResponsive{
 	 margin-right: 0% ! important; 
-    margin-top: -6% ! important;
+    margin-top: -3% ! important;
 	}
+
+	.headerResponsive-img{
+	 margin-right: 0% ! important; 
+    margin-top: -3% ! important;
+	}
+
 
 	.h-3x{
 		font-size: 26px;
