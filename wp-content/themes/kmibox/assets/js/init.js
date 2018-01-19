@@ -520,6 +520,8 @@ $(function($){
 
 		}, function(r) {
 
+			console.log( r );
+
 			r = $.parseJSON(r);
 
 			console.log( r );
@@ -531,7 +533,7 @@ $(function($){
 				
 				jQuery("#success_registrando").css("display", "block");
 
-				/*setTimeout(function(){
+				setTimeout(function(){
 					var redirect = $('[name="redirect"]').val();
 					if( typeof $('[name="redirect"]').val() == 'undefined'){
 						redirect = '';
@@ -541,7 +543,7 @@ $(function($){
 					}else{
 						window.location.reload();				
 					}			
-				}, 1000);*/
+				}, 1000);
 
 			}else{
 				$('#login-mensaje').html(r['msg']);

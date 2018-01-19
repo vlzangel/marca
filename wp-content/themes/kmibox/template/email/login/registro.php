@@ -46,14 +46,20 @@
 		font-size: 15px;
 		margin: 0px;
 	">la direci&oacute;n asociada a tu cuenta es:</h3>
-	<label>[EMAIL]</label>
+	<label>
+		<a href="mailto:[EMAIL]" target="_blank" style="
+			font-weight: 400;
+		    color: #000;
+		    text-decoration: none;
+		">[EMAIL]</a>
+	</label>
 </div>
 
 <div style="
 	margin: 30px 0px 0px;
 	text-align: center;
 ">	
-	<a 	href="[LINK]" target="_blank" style="
+	<a href="[LINK]" target="_blank" style="
 		padding: 15px 50px;
 		border-radius: 50px;
 		background-color:#ffffff;

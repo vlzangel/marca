@@ -1,6 +1,6 @@
 <article class="row">
 	
-	<div id="register"	class="col-md-12 col-xs-12 col-md-offset-0" style="border-radius:10px; border:1px solid #ccc; margin-bottom: 2%">
+	<div id="register"	class="col-md-12 col-xs-12 col-md-offset-0" style="border-radius:10px; border:1px solid #ccc; margin-bottom: 2%; padding-bottom: 15px;">
 		<div class="row">
 
 			<form class="form-horizontal" id="form-registro" method="post">
