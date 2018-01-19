@@ -29,12 +29,16 @@
 	}
 	.nav_container > ul > li a {
     background: #181E0D;
-     padding:12px 7px 3px 6px!important;
+     padding:14px 11px 9px 12px!important;
     border-radius: 50px;
     border: 1px solid #181E0D;
     color: #fff;
     text-decoration: none;
 }
+	.nav_header{
+		 font-size: 22px;
+		 padding-right: 0px;
+	}
 }
 
 @media (max-width: 500px){
