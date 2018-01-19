@@ -1431,6 +1431,9 @@ margin-bottom: 10% !important;
 	margin-top: 10% !important;
 
 }
+	.col-xs-6-1{
+		    width: 60% !important;
+	}
 
 }
 @media all and (max-width:959px) and (min-width:613px) {
