@@ -1,10 +1,14 @@
 <?php
 
 	include( __DIR__."/funciones/generales.php" );
+	include( __DIR__."/funciones/db.php" );
+	include( __DIR__."/funciones/emails.php" );
 	include( __DIR__."/funciones/suscripcion.php" );
 	include( __DIR__."/funciones/unico_uso.php" );
 
 	include( __DIR__."/funciones/backpanel.php" );
+    
+	add_filter( 'show_admin_bar', '__return_false' );
 
 	function _remove_script_version( $src ){
 	    $parts = explode( '?ver', $src );

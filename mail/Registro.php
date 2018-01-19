@@ -6,7 +6,7 @@
 
 	$titulo = '
 		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: center; padding: 30px 20px; font-weight: 600;">
-		¡Felicidades Rodrigo!
+			¡Felicidades Rodrigo!
 			
 			<div  class="text" style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
 				Tu registro fue exitoso

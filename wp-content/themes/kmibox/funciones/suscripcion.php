@@ -33,6 +33,7 @@
 				"tamanos" => unserialize($producto->tamanos),
 				"edades" => unserialize($producto->edades),
 				"precio" => $producto->precio,
+				"existencia" => $producto->existencia,
 				"peso" => $producto->peso,
 				"marca" => $producto->marca,
 				"tipo" => $producto->tipo_mascota,

@@ -34,7 +34,9 @@
 	);
 
 	$dataextra = array(
-		"img" => $img
+		"img" => $img,
+		"origen_1" => $origen_1,
+		"origen_2" => $origen_2
 	);
 
 	$SQL = "
@@ -44,6 +46,7 @@
 			'$descripcion',
 			'$precio',
 			'$peso',
+			'$existencia',
 			'$marca',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',
