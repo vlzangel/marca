@@ -76,7 +76,7 @@
 							<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
 						</a> 
 					</div>
-			    	<ul class="col-xs-6 col-sm-7 col-md-10 pull-right list-inline list-unstyled headerResponsive" style="padding-right:0px; margin-right: -6%;margin-top: -4%;" >';
+			    	<ul class="col-xs-6 col-sm-10 col-md-10 pull-right list-inline list-unstyled headerResponsive" style="padding-right:0px; margin-right: -6%;margin-top: -4%;" >';
 			    		if ( is_user_logged_in() ){
 			    			$HTML .= '
 								<li style="padding-right:0px;padding-left:0px;">
