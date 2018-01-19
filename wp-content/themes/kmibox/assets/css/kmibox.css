@@ -1681,8 +1681,14 @@ margin-bottom: 10% !important;
 	}
 	.headerResponsive{
 	 margin-right: 0% ! important; 
-    margin-top: -6% ! important;
+    margin-top: -3% ! important;
 	}
+
+	.headerResponsive-img{
+	 margin-right: 0% ! important; 
+    margin-top: -3% ! important;
+	}
+
 
 	.h-3x{
 		font-size: 26px;
