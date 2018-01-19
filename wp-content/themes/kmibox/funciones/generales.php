@@ -79,7 +79,7 @@
 	    	}
 	        $HTML = '
 	        	<nav class="container nav_container"> 
-	        		<div class="col-xs-6  col-xs-6-1 col-sm-5 col-md-5 pull-left" >
+	        		<div class="col-xs-6  col-xs-6-1 col-sm-5 col-md-5 pull-left headerResponsive-img" >
 						<a href="'.$home.'">
 							<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
 						</a> 
