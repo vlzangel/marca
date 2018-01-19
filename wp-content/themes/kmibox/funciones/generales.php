@@ -84,13 +84,13 @@
 							<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
 						</a> 
 					</div>
-			    	<ul class="col-xs-6 col-sm-10 col-md-10 pull-right list-inline list-unstyled headerResponsive" style="padding-right:0px; margin-right: -6%;margin-top: -4%;" >';
+			    	<ul class="col-xs-6 col-xs-6-1 col-sm-10 col-md-10 pull-right list-inline list-unstyled headerResponsive" style="padding-right:0px;margin-top: -4%;" >';
 			    		if ( is_user_logged_in() ){
 			    			$HTML .= '
 								<li style="padding-right:0px;padding-left:0px;">
 									<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
 										<i class="fa fa-plus-circle fa-2x"></i>
-										<span style=" font-family: GothanMedium_regular; font-size: 22px;     margin-left: 2%;">
+										<span class="gothan nav_header" >
 											Quiero mi NutriHeroes
 										</span>
 									</a>
@@ -98,7 +98,7 @@
 								<li style="padding-right:0px;padding-left:0px;">
 									<a href="'.$home.'/perfil/">
 										<i class="fa fa-user fa-2x" ></i>
-										<span style=" font-family: GothanMedium_regular; font-size: 22px;     margin-left: 3%;">
+										<span class="gothan nav_header">
 											Mi perfil
 										</span>
 									</a>
@@ -106,7 +106,7 @@
 								<li style="padding-right:0px;padding-left:0px;">
 									<a href="'.$salir.'">
 										<i class="fa fa-close fa-2x" ></i>
-										<span style=" font-family: GothanMedium_regular; font-size: 22px;     margin-left: 3%;">
+										<span class="gothan nav_header">
 											Salir
 										</span>
 									</a>
@@ -116,7 +116,7 @@
 								<li>
 									<a href="'.$home.'/iniciar-sesion/">
 										<i class="fa fa-key fa-2x" ></i>
-										<span style=" font-family: GothanMedium_regular; font-size: 22px;     margin-left: 2%;">
+										<span class="gothan nav_header">
 											Iniciar Sesión
 										</span>
 									</a>
@@ -124,7 +124,7 @@
 								<li>
 									<a href="'.$home.'/registro/">
 										<i class="fa fa-user-plus fa-2x" ></i> 
-										<span style=" font-family: GothanMedium_regular; font-size: 22px;     margin-left: 2%;">Registrarse</span>
+										<span class="gothan nav_header">Registrarse</span>
 									</a>
 								</li>';
 						} $HTML .= '
