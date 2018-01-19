@@ -477,6 +477,9 @@ $(function($){
 
 		jQuery("#error_registrando").css("display", "none");
 
+		jQuery(".btn-register_").attr("disabled", true);
+		jQuery(".btn-register_").html("Procesando...");
+
 	    
 	    // Get the form instance
 	    var $form = $(e.target);
@@ -488,7 +491,8 @@ $(function($){
 		$('#login-mensaje').html('');
 		$('#login-mensaje').addClass('hidden');
 		
-		$.post( urlbase+"/ajax/register.php", {
+		$.post( TEMA+"/procesos/login/registrar.php", {
+
 			key:'registro',
 
 			email: $('[name="r_usuario"]').val(),
@@ -518,20 +522,30 @@ $(function($){
 
 			r = $.parseJSON(r);
 
-			if(r['code']==1){
-				var redirect = $('[name="redirect"]').val();
-				if( typeof $('[name="redirect"]').val() == 'undefined'){
-					redirect = '';
-				}
-				if( redirect != '' ){
-					window.location = redirect;
-				}else{
-					window.location.reload();				
-				}			
+			console.log( r );
+
+			jQuery(".btn-register_").attr("disabled", false);
+			jQuery(".btn-register_").html("Registrarme");
+
+			if(r['code'] == 1){
+				
+				jQuery("#success_registrando").css("display", "block");
+
+				/*setTimeout(function(){
+					var redirect = $('[name="redirect"]').val();
+					if( typeof $('[name="redirect"]').val() == 'undefined'){
+						redirect = '';
+					}
+					if( redirect != '' ){
+						window.location = redirect;
+					}else{
+						window.location.reload();				
+					}			
+				}, 1000);*/
+
 			}else{
 				$('#login-mensaje').html(r['msg']);
 				$('#login-mensaje').removeClass('hidden');
-
 			}
 			//<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 			//<span class="sr-only">Loading...</span>
@@ -545,8 +559,6 @@ $(function($){
 	    },
 		submitHandler: function(validator, form, submitButton){
 		    validator.defaultSubmit();
-
-			console.log("Hola");
 		},   
 	    fields: {
 		    

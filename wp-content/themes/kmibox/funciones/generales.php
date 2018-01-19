@@ -40,19 +40,30 @@
 	    }
 	}
 
-	if(!function_exists('getTemplate')){
-	    function getTemplate($_plantilla){
-	    	$PATH_TEMPLATE = dirname(__DIR__)."/template/email/".$_plantilla;
-			return file_get_contents($PATH_TEMPLATE);
+	if(!function_exists('setZonaHoraria')){
+	    function setZonaHoraria(){
+	        date_default_timezone_set('America/Mexico_City');
 	    }
 	}
 
-	if(!function_exists('addImgPath')){
-	    function addImgPath($HTML){
-	    	$PATH = TEMA()."/imgs/mails/";
-	    	$PATH = "http://nutriheroes.com.mx/QA/wp-content/themes/kmibox/imgs/mails/";
-	    	return str_replace('[IMG_PATH]', $PATH, $HTML);
+	if(!function_exists('user_id')){
+	    function user_id(){
+	        return get_current_user_id();
 	    }
+	}
+
+	function login( $info = [] ){
+		$dat = 0;
+		if( !empty($info) ){
+			$user_signon = wp_signon( $info, true );
+			if ( is_wp_error( $user_signon )) {
+				$dat = 0;
+			} else {
+			    wp_set_auth_cookie($user_signon->ID);
+				$dat = 1;
+			}
+		}
+		return $dat;
 	}
 
 	if(!function_exists('MENU')){
@@ -60,15 +71,12 @@
 	    	$user = get_user_by( 'id', get_current_user_id() );
 	    	$home = HOME();
 	    	$salir = wp_logout_url( HOME() );
-
-
 	    	switch ($page) {
 	    		default:
 	    			// Aqui va el codigo personalizado
 	    			// De ser necesario
 	    		break;
 	    	}
-
 	        $HTML = '
 	        	<nav class="container nav_container"> 
 	        		<div class="col-xs-6  col-xs-6-1 col-sm-5 col-md-5 pull-left" >
@@ -121,12 +129,10 @@
 								</li>';
 						} $HTML .= '
 					</ul>
-
 				</nav>
 	        ';
 	        return $HTML;
 	    }
-
 	    
 	}
 
