@@ -47,7 +47,7 @@
 					<label style="color: #ffffff; ">
 						<input type="checkbox" name="rememberme"> Recordarme	
 					</label>
-				</div>
+				</div>	
 
 				<div class="form-group col-xs-10 text-center gothan" style="margin-bottom: 0px; color: #ffffff">
 					<a style="color: #ffffff; margin-right: -35%; font-size: 12px"  href="<?php echo get_home_url(); ?>/recuperar-clave">¿Olvidaste tu contraseña?</a>
@@ -60,7 +60,7 @@
 						<br>
 						<label style="color: #ffffff; font-size: 10px" class="gothan">¿Aún no tienes perfil Nutriheroes? </label>
 						
-						<a href="<?php echo get_home_url().'/'; ?>registro"  data-target="inicio-sesion" style="color: #ffffff; font-size: 10px" class="gothan" id="register_click">Registrate aquí						
+						<a href="<?php echo get_home_url().'/'; ?>registro"  data-target="inicio-sesion" style="color: #ffffff; font-size: 10px" class="gothan">Registrate aquí						
 						</a>
 					</div>
 				</div>
