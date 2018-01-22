@@ -1,6 +1,7 @@
 <div class="clear"></div>
 <!--aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger hidden-lg hidden-md" id="login-mensaje"></aside-->
-<article>
+<article id="inicio-sesion" 
+		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" style="    padding-left: 0px !important;">
 <div class="col-md-6 hidden-xs hidden-sm" style="background-color: #ffffff;padding-top: 60px;
     margin-top: -9%;"> 
 	<ul class="option-menu list-unstyled list-inline col-xs-4 col-md-12  text-left" style="margin-bottom: 25%;">
@@ -16,7 +17,7 @@
 	<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
 				</div>
 			</article>
-			
+
 <article id="inicio-sesion" 
 		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" style="    padding-left: 0px !important;">
 			<aside class="col-md-8 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
