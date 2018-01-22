@@ -83,6 +83,17 @@ $(function($){
 		}
 	});
 
+
+	
+
+
+	/////////img del rgistro, cuando compras y no estas registrado/////////
+	$('register_click').on('click', '[href="#registro"]', 
+		$('#imgclick').addClass('hidden');	);
+
+
+
+
 	// Sumar items
 	$('section').on('click','[data-action="sumarItems"]', function(){
 
