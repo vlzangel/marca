@@ -88,8 +88,8 @@ $(function($){
 
 
 	/////////img del rgistro, cuando compras y no estas registrado/////////
-	$('inicio-sesion 	').on('click', '[href="#registro"]', 
-		$('#imgclick').addClass('hidden');	);
+	$('inicio-sesion').on('click', '[href="#registro"]', function(){
+		$('#imgclick').addClass('hidden');	});
 
 
 
