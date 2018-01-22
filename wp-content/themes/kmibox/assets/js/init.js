@@ -87,10 +87,6 @@ $(function($){
 
 
 
-	/////////img del rgistro, cuando compras y no estas registrado/////////
-	$('inicio-sesion').on('click', '[href="#registro"]', function(){
-		var obj = $('#'+$(this).data('target'));
-		$('#imgclick').addClass('hidden');	});
 
 
 
@@ -764,6 +760,9 @@ $(function($){
 		}
 	});
 
+
+
+
 	// ***************************************
 	// Validar form Login
 	// ***************************************
@@ -838,6 +837,11 @@ $(function($){
 
 	    }
 	});
+
+	/////////img del rgistro, cuando compras y no estas registrado/////////
+	$('inicio-sesion').on('click', '[href="#registro"]', function(){
+		var obj = $('#'+$(this).data('target'));
+		$('#imgclick').addClass('hidden');	});
 
 
 	// ***************************************
