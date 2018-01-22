@@ -15,22 +15,22 @@ jQuery(document).ready(function() {
 
 	    console.log("Hola");
 
-	    //jQuery("#btn_pagar_1").text("Procesando...");
+	    jQuery("#btn_pagar_1").text("Procesando...");
 
 	    jQuery.post(
-			TEMA+"assets/ajax/suscribir_tarjeta.php",
+			TEMA+"procesos/compra/nuevo_pedido_tarjeta.php",
 			jQuery(this).serialize(),
 			function(data){
 				console.log( data );
 				if( data["error"] == "" ){
-					// jQuery("#pagar").addClass("hidden");
-					// jQuery("#pago_exitoso").removeClass("hidden");
-					// jQuery("#btn_pagar_1").text("Realizar Pago");
+					jQuery("#pagar").addClass("hidden");
+					jQuery("#pago_exitoso").removeClass("hidden");
+					jQuery("#btn_pagar_1").text("Realizar Pago");
 					console.log( "Proceso Exitoso" );
 				}else{
 					alert("Error, ver en la consola javascript");
 				}
-			} // , "json"
+			}, "json"
 		).fail(function(e) {
 			console.log( e );
 	  	});

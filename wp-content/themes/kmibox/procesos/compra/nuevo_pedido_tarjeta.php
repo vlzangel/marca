@@ -4,6 +4,8 @@
 
 	include_once( dirname(__DIR__, 5).'/wp-load.php' );
 
+    setZonaHoraria();
+
  	global $wpdb;
 
  	$current_user = wp_get_current_user();
@@ -11,8 +13,8 @@
 
  	extract($_POST);
 
+ 	$_productos = get_productos();
     $CARRITO = unserialize( $_SESSION["CARRITO"] );
-
     if( !isset($CARRITO["orden_id"]) ){
  		$orden_id = crearPedido();
  		$CARRITO["orden_id"] = $orden_id;
@@ -20,35 +22,63 @@
     }else{
  		$orden_id = $CARRITO["orden_id"];
     }
-
  	$respuesta = array();
  	$respuesta["orden_id"] = $orden_id;
  	$respuesta["error"] = "";
-
  	$dataOpenpay = dataOpenpay();
 
- 	$enviar_correo = "";
+    $email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
+    $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
+    $openpay_cliente_id = get_user_meta($user_id, "openpay_id", true);
 
- 	echo $HTML = generarEmail(
-    	"compra/nuevo/tarjeta", 
-    	array(
-    		"USUARIO" => $nombre,
-    		"EMAIL" => $email,
-    		"LINK" => get_home_url()."/perfil/"
-    	)
-    );
+    /*
+    $fechas = getFechas();
+    $desde = strtotime('+7 day');
+    $hasta = strtotime('+10 day');
+    $fecha_estimada = 
+    	$fechas["semana"][ date('N', $desde) ]." ".date('d', $desde)." de ".$fechas["meses"][ date('n', $desde) ]." - ".
+    	$fechas["semana"][ date('N', $hasta) ]." ".date('d', $hasta)." de ".$fechas["meses"][ date('n', $hasta) ];
+    $_metas_user = get_user_meta($user_id);
+    $metas_user = array();
+    foreach ($_metas_user as $key => $value) {
+    	$metas_user[ $key ] = $value[0];
+    }
+    $estado = utf8_decode( $wpdb->get_var("SELECT name FROM wp_estados WHERE id = ".$metas_user["dir_estado"]) );
+    $municipio = utf8_decode( $wpdb->get_var("SELECT name FROM wp_municipios WHERE id = ".$metas_user["dir_ciudad"]) );
+    $direccion = '
+    	<div> '.$nombre.' </div>
+		<div> '.$metas_user[ "dir_colonia" ].' '.$metas_user[ "dir_numext" ].', interior '.$metas_user[ "dir_numint" ].' </div>
+		<div> '.$metas_user[ "dir_calle" ].' </div>
+		<div> '.$estado.', '.$municipio.' '.$metas_user[ "dir_codigo_postal" ].' </div>
+		<div> M&eacute;xico </div>
+    ';
+    $hoy = time();
+    $realizado = $fechas["semana"][ date('N', $hoy) ]." ".date('d', $hoy)." de ".$fechas["meses"][ date('n', $hoy) ];
+    $pedido = "0001111";
+    */
+    
+ 	/*
+ 	$productos = "";
+ 	foreach ($CARRITO["productos"] as $key => $value) {
+ 		if( $value != "" ){
+	 		$temp = getTemplate("/compra/nuevo/partes/producto");
+	 		$temp = str_replace("[IMG_PRODUCTO]", TEMA()."/imgs/productos/".$_productos[ $value->producto ]["dataextra"]["img"], $temp);
+	 		$temp = str_replace("[NOMBRE]", $_productos[ $value->producto ]["nombre"], $temp);
+	 		$temp = str_replace("[DESCRIPCION]", $_productos[ $value->producto ]["descripcion"], $temp);
+	 		$temp = str_replace("[PLAN]", $value->plan, $temp);
+	 		$temp = str_replace("[PRECIO]", number_format($value->precio, 2, ',', '.'), $temp);
+	 		$productos .= $temp;
+	 	}
+ 	}
+ 	*/
 
- 	exit();
+ 	$orden_id = 0;
 
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
 
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
-
-	    $email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
-	    $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
-	    $openpay_cliente_id = get_user_meta($user_id, "openpay_id", true);
 
 	    if( $openpay_cliente_id == "" ){
 			$customerData = array(
@@ -144,7 +174,22 @@
     }
 
     if( $respuesta["error"] == "" ){
-    	// unset($_SESSION["CARRITO"]);
+    	$HTML = generarEmail(
+	    	"compra/nuevo/tarjeta", 
+	    	array(
+	    		"USUARIO" => $nombre,
+	    		"TITULAR" => $holder_name,
+	    		"NUMERO" => $num_card,
+	    		"MES" => $exp_month,
+	    		"ANIO" => $exp_year,
+	    		"CVV" => $cvv,
+	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
+	    	)
+	    );
+
+	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
+
+    	unset($_SESSION["CARRITO"]);
     }
 
     echo json_encode($respuesta);

@@ -42,23 +42,23 @@
 				</div>
 			</div>
 
-			<div style="text-align: left; font-size: 15px; line-height: 100%;">
+			<div style="text-align: left; font-size: 15px; line-height: 100%; margin: 30px 0px;">
 				<div style="margin: 20px 0px 10px; font-weight: 600; text-transform: uppercase;">detalles del pedido.</div>
-				<label>pedido No.123456 realizado el lunes 08 de enero</label>
+				<label style="color: #535353;">Pedido No.123456 realizado el lunes 08 de enero</label>
 			</div>
 
 			<div style="font-size: 15px;">
 				<table cellspacing=0 cellpadding=0 style="width: 100%;">
 					<tr>
-						<td style="width: 50%;">
-							<img src="[IMG_PATH]confirmacion/general.png"/>
+						<td style="width: 100px; padding-right: 45px;">
+							<img style="width: 100%;" src="[IMG_PATH]confirmacion/general.png"/>
 						</td>
-						<td style="width: 50%;">
+						<td>
 							<div>
-								<div><strong>royal canin</strong></div>
-								<div>Raza Media Adulta 10kg</div>
-								<div>Bimestral</div>
-								<div<strong>$ 938.4 MXN</strong></div>
+								<div style="text-transform: uppercase; font-weight: 600; margin: 10px 0px; font-size: 17px;">royal canin</div>
+								<div style="font-size: 16px; color: #535353; margin-bottom: 5px;">Raza Media Adulta 10kg</div>
+								<div style="font-size: 16px; color: #535353;">Bimestral</div>
+								<div style="text-transform: uppercase; font-weight: 600; margin: 10px 0px;">$ 938.4 MXN</div>
 							</div>						
 						</td>
 					</tr>
@@ -67,15 +67,21 @@
 
 			<hr>
 
-				<div style="float: right; width:50%; font-size: 30px !important;">
-					<label>$1500 MXN</label> <br>
-					<label>$1703,4 MXN</label>
-				</div>
-				<div style="float:right;width:50%;     font-size: 30px !important;">
-					<label>Subtotal</label>
-					<br>
-					<label>Total(IVA incluido)</label>
-				</div>
+			<div style="font-size: 15px; margin-bottom: 50px;">
+				<table cellspacing=3 cellpadding=3 style="width: 100%;">
+					<tr>
+						<td> &nbsp; </td>
+						<td style="width: 150px; color: #535353;"> Subtotal: </td>
+						<td style="width: 150px; text-align: right; font-weight: 600;"> $ 1320 MXN </td>
+					</tr>
+					<tr>
+						<td> &nbsp; </td>
+						<td style="width: 150px; color: #535353;"> Total (IVA Incluido): </td>
+						<td style="width: 150px; text-align: right; font-weight: 600;"> $ 1500 MXN </td>
+					</tr>
+				</table>
+			</div>
+
 		</div>
 	';
 

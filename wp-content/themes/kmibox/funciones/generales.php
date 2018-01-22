@@ -46,6 +46,36 @@
 	    }
 	}
 
+	if(!function_exists('getFechas')){
+	    function getFechas(){
+	        return array(
+	        	"semana" => array(
+	        		1 => "Lunes",
+	        		2 => "Martes",
+	        		3 => "Mi&eacute;rcoles",
+	        		4 => "Jueves",
+	        		5 => "Viernes",
+	        		6 => "S&aacute;bado",
+	        		7 => "Domingo"
+	        	),
+	        	"meses" => array(
+	        		1 => "Enero",
+	        		2 => "Febrero",
+	        		3 => "Marzo",
+	        		4 => "Abril",
+	        		5 => "Mayo",
+	        		6 => "Junio",
+	        		7 => "Julio",
+	        		8 => "Agosto",
+	        		9 => "Septiembre",
+	        		10 => "Octubre",
+	        		11 => "Noviembre",
+	        		12 => "Diciembre"
+	        	)
+	        );
+	    }
+	}
+
 	if(!function_exists('user_id')){
 	    function user_id(){
 	        return get_current_user_id();
