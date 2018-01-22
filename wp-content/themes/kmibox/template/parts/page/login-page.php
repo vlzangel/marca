@@ -1,7 +1,7 @@
 <div class="clear"></div>
 <!--aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger hidden-lg hidden-md" id="login-mensaje"></aside-->
-<article id="inicio-sesion" class=" form-horizontal ">
-<div class="col-md-6 hidden-xs hidden-sm" style="background-color: #ffffff;padding-top: 60px;
+
+<div id="imgclick" class="col-md-6 hidden-xs hidden-sm " style="background-color: #ffffff;padding-top: 60px;
     margin-top: -9%;"> 
 	<ul class="option-menu list-unstyled list-inline col-xs-4 col-md-12  text-left" style="margin-bottom: 25%;">
 					<div class="col-sm-12 text-left">
@@ -15,7 +15,7 @@
 
 	<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
 				</div>
-			</article>
+			
 
 <article id="inicio-sesion" 
 		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" style="    padding-left: 0px !important;">
@@ -60,7 +60,7 @@
 						<br>
 						<label style="color: #ffffff; font-size: 10px" class="gothan">¿Aún no tienes perfil Nutriheroes? </label>
 						
-						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" style="color: #ffffff; font-size: 10px" class="gothan">Registrate aquí						
+						<a href="<?php echo get_home_url().'/'; ?>registro" id='link-registro' data-target="inicio-sesion" style="color: #ffffff; font-size: 10px" class="gothan" id="register_click">Registrate aquí						
 						</a>
 					</div>
 				</div>
