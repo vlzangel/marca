@@ -1,7 +1,6 @@
 <div class="clear"></div>
 <!--aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger hidden-lg hidden-md" id="login-mensaje"></aside-->
-<article id="inicio-sesion" 
-		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" style="    padding-left: 0px !important;">
+<article id="inicio-sesion" class=" form-horizontal ">
 <div class="col-md-6 hidden-xs hidden-sm" style="background-color: #ffffff;padding-top: 60px;
     margin-top: -9%;"> 
 	<ul class="option-menu list-unstyled list-inline col-xs-4 col-md-12  text-left" style="margin-bottom: 25%;">
