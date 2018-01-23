@@ -23,6 +23,7 @@ $('#form-registro')
 
 	jQuery(".btn-register_").attr("disabled", true);
 	jQuery(".btn-register_").html("Procesando...");
+	jQuery('#imgclick').addClass('hidden');
 
     
     // Get the form instance
