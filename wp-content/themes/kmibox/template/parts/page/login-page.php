@@ -13,7 +13,7 @@
 
 				</ul>
 
-	<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
+	<img src="<?php echo get_home_url(); ?>/img/Logo.svg" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
 				</div>
 			
 
@@ -25,7 +25,7 @@
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
 				
 				<h4 style="color: #ffffff; font-family: GothanMedium_regular;    margin-top: 20%;">Inicia Sesión para continuar</h4>
-				<img src="<?php echo get_home_url(); ?>/img/logo-responsive.png" class="img-responsive  hidden-ms hidden-lg" style="margin-top: 15%;">
+				<img src="<?php echo get_home_url(); ?>/img/logo-responsive.svg" class="img-responsive  hidden-ms hidden-lg" style="margin-top: 15%;">
 			</aside>
 
 			<form id='form-login' class="form-horizontal">
