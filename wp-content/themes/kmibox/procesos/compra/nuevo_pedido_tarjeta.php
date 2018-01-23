@@ -72,8 +72,6 @@
  	}
  	*/
 
- 	$orden_id = 0;
-
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
 

@@ -13,8 +13,6 @@ jQuery(document).ready(function() {
 	.on('success.form.bv', function(e) {
 	    e.preventDefault();
 
-	    console.log("Hola");
-
 	    jQuery("#btn_pagar_1").text("Procesando...");
 
 	    jQuery.post(
