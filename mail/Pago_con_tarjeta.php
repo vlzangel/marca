@@ -1,8 +1,8 @@
 <?php
 	include dirname(__DIR__).'/wp-load.php';
 
-	$header = getTemplate('/generales/header.php');
-	$footer = getTemplate('/generales/footer.php');
+	$header = getTemplate('/generales/header');
+	$footer = getTemplate('/generales/footer');
 
 	$titulo = '
 		<div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: center; padding: 30px 20px; font-weight: 600;">

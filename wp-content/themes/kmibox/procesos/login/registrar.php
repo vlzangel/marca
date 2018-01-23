@@ -3,20 +3,16 @@
 	include_once( dirname(__DIR__, 5).'/wp-load.php' );
     
     setZonaHoraria();
-
 	extract($_POST);
-
-	$sts = 0; $user_id = user_id();
-
-/*	echo json_encode( get_user_by_email( $email ) );
-
-	exit();*/
+	$sts = 0; 
+	$user_id = user_id();
 
 	// Inicio - Crear usuario 
 
 		if( $user_id == 0 ){
 
 			// Validaciones
+
 			if( get_user_by_email( $email ) != null ){  
 				$sts = 2; 
 			}
@@ -31,7 +27,6 @@
 				case 0:
 
 			        $hoy = date("Y-m-d H:i:s");
-
 			        $new_user = "
 			            INSERT INTO wp_users VALUES (
 			                NULL,
@@ -47,7 +42,7 @@
 			            );
 			        ";
 
-			        query( $new_user, 2 );
+			        query( $new_user );
 	        		$user_id = insert_id();
 
 					$user = new WP_User( $user_id );
@@ -55,11 +50,11 @@
 
 		    		// Autenticar 
 
-						if( !empty($password) && !empty($email) ){	
+						if( !empty($pass) && !empty($email) ){	
 							login(
 								[
 									'user_login' 	=> $email,
-									'user_password' => $password,
+									'user_password' => $pass,
 									'remember' 		=> false 
 								]
 							);
@@ -70,12 +65,11 @@
 				        $HTML = generarEmail(
 					    	"login/registro", 
 					    	array(
-					    		"USUARIO" => "Ángel",
-					    		"EMAIL" => "a.veloz@kmimos.la",
-					    		"LINK" => get_home_url()
+					    		"USUARIO" => $nombre,
+					    		"EMAIL" => $email,
+					    		"LINK" => get_home_url()."/perfil/"
 					    	)
 					    );
-
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
 
 				break;

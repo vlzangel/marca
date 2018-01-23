@@ -1,3 +1,4 @@
+<?php setlocale(LC_TIME, "es_MX.UTF-8"); ?>
 <!DOCTYPE html>
 <html class="">
 <head>

@@ -9,33 +9,33 @@
 	        */
 	        if( $utf8_decode == 1 ){ $sql = utf8_encode($sql); }
 	        if( $utf8_decode == 2 ){ $sql = utf8_decode($sql); }
-	        return $wpdb->query( $wpdb->prepare($sql) );
+	        return $wpdb->query( $sql );
 	    }
 	}
 
 	if(!function_exists('get_var')){
 	    function get_var($sql){
 	        global $wpdb;
-	        return $wpdb->get_var( $wpdb->prepare($sql) );
+	        return $wpdb->get_var( $sql );
 	    }
 	}
 
 	if(!function_exists('get_row')){
 	    function get_row($sql){
 	        global $wpdb;
-	        return $wpdb->get_row( $wpdb->prepare($sql) );
+	        return $wpdb->get_row( $sql );
 	    }
 	}
 
 	if(!function_exists('get_results')){
 	    function get_results($sql){
 	        global $wpdb;
-	        return $wpdb->get_results( $wpdb->prepare($sql) );
+	        return $wpdb->get_results( $sql );
 	    }
 	}
 
 	if(!function_exists('insert_id')){
-	    function insert_id($sql){
+	    function insert_id(){
 	        global $wpdb;
 	        return $wpdb->insert_id;
 	    }

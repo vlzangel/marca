@@ -47,6 +47,17 @@
 
 		$CARRITO["PDF"] = $dataOpenpay["OPENPAY_URL"]."/paynet-pdf/".$dataOpenpay["MERCHANT_ID"]."/".$charge->payment_method->reference;
 
+		$HTML = generarEmail(
+	    	"compra/nuevo/tienda", 
+	    	array(
+	    		"USUARIO" => $nombre,
+	    		"INSTRUCCIONES" => $CARRITO["PDF"],
+	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
+	    	)
+	    );
+
+	    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
+
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
     	$error_info = $e->getDescription();
@@ -56,7 +67,6 @@
     		"info" => $error_info
     	);
     }
-
 
 	$_productos = $wpdb->get_results("SELECT * FROM productos");
 	$productos = array();

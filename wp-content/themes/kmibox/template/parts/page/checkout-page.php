@@ -43,8 +43,11 @@
 	}
 	$suscripciones .= "</table>";
 
-	$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
-	$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
+
+ 	$dataOpenpay = dataOpenpay();
+
+	$MERCHANT_ID = $dataOpenpay["MERCHANT_ID"];
+	$OPENPAY_KEY_PUBLIC = $dataOpenpay["OPENPAY_KEY_PUBLIC"];
 	$OPENPAY_PRUEBAS = 1;
 
 ?>
