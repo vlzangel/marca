@@ -68,7 +68,7 @@
 	<?php } ?>
 
 	<!-- Mensaje Success -->
-	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
+	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 75px;">
 		<aside class="col-md-12 text-center">
 			<h1 class="postone text-felicidades">¡Felicidades!</h1>
 			<h4 class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
