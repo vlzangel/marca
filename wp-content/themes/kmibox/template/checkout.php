@@ -47,6 +47,7 @@
 		$('#register').addClass('hidden');
 		$('#title').addClass('hidden');
 		$('#section-msg').addClass('hidden');
+		$('#imgclick').addClass('hidden');
 		$('#link-registro').attr( 'href', '#registro' );
 		$('#link-login').attr( 'href','#inicio-sesion' );
 	});
