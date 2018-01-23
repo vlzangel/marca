@@ -13,15 +13,16 @@
 
 	$CARRITO = unserialize( $_SESSION["CARRITO"] );
 
-/*	echo "<pre>";
-		print_r($CARRITO);
-	echo "</pre>";*/
-
 	get_header(); 
-		 get_template_part( 'template/parts/header/registro', 'usuario' ); 
-
-	get_footer(); 
 ?>
+
+<a class="controles_generales" id="vlz_atras" href="<?php echo get_home_url()."/quiero-mi-marca/"; ?>">
+	<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
+</a>
+
+<div class="controles_generales" id="vlz_titulo">
+	Completa el pago
+</div>
 
 <section class="container3">
 	<?php if ( !is_user_logged_in() ){ ?>
@@ -51,3 +52,7 @@
 		$('#link-login').attr( 'href','#inicio-sesion' );
 	});
 </script>
+
+<?php
+	get_footer(); 
+?>
