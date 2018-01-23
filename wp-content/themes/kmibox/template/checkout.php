@@ -18,8 +18,7 @@
 	echo "</pre>";*/
 
 	get_header(); 
-		 get_template_part( 'template/parts/header/registro', 'usuario' ); 
-
+		 get_template_part( 'template/parts/header/suscription', 'checkout' ); 
 	get_footer(); 
 ?>
 
