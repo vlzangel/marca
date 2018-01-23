@@ -835,7 +835,10 @@ $(function($){
 	/////////img del rgistro, cuando compras y no estas registrado/////////
 	$('inicio-sesion').on('click', '[href="#registro"]', function(){
 		var obj = $('#'+$(this).data('target'));
-		$('#imgclick').addClass('hidden');	});
+		$('#imgclick').addClass('hidden');	
+		$('#oculto').addClass('hidden');
+		$('#desaparecer').addClass('hidden');
+		});
 
 
 	// ***************************************
