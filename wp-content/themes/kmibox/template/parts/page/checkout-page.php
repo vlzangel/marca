@@ -57,7 +57,7 @@
 
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay.v1.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay-data.v1.min.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo TEMA()."/js/pago_tarjeta.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo TEMA()."/js/pago_tarjeta.js?ver=".time(); ?>"></script>
 
 <!-- Fase #6 Pagos -->
 <section data-fase="6" class="container3">

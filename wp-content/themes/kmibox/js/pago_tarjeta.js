@@ -13,8 +13,6 @@ jQuery(document).ready(function() {
 	.on('success.form.bv', function(e) {
 	    e.preventDefault();
 
-	    console.log("Hola");
-
 	    jQuery("#btn_pagar_1").text("Procesando...");
 
 	    jQuery.post(
@@ -26,7 +24,6 @@ jQuery(document).ready(function() {
 					jQuery("#pagar").addClass("hidden");
 					jQuery("#pago_exitoso").removeClass("hidden");
 					jQuery("#btn_pagar_1").text("Realizar Pago");
-					console.log( "Proceso Exitoso" );
 				}else{
 					alert("Error, ver en la consola javascript");
 				}
