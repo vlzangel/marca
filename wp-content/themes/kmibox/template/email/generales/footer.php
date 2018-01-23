@@ -29,7 +29,7 @@
 							    padding: 20px;
 							    box-sizing: border-box;"
 						>
-							Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODO los servicios <img src="[IMG_PATH]/footer/logo-kmimos.png" class="kmimos" /> durante todo un a&ntilde;o acumulable con otras promociones.<br><br>
+							Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODO los servicios <img src="[IMG_PATH]/footer/logo-kmimos.png" style="height: 14px;" /> durante todo un a&ntilde;o acumulable con otras promociones.<br><br>
 							Kmimos es <strong>la mayor red de cuidadores certificados de M&eacute;xico</strong>, que cuidan a las mascotas en el hogar del cuidador, sin jaulas ni encierros.
 						</td>
 
@@ -60,7 +60,7 @@
 						</td>
 
 						<td style="width: 50%; text-align: right; padding: 25px;" >
-							<img src="[IMG_PATH]footer/logo_nutriheroes.png" style="width: 100%;" />
+							<img src="[IMG_PATH]footer/logo.png" style="width: 100%;" />
 						</td>
 
 					</tr>

@@ -172,12 +172,15 @@
     }
 
     if( $respuesta["error"] == "" ){
+
+    	$_tarjeta = substr($num_card, 0, 2)."********".substr($num_card, -2);
+
     	$HTML = generarEmail(
 	    	"compra/nuevo/tarjeta", 
 	    	array(
 	    		"USUARIO" => $nombre,
 	    		"TITULAR" => $holder_name,
-	    		"NUMERO" => $num_card,
+	    		"NUMERO" => $_tarjeta,
 	    		"MES" => $exp_month,
 	    		"ANIO" => $exp_year,
 	    		"CVV" => $cvv,
