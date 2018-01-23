@@ -110,8 +110,8 @@
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css"; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/responsive/pagos.css"; ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css?ver=".time(); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/responsive/pagos.css?ver=".time(); ?>">
 
 <!-- Fase #6 Pagos -->
 <section data-fase="6" class="container">
