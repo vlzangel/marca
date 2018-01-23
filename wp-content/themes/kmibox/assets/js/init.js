@@ -86,7 +86,7 @@ $(function($){
 
 //////////img del rgistro, cuando compras y no estas registrado/////////
 	$('#link-registro').on('click', function(){
-		$('#imgclick').addClass('hidden');	);
+		$('#imgclick').addClass('hidden');	});
 
 
 	// Sumar items
