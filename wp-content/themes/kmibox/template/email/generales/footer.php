@@ -29,7 +29,7 @@
 							    padding: 20px;
 							    box-sizing: border-box;"
 						>
-							Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODO los servicios <img src="[IMG_PATH]/footer/logo-kmimos.png" class="kmimos" /> durante todo un a&ntilde;o acumulable con otras promociones.<br><br>
+							Recuerda que con tu suscripci&oacute;n tienes un <strong>10%</strong> de descuento en TODO los servicios <img src="[IMG_PATH]/footer/logo-kmimos.png" style="height: 14px;" /> durante todo un a&ntilde;o acumulable con otras promociones.<br><br>
 							Kmimos es <strong>la mayor red de cuidadores certificados de M&eacute;xico</strong>, que cuidan a las mascotas en el hogar del cuidador, sin jaulas ni encierros.
 						</td>
 
@@ -44,23 +44,23 @@
 				<table style="">
     				<tr>
 
-						<td style="width: 50%; text-align: left; padding: 25px;">
+						<td style="width: 60%; text-align: left; padding: 25px;">
 							<a href="https://www.facebook.com/">
-								<img class="iconos" src="[IMG_PATH]footer/fb.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/fb.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 							<a href="https://twitter.com/">
-								<img class="iconos" src="[IMG_PATH]footer/tw.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/tw.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 							<a href="https://www.instagram.com/">
-								<img class="iconos" src="[IMG_PATH]footer/ig.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/ig.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 							<a href="https://www.youtube.com/">
-								<img class="iconos" src="[IMG_PATH]footer/yt.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/yt.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 						</td>
 
-						<td style="width: 50%; text-align: right; padding: 25px;" >
-							<img src="[IMG_PATH]footer/logo_nutriheroes.png" style="width: 100%;" />
+						<td style="width: 40%; text-align: right; padding: 10px 25px;" >
+							<img src="[IMG_PATH]footer/logo_new.png" style="width: 100%;" />
 						</td>
 
 					</tr>

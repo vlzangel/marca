@@ -83,14 +83,6 @@ $(function($){
 		}
 	});
 
-
-
-
-
-
-
-
-
 	// Sumar items
 	$('section').on('click','[data-action="sumarItems"]', function(){
 
@@ -761,7 +753,9 @@ $(function($){
 	});
 
 
-
+	$('#link-registro').on('click', function(){
+		$('#imgclick').addClass('hidden');	
+	});
 
 	// ***************************************
 	// Validar form Login
