@@ -24,6 +24,8 @@ jQuery(document).ready(function() {
 					jQuery("#pagar").addClass("hidden");
 					jQuery("#pago_exitoso").removeClass("hidden");
 					jQuery("#btn_pagar_1").text("Realizar Pago");
+
+					jQuery(".controles_generales").css("display", "none");
 				}else{
 					alert("Error, ver en la consola javascript");
 				}
