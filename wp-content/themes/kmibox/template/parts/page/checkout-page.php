@@ -103,7 +103,7 @@
 		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
 	</script>
 
-	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin-top:7%;border:1px solid #ccc;">
+	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin: 75px 20px 0px; border:1px solid #ccc; width: calc( 100% - 40px );">
 
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" method="post" action="#" id="form-pago" >
