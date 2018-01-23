@@ -380,6 +380,7 @@ $(function($){
 
 		jQuery(".btn-register_").attr("disabled", true);
 		jQuery(".btn-register_").html("Procesando...");
+		jQuery('#imgclick').addClass('hidden');
 
 	    
 	    // Get the form instance
@@ -838,10 +839,10 @@ $(function($){
 	    }
 	});
 
-	/////////img del rgistro, cuando compras y no estas registrado/////////
+	/*////////img del rgistro, cuando compras y no estas registrado/////////
 	$('inicio-sesion').on('click', '[href="#registro"]', function(){
 		var obj = $('#'+$(this).data('target'));
-		$('#imgclick').addClass('hidden');	});
+		$('#imgclick').addClass('hidden');	});*/
 
 
 	// ***************************************
