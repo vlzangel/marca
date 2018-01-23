@@ -44,23 +44,23 @@
 				<table style="">
     				<tr>
 
-						<td style="width: 50%; text-align: left; padding: 25px;">
+						<td style="width: 60%; text-align: left; padding: 25px;">
 							<a href="https://www.facebook.com/">
-								<img class="iconos" src="[IMG_PATH]footer/fb.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/fb.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 							<a href="https://twitter.com/">
-								<img class="iconos" src="[IMG_PATH]footer/tw.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/tw.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 							<a href="https://www.instagram.com/">
-								<img class="iconos" src="[IMG_PATH]footer/ig.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/ig.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 							<a href="https://www.youtube.com/">
-								<img class="iconos" src="[IMG_PATH]footer/yt.png" style="width: 16%; float: left; margin: 0px 3px;" />
+								<img class="iconos" src="[IMG_PATH]footer/yt.png" style="width: 14%; float: left; margin: 0px 3px;" />
 							</a>
 						</td>
 
-						<td style="width: 50%; text-align: right; padding: 25px;" >
-							<img src="[IMG_PATH]footer/logo.png" style="width: 100%;" />
+						<td style="width: 40%; text-align: right; padding: 10px 25px;" >
+							<img src="[IMG_PATH]footer/logo_new.png" style="width: 100%;" />
 						</td>
 
 					</tr>
