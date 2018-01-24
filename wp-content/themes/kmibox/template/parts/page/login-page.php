@@ -5,7 +5,7 @@
     margin-top: -9%;"> 
 	<ul class="option-menu list-unstyled list-inline col-xs-4 col-md-12  text-left" style="margin-bottom: 25%;">
 					<div class="col-sm-12 text-left">
-						<a class="btn-kmibox-white gothan" id="btn-linkprev" href="http://nutriheroes.com.mx/QA/?source=">
+						<a class="btn-kmibox-white gothan" id="btn-linkprev" href="<?php echo get_home_url() ?>/?source=<?php echo get_source_url(); ?>">
 							<i class="fa fa-chevron-left" aria-hidden="true"></i>
 							Atras
 						</a>
