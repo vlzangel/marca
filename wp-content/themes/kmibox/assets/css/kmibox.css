@@ -1463,17 +1463,17 @@ margin-bottom: 10% !important;
 
 }
 
-@media all and (min-width:1053px) and (max-width:1082px) {
+@media only (min-width:1030px) and (max-width:1410px) {
 	.headerResponsive{
 	 margin-right: 0% ! important; 
     margin-top: -4% ! important;
 	}
 
-.headerResponsive-img {
+	.headerResponsive-img {
     margin-right: 0% ! important;
     margin-top: -5% ! important;
     margin-left: -2%;
-}	
+	}	
 	.col-xs-6-1{
 		    width: 48% !important;
 	}
