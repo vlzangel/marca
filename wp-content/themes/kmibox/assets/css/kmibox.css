@@ -1463,10 +1463,10 @@ margin-bottom: 10% !important;
 
 }
 
-@media only (min-width:1030px) and (max-width:1410px) {
+@media all and (min-width: 1025px)  {
 	.headerResponsive{
 	 margin-right: 0% ! important; 
-    margin-top: -4% ! important;
+    margin-top: -3% ! important;
 	}
 
 	.headerResponsive-img {
