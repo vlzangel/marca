@@ -9,6 +9,8 @@
 
 	$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
 
+	$data["data"] = array();
+
 	foreach ($suscripciones as $suscripcion) {
 		$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$suscripcion->id_orden}");
 		$_meta_cliente = get_user_meta($orden->cliente);

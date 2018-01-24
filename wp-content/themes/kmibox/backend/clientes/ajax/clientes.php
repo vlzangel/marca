@@ -9,6 +9,8 @@
 
 	$clientes = $wpdb->get_results("SELECT * FROM wp_users ORDER BY ID DESC");
 
+	$data["data"] = array();
+
 	foreach ($clientes as $cliente) {
 
 		$_metadata = get_user_meta($cliente->ID);

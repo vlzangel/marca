@@ -1,0 +1,7 @@
+#fecha{
+	cursor: pointer;
+}
+
+.datepick-month td a{
+	cursor: default;
+}
