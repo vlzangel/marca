@@ -13,7 +13,7 @@
 
 				</ul>
 
-	<img src="<?php echo get_home_url(); ?>/img/Logo1.svg" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
+	<img src="<?php echo get_home_url(); ?>/img/LOGO.svg" class="img-responsive" style="margin-top: 20%;margin-left: 7%;width: 78%;">
 				</div>
 			
 
