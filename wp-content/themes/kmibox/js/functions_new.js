@@ -18,8 +18,6 @@ var PLANES = [];
 
 jQuery(document).ready(function() {
 
-	// console.log( navigator.platform );
-
 	if(navigator.platform.substr(0, 2) == 'iP'){
 		jQuery("body").addClass('iOS');
 	}
