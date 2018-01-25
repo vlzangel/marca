@@ -23,7 +23,7 @@ get_header(); ?>
 				<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" class="img-responsive" width="75%">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">
-				<img src="<?php echo get_home_url(); ?>/img/Logo1.svg" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/LOGO.svg" class="img-responsive">
 				<h2>El camino de una correcta nutrición</h2>
 				<br>
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">
