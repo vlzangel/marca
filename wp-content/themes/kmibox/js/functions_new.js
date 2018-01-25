@@ -285,10 +285,10 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
 	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
+	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label class="resaltar_desglose">'+frecuencia+'</label>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
+	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label>$ '+price+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
@@ -299,7 +299,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	</div>';
 	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
+	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '</tr>';
