@@ -1,13 +1,79 @@
+var SUSCRPCIONES = "";
 jQuery(document).ready(function() {
 
-	jQuery('.slider_suscripciones').bxSlider({
-	    infiniteLoop: false,
-	    slideWidth: 200,
-	    slideHeight: 200,
-	    minSlides: 1,
-	    maxSlides: 3,
-	    slideMargin: 10
+
+	jQuery("#selector_suscripcion").on("change", function(e){
+
+		var pedidos = SUSCRPCIONES[ jQuery(this).val() ];
+		var slider_suscripciones = "";
+
+		jQuery.each(pedidos.productos, function( index, producto ) {
+
+		  		/*console.log( producto );*/
+
+		  		slider_suscripciones += "<div "+
+		  			"id='plan_"+index+"'"+
+		  			"data-plan='"+producto.plan+"'"+
+		  			"data-type='"+producto.nombre+"'"+
+		  			"data-status='"+producto.status+"'"+
+		  			"data-entrega='"+producto.entrega+"'"+
+		  			"data-img='"+producto.img+"'"+
+		  			"data-entregados='"+producto.entregados+"'"+
+		  			"class='suscripcion_item slide'"+
+		  			"data-scale='small' data-position='top' >"+
+		  			"	<div>"+
+		  			"		<div class='item_carrusel_img' style='background-image: url("+producto.img+");'></div>"+
+		  			"		<div class='item_carrusel_total'> "+producto.cantidad+" x "+producto.nombre+" </div>"+
+		  			"	</div>"+
+		  		"</div>";
+
+		});
+		  
+		jQuery(".slider_suscripciones").html( slider_suscripciones );
+
+		jQuery('.slider_suscripciones').bxSlider({
+		    infiniteLoop: false,
+		    slideWidth: 200,
+		    slideHeight: 200,
+		    minSlides: 1,
+		    maxSlides: 3,
+		    slideMargin: 10
+		});
+
+		jQuery("#tab_2 .suscripcion_item").on("click", function(e){
+			jQuery(".suscripcion_item").removeClass("item_activo");
+			jQuery(this).addClass("item_activo");
+			jQuery("#tipo_suscripcion").val( jQuery(this).attr("data-plan") );
+			jQuery("#presentacion").val( jQuery(this).attr("data-type") );
+			jQuery("#status").val( jQuery(this).attr("data-status") );
+			jQuery("#entrega").val( jQuery(this).attr("data-entrega") );
+			jQuery("#tab_2 #img_item").attr("src", jQuery(this).attr("data-img") );
+
+			var entregados = jQuery(this).attr("data-entregados");
+			jQuery(".entregas span").removeClass("entregado");
+			if( entregados != "-" ){
+				entregados = entregados.split(",");
+				jQuery.each(entregados, function( index, value ) {
+				  	jQuery(".entregas #mes_"+value).addClass("entregado");
+				});
+			}
+		});
+
+		jQuery("#plan_0").click();
+
 	});
+
+	jQuery.post(
+		TEMA+"assets/ajax/suscripciones.php", {},
+		function(data){
+			SUSCRPCIONES = data;
+
+			jQuery("#selector_suscripcion").change();
+
+		}, "json"
+	).fail(function(e) {
+		console.log( e );
+  	});
 
 	jQuery('.slider_despachos').bxSlider({
 	    infiniteLoop: false,
@@ -16,25 +82,6 @@ jQuery(document).ready(function() {
 	    minSlides: 1,
 	    maxSlides: 3,
 	    slideMargin: 10
-	});
-
-	jQuery("#tab_2 .suscripcion_item").on("click", function(e){
-		jQuery(".suscripcion_item").removeClass("item_activo");
-		jQuery(this).addClass("item_activo");
-		jQuery("#tipo_suscripcion").val( jQuery(this).attr("data-plan") );
-		jQuery("#presentacion").val( jQuery(this).attr("data-type") );
-		jQuery("#status").val( jQuery(this).attr("data-status") );
-		jQuery("#entrega").val( jQuery(this).attr("data-entrega") );
-		jQuery("#tab_2 #img_item").attr("src", jQuery(this).attr("data-img") );
-
-		var entregados = jQuery(this).attr("data-entregados");
-		jQuery(".entregas span").removeClass("entregado");
-		if( entregados != "-" ){
-			entregados = entregados.split(",");
-			jQuery.each(entregados, function( index, value ) {
-			  	jQuery(".entregas #mes_"+value).addClass("entregado");
-			});
-		}
 	});
 
 	jQuery("#tab_3 .suscripcion_item").on("click", function(e){
