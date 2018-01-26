@@ -156,6 +156,16 @@
     	}
 	}
 
+	function getOrdenes(){
+    	date_default_timezone_set('America/Mexico_City');
+		global $wpdb;
+	 	$current_user = wp_get_current_user();
+	    $user_id = $current_user->ID;
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
+
+		return $ordenes;
+	}
+
 	function getSuscripciones(){
     	date_default_timezone_set('America/Mexico_City');
 		global $wpdb;
@@ -186,10 +196,10 @@
 					"orden" => $plan->id,
 					"plan" => $data["plan"],
 					"producto" => $plan->id_producto,
+					"cantidad" => $plan->cantidad,
 					"total" => $plan->total,
 					"nombre" => $producto->nombre,
 					"img" => $img,
-					"presentacion" => $data["presentacion"],
 					"status" => $plan->status_suscripcion,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
 					"entredagos" => $_entregados_str
