@@ -11,7 +11,7 @@
 	$mes_actual = date("Y-m", time())."-01";
 	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 
-	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
+	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE orden = {$ID} AND mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
 	$data["data"] = array();
 	$ordenes = array();
 
