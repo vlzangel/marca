@@ -82,7 +82,7 @@
 	        	<div 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$orden_id."' 
-	        		data-titulo='Editar Fecha de Entrega' 
+	        		data-titulo='Editar Fecha de Env&iacute;o' 
 	        		data-modulo='despacho' 
 	        		data-modal='fecha_entrega' 
 	        		class='enlace' style='text-align: center;'
