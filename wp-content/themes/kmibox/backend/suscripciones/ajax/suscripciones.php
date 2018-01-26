@@ -11,6 +11,8 @@
 
 	$data["data"] = array();
 
+	$ordenes = array();
+
 	foreach ($suscripciones as $suscripcion) {
 		$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$suscripcion->id_orden}");
 		$_meta_cliente = get_user_meta($orden->cliente);
@@ -22,21 +24,37 @@
 		if( $proximo_cobro."" == "" ){
 			$proximo_cobro = "---";
 		}else{
-			$proximo_cobro = date("d/m/Y", strtotime($proximo_cobro));
+			$proximo_cobro = date("d/m/Y h:i a", strtotime($proximo_cobro));
+		}
+
+		$ordenes[ $suscripcion->id_orden ]["fecha_creacion"] = date("d/m/Y", strtotime($orden->fecha_creacion));
+		$ordenes[ $suscripcion->id_orden ]["cliente"] = $_meta_cliente[ "first_name" ][0]." ".$_meta_cliente[ "last_name" ][0];
+		$ordenes[ $suscripcion->id_orden ]["productos"][] = $suscripcion->cantidad." x ".$producto->nombre." - ".$producto->descripcion." - ".$producto->peso;
+		$ordenes[ $suscripcion->id_orden ]["plan"] = $data_suscripcion[ "plan" ];
+		$ordenes[ $suscripcion->id_orden ]["proximo_cobro"] = $proximo_cobro;
+		$ordenes[ $suscripcion->id_orden ]["status"] = $suscripcion->status_suscripcion;
+
+	}
+
+
+
+	foreach ($ordenes as $orden_id => $_data) {
+
+		$_productos = "";
+		foreach ($_data["productos"] as $producto) {
+			$_productos .= $producto."<br>";
 		}
 
 		$data["data"][] = array(
-	        $suscripcion->id,
-	        date("d/m/Y", strtotime($orden->fecha_creacion)),
-	        $_meta_cliente[ "first_name" ][0]." ".$_meta_cliente[ "last_name" ][0],
-	        $producto->nombre,
-	        $data_suscripcion[ "tamano" ],
-	        $data_suscripcion[ "edad" ],
-	        $data_suscripcion[ "presentacion" ],
-	        $data_suscripcion[ "plan" ],
-	        $proximo_cobro ,
-	        $suscripcion->status_suscripcion
+	        $orden_id,
+	        $_data["fecha_creacion"],
+	        $_data["cliente"],
+	        $_productos,
+	        $_data[ "plan" ],
+	        $_data[ "proximo_cobro" ] ,
+	        $_data[ "status" ]
 	    );
+
 	}
 
     echo json_encode($data);

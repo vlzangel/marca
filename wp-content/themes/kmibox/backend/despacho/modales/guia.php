@@ -6,7 +6,12 @@
 
 	global $wpdb;
 
-	$_guia = $wpdb->get_var("SELECT guia FROM despachos WHERE id = {$ID}");
+    setZonaHoraria();
+	$mes_actual = date("Y-m", time())."-01";
+	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
+	$condicion = "orden = {$ID} AND mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}'";
+
+	$_guia = $wpdb->get_var("SELECT guia FROM despachos WHERE ".$condicion);
 
 	if( $_fecha == null ){
 		$_fecha = "---";

@@ -41,14 +41,29 @@
 	}
 
 	foreach ($ordenes as $orden_id => $_data) {
-
 		$_productos = "";
 		foreach ($_data["productos"] as $producto) {
 			$_productos .= $producto."<br>";
 		}
+		
+		$enviar_correo = "---";
+
+		if( $_data["guia"] != "---" && $_data["fecha_entrega"] != "---" && $despacho->status == "Enviada" ){
+			$enviar_correo = "
+				<span 
+	        		onclick='abrir_link( jQuery( this ) )' 
+	        		data-id='".$orden_id."' 
+	        		data-titulo='Confirmaci&oacute;n de Envio de Correo' 
+	        		data-modulo='despacho' 
+	        		data-modal='enviar_correo' 
+	        		class='enlace' style='text-align: center;'
+	        	>
+	        		Enviar Correo
+	        	</span>";
+		}
 
 		$data["data"][] = array(
-	        str_pad($orden_id, 5, "0", STR_PAD_LEFT),
+	        $orden_id,
 	        $_data["cliente"],
 	        $_productos,
 	        "
@@ -82,7 +97,8 @@
 	        		data-modal='editar' 
 	        		class='enlace' style='text-align: center;'
 	        	>".$despacho->status."</span>
-	        "
+	        ",
+	        $enviar_correo
 	    );
 	}
 
