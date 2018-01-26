@@ -62,11 +62,11 @@
 	        	</span>";
 		}
 
-		$data["data"][] = array(
-	        $orden_id,
-	        $_data["cliente"],
-	        $_productos,
-	        "
+		$guia = $_data["guia"];
+		$fecha_entrega = $_data["fecha_entrega"];
+		$status = $despacho->status;
+		if( $despacho->status != "Recibida" ){
+			$guia = "
 	        	<div 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$orden_id."' 
@@ -76,8 +76,9 @@
 	        		class='enlace' style='text-align: center;'
 	        	>
 	        		".$_data["guia"]."
-	        	</div>",
-	        "
+	        	</div>";
+
+			$fecha_entrega = "
 	        	<div 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$orden_id."' 
@@ -87,8 +88,9 @@
 	        		class='enlace' style='text-align: center;'
 	        	>
 	        		".$_data["fecha_entrega"]."
-	        	</div>",
-	        "
+	        	</div>";
+
+			$status = "
 	        	<span 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$orden_id."' 
@@ -97,7 +99,16 @@
 	        		data-modal='editar' 
 	        		class='enlace' style='text-align: center;'
 	        	>".$despacho->status."</span>
-	        ",
+	        ";
+		}
+
+		$data["data"][] = array(
+	        $orden_id,
+	        $_data["cliente"],
+	        $_productos,
+	        $guia,
+	        $fecha_entrega,
+	        $status,
 	        $enviar_correo
 	    );
 	}
