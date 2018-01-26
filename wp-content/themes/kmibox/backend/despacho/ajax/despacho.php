@@ -36,20 +36,20 @@
 		$ordenes[ $despacho->orden ]["guia"] = $despacho->guia;
 		$ordenes[ $despacho->orden ]["cliente"] = $cliente;
 		$ordenes[ $despacho->orden ]["status"] = $despacho->status;
-		$ordenes[ $despacho->orden ]["productos"][] = "CONTIDAD x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
+		$ordenes[ $despacho->orden ]["productos"][] = $producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
 		
 	}
 
-	foreach ($ordenes as $orden_id => $data) {
+	foreach ($ordenes as $orden_id => $_data) {
 
 		$_productos = "";
-		foreach ($data["productos"] as $producto) {
+		foreach ($_data["productos"] as $producto) {
 			$_productos .= $producto."<br>";
 		}
 
 		$data["data"][] = array(
 	        str_pad($orden_id, 5, "0", STR_PAD_LEFT),
-	        $data["cliente"],
+	        $_data["cliente"],
 	        $_productos,
 	        "
 	        	<div 
@@ -60,7 +60,7 @@
 	        		data-modal='guia' 
 	        		class='enlace' style='text-align: center;'
 	        	>
-	        		".$data["guia"]."
+	        		".$_data["guia"]."
 	        	</div>",
 	        "
 	        	<div 
@@ -71,7 +71,7 @@
 	        		data-modal='fecha_entrega' 
 	        		class='enlace' style='text-align: center;'
 	        	>
-	        		".$data["fecha_entrega"]."
+	        		".$_data["fecha_entrega"]."
 	        	</div>",
 	        "
 	        	<span 
