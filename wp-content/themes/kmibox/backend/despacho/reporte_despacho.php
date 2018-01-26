@@ -22,8 +22,9 @@
                 <th>Cliente</th>
                 <th>Productos</th>
                 <th>Gu&iacute;a de Rastreo</th>
-                <th>Fecha Entrega</th>
+                <th>Fecha Envio</th>
                 <th>Status</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody></tbody>

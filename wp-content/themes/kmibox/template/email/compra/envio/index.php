@@ -12,7 +12,7 @@
 	</div>
 
 	<div style="text-align: left; font-size: 15px;">
-		<div style="margin: 20px 0px 10px; font-weight: 600; text-transform: uppercase;">Direcci&oacute;n de env&eacute;o</div>
+		<div style="margin: 20px 0px 10px; font-weight: 600; text-transform: uppercase;">Direcci&oacute;n de env&iacute;o</div>
 		<div style="color: #535353; line-height: 120%;">
 			[DIRECCION]
 		</div>

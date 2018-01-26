@@ -92,7 +92,7 @@
 	    $user_id = $current_user->ID;
 	    $CARRITO = unserialize( $_SESSION["CARRITO"] );
 	    $hoy = date("Y-m-d H:i:s", time() );
-	 	$SQL_PERDIDO = "
+	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
 	 			'{$user_id}',
@@ -101,32 +101,33 @@
 		 		'{$hoy}'
 	 		)
 	 	";
-	 	$wpdb->query( $SQL_PERDIDO );
+	 	$wpdb->query( $SQL_PEDIDO );
 	 	$orden_id = $wpdb->insert_id;
+
 	 	foreach ($CARRITO["productos"] as $producto) {
-	 		for ($i=0; $i < $producto->cantidad; $i++) { 
-		 		if( $producto->producto != "" ){
-		 			$data = array(
-		 				"tamano" => $producto->tamano,
-		 				"edad" => $producto->edad,
-		 				"presentacion" => $producto->presentacion,
-		 				"plan" => $producto->plan
-		 			);
-		 			$data = serialize($data);
-				 	$SQL_PERDIDO = "
-				 		INSERT INTO items_ordenes VALUES (
-				 			NULL,
-				 			'{$orden_id}',
-				 			'{$producto->producto}',
-				 			'{$data}',
-				 			'Activa',
-				 			'{$producto->subtotal}',
-				 			'{$hoy}',
-				 			'{$producto->plan_id}'
-				 		)
-				 	";
-				 	$wpdb->query( $SQL_PERDIDO );
-		 		}
+	 		if( $producto->producto != "" ){
+	 			$data = array(
+	 				"tamano" => $producto->tamano,
+	 				"edad" => $producto->edad,
+	 				"presentacion" => $producto->presentacion,
+	 				"plan" => $producto->plan
+	 			);
+	 			$data = serialize($data);
+			 	$SQL_SUB_PEDIDO = "
+			 		INSERT INTO items_ordenes VALUES (
+			 			NULL,
+			 			'{$orden_id}',
+			 			'{$producto->producto}',
+			 			'{$producto->cantidad}',
+			 			'{$data}',
+			 			'Activa',
+			 			'{$producto->subtotal}',
+			 			'{$hoy}',
+			 			'{$producto->plan_id}'
+			 		)
+			 	";
+
+			 	$wpdb->query( $SQL_SUB_PEDIDO );
 	 		}
 	 	}
 

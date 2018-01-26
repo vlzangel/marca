@@ -76,8 +76,8 @@ function actualizarFecha(){
 }
 
 function actualizarGuia(){
-	var URL = TEMA+"/backend/despacho/ajax/updateGuia.php";
-	jQuery.ajax({
+    var URL = TEMA+"/backend/despacho/ajax/updateGuia.php";
+    jQuery.ajax({
         async:true, 
         cache:false, 
         type: 'POST', 
@@ -89,7 +89,37 @@ function actualizarGuia(){
         },
         beforeSend:function(){},
         error:function(e){
-        	console.log(e);
+            console.log(e);
         }
     });
+}
+
+function enviarCorreo(){
+	var URL = TEMA+"/backend/despacho/ajax/enviarCorreo.php";
+
+    if( !jQuery("#btn-enviarCorreo").hasClass("disabled") ){
+        jQuery("#btn-enviarCorreo").addClass("disabled");
+        jQuery("#btn-enviarCorreo").val("Procesando...");
+
+        jQuery.ajax({
+            async:true, 
+            cache:false, 
+            type: 'POST', 
+            url: URL,
+            data: jQuery("#status_despacho").serialize(), 
+            success:  function(HTML){
+                jQuery("#btn-enviarCorreo").removeClass("disabled");
+                jQuery("#btn-enviarCorreo").val("Confirmar Envio de Correo");
+
+                alert("Correo Enviado!");
+
+                table.ajax.reload();
+                cerrar();
+            },
+            beforeSend:function(){},
+            error:function(e){
+                console.log(e);
+            }
+        });
+    }
 }
