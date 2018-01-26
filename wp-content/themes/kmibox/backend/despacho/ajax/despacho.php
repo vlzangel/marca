@@ -11,7 +11,7 @@
 	$mes_actual = date("Y-m", time())."-01";
 	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 
-	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE orden = {$ID} AND mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
+	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
 	$data["data"] = array();
 	$ordenes = array();
 
@@ -23,13 +23,13 @@
 		$cliente = get_user_meta($user_id, 'first_name', true)." ".get_user_meta($user_id, 'last_name', true);
 
 		if( $despacho->fecha_entrega == null ){
-			$despacho->fecha_entrega = "---";
+			$despacho->fecha_entrega = "Cargar Fecha";
 		}else{
 			$despacho->fecha_entrega = date("d/m/Y", strtotime( $despacho->fecha_entrega ) );
 		}
 
 		if( $despacho->guia == "" ){
-			$despacho->guia = "---";
+			$despacho->guia = "Cargar Gu&iacute;a";
 		}
 
 		$ordenes[ $despacho->orden ]["fecha_entrega"] = $despacho->fecha_entrega;
@@ -48,7 +48,7 @@
 		
 		$enviar_correo = "---";
 
-		if( $_data["guia"] != "---" && $_data["fecha_entrega"] != "---" && $despacho->status == "Enviada" ){
+		if( $_data["guia"] != "Cargar Gu&iacute;a" && $_data["fecha_entrega"] != "Cargar Fecha" && $_data["status"] == "Enviada" ){
 			$enviar_correo = "
 				<span 
 	        		onclick='abrir_link( jQuery( this ) )' 
@@ -64,8 +64,8 @@
 
 		$guia = $_data["guia"];
 		$fecha_entrega = $_data["fecha_entrega"];
-		$status = $despacho->status;
-		if( $despacho->status != "Recibida" ){
+
+		if( $_data["status"] != "Recibida" ){
 			$guia = "
 	        	<div 
 	        		onclick='abrir_link( jQuery( this ) )' 
@@ -90,7 +90,7 @@
 	        		".$_data["fecha_entrega"]."
 	        	</div>";
 
-			$status = "
+			$_data["status"] = "
 	        	<span 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$orden_id."' 
@@ -98,7 +98,7 @@
 	        		data-modulo='despacho' 
 	        		data-modal='editar' 
 	        		class='enlace' style='text-align: center;'
-	        	>".$despacho->status."</span>
+	        	>".$_data["status"]."</span>
 	        ";
 		}
 
@@ -108,7 +108,7 @@
 	        $_productos,
 	        $guia,
 	        $fecha_entrega,
-	        $status,
+	        $_data["status"],
 	        $enviar_correo
 	    );
 	}
