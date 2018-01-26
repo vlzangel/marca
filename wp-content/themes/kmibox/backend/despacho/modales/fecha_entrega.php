@@ -24,7 +24,7 @@
 			<input type="hidden" id="ID" name="ID" value="'.$ID.'">
 			<div class="celdas_1">
 				<div class="input_box">
-					<label>Fecha Estimada de Entrega:</label>
+					<label>Fecha de Env&iacute;o:</label>
 					<input id="fecha" name="fecha" style="width: 100%;" value="'.$_fecha.'" readonly>
 				</div>
 			</div>
