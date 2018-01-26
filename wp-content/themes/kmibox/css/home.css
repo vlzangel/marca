@@ -109,6 +109,10 @@ section{
 	border-radius: 27px;
 }
 
+.margin{
+	    margin-left: 7% ! important;
+}
+
 #como-consigo-kmibox img{
 	/*margin-top:10px;*/
 	/*height: 70px;*/
@@ -133,6 +137,7 @@ section{
     color: #878a87;
     margin-top: 20px;
 }
+
 
 /* home-dog */
 
