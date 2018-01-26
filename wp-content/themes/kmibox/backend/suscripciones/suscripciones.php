@@ -18,7 +18,6 @@
                 <th>Fecha suscripci&oacute;n</th>
                 <th>Cliente</th>
                 <th>Producto(s)</th>
-                <th>Plan</th>
                 <th>Proximo Cobro</th>
                 <th>Status</th>
             </tr>
