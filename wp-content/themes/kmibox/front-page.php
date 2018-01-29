@@ -196,7 +196,7 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<section class="row text-center" id="home-dog">
+	<section class="row text-center" id="home-dog" style="margin-top: 4%;">
 		<div>
 			<h4>Un alimento especial para un Compañero especial</h4>
 		</div>
