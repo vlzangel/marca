@@ -182,8 +182,13 @@ get_header(); ?>
 				<span class="marca-circle_2">4</span>
 				<img src="<?php echo get_home_url(); ?>/img/Icon-4.svg" class="img-responsive" >
 				<p>Recibe el producto en tu casa u oficina sin costo adicional</p>
+				<div class="col-xs-12 col-sm-12 col-md-12 hidden-xs hidden-md hidden-lg">
+				<label>
+					"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tiendas por conveniencia"
+				</label>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 ">
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 hidden-sm">
 				<label>
 					"Podrás pagar <b style="color: #000000">en efectivo</b> en miles de tiendas por conveniencia"
 				</label>
