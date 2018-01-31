@@ -99,6 +99,8 @@
 
 	    wp_mail( $email, "Notificación de Envío - NutriHeroes", $HTML );
 
+	    $wpdb->query( "UPDATE despachos SET correo_enviado = '1' WHERE ".$condicion );
+
 
 	}
 
