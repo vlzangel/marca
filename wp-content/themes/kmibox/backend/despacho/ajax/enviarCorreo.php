@@ -19,7 +19,7 @@
 		$hoy = strtotime($despacho->fecha_entrega);
 		$dia_semana_hoy = date("N", $hoy);
 
-		if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(7-$dia_semana_hoy).' day', $hoy); 
+		if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(8-$dia_semana_hoy).' day', $hoy); 
 		}else{ $desde = strtotime('+1 day', $hoy);  }
 
 		if( $dia_semana_hoy == 1 ){ $hasta = strtotime('+5 day', $hoy);
