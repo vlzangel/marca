@@ -1,57 +1,27 @@
 <?php
+	global $wpdb;
+
+    setZonaHoraria();
+	$mes_actual = date("Y-m", time())."-01";
+	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 
 	$mis_suscripciones = getSuscripciones();
 
 	$mis_despachos = getDespachosActivos();
 	$despacho_inicial = array();
-	$carrusel_despachos = ""; $W_2 = 0;
-	if( count($mis_despachos) > 0 ){
-		foreach ($mis_despachos as $despacho) {
-			$id_suscripcion = str_pad($despacho["orden"], 5, "0", STR_PAD_LEFT);
-
-			$activo = "";
-			if( count($despacho_inicial) == 0 ){
-				$despacho_inicial = array(
-					"plan" => $despacho["orden"],
-					"type" => "{$despacho["nombre"]}",
-					"status" => "{$despacho["status"]}",
-					"img" => "{$despacho["img"]}"
-				);
-				$activo = "item_activo";
-			}
-			$carrusel_despachos .= "
-				<div 
-					id='plan_{$id_suscripcion}' 
-					data-nombre='{$despacho["nombre"]}'
-					data-status='{$despacho["status"]}'
-					data-img='{$despacho["img"]}'
-					class='suscripcion_item {$activo} slide' 
-					data-scale='small' 
-					data-position='top'
-				>
-					<div>
-						<div class='item_carrusel_orden'> <strong>Orden:</strong> {$id_suscripcion} </div>
-						<div class='item_carrusel_img' style='background-image: url({$despacho["img"]});'></div>
-						<div class='item_carrusel_total'>
-							{$despacho["nombre"]}
-						</div>
-					</div>
-				</div>
-			";
-			$W_2++;
-		}
-	}
 
 	
 	$ordenes = getOrdenes();
-
-/*	echo "<pre>";
+/*
+	echo "<pre>";
 		print_r($ordenes);
-	echo "</pre>";*/
-
+	echo "</pre>";
+*/
 	$opciones = "";
 	foreach ($ordenes as $key => $value) {
-		$opciones .= "<option value={$value->id}>Orden: {$value->id}</option>";
+		$condicion = "orden = {$value->id} AND mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}'";
+		$status = $wpdb->get_var("SELECT status FROM despachos WHERE ".$condicion);
+		$opciones .= "<option value={$value->id} data-status='{$status}'>Orden: {$value->id}</option>";
 	}
 
 	if( count($mis_suscripciones) > 0 ){
