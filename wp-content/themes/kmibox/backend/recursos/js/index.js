@@ -8,6 +8,11 @@ function init_modal(data){
             jQuery(".modal").css("display", "block");
             jQuery("body").css("overflow", "hidden");
 
+            jQuery(".modal form").on("submit", function(e){
+                e.preventDefault();
+                console.log("Prueba");
+                jQuery(".botonera_container input").click();
+            });
         },
         beforeSend:function(){},
         error:function(e){
