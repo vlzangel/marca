@@ -64,6 +64,7 @@
 			precio = '{$precio}',
 			peso = '{$peso}',
 			existencia = '{$existencia}',
+			puntos = '{$puntos}',
 			marca = '{$marca}',
 			tamanos = '{$_tamanos}',
 			edades = '{$_edades}',

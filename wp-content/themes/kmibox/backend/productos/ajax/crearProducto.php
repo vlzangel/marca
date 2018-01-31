@@ -47,6 +47,7 @@
 			'$precio',
 			'$peso',
 			'$existencia',
+			'$puntos',
 			'$marca',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',
