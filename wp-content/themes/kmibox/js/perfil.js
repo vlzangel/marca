@@ -53,53 +53,22 @@ jQuery(document).ready(function() {
 	});
 
 	jQuery("#selector_despachos").on("change", function(e){
-		var pedidos = SUSCRPCIONES[ jQuery(this).val() ];
-		var slider_despachos = "";
-		jQuery.each(pedidos.productos, function( index, producto ) {
-	  		slider_despachos += "<div "+
-	  			"id='plan_"+index+"'"+
-	  			"data-plan='"+producto.plan+"'"+
-	  			"data-nombre='"+producto.nombre+"'"+
-	  			"data-status='"+producto.status+"'"+
-	  			"data-img='"+producto.img+"'"+
-	  			"class='suscripcion_item slide'"+
-	  			"data-scale='small' data-position='top' >"+
-	  			"	<div>"+
-	  			"		<div class='item_carrusel_img' style='background-image: url("+producto.img+");'></div>"+
-	  			"		<div class='item_carrusel_total'> "+producto.cantidad+" x "+producto.nombre+" </div>"+
-	  			"	</div>"+
-	  		"</div>";
-		});
-		jQuery(".slider_despachos").html( slider_despachos );
-		jQuery('.slider_despachos').bxSlider({
-		    infiniteLoop: false,
-		    slideWidth: 200,
-		    slideHeight: 200,
-		    minSlides: 1,
-		    maxSlides: 3,
-		    slideMargin: 10
-		});
-		jQuery("#tab_3 .suscripcion_item").on("click", function(e){
-			jQuery(".suscripcion_item").removeClass("item_activo");
-			jQuery(this).addClass("item_activo");
-			jQuery(".progress-content > div > div > div").removeClass("paso_completado");
-			jQuery("#img_item_2").attr("src", jQuery(this).attr("data-img") );
-			switch( jQuery(this).attr("data-status") ){
-				case 'Armada':
-					jQuery("#armada").addClass("paso_completado");
-				break;
-				case 'Enviada':
-					jQuery("#armada").addClass("paso_completado");
-					jQuery("#enviada").addClass("paso_completado");
-				break;
-				case 'Recibida':
-					jQuery("#armada").addClass("paso_completado");
-					jQuery("#enviada").addClass("paso_completado");
-					jQuery("#recibida").addClass("paso_completado");
-				break;
-			}
-		});
-		jQuery("#plan_0").click();
+		jQuery(".progress-content > div > div > div").removeClass("paso_completado");
+		jQuery("#img_item_2").attr("src", jQuery(this).attr("data-img") );
+		switch( jQuery("#selector_despachos option:selected").attr("data-status") ){
+			case 'Armada':
+				jQuery("#armada").addClass("paso_completado");
+			break;
+			case 'Enviada':
+				jQuery("#armada").addClass("paso_completado");
+				jQuery("#enviada").addClass("paso_completado");
+			break;
+			case 'Recibida':
+				jQuery("#armada").addClass("paso_completado");
+				jQuery("#enviada").addClass("paso_completado");
+				jQuery("#recibida").addClass("paso_completado");
+			break;
+		}
 	});
 
 	jQuery.post(
