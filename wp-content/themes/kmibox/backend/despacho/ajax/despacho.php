@@ -37,7 +37,7 @@
 		$ordenes[ $despacho->orden ]["correo_enviado"] = $despacho->correo_enviado;
 		$ordenes[ $despacho->orden ]["cliente"] = $cliente;
 		$ordenes[ $despacho->orden ]["status"] = $despacho->status;
-		$ordenes[ $despacho->orden ]["productos"][] = $producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
+		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
 		
 	}
 
