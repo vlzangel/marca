@@ -17,7 +17,6 @@
 
     /* GRID */
 
-
 	    .carrousel-items,
 	    .carrousel-items article {
 	        padding-left: 0px;
@@ -27,8 +26,9 @@
 	    .carrousel-items {
 	        display: table-cell;
 	    }
-	    .carrousel-items article div{
-	        margin: auto; 
+
+	    .carrousel-items article > div{
+	    	margin: 0px 20px;
 	    }
 
     .btn_siguiente_container {
@@ -401,6 +401,8 @@
 
 	.carrousel-items article {
 	    display: block !important;
+		max-height: 115px;
+	    height: 33.3333333%;
 	}
 
 	.titulo_planes {
