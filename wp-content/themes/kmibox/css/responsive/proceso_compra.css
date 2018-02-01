@@ -16,23 +16,11 @@
 @media (min-width: 768px) {
 
     /* GRID */
-	    .carrousel-items article:nth-child(1) img {
-	    	width: 80%;
-	    	height: 80%;
-	    	cursor: pointer;
-	    }
-	    .carrousel-items article:nth-child(2){
-	        z-index:3;
-	    }
-	    .carrousel-items article:nth-child(3) img {
-	    	width: 80%;
-	    	height: 80%;
-	    	cursor: pointer;
-	    }
+
 
 	    .carrousel-items,
 	    .carrousel-items article {
-	        display: flex;
+	        display: table-cell;
 	        padding-left: 0px;
 	        padding-right: 0px;
 	    }
@@ -47,7 +35,7 @@
         font-size: 32px;
     }
     .carrousel-items article:nth-child(2) p{
-        font-size: 40px;
+        font-size: 30px;
     }
 
     .btn_siguiente_container {
@@ -61,6 +49,13 @@
 /*****************************************************************/
 
 
+
+@media (max-width: 1100px){
+	#marca > div {
+	    width: 20%;
+	    height: 20%;
+	}
+}
 
 @media (max-width: 1000px){
 	.carrusel_2{
@@ -121,11 +116,6 @@
 	    min-width: 210px;
 	}
 
-	.carrousel-items {
-	    width: 98%;
-	    margin: 0px 1%;
-	}
-
 	.select_plan_box {
 	    padding: 0px;
 	    height: 100%;
@@ -181,10 +171,20 @@
 	.opciones_pago label {
 		font-size: 10px;
 	}
+
+	#marca > div {
+	    width: 33.333333334%;
+	    height: 25%;
+	}
 }
 
 @media (max-width: 767px) {
 
+	.carrousel-items article  {
+	    padding: 30px 20px 10px;
+	    max-width: 200px;
+	    margin: 0px auto;
+	}
 
 	.solo_movil{
 		display: block;
@@ -199,7 +199,11 @@
 	}
 
 	.carrousel-items img {
-		height: 50px;
+		height: 90px;
+	}
+
+	.carrousel-items article div {
+	    padding: 0px;
 	}
 
 	#vlz_atras {
@@ -224,46 +228,12 @@
         margin: 0 auto;
     }
 
-    .carrousel-items article:nth-child(1){
-        height: 30%;
-    }
-    .carrousel-items article:nth-child(1) > div{
-        height: 100%;
-    }
-    .carrousel-items article:nth-child(1) > div > img {
-        height: 85%;
-    }
-
-
-    .carrousel-items article:nth-child(2){
-        height: 40%;
-    }
-    .carrousel-items article:nth-child(2) > div{
-        height: 100%;
-    }
-    .carrousel-items article:nth-child(2) > div > img {
-        height: 80%;
-    }
-
-
-    .carrousel-items article:nth-child(3){
-        height: 30%;
-    }
-    .carrousel-items article:nth-child(3) > div{
-        height: 100%;
-    }
-    .carrousel-items article:nth-child(3) > div > img {
-        height: 85%;
-    }
 
     /* Textos */
-    .carrousel-items article:nth-child(1) p{
-        font-size: 18px;
-    	margin: 0px;
-    }
-    .carrousel-items article:nth-child(2) p{
-        font-size: 22px;
-    }
+
+	.carrousel-items article div p {
+	    font-size: 18px;
+	}
 
     .header_titulo {
         font-size: 15px!important;
@@ -347,12 +317,9 @@
 		font-size: 11px;
 	}
 
-    /* Presentaciones */
-
-		/*#presentaciones > div {
-		    width: 50%;
-		    height: 70%;
-		}*/
+	.carrousel-items img {
+		height: 70px;
+	}
 
     /* Planes */
 
@@ -528,9 +495,9 @@
         font-size: 10px !important;
     }
 
-	.carrousel-items article:nth-child(2) p{
-        font-size: 17px !important;
-    }
+	.carrousel-items article div p {
+	    font-size: 17px;
+	}
 
     #vlz_controles_fases span {
 	    display: block;
@@ -662,6 +629,12 @@
 
 @media (max-width: 400px){
 
+	.carrousel-items article {
+	    padding: 10px 20px 0px;
+	    max-width: 200px;
+	    margin: 0px auto;
+	}
+
 	#vlz_titulo {
 	    top: 60px;
 	    font-size: 12px;
@@ -693,6 +666,10 @@
 }
 
 @media (max-width: 350px){
+
+	.carrousel-items img {
+		height: 55px;
+	}
 
 	#vlz_titulo {
 	    top: 55px;
