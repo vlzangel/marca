@@ -20,23 +20,16 @@
 
 	    .carrousel-items,
 	    .carrousel-items article {
-	        display: table-cell;
 	        padding-left: 0px;
 	        padding-right: 0px;
+	    }
+
+	    .carrousel-items {
+	        display: table-cell;
 	    }
 	    .carrousel-items article div{
 	        margin: auto; 
 	    }
-
-    /* Textos */
-    .carrousel-items article:nth-child(1) p,
-    .carrousel-items article:nth-child(3) p
-    {
-        font-size: 32px;
-    }
-    .carrousel-items article:nth-child(2) p{
-        font-size: 30px;
-    }
 
     .btn_siguiente_container {
 	    margin-top: 5px;
@@ -181,8 +174,7 @@
 @media (max-width: 767px) {
 
 	.carrousel-items article  {
-	    padding: 30px 20px 10px;
-	    max-width: 200px;
+	    padding: 0px;
 	    margin: 0px auto;
 	}
 
@@ -406,6 +398,10 @@
 }
 
 @media ( max-width: 500px ) {
+
+	.carrousel-items article {
+	    display: block !important;
+	}
 
 	.titulo_planes {
 	    top: 44px !important;
