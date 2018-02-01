@@ -715,6 +715,8 @@ div#wpadminbar {
 
 	.carrousel-items article div {
 	    height: 100%;
+	    max-width: 200px;
+    	margin: 0px auto;
 	}
 
 	.carrousel-items article div > div {
