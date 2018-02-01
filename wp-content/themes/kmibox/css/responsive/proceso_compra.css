@@ -158,6 +158,10 @@
 	    width: 33.333333334%;
 	    height: 25%;
 	}
+
+	#marca > div > .item_box:hover {
+		background: #FFF;
+	}
 }
 
 @media (max-width: 767px) {
@@ -169,6 +173,11 @@
 
 	.carrousel-items > article {
 	    width: 100%;
+	    padding: 10px 0px 0px;
+	}
+
+	.carrousel-items > article > div {
+	    max-width: 150px;
 	}
 
 	.carrousel-items > article > div > div {
