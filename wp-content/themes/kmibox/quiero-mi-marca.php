@@ -72,6 +72,7 @@
 							</div>
 						</article>
 					</div>
+
 					<div class="selector_edad_container">
 						<label>Selecciona la Edad</label>
 						<div class="selector_edad_box" id="edad">
