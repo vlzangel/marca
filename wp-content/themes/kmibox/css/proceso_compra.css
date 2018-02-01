@@ -682,7 +682,7 @@ div#wpadminbar {
 	.carrousel-items-containers{
 		display: table;
 	    width: 100%;
-	    height: calc( 100% - 110px );
+	    height: calc( 100% - 160px );
 	}
 
 	.carrousel-items{
@@ -698,8 +698,7 @@ div#wpadminbar {
 	    width: 21%;
 		vertical-align: middle;
 		display: inline-block;
-		height: 33.3333333%;
-		max-height: 115px;
+		height: 35%;
 	}
 
 	.carrousel-items article:nth-child(2){
@@ -715,12 +714,10 @@ div#wpadminbar {
 
 	.carrousel-items article div {
 	    height: 100%;
-	    max-width: 200px;
-    	margin: 0px auto;
 	}
 
 	.carrousel-items article div > div {
-	    width: 70px;
+	    width: 100%;
 	    height: calc( 100% - 40px );
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -741,5 +738,5 @@ div#wpadminbar {
 	
 	.carrousel-items{   
 	    text-align: center;
-	    padding: 100px 10px 0px;
+	    padding: 130px 10px 0px;
 	}
