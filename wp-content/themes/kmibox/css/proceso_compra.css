@@ -684,7 +684,7 @@ div#wpadminbar {
 	    width: 100%;
 	    height: calc( 100% - 180px );
 	    margin: 65px auto 0px;
-	    max-width: 1100px;
+	    max-width: 1000px;
 	}
 
 	.hover_carrousel_item article:nth-child(2) {
@@ -698,7 +698,7 @@ div#wpadminbar {
 	}
 
 	.carrousel-items > article{
-		height: 60%;
+		height: 70%;
 		width: 33.333334%;
 	    display: inline-block;
 	    float: left;
