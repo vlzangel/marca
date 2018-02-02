@@ -117,7 +117,7 @@ jQuery(document).ready(function() {
 				CART: _json
 			},
 			function(data){
-				location.href = HOME+"/pago-tienda";
+				//location.href = HOME+"/pago-tienda";
 			}, "json"
 		).fail(function(e) {
 			console.log( e );

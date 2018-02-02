@@ -12,8 +12,12 @@
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
 
-	 	$current_user = wp_get_current_user();
-	    $user_id = $current_user->ID;
+	 	if( isset($CARRITO['user_id']) || $CARRITO['user_id'] > 0 ){
+	 		$user_id = $CARRITO['user_id'];
+	 	}else{
+		 	$current_user = wp_get_current_user();
+		    $user_id = $current_user->ID;	 		
+	 	}
 
 	    $email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
 	    $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);

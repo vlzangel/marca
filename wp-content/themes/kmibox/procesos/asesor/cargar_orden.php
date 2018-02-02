@@ -8,40 +8,6 @@ ini_set('display_errors', '1');
 	global $wpdb;
 	extract($_POST);
 
-
-	$sql_carrito = "
-	SELECT 
-		1 as 'cantidad',
-		'{$dir_edad}' as 'edad',
-		p.marca,
-		pl.plan,
-		pl.id as plan_id,
-		p.precio,
-		p.id as producto,
-		( p.precio * pl.meses ) as subtotal,
-		'{$dir_tamano}' as tamano
-	FROM productos as p
-		INNER JOIN marcas as m ON m.id = p.marca 
-		INNER JOIN planes as pl ON pl.id = {$dir_planes}
-	WHERE
-		m.tipo = {$dir_tipos}
-		AND p.marca = {$dir_marcas}
-	    AND p.tamanos like '%\"{$dir_tamano}\";i:1;%' 
-		AND p.edades like '%\"{$dir_edad}\";i:1;%' 
-	";	
-	$temp_product = $wpdb->get_row($sql_carrito);
-	$CARRITO = [
-		"cantidad"=> 1, 
-		"productos" => [
-			$temp_product
-		], 
-		"total"=> $temp_product->subtotal
-	];
-
-	print_r($CARRITO);
-exit();
-
-
 	$result = [
 		'code'	=>	0, 
 		'orden_id'	=>	0,
@@ -100,85 +66,106 @@ exit();
 
 	// Cargar registro de venta del asesor
 		if( $user->ID > 0 ){
-			$pedido = [
-				'marca' => $dir_marcas,
-				'presentacion' => $dir_presentacion,
-				'tamano' => $dir_kg,
-				'plan' => $dir_planes1,
-				'direccion' => $r_address,
-				'estado' => $dir_estado,
-				'codigo_postal' => $dir_codigo_postal,
-				'casa_oficina' => $casa_oficina,
-				'forma_pago' => $forma_pago
-			];
-			$limit = date('Y-m-d\TH:i:s', strtotime('+ 24 hours'));
-			$pedido = serialize($pedido);
-			$token = md5( $user->ID . $limit );
 
-			$sql_orden = "
-				INSERT INTO asesores_ordenes ( 
-					asesor_id, 
-					user_id, 
-					pedido, 
-					estatus, 
-					token, 
-					valido_hasta 
-				)VALUES(
-					 {$asesor->id},
-					 {$user->ID},
-					'{$pedido}',
-					1,
-					'{$token}',
-					'{$limit}'
-				)
-			";
-			query( $sql_orden );
-
-			$sql_search_orden = "select * from asesores_ordenes where token = '{$token}' and estatus = 1 ";
-			$orden = $wpdb->get_row( $sql_search_orden );
-
-			$result['orden_id'] = $orden->id; 
-			$result['nombre'] = $nombre; 
-
-			// Consultar Productos
-			//$sql_search_orden = "select * from productos where marca = '{$}'";
-			//$orden = $wpdb->get_row( $sql_search_orden );
-
-			// Preparar CARRITO
-			/*$productos = json_encode([
-				'tamano' => ''
-				'edad' => ''
-
-				'plan' => Bimestral
-				'plan_id' => 2
-
-				'cantidad' => 1
-				'precio' => 650
-				'subtotal' => 1300
-				'marca' => 12
-				'producto' => 8
-			]);
-			$CARRITO = [
-			    [total] => 
-			    [cantidad] => 1
-			    [productos][] => json_decode($productos)
-			]*/
+			// Crear CARRITO
+				$sql_carrito = "
+					SELECT 
+						1 as 'cantidad',
+						'{$dir_edad}' as 'edad',
+						p.marca,
+						pl.plan,
+						pl.id as plan_id,
+						p.precio,
+						p.id as producto,
+						( p.precio * pl.meses ) as subtotal,
+						'{$dir_tamano}' as tamano
+					FROM productos as p
+						INNER JOIN marcas as m ON m.id = p.marca 
+						INNER JOIN planes as pl ON pl.id = {$dir_planes}
+					WHERE
+						m.tipo = {$dir_tipos}
+						AND p.marca = {$dir_marcas}
+					    AND p.tamanos like '%\"{$dir_tamano}\";i:1;%' 
+						AND p.edades like '%\"{$dir_edad}\";i:1;%' 
+					";	
+				$temp_product = $wpdb->get_row($sql_carrito);
+				$CARRITO = [
+					"user_id" => $user->ID,
+					"cantidad"=> 1, 
+					"productos" => [
+						$temp_product
+					], 
+					"total"=> $temp_product->subtotal
+				];
 
 
 
-			if( isset($orden->id) && $orden->id > 0 ){
-				// Enviar Email 
-		        $HTML = generarEmail(
-			    	"compra/pagos/orden_de_pago_cliente", 
-			    	array(
-			    		"USUARIO" => $nombre,
-			    		"EMAIL" => $emailsus,
-			    		"PASS" => $clave,
-			    		"LINK" => get_home_url()."/perfil/"
-			    	)
-			    );
-				$result['code'] = 1;
-		    }
+			switch ($forma_pago) {
+				case 'tienda':
+					$CARRITO = serialize($CARRITO);
+					get_template_part( 'template/parts/page/checkout-tienda', 'page' ); 				
+					break;
+				
+				case 'tarjeta':
+					// Crear Registro para pago por Tarjeta
+					$pedido = [
+						'marca' => $dir_marcas,
+						'presentacion' => $dir_presentacion,
+						'tamano' => $dir_kg,
+						'plan' => $dir_planes1,
+						'direccion' => $r_address,
+						'estado' => $dir_estado,
+						'codigo_postal' => $dir_codigo_postal,
+						'casa_oficina' => $casa_oficina,
+						'forma_pago' => $forma_pago,
+						'carrito' => $CARRITO,
+					];
+					$limit = date('Y-m-d\TH:i:s', strtotime('+ 24 hours'));
+					$pedido = serialize($pedido);
+					$token = md5( $user->ID . $limit );
+
+					$sql_orden = "
+						INSERT INTO asesores_ordenes ( 
+							asesor_id, 
+							user_id, 
+							pedido, 
+							estatus, 
+							token, 
+							valido_hasta 
+						)VALUES(
+							 {$asesor->id},
+							 {$user->ID},
+							'{$pedido}',
+							1,
+							'{$token}',
+							'{$limit}'
+						)
+					";
+					query( $sql_orden );
+
+					$sql_search_orden = "select * from asesores_ordenes where token = '{$token}' and estatus = 1 ";
+					$orden = $wpdb->get_row( $sql_search_orden );
+
+					$result['orden_id'] = $orden->id; 
+					$result['nombre'] = $nombre; 
+
+					if( isset($orden->id) && $orden->id > 0 ){
+						// Enviar Email 
+				        $HTML = generarEmail(
+					    	"compra/pagos/orden_de_pago_cliente", 
+					    	array(
+					    		"USUARIO" => $nombre,
+					    		"EMAIL" => $emailsus,
+					    		"PASS" => $clave,
+					    		"LINK" => get_home_url()."/perfil/"
+					    	)
+					    );
+						$result['code'] = 1;
+				    }					
+					break;
+			}
+
+
 		}
 
 	echo json_encode( $result );
