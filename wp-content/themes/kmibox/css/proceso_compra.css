@@ -698,7 +698,7 @@ div#wpadminbar {
 	}
 
 	.carrousel-items > article{
-		height: 33.3333334%;
+		height: 50%;
 		width: 33.333334%;
 	    display: inline-block;
 	    float: left;
