@@ -47,6 +47,17 @@
 
 		$CARRITO["PDF"] = $dataOpenpay["OPENPAY_URL"]."/paynet-pdf/".$dataOpenpay["MERCHANT_ID"]."/".$charge->payment_method->reference;
 
+		$HTML = generarEmail(
+	    	"compra/nuevo/tienda", 
+	    	array(
+	    		"USUARIO" => $nombre,
+	    		"INSTRUCCIONES" => $CARRITO["PDF"],
+	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
+	    	)
+	    );
+
+	    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
+
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
     	$error_info = $e->getDescription();
@@ -57,67 +68,97 @@
     	);
     }
 
-
 	$_productos = $wpdb->get_results("SELECT * FROM productos");
 	$productos = array();
 	foreach ($_productos as $key => $value) {
 		$productos[ $value->id ] = $value;
 	}
 
-	$suscripciones = "";
+	$suscripciones = "
+		<table cellspacing=0 cellpadding=0 class='desglose_final'>
+			<tr>
+				<th colspan=2 > <div> Producto </div> </th>
+				<th class='solo_pc'> <div> Periodicidad </div> </th>
+				<th class='solo_pc'> <div> Mascota </div> </th>
+			</tr>";
 	foreach ($CARRITO["productos"] as $key => $value) {
+		$data = unserialize( $productos[ $value->producto ]->dataextra );
 		if( isset($value->edad) ){
 			$suscripciones .= "
-				<div style='font-weight: normal;'>
-					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Plan: </strong> ".$value->plan."
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
-				</div>
+				<tr>
+					<td>
+						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+					</td>
+					<td class='info'>
+						<div>
+							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
+							<div>".$productos[ $value->producto ]->descripcion."</div>
+							<div>".$productos[ $value->producto ]->peso."</div>
+						</div>
+						<div class='info_3 solo_movil'>
+							<div class='mayuscula'>".$value->plan."</div>
+							<div>".$value->tamano." - ".$value->edad."</div>
+						</div>
+					</td>
+					<td class='periodicidad solo_pc'>".$value->plan."</td>
+					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
+				</tr>
 			";
 		}
 	}
+	$suscripciones .= "</table>";
 
 ?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css?ver=".time(); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/responsive/pagos.css?ver=".time(); ?>">
+
 <!-- Fase #6 Pagos -->
 <section data-fase="6" class="container">
 
 	<!-- Mensaje Success -->
-	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden;">
+	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #94d400;">¡Felicidades!</h1>
-			<h4 style="color:#ccc;">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 class="postone text-felicidades">¡Felicidades!</h1>
+			<h4 class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name">Tu suscripción:</div>
-				<div class="col-xs-6 col-md-6 desc_value">
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion">TU SUSCRIPCIÓN:</div>				
+			</div>
+			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px;">
 					<?php echo $suscripciones; ?>
 				</div>
-			</div>
 			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name">Total Suscripci&oacute;n:</div>
-				<div class="col-xs-6 col-md-6 desc_value">
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion">TOTAL SUSCRIPCIÓN:</div>				
+			</div>
+			<div class="col-xs-12 col-md-12 desc_value gothan total">
 					<?php 
 						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
 				</div>
-			</div>
 		</aside>
-		<aside class="col-md-12">
-	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 10px 10px 10px;margin-left: -6%;font-size: 12px;">Instrucciones para completar el pago</a>
+		
+		<aside class="gothanligth col-xs-12 col-md-8 col-md-offset-2">
+			<h2 class="text-quedebohacer">¿QUÉ DEBO HACER AHORA?</h2>
+			<ul class="text-left text-pasos">
+				<li>Revisa tu correo, all&iacute; encontrar&aacute;s las instrucciones para que realices t&uacute; pago en la tienda de tu preferencia.</li>
+				<li>Luego de confirmar t&uacute; pago, te enviaremos un correo con la confirmaci&oacute;n de tu suscripci&oacute;n.</li>
+				<li>En caso de dudas contáctanos al (01) 800 056 4667, y te atenderemos de inmediato.</li>
+			</ul>
 		</aside>
-		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox" style="padding: 10px 20px 10px 20px; font-size: 12px;">Ir a mi perfil</a>
+
+		<aside class="col-md-12 text-center">
+	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">Instrucciones para completar el pago</a>
+		</aside>
+		<aside class="col-md-12  text-center">
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 30px; font-size: 12px;  margin: 0 auto; margin-top:10px!important;">IR A MI PERFIL</a>
 		</aside>
 	</article>
 
 </section>
 
 <?php
-	unset($_SESSION["CARRITO"]);
+	//unset($_SESSION["CARRITO"]);
 ?>
 

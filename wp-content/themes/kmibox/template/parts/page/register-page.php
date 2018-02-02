@@ -1,16 +1,14 @@
 <article class="row">
-	<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
-
-	<aside class="col-md-12 text-center" >
-		
-	</aside>
-	<div id="register"	class="col-md-12 col-xs-12 col-md-offset-0"  
-		style="border-radius:10px;   border:1px solid #ccc; margin-bottom: 2%">
+	
+	<div id="register"	class="col-md-12 col-xs-12 col-md-offset-0" style="border-radius:10px; border:1px solid #ccc; margin-bottom: 2%; padding-bottom: 15px;">
 		<div class="row">
+
 			<form class="form-horizontal" id="form-registro" method="post">
+
 				<div class="row">					
 					<h2 class="col-sm-6">INFORMACIÓN DEL USUARIO</h2>
 				</div>
+
 				<div class="row row-special campos-obligatorios">
 					<span class="fa fa-asterisk" aria-hidden="true"></span>
 					<small> Campos obligatorios</small>
@@ -19,12 +17,8 @@
 				<div class="row row-special">					
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input data-charset="xlf" type="text" name="nombre" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre y Apellido"  maxlength="50" >
+						<input data-charset="xlf" type="text" name="nombre" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre y Apellido"  maxlength="40" >
 					</div>
-					<!--div class="col-md-6 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input data-charset="xlf" type="text" name="apellido" class="form-control col-md-6" id="inputEmail3" placeholder="Apellido"  maxlength="50">
-					</div-->
 					<div class="col-md-8">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<div class="col-md-4 label-group form-group">
@@ -46,26 +40,24 @@
 							</select>
 						</div>
 						<div class="col-md-4 form-group">
-							<input type="text" name="mascota" data-charset="alf" class="form-control col-md-6" id="inputEmail3" placeholder="Nombre de la Mascota"  maxlength="50">
+							<input type="text" name="mascota" data-charset="alf" class="form-control col-md-6" id="mascota" placeholder="Nombre de la Mascota"  maxlength="50">
 						</div>
 					</div>
-					
 				</div>
-				<div class="row row-special">					
-					
-					
-				</div>
+
 				<div class="row row-special">					
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="telef_movil" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Teléfono móvil" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  maxlength="13">
+						<input type="text" name="telef_movil" data-charset="num" class="form-control col-md-6" id="telef_movil" placeholder="Teléfono móvil" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"  maxlength="13">
 					</div>
 					<div class="col-md-4 form-group">
-						<input type="text" name="telef_fijo" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Teléfono fijo"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
+						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+						<input type="text" name="telef_fijo" data-charset="num" class="form-control col-md-6" id="telef_fijo" placeholder="Teléfono fijo"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
 					</div>
 				</div>
+
 				<div class="row row-special">					
-					<div class="col-md-12 form-group">
+					<div class="col-md-10 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<select class="form-control col-md-6" name="dondo_conociste">
 							<option value="">Cuéntanos, dónde nos conociste</option>
@@ -84,21 +76,21 @@
 				<div class="row row-special">					
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="email" name="r_usuario" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Email"  maxlength="40">
+						<input type="email" name="r_usuario" data-charset="xlfnumesp" class="form-control col-md-6" id="r_usuario" placeholder="Email"  maxlength="40">
 					</div>
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="email" name="r_usuario_c" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Confirmar email"  maxlength="40">
+						<input type="email" name="r_usuario_c" data-charset="xlfnumesp" class="form-control col-md-6" id="r_usuario_c" placeholder="Confirmar email"  maxlength="40">
 					</div>
 				</div>
 				<div class="row row-special">					
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="password" name="r_clave" data-charset="xlfnumesp" class="form-control col-md-6" id="inputPassword3" placeholder="Clave"  maxlength="20">
+						<input type="password" name="r_clave" data-charset="xlfnumesp" class="form-control col-md-6" id="r_clave" placeholder="Clave"  maxlength="20">
 					</div>
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="password" name="r_clave_c" data-charset="xlfnumesp" class="form-control col-md-6" id="inputPassword3" placeholder="Confirmar clave" maxlength="20">
+						<input type="password" name="r_clave_c" data-charset="xlfnumesp" class="form-control col-md-6" id="r_clave_c" placeholder="Confirmar clave" maxlength="20">
 					</div>
 				</div>
 
@@ -109,80 +101,74 @@
 				<div class="row row-special">					
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="dir_calle" class="form-control col-md-6" data-charset="xlfnumesp" id="inputEmail3" placeholder="Calle" maxlength="50">
+						<input type="text" name="dir_calle" class="form-control col-md-6" data-charset="xlfnumesp" id="dir_calle" placeholder="Calle" maxlength="50">
 					</div>
 					<div class="col-md-8 form-group">
-						<div class="row hidden-sm">
+						<div class="row">
 							<div class="col-md-4">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número exterior"  minlength="1" maxlength="20">
+								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="dir_numext" placeholder="Número exterior"  minlength="1" maxlength="20">
 							</div>
 							<div class="col-md-4">
-								<input type="text" name="dir_numint" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número interior"  minlength="1" maxlength="20">
-							</div>
-						</div>
-						<div class="row hidden-xs hidden-md hidden-lg visible-sm">
-							<div class="col-md-4" style="margin-left: -2%;width: 105%;">
-								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número exterior"  minlength="1" maxlength="20">
-							</div>
-							<div class="col-md-4" style="margin-left: -2%;width: 105%;">
-								<input type="text" name="dir_numint" data-charset="num" class="form-control col-md-6" id="inputEmail3" placeholder="Número interior"  minlength="1" maxlength="20">
+								<input type="text" name="dir_numint" data-charset="num" class="form-control col-md-6" id="dir_numint" placeholder="Número interior"  minlength="1" maxlength="20">
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row row-special">					
 
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
-						<select class="form-control col-md-4" name="dir_estado">
-							<option>Estado</option>
-							<?php
-								$estados = get_estados();
-								if( count($estados) > 0 ){ 
-									foreach ($estados as $estado) { ?>
-										<option value="<?php echo utf8_decode($estado->id);?>">
-											<?php echo utf8_decode($estado->name);?>
-										</option>	
-								<?php } ?>
-							<?php } ?>
-						</select>
-					</div>
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
-							<option>Delegación</option>							
-						</select>
-					</div>
-				</div>
 				<div class="row row-special">					
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="dir_colonia" data-charset="xlfnumesp" class="form-control col-md-6" id="inputEmail3" placeholder="Colonia"  maxlength="50">
+					
+					<div class="col-md-8" style="padding: 0px 15px 0px 0px !important;">
+
+						<div class="row row-special">					
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<input type="text" name="dir_colonia" data-charset="xlfnumesp" class="form-control col-md-6" id="dir_colonia" placeholder="Colonia"  maxlength="50">
+							</div>
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<input type="text" name="dir_codigo_postal" data-charset="numalf" class="form-control col-md-6" id="dir_codigo_postal" placeholder="Código postal" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="15">
+							</div>
+						</div>
+
+						<div class="row row-special">					
+
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
+								<select class="form-control col-md-4" name="dir_estado">
+									<option>Estado</option>
+									<?php
+										$estados = get_estados();
+										if( count($estados) > 0 ){ 
+											foreach ($estados as $estado) { ?>
+												<option value="<?php echo utf8_decode($estado->id);?>">
+													<?php echo utf8_decode($estado->name);?>
+												</option>	
+										<?php } ?>
+									<?php } ?>
+								</select>
+							</div>
+							<div class="col-md-6 form-group">
+								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<select class="form-control col-md-4" id="dir_ciudad" name="dir_ciudad">
+									<option>Delegación</option>							
+								</select>
+							</div>
+						</div>
+
 					</div>
-					<div class="col-md-4 form-group">
-						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-						<input type="text" name="dir_codigo_postal" data-charset="numalf" class="form-control col-md-6" id="inputEmail3" placeholder="Código postal" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="15">
+
+					<div class="col-md-4" style="padding-top: 20px;">	
+						<div class="col-sm-offset-1	col-sm-11 text-center">
+							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Registrarme</button>
+							<div id="error_registrando"> Por favor revisar tus datos arriba, hay algún campo incompleto </div> 
+							<div id="success_registrando"> Registro Exitoso </div>
+	 					</div>
+	 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje">Prueba</aside>
 					</div>
+
 				</div>
 
-				<div class="row">
-					<div class="col-sm-offset-1	col-sm-11 text-center">
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-xs" style="margin-left: 68%;margin-top: -15%; color: #94d400;     border: 2px solid #091705;">Registrarme</button>
-						
-						<button id="btn-register_" class="btn btn-sm-kmibox hidden-lg hidden-md hidden-sm" style=" color: #94d400;     border: 2px solid #091705;">Registrarme</button>
-						<br>
-						<br>
-<!--
- 						<label>¿Ya tienes un perfil Kmibox? </label>
-						<a href="<?php echo get_home_url(); ?>/iniciar-sesion" id='link-login' data-target="register" >
-							Iniciar Sesion
-						</a>
- -->
- 					</div>
- 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
-				</div>
 			</form>
 		</div>
 	</div>

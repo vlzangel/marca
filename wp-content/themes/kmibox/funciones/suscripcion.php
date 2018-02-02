@@ -5,14 +5,17 @@
 	function dataOpenpay(){
 		$OPENPAY_PRUEBAS = 1;
 		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
+
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
 		$OPENPAY_KEY_SECRET = "sk_b485a174f8d34df3b52e05c7a9d8cb22";
 		$OPENPAY_KEY_PUBLIC = "pk_dacadd3820984bf494e0f5c08f361022";
+
 		if( $OPENPAY_PRUEBAS == 1 ){
 			$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
 			$OPENPAY_KEY_SECRET = "sk_684a7f8598784911a42ce52fb9df936f";
 			$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
 		}
+		
 		return array(
 			"OPENPAY_PRUEBAS" => $OPENPAY_PRUEBAS,
 			"OPENPAY_URL" => $OPENPAY_URL,
@@ -33,6 +36,7 @@
 				"tamanos" => unserialize($producto->tamanos),
 				"edades" => unserialize($producto->edades),
 				"precio" => $producto->precio,
+				"existencia" => $producto->existencia,
 				"peso" => $producto->peso,
 				"marca" => $producto->marca,
 				"tipo" => $producto->tipo_mascota,
@@ -88,7 +92,7 @@
 	    $user_id = $current_user->ID;
 	    $CARRITO = unserialize( $_SESSION["CARRITO"] );
 	    $hoy = date("Y-m-d H:i:s", time() );
-	 	$SQL_PERDIDO = "
+	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
 	 			'{$user_id}',
@@ -97,32 +101,33 @@
 		 		'{$hoy}'
 	 		)
 	 	";
-	 	$wpdb->query( $SQL_PERDIDO );
+	 	$wpdb->query( $SQL_PEDIDO );
 	 	$orden_id = $wpdb->insert_id;
+
 	 	foreach ($CARRITO["productos"] as $producto) {
-	 		for ($i=0; $i < $producto->cantidad; $i++) { 
-		 		if( $producto->producto != "" ){
-		 			$data = array(
-		 				"tamano" => $producto->tamano,
-		 				"edad" => $producto->edad,
-		 				"presentacion" => $producto->presentacion,
-		 				"plan" => $producto->plan
-		 			);
-		 			$data = serialize($data);
-				 	$SQL_PERDIDO = "
-				 		INSERT INTO items_ordenes VALUES (
-				 			NULL,
-				 			'{$orden_id}',
-				 			'{$producto->producto}',
-				 			'{$data}',
-				 			'Activa',
-				 			'{$producto->subtotal}',
-				 			'{$hoy}',
-				 			'{$producto->plan_id}'
-				 		)
-				 	";
-				 	$wpdb->query( $SQL_PERDIDO );
-		 		}
+	 		if( $producto->producto != "" ){
+	 			$data = array(
+	 				"tamano" => $producto->tamano,
+	 				"edad" => $producto->edad,
+	 				"presentacion" => $producto->presentacion,
+	 				"plan" => $producto->plan
+	 			);
+	 			$data = serialize($data);
+			 	$SQL_SUB_PEDIDO = "
+			 		INSERT INTO items_ordenes VALUES (
+			 			NULL,
+			 			'{$orden_id}',
+			 			'{$producto->producto}',
+			 			'{$producto->cantidad}',
+			 			'{$data}',
+			 			'Activa',
+			 			'{$producto->subtotal}',
+			 			'{$hoy}',
+			 			'{$producto->plan_id}'
+			 		)
+			 	";
+
+			 	$wpdb->query( $SQL_SUB_PEDIDO );
 	 		}
 	 	}
 
@@ -145,10 +150,20 @@
     		$wpdb->query( $SQL ); 
     		for ($i=0; $i < $meses; $i++) { 
     			if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', NOW() );";
+    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL );";
     			$wpdb->query( $SQL );
     		}
     	}
+	}
+
+	function getOrdenes(){
+    	date_default_timezone_set('America/Mexico_City');
+		global $wpdb;
+	 	$current_user = wp_get_current_user();
+	    $user_id = $current_user->ID;
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
+
+		return $ordenes;
 	}
 
 	function getSuscripciones(){
@@ -181,10 +196,10 @@
 					"orden" => $plan->id,
 					"plan" => $data["plan"],
 					"producto" => $plan->id_producto,
+					"cantidad" => $plan->cantidad,
 					"total" => $plan->total,
 					"nombre" => $producto->nombre,
 					"img" => $img,
-					"presentacion" => $data["presentacion"],
 					"status" => $plan->status_suscripcion,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
 					"entredagos" => $_entregados_str

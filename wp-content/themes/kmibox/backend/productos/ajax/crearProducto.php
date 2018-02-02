@@ -15,7 +15,7 @@
 	$_edades = array(
 		"Cachorro" => 0,
 		"Adulto" => 0,
-		"Maduro" => 0
+		"Senior" => 0
 	);
 
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
@@ -34,7 +34,9 @@
 	);
 
 	$dataextra = array(
-		"img" => $img
+		"img" => $img,
+		"origen_1" => $origen_1,
+		"origen_2" => $origen_2
 	);
 
 	$SQL = "
@@ -44,6 +46,7 @@
 			'$descripcion',
 			'$precio',
 			'$peso',
+			'$existencia',
 			'$marca',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',

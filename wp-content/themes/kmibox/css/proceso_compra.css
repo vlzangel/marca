@@ -4,6 +4,25 @@ html, body, #content-primary {
 	margin-top: 0px !important;
 }
 
+body {
+   /* line-height: inherit;*/
+}
+
+div#wpadminbar {
+    display: none !important;
+}
+
+.center{
+	text-align: center;
+}
+
+.col-xs-12, .col-md-6, .col-md-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
 #content-primary, .comprar_container, .comprar_container section {
 	height: 100%;
 }
@@ -68,7 +87,7 @@ html, body, #content-primary {
 
 #vlz_controles_fases > span > span {
 	position: absolute;
-    left: -55px;
+    left: -60px;
     top: -4px;
     font-weight: 600;
     font-size: 13px;    
@@ -96,6 +115,7 @@ html, body, #content-primary {
 
 .btn-disable {
     background: #989898 !important;
+    border: 2px solid #989898 !important;
 }
 
 /* Fase 1 */
@@ -128,7 +148,7 @@ html, body, #content-primary {
 	    font-family: GothanMedium_regular;
 	    font-size: 30px;
 	    color: #FFF;
-	    padding: 7px;
+	    padding: 5px;
 	    min-width: 270px;
 	    margin: 0px 10px;
 	    border-radius: 20px;
@@ -187,6 +207,7 @@ html, body, #content-primary {
 	    float: left;
 	    font-size: 20px;
 	    padding: 10px 0px 0px;
+	    font-weight: 600;
 	}
 
 	.tipo_mascota {
@@ -197,30 +218,31 @@ html, body, #content-primary {
 	    padding: 5px 20px;
 	    outline: none !important;
 	    box-shadow: 0px 0px 0px #000 !important;
+	    border-radius: 5px !important;
 	}
 
 	#marca > div {
 	    float: left;
 	    width: 25%;
 	    box-sizing: border-box;
-	    padding: 10px;
+	    padding: 5px;
         height: 33.333334%;
 	}
 
 	#marca > div > .item_box {
-		border: solid 3px #CCC;
-	    border-radius: 25px;
-	    padding: 10px;
+	    border: solid 3px transparent;
+	    border-radius: 15px;
+	    padding: 0px;
 	    cursor: pointer;
-        height: 100%;
+	    height: 100%;
 	}
 
 	#marca > div > .item_box:hover {
-		border: solid 3px #777;
+		background: #ededed;
 	}
 
 	#marca > div.item_activo > .item_box {
-		border: solid 3px #777;
+		background: #ededed;
 	}
 
 	.img_box {
@@ -268,36 +290,46 @@ html, body, #content-primary {
 	    height: calc( 100% - 170px );
 	    overflow: auto;
 	    padding: 0px 10px;
-	    margin: 0px;
+	    margin: 0px auto;
+	    max-width: 1400px;
 	}
 
 	#presentaciones > div {
 	    float: left;
-	    width: 25%;
+	    width: 50%;
 	    box-sizing: border-box;
-	    padding: 10px;
-        height: 80%;
+	    padding: 5px;
+        height: 33.3333%;
+        overflow: hidden;
+        border-bottom: solid 1px #CCC;
 	}
 
 	#presentaciones > div > .item_box {
-		border: solid 3px #CCC;
-	    border-radius: 25px;
-	    padding: 10px;
+	    padding: 5px;
 	    cursor: pointer;
         height: 100%;
-        text-align: center;
+        text-align: left;
+        border-radius: 15px;
 	}
 
 	#presentaciones > div > .item_box:hover {
-		border: solid 3px #777;
+		background: #ededed;
 	}
 
 	#presentaciones > div.item_activo > .item_box {
-		border: solid 3px #777;
+		background: #ededed;
+	}
+
+	.info_producto_container {
+	    width: calc( 100% - 180px );
+	    float: right;
+	    text-align: left;
 	}
 
 	#presentaciones .img_box {
-        height: calc( 100% - 70px );
+		width: 180px;
+		float: left;
+        height: 100%;
 	    background-size: contain;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -305,16 +337,33 @@ html, body, #content-primary {
 
 	#presentaciones .title_producto_box {
 	    font-weight: 600;
+	    text-transform: uppercase;
+	    font-size: 24px;
+	    font-family: GothanMedium_regular;
 	}
 
 	#presentaciones .descripcion_producto_box {
 	    font-weight: 400;
 	    color: #888;
+	    font-size: 22px;
+	    font-family: Gothamlight_Regular;
 	}
 
 	#presentaciones .peso_producto_box {
 	    font-weight: 600;
-	    color: #00bc00
+	    color: #00bc00;
+	    font-size: 22px;
+	    font-family: Gothamlight_Regular;
+	    text-transform: uppercase;
+	}
+
+	#presentaciones .existencia_producto_box {
+	    font-weight: 600;
+	    color: #00bc00;
+	    font-size: 16px;
+	    font-family: GothanMedium_regular;
+	    text-transform: uppercase;
+	    color: red;
 	}
 
 /* Fase 4 */
@@ -393,10 +442,16 @@ html, body, #content-primary {
 
 	#agregar_plan {
 	    padding: 10px 20px;
-	    font-family: Gothamlight_Regular;
-	    font-size: 20px;
+	    font-family: GothanMedium_regular;
+	    font-size: 16px;
 	    font-weight: 600;
 	    cursor: pointer;
+        border: solid 2px #091705;
+        text-transform: uppercase;
+	}
+
+	#agregar_plan:hover {
+	    background: #091705;
 	}
 
 	#btn-sm-marca{
@@ -410,7 +465,6 @@ html, body, #content-primary {
 	    display: block;
 	    vertical-align: middle;
 	    text-align: center;
-	    padding-bottom: 10px;
 	}
 
 	.cantidad_controls label {
@@ -433,6 +487,7 @@ html, body, #content-primary {
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
 	    max-width: 900px;
+        padding-right: 5px;
 	}
 
 	table {
@@ -451,7 +506,11 @@ html, body, #content-primary {
 	    color: #FFF;
 	    padding: 3px 20px;
 	    text-transform: uppercase;
-	    margin: 5px;
+	    margin: 2px;
+	}
+
+	body.iOS #desglose th span{
+	    padding: 10px 20px 0px;
 	}
 
 	#desglose th *{
@@ -463,7 +522,7 @@ html, body, #content-primary {
 	}
 
 	#desglose td {    
-	    padding: 10px 20px;
+	    padding: 10px 5px;
 	}
 
 	#desglose td hr {        
@@ -516,6 +575,7 @@ html, body, #content-primary {
 
 	#totales table th{    
 		text-align: right !important;
+		padding: 2px 0px;
 	}
 
 	#totales table td {    
@@ -542,7 +602,7 @@ html, body, #content-primary {
 
 	.cintillo_factura #cen{        
 		width: 95%;
-	    margin: 15px auto;
+	    margin: 30px auto;
 	}
 
 	.btn_pagar{	
@@ -551,13 +611,13 @@ html, body, #content-primary {
 	    border-radius: 40px;
 	    border: 1px solid #091705;
 	    color: #ffffff;
-	    font-size: 20px;
+	    font-size: 16px;
 	    font-weight: bold;
 	    text-align: center;
 	    text-decoration: none !important;
 	    z-index: 9999999999999;
 	    padding: 10px 50px;
-	    font-family: Gothamlight_Regular;
+	    font-family: GothanMedium_regular;
 	    border: solid 2px #091705;
 	    cursor: pointer;
 	}
@@ -645,6 +705,7 @@ html, body, #content-primary {
 	    font-weight: normal;
 	    color: #00bb00;
 	    text-transform: uppercase;
+	    padding: 3px;
 	}
 	
 	.carrousel-items{   

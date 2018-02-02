@@ -1,14 +1,61 @@
-@media (max-width: 992px){
+@media (max-width: 850px){
+
+	.form_suscripcion .entregas span {
+	    display: block;
+	    margin-right: auto;
+	    text-align: center;
+	    margin: 0px auto 10px;
+	}
+
+	.form_suscripcion .celda_6 > div {
+	    width: 33.333334%;
+	}
+
+	.form_suscripcion .entregas label {
+	    display: block !important;
+	    padding-left: 0px;
+	    text-align: center;
+	}
 
 }
 
 @media (max-width: 768px){
+
+	.form_suscripcion .celda_4 > div {
+	    width: 50%;
+	}
 
 }
 
 @media (max-width: 500px){
     .perfil_tabs li {
 	    font-size: 10px;
+	}
+
+	.carrusel_suscripciones_container > div {
+	    width: 150px !important;
+	}
+
+	.form_suscripcion .celda_4 > div {
+	    width: 100%;
+	}
+
+	.item_carrusel_orden {
+	    font-size: 11px;
+	}
+
+	.bx-wrapper {
+	    margin-bottom: 5px;
+	}
+
+	.carrusel_suscripciones_container_general,
+	.img_grande {
+	    width: 100%;
+	}
+
+	.perfil_tabs li {
+	    margin: 0px 0px 1px;
+	    width: 100%;
 	}
 }
 

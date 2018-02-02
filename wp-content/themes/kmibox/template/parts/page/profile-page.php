@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="col-md-12">
-				<div class="col-md-6 col-sm-6 form-group">
+				<div class="col-md-6 col-sm-6 form-group"  style="width: 100%;">
 					<input type="text" name="nombre" class="form-control profile-content-input"  placeholder="Nombre y Apellido"
 						value="<?php echo $user['first_name']; ?>">
 				</div>

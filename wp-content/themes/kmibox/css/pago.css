@@ -1,0 +1,147 @@
+#pago_exitoso {
+    margin: 3% auto 0px;
+    width: calc( 100% - 40px );
+    border-radius: 10px !important;
+    padding: 10px !important;
+    max-width: 1000px;
+    display: block;
+    float: none;
+}
+
+#pago_exitoso .col-md-8 {
+    width: calc( 100% - 40px );
+    float: none;
+    margin: 0px auto !important;
+}
+
+.text-felicidades{
+	font-size: 40px; 
+	font-weight: bold; 
+	color: #04b804; 
+	margin-bottom: 20px;
+}
+
+.text-suscripcionexitosa{
+	color:#000; 
+	font-weight: bold; 
+	margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.text-tususcripcion{
+	font-size: 18px;
+}
+
+.total{
+	font-size: 18px; 
+	font-weight: bold;
+}
+
+.desglose_final{
+	width: 100%;
+	border-right: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+}
+
+.desglose_final th {
+	border-left: solid 1px #CCC;
+	border-top: solid 1px #CCC;
+}
+
+.desglose_final th div {
+    font-family: GothanMedium_regular;
+	border: solid 1px #CCC;
+    margin: 10px 10px 5px;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.desglose_final td {
+	border-left: solid 1px #CCC;
+    font-size: 14px;
+    font-weight: 800;
+    font-family: GothanMedium_regular;
+}
+
+.desglose_final td.info {
+	text-align: left;
+	padding: 10px;
+	border-left: solid 0px #CCC;
+    font-family: Gothamlight_Regular;
+}
+
+.desglose_final td img {
+	height: 100px;
+    margin-right: 10px;
+}
+
+.desglose_final td.info > div {
+	display: inline-block;
+    text-align: center;
+}
+
+.desglose_final td.info  .info_2 {
+    font-family: GothanMedium_regular;
+    text-transform: uppercase;
+}
+
+.desglose_final td.periodicidad {
+    font-family: GothanMedium_regular;
+    text-transform: uppercase;
+}
+
+.solo_movil{
+	display: none !important;
+}
+
+.info_3 div {
+    font-family: GothanMedium_regular;
+}
+
+.mayuscula {
+    text-transform: uppercase;
+}
+
+.controles_generales{
+    position: fixed;
+    #background: #CCC;
+    padding: 5px 15px 5px 15px;
+    top: 15px;
+    box-sizing: border-box;
+}
+
+#vlz_atras {
+    left: 20px;
+    width: 140px;
+    background: #091705;
+    border-radius: 40px;
+    border: 1px solid #091705;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none !important;
+    z-index: 99;
+}
+
+#vlz_atras:hover {
+    background: #FFF;
+    color: #091705;
+    border: solid 2px #091705;
+}
+
+#vlz_atras i {
+    margin-right: 5px;
+}
+
+#vlz_titulo {
+    width: calc( 100% - 230px );
+    left: 140px;
+    top: 13px;
+    text-align: center;
+    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}

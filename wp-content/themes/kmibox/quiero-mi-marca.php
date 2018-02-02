@@ -22,7 +22,7 @@
 			</article>
 		';
 	}
-
+   
 	$_tipos = $wpdb->get_results("SELECT * FROM tipo_mascotas");
 	$tipos = "";
 	foreach ($_tipos as $key => $tipo) {
@@ -30,7 +30,6 @@
 	}
 
 	$HTML = '
-
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
 		</a>
@@ -126,9 +125,10 @@
 					<div class="cintillo_factura">
 						<img id="cen" src="'.TEMA().'/imgs/Elemento-1.png" />
 					</div>
+					<h5 id="label-mensaje"></h5>
 					<div class="alerta" id="cart-content-alerta">
 						<span id="cart-alerta"></span>
-					</div>
+					</div>					
 					<table id="desglose" cellspacing=5 cellpadding=5>	
 						<thead>
 							<th class="solo_pc" width="40">&nbsp;</th>
@@ -164,7 +164,8 @@
 				</div>
 				
 				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
-					<span id="agregar_plan" >Agregar otro plan</span>
+					
+					<span id="agregar_plan" class="btn-kmibox-link-suscription" ><i class="fa fa-plus"></i>Agregar otro plan</span>
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
 			</section>	
@@ -174,8 +175,9 @@
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog">
 				<div class="Modal content text-center" >			     
-					<div style=" background-color:#ffffff; border-color:#fffff1; border-style: solid; border-width: 14px;">
-						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="fondo_opciones" />
+					<div style=" background-color:#ffffff; border-color:#fffff1;">
+						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="img-responsive" />
+						<div style="background-color: #000000; color: #ffffff; text-align: left; padding: 5px 25px; font-family: GothanMedium_regular;">ELIJE TU FORMA DE PAGO</div>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
@@ -193,8 +195,10 @@
 
 	echo comprimir($HTML);
 
+	wp_enqueue_script('mascotas', TEMA()."/js/functions_new.js", array(), '1.0.0');
+
 	get_footer();
 
-	echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
+	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>
 

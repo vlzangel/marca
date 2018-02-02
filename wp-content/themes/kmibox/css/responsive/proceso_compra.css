@@ -82,6 +82,7 @@
 @media (max-width: 992px){
 	.select_plan div{
 	    font-size: 14px;
+	    line-height: 20px;
 	}
 }
 
@@ -111,13 +112,6 @@
 	    top: 45px;
 	    left: 10px;
 	}
-	#nombre_producto {
-	    font-size: 30px !important;
-	}
-
-	#descripcion_producto {
-	    font-size: 15px !important;
-	}
 
 }
 
@@ -144,9 +138,38 @@
 
     /* Presentaciones */
 
-    	#presentaciones > div {
-		    width: 33.3334%;
+    	#presentaciones .img_box {
+		    width: 150px;
 		}
+
+		.info_producto_container {
+		    width: calc( 100% - 150px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 20px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 18px;
+		}
+
+
+
+	#desglose th span {
+	    display: block;
+	    text-align: center;
+	    background-color: #181E0D;
+	    color: #FFF;
+	    padding: 3px 10px;
+	    text-transform: uppercase;
+	    margin: 2px 2px 0px;
+	}
+
+	#desglose th * {
+	    font-size: 9px;
+	}
 }
 
 @media (max-width: 780px){
@@ -277,7 +300,24 @@
 		}
 
     	#presentaciones > div {
-		    width: 33.3334%;
+		    width: 100%;
+		}
+
+    	#presentaciones .img_box {
+		    width: 180px;
+		}
+
+		.info_producto_container {
+		    width: calc( 100% - 180px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 24px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 22px;
 		}
 
     /* Planes */
@@ -309,10 +349,10 @@
 
     /* Presentaciones */
 
-		#presentaciones > div {
+		/*#presentaciones > div {
 		    width: 50%;
 		    height: 70%;
-		}
+		}*/
 
     /* Planes */
 
@@ -328,11 +368,28 @@
 	    font-size: 12px;
 	    min-width: 150px;
         margin: 0px 3px;
+
+	    padding: 7px 5px 2px;
 	}
 
 	#agregar_plan {
-	    display: block;
-	    margin: 10px;
+		display: block;
+	    margin: 25px auto 20px;
+	    font-size: 13px;
+	    width: 240px;
+	    padding: 10px 0px 5px;
+	}
+
+	.btn_pagar {    
+		display: inline-block;
+	    font-size: 13px;
+	    width: 240px;
+	    padding: 10px 50px 5px;
+	}
+
+	.btn-kmibox-link-suscription i {
+	    font-size: 15px;
+	    margin-right: 5px;
 	}
 
 	.factura {
@@ -373,14 +430,19 @@
 		    padding: 0px 10px;
 		}
 
+	/* Desglose */
+
+		#desglose th span{
+			padding: 7px 20px 4px;
+		}
+
 }
 
 @media ( max-width: 500px ) {
 
 	.titulo_planes {
 	    top: 44px !important;
-	    font-size: 15px !important;
-	    padding: 4px 80px;
+	    font-size: 13px !important;
 	}
 
 	#vlz_controles_fases > span > span {
@@ -436,10 +498,12 @@
 
 	.selector_edad_container .selector_edad_box span {
 	    font-size: 11px;
-	    padding: 7px 10px;
 	    min-width: 110px;
 	    margin: 0px 3px;
+
+	    padding: 7px 5px 4px;
 	}
+
 	#vlz_controles_fases {
 	    right: 0px;
 	}
@@ -527,7 +591,7 @@
 	/* Marca */
 
 		#marca {
-		    height: calc( 100% - 170px );
+		    height: calc( 100% - 175px );
 		}
 
 		#marca > div {
@@ -535,7 +599,7 @@
 		}
 
 		.cantidad_resultados {
-		    font-size: 12px;
+		    font-size: 11px;
 		    padding: 20px 0px 0px;
 		}
 
@@ -545,13 +609,13 @@
 		}
 
 		.controles_marca_container {
-		    margin: 75px 20px 0px 20px;
+		    margin: 80px 20px 0px 20px;
 		}
 
 		.btn_siguiente_container {
 		    text-align: center;
 		    padding: 0px 75px;
-		    margin: 10px 0px 3px;
+		    margin: 4px 0px 3px;
 		    font-size: 12px;
 		}
 
@@ -561,10 +625,23 @@
 	    	margin: 5px;
 		}
 
-	/* Precentaciones */
+    /* Presentaciones */
 
-		#presentaciones > div {
-		    height: 50%;
+    	#presentaciones .img_box {
+		    width: 150px;
+		}
+
+		.info_producto_container {
+		    width: calc( 100% - 150px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 20px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 18px;
 		}
 
     /* Planes */
@@ -591,33 +668,70 @@
 	}
 
 	.selector_edad_container .selector_edad_box span {
-	    font-size: 8px;
-	    padding: 7px 10px;
+	    font-size: 11px;
+	    padding: 7px 5px 4px;
 	    min-width: 85px;
-	    margin: 0px 3px;
+	    margin: 0px !important;
 	}
 
-	/* Precentaciones */
+    /* Presentaciones */
 
 		#presentaciones .title_producto_box {
-		    font-size: 12px;
+		    font-size: 16px;
 		}
 
-		#presentaciones .descripcion_producto_box {
-		    font-size: 11px;
-		}
-
+		#presentaciones .descripcion_producto_box,
 		#presentaciones .peso_producto_box {
-		    font-size: 12px;
-		}
-
-		#presentaciones .img_box {
-		    height: calc( 100% - 50px );
+		    font-size: 14px;
 		}
 
     /* Planes */
 
 		.select_plan div {
 		    font-size: 13px;
+		}
+}
+
+@media (max-width: 350px){
+
+	#vlz_titulo {
+	    top: 55px;
+	    font-size: 12px;
+	    width: calc( 100% - 20px );
+	}
+
+	.selector_edad_container label {
+	    font-size: 15px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    padding: 7px 5px 4px;
+	    min-width: 75px;
+	}
+
+    /* Plan */
+
+	    .select_plan div {
+		    font-size: 11px;
+		}
+
+    /* Presentaciones */
+
+
+    	#presentaciones .img_box {
+		    width: 85px;
+		}
+
+		.info_producto_container {
+		    width: calc( 100% - 85px );
+		}
+
+		#presentaciones .title_producto_box {
+		    font-size: 16px;
+		}
+
+		#presentaciones .descripcion_producto_box,
+		#presentaciones .peso_producto_box {
+		    font-size: 14px;
 		}
 }

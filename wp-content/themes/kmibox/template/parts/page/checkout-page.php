@@ -9,35 +9,58 @@
 		$productos[ $value->id ] = $value;
 	}
 
-	$suscripciones = "";
+	$suscripciones = "
+		<table cellspacing=0 cellpadding=0 class='desglose_final'>
+			<tr>
+				<th colspan=2 > <div> Producto </div> </th>
+				<th class='solo_pc'> <div> Periodicidad </div> </th>
+				<th class='solo_pc'> <div> Mascota </div> </th>
+			</tr>";
 	foreach ($CARRITO["productos"] as $key => $value) {
+		$data = unserialize( $productos[ $value->producto ]->dataextra );
 		if( isset($value->edad) ){
 			$suscripciones .= "
-				<div style='font-weight: normal;'>
-					<strong>Producto: </strong> ".$productos[ $value->producto ]->nombre." ( ".$value->presentacion." )
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Plan: </strong> ".$value->plan."
-				</div>
-				<div style='font-weight: normal;'>
-					<strong>Mascota: </strong> ".$value->edad." (".$value->tamano.")
-				</div>
+				<tr>
+					<td>
+						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+					</td>
+					<td class='info'>
+						<div>
+							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
+							<div>".$productos[ $value->producto ]->descripcion."</div>
+							<div>".$productos[ $value->producto ]->peso."</div>
+						</div>
+						<div class='info_3 solo_movil'>
+							<div class='mayuscula'>".$value->plan."</div>
+							<div>".$value->tamano." - ".$value->edad."</div>
+						</div>
+					</td>
+					<td class='periodicidad solo_pc'>".$value->plan."</td>
+					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
+				</tr>
 			";
 		}
 	}
+	$suscripciones .= "</table>";
 
-	$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
-	$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
+
+ 	$dataOpenpay = dataOpenpay();
+
+	$MERCHANT_ID = $dataOpenpay["MERCHANT_ID"];
+	$OPENPAY_KEY_PUBLIC = $dataOpenpay["OPENPAY_KEY_PUBLIC"];
 	$OPENPAY_PRUEBAS = 1;
 
 ?>
 
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css?ver=".time(); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/responsive/pagos.css?ver=".time(); ?>">
+
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay.v1.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo TEMA()."/js/openpay-data.v1.min.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo TEMA()."/js/pago_tarjeta.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo TEMA()."/js/pago_tarjeta.js?ver=".time(); ?>"></script>
 
 <!-- Fase #6 Pagos -->
-<section data-fase="6" class="container">
+<section data-fase="6" class="container3">
 
 	<!-- Mensaje de Error -->
 	<?php if ($result['msg'] != ''){ ?>
@@ -45,29 +68,29 @@
 	<?php } ?>
 
 	<!-- Mensaje Success -->
-	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden;">
+	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 75px;">
 		<aside class="col-md-12 text-center">
-			<h1 style="font-size: 40px; font-weight: bold; color: #94d400;" class="caviar">¡Felicidades!</h1>
-			<h4 style="color:#ccc;" class="caviar">Tu suscripción a Nutriheroes ha sido un éxito</h4>
+			<h1 class="postone text-felicidades">¡Felicidades!</h1>
+			<h4 class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
 		</aside>
 		<aside class="col-md-8 col-md-offset-2 text-left">
 			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name caviar">Tu suscripción:</div>
-				<div class="col-xs-6 col-md-6 desc_value caviar">
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion">TU SUSCRIPCIÓN:</div>				
+			</div>
+			<div class="col-xs-12 col-md-12 desc_value gothanligth" style="font-size: 18px;">
 					<?php echo $suscripciones; ?>
 				</div>
-			</div>
 			<div class="row">
-				<div class="col-xs-4 col-md-6 desc_name caviar">Total Suscripci&oacute;n:</div>
-				<div class="col-xs-6 col-md-6 desc_value caviar">
+				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion">TOTAL SUSCRIPCIÓN:</div>				
+			</div>
+			<div class="col-xs-12 col-md-12 desc_value gothan total">
 					<?php 
 						echo "$".number_format($CARRITO["total"], 2, ',', '.');
 					?>
 				</div>
-			</div>
 		</aside>
 		<aside class="col-md-12">
-	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox caviar">Ir a mi perfil</a>
+	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox gothanligth text-btnperfil" style="">IR A MI PERFIL</a>
 		</aside>
 	</article>
 
@@ -80,7 +103,7 @@
 		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
 	</script>
 
-	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin-top:7%;border:1px solid #ccc;">
+	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin: 75px 20px 0px; border:1px solid #ccc; width: calc( 100% - 40px );">
 
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" method="post" action="#" id="form-pago" >
@@ -98,21 +121,21 @@
 			      	maxlength="25"
 			      	value=""
 			      	data-charset="xlf"
-			      	data-openpay-card="holder_name">
+			      	data-openpay-card="holder_name" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar">Numero de Tarjeta</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="16" data-charset="num" value="4111111111111111" data-openpay-card="card_number">
+			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="16" data-charset="num" value="4111111111111111" data-openpay-card="card_number" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Fecha vencimiento</label>
 			    <div class="col-sm-4">
-			    	<select name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" >
+			    	<select name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" style="border-radius: 50px !important;" >
 			    		<option>Mes</option>
 			    		<?php for ($i=1; $i <= 12; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -122,7 +145,7 @@
 			    </div>
 			    <div class="col-sm-4">
 			      <!-- input type="text" name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="Año" -->
-			    	<select name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year"  >
+			    	<select name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year" style="border-radius: 50px !important;" >
 			    		<option>Año</option>
 			    		<?php for ($i=date('y'); $i < date('y') + 15; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -134,14 +157,14 @@
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >CVV</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="3" data-charset="num" data-openpay-card="cvv2" >
+			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="3" data-charset="num" data-openpay-card="cvv2" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Total a pagar</label>
 			    <div class="col-sm-8">
-			      <input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>">
+			      <input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 

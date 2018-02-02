@@ -1,0 +1,27 @@
+#error_registrando{
+	padding: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 100%;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    margin: 10px 0px 0px;
+    display: none;
+}
+
+#success_registrando{
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 100%;
+    color: #0e7f00;
+    background-color: #bdffb5;
+    border-color: #0e7f00;
+    margin: 10px 0px 0px;
+    display: none;
+}
+
+aside#login-mensaje {
+    margin: 15px 0px;
+}

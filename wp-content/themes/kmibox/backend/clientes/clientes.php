@@ -20,6 +20,7 @@
                 <th>Email</th>
                 <th>Tel&eacute;fono</th>
                 <th>Donde nos conocio?</th>
+                <th>Usuario Kmimos</th>
             </tr>
         </thead>
         <tbody></tbody>

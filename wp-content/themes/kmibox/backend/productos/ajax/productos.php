@@ -20,6 +20,14 @@
 		$tipos[ $tipo->id ] = $tipo->tipo;
 	}
 
+	$_origenes = $wpdb->get_results("SELECT * FROM ciudades_origen");
+	$ciudades = array();
+	foreach ($_origenes as $origen) {
+		$ciudades[ $origen->id ] = $origen->ciudad; 
+	}
+
+	$data["data"] = array();
+
 	foreach ($productos as $producto) {
 
 		$dataextra = unserialize( $producto->dataextra );
@@ -44,14 +52,30 @@
 
 		$marca = $wpdb->get_var("SELECT nombre FROM marcas WHERE id = {$producto->marca}");
 
+		if( $producto->existencia == '-1' ){
+			$producto->existencia = "Agotado";
+		}
+		if( $producto->existencia == '0' ){
+			$producto->existencia = "Infinita";
+		}
+
+		$origenes = array();
+		for ($i=1; $i <= 2 ; $i++) { 
+			if( $dataextra["origen_".$i] != "" ){
+				$origenes[] = $ciudades[ $dataextra["origen_".$i] ];
+			}
+		}
+
 		$data["data"][] = array(
 	        "<img class='img_reporte' src='".$img."' />",
 	        $producto->id,
 	        $producto->nombre,
 	        $producto->descripcion,
 	        "$ ".$producto->precio." MXN",
+	        $producto->existencia,
 	        $producto->peso,
 	        $marca,
+	        implode("<br>", $origenes ),
 	        implode("<br>", $tamanos ),
 	        implode("<br>", $edades ),
 	        implode("<br>", $planes ),

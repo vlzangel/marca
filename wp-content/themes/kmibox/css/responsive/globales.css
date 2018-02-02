@@ -12,14 +12,14 @@
 	}
 	.nav_container > ul > li a {
     background: #000000;
-     padding: 12px 20px !important;
+     padding: 12px 17px !important;
     border-radius: 50px;
     border: 1px solid #fff;
     color: #fff;
     text-decoration: none;
 }
 }
-@media (max-width:768px) {
+@media (max-width:767px) {
 	.nav_container > ul > li a > span {
 	    display: none;
 	}
@@ -28,13 +28,17 @@
 		height: 17px;
 	}
 	.nav_container > ul > li a {
-    background: #000000;
-     padding: 7px 15px;
+    background: #181E0D;
+     padding: 9px 11px 5px 12px!important;
     border-radius: 50px;
-    border: 1px solid #fff;
+    border: 1px solid #181E0D;
     color: #fff;
     text-decoration: none;
 }
+	.nav_header{
+		 font-size: 22px;
+		 padding-right: 0px;
+	}
 }
 
 @media (max-width: 500px){

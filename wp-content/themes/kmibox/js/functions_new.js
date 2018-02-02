@@ -17,6 +17,11 @@ var MARCAS = [];
 var PLANES = [];
 
 jQuery(document).ready(function() {
+
+	if(navigator.platform.substr(0, 2) == 'iP'){
+		jQuery("body").addClass('iOS');
+	}
+
 	jQuery('.carrousel-items').on('click', 'article', function(){
 		var index = jQuery(this).index() + 1; 
 		if( index ==  1 ){
@@ -61,7 +66,6 @@ jQuery(document).ready(function() {
 		jQuery(this).addClass("plan_activo");
 		change_fase(5);
 	});
-
 
 	jQuery("#vlz_atras").on("click", function(e){
 		change_fase( jQuery(this).attr("data-value") );
@@ -167,6 +171,24 @@ function loadMarcas(){
 	jQuery('#marca').html("");
 	var CANT = 0;
 	jQuery.each(MARCAS,  function(key, marca){
+		/*jQuery.each(PRODUCTOS,  function(key_2, producto){
+			if( key == producto.marca ){
+				if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
+					if( producto.edades[ prod_actual["edad"] ] == 1 ){
+
+						jQuery('#marca').append(
+							'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
+								'<div class="item_box">'+
+									'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
+								'</div>'+
+							'</div>'
+						);
+						CANT++;
+					}
+				}
+			}
+		});*/
+
 		jQuery('#marca').append(
 			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
 				'<div class="item_box">'+
@@ -176,6 +198,7 @@ function loadMarcas(){
 		);
 		CANT++;
 	});
+
 	jQuery('#cant_marcas').html( CANT );	
 }
 
@@ -196,18 +219,30 @@ function loadPresentaciones(){
 	var prod_actual = getCarritoActual();
 	jQuery.each(PRODUCTOS,  function(key, producto){
 		if( prod_actual["marca"] == producto.marca ){
-			HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
-					'<div class="item_box">'+
-						'<div class="img_box" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
-						'<div class="info_producto_container">'+
-							'<div class="title_producto_box">'+producto.nombre+'</div>'+
-							'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
-							'<div class="peso_producto_box">'+producto.peso+'</div>'+
-						'</div>'+
-					'</div>'+
-				'</div>';
-			jQuery('#presentaciones').append( HTML );
-			CANT++;
+			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
+				if( producto.edades[ prod_actual["edad"] ] == 1 ){
+
+					var existencia = "";
+					if( producto.existencia == -1 ){
+						existencia = "Agotado";
+					}
+
+					HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
+							'<div class="item_box">'+
+								'<div class="img_box" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
+								'<div class="info_producto_container">'+
+									'<div class="title_producto_box">'+producto.nombre+'</div>'+
+									'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
+									'<div class="peso_producto_box">'+producto.peso+'</div>'+
+									'<div class="existencia_producto_box">'+existencia+'</div>'+
+									'<div class="title_producto_box">'+FN(producto.precio)+" MXN"+'</div>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
+					jQuery('#presentaciones').append( HTML );
+					CANT++;
+				}
+			}
 		}
 	});
 	jQuery('#cant_precentaciones').html( CANT );	
@@ -232,7 +267,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	var HTML = "";
 	HTML += '<tr>';
 	HTML += '	 <td class="solo_pc">';
-	HTML += '	 	<span onClick="eliminarProducto('+index+')">';
+	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="display: inline-block; padding-left: 10px;">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
@@ -240,20 +275,20 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
-	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 	<img src="'+thumnbnail+'"  height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc" style="text-align: center;">';
-	HTML += '	 	<img src="'+thumnbnail+'" width="60px" height="60px">';
+	HTML += '	 	<img src="'+thumnbnail+'"  height="60px">';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
 	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
+	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label class="resaltar_desglose">'+frecuencia+'</label>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
+	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label>$ '+price+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
@@ -264,7 +299,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	</div>';
 	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
+	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '</tr>';
@@ -393,11 +428,18 @@ function FN(number){
 
 function mas_cantidad(index){
 	var valor = jQuery("#cant_"+index).html();
+	var max = 20;
+	if(valor < max){
 	valor++;
 	jQuery("#cant_"+index).html(valor);
 	CARRITO["productos"][index]["cantidad"] = valor;
 	CARRITO["cantidad"]++;
 	loadFase(5);
+	}else{
+		jQuery('#mensaje').modal('show');
+		jQuery('#label-mensaje').html('Excedio la cantidad maxima de productos nutriheoes permitido');
+		
+	}
 }
 
 function menos_cantidad(index){
@@ -409,4 +451,22 @@ function menos_cantidad(index){
 		CARRITO["cantidad"]--;
 		loadFase(5);
 	}
+}
+
+function eliminarProducto(id){
+	var confirmed = confirm("Esta seguro de quitar este producto.?");
+    if (confirmed == true) {
+    	var TEMP = [];
+    	jQuery.each( CARRITO["productos"],  function(key, producto){
+    		if(key != id){
+				TEMP.push(producto);
+    		}
+		});
+		CARRITO["productos"] = TEMP;
+		if( CARRITO["productos"].length == 0 ){
+			jQuery("#agregar_plan").click();
+		}else{
+			change_fase(5);
+		}
+    }
 }

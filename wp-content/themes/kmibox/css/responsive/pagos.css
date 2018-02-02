@@ -1,0 +1,129 @@
+@media (max-width: 1040px){
+	#pago_exitoso {
+	    margin: 3% 20px 0px;
+	    width: calc( 100% - 40px );
+	    border-radius: 10px !important;
+	    padding: 10px !important;
+	}
+}
+
+
+@media (max-width: 767px) {
+
+	#vlz_atras {
+	    width: 85px;
+	    font-size: 10px;
+	}
+
+	#vlz_titulo {
+	    width: calc( 100% - 230px );
+	    left: 0px;
+	    width: 100%;
+	    text-align: center;
+	    font-family: GothanMedium_regular;
+	    font-size: 16px;
+	    font-weight: bold;
+	}
+
+}
+
+@media (max-width: 650px){
+	.desglose_final th div {
+	    font-size: 12px;
+	}
+	.desglose_final td {
+	    font-size: 10px;
+	}
+	.desglose_final td img {
+	    height: 60px;
+	    margin-left: 10px;
+	}
+}
+
+@media (max-width: 500px){
+
+	.text-felicidades {
+	    font-size: 25px;
+        margin-bottom: 10px;
+	}
+
+	.text-suscripcionexitosa {
+	    font-size: 14px;
+        margin-bottom: 10px;
+	}
+
+	.text-tususcripcion {
+	    font-size: 14px;
+        margin-bottom: 10px;
+	}
+
+	.text-quedebohacer{
+		font-size: 14px;
+	}
+
+	.text-pasos{
+		font-size: 14px;
+	}
+
+	.solo_pc{
+		display: none !important;
+	}
+
+	.solo_movil{
+		display: block !important;
+	}
+
+	.desglose_final td.info > div {
+	    text-align: left !important;
+	}
+
+	.col-xs-12, .col-md-6, .col-md-12 {
+	    padding-right: 0px !important;
+	    padding-left: 0px !important;
+	}
+
+	.btn-sm-kmibox {
+	    font-size: 12px;
+	}
+
+}
+
+@media (max-width: 400px){
+
+	#vlz_titulo {
+	    font-size: 12px;
+	    top: 45px;
+	}
+
+}
+
+@media (max-width: 360px){
+
+	.text-felicidades {
+	    font-size: 20px;
+	}
+
+	.text-suscripcionexitosa {
+	    font-size: 11px;
+	}
+
+	.text-tususcripcion {
+	    font-size: 12px;
+        margin-bottom: -10px;
+	}
+
+	.text-pasos{
+		font-size: 12px;
+	}
+
+}
+
+
+@media (max-width: 350px){
+
+	#vlz_titulo {
+	    font-size: 12px;
+	    width: calc( 100% - 20px );
+	}
+
+}
