@@ -55,13 +55,13 @@
 
 						<article data-value="Mediano">
 							<div>
-								<div style="background-image: url('.get_home_url().'/img/edad/p_pequeno_1.png);" class="img-responsive img-circle"></div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_mediano.png);" class="img-responsive img-circle"></div>
 								<p class="col-md-12">Mediano</p>
 							</div>
 						</article>
 						<article data-value="Pequeño">
 							<div>
-								<div style="background-image: url('.get_home_url().'/img/edad/p_mediano.png);" class="img-responsive img-circle"></div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_pequeno_1.png);" class="img-responsive img-circle"></div>
 								<p class="col-md-12">Pequeño</p>
 							</div>
 						</article>
