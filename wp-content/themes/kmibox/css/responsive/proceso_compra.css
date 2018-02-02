@@ -15,22 +15,6 @@
 
 @media (min-width: 768px) {
 
-    /* GRID */
-
-	    .carrousel-items,
-	    .carrousel-items article {
-	        padding-left: 0px;
-	        padding-right: 0px;
-	    }
-
-	    .carrousel-items {
-	        display: table-cell;
-	    }
-
-	    .carrousel-items article > div{
-	    	margin: 0px 20px;
-	    }
-
     .btn_siguiente_container {
 	    margin-top: 5px;
 	}
@@ -76,6 +60,10 @@
 
 @media (max-width: 950px){
 
+	.carrousel-items > article {
+	    height: 30%;
+	}
+
 	.selector_producto_container {
 	    height: 280px;
 	}
@@ -104,6 +92,7 @@
 }
 
 @media (max-width: 900px){
+
 	.selector_edad_container .selector_edad_box span {
 	    font-size: 22px;
 	    min-width: 210px;
@@ -173,9 +162,17 @@
 
 @media (max-width: 767px) {
 
-	.carrousel-items article  {
-	    padding: 0px;
-	    margin: 0px auto;
+	.carrousel-items-containers {
+	    height: calc( 100% - 215px );
+	    margin: 95px 0px 0px;
+	}
+
+	.carrousel-items > article {
+	    width: 100%;
+	}
+
+	.carrousel-items > article > div > div {
+	    background-position: center;
 	}
 
 	.solo_movil{
@@ -184,18 +181,6 @@
 
 	.solo_pc{
 		display: none;
-	}
-
-	.carrousel-items article{
-	    width: 100%;
-	}
-
-	.carrousel-items img {
-		height: 90px;
-	}
-
-	.carrousel-items article div {
-	    padding: 0px;
 	}
 
 	#vlz_atras {
@@ -212,19 +197,6 @@
 	    font-family: GothanMedium_regular;
 	    font-size: 16px;
 	    font-weight: bold;
-	}
-
-    /* Grid */
-
-    .carrousel-items article{
-        margin: 0 auto;
-    }
-
-
-    /* Textos */
-
-	.carrousel-items article div p {
-	    font-size: 18px;
 	}
 
     .header_titulo {
@@ -307,10 +279,6 @@
 
 	#desglose td *{
 		font-size: 11px;
-	}
-
-	.carrousel-items img {
-		height: 70px;
 	}
 
     /* Planes */
@@ -399,15 +367,22 @@
 
 @media ( max-width: 500px ) {
 
-	.carrousel-items article {
-	    display: block !important;
-		max-height: 115px;
-	    height: 33.3333333%;
+	.carrousel-items > article {
+	    height: 33.333333%;
 	}
 
 	.titulo_planes {
 	    top: 44px !important;
 	    font-size: 13px !important;
+	}
+
+	.carrousel-items > article > div > div {
+	    height: calc( 100% - 35px );
+	    margin: 0px auto 3px;
+	}
+
+	.carrousel-items article div p {
+	    font-size: 13px;
 	}
 
 	#vlz_controles_fases > span > span {
@@ -487,14 +462,6 @@
 
 	#desglose th *{
 		font-size: 10px;
-	}
-
-	.carrousel-items article p{
-        font-size: 10px !important;
-    }
-
-	.carrousel-items article div p {
-	    font-size: 17px;
 	}
 
     #vlz_controles_fases span {
@@ -627,12 +594,6 @@
 
 @media (max-width: 400px){
 
-	.carrousel-items article {
-	    padding: 10px 20px 0px;
-	    max-width: 200px;
-	    margin: 0px auto;
-	}
-
 	#vlz_titulo {
 	    top: 60px;
 	    font-size: 12px;
@@ -664,10 +625,6 @@
 }
 
 @media (max-width: 350px){
-
-	.carrousel-items img {
-		height: 55px;
-	}
 
 	#vlz_titulo {
 	    top: 55px;
