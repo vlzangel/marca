@@ -230,6 +230,7 @@ section{
 	#regalasela-amigo p{
 		font-size: 25px;
 	}
+
 	#como-consigo-kmibox label{
 	text-align: center;
     font-size: 20px;
@@ -264,6 +265,7 @@ section{
 		z-index: -3;
 		left: -35%;
 	}
+
 	.border-lateral{
 		border-left: 0px solid #f3ecec;
 	    border-right: 0px solid #f3ecec;
