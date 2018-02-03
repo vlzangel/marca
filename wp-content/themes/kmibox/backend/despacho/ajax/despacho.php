@@ -34,9 +34,10 @@
 
 		$ordenes[ $despacho->orden ]["fecha_entrega"] = $despacho->fecha_entrega;
 		$ordenes[ $despacho->orden ]["guia"] = $despacho->guia;
+		$ordenes[ $despacho->orden ]["correo_enviado"] = $despacho->correo_enviado;
 		$ordenes[ $despacho->orden ]["cliente"] = $cliente;
 		$ordenes[ $despacho->orden ]["status"] = $despacho->status;
-		$ordenes[ $despacho->orden ]["productos"][] = $producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
+		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
 		
 	}
 
@@ -60,6 +61,10 @@
 	        	>
 	        		Enviar Correo
 	        	</span>";
+		}
+
+		if( $_data["correo_enviado"] == 1 ){
+			$enviar_correo .= "<br><strong>El correo ya ha sido enviado.</strong>";
 		}
 
 		$guia = $_data["guia"];

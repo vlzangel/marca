@@ -20,6 +20,7 @@
                 <th>Descripci&oacute;n</th>
                 <th>Precio</th>
                 <th>Existencia</th>
+                <th>Puntos</th>
                 <th>Peso</th>
                 <th>Marca</th>
                 <th>Ciudad</th>

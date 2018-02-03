@@ -25,6 +25,7 @@
 		$_peso = $producto->peso;
 		$_marca = $producto->marca;
 		$_existencia = $producto->existencia;
+		$_puntos = $producto->puntos;
 		$_descripcion = $producto->descripcion;
 		$_tamanos = unserialize($producto->tamanos);
 		$_edades = unserialize($producto->edades);
@@ -112,7 +113,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="celdas_4">
+	<div class="celdas_3">
 		<div class="input_box">
 			<div class="input_text_container">
 				
@@ -132,10 +133,22 @@
 						<?php echo $marcas; ?>
 					</select>
 				</div>
-			
+
+			</div>
+		</div>
+	</div>
+	<div class="celdas_2">
+		<div class="input_box">
+			<div class="input_text_container">
+
 				<div class="input_text">
 					<label>Existencia</label>
 					<input type="text" id="existencia" name="existencia" value="<?php echo $_existencia; ?>"> 
+				</div>
+			
+				<div class="input_text">
+					<label>Puntos</label>
+					<input type="text" id="puntos" name="puntos" value="<?php echo $_puntos; ?>"> 
 				</div>
 
 			</div>
@@ -162,41 +175,52 @@
 			</div>
 		</div>
 	</div>
+
+
 	<div class="celdas_3">
 		<div class="input_box">
-			<label>Tama&ntilde;os:</label>
-			<div class="input_checkbox_container">
-				<?php
-					foreach ($tamanos as $key => $value) {
-						$checked = ""; if( $_tamanos[$value] == 1 ){ $checked = 'checked="checked"'; }
-						echo newCheck("tamanos[]", $key, $value, $value, $checked);
-					}
-				?>
-			</div>
-		</div>
-		<div class="input_box">
-			<label>Edades:</label>
-			<div class="input_checkbox_container">
-				<?php
-					foreach ($edades as $key => $value) {
-						$checked = ""; if( $_edades[$value] == 1 ){ $checked = 'checked="checked"'; }
-						echo newCheck("edades[]", $key, $value, $value, $checked);
-					}
-				?>
-			</div>
-		</div>
-		<div class="input_box">
-			<label>Planes:</label>
-			<div class="input_checkbox_container">
-				<?php
-					foreach ($planes as $key => $value) {
-						$checked = ""; if( $_planes[ $key ] == 1 ){ $checked = 'checked="checked"'; }
-						echo newCheck("planes[]", "plan_".$key, $key, $value[0], $checked);
-					}
-				?>
+			<div class="input_text_container">
+				
+				<div class="input_text">
+					<label>Tama&ntilde;os:</label>
+					<div class="input_checkbox_container">
+						<?php
+							foreach ($tamanos as $key => $value) {
+								$checked = ""; if( $_tamanos[$value] == 1 ){ $checked = 'checked="checked"'; }
+								echo newCheck("tamanos[]", $key, $value, $value, $checked);
+							}
+						?>
+					</div>
+				</div>
+			
+				<div class="input_text">
+					<label>Edades:</label>
+					<div class="input_checkbox_container">
+						<?php
+							foreach ($edades as $key => $value) {
+								$checked = ""; if( $_edades[$value] == 1 ){ $checked = 'checked="checked"'; }
+								echo newCheck("edades[]", $key, $value, $value, $checked);
+							}
+						?>
+					</div>
+				</div>
+			
+				<div class="input_text">
+					<label>Planes:</label>
+					<div class="input_checkbox_container">
+						<?php
+							foreach ($planes as $key => $value) {
+								$checked = ""; if( $_planes[ $key ] == 1 ){ $checked = 'checked="checked"'; }
+								echo newCheck("planes[]", "plan_".$key, $key, $value[0], $checked);
+							}
+						?>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
+	
 	<div class="celdas_1">
 		<div class="input_box">
 			<label>Imagen del producto:</label>

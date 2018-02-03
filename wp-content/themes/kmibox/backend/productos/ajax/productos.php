@@ -73,6 +73,7 @@
 	        $producto->descripcion,
 	        "$ ".$producto->precio." MXN",
 	        $producto->existencia,
+	        $producto->puntos,
 	        $producto->peso,
 	        $marca,
 	        implode("<br>", $origenes ),

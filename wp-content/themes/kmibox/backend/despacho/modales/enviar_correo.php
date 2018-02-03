@@ -16,7 +16,7 @@
 	$hoy = strtotime($_data->fecha_entrega);
 	$dia_semana_hoy = date("N", $hoy);
 
-	if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(7-$dia_semana_hoy).' day', $hoy); 
+	if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(8-$dia_semana_hoy).' day', $hoy); 
 	}else{ $desde = strtotime('+1 day', $hoy);  }
 
 	if( $dia_semana_hoy == 1 ){ $hasta = strtotime('+5 day', $hoy);
@@ -24,6 +24,10 @@
 
     $fecha_estimada = date("d/m/Y", $desde)." - ".date("d/m/Y", $hasta);
 
+    $correo_enviado = "";
+    if( $_data->correo_enviado == 1 ){
+		$correo_enviado .= "<strong style='padding: 5px 10px; display: inline-block;'>El correo ya ha sido enviado.</strong> ";
+	}
 
 	$HTML = '
 		<form id="status_despacho">
@@ -66,7 +70,7 @@
 			</div>
 
 			<div class="botonera_container">
-				<input type="button" value="Confirmar Env&iacute;o de Correo" name="update" id="btn-enviarCorreo" onClick="enviarCorreo()" class="button button-primary button-large" />
+				'.$correo_enviado.' <input type="button" value="Confirmar Env&iacute;o de Correo" name="update" id="btn-enviarCorreo" onClick="enviarCorreo()" class="button button-primary button-large" />
 			</div>
 		</div>
 	';

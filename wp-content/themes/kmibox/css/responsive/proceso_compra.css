@@ -15,41 +15,6 @@
 
 @media (min-width: 768px) {
 
-    /* GRID */
-	    .carrousel-items article:nth-child(1) img {
-	    	width: 80%;
-	    	height: 80%;
-	    	cursor: pointer;
-	    }
-	    .carrousel-items article:nth-child(2){
-	        z-index:3;
-	    }
-	    .carrousel-items article:nth-child(3) img {
-	    	width: 80%;
-	    	height: 80%;
-	    	cursor: pointer;
-	    }
-
-	    .carrousel-items,
-	    .carrousel-items article {
-	        display: flex;
-	        padding-left: 0px;
-	        padding-right: 0px;
-	    }
-	    .carrousel-items article div{
-	        margin: auto; 
-	    }
-
-    /* Textos */
-    .carrousel-items article:nth-child(1) p,
-    .carrousel-items article:nth-child(3) p
-    {
-        font-size: 32px;
-    }
-    .carrousel-items article:nth-child(2) p{
-        font-size: 40px;
-    }
-
     .btn_siguiente_container {
 	    margin-top: 5px;
 	}
@@ -61,6 +26,13 @@
 /*****************************************************************/
 
 
+
+@media (max-width: 1100px){
+	#marca > div {
+	    width: 20%;
+	    height: 20%;
+	}
+}
 
 @media (max-width: 1000px){
 	.carrusel_2{
@@ -87,6 +59,10 @@
 }
 
 @media (max-width: 950px){
+
+	.carrousel-items > article {
+	    height: 30%;
+	}
 
 	.selector_producto_container {
 	    height: 280px;
@@ -116,14 +92,10 @@
 }
 
 @media (max-width: 900px){
+
 	.selector_edad_container .selector_edad_box span {
 	    font-size: 22px;
 	    min-width: 210px;
-	}
-
-	.carrousel-items {
-	    width: 98%;
-	    margin: 0px 1%;
 	}
 
 	.select_plan_box {
@@ -181,10 +153,36 @@
 	.opciones_pago label {
 		font-size: 10px;
 	}
+
+	#marca > div {
+	    width: 33.333333334%;
+	    height: 25%;
+	}
+
+	#marca > div > .item_box:hover {
+		background: #FFF;
+	}
 }
 
 @media (max-width: 767px) {
 
+	.carrousel-items-containers {
+	    height: calc( 100% - 215px );
+	    margin: 95px 0px 0px;
+	}
+
+	.carrousel-items > article {
+	    width: 100%;
+	    padding: 10px 0px 0px;
+	}
+
+	.carrousel-items > article > div {
+	    max-width: 150px;
+	}
+
+	.carrousel-items > article > div > div {
+	    background-position: center;
+	}
 
 	.solo_movil{
 		display: block;
@@ -192,14 +190,6 @@
 
 	.solo_pc{
 		display: none;
-	}
-
-	.carrousel-items article{
-	    width: 100%;
-	}
-
-	.carrousel-items img {
-		height: 50px;
 	}
 
 	#vlz_atras {
@@ -217,53 +207,6 @@
 	    font-size: 16px;
 	    font-weight: bold;
 	}
-
-    /* Grid */
-
-    .carrousel-items article{
-        margin: 0 auto;
-    }
-
-    .carrousel-items article:nth-child(1){
-        height: 30%;
-    }
-    .carrousel-items article:nth-child(1) > div{
-        height: 100%;
-    }
-    .carrousel-items article:nth-child(1) > div > img {
-        height: 85%;
-    }
-
-
-    .carrousel-items article:nth-child(2){
-        height: 40%;
-    }
-    .carrousel-items article:nth-child(2) > div{
-        height: 100%;
-    }
-    .carrousel-items article:nth-child(2) > div > img {
-        height: 80%;
-    }
-
-
-    .carrousel-items article:nth-child(3){
-        height: 30%;
-    }
-    .carrousel-items article:nth-child(3) > div{
-        height: 100%;
-    }
-    .carrousel-items article:nth-child(3) > div > img {
-        height: 85%;
-    }
-
-    /* Textos */
-    .carrousel-items article:nth-child(1) p{
-        font-size: 18px;
-    	margin: 0px;
-    }
-    .carrousel-items article:nth-child(2) p{
-        font-size: 22px;
-    }
 
     .header_titulo {
         font-size: 15px!important;
@@ -346,13 +289,6 @@
 	#desglose td *{
 		font-size: 11px;
 	}
-
-    /* Presentaciones */
-
-		/*#presentaciones > div {
-		    width: 50%;
-		    height: 70%;
-		}*/
 
     /* Planes */
 
@@ -440,9 +376,22 @@
 
 @media ( max-width: 500px ) {
 
+	.carrousel-items > article {
+	    height: 33.333333%;
+	}
+
 	.titulo_planes {
 	    top: 44px !important;
 	    font-size: 13px !important;
+	}
+
+	.carrousel-items > article > div > div {
+	    height: calc( 100% - 35px );
+	    margin: 0px auto 3px;
+	}
+
+	.carrousel-items article div p {
+	    font-size: 13px;
 	}
 
 	#vlz_controles_fases > span > span {
@@ -523,14 +472,6 @@
 	#desglose th *{
 		font-size: 10px;
 	}
-
-	.carrousel-items article p{
-        font-size: 10px !important;
-    }
-
-	.carrousel-items article:nth-child(2) p{
-        font-size: 17px !important;
-    }
 
     #vlz_controles_fases span {
 	    display: block;

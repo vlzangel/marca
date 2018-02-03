@@ -48,33 +48,40 @@
 
 		<div class="comprar_container">
 			<section id="fase_1">
-				<div class="carrousel-items">
-					<article data-value="Mediano">
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_mediano.png" class="img-responsive img-circle" id="Mediano" />
-							<p class="col-md-12">Mediano</p>
-						</div>
-					</article>
-					<article data-value="Pequeño">
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_pequeno_1.png" class="img-responsive img-circle" id="Grande" />
-							<p class="col-md-12">Pequeño</p>
-						</div>
-					</article>
-					<article data-value="Grande">
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_adulto.png" class="img-responsive img-circle" id="Grande" />
-							<p class="col-md-12">Grande</p>
-						</div>
-					</article>
-				</div>
-				<div class="selector_edad_container">
-					<label>Selecciona la Edad</label>
-					<div class="selector_edad_box" id="edad">
-						<span id="edad_Cachorro" data-value="Cachorro">Cachorro</span>
-						<span id="edad_Adulto" data-value="Adulto" >Adulto</span>
-						<span id="edad_Senior" data-value="Senior" >Senior</span>
+
+				<div class="carrousel-items-containers">
+
+					<div class="carrousel-items">
+
+						<article data-value="Mediano">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_mediano.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Mediano</p>
+							</div>
+						</article>
+						<article data-value="Pequeño">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_pequeno_1.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Pequeño</p>
+							</div>
+						</article>
+						<article data-value="Grande">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_adulto.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Grande</p>
+							</div>
+						</article>
 					</div>
+
+					<div class="selector_edad_container">
+						<label>Selecciona la Edad</label>
+						<div class="selector_edad_box" id="edad">
+							<span id="edad_Cachorro" data-value="Cachorro" class="btn-disable" >Cachorro</span>
+							<span id="edad_Adulto" data-value="Adulto" class="btn-disable" >Adulto</span>
+							<span id="edad_Senior" data-value="Senior" class="btn-disable" >Senior</span>
+						</div>
+					</div>
+
 				</div>
 			</section>
 

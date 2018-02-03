@@ -23,6 +23,12 @@ jQuery(document).ready(function() {
 	}
 
 	jQuery('.carrousel-items').on('click', 'article', function(){
+
+		if( !jQuery(".carrousel-items-containers").hasClass("hover_carrousel_item") ){
+			jQuery(".carrousel-items-containers").addClass("hover_carrousel_item");
+			jQuery("#edad span").removeClass("btn-disable");
+		}
+
 		var index = jQuery(this).index() + 1; 
 		if( index ==  1 ){
 			jQuery(".carrousel-items article:last").insertBefore( jQuery(".carrousel-items article:first") );
@@ -32,18 +38,25 @@ jQuery(document).ready(function() {
 		}
 		var prod_actual = getCarritoActual();
 		prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+
 	});
 	jQuery('.tamano-list').on('click', 'li', function(){
 		jQuery('.tamano-list li').removeClass('selected');
 		jQuery(this).addClass('selected');
 	});
 	jQuery("#edad span").on("click", function(e){
-		jQuery("#edad span").removeClass("btn_activo");
-		jQuery(this).addClass("btn_activo");
-		var prod_actual = getCarritoActual();
-		prod_actual["edad"] = jQuery(this).attr("data-value");
-		jQuery("#descripcion_producto").html( "RAZA "+prod_actual["tamano"]+" "+prod_actual["edad"]+" <span><span>" );
-		change_fase(2);
+
+		if( !jQuery(this).hasClass("btn-disable") ){
+			jQuery("#edad span").removeClass("btn_activo");
+			jQuery(this).addClass("btn_activo");
+			var prod_actual = getCarritoActual();
+			prod_actual["edad"] = jQuery(this).attr("data-value");
+			jQuery("#descripcion_producto").html( "RAZA "+prod_actual["tamano"]+" "+prod_actual["edad"]+" <span><span>" );
+			change_fase(2);
+		}else{
+			alert("Debe seleccionar un tamaño primero");
+		}
+
 	});
 
 	jQuery("#marca_select").on("click", function(e){
