@@ -45,14 +45,23 @@
 		text-transform: uppercase;
 		font-size: 15px;
 		margin: 0px;
-	">la direci&oacute;n asociada a tu cuenta es:</h3>
+	">La ingresar a tu cuenta es:</h3>
 	<label>
-		<a href="mailto:[EMAIL]" target="_blank" style="
+		<a style="
 			font-weight: 400;
 		    color: #000;
 		    text-decoration: none;
-		">[EMAIL]</a>
+		">Usuario: [EMAIL]</a>
 	</label>
+	<br>
+	<label>
+		<a style="
+			font-weight: 400;
+		    color: #000;
+		    text-decoration: none;
+		">Clave: [CLAVE]</a>
+	</label><br>
+
 </div>
 
 <div style="

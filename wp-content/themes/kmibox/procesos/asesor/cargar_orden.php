@@ -58,10 +58,11 @@ ini_set('display_errors', '1');
 		    	array(
 		    		"USUARIO" => $nombre,
 		    		"EMAIL" => $emailsus,
-		    		"PASS" => $clave,
+		    		"CLAVE" => $clave,
 		    		"LINK" => get_home_url()."/perfil/"
 		    	)
 		    );
+		    wp_mail( $emailsus, "Bienvenido a NutriHeroes", $HTML );
 		}
 
 	// Cargar registro de venta del asesor
@@ -91,6 +92,7 @@ ini_set('display_errors', '1');
 				$temp_product = $wpdb->get_row($sql_carrito);
 				$CARRITO = [
 					"user_id" => $user->ID,
+					"orden_id"=> time(),
 					"cantidad"=> 1, 
 					"productos" => [
 						$temp_product
@@ -99,11 +101,18 @@ ini_set('display_errors', '1');
 				];
 
 
+			$result['nombre'] = $nombre; 
 
-			switch ($forma_pago) {
+			switch (strtolower($forma_pago)) {
 				case 'tienda':
-					$CARRITO = serialize($CARRITO);
-					get_template_part( 'template/parts/page/checkout-tienda', 'page' ); 				
+					// $CARRITO = serialize($CARRITO);
+					ob_start();
+					get_template_part( 'template/parts/page/checkout-tienda', 'page' ); 
+					$content = ob_get_clean(); // Variable con el HTML de la vista "checkout-tienda"
+					if( $_POST["error"] == '' ){
+						$result['code'] = 1;
+						$result['orden_id'] = $_POST['order'];
+					}  
 					break;
 				
 				case 'tarjeta':
@@ -145,9 +154,7 @@ ini_set('display_errors', '1');
 
 					$sql_search_orden = "select * from asesores_ordenes where token = '{$token}' and estatus = 1 ";
 					$orden = $wpdb->get_row( $sql_search_orden );
-
 					$result['orden_id'] = $orden->id; 
-					$result['nombre'] = $nombre; 
 
 					if( isset($orden->id) && $orden->id > 0 ){
 						// Enviar Email 
@@ -155,11 +162,12 @@ ini_set('display_errors', '1');
 					    	"compra/pagos/orden_de_pago_cliente", 
 					    	array(
 					    		"USUARIO" => $nombre,
-					    		"EMAIL" => $emailsus,
-					    		"PASS" => $clave,
-					    		"LINK" => get_home_url()."/perfil/"
+					    		"DIRECCION" => $r_address,
+					    		"LINK" => get_home_url()."/wp-content/themes/kmibox/procesos/asesor/pago_orden.php?u=".md5($user->ID)."&t=".$token,
+					    		"TOTAL" => $temp_product->subtotal,
 					    	)
 					    );
+					    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
 						$result['code'] = 1;
 				    }					
 					break;

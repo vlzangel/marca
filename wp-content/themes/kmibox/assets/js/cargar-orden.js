@@ -126,18 +126,21 @@
 				if(r['code'] == 1){
 					jQuery("#success_registrando").css("display", "block");
 					$('#order_confirmacion').find('.modal-title').html('<span style="font-size: 16px;text-transform: uppercase;color: #0ab7aa;"><strong>Orden generada satisfactoriamente.</strong></span>');
-					$('#order_confirmacion').find('.modal-body').html(
+					
+					var forma_pago = $('[name="forma_pago"]').val();
+					var body = $('#order_confirmacion').find('.modal-body');
+						body.html(
 							"Orden #: "+r['orden_id']+'<br>'+
 							"Cliente: "+r['nombre']+'<br>'+
 							"Estatus: Pendiente de pago<br>"
 						);
+
 					$('#order_confirmacion').modal('show');
 				}else{
 					$('#login-mensaje').html(r['msg']);
 					$('#login-mensaje').removeClass('hidden');
 				}
 			});
-
 		})
 		.bootstrapValidator({
 		    feedbackIcons: {
