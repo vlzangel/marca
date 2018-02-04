@@ -92,13 +92,24 @@
 	    $user_id = $current_user->ID;
 	    $CARRITO = unserialize( $_SESSION["CARRITO"] );
 	    $hoy = date("Y-m-d H:i:s", time() );
+
+	    $metaData = array();
+
+	    if( isset($_SESSION["MODIFICACION"]) ){
+			$metaData["es_modificacion_de"] = $_SESSION["MODIFICACION"];
+	    }
+
+	    unset($_SESSION["MODIFICACION"]);
+
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
 	 			'{$user_id}',
 	 			'{$CARRITO["cantidad"]}',
 	 			'{$CARRITO["total"]}',
-		 		'{$hoy}'
+		 		'{$hoy}',
+		 		'Pendiente',
+		 		'".serialize($metaData)."'
 	 		)
 	 	";
 	 	$wpdb->query( $SQL_PEDIDO );
@@ -109,7 +120,6 @@
 	 			$data = array(
 	 				"tamano" => $producto->tamano,
 	 				"edad" => $producto->edad,
-	 				"presentacion" => $producto->presentacion,
 	 				"plan" => $producto->plan
 	 			);
 	 			$data = serialize($data);
@@ -120,7 +130,6 @@
 			 			'{$producto->producto}',
 			 			'{$producto->cantidad}',
 			 			'{$data}',
-			 			'Activa',
 			 			'{$producto->subtotal}',
 			 			'{$hoy}',
 			 			'{$producto->plan_id}'
@@ -139,6 +148,17 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 		global $wpdb;
+
+		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
+
+		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
+
+		$metaData = unserialize($orden->metadata);
+
+		if( isset($metaData["es_modificacion_de"]) ){
+			$wpdb->query( "UPDATE ordenes SET status = 'Modificada' WHERE id = {$metaData["es_modificacion_de"]};" );
+		}
+
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW() );";
@@ -161,7 +181,7 @@
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status <> 'Modificada' ");
 
 		return $ordenes;
 	}
@@ -172,7 +192,7 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 	    $suscripciones = array();
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status <> 'Modificada' ");
 		foreach ($ordenes as $orden) {
 			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE  id_orden = ".$orden->id);
 			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
@@ -200,7 +220,7 @@
 					"total" => $plan->total,
 					"nombre" => $producto->nombre,
 					"img" => $img,
-					"status" => $plan->status_suscripcion,
+					"status" => $orden->status,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
 					"entredagos" => $_entregados_str
 				);
@@ -220,16 +240,19 @@
 	    $suscripciones = array();
 		$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE cliente = {$user_id} AND ( mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ) ORDER BY id DESC");
 		foreach ($despachos as $despacho) {
-			$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
-			$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
-			$_data = unserialize( $producto->dataextra );
-			$img = TEMA()."/imgs/productos/".$_data["img"];
-			$_despachos[] = array(
-				"orden" => $sub_orden->id,
-				"nombre" => $producto->nombre,
-				"img" => $img,
-				"status" => $despacho->status
-			);
+			$status_orden = $wpdb->get_var( "SELECT status FROM ordenes WHERE id=".$despacho->orden );
+			if( $status_orden != "Modificada" ){
+				$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
+				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
+				$_data = unserialize( $producto->dataextra );
+				$img = TEMA()."/imgs/productos/".$_data["img"];
+				$_despachos[] = array(
+					"orden" => $sub_orden->id,
+					"nombre" => $producto->nombre,
+					"img" => $img,
+					"status" => $despacho->status
+				);
+			}
 		}
 		return $_despachos;
 	}

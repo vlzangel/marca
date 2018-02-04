@@ -150,7 +150,12 @@ jQuery(document).ready(function() {
 		
 	});
 	initProductos_y_Planes();
-	change_fase(1);
+
+	if( MODIFICACION == "" ){
+		change_fase(1);
+	}else{
+		CARRITO = MODIFICACION;
+	}
 
 });
 
@@ -171,7 +176,10 @@ function initProductos_y_Planes(){
 			MARCAS = data["MARCAS"];
 			PLANES = data["PLANES"];
 
-			// change_fase(4);
+			if( MODIFICACION != "" ){
+				change_fase(5);
+			}
+
 		}, "json"
 	).fail(function(e) {
 		console.log( e );
@@ -310,13 +318,13 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
-	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
+	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label class="resaltar_desglose">'+frecuencia+'</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	<label>$ '+price+' MXN</label>';
+	HTML += '	 	<label>$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<div class="cantidad_controls">';
@@ -324,10 +332,10 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
 	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
 	HTML += '	 	</div>';
-	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
+	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+FN(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
+	HTML += '	 	<label class="resaltar_desglose">$ '+FN(price*cantidad)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '</tr>';
 	HTML += '<tr>';

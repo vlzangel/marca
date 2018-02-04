@@ -1,10 +1,22 @@
 var SUSCRPCIONES = "";
 var DESPACHOS = "";
+var ID_ORDEN = "";
 jQuery(document).ready(function() {
 
 	jQuery("#selector_suscripcion").on("change", function(e){
 		var pedidos = SUSCRPCIONES[ jQuery(this).val() ];
 		var slider_suscripciones = "";
+
+		ID_ORDEN = jQuery(this).val();
+
+		jQuery("#cancelar_suscripcion").unbind('click').bind('click', function(e){
+			cancelarSuscripcion( ID_ORDEN );
+		});
+
+		jQuery("#modificar_suscripcion").unbind('click').bind('click', function(e){
+			modificarSuscripcion( ID_ORDEN );
+		});
+
 		jQuery.each(pedidos.productos, function( index, producto ) {
 	  		slider_suscripciones += "<div "+
 	  			"id='plan_"+index+"'"+
@@ -39,6 +51,12 @@ jQuery(document).ready(function() {
 			jQuery("#status").val( jQuery(this).attr("data-status") );
 			jQuery("#entrega").val( jQuery(this).attr("data-entrega") );
 			jQuery("#tab_2 #img_item").attr("src", jQuery(this).attr("data-img") );
+
+			if( jQuery(this).attr("data-status") != "Activa" ){
+				jQuery(".acciones_container").css("display", "none");
+			}else{
+				jQuery(".acciones_container").css("display", "block");
+			}
 
 			var entregados = jQuery(this).attr("data-entregados");
 			jQuery(".entregas span").removeClass("entregado");
@@ -107,9 +125,6 @@ jQuery(document).ready(function() {
 	jQuery('#form-registro')
 	.on('init.field.fv', function(e, data) {
 		scroll(0);
-
-        // data.field   --> The field name
-        // data.element --> The field element
         if (data.field === 'sexo') {
             var $icon = data.element.data('fv.icon');
             $icon.appendTo('#alertSexIcon');
@@ -117,28 +132,17 @@ jQuery(document).ready(function() {
     })
     
 	.on('success.form.bv', function(e) {
-	    // Prevent form submission
 	    e.preventDefault();
-
-	    
-	    // Get the form instance
 	    var $form = jQuery(e.target);
-
-	    // Get the FormValidation instance
-	    var bv = $form.data('formValidation');		
-
-	    
+	    var bv = $form.data('formValidation');	
 		jQuery('#login-mensaje').html('');
 		jQuery('#login-mensaje').addClass('hidden');
-		
 		jQuery.post( urlbase+"/ajax/register.php", {
 			key:'registro',
-
 			email: jQuery('[name="r_usuario"]').val(),
 			email_c: jQuery('[name="r_usuario_c"]').val(),
 			pass: jQuery('[name="r_clave"]').val(),
 			pass_c: jQuery('[name="r_clave_c"]').val(),
-
 			nombre: jQuery('[name="nombre"]').val(),
 			apellido: jQuery('[name="apellido"]').val(),
 			sexo: jQuery('[name="sexo"]').val(),
@@ -147,20 +151,15 @@ jQuery(document).ready(function() {
 			telef_movil: jQuery('[name="telef_movil"]').val(),
 			telef_fijo: jQuery('[name="telef_fijo"]').val(),
 			dondo_conociste: jQuery('[name="dondo_conociste"]').val(),
-
 			dir_numint: jQuery('[name="dir_numint"]').val(),
 			dir_numext: jQuery('[name="dir_numext"]').val(),
-
 			dir_calle: jQuery('[name="dir_calle"]').val(),
 			dir_estado: jQuery('[name="dir_estado"]').val(),
 			dir_ciudad: jQuery('[name="dir_ciudad"]').val(),
 			dir_colonia: jQuery('[name="dir_colonia"]').val(),
 			dir_codigo_postal: jQuery('[name="dir_codigo_postal"]').val()
-
 		}, function(r) {
-
 			r = jQuery.parseJSON(r);
-
 			if(r['code']==1){
 				var redirect = jQuery('[name="redirect"]').val();
 				if( typeof jQuery('[name="redirect"]').val() == 'undefined'){
@@ -176,8 +175,6 @@ jQuery(document).ready(function() {
 				jQuery('#login-mensaje').removeClass('hidden');
 
 			}
-			//<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-			//<span class="sr-only">Loading...</span>
 		});
 	})
 	.bootstrapValidator({
@@ -392,3 +389,45 @@ jQuery(document).ready(function() {
 	});
 
 });
+
+function cancelarSuscripcion(id_orden){
+    var confirmed = confirm("Esta seguro de cancelar la suscripci\u00f3n id: "+id_orden+"?");
+    if (confirmed == true) {
+        jQuery.ajax({
+            async:true, 
+            cache:false, 
+            type: 'POST', 
+            url: TEMA+'/procesos/suscripciones/cancelar.php',
+            data: {ID_ORDEN: id_orden}, 
+            success:  function(HTML){
+                console.log( HTML );
+                //alert("Suscripci\u00f3n cancelada exitosamente!");
+            },
+            beforeSend:function(){},
+            error:function(e){
+                console.log(e);
+            }
+        });
+    }
+}
+
+function modificarSuscripcion(id_orden){
+    var confirmed = confirm("Esta seguro de modificar la suscripci\u00f3n id: "+id_orden+"?");
+    if (confirmed == true) {
+        jQuery.ajax({
+            async:true, 
+            cache:false, 
+            type: 'POST', 
+            url: TEMA+'/procesos/suscripciones/modificar.php',
+            data: {ID_ORDEN: id_orden}, 
+            success:  function(HTML){
+                console.log( HTML );
+                location.href = HOME+"/quiero-mi-marca/";
+            },
+            beforeSend:function(){},
+            error:function(e){
+                console.log(e);
+            }
+        });
+    }
+}
