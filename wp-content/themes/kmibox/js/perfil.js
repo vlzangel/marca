@@ -400,8 +400,8 @@ function cancelarSuscripcion(id_orden){
             url: TEMA+'/procesos/suscripciones/cancelar.php',
             data: {ID_ORDEN: id_orden}, 
             success:  function(HTML){
-                console.log( HTML );
-                //alert("Suscripci\u00f3n cancelada exitosamente!");
+                alert("Suscripci\u00f3n cancelada exitosamente!");
+                location.reload();
             },
             beforeSend:function(){},
             error:function(e){
@@ -421,7 +421,6 @@ function modificarSuscripcion(id_orden){
             url: TEMA+'/procesos/suscripciones/modificar.php',
             data: {ID_ORDEN: id_orden}, 
             success:  function(HTML){
-                console.log( HTML );
                 location.href = HOME+"/quiero-mi-marca/";
             },
             beforeSend:function(){},
