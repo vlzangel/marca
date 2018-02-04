@@ -2,7 +2,7 @@ var CARRITO = [];
 CARRITO["cantidad"] = 0;
 CARRITO["productos"] = [];
 
-/*CARRITO["productos"].push({
+CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
 	"plan": "",
@@ -10,9 +10,9 @@ CARRITO["productos"] = [];
 	"cantidad": 1,
 	"precio": 0.00,
 	"subtotal": 0.00
-});*/
+});
 
-CARRITO["productos"].push({
+/*CARRITO["productos"].push({
 	"marca": 8,
 	"producto": 6,
 	"tamano": "Pequeño",
@@ -22,7 +22,7 @@ CARRITO["productos"].push({
 	"cantidad": 1,
 	"precio": 1200,
 	"subtotal": 0.00
-});
+});*/
 
 var PRODUCTOS = [];
 var MARCAS = [];
@@ -150,7 +150,7 @@ jQuery(document).ready(function() {
 		
 	});
 	initProductos_y_Planes();
-	// change_fase(1);
+	change_fase(1);
 
 });
 
@@ -171,7 +171,7 @@ function initProductos_y_Planes(){
 			MARCAS = data["MARCAS"];
 			PLANES = data["PLANES"];
 
-			change_fase(4);
+			// change_fase(4);
 		}, "json"
 	).fail(function(e) {
 		console.log( e );
