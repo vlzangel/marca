@@ -10,12 +10,12 @@
 
 	get_header(); 
 
-	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
+	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
 	$PLANES = "";
 	foreach ($data_planes as $plan) {
 		$PLANES .= '
 			<article id="plan-'.$plan->plan.'" data-value="'.$plan->id.'" class="select_plan">
-				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">
+				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.png">
 				<div>
 					'.$plan->descripcion.'
 				</div>
@@ -119,11 +119,12 @@
 
 			<section id="fase_4" class="hidden">
 				<div id="plan">
-					<div id="planes">
-						<div class="select_plan_box">
-							'.$PLANES.'
-						</div>
+					<div id="nivel"></div>
+
+					<div id="plan_box">
+						'.$PLANES.'
 					</div>
+
 				</div>
 			</section>
 
