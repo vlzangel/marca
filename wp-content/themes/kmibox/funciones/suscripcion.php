@@ -152,11 +152,17 @@
 		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
 
 		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
-
-		$metaData = unserialize($orden->metadata);
+		$metaData = deserializar($orden->metadata);
 
 		if( isset($metaData["es_modificacion_de"]) ){
-			$wpdb->query( "UPDATE ordenes SET status = 'Modificada' WHERE id = {$metaData["es_modificacion_de"]};" );
+
+			$orden_vieja = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$metaData["es_modificacion_de"]};" );
+			$metaData_vieja = deserializar($orden_vieja->metadata);
+			$metaData_vieja["modificada_por"] = $orden_id;
+			$metaData_vieja = serialize($metaData_vieja);
+
+			$wpdb->query( "UPDATE ordenes SET status = 'Modificada', metadata = '{$metaData_vieja}' WHERE id = {$metaData["es_modificacion_de"]};" );
+			
 		}
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
@@ -181,7 +187,7 @@
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status <> 'Modificada' ");
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ORDER BY id DESC");
 
 		return $ordenes;
 	}
@@ -192,7 +198,7 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 	    $suscripciones = array();
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status <> 'Modificada' ");
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ");
 		foreach ($ordenes as $orden) {
 			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE  id_orden = ".$orden->id);
 			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
