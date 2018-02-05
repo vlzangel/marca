@@ -161,7 +161,7 @@
 
 .carrusel_suscripciones_container .item_carrusel_img{
     width: 100%;
-    height: calc( 100% - 21px );
+    height: calc( 100% - 35px );
 
     background-size: contain;
     background-position: center;
