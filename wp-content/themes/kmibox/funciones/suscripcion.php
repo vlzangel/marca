@@ -163,6 +163,34 @@
 
 			$wpdb->query( "UPDATE ordenes SET status = 'Modificada', metadata = '{$metaData_vieja}' WHERE id = {$metaData["es_modificacion_de"]};" );
 			
+			$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
+			$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
+
+		    $total = $wpdb->get_var("SELECT total FROM ordenes WHERE id = {$orden_id}");
+		    $_productos = getProductosDesglose($orden_id);
+			$productos = "";
+		 	foreach ($_productos as $producto) {
+		 		if( $producto != "" ){
+			 		$temp = getTemplate("/compra/envio/partes/producto");
+			 		$temp = str_replace("[IMG_PRODUCTO]", $producto["img"], $temp);
+			 		$temp = str_replace("[NOMBRE]", $producto["nombre"], $temp);
+			 		$temp = str_replace("[DESCRIPCION]", $producto["descripcion"], $temp);
+			 		$temp = str_replace("[PLAN]", $producto["plan"], $temp);
+			 		$temp = str_replace("[CANTIDAD]", $producto["cantidad"], $temp);
+			 		$temp = str_replace("[PRECIO]", number_format($producto["precio"], 2, ',', '.'), $temp);
+			 		$productos .= $temp;
+			 	}
+		 	}
+		 	$HTML = generarEmail(
+		    	"suscripciones/modificacion", 
+		    	array(
+		    		"USUARIO" => $_name,
+		    		"PRODUCTOS" => $productos,
+		    		"TOTAL" => number_format($total, 2, ',', '.'),
+		    	)
+		    );
+
+		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
 		}
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
@@ -261,6 +289,33 @@
 			}
 		}
 		return $_despachos;
+	}
+
+
+
+	function getProductosDesglose($id_orden){
+		global $wpdb;
+		
+		$_planes = get_planes();
+
+	    $_productos = array();
+	    $ordenes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$id_orden}");
+	    foreach ($ordenes as $sub_orden) {
+
+	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
+    		$dataextra = unserialize($producto->dataextra);
+    		$_productos[ $sub_orden->id_producto ] = array(
+    			"nombre" => $producto->nombre,
+    			"descripcion" => $producto->descripcion,
+    			"plan" => $_planes[ $sub_orden->plan ]["nombre"],
+    			"precio" => $producto->precio,
+    			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
+    			"cantidad" => $sub_orden->cantidad
+	    	);
+
+	    }
+
+		return $_productos;
 	}
 
 ?>

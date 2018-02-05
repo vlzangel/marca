@@ -31,6 +31,8 @@
     $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
     $openpay_cliente_id = get_user_meta($user_id, "openpay_id", true);
 
+    $charge = "";
+
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
 
@@ -104,16 +106,13 @@
 		    'device_session_id' => $deviceIdHiddenFieldName
 	    );
 
-		$charge = ""; $error = "";
+		$error = "";
 
 		try {
             $charge = $customer->charges->create($chargeData);
 			$respuesta["transaccion"] = $charge->id;
 			$respuesta["cliente"] = $openpay_cliente_id;
 			$respuesta["tarjeta"] = $card->id;
-
-			crearCobro( $orden_id, $charge->id );
-
         } catch (Exception $e) {
         	$error = $e->getErrorCode()." - ".$e->getDescription();
         	$respuesta["error"] = $error;
@@ -133,7 +132,6 @@
     if( $respuesta["error"] == "" ){
 
     	$_tarjeta = substr($num_card, 0, 2)."********".substr($num_card, -2);
-
     	$HTML = generarEmail(
 	    	"compra/nuevo/tarjeta", 
 	    	array(
@@ -146,8 +144,9 @@
 	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
 	    	)
 	    );
-
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
+
+	    crearCobro( $orden_id, $charge->id );
 
     	unset($_SESSION["CARRITO"]);
     }
