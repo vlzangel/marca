@@ -22,7 +22,7 @@
 
 		$_data = unserialize($sub_orden->data);
 
-		$marca = $wpdb->get_var( "SELECT marca FROM productos WHERE id = {$sub_orden->id_producto};" );
+		$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id = {$sub_orden->id_producto};" );
 
 		$data["productos"][] = (Object) array(
 			"tamano" => $_data["tamano"],
@@ -30,9 +30,9 @@
 			"plan" => $_data["plan"],
 			"plan_id" => $sub_orden->plan,
 			"cantidad" => $sub_orden->cantidad+0,
-			"precio" => $sub_orden->total+0,
+			"precio" => $producto->precio+0,
 			"subtotal" => $sub_orden->cantidad*$sub_orden->total,
-			"marca" => $marca,
+			"marca" => $producto->marca,
 			"producto" => $sub_orden->id_producto
 		);
 	}
