@@ -166,7 +166,7 @@
 			$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
 			$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
 
-		    $orden = $wpdb->get_var("SELECT total FROM ordenes WHERE id = {$orden_id}");
+		    $total = $wpdb->get_var("SELECT total FROM ordenes WHERE id = {$orden_id}");
 		    $_productos = getProductosDesglose($orden_id);
 			$productos = "";
 		 	foreach ($_productos as $producto) {
@@ -186,7 +186,7 @@
 		    	array(
 		    		"USUARIO" => $_name,
 		    		"PRODUCTOS" => $productos,
-		    		"TOTAL" => number_format($orden, 2, ',', '.'),
+		    		"TOTAL" => number_format($total, 2, ',', '.'),
 		    	)
 		    );
 
