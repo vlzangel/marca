@@ -10,7 +10,6 @@ function init_modal(data){
 
             jQuery(".modal form").on("submit", function(e){
                 e.preventDefault();
-                console.log("Prueba");
                 jQuery(".botonera_container input").click();
             });
         },
