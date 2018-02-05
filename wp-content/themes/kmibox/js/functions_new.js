@@ -1,6 +1,7 @@
 var CARRITO = [];
 CARRITO["cantidad"] = 0;
 CARRITO["productos"] = [];
+
 CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
@@ -11,6 +12,17 @@ CARRITO["productos"].push({
 	"subtotal": 0.00
 });
 
+/*CARRITO["productos"].push({
+	"marca": 8,
+	"producto": 6,
+	"tamano": "Pequeño",
+	"edad": "Adulto",
+	"plan": "",
+	"plan_id": "",
+	"cantidad": 1,
+	"precio": 1200,
+	"subtotal": 0.00
+});*/
 
 var PRODUCTOS = [];
 var MARCAS = [];
@@ -18,13 +30,17 @@ var PLANES = [];
 
 jQuery(document).ready(function() {
 
-	// console.log( navigator.platform );
-
 	if(navigator.platform.substr(0, 2) == 'iP'){
 		jQuery("body").addClass('iOS');
 	}
 
 	jQuery('.carrousel-items').on('click', 'article', function(){
+
+		if( !jQuery(".carrousel-items-containers").hasClass("hover_carrousel_item") ){
+			jQuery(".carrousel-items-containers").addClass("hover_carrousel_item");
+			jQuery("#edad span").removeClass("btn-disable");
+		}
+
 		var index = jQuery(this).index() + 1; 
 		if( index ==  1 ){
 			jQuery(".carrousel-items article:last").insertBefore( jQuery(".carrousel-items article:first") );
@@ -34,18 +50,25 @@ jQuery(document).ready(function() {
 		}
 		var prod_actual = getCarritoActual();
 		prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+
 	});
 	jQuery('.tamano-list').on('click', 'li', function(){
 		jQuery('.tamano-list li').removeClass('selected');
 		jQuery(this).addClass('selected');
 	});
 	jQuery("#edad span").on("click", function(e){
-		jQuery("#edad span").removeClass("btn_activo");
-		jQuery(this).addClass("btn_activo");
-		var prod_actual = getCarritoActual();
-		prod_actual["edad"] = jQuery(this).attr("data-value");
-		jQuery("#descripcion_producto").html( "RAZA "+prod_actual["tamano"]+" "+prod_actual["edad"]+" <span><span>" );
-		change_fase(2);
+
+		if( !jQuery(this).hasClass("btn-disable") ){
+			jQuery("#edad span").removeClass("btn_activo");
+			jQuery(this).addClass("btn_activo");
+			var prod_actual = getCarritoActual();
+			prod_actual["edad"] = jQuery(this).attr("data-value");
+			jQuery("#descripcion_producto").html( "RAZA "+prod_actual["tamano"]+" "+prod_actual["edad"]+" <span><span>" );
+			change_fase(2);
+		}else{
+			alert("Debe seleccionar un tamaño primero");
+		}
+
 	});
 
 	jQuery("#marca_select").on("click", function(e){
@@ -127,7 +150,12 @@ jQuery(document).ready(function() {
 		
 	});
 	initProductos_y_Planes();
-	change_fase(1);
+
+	if( MODIFICACION == "" ){
+		change_fase(1);
+	}else{
+		CARRITO = MODIFICACION;
+	}
 
 });
 
@@ -147,6 +175,11 @@ function initProductos_y_Planes(){
 			PRODUCTOS = data["PRODUCTOS"];
 			MARCAS = data["MARCAS"];
 			PLANES = data["PLANES"];
+
+			if( MODIFICACION != "" ){
+				change_fase(5);
+			}
+
 		}, "json"
 	).fail(function(e) {
 		console.log( e );
@@ -237,6 +270,7 @@ function loadPresentaciones(){
 									'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
 									'<div class="peso_producto_box">'+producto.peso+'</div>'+
 									'<div class="existencia_producto_box">'+existencia+'</div>'+
+									'<div class="title_producto_box">'+FN(producto.precio)+" MXN"+'</div>'+
 								'</div>'+
 							'</div>'+
 						'</div>';
@@ -284,13 +318,13 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
-	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
+	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
+	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label class="resaltar_desglose">'+frecuencia+'</label>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
-	HTML += '	 	<label>$ '+price+' MXN</label>';
+	HTML += '	 <td class="solo_pc center">';
+	HTML += '	 	<label>$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<div class="cantidad_controls">';
@@ -298,10 +332,10 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
 	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
 	HTML += '	 	</div>';
-	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
+	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+FN(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_pc">';
-	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
+	HTML += '	 <td class="solo_pc center">';
+	HTML += '	 	<label class="resaltar_desglose">$ '+FN(price*cantidad)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '</tr>';
 	HTML += '<tr>';
@@ -366,7 +400,7 @@ function loadFase(fase){
 			var actual = getCarritoActual();
 			jQuery.each(PRODUCTOS[ actual["producto"] ]["planes"],  function(key, val){
 				if( val == 1 ){
-					jQuery( "#plan-"+PLANES[ key ].nombre ).css("display", "inline-block");
+					jQuery( "#plan-"+key ).css("display", "inline-block");
 				}
 			});
 		break;
@@ -384,6 +418,7 @@ function loadFase(fase){
 			var precio = 0;
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 				var plan = PLANES[ producto['plan_id'] ].meses;
+				if( plan == 0 ){ plan = 1; }
 				var _producto = producto["producto"];
 				var precio_plan = producto["precio"]*plan;
 				precio = precio_plan;

@@ -12,6 +12,10 @@ div#wpadminbar {
     display: none !important;
 }
 
+.center{
+	text-align: center;
+}
+
 .col-xs-12, .col-md-6, .col-md-12 {
     position: relative;
     min-height: 1px;
@@ -83,7 +87,7 @@ div#wpadminbar {
 
 #vlz_controles_fases > span > span {
 	position: absolute;
-    left: -55px;
+    left: -60px;
     top: -4px;
     font-weight: 600;
     font-size: 13px;    
@@ -142,12 +146,12 @@ div#wpadminbar {
 	    background: #091705;
 	    text-align: center;
 	    font-family: GothanMedium_regular;
-	    font-size: 30px;
+	    font-size: 20px;
 	    color: #FFF;
-	    padding: 5px;
-	    min-width: 270px;
+	    padding: 5px 25px 5px;
+	    min-width: 200px;
 	    margin: 0px 10px;
-	    border-radius: 20px;
+	    border-radius: 150px;
 	    cursor: pointer;
 	    text-transform: uppercase;
 	}
@@ -219,14 +223,14 @@ div#wpadminbar {
 
 	#marca > div {
 	    float: left;
-	    width: 25%;
+	    width: 16.666666667%;
 	    box-sizing: border-box;
 	    padding: 5px;
-        height: 33.333334%;
+        height: 25%;
 	}
 
 	#marca > div > .item_box {
-	    border: solid 3px transparent;
+	    border: solid 2px #dbdbdb;
 	    border-radius: 15px;
 	    padding: 0px;
 	    cursor: pointer;
@@ -238,7 +242,7 @@ div#wpadminbar {
 	}
 
 	#marca > div.item_activo > .item_box {
-		background: #ededed;
+		border: solid 2px #091705;
 	}
 
 	.img_box {
@@ -373,38 +377,49 @@ div#wpadminbar {
 
 	#fase_4 > div {
 	    vertical-align: middle;
-	    height: 100%;
-	    padding: 100px 20px 0px;
-	    display: table;
+	    padding: 20px;
+	    display: block;
 	    width: 100%;
 	    box-sizing: border-box;
+	    position: fixed;
+	    top: 100px;
+	    height: calc( 100% - 100px );
+	    overflow: auto;
 	}
 
-	#planes{
+	#plan #nivel{
+		position: relative;
+		width: 0px;
+		height: 100%;
 		vertical-align: middle;
-    	display: table-cell;
-	}
-
-	.select_plan_box {
-	    text-align: center;
-	    height: 50%;
-	}
-
-	.select_plan_box article{
 		display: inline-block;
-		width: 24%;
+	}
+
+	#plan #plan_box{
+		display: inline-block;
+		width: calc( 100% - 5px );
+		text-align: center;
+	}
+
+	#plan article{
+		display: inline-block;
+		width: calc( 20% - 5px );
 		vertical-align: middle;
 		padding: 10px;
 		cursor: pointer;
 	    box-sizing: border-box;
 	}
 
-	.select_plan_box article:hover{
+	#plan article:hover{
 		background: #f1f1f1;
 	    border-radius: 20px;
 	}
 
-	.select_plan_box article.plan_activo{
+	#plan article img{
+		padding: 10px;
+	}
+
+	#plan article.plan_activo{
 		background: #f1f1f1;
 	    border-radius: 20px;
 	}
@@ -414,8 +429,10 @@ div#wpadminbar {
 	    font-family: 'Gothamlight_Regular';
 	    font-size: 16px;
 	    font-weight: 400;
-	    padding: 0px 20px !important;
-	    height: 100px;
+	    padding: 10px !important;
+	    height: 120px;
+        max-width: 200px;
+    	margin: 0px auto;
 	}
 
 	.precio_plan {
@@ -461,7 +478,6 @@ div#wpadminbar {
 	    display: block;
 	    vertical-align: middle;
 	    text-align: center;
-	    padding-bottom: 10px;
 	}
 
 	.cantidad_controls label {
@@ -484,6 +500,7 @@ div#wpadminbar {
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
 	    max-width: 900px;
+        padding-right: 5px;
 	}
 
 	table {
@@ -502,7 +519,7 @@ div#wpadminbar {
 	    color: #FFF;
 	    padding: 3px 20px;
 	    text-transform: uppercase;
-	    margin: 5px;
+	    margin: 2px;
 	}
 
 	body.iOS #desglose th span{
@@ -518,7 +535,7 @@ div#wpadminbar {
 	}
 
 	#desglose td {    
-	    /*padding: 10px 20px;*/
+	    padding: 10px 5px;
 	}
 
 	#desglose td hr {        
@@ -676,36 +693,55 @@ div#wpadminbar {
 /* Carrousel - Tamaños  */
 /************************/
 
+	.carrousel-items-containers{
+	    display: table;
+	    width: 100%;
+	    height: calc( 100% - 180px );
+	    margin: 65px auto 0px;
+	    max-width: 1000px;
+	}
+
+	.hover_carrousel_item article:nth-child(2) {
+	    background: #e9e9e9;
+	}
+
 	.carrousel-items{
-	    width: 80%;
-	    box-sizing: border-box;
-	    height: calc( 100% - 110px );
-	    padding: 100px 0px 0px;
-	    text-align: center;
+		height: 100%;
+	    display: table-cell;
+    	vertical-align: middle;
 	}
 
-	.carrousel-items article{
-	    opacity: .4;
-	    width: 33.333333%;
+	.carrousel-items > article{
+		height: 70%;
+		width: 33.333334%;
+	    display: inline-block;
+	    float: left;
+	    padding: 20px 0px;
 	}
 
-	.carrousel-items article:nth-child(2){
-	    opacity: 1;
+	.carrousel-items > article > div{
+		max-width: 90%;
+	    margin: 0px auto;
+        height: 100%;
+    	text-align: center;
 	}
-	.carrousel-items article:nth-child(2) div img{
-	    border: 2px solid #fff;
+
+	.carrousel-items > article > div > div {
+		height: calc( 100% - 50px );
+		max-width: 80%;
+	    margin: 0px auto 10px;
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: contain;
 	}
 
 	.carrousel-items article div p {
 	    font-family: "GothanMedium_regular";
 	    font-weight: normal;
-	    color: #00bb00;
+	    color: #000;
 	    text-transform: uppercase;
 	    padding: 3px;
-	}
-	
-	.carrousel-items{   
-	    text-align: center;
-	    margin-top: 0px;
-	    margin: 0px 10%;
+	    border-top: solid 2px #00bb00;
+        margin: 0px;
+    	font-size: 25px;
 	}

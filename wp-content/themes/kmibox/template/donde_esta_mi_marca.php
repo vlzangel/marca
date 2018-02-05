@@ -4,19 +4,12 @@
 		$HTML .= '
 		<section id="tab_3">
 			<div class="section_box">
-				<div class="carrusel_suscripciones_box">
-					<div class="carrusel_suscripciones_container_general">
-						<label class="gothan">Selecciona un suscripci&oacute;n</label>
-						<div class="carrusel_suscripciones_container slider_despachos">
-							'.$carrusel_despachos.'
-						</div>
-					</div>
-					<div class="img_grande">
-						<div class="">
-							<img id="img_item_2" src="'.$despacho_inicial["img"].'" />
-						</div>
-					</div>
+
+				<div class="selector_container">
+					<div class="titulo_selector">Seleccionar Suscripción:</div>
+					<select id="selector_despachos" class="selector">'.$opciones.'</select>
 				</div>
+				
 				<div class="form_suscripcion">
 					<div>
 						<!-- <label class="subtiulo">Estatus del envío</label> -->

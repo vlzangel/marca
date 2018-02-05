@@ -92,41 +92,51 @@
 	    $user_id = $current_user->ID;
 	    $CARRITO = unserialize( $_SESSION["CARRITO"] );
 	    $hoy = date("Y-m-d H:i:s", time() );
-	 	$SQL_PERDIDO = "
+
+	    $metaData = array();
+
+	    if( isset($_SESSION["MODIFICACION"]) ){
+			$metaData["es_modificacion_de"] = $_SESSION["MODIFICACION"];
+	    }
+
+	    unset($_SESSION["MODIFICACION"]);
+
+	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
 	 			'{$user_id}',
 	 			'{$CARRITO["cantidad"]}',
 	 			'{$CARRITO["total"]}',
-		 		'{$hoy}'
+		 		'{$hoy}',
+		 		'Pendiente',
+		 		'".serialize($metaData)."'
 	 		)
 	 	";
-	 	$wpdb->query( $SQL_PERDIDO );
+	 	$wpdb->query( $SQL_PEDIDO );
 	 	$orden_id = $wpdb->insert_id;
+
 	 	foreach ($CARRITO["productos"] as $producto) {
-	 		for ($i=0; $i < $producto->cantidad; $i++) { 
-		 		if( $producto->producto != "" ){
-		 			$data = array(
-		 				"tamano" => $producto->tamano,
-		 				"edad" => $producto->edad,
-		 				"presentacion" => $producto->presentacion,
-		 				"plan" => $producto->plan
-		 			);
-		 			$data = serialize($data);
-				 	$SQL_PERDIDO = "
-				 		INSERT INTO items_ordenes VALUES (
-				 			NULL,
-				 			'{$orden_id}',
-				 			'{$producto->producto}',
-				 			'{$data}',
-				 			'Activa',
-				 			'{$producto->subtotal}',
-				 			'{$hoy}',
-				 			'{$producto->plan_id}'
-				 		)
-				 	";
-				 	$wpdb->query( $SQL_PERDIDO );
-		 		}
+	 		if( $producto->producto != "" ){
+	 			$data = array(
+	 				"tamano" => $producto->tamano,
+	 				"edad" => $producto->edad,
+	 				"plan" => $producto->plan
+	 			);
+	 			$data = serialize($data);
+			 	$SQL_SUB_PEDIDO = "
+			 		INSERT INTO items_ordenes VALUES (
+			 			NULL,
+			 			'{$orden_id}',
+			 			'{$producto->producto}',
+			 			'{$producto->cantidad}',
+			 			'{$data}',
+			 			'{$producto->subtotal}',
+			 			'{$hoy}',
+			 			'{$producto->plan_id}'
+			 		)
+			 	";
+
+			 	$wpdb->query( $SQL_SUB_PEDIDO );
 	 		}
 	 	}
 
@@ -138,6 +148,23 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 		global $wpdb;
+
+		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
+
+		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
+		$metaData = deserializar($orden->metadata);
+
+		if( isset($metaData["es_modificacion_de"]) ){
+
+			$orden_vieja = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$metaData["es_modificacion_de"]};" );
+			$metaData_vieja = deserializar($orden_vieja->metadata);
+			$metaData_vieja["modificada_por"] = $orden_id;
+			$metaData_vieja = serialize($metaData_vieja);
+
+			$wpdb->query( "UPDATE ordenes SET status = 'Modificada', metadata = '{$metaData_vieja}' WHERE id = {$metaData["es_modificacion_de"]};" );
+			
+		}
+
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW() );";
@@ -149,10 +176,20 @@
     		$wpdb->query( $SQL ); 
     		for ($i=0; $i < $meses; $i++) { 
     			if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', NOW() );";
+    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
     			$wpdb->query( $SQL );
     		}
     	}
+	}
+
+	function getOrdenes(){
+    	date_default_timezone_set('America/Mexico_City');
+		global $wpdb;
+	 	$current_user = wp_get_current_user();
+	    $user_id = $current_user->ID;
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ORDER BY id DESC");
+
+		return $ordenes;
 	}
 
 	function getSuscripciones(){
@@ -161,7 +198,7 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 	    $suscripciones = array();
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ");
 		foreach ($ordenes as $orden) {
 			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE  id_orden = ".$orden->id);
 			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
@@ -185,11 +222,11 @@
 					"orden" => $plan->id,
 					"plan" => $data["plan"],
 					"producto" => $plan->id_producto,
+					"cantidad" => $plan->cantidad,
 					"total" => $plan->total,
 					"nombre" => $producto->nombre,
 					"img" => $img,
-					"presentacion" => $data["presentacion"],
-					"status" => $plan->status_suscripcion,
+					"status" => $orden->status,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
 					"entredagos" => $_entregados_str
 				);
@@ -209,16 +246,19 @@
 	    $suscripciones = array();
 		$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE cliente = {$user_id} AND ( mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ) ORDER BY id DESC");
 		foreach ($despachos as $despacho) {
-			$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
-			$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
-			$_data = unserialize( $producto->dataextra );
-			$img = TEMA()."/imgs/productos/".$_data["img"];
-			$_despachos[] = array(
-				"orden" => $sub_orden->id,
-				"nombre" => $producto->nombre,
-				"img" => $img,
-				"status" => $despacho->status
-			);
+			$status_orden = $wpdb->get_var( "SELECT status FROM ordenes WHERE id=".$despacho->orden );
+			if( $status_orden != "Modificada" ){
+				$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
+				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
+				$_data = unserialize( $producto->dataextra );
+				$img = TEMA()."/imgs/productos/".$_data["img"];
+				$_despachos[] = array(
+					"orden" => $sub_orden->id,
+					"nombre" => $producto->nombre,
+					"img" => $img,
+					"status" => $despacho->status
+				);
+			}
 		}
 		return $_despachos;
 	}

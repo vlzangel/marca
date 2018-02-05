@@ -5,17 +5,25 @@
  *
  */
 	
+	session_start();
+
+	$CARRITO = "";
+	if( isset($_SESSION["CARRITO"]) && isset($_SESSION["MODIFICACION"]) ){
+		$CARRITO = unserialize($_SESSION["CARRITO"]);
+	}
+	
 	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
 	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
 
 	get_header(); 
 
-	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
+	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
 	$PLANES = "";
 	foreach ($data_planes as $plan) {
+		$plan->plan = str_replace(" ", "-", $plan->plan);
 		$PLANES .= '
-			<article id="plan-'.$plan->plan.'" data-value="'.$plan->id.'" class="select_plan">
-				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">
+			<article id="plan-'.$plan->id.'" data-value="'.$plan->id.'" class="select_plan">
+				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.png">
 				<div>
 					'.$plan->descripcion.'
 				</div>
@@ -48,33 +56,40 @@
 
 		<div class="comprar_container">
 			<section id="fase_1">
-				<div class="carrousel-items">
-					<article data-value="Mediano">
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_mediano.png" class="img-responsive img-circle" id="Mediano" />
-							<p class="col-md-12">Mediano</p>
-						</div>
-					</article>
-					<article data-value="Pequeño">
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_pequeno_1.png" class="img-responsive img-circle" id="Grande" />
-							<p class="col-md-12">Pequeño</p>
-						</div>
-					</article>
-					<article data-value="Grande">
-						<div>
-							<img src="'.get_home_url().'/img/edad/p_adulto.png" class="img-responsive img-circle" id="Grande" />
-							<p class="col-md-12">Grande</p>
-						</div>
-					</article>
-				</div>
-				<div class="selector_edad_container">
-					<label>Selecciona la Edad</label>
-					<div class="selector_edad_box" id="edad">
-						<span id="edad_Cachorro" data-value="Cachorro">Cachorro</span>
-						<span id="edad_Adulto" data-value="Adulto" >Adulto</span>
-						<span id="edad_Senior" data-value="Senior" >Senior</span>
+
+				<div class="carrousel-items-containers">
+
+					<div class="carrousel-items">
+
+						<article data-value="Mediano">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_mediano.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Mediano</p>
+							</div>
+						</article>
+						<article data-value="Pequeño">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_pequeno_1.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Pequeño</p>
+							</div>
+						</article>
+						<article data-value="Grande">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/p_adulto.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Grande</p>
+							</div>
+						</article>
 					</div>
+
+					<div class="selector_edad_container">
+						<label>Selecciona la Edad</label>
+						<div class="selector_edad_box" id="edad">
+							<span id="edad_Cachorro" data-value="Cachorro" class="btn-disable" >Cachorro</span>
+							<span id="edad_Adulto" data-value="Adulto" class="btn-disable" >Adulto</span>
+							<span id="edad_Senior" data-value="Senior" class="btn-disable" >Senior</span>
+						</div>
+					</div>
+
 				</div>
 			</section>
 
@@ -112,11 +127,12 @@
 
 			<section id="fase_4" class="hidden">
 				<div id="plan">
-					<div id="planes">
-						<div class="select_plan_box">
-							'.$PLANES.'
-						</div>
+					<div id="nivel"></div>
+
+					<div id="plan_box">
+						'.$PLANES.'
 					</div>
+
 				</div>
 			</section>
 
@@ -198,6 +214,12 @@
 	wp_enqueue_script('mascotas', TEMA()."/js/functions_new.js", array(), '1.0.0');
 
 	get_footer();
+
+	if( $CARRITO != "" ){
+		echo "<script> var MODIFICACION = eval('(".json_encode($CARRITO).")'); </script>";
+	}else{
+		echo "<script> var MODIFICACION = ''; </script>";
+	}
 
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>

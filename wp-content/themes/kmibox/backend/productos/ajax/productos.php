@@ -26,6 +26,8 @@
 		$ciudades[ $origen->id ] = $origen->ciudad; 
 	}
 
+	$data["data"] = array();
+
 	foreach ($productos as $producto) {
 
 		$dataextra = unserialize( $producto->dataextra );
@@ -71,6 +73,7 @@
 	        $producto->descripcion,
 	        "$ ".$producto->precio." MXN",
 	        $producto->existencia,
+	        $producto->puntos,
 	        $producto->peso,
 	        $marca,
 	        implode("<br>", $origenes ),

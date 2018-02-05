@@ -38,6 +38,11 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     margin: 10px 0 0 !important;
 }
 
+input.readonly, input[readonly], textarea.readonly, textarea[readonly] {
+    background-color: #f6f6f6;
+    border: solid 1px #CCC;
+}
+
 .enlaces {
 	color: #158acd;
 	cursor: pointer;
@@ -150,27 +155,11 @@ a:focus, a:focus .media-icon img {
 {
     width: 100%;
     box-sizing: border-box;
-    padding: 5px;
 }
 
 .celdas_1,
-.celdas_2,
-.celdas_3 {
+.celdas_2{
     overflow: hidden;
-}
-
-.celdas_3 .input_box > label {
-    display: block;
-    font-weight: 600;
-    cursor: default !important;
-}
-
-.celdas_3 .input_box
- {
-    float: left;
-    width: 33.333333%;
-    box-sizing: border-box;
-    padding: 3px;
 }
 
 .input_text_container
@@ -186,10 +175,10 @@ a:focus, a:focus .media-icon img {
     padding: 3px;
 }
 
-.celdas_4 .input_text_container .input_text
+.celdas_3 .input_text_container .input_text
  {
     float: left;
-    width: 25%;
+    width: 33.3333334%;
     box-sizing: border-box;
     padding: 3px;
 }
@@ -202,7 +191,7 @@ a:focus, a:focus .media-icon img {
     padding: 3px;
 }
 
-.input_text_container .input_text input,
+.input_text_container .input_text input[type="text"],
 .input_text_container .input_text select
 {
     width: 100%;
