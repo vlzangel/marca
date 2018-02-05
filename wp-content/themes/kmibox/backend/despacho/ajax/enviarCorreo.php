@@ -43,33 +43,7 @@
 			</div>
 	    ';
 
-	    $_planes = $wpdb->get_results("SELECT * FROM planes");
-	    $planes = array();
-	    foreach ($_planes as $plan) {
-	    	$planes[ $plan->id ] = $plan->plan;
-	    }
-
-	    $_productos = array();
-	    $despachos = $wpdb->get_results("SELECT * FROM despachos WHERE ".$condicion);
-	    foreach ($despachos as $data) {
-	    	$sub_orden = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = ".$data->sub_orden);
-
-	    	if( !array_key_exists($sub_orden->id_producto, $_productos) ){
-	    		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
-	    		$dataextra = unserialize($producto->dataextra);
-	    		$_productos[ $sub_orden->id_producto ] = array(
-	    			"nombre" => $producto->nombre,
-	    			"descripcion" => $producto->descripcion,
-	    			"plan" => $planes[ $sub_orden->plan ],
-	    			"precio" => $producto->precio,
-	    			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
-	    			"cantidad" => 1
-		    	);
-	    	}else{
-	    		$_productos[ $sub_orden->id_producto ]["cantidad"] += 1;
-	    	}
-
-	    }
+	    $_productos = getProductosDesglose($ID);
 	    
 	 	$productos = "";
 	 	foreach ($_productos as $producto) {
