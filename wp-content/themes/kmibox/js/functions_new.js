@@ -400,7 +400,7 @@ function loadFase(fase){
 			var actual = getCarritoActual();
 			jQuery.each(PRODUCTOS[ actual["producto"] ]["planes"],  function(key, val){
 				if( val == 1 ){
-					jQuery( "#plan-"+PLANES[ key ].nombre ).css("display", "inline-block");
+					jQuery( "#plan-"+key ).css("display", "inline-block");
 				}
 			});
 		break;
@@ -418,6 +418,7 @@ function loadFase(fase){
 			var precio = 0;
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 				var plan = PLANES[ producto['plan_id'] ].meses;
+				if( plan == 0 ){ plan = 1; }
 				var _producto = producto["producto"];
 				var precio_plan = producto["precio"]*plan;
 				precio = precio_plan;
