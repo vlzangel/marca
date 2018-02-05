@@ -77,9 +77,10 @@
 .img_grande {
     padding: 10px;
     float: right;
-    width: 35%;
+    width: 38%;
     box-sizing: border-box;
-    height: 240px;
+    height: 233px;
+    margin: 18px 0px;
 }
 
 .img_grande > div {
@@ -114,6 +115,26 @@
     color: #000000;
     text-transform: uppercase;
 }
+
+/* Acciones de las suscripciones */
+
+    .acciones_container {
+        text-align: right;
+        padding: 0px 0px 20px;
+    }
+
+    .acciones_container button {
+        border: 2px solid #091705;
+    }
+
+    .acciones_container button.cancelar_suscripcion {
+        border: 2px solid #a30e0e;
+        background: #a30e0e;
+    }
+
+    .acciones_container button.cancelar_suscripcion:hover {
+        background: #ffffff;
+    }
 
 .carrusel_suscripciones_container {
     padding: 0px;

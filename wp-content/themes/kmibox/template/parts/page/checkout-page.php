@@ -50,6 +50,10 @@
 	$OPENPAY_KEY_PUBLIC = $dataOpenpay["OPENPAY_KEY_PUBLIC"];
 	$OPENPAY_PRUEBAS = 1;
 
+/*	echo "<pre>";
+		print_r($CARRITO);
+	echo "</pre>";*/
+
 ?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css?ver=".time(); ?>">

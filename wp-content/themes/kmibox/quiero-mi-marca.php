@@ -5,6 +5,13 @@
  *
  */
 	
+	session_start();
+
+	$CARRITO = "";
+	if( isset($_SESSION["CARRITO"]) && isset($_SESSION["MODIFICACION"]) ){
+		$CARRITO = unserialize($_SESSION["CARRITO"]);
+	}
+	
 	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
 	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
 
@@ -206,6 +213,12 @@
 	wp_enqueue_script('mascotas', TEMA()."/js/functions_new.js", array(), '1.0.0');
 
 	get_footer();
+
+	if( $CARRITO != "" ){
+		echo "<script> var MODIFICACION = eval('(".json_encode($CARRITO).")'); </script>";
+	}else{
+		echo "<script> var MODIFICACION = ''; </script>";
+	}
 
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>
