@@ -173,7 +173,7 @@
 @media (max-width: 769px) {
 
 	.carrousel-items-containers {
-	    height: calc( 100% - 215px );
+	    height: calc( 100% - 170px );
 	    margin: 95px 0px 0px;
 	}
 
@@ -644,7 +644,7 @@
 	}
 
 	.selector_edad_container label {
-	    font-size: 15px;
+	    font-size: 12px;
 	}
 
 	.selector_edad_container .selector_edad_box span {
