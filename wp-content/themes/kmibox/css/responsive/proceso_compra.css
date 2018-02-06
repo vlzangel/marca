@@ -366,6 +366,10 @@
 			padding: 7px 20px 4px;
 		}
 
+	.selector_edad_container label {
+	    font-size: 12px;
+	}
+
 }
 
 @media ( max-width: 500px ) {
@@ -410,7 +414,7 @@
 	}
 
 	.carrousel-items article div p {
-	    font-size: 13px;
+	    font-size: 12px;
 	}
 
 	#vlz_controles_fases > span > span {
@@ -641,10 +645,6 @@
 	    top: 55px;
 	    font-size: 12px;
 	    width: calc( 100% - 20px );
-	}
-
-	.selector_edad_container label {
-	    font-size: 12px;
 	}
 
 	.selector_edad_container .selector_edad_box span {
