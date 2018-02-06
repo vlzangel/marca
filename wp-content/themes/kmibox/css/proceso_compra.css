@@ -775,7 +775,7 @@ div#wpadminbar {
 
 	.carrousel-items > article > div > div {
 		height: calc( 100% - 50px );
-		max-width: 80%;
+		max-width: 90%;
 	    margin: 0px auto 10px;
 	    background-repeat: no-repeat;
 	    background-position: center;
