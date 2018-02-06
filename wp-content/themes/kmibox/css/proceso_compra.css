@@ -789,6 +789,6 @@ div#wpadminbar {
 	    text-transform: uppercase;
 	    padding: 3px;
 	    border-top: solid 2px #00bb00;
-        margin: 0px;
+        margin: 0px 20px;
     	font-size: 25px;
 	}
