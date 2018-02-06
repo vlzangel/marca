@@ -162,6 +162,12 @@
 	#marca > div > .item_box:hover {
 		background: #FFF;
 	}
+
+	#abajo_marcas,
+	#arriba_marcas {
+		display: inline-block;
+		z-index: 101;
+	}
 }
 
 @media (max-width: 769px) {
@@ -200,7 +206,7 @@
 	#vlz_titulo {
 	    width: calc( 100% - 230px );
 	    left: 0px;
-	    top: 55px;
+	    top: 45px;
 	    width: 100%;
 	    text-align: center;
 	    font-family: GothanMedium_regular;
@@ -364,6 +370,10 @@
 
 @media ( max-width: 500px ) {
 
+	#abajo_marcas,
+	#arriba_marcas {
+		z-index: 102;
+	}
 
     /* Planes */
 
@@ -395,7 +405,7 @@
 	}
 
 	.carrousel-items > article > div > div {
-	    height: calc( 100% - 35px );
+	    height: calc( 100% - 20px );
 	    margin: 0px auto 3px;
 	}
 
@@ -533,7 +543,7 @@
 	/* Marca */
 
 		#marca {
-		    height: calc( 100% - 175px );
+		    
 		}
 
 		#marca > div {
@@ -555,8 +565,7 @@
 		}
 
 		.btn_siguiente_container {
-		    text-align: center;
-		    padding: 0px 75px;
+		    padding: 0px 10px;
 		    margin: 4px 0px 3px;
 		    font-size: 12px;
 		}
