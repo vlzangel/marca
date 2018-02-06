@@ -20,7 +20,7 @@
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
 	$PLANES = "";
 	foreach ($data_planes as $plan) {
-		$plan->plan = str_replace(" ", "-", $plan->plan);
+		// $plan->plan = str_replace(" ", "-", $plan->plan);
 		$PLANES .= '
 			<article id="plan-'.$plan->id.'" data-value="'.$plan->id.'" class="select_plan">
 				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.png">
