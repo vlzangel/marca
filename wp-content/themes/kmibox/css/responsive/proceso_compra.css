@@ -60,10 +60,6 @@
 
 @media (max-width: 950px){
 
-	.carrousel-items > article {
-	    height: 30%;
-	}
-
 	.selector_producto_container {
 	    height: 280px;
 	}
@@ -180,6 +176,11 @@
 	.carrousel-items > article {
 	    width: 100%;
 	    padding: 3px 0px 3px;
+	    height: 33.3333334%;
+	}
+
+	.carrousel-items article div p {
+	    font-size: 10px;
 	}
 
 	.carrousel-items > article > div {
@@ -188,6 +189,33 @@
 
 	.carrousel-items > article > div > div {
 	    background-position: center;
+	}
+
+	.carrousel-items > article > div > div {
+	    height: calc( 100% - 20px );
+	    margin: 0px auto 3px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    min-width: 150px;
+        margin: 0px 3px;
+	    font-size: 11px;
+	    padding: 7px 5px 4px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 11px;
+	    padding: 7px 5px 4px;
+	    min-width: 110px;
+	    margin: 0px 3px;
+	}
+
+	.selector_edad_container{
+        height: 70px;
+	}
+
+	.selector_edad_container label {
+	    font-size: 12px;
 	}
 
 	.solo_movil{
@@ -277,13 +305,6 @@
 		}
 }
 
-@media (max-width: 730px){
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 18px;
-	    min-width: 170px;
-	}
-}
-
 @media (max-width: 680px){
 	.carrusel_2{
 	    width: 70%;
@@ -299,12 +320,6 @@
 }
 
 @media (max-width: 600px){
-	.selector_edad_container .selector_edad_box span {
-	    min-width: 150px;
-        margin: 0px 3px;
-	    font-size: 11px;
-	    padding: 7px 5px 4px;
-	}
 
 	#agregar_plan {
 		display: block;
@@ -365,10 +380,6 @@
 			padding: 7px 20px 4px;
 		}
 
-	.selector_edad_container label {
-	    font-size: 12px;
-	}
-
 }
 
 @media ( max-width: 500px ) {
@@ -405,11 +416,6 @@
 	.titulo_planes {
 	    top: 44px !important;
 	    font-size: 13px !important;
-	}
-
-	.carrousel-items > article > div > div {
-	    height: calc( 100% - 20px );
-	    margin: 0px auto 3px;
 	}
 
 	.carrousel-items article div p {
@@ -465,13 +471,6 @@
 	    position: absolute;
 	    bottom: 50px;
 	    right: calc( 50% - 100px );
-	}
-
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 11px;
-	    padding: 7px 5px 4px;
-	    min-width: 110px;
-	    margin: 0px 3px;
 	}
 
 	#vlz_controles_fases {
@@ -615,7 +614,7 @@
 	.selector_edad_container .selector_edad_box span {
 	    font-size: 10px;
 	    padding: 5px 5px 2px;
-	    min-width: 10px;
+	    min-width: 100px;
 	    margin: 0px !important;
 	}
 
