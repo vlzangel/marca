@@ -46,6 +46,16 @@
 	    }
 	}
 
+	if(!function_exists('deserializar')){
+	    function deserializar($data){
+	        if( $data == ""){
+	        	return array();
+	        }else{
+	        	return unserialize($data);
+	        }
+	    }
+	}
+
 	if(!function_exists('getFechas')){
 	    function getFechas(){
 	        return array(

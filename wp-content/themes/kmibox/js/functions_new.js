@@ -1,6 +1,7 @@
 var CARRITO = [];
 CARRITO["cantidad"] = 0;
 CARRITO["productos"] = [];
+
 CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
@@ -98,6 +99,8 @@ jQuery(document).ready(function() {
 
 		jQuery('#cant_marcas').html( jQuery('#marca > .tipo_'+TIPO).length );
 
+		reset_flechas_marcas();
+
 	});
 
 	jQuery("#agregar_plan").on("click", function(e){
@@ -144,10 +147,98 @@ jQuery(document).ready(function() {
 	  	});
 		
 	});
+
+	jQuery("#abajo_marcas").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			bajarFila();
+		}
+	});
+
+	jQuery("#arriba_marcas").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			subirFila();
+		}
+	});
+
+/*	jQuery("#abajo_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			bajarFila(3);
+		}
+	});
+
+	jQuery("#arriba_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			subirFila(3);
+		}
+	});*/
+
 	initProductos_y_Planes();
-	change_fase(1);
+
+	if( MODIFICACION == "" ){
+		change_fase(1);
+	}else{
+		CARRITO = MODIFICACION;
+	}
 
 });
+
+function reset_flechas_marcas(){
+	jQuery("#marca").attr("data-top", 0);
+	jQuery("#marca > div").animate({top: "0%"}, "slow" );
+	jQuery(".arriba_marcas").addClass("btn-disable");
+	var filas = getFilas();
+	if( filas <= 0 ){
+		jQuery(".abajo_marcas").addClass("btn-disable");
+	}else{
+		jQuery(".abajo_marcas").removeClass("btn-disable");
+	}
+}
+
+function getFilas(h){
+	var h = getH();
+	var filas = Math.ceil( parseInt( jQuery("#cant_marcas").html() ) / h );
+	return (filas-4);
+}
+
+function getH(){
+	var index = jQuery("#arriba_marcas").css("z-index");
+	switch(index){
+		case "101":
+			return 3;
+		break;
+		case "102":
+			return 2;
+		break;
+	}
+}
+
+function subirFila(){
+	var top = parseInt( jQuery("#marca").attr("data-top") );
+	top -= 1;
+	jQuery("#marca > div").animate({top: "-"+(top*25)+"%"}, "slow" );
+	jQuery("#marca").attr("data-top", top);
+	if( top == 0 ){
+		jQuery("#arriba_marcas").addClass("btn-disable");
+	}
+	var filas = getFilas();
+	if( top < filas ){
+		jQuery("#abajo_marcas").removeClass("btn-disable");
+	}
+}
+
+function bajarFila(){
+	var top = parseInt( jQuery("#marca").attr("data-top") );
+	top += 1;
+	jQuery("#marca > div").animate({top: "-"+(top*25)+"%"}, "slow" );
+	jQuery("#marca").attr("data-top", top);
+	if( top > 0 ){
+		jQuery("#arriba_marcas").removeClass("btn-disable");
+	}
+	var filas = getFilas();
+	if( top >= filas ){
+		jQuery("#abajo_marcas").addClass("btn-disable");
+	}
+}
 
 function get_json_cart(){
 	var _json = JSON.stringify( CARRITO["total"] )+"===";
@@ -165,6 +256,11 @@ function initProductos_y_Planes(){
 			PRODUCTOS = data["PRODUCTOS"];
 			MARCAS = data["MARCAS"];
 			PLANES = data["PLANES"];
+
+			if( MODIFICACION != "" ){
+				change_fase(5);
+			}
+
 		}, "json"
 	).fail(function(e) {
 		console.log( e );
@@ -191,24 +287,6 @@ function loadMarcas(){
 	jQuery('#marca').html("");
 	var CANT = 0;
 	jQuery.each(MARCAS,  function(key, marca){
-		/*jQuery.each(PRODUCTOS,  function(key_2, producto){
-			if( key == producto.marca ){
-				if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
-					if( producto.edades[ prod_actual["edad"] ] == 1 ){
-
-						jQuery('#marca').append(
-							'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
-								'<div class="item_box">'+
-									'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
-								'</div>'+
-							'</div>'
-						);
-						CANT++;
-					}
-				}
-			}
-		});*/
-
 		jQuery('#marca').append(
 			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
 				'<div class="item_box">'+
@@ -318,13 +396,13 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
-	HTML += '	 	<label class="solo_movil">$ '+price+' MXN</label>';
+	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label class="resaltar_desglose">'+frecuencia+'</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	<label>$ '+price+' MXN</label>';
+	HTML += '	 	<label>$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<div class="cantidad_controls">';
@@ -332,10 +410,10 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 			<label id="cant_'+index+'"> '+cantidad+' </label>';
 	HTML += '	 		<i class="fa fa-plus-circle mas" onclick="mas_cantidad('+index+')"></i>';
 	HTML += '	 	</div>';
-	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+(price*cantidad)+' MXN</div>';
+	HTML += '	 	<div class="resaltar_desglose solo_movil total_en_cantidad" style="text-align: center; width: 100%;">$ '+FN(price*cantidad)+' MXN</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	<label class="resaltar_desglose">$ '+(price*cantidad)+' MXN</label>';
+	HTML += '	 	<label class="resaltar_desglose">$ '+FN(price*cantidad)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '</tr>';
 	HTML += '<tr>';
@@ -400,7 +478,7 @@ function loadFase(fase){
 			var actual = getCarritoActual();
 			jQuery.each(PRODUCTOS[ actual["producto"] ]["planes"],  function(key, val){
 				if( val == 1 ){
-					jQuery( "#plan-"+PLANES[ key ].nombre ).css("display", "inline-block");
+					jQuery( "#plan-"+key ).css("display", "inline-block");
 				}
 			});
 		break;
@@ -418,6 +496,7 @@ function loadFase(fase){
 			var precio = 0;
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 				var plan = PLANES[ producto['plan_id'] ].meses;
+				if( plan == 0 ){ plan = 1; }
 				var _producto = producto["producto"];
 				var precio_plan = producto["precio"]*plan;
 				precio = precio_plan;

@@ -51,7 +51,6 @@
 			'$marca',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',
-			'---',
 			'".serialize($_planes)."',
 			'".serialize($dataextra)."',
 			'Activo'

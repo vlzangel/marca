@@ -19,9 +19,7 @@
 */
 	$opciones = "";
 	foreach ($ordenes as $key => $value) {
-		$condicion = "orden = {$value->id} AND mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}'";
-		$status = $wpdb->get_var("SELECT status FROM despachos WHERE ".$condicion);
-		$opciones .= "<option value={$value->id} data-status='{$status}'>Orden: {$value->id}</option>";
+		$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n Id: {$value->id}</option>";
 	}
 
 	if( count($mis_suscripciones) > 0 ){
@@ -32,6 +30,11 @@
 					<div class="selector_container">
 						<div class="titulo_selector">Seleccionar Suscripción:</div>
 						<select id="selector_suscripcion" class="selector">'.$opciones.'</select>
+					</div>
+
+					<div class="acciones_container">
+						<button id="cancelar_suscripcion" class="btn-sm-kmibox cancelar_suscripcion">Cancelar Suscripci&oacute;n</button>
+						<button id="modificar_suscripcion" class="btn-sm-kmibox">Modificar Suscripci&oacute;n</button>
 					</div>
 
 					<div class="carrusel_suscripciones_box">
@@ -45,6 +48,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="form_suscripcion">
 						<div class="celda_4" style="margin-bottom: 0px;">
 							<div class="">

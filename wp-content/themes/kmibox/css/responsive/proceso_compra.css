@@ -73,10 +73,6 @@
 
 @media (max-width: 950px){
 
-	.carrousel-items > article {
-	    height: 30%;
-	}
-
 	.selector_producto_container {
 	    height: 280px;
 	}
@@ -178,18 +174,29 @@
 	#marca > div > .item_box:hover {
 		background: #FFF;
 	}
+
+	#abajo_marcas,
+	#arriba_marcas {
+		display: inline-block;
+		z-index: 101;
+	}
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
 
 	.carrousel-items-containers {
-	    height: calc( 100% - 215px );
-	    margin: 95px 0px 0px;
+		height: calc( 100% - 155px );
+	    margin: 85px 0px 0px;
 	}
 
 	.carrousel-items > article {
 	    width: 100%;
-	    padding: 10px 0px 0px;
+	    padding: 3px 0px 3px;
+	    height: 33.3333334%;
+	}
+
+	.carrousel-items article div p {
+	    font-size: 10px;
 	}
 
 	.carrousel-items > article > div {
@@ -198,6 +205,33 @@
 
 	.carrousel-items > article > div > div {
 	    background-position: center;
+	}
+
+	.carrousel-items > article > div > div {
+	    height: calc( 100% - 20px );
+	    margin: 0px auto 3px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    min-width: 150px;
+        margin: 0px 3px;
+	    font-size: 11px;
+	    padding: 7px 5px 4px;
+	}
+
+	.selector_edad_container .selector_edad_box span {
+	    font-size: 11px;
+	    padding: 7px 5px 4px;
+	    min-width: 110px;
+	    margin: 0px 3px;
+	}
+
+	.selector_edad_container{
+        height: 70px;
+	}
+
+	.selector_edad_container label {
+	    font-size: 12px;
 	}
 
 	.solo_movil{
@@ -214,10 +248,7 @@
 	}
 
 	#vlz_titulo {
-	/*width: calc( 100% - 230px );
-	    left: 0px;
-	    top: 55px;*/
-	    top: 35px;
+	    top: 45px;
 	    width: 100%;
 	    text-align: center;
 	    font-family: GothanMedium_regular;
@@ -282,17 +313,10 @@
 
     /* Planes */
 
-		.select_plan_box article {
-		    width: 49%;
-		    padding: 0px 50px;
+		#plan article {
+		    width: calc( 50% - 2px );
+		    padding: 0px 70px;
 		}
-}
-
-@media (max-width: 730px){
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 18px;
-	    min-width: 170px;
-	}
 }
 
 @media (max-width: 680px){
@@ -311,23 +335,9 @@
 		font-size: 11px;
 	}
 
-    /* Planes */
-
-		.select_plan_box article {
-		    width: 49%;
-		    padding: 0px 30px;
-		}
-
 }
 
 @media (max-width: 600px){
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 12px;
-	    min-width: 150px;
-        margin: 0px 3px;
-
-	    padding: 7px 5px 2px;
-	}
 
 	#agregar_plan {
 		display: block;
@@ -378,13 +388,8 @@
 
     /* Planes */
 
-		.select_plan_box {
-		    height: auto;
-		}
-
-		.select_plan_box article {
-		    width: 49%;
-		    padding: 0px 10px;
+		#plan article {
+		    padding: 0px 30px;
 		}
 
 	/* Desglose */
@@ -397,6 +402,31 @@
 
 @media ( max-width: 500px ) {
 
+	#abajo_marcas,
+	#arriba_marcas {
+		z-index: 102;
+	}
+
+    /* Planes */
+
+		#plan article {
+		    padding: 0px;
+		}
+
+		.plane article img{
+			max-width: 78%;
+		}
+
+		.select_plan div {
+			font-size: 13px;
+		    line-height: 17px;
+		    height: 90px;
+		}
+
+		#plan #nivel {
+		    height: auto;
+		}
+
 	.carrousel-items > article {
 	    height: 33.333333%;
 	}
@@ -406,13 +436,8 @@
 	    font-size: 13px !important;
 	}
 
-	.carrousel-items > article > div > div {
-	    height: calc( 100% - 35px );
-	    margin: 0px auto 3px;
-	}
-
 	.carrousel-items article div p {
-	    font-size: 13px;
+	    font-size: 10px;
 	}
 
 	#vlz_controles_fases > span > span {
@@ -466,14 +491,6 @@
 	    right: calc( 50% - 100px );
 	}
 
-	.selector_edad_container .selector_edad_box span {
-	    font-size: 11px;
-	    min-width: 110px;
-	    margin: 0px 3px;
-
-	    padding: 7px 5px 4px;
-	}
-
 	#vlz_controles_fases {
 	    right: 0px;
 	}
@@ -503,14 +520,6 @@
 
 	.select_plan_box article {
 	    vertical-align: top;
-	}
-
-	.select_plan div {
-	    height: auto;
-	}
-
-	.select_plan div {
-	    font-size: 15px;
 	}
 
 	#desglose th * {
@@ -553,7 +562,7 @@
 	/* Marca */
 
 		#marca {
-		    height: calc( 100% - 175px );
+		    
 		}
 
 		#marca > div {
@@ -575,8 +584,7 @@
 		}
 
 		.btn_siguiente_container {
-		    text-align: center;
-		    padding: 0px 75px;
+		    padding: 0px 10px;
 		    margin: 4px 0px 3px;
 		    font-size: 12px;
 		}
@@ -606,14 +614,6 @@
 		    font-size: 18px;
 		}
 
-    /* Planes */
-
-		.select_plan_box article {
-		    width: 49%;
-		    padding: 5px;
-		    margin-bottom: 10px;
-		}
-
 	/* Desglose */
 
 		.total_en_cantidad{
@@ -630,9 +630,9 @@
 	}
 
 	.selector_edad_container .selector_edad_box span {
-	    font-size: 11px;
-	    padding: 7px 5px 4px;
-	    min-width: 85px;
+	    font-size: 10px;
+	    padding: 5px 5px 2px;
+	    min-width: 100px;
 	    margin: 0px !important;
 	}
 
@@ -662,12 +662,7 @@
 	    width: calc( 100% - 20px );
 	}
 
-	.selector_edad_container label {
-	    font-size: 15px;
-	}
-
 	.selector_edad_container .selector_edad_box span {
-	    padding: 7px 5px 4px;
 	    min-width: 75px;
 	}
 

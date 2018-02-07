@@ -126,7 +126,7 @@ div#wpadminbar {
 	    bottom: 10px;
 	    left: 0px;
 	    width: 100%;
-        height: 110px;
+        height: 100px;
 	}
 
 	.selector_edad_container label{
@@ -191,11 +191,59 @@ div#wpadminbar {
 	}
 
 /* Fase 2 */
-	
+
 	#marca {
 	    /*height: calc( 100% - 170px );*/
 	    height: calc( 100% - 230px );
 	    overflow: auto;
+	}
+
+	.marcas_container {
+	    height: calc( 100% - 230px );
+	    position: fixed;
+	    width: 100%;
+	    top: 120px;
+	    overflow: hidden;
+	}
+
+	.abajo_marcas {
+		position: fixed;
+		left: 25px;
+		bottom: 10px;
+		color: #FFF;
+		font-size: 27px;
+		font-weight: 600;
+		cursor: pointer;
+		z-index: 100;
+		background: #091705;
+		border-radius: 50%;
+		padding: 0px 6px;
+
+		border: 0px !important;
+
+		display: none;
+	}
+
+	.arriba_marcas {
+	    position: fixed;
+	    left: 60px;
+	    bottom: 10px;
+	    color: #FFF;
+	    font-size: 27px;
+	    font-weight: 600;
+	    cursor: pointer;
+	    z-index: 100;
+		background: #091705;
+		border-radius: 50%;
+		padding: 0px 6px;
+
+		border: 0px !important;
+
+		display: none;
+	}
+
+	#marca {
+	    height: 100%;
 	    padding: 0px 10px;
 	    margin: 0px 50px 0px;
 	}
@@ -260,6 +308,7 @@ div#wpadminbar {
 	    box-sizing: border-box;
 	    padding: 5px;
         height: 25%;
+        position: relative;
 	}
 
 	#marca > div > .item_box {
@@ -287,8 +336,10 @@ div#wpadminbar {
 
 	.btn_siguiente_container{
 		text-align: right;
-		padding: 0px 30px;
-		margin-top: 10px;
+		padding: 5px 30px;
+		position: fixed;
+	    bottom: 0px;
+	    width: 100%;
 	}
 
 	.btn_siguiente_container button{
@@ -411,38 +462,49 @@ div#wpadminbar {
 
 	#fase_4 > div {
 	    vertical-align: middle;
-	    height: 100%;
-	    padding: 100px 20px 0px;
-	    display: table;
+	    padding: 20px;
+	    display: block;
 	    width: 100%;
 	    box-sizing: border-box;
+	    position: fixed;
+	    top: 100px;
+	    height: calc( 100% - 100px );
+	    overflow: auto;
 	}
 
-	#planes{
+	#plan #nivel{
+		position: relative;
+		width: 0px;
+		height: 100%;
 		vertical-align: middle;
-    	display: table-cell;
-	}
-
-	.select_plan_box {
-	    text-align: center;
-	    height: 50%;
-	}
-
-	.select_plan_box article{
 		display: inline-block;
-		width: 24%;
+	}
+
+	#plan #plan_box{
+		display: inline-block;
+		width: calc( 100% - 5px );
+		text-align: center;
+	}
+
+	#plan article{
+		display: inline-block;
+		width: calc( 20% - 5px );
 		vertical-align: middle;
 		padding: 10px;
 		cursor: pointer;
 	    box-sizing: border-box;
 	}
 
-	.select_plan_box article:hover{
+	#plan article:hover{
 		background: #f1f1f1;
 	    border-radius: 20px;
 	}
 
-	.select_plan_box article.plan_activo{
+	#plan article img{
+		padding: 10px;
+	}
+
+	#plan article.plan_activo{
 		background: #f1f1f1;
 	    border-radius: 20px;
 	}
@@ -452,8 +514,10 @@ div#wpadminbar {
 	    font-family: 'Gothamlight_Regular';
 	    font-size: 16px;
 	    font-weight: 400;
-	    padding: 0px 20px !important;
-	    height: 100px;
+	    padding: 10px !important;
+	    height: 120px;
+        max-width: 200px;
+    	margin: 0px auto;
 	}
 
 	.precio_plan {
@@ -713,6 +777,7 @@ div#wpadminbar {
 /************************/
 /* Carrousel - Tamaños  */
 /************************/
+
 	.carrousel-items-containers{
 	    display: table;
 	    width: 100%;
@@ -748,7 +813,7 @@ div#wpadminbar {
 
 	.carrousel-items > article > div > div {
 		height: calc( 100% - 50px );
-		max-width: 80%;
+		max-width: 100%;
 	    margin: 0px auto 10px;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -762,58 +827,7 @@ div#wpadminbar {
 	    text-transform: uppercase;
 	    padding: 3px;
 	    border-top: solid 2px #00bb00;
-        margin: 0px;
+        margin: 0px 20px;
     	font-size: 25px;
+    	width: calc( 100% - 40px );
 	}
-
-/*
-	.carrousel-items{
-	    box-sizing: border-box;
-	    padding: 0px;
-	    text-align: center;
-		vertical-align: middle;
-		display: table-cell;
-	}
-
-	.carrousel-items article{
-	    opacity: .4;
-	    width: 21%;
-		vertical-align: middle;
-		display: inline-block;
-		height: 35%;
-	}
-
-	.carrousel-items article:nth-child(2){
-	    opacity: 1;
-	}
-	.hover_carrousel_item article:nth-child(2) {
-	    background: #e9e9e9;
-	}
-
-	.carrousel-items article:nth-child(2) div img{
-	    border: 2px solid #fff;
-	}
-
-	.carrousel-items article div {
-	    height: 100%;
-	}
-
-	.carrousel-items article div > div {
-	    width: 100%;
-	    height: calc( 100% - 40px );
-	    background-repeat: no-repeat;
-	    background-position: center;
-	    background-size: contain;
-        display: inline-block;
-	}
-
-	.carrousel-items article div p {
-	    font-family: "GothanMedium_regular";
-	    font-weight: normal;
-	    color: #000;
-	    text-transform: uppercase;
-	    padding: 3px;
-	    border-top: solid 2px #00bb00;
-        margin: 0px;
-    	font-size: 25px;
-	}*/

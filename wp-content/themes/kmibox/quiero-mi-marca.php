@@ -5,17 +5,25 @@
  *
  */
 	
+	session_start();
+
+	$CARRITO = "";
+	if( isset($_SESSION["CARRITO"]) && isset($_SESSION["MODIFICACION"]) ){
+		$CARRITO = unserialize($_SESSION["CARRITO"]);
+	}
+	
 	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
 	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
 
 	get_header(); 
 
-	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
+	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
 	$PLANES = "";
 	foreach ($data_planes as $plan) {
+		// $plan->plan = str_replace(" ", "-", $plan->plan);
 		$PLANES .= '
-			<article id="plan-'.$plan->plan.'" data-value="'.$plan->id.'" class="select_plan">
-				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.svg">
+			<article id="plan-'.$plan->id.'" data-value="'.$plan->id.'" class="select_plan">
+				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.png">
 				<div>
 					'.$plan->descripcion.'
 				</div>
@@ -32,6 +40,7 @@
 	$form_busqueda = get_form_busqueda();
 
 	$HTML = '
+
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
 		</a>
@@ -98,7 +107,12 @@
 					</div>
 				</div>
 
-				<div id="marca" class="marcas_container"></div>
+				<div class="marcas_container">
+					<div id="marca" data-top="0" class="marcas_box"></div>
+				</div>
+
+				<i id="abajo_marcas" class="abajo_marcas fa fa-angle-down"></i>
+				<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
 
 				<div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
@@ -122,11 +136,12 @@
 
 			<section id="fase_4" class="hidden">
 				<div id="plan">
-					<div id="planes">
-						<div class="select_plan_box">
-							'.$PLANES.'
-						</div>
+					<div id="nivel"></div>
+
+					<div id="plan_box">
+						'.$PLANES.'
 					</div>
+
 				</div>
 			</section>
 
@@ -207,6 +222,12 @@
 	wp_enqueue_script('mascotas', TEMA()."/js/functions_new.js", array(), '1.0.0');
 
 	get_footer();
+
+	if( $CARRITO != "" ){
+		echo "<script> var MODIFICACION = eval('(".json_encode($CARRITO).")'); </script>";
+	}else{
+		echo "<script> var MODIFICACION = ''; </script>";
+	}
 
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>

@@ -92,13 +92,24 @@
 	    $user_id = $current_user->ID;
 	    $CARRITO = unserialize( $_SESSION["CARRITO"] );
 	    $hoy = date("Y-m-d H:i:s", time() );
+
+	    $metaData = array();
+
+	    if( isset($_SESSION["MODIFICACION"]) ){
+			$metaData["es_modificacion_de"] = $_SESSION["MODIFICACION"];
+	    }
+
+	    unset($_SESSION["MODIFICACION"]);
+
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
 	 			'{$user_id}',
 	 			'{$CARRITO["cantidad"]}',
 	 			'{$CARRITO["total"]}',
-		 		'{$hoy}'
+		 		'{$hoy}',
+		 		'Pendiente',
+		 		'".serialize($metaData)."'
 	 		)
 	 	";
 	 	$wpdb->query( $SQL_PEDIDO );
@@ -109,7 +120,6 @@
 	 			$data = array(
 	 				"tamano" => $producto->tamano,
 	 				"edad" => $producto->edad,
-	 				"presentacion" => $producto->presentacion,
 	 				"plan" => $producto->plan
 	 			);
 	 			$data = serialize($data);
@@ -120,7 +130,6 @@
 			 			'{$producto->producto}',
 			 			'{$producto->cantidad}',
 			 			'{$data}',
-			 			'Activa',
 			 			'{$producto->subtotal}',
 			 			'{$hoy}',
 			 			'{$producto->plan_id}'
@@ -139,6 +148,51 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 		global $wpdb;
+
+		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
+
+		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
+		$metaData = deserializar($orden->metadata);
+
+		if( isset($metaData["es_modificacion_de"]) ){
+
+			$orden_vieja = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$metaData["es_modificacion_de"]};" );
+			$metaData_vieja = deserializar($orden_vieja->metadata);
+			$metaData_vieja["modificada_por"] = $orden_id;
+			$metaData_vieja = serialize($metaData_vieja);
+
+			$wpdb->query( "UPDATE ordenes SET status = 'Modificada', metadata = '{$metaData_vieja}' WHERE id = {$metaData["es_modificacion_de"]};" );
+			
+			$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
+			$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
+
+		    $total = $wpdb->get_var("SELECT total FROM ordenes WHERE id = {$orden_id}");
+		    $_productos = getProductosDesglose($orden_id);
+			$productos = "";
+		 	foreach ($_productos as $producto) {
+		 		if( $producto != "" ){
+			 		$temp = getTemplate("/compra/envio/partes/producto");
+			 		$temp = str_replace("[IMG_PRODUCTO]", $producto["img"], $temp);
+			 		$temp = str_replace("[NOMBRE]", $producto["nombre"], $temp);
+			 		$temp = str_replace("[DESCRIPCION]", $producto["descripcion"], $temp);
+			 		$temp = str_replace("[PLAN]", $producto["plan"], $temp);
+			 		$temp = str_replace("[CANTIDAD]", $producto["cantidad"], $temp);
+			 		$temp = str_replace("[PRECIO]", number_format($producto["precio"], 2, ',', '.'), $temp);
+			 		$productos .= $temp;
+			 	}
+		 	}
+		 	$HTML = generarEmail(
+		    	"suscripciones/modificacion", 
+		    	array(
+		    		"USUARIO" => $_name,
+		    		"PRODUCTOS" => $productos,
+		    		"TOTAL" => number_format($total, 2, ',', '.'),
+		    	)
+		    );
+
+		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
+		}
+
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW() );";
@@ -161,7 +215,7 @@
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ORDER BY id DESC");
 
 		return $ordenes;
 	}
@@ -172,7 +226,7 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 	    $suscripciones = array();
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = ".$user_id);
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ");
 		foreach ($ordenes as $orden) {
 			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE  id_orden = ".$orden->id);
 			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
@@ -200,7 +254,7 @@
 					"total" => $plan->total,
 					"nombre" => $producto->nombre,
 					"img" => $img,
-					"status" => $plan->status_suscripcion,
+					"status" => $orden->status,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
 					"entredagos" => $_entregados_str
 				);
@@ -220,18 +274,48 @@
 	    $suscripciones = array();
 		$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE cliente = {$user_id} AND ( mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ) ORDER BY id DESC");
 		foreach ($despachos as $despacho) {
-			$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
-			$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
-			$_data = unserialize( $producto->dataextra );
-			$img = TEMA()."/imgs/productos/".$_data["img"];
-			$_despachos[] = array(
-				"orden" => $sub_orden->id,
-				"nombre" => $producto->nombre,
-				"img" => $img,
-				"status" => $despacho->status
-			);
+			$status_orden = $wpdb->get_var( "SELECT status FROM ordenes WHERE id=".$despacho->orden );
+			if( $status_orden != "Modificada" ){
+				$sub_orden = $wpdb->get_row( "SELECT * FROM items_ordenes WHERE id=".$despacho->sub_orden );
+				$producto = $wpdb->get_row( "SELECT * FROM productos WHERE id=".$sub_orden->id_producto );
+				$_data = unserialize( $producto->dataextra );
+				$img = TEMA()."/imgs/productos/".$_data["img"];
+				$_despachos[] = array(
+					"orden" => $sub_orden->id,
+					"nombre" => $producto->nombre,
+					"img" => $img,
+					"status" => $despacho->status
+				);
+			}
 		}
 		return $_despachos;
+	}
+
+
+
+	function getProductosDesglose($id_orden){
+		global $wpdb;
+		
+		$_planes = get_planes();
+
+	    $_productos = array();
+	    $ordenes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$id_orden}");
+	    foreach ($ordenes as $sub_orden) {
+
+	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
+    		$dataextra = unserialize($producto->dataextra);
+    		$_productos[ $sub_orden->id_producto ] = array(
+    			"nombre" => $producto->nombre,
+    			"descripcion" => $producto->descripcion,
+    			"plan" => $_planes[ $sub_orden->plan ]["nombre"],
+    			"precio" => $producto->precio,
+    			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
+    			"cantidad" => $sub_orden->cantidad
+	    	);
+
+	    }
+
+		return $_productos;
 	}
 
 ?>
