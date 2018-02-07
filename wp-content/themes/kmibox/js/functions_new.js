@@ -11,7 +11,7 @@ CARRITO["productos"].push({
 	"subtotal": 0.00
 });
 
-
+var BUSQUEDA_REGEXP = '';
 var PRODUCTOS = [];
 var MARCAS = [];
 var PLANES = [];
@@ -21,6 +21,13 @@ jQuery(document).ready(function() {
 	if(navigator.platform.substr(0, 2) == 'iP'){
 		jQuery("body").addClass('iOS');
 	}
+
+	jQuery('[data-target="filtrar"]').on('click', function(){
+		var str = jQuery(this).parent().parent().find('input[data-target="search"]').val().trim();
+		jQuery('input[data-target="search"]').val( str );
+		BUSQUEDA_REGEXP = "("+str.replace(/(\s{1,})/g, "|")+")";
+		change_fase(3);
+	});
 
 	jQuery('.carrousel-items').on('click', 'article', function(){
 
@@ -230,8 +237,21 @@ function loadPresentaciones(){
 	jQuery('#presentaciones').html("");
 	var CANT = 0;
 	var prod_actual = getCarritoActual();
+
 	jQuery.each(PRODUCTOS,  function(key, producto){
-		if( prod_actual["marca"] == producto.marca ){
+
+		/* BEGIN Search */
+		var busqueda = 0;
+		if( BUSQUEDA_REGEXP != '' ){
+			var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
+			if ( re.test(producto.nombre.toLowerCase())) {
+				busqueda = 1;
+			}
+		}
+		/* END Search */
+
+		if( prod_actual["marca"] == producto.marca || busqueda == 1 ){
+
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){
 
@@ -258,7 +278,9 @@ function loadPresentaciones(){
 			}
 		}
 	});
-	jQuery('#cant_precentaciones').html( CANT );	
+	jQuery('#cant_precentaciones').html( CANT );
+
+	BUSQUEDA_REGEXP = '';
 }
 
 function initPresentaciones(){
