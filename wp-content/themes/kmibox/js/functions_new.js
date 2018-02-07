@@ -23,10 +23,13 @@ jQuery(document).ready(function() {
 		jQuery("body").addClass('iOS');
 	}
 
-	jQuery('[data-target="filtrar"]').on('click', function(){
-		var str = jQuery(this).parent().parent().find('input[data-target="search"]').val().trim();
+	jQuery('form[data-target="busqueda"]').on('submit', function(e){
+		e.preventDefault();
+		//var str = jQuery(this).parent().parent().find('input[data-target="search"]').val();
+		var str = jQuery(this).find('input[data-target="search"]').val();
 		jQuery('input[data-target="search"]').val( str );
-		BUSQUEDA_REGEXP = "("+str.replace(/(\s{1,})/g, "|")+")";
+		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
+console.log(BUSQUEDA_REGEXP);		
 		change_fase(3);
 	});
 

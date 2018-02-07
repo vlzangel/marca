@@ -238,12 +238,14 @@
 	function get_form_busqueda(){
 		return '
 			<article class="busqueda">
-				<div class="input-group">
-					<input type="text" data-target="search" class="form-control" placeholder="Buscar productos">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" data-target="filtrar"><i class="fa fa-search"></i></button>
-					</span>
-				</div>
+				<form data-target="busqueda" action="" method="post">
+					<div class="input-group">
+						<input type="text" data-target="search" class="form-control" placeholder="Buscar productos">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit" data-target="filtrar"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+				</form>
 			</article>
 		';
 	}
