@@ -8,9 +8,7 @@
 get_header();
 ?>
 
-<?php include( "template/parts/header/cargar-orden.php" ); ?>
-
 <div class="container">
-	<?php include( "template/parts/page/cargar-orden.php" ); ?>
+	<?php include( "procesos/asesor/pago_orden.php" ); ?>
 </div>
 <?php get_footer();
