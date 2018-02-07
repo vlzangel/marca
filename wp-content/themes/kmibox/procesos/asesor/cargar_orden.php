@@ -1,7 +1,6 @@
 <?php 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
+ 
+	if( !isset($_SESSION) ){ session_start(); }
 	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
     
     setZonaHoraria();
@@ -67,7 +66,8 @@ ini_set('display_errors', '1');
 
 	// Cargar registro de venta del asesor
 		if( $user->ID > 0 ){
-
+			$result['nombre'] = $nombre; 
+			
 			// Crear CARRITO
 				$sql_carrito = "
 					SELECT 
@@ -89,10 +89,10 @@ ini_set('display_errors', '1');
 					    AND p.tamanos like '%\"{$dir_tamano}\";i:1;%' 
 						AND p.edades like '%\"{$dir_edad}\";i:1;%' 
 					";	
+
 				$temp_product = $wpdb->get_row($sql_carrito);
 				$CARRITO = [
 					"user_id" => $user->ID,
-					"orden_id"=> time(),
 					"cantidad"=> 1, 
 					"productos" => [
 						$temp_product
@@ -100,78 +100,96 @@ ini_set('display_errors', '1');
 					"total"=> $temp_product->subtotal
 				];
 
+		
+				//Iniciar session del usuario 
+			    wp_set_current_user( $user->ID , $user->user_login );
+			    wp_set_auth_cookie( $user->ID );
 
-			$result['nombre'] = $nombre; 
+				// Crear Orden
+				$_SESSION['CARRITO'] = serialize($CARRITO);
+				$orden_id = crearPedido();
 
-			switch (strtolower($forma_pago)) {
-				case 'tienda':
-					// $CARRITO = serialize($CARRITO);
-					ob_start();
-					get_template_part( 'template/parts/page/checkout-tienda', 'page' ); 
-					$content = ob_get_clean(); // Variable con el HTML de la vista "checkout-tienda"
-					if( $_POST["error"] == '' ){
-						$result['code'] = 1;
-						$result['orden_id'] = $_POST['order'];
-					}  
-					break;
-				
-				case 'tarjeta':
-					// Crear Registro para pago por Tarjeta
-					$pedido = [
-						'marca' => $dir_marcas,
-						'presentacion' => $dir_presentacion,
-						'tamano' => $dir_kg,
-						'plan' => $dir_planes1,
-						'direccion' => $r_address,
-						'estado' => $dir_estado,
-						'codigo_postal' => $dir_codigo_postal,
-						'casa_oficina' => $casa_oficina,
-						'forma_pago' => $forma_pago,
-						'carrito' => $CARRITO,
-					];
-					$limit = date('Y-m-d\TH:i:s', strtotime('+ 24 hours'));
-					$pedido = serialize($pedido);
-					$token = md5( $user->ID . $limit );
+				// Actualizar Session carrito
+				$CARRITO['orden_id'] = $orden_id;
+				$_SESSION['CARRITO'] = serialize($CARRITO);
 
-					$sql_orden = "
-						INSERT INTO asesores_ordenes ( 
-							asesor_id, 
-							user_id, 
-							pedido, 
-							estatus, 
-							token, 
-							valido_hasta 
-						)VALUES(
-							 {$asesor->id},
-							 {$user->ID},
-							'{$pedido}',
-							1,
-							'{$token}',
-							'{$limit}'
-						)
-					";
-					query( $sql_orden );
+				// Cerrar session
+				wp_logout(); 
+ 
+			
 
-					$sql_search_orden = "select * from asesores_ordenes where token = '{$token}' and estatus = 1 ";
-					$orden = $wpdb->get_row( $sql_search_orden );
-					$result['orden_id'] = $orden->id; 
+			// Formas de pago
+				switch (strtolower($forma_pago)) {
+					case 'tienda':
+						// $CARRITO = serialize($CARRITO);
+						ob_start();
+						get_template_part( 'template/parts/page/checkout-tienda', 'page' ); 
+						$content = ob_get_clean(); // Variable con el HTML de la vista "checkout-tienda"
+						if( $_POST["error"] == '' ){
+							$result['code'] = 1;
+							$result['orden_id'] = $orden_id;
+						}  
+						break;
+					
+					case 'tarjeta':
+						// Crear Registro para pago por Tarjeta
+						$pedido = [
+							'marca' => $dir_marcas,
+							'presentacion' => $dir_presentacion,
+							'tamano' => $dir_kg,
+							'plan' => $dir_planes1,
+							'direccion' => $r_address,
+							'estado' => $dir_estado,
+							'codigo_postal' => $dir_codigo_postal,
+							'casa_oficina' => $casa_oficina,
+							'forma_pago' => $forma_pago,
+							'carrito' => $CARRITO,
+						];
+						$limit = date('Y-m-d\TH:i:s', strtotime('+ 24 hours'));
+						$pedido = serialize($pedido);
+						$token = md5( $user->ID . $limit );
 
-					if( isset($orden->id) && $orden->id > 0 ){
-						// Enviar Email 
-				        $HTML = generarEmail(
-					    	"compra/pagos/orden_de_pago_cliente", 
-					    	array(
-					    		"USUARIO" => $nombre,
-					    		"DIRECCION" => $r_address,
-					    		"LINK" => get_home_url()."/wp-content/themes/kmibox/procesos/asesor/pago_orden.php?u=".md5($user->ID)."&t=".$token,
-					    		"TOTAL" => $temp_product->subtotal,
-					    	)
-					    );
-					    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
-						$result['code'] = 1;
-				    }					
-					break;
-			}
+						$sql_orden = "
+							INSERT INTO asesores_ordenes ( 
+								asesor_id, 
+								user_id, 
+								pedido, 
+								estatus, 
+								token, 
+								valido_hasta,
+								order_id 
+							)VALUES(
+								 {$asesor->id},
+								 {$user->ID},
+								'{$pedido}',
+								1,
+								'{$token}',
+								'{$limit}',
+								'{$orden_id}'
+							)
+						";
+						query( $sql_orden );
+
+						$sql_search_orden = "select * from asesores_ordenes where token = '{$token}' and estatus = 1 ";
+						$orden = $wpdb->get_row( $sql_search_orden );
+						$result['orden_id'] = $orden->order_id; 
+
+						if( isset($orden->id) && $orden->id > 0 ){
+							// Enviar Email 
+					        $HTML = generarEmail(
+						    	"compra/pagos/orden_de_pago_cliente", 
+						    	array(
+						    		"USUARIO" => $nombre,
+						    		"DIRECCION" => $r_address,
+						    		"LINK" => get_home_url()."/wp-content/themes/kmibox/procesos/asesor/pago_orden.php?u=".md5($user->ID)."&t=".$token,
+						    		"TOTAL" => $temp_product->subtotal,
+						    	)
+						    );
+						    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
+							$result['code'] = 1;
+					    }					
+						break;
+					}
 
 
 		}
