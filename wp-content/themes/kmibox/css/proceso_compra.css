@@ -203,7 +203,7 @@ div#wpadminbar {
 	    position: fixed;
 	    width: 100%;
 	    top: 150px;
-	    overflow: auto;
+	    overflow: hidden;
 	}
 
 	.abajo_marcas {
@@ -240,17 +240,6 @@ div#wpadminbar {
 		border: 0px !important;
 
 		display: none;
-	}
-
-	.msg_desplazar{
-		font-style: italic;
-		font-weight: 600;
-	    font-family: GothanMedium_regular;
-	    position: fixed;
-	    bottom: 14px;
-	    left: 10px;
-
-	    display: none;
 	}
 
 	#marca {

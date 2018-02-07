@@ -111,14 +111,8 @@
 					<div id="marca" data-top="0" class="marcas_box"></div>
 				</div>
 
-				<div style="display: none;">
-					<i id="abajo_marcas" class="abajo_marcas fa fa-angle-down"></i>
-					<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
-				</div>
-
-				<div class="msg_desplazar">
-					Desliza para ver m&aacute;s opciones
-				</div>
+				<i id="abajo_marcas" class="abajo_marcas fa fa-angle-down"></i>
+				<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
 
 				<div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>

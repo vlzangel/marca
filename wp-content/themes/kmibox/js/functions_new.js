@@ -163,6 +163,18 @@ console.log(BUSQUEDA_REGEXP);
 		}
 	});
 
+/*	jQuery("#abajo_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			bajarFila(3);
+		}
+	});
+
+	jQuery("#arriba_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			subirFila(3);
+		}
+	});*/
+
 	initProductos_y_Planes();
 
 	if( MODIFICACION == "" ){
@@ -174,16 +186,14 @@ console.log(BUSQUEDA_REGEXP);
 });
 
 function reset_flechas_marcas(){
-	//jQuery("#marca").attr("data-top", 0);
-	//jQuery("#marca > div").animate({top: "0%"}, "slow" );
-	// jQuery(".arriba_marcas").addClass("btn-disable");
+	jQuery("#marca").attr("data-top", 0);
+	jQuery("#marca > div").animate({top: "0%"}, "slow" );
+	jQuery(".arriba_marcas").addClass("btn-disable");
 	var filas = getFilas();
 	if( filas <= 0 ){
-		jQuery(".msg_desplazar").css("display", "none");
-		// jQuery(".abajo_marcas").addClass("btn-disable");
+		jQuery(".abajo_marcas").addClass("btn-disable");
 	}else{
-		// jQuery(".abajo_marcas").removeClass("btn-disable");
-		jQuery(".msg_desplazar").css("display", "block");
+		jQuery(".abajo_marcas").removeClass("btn-disable");
 	}
 }
 
