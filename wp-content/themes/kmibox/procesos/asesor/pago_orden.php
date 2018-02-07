@@ -26,6 +26,12 @@
 			$pedido = unserialize($orden->pedido);
 			$CARRITO= $pedido['carrito'];
 			$_SESSION['CARRITO'] = serialize($CARRITO);
+
+			if( empty($orden->order_id) ){
+				$orden_id = crearPedido();
+				$_SESSION['CARRITO']['orden_id'] = $orden_id; 
+				$wpdb->update( 'asesores_ordenes', array( 'order_id' => $orden_id ), array( 'id' => $orden->id ) );
+			}
 		}
 	}
 
