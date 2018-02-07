@@ -62,7 +62,11 @@
 
 	add_action( 'init', 'disable_embeds_code_init', 9999 );
 
-	
+	add_action('init', 'remheadlink');
+	function remheadlink() {
+		remove_action('wp_head', 'rsd_link');
+		remove_action('wp_head', 'wlwmanifest_link');
+	}
 	// ************************************
 	// Procesos
 	// ************************************
