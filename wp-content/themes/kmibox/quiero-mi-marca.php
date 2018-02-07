@@ -29,6 +29,8 @@
 		$tipos .= "<option value='{$tipo->id}' ".selected($tipo->id, $_tipo, false).">".strtoupper($tipo->tipo)."</option>";
 	}
 
+	$form_busqueda = get_form_busqueda();
+
 	$HTML = '
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
@@ -47,6 +49,7 @@
 		</div>
 
 		<div class="comprar_container">
+
 			<section id="fase_1">
 
 				<div class="carrousel-items-containers">
@@ -88,6 +91,7 @@
 			<section id="fase_2" class="hidden">
 				
 				<div class="controles_marca_container">
+					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_marcas">0</span> RESULTADOS</div>
 					<div class="tipo_mascota">
 						<select id="tipo_mascota"> '.$tipos.' </select>
@@ -99,12 +103,12 @@
 				<div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
 				</div>
-
 			</section>
 
 			<section id="fase_3" class="hidden">
 				
 				<div class="controles_presentaciones_container">
+					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_precentaciones">0</span> RESULTADOS</div>
 					<div class="tipo_mascota"></div>
 				</div>
@@ -114,7 +118,6 @@
 				<div class="btn_siguiente_container">
 					<button id="presentacion_select" class="btn_siguiente btn-disable"> Siguente </button>
 				</div>
-
 			</section>
 
 			<section id="fase_4" class="hidden">
@@ -176,7 +179,6 @@
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
 			</section>	
-
 		</div>
 
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
