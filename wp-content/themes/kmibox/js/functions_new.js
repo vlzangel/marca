@@ -103,6 +103,8 @@ jQuery(document).ready(function() {
 
 		jQuery('#cant_marcas').html( jQuery('#marca > .tipo_'+TIPO).length );
 
+		reset_flechas_marcas();
+
 	});
 
 	jQuery("#agregar_plan").on("click", function(e){
@@ -149,6 +151,19 @@ jQuery(document).ready(function() {
 	  	});
 		
 	});
+
+	jQuery("#abajo_marcas").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			bajarFila();
+		}
+	});
+
+	jQuery("#arriba_marcas").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			subirFila();
+		}
+	});
+
 	initProductos_y_Planes();
 
 	if( MODIFICACION == "" ){
@@ -158,6 +173,66 @@ jQuery(document).ready(function() {
 	}
 
 });
+
+function reset_flechas_marcas(){
+	//jQuery("#marca").attr("data-top", 0);
+	//jQuery("#marca > div").animate({top: "0%"}, "slow" );
+	// jQuery(".arriba_marcas").addClass("btn-disable");
+	var filas = getFilas();
+	if( filas <= 0 ){
+		jQuery(".msg_desplazar").addClass("hidden");
+		// jQuery(".abajo_marcas").addClass("btn-disable");
+	}else{
+		// jQuery(".abajo_marcas").removeClass("btn-disable");
+		jQuery(".msg_desplazar").removeClass("hidden");
+	}
+}
+
+function getFilas(h){
+	var h = getH();
+	var filas = Math.ceil( parseInt( jQuery("#cant_marcas").html() ) / h );
+	return (filas-4);
+}
+
+function getH(){
+	var index = jQuery("#arriba_marcas").css("z-index");
+	switch(index){
+		case "101":
+			return 3;
+		break;
+		case "102":
+			return 2;
+		break;
+	}
+}
+
+function subirFila(){
+	var top = parseInt( jQuery("#marca").attr("data-top") );
+	top -= 1;
+	jQuery("#marca > div").animate({top: "-"+(top*25)+"%"}, "slow" );
+	jQuery("#marca").attr("data-top", top);
+	if( top == 0 ){
+		jQuery("#arriba_marcas").addClass("btn-disable");
+	}
+	var filas = getFilas();
+	if( top < filas ){
+		jQuery("#abajo_marcas").removeClass("btn-disable");
+	}
+}
+
+function bajarFila(){
+	var top = parseInt( jQuery("#marca").attr("data-top") );
+	top += 1;
+	jQuery("#marca > div").animate({top: "-"+(top*25)+"%"}, "slow" );
+	jQuery("#marca").attr("data-top", top);
+	if( top > 0 ){
+		jQuery("#arriba_marcas").removeClass("btn-disable");
+	}
+	var filas = getFilas();
+	if( top >= filas ){
+		jQuery("#abajo_marcas").addClass("btn-disable");
+	}
+}
 
 function get_json_cart(){
 	var _json = JSON.stringify( CARRITO["total"] )+"===";
@@ -206,24 +281,6 @@ function loadMarcas(){
 	jQuery('#marca').html("");
 	var CANT = 0;
 	jQuery.each(MARCAS,  function(key, marca){
-		/*jQuery.each(PRODUCTOS,  function(key_2, producto){
-			if( key == producto.marca ){
-				if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
-					if( producto.edades[ prod_actual["edad"] ] == 1 ){
-
-						jQuery('#marca').append(
-							'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
-								'<div class="item_box">'+
-									'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
-								'</div>'+
-							'</div>'
-						);
-						CANT++;
-					}
-				}
-			}
-		});*/
-
 		jQuery('#marca').append(
 			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
 				'<div class="item_box">'+

@@ -125,7 +125,7 @@ div#wpadminbar {
 	    bottom: 10px;
 	    left: 0px;
 	    width: 100%;
-        height: 110px;
+        height: 100px;
 	}
 
 	.selector_edad_container label{
@@ -191,9 +191,64 @@ div#wpadminbar {
 
 /* Fase 2 */
 	
-	#marca {
+
+	.marcas_container {
 	    height: calc( 100% - 170px );
+	    position: fixed;
+	    width: 100%;
+	    top: 120px;
 	    overflow: auto;
+	}
+
+	.abajo_marcas {
+		position: fixed;
+		left: 25px;
+		bottom: 10px;
+		color: #FFF;
+		font-size: 27px;
+		font-weight: 600;
+		cursor: pointer;
+		z-index: 100;
+		background: #091705;
+		border-radius: 50%;
+		padding: 0px 6px;
+
+		border: 0px !important;
+
+		display: none;
+	}
+
+	.arriba_marcas {
+	    position: fixed;
+	    left: 60px;
+	    bottom: 10px;
+	    color: #FFF;
+	    font-size: 27px;
+	    font-weight: 600;
+	    cursor: pointer;
+	    z-index: 100;
+		background: #091705;
+		border-radius: 50%;
+		padding: 0px 6px;
+
+		border: 0px !important;
+
+		display: none;
+	}
+
+	.msg_desplazar{
+		font-style: italic;
+		font-weight: 600;
+	    font-family: GothanMedium_regular;
+	    position: fixed;
+	    bottom: 14px;
+	    left: 10px;
+
+	    display: none;
+	}
+
+	#marca {
+	    height: 100%;
 	    padding: 0px 10px;
 	    margin: 0px 50px 0px;
 	}
@@ -227,6 +282,7 @@ div#wpadminbar {
 	    box-sizing: border-box;
 	    padding: 5px;
         height: 25%;
+        position: relative;
 	}
 
 	#marca > div > .item_box {
@@ -254,8 +310,10 @@ div#wpadminbar {
 
 	.btn_siguiente_container{
 		text-align: right;
-		padding: 0px 30px;
-		margin-top: 10px;
+		padding: 5px 30px;
+		position: fixed;
+	    bottom: 0px;
+	    width: 100%;
 	}
 
 	.btn_siguiente_container button{
@@ -728,7 +786,7 @@ div#wpadminbar {
 
 	.carrousel-items > article > div > div {
 		height: calc( 100% - 50px );
-		max-width: 80%;
+		max-width: 100%;
 	    margin: 0px auto 10px;
 	    background-repeat: no-repeat;
 	    background-position: center;
@@ -742,6 +800,7 @@ div#wpadminbar {
 	    text-transform: uppercase;
 	    padding: 3px;
 	    border-top: solid 2px #00bb00;
-        margin: 0px;
+        margin: 0px 20px;
     	font-size: 25px;
+    	width: calc( 100% - 40px );
 	}

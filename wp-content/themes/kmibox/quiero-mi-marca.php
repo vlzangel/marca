@@ -20,7 +20,7 @@
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
 	$PLANES = "";
 	foreach ($data_planes as $plan) {
-		$plan->plan = str_replace(" ", "-", $plan->plan);
+		// $plan->plan = str_replace(" ", "-", $plan->plan);
 		$PLANES .= '
 			<article id="plan-'.$plan->id.'" data-value="'.$plan->id.'" class="select_plan">
 				<img class="img-responsive" src="'.TEMA().'/imgs/planes/'.$plan->plan.'.png">
@@ -38,6 +38,7 @@
 	}
 
 	$HTML = '
+
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
 		</a>
@@ -102,7 +103,18 @@
 					</div>
 				</div>
 
-				<div id="marca" class="marcas_container"></div>
+				<div class="marcas_container">
+					<div id="marca" data-top="0" class="marcas_box"></div>
+				</div>
+
+				<div style="display: none;">
+					<i id="abajo_marcas" class="abajo_marcas fa fa-angle-down"></i>
+					<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
+				</div>
+
+				<div class="msg_desplazar">
+					Desliza para ver m&aacute;s opciones
+				</div>
 
 				<div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
