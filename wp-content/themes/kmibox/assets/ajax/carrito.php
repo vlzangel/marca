@@ -17,7 +17,7 @@
 
 	$info["productos"] = $productos;
 
-	$_SESSION["CARRITO"] = serialize($info);
+	// $_SESSION["CARRITO"] = serialize($info);
 
 	echo json_encode($info);
 

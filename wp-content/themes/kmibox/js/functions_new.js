@@ -12,18 +12,7 @@ CARRITO["productos"].push({
 	"subtotal": 0.00
 });
 
-/*CARRITO["productos"].push({
-	"marca": 8,
-	"producto": 6,
-	"tamano": "Pequeño",
-	"edad": "Adulto",
-	"plan": "",
-	"plan_id": "",
-	"cantidad": 1,
-	"precio": 1200,
-	"subtotal": 0.00
-});*/
-
+var BUSQUEDA_REGEXP = '';
 var PRODUCTOS = [];
 var MARCAS = [];
 var PLANES = [];
@@ -33,6 +22,16 @@ jQuery(document).ready(function() {
 	if(navigator.platform.substr(0, 2) == 'iP'){
 		jQuery("body").addClass('iOS');
 	}
+
+	jQuery('form[data-target="busqueda"]').on('submit', function(e){
+		e.preventDefault();
+		//var str = jQuery(this).parent().parent().find('input[data-target="search"]').val();
+		var str = jQuery(this).find('input[data-target="search"]').val();
+		jQuery('input[data-target="search"]').val( str );
+		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
+console.log(BUSQUEDA_REGEXP);		
+		change_fase(3);
+	});
 
 	jQuery('.carrousel-items').on('click', 'article', function(){
 
@@ -144,7 +143,7 @@ jQuery(document).ready(function() {
 				CART: _json
 			},
 			function(data){
-				location.href = HOME+"/pago-tienda";
+				//location.href = HOME+"/pago-tienda";
 			}, "json"
 		).fail(function(e) {
 			console.log( e );
@@ -309,8 +308,21 @@ function loadPresentaciones(){
 	jQuery('#presentaciones').html("");
 	var CANT = 0;
 	var prod_actual = getCarritoActual();
+
 	jQuery.each(PRODUCTOS,  function(key, producto){
-		if( prod_actual["marca"] == producto.marca ){
+
+		/* BEGIN Search */
+		var busqueda = 0;
+		if( BUSQUEDA_REGEXP != '' ){
+			var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
+			if ( re.test(producto.nombre.toLowerCase())) {
+				busqueda = 1;
+			}
+		}
+		/* END Search */
+
+		if( prod_actual["marca"] == producto.marca || busqueda == 1 ){
+
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){
 
@@ -337,7 +349,9 @@ function loadPresentaciones(){
 			}
 		}
 	});
-	jQuery('#cant_precentaciones').html( CANT );	
+	jQuery('#cant_precentaciones').html( CANT );
+
+	BUSQUEDA_REGEXP = '';
 }
 
 function initPresentaciones(){

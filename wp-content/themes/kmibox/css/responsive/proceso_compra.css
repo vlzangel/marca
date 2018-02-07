@@ -11,6 +11,11 @@
 	i#siguiente {
 	    right: 0px;
 	}
+
+	.busqueda .input-group{
+		width: 45%;
+		margin: 0 auto;
+	}
 }
 
 @media (min-width: 768px) {
@@ -31,6 +36,10 @@
 	#marca > div {
 	    width: 20%;
 	    height: 20%;
+	}
+	.busqueda .input-group{
+		width: 50%;
+		margin: 0 auto;
 	}
 }
 
@@ -55,6 +64,10 @@
 	.select_plan div{
 	    font-size: 14px;
 	    line-height: 20px;
+	}
+	.busqueda .input-group{
+		width: 60%;
+		margin: 0 auto;
 	}
 }
 
@@ -141,7 +154,10 @@
 }
 
 @media (max-width: 780px){
-
+	.busqueda .input-group{
+		width: 80%;
+		margin: 0 auto;
+	}
 	.modal-dialog {
 	    width: 95%;
 	}
@@ -242,8 +258,6 @@
 	}
 
 	#vlz_titulo {
-	    width: calc( 100% - 230px );
-	    left: 0px;
 	    top: 45px;
 	    width: 100%;
 	    text-align: center;
@@ -316,6 +330,10 @@
 }
 
 @media (max-width: 680px){
+	.busqueda .input-group{
+		width: 100%;
+		margin: 0 auto;
+	}
 	.carrusel_2{
 	    width: 70%;
 	}
@@ -635,7 +653,7 @@
 @media (max-width: 400px){
 
 	#vlz_titulo {
-	    top: 60px;
+	    top: 45px;
 	    font-size: 12px;
 	}
 
@@ -667,7 +685,7 @@
 @media (max-width: 350px){
 
 	#vlz_titulo {
-	    top: 55px;
+	    top: 40px;
 	    font-size: 12px;
 	    width: calc( 100% - 20px );
 	}
