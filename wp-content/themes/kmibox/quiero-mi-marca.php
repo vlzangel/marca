@@ -113,7 +113,7 @@
 				</div>
 
 				<div class="msg_desplazar">
-					Desliza hacia arriba o abajo para ver las opciones.
+					Desliza hacia arriba o abajo para ver las opciones
 				</div>
 
 				<div class="btn_siguiente_container">
