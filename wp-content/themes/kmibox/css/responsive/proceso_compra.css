@@ -180,16 +180,6 @@
 		display: inline-block;
 		z-index: 101;
 	}
-
-	.msg_desplazar{
-	    display: block;
-	}
-
-	.btn_siguiente_container button {
-	    font-size: 12px;
-	    padding: 3px 25px;
-	    margin: 5px;
-	}
 }
 
 @media (max-width: 769px) {
@@ -417,30 +407,6 @@
 		z-index: 102;
 	}
 
-	.msg_desplazar {
-		bottom: 38px;
-	    left: 0px;
-	    font-size: 12px;
-	    width: 100%;
-	    text-align: center;
-	}
-	
-	.btn_siguiente_container{
-		text-align: center;
-	}
-
-	.btn_siguiente_container button{
-		font-size: 10px;
-	}
-
-	.marcas_container {
-	    height: calc( 100% - 175px );
-	}
-
-	#tipo_mascota {
-	    padding: 3px 20px;
-	}
-
     /* Planes */
 
 		#plan article {
@@ -621,6 +587,12 @@
 		    padding: 0px 10px;
 		    margin: 4px 0px 3px;
 		    font-size: 12px;
+		}
+
+		.btn_siguiente_container button {
+	        font-size: 12px;
+	    	padding: 3px 25px;
+	    	margin: 5px;
 		}
 
     /* Presentaciones */
