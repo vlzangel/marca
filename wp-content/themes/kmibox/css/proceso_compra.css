@@ -196,8 +196,8 @@ div#wpadminbar {
 	    height: calc( 100% - 170px );
 	    position: fixed;
 	    width: 100%;
-	    top: 150px;
-	    overflow: hidden;
+	    top: 120px;
+	    overflow: auto;
 	}
 
 	.abajo_marcas {
