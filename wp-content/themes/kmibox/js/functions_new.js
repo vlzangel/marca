@@ -175,15 +175,17 @@ jQuery(document).ready(function() {
 });
 
 function reset_flechas_marcas(){
-/*	jQuery("#marca").attr("data-top", 0);
-	jQuery("#marca > div").animate({top: "0%"}, "slow" );
-	jQuery(".arriba_marcas").addClass("btn-disable");
+	//jQuery("#marca").attr("data-top", 0);
+	//jQuery("#marca > div").animate({top: "0%"}, "slow" );
+	// jQuery(".arriba_marcas").addClass("btn-disable");
 	var filas = getFilas();
 	if( filas <= 0 ){
-		jQuery(".abajo_marcas").addClass("btn-disable");
+		jQuery(".msg_desplazar").css("display", "none");
+		// jQuery(".abajo_marcas").addClass("btn-disable");
 	}else{
-		jQuery(".abajo_marcas").removeClass("btn-disable");
-	}*/
+		// jQuery(".abajo_marcas").removeClass("btn-disable");
+		jQuery(".msg_desplazar").css("display", "block");
+	}
 }
 
 function getFilas(h){
