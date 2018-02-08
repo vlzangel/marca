@@ -29,6 +29,7 @@ jQuery(document).ready(function() {
 		var str = jQuery(this).find('input[data-target="search"]').val();
 		jQuery('input[data-target="search"]').val( str );
 		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
+		console.log(BUSQUEDA_REGEXP);
 		change_fase(3);
 	});
 
@@ -329,6 +330,7 @@ function loadPresentaciones(){
 					producto.descripcion + ' ' +
 					MARCAS[producto.marca].nombre
 				;
+			console.log(buscar_por);				
 			if( BUSQUEDA_REGEXP != '' ){
 				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
 				if ( re.test(buscar_por.toLowerCase())) {
