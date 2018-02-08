@@ -29,7 +29,6 @@ jQuery(document).ready(function() {
 		var str = jQuery(this).find('input[data-target="search"]').val();
 		jQuery('input[data-target="search"]').val( str );
 		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
-console.log(BUSQUEDA_REGEXP);		
 		change_fase(3);
 	});
 
@@ -322,16 +321,23 @@ function loadPresentaciones(){
 	jQuery.each(PRODUCTOS,  function(key, producto){
 
 		/* BEGIN Search */
-		var busqueda = 0;
-		if( BUSQUEDA_REGEXP != '' ){
-			var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
-			if ( re.test(producto.nombre.toLowerCase())) {
-				busqueda = 1;
+			var mostrar = 0;
+
+			/* Integrar los criterios de busqueda */
+			var buscar_por = 
+					producto.nombre + ' ' + 
+					producto.descripcion + ' ' +
+					MARCAS[producto.marca].nombre
+				;
+			if( BUSQUEDA_REGEXP != '' ){
+				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
+				if ( re.test(buscar_por.toLowerCase())) {
+					mostrar = 1;
+				}
 			}
-		}
 		/* END Search */
 
-		if( prod_actual["marca"] == producto.marca || busqueda == 1 ){
+		if( prod_actual["marca"] == producto.marca || mostrar == 1 ){
 
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){

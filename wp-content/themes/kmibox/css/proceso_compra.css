@@ -71,7 +71,7 @@ div#wpadminbar {
 }
 
 #vlz_controles_fases {
-    right: 20px;
+    right: 0px;
     width: 50px;
 }
 
@@ -366,7 +366,8 @@ div#wpadminbar {
 /* Fase 3 */
 	
 	.controles_presentaciones_container {
-	    margin: 75px 73px 0px 20px;
+	    /*margin: 75px 73px 0px 20px;*/
+	    margin: 80px 25px 0px 20px;
 	    overflow: hidden;
 	}
 
