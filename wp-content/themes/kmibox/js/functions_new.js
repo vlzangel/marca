@@ -191,9 +191,11 @@ function reset_flechas_marcas(){
 	jQuery(".arriba_marcas").addClass("btn-disable");
 	var filas = getFilas();
 	if( filas <= 0 ){
-		jQuery(".abajo_marcas").addClass("btn-disable");
+		jQuery(".msg_desplazar").addClass("hidden");
+		// jQuery(".abajo_marcas").addClass("btn-disable");
 	}else{
-		jQuery(".abajo_marcas").removeClass("btn-disable");
+		// jQuery(".abajo_marcas").removeClass("btn-disable");
+		jQuery(".msg_desplazar").removeClass("hidden");
 	}
 }
 
