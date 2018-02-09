@@ -35,7 +35,7 @@
 							<div>".$value->tamano." - ".$value->edad."</div>
 						</div>
 					</td>
-					<td class='periodicidad solo_pc'>".$value->plan."</td>
+					<td class='periodicidad solo_pc'>".'Se hará un cargo '.$value->plan.' de manera automática los días '.(date("d")+0).' por el cobro de tu alimento. El cual será enviado una vez sea aprobado el pago.'."</td>
 					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
 			";
