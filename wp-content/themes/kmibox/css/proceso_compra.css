@@ -242,6 +242,17 @@ div#wpadminbar {
 		display: none;
 	}
 
+	.msg_desplazar{
+		font-style: italic;
+		font-weight: 400;
+	    font-family: GothanMedium_regular;
+	    position: fixed;
+	    bottom: 14px;
+	    left: 10px;
+
+	    display: none;
+	}
+
 	#marca {
 	    height: 100%;
 	    padding: 0px 10px;

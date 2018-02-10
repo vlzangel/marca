@@ -111,8 +111,15 @@
 					<div id="marca" data-top="0" class="marcas_box"></div>
 				</div>
 
-				<i id="abajo_marcas" class="abajo_marcas fa fa-angle-down"></i>
-				<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
+				<div style="display: none;">
+					<i id="abajo_marcas" class="abajo_marcas fa fa-angle-down"></i>
+					<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
+				</div>
+
+				<div class="msg_desplazar">
+					Desliza hacia arriba o abajo para ver las opciones
+				</div>
+
 
 				<div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
@@ -216,7 +223,7 @@
 			</div>
 		</div>	
 	';
-
+ 
 	echo comprimir($HTML);
 
 	wp_enqueue_script('mascotas', TEMA()."/js/functions_new.js", array(), '1.0.0');
@@ -232,3 +239,31 @@
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>
 
+<!-- Modal -->
+<div class="modal fade" id="modal-contacto-marca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		<div class="dog-content">
+	        <img src="<?php echo TEMA(); ?>/imgs/dog.png" class="img-responsive dog">
+		</div>
+      <div class="modal-header text-center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >Cerrar &times;</span></button>
+      </div>
+      <div class="modal-body row text-center">
+      	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
+	      	<p>
+	      		SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TUS CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
+	      	</p>
+	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
+	      	<form method="post">
+	      		<div class="col-md-10 col-md-offset-1 text-center">
+		      		<input type="text" class="form-control" name="" placeholder="mi@email.com">
+		      		<input type="text" class="form-control" name="" placeholder="000 000 00000">
+		      		<button class="btn-kmibox-send">ENVIAR</button>
+	      		</div>
+	      	</form>
+      	</div>
+      </div> 
+    </div>
+  </div>
+</div>

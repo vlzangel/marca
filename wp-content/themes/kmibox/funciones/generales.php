@@ -8,7 +8,7 @@
 
 	if(!function_exists('TEMA')){
 	    function TEMA(){
-	        return get_template_directory_uri();
+	        return HOME()."/wp-content/themes/kmibox/";
 	    }
 	}
 

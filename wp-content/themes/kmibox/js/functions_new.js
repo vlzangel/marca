@@ -29,6 +29,7 @@ jQuery(document).ready(function() {
 		var str = jQuery(this).find('input[data-target="search"]').val();
 		jQuery('input[data-target="search"]').val( str );
 		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
+		console.log(BUSQUEDA_REGEXP);
 		change_fase(3);
 	});
 
@@ -190,9 +191,11 @@ function reset_flechas_marcas(){
 	jQuery(".arriba_marcas").addClass("btn-disable");
 	var filas = getFilas();
 	if( filas <= 0 ){
-		jQuery(".abajo_marcas").addClass("btn-disable");
+		jQuery(".msg_desplazar").addClass("hidden");
+		// jQuery(".abajo_marcas").addClass("btn-disable");
 	}else{
-		jQuery(".abajo_marcas").removeClass("btn-disable");
+		// jQuery(".abajo_marcas").removeClass("btn-disable");
+		jQuery(".msg_desplazar").removeClass("hidden");
 	}
 }
 
@@ -329,6 +332,7 @@ function loadPresentaciones(){
 					producto.descripcion + ' ' +
 					MARCAS[producto.marca].nombre
 				;
+			console.log(buscar_por);				
 			if( BUSQUEDA_REGEXP != '' ){
 				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
 				if ( re.test(buscar_por.toLowerCase())) {
@@ -386,6 +390,9 @@ function change_title(txt){
 }
 
 function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
+	var hoy = new Date();
+	hoy = parseInt( hoy.getDate() );
+	//if(hoy < 10){ hoy = "0"+hoy; }
 	var HTML = "";
 	HTML += '<tr>';
 	HTML += '	 <td class="solo_pc">';
@@ -408,7 +415,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	<label class="resaltar_desglose">'+frecuencia+'</label>';
+	HTML += '	 	El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy;
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label>$ '+FN(price)+' MXN</label>';
@@ -477,6 +484,7 @@ function loadFase(fase){
 			loadPresentaciones();
 			initPresentaciones();
 
+			jQuery("#modal-contacto-marca").modal('show');
 		break;
 		case "4":
 			change_title('Selecciona el tiempo de suscripción');
