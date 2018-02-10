@@ -44,6 +44,9 @@
 	    ';
 
 	    $_productos = getProductosDesglose($ID);
+
+	    $dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$ID) );
+
 	    
 	 	$productos = "";
 	 	foreach ($_productos as $producto) {
@@ -52,7 +55,7 @@
 		 		$temp = str_replace("[IMG_PRODUCTO]", $producto["img"], $temp);
 		 		$temp = str_replace("[NOMBRE]", $producto["nombre"], $temp);
 		 		$temp = str_replace("[DESCRIPCION]", $producto["descripcion"], $temp);
-		 		$temp = str_replace("[PLAN]", $producto["plan"], $temp);
+		 		$temp = str_replace("[PLAN]", 'Se hará un cargo '.$producto["plan"].' de manera automática los días '.$dia_de_cobro.' por el cobro de tu alimento. El cual será enviado una vez sea aprobado el pago.' , $temp);
 		 		$temp = str_replace("[CANTIDAD]", $producto["cantidad"], $temp);
 		 		$temp = str_replace("[PRECIO]", number_format($producto["precio"], 2, ',', '.'), $temp);
 		 		$productos .= $temp;
