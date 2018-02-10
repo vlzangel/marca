@@ -390,6 +390,9 @@ function change_title(txt){
 }
 
 function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
+	var hoy = new Date();
+	hoy = parseInt( hoy.getDate() );
+	//if(hoy < 10){ hoy = "0"+hoy; }
 	var HTML = "";
 	HTML += '<tr>';
 	HTML += '	 <td class="solo_pc">';
@@ -412,7 +415,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	<label class="resaltar_desglose">'+frecuencia+'</label>';
+	HTML += '	 	El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy;
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label>$ '+FN(price)+' MXN</label>';
