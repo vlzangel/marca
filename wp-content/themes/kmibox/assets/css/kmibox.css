@@ -46,6 +46,55 @@ h4 .img-center,
 p .img-center{
 	vertical-align: middle;
 }
+
+
+
+
+#modal-contacto-marca .modal-dialog{
+    margin: 150px auto;
+}
+
+.dog-content{
+	top: -135px;
+    position: relative;
+    height: 0px;
+}
+
+#modal-contacto-marca .close{
+	color:#fff;
+    font-weight: lighter;
+    font-size: 12px;
+    height: 23px;
+    font-family: sans-serif;
+}
+#modal-contacto-marca .modal-header{
+	border-bottom: 3px solid #86cc50;
+	height: 60px;
+}
+#modal-contacto-marca .modal-content{
+    background-color: #0c1802;
+    max-width: 550px;
+    margin: 0 auto; 
+}
+#modal-contacto-marca .modal-body p.text-small{
+	font-size: 19px;
+}
+#modal-contacto-marca .modal-body p{
+	color: #fff;
+}
+#modal-contacto-marca .modal-body p span{
+	color: #86cc50;
+}
+.btn-kmibox-send{
+	background: transparent;
+	border: 2px solid #fff; 
+	color: #fff;
+	border-radius: 20px;
+	padding: 5px 30px;
+	margin-top: 10px;
+}
+
+
 .row {
     margin-right: 0px;
     margin-left: 0px;

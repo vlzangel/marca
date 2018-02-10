@@ -481,6 +481,7 @@ function loadFase(fase){
 			loadPresentaciones();
 			initPresentaciones();
 
+			jQuery("#modal-contacto-marca").modal('show');
 		break;
 		case "4":
 			change_title('Selecciona el tiempo de suscripción');
