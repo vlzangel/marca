@@ -12,6 +12,7 @@ CARRITO["productos"].push({
 	"subtotal": 0.00
 });
 
+var mostrar_modal_marca = 1;
 var BUSQUEDA_REGEXP = '';
 var PRODUCTOS = [];
 var MARCAS = [];
@@ -451,12 +452,14 @@ function loadFase(fase){
 	switch( fase ){
 		case "1":
 			change_title('Elije el tamaño de tu mascota');
+			mostrar_modal_marca = 1;
 		break;
 		case 1: // Fase #1 - Tamaño
 			change_title('Elije el tamaño de tu mascota');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+			mostrar_modal_marca = 1;
 		break;
 
 
@@ -484,7 +487,13 @@ function loadFase(fase){
 			loadPresentaciones();
 			initPresentaciones();
 
-			jQuery("#modal-contacto-marca").modal('show');
+			if( mostrar_modal_marca == 1){
+				mostrar_modal_marca = 0;
+				setTimeout(function() {
+					jQuery("#modal-contacto-marca").modal('show');
+		        },1500);
+			}
+
 		break;
 		case "4":
 			change_title('Selecciona el tiempo de suscripción');

@@ -77,8 +77,15 @@
 }
 
 @media (max-width: 650px){
-
-
+	#nutriheroes{
+		padding-top: 0px;
+	}
+	.nutri-container{
+		height: 100%;
+	}
+	.logo{
+		display: none;
+	}
 	.nutri-close {
 		width: 100%;
 		padding: 0px;
@@ -91,7 +98,7 @@
 	#nutriheroes .nutri-container{
 		width: 100%;
 		max-width: 400px;
-		background: #fff url(../../imgs/popup-nutriheroes/background-mobile.png) no-repeat center center!important;
+		background: #dfffba url(../../imgs/popup-nutriheroes/background-mobile.png) no-repeat right bottom!important;
 	}
 
 	.nutri-column-right,
@@ -127,6 +134,7 @@
 
 	.nutri-parrafo{
 		text-align: center;
+	    width: 80%;
 	}
 
 	.nutri-pasos{
