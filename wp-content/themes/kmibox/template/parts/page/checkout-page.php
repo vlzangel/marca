@@ -31,11 +31,13 @@
 							<div>".$productos[ $value->producto ]->peso."</div>
 						</div>
 						<div class='info_3 solo_movil'>
-							<div class='mayuscula'>".$value->plan."</div>
+							El cobro de tu suscripción se hará <label style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."
 							<div>".$value->tamano." - ".$value->edad."</div>
 						</div>
 					</td>
-					<td class='periodicidad solo_pc'>".'Se hará un cargo '.$value->plan.' de manera automática los días '.(date("d")+0).' por el cobro de tu alimento. El cual será enviado una vez sea aprobado el pago.'."</td>
+					<td class='solo_pc'>
+						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>El cobro de tu suscripción se hará <label class='periodicidad' style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+					</td>
 					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
 			";
