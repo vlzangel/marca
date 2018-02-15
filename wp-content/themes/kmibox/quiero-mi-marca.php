@@ -14,6 +14,7 @@
 	
 	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
 	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
+	wp_enqueue_script( 'nutriheroes_script', TEMA()."/js/popup_nutriheroes.js" );
 
 	get_header(); 
 
@@ -239,6 +240,7 @@
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>
 
+
 <!-- Modal -->
 <div class="modal fade" id="modal-contacto-marca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -249,17 +251,17 @@
       <div class="modal-header text-center">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >Cerrar &times;</span></button>
       </div>
+      <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados en breve te ayudarte con tu solicitud</div>
       <div class="modal-body row text-center">
       	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
-	      	<p>
-	      		SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TUS CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
+	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TUS CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
 	      	</p>
 	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
-	      	<form method="post">
+	      	<form method="post" id="form-contacto" action="#">
 	      		<div class="col-md-10 col-md-offset-1 text-center">
-		      		<input type="text" class="form-control" name="" placeholder="mi@email.com">
-		      		<input type="text" class="form-control" name="" placeholder="000 000 00000">
-		      		<button class="btn-kmibox-send">ENVIAR</button>
+		      		<input type="text" class="form-control" name="email" id="email" placeholder="mi@email.com">
+		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="000 000 00000">
+		      		<button class="btn-kmibox-send" type="submit">ENVIAR</button>
 	      		</div>
 	      	</form>
       	</div>

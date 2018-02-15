@@ -1,0 +1,187 @@
+
+ 
+@media (max-width: 991px){
+
+	#nutriheroes .nutri-container{
+		width: 100%;
+		max-width: 720px;
+	}
+	#nutriheroes .nutri-title{
+		font-size: 25px;
+	}
+	#nutriheroes .nutri-subtitle{
+		font-size: 25px;
+		margin-bottom: 0px;
+	}
+	.nutri-sin-costo{
+	    width: 70px;
+        position: absolute;
+	    top: 40px;
+    	left: 51%;
+	}
+	.nutri-image .logo {
+		width: 190px;
+	    bottom: 67px;
+	    left: 43%;
+	}
+	.nutri-column-right{
+	    width: 30%;
+	}
+	.nutri-column-left{
+	    width: 56%;
+	}
+	.nutri-pasos .nutri-paso{
+	    margin-right: 5px;
+	}
+	.nutri-pasos li{
+		padding: 5px 0px 0px 0px;
+	}
+	.nutri-image .dog-guy {
+	    position: absolute;
+	    bottom: -6px;
+	    left: 60%;
+	    width: 260px;
+	}
+}
+
+@media (max-width: 710px){
+	.nutri-sin-costo{
+	    top: 20px;
+	    left: 68%;
+	}
+	.nutri-image .logo {
+	    width: 150px;
+	    bottom: 65px;
+	    left: 47%;
+	}
+	#nutriheroes .nutri-container {
+	    max-width: 600px;
+	}
+	.nutri-pasos .nutri-paso{	
+		width: 80px;
+	    font-size: 10px;
+	}
+	.nutri-column-left{
+	    width: 62%;
+	}
+
+	.nutri-pasos .nutri-text {
+	    padding: 2px 15px;
+	}
+	.nutri-image .dog-guy {
+	    position: absolute;
+	    bottom: 20px;
+	    left: 64%;
+	    width: 190px;
+   	}
+}
+
+@media (max-width: 650px){
+	#nutriheroes{
+		padding-top: 0px;
+	}
+	.nutri-container{
+		height: 100%;
+	}
+	.logo{
+		display: none;
+	}
+	.nutri-close {
+		width: 100%;
+		padding: 0px;
+	    width: 100%;
+	    padding: 0px;
+	    text-align: right;
+	    font-size: 25px;
+	}
+
+	#nutriheroes .nutri-container{
+		width: 100%;
+		max-width: 400px;
+		background: #dfffba url(../../imgs/popup-nutriheroes/background-mobile.png) no-repeat right bottom!important;
+	}
+
+	.nutri-column-right,
+	.nutri-column-left{
+		width: 100%;
+	}
+	#nutriheroes .nutri-title,
+	#nutriheroes .nutri-subtitle {
+	    font-size: 20px;
+	}
+	.nutri-sin-costo {
+	    width: 70px;
+	    left: initial;
+	    top: 30px;
+	    right: 5px;
+	    position: absolute;
+	}
+	.nutri-image .logo {
+		text-align: center;
+
+	    width: 150px;
+	    bottom: initial;
+	    left: initial;
+	    position: initial;
+	    margin: 0 auto;
+	}
+	.nutri-image .dog-guy{
+		display: none;
+	}
+	.nutri-pasos .nutri-text {
+	    padding: 2px 0px;
+	}
+
+	.nutri-parrafo{
+		text-align: center;
+	    width: 80%;
+	}
+
+	.nutri-pasos{
+	    padding: 20px 0px;
+	}
+}
+ 
+@media (max-width: 343px){
+	.nutri-pasos .nutri-paso-text {
+	}
+	#nutriheroes .nutri-title{
+		font-size: 15px;
+	}
+	#nutriheroes .nutri-subtitle{
+	    font-size: 16px;
+	    margin-top: 0px;	
+	}
+	.nutri-sin-costo {
+	    width: 60px;
+	    top: 20px;
+	}
+}
+@media (max-width: 332px){
+	#nutriheroes .nutri-title,
+	#nutriheroes .nutri-subtitle{
+		text-align: center;
+	}
+	.nutri-sin-costo{
+		display: none;
+	}
+	.nutri-sin-costo-text{
+		display: block;
+		background: black;
+		color: #fff;
+		text-align: center;
+		border-radius: 25px;
+		margin-top: 10px;
+		padding: 5px 0px;
+	}
+	.nutri-pasos{
+		padding: 5px 0px;
+	}
+	.nutri-pasos .nutri-text {
+		width: 58%;
+	}
+	.nutri-pasos .nutri-paso {
+	    width: 65px;
+        margin-top: 6px;
+	}
+}

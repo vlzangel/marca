@@ -12,6 +12,14 @@
  * @version 1.0
  */ 
 
+
+
+/* BEGIN POPUP Nutriheroes */		
+include_once( 'template/parts/footer/Nutriheroes.php' );
+/* END POPUP Nutriheroes   */		
+
+
+
 get_header(); ?>
 	<?php echo MENU(); ?>
 	<header id="header" class="row">		
@@ -264,9 +272,10 @@ get_header(); ?>
 	<br>
 
 
+
+
+
 	<?php get_template_part( 'template/parts/footer/footer', 'page' ); ?>
 
 <?php get_footer(); ?>
 
-
- 
