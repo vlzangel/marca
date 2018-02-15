@@ -13,11 +13,10 @@
 
 	foreach ($subscribers as $subscriber) {
 
-		$data["data"][] = array(
-	        $subscriber->ID,
+		$data["data"][] = array( 
+	        $subscriber->fecha,
 	        $subscriber->email,
 	        $subscriber->phone,
-	        $subscriber->fecha,
 	    );
 	}
 

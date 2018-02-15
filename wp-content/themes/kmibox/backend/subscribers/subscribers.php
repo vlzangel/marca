@@ -13,7 +13,7 @@
 
     <table id="subscribers" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
         <thead>
-            <tr>
+            <tr> 
                 <th>Fecha</th>
                 <th>Email</th>
                 <th>Tel&eacute;fono</th>
