@@ -4,7 +4,8 @@
 ?>
 
 	<div role="dialog" id="nutriheroes" style="visibility: hidden;">
-		<div class="nutri-container" style="background: #fff url(<?php echo TEMA().'imgs/popup-nutriheroes/background-1.png'; ?>) no-repeat right bottom;">
+		<div class="nutri-container" 
+			 style="background: #fff url(<?php echo TEMA().'imgs/popup-nutriheroes/background-1.png'; ?>) no-repeat right bottom;">
 			<div class="nutri-header">
 				<button type="button" class="nutri-close" id="nutri-close" onclick="jQuery('#nutriheroes').css('display', 'none');">×</button>
 				<h4 class="nutri-title">¡EL ALIMENTO DE TU PELUDO</h4>
@@ -46,5 +47,9 @@
         setTimeout(function() {
             jQuery("#nutriheroes").css("visibility", "visible");
             jQuery("#nutriheroes").css("opacity", "1");
-        },1500);
+        },2000);
     </script>
+
+
+
+ 

@@ -19,6 +19,7 @@ include_once( 'template/parts/footer/Nutriheroes.php' );
 /* END POPUP Nutriheroes   */		
 
 
+
 get_header(); ?>
 	<?php echo MENU(); ?>
 	<header id="header" class="row">		
@@ -278,5 +279,3 @@ get_header(); ?>
 
 <?php get_footer(); ?>
 
-
- 

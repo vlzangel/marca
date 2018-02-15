@@ -12,6 +12,14 @@ div#wpadminbar {
     display: none !important;
 }
 
+#modal-contacto-marca i{
+	top: 0px;
+	right: 10px;
+	display: none!important;
+	visibility: hidden;	
+}
+
+
 .center{
 	text-align: center;
 }
