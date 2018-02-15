@@ -973,6 +973,8 @@ $('#form-contacto')
 		console.log( e );
   	});
   
+  jQuery('#email').val('');
+  jQuery('#phone').val('');
 })
 .bootstrapValidator({
     feedbackIcons: {
