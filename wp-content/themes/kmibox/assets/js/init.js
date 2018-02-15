@@ -962,7 +962,7 @@ $('#form-contacto')
 		TEMA+"procesos/subscribers/subscribers.php", { 'email':jQuery('#email').val() , 'phone':jQuery('#phone').val() },
 		function(data){
 			if(data.code==1){
-				jQuery('#mensaje').html('Datos registrados en breve te ayudarte con tu solicitud');
+				jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
 				jQuery('#mensaje').css('display', 'block');
 				setTimeout(function() {
 					jQuery('#mensaje').css('display', 'none');
