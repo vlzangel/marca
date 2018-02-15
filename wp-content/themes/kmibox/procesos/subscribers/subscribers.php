@@ -16,6 +16,8 @@
 		if( count($subscriber) < 1 ){
 			$wpdb->get_results("INSERT INTO subscribers_list (email, phone) VALUES ('{$email}', '{$phone}') ");
 		    echo json_encode(['code'=>1]);
+		}else{
+		    echo json_encode(['code'=>1]);
 		}
 
 		// Registro en Campaign Monitor
