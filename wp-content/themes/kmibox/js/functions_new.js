@@ -31,6 +31,7 @@ jQuery(document).ready(function() {
 		jQuery('input[data-target="search"]').val( str );
 		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
 		console.log(BUSQUEDA_REGEXP);
+
 		change_fase(3);
 	});
 
@@ -73,6 +74,8 @@ jQuery(document).ready(function() {
 
 	jQuery("#marca_select").on("click", function(e){
 		if( !jQuery(this).hasClass("btn-disable") ){
+			BUSQUEDA_REGEXP = '';
+			jQuery('input[data-target="search"]').val( '' );
 			change_fase(3);
 		}
 	});
@@ -335,6 +338,7 @@ function loadPresentaciones(){
 				;
 			console.log(buscar_por);				
 			if( BUSQUEDA_REGEXP != '' ){
+				prod_actual["marca"] = '';
 				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
 				if ( re.test(buscar_por.toLowerCase())) {
 					mostrar = 1;
