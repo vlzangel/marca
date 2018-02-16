@@ -109,6 +109,13 @@
 						<select class="form-control col-md-4" name="dir_marcas" id="dir_marcas">
 							<option>Marcas</option>
 						</select>
+					</div>
+
+					<div class="col-md-4 form-group">
+						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+						<select class="form-control col-md-4 " disabled="disabled" name="dir_presentaciones" id="dir_presentaciones">
+							<option>Presentaciones</option>
+						</select>
 						<input type="hidden" name="dir_peso"  value="" readonly>
 						<input type="hidden" name="dir_precio"  value="" readonly>
 					</div>
@@ -116,9 +123,8 @@
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 						<div id="crear_planes"></div>
-						<select class="form-control col-md-4" name="dir_planes" id="dir_planes" >
+						<select class="form-control col-md-4 " disabled="disabled" name="dir_planes" id="dir_planes" >
 							<option value="0">Planes</option>
-							<?php echo $PLANES; ?>
 						</select>
 					</div>
 					<div class="col-md-4 form-group">
