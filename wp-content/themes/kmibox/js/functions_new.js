@@ -544,12 +544,14 @@ function loadFase(fase){
 			loadPresentaciones();
 			initPresentaciones();
 
+			/*
 			if( mostrar_modal_marca == 1){
 				mostrar_modal_marca = 0;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 		        },1500);
 			}
+			*/
 
 		break;
 		case "4":
