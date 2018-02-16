@@ -14,9 +14,10 @@
 	
 	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
 	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
-	wp_enqueue_script( 'nutriheroes_script', TEMA()."/js/popup_nutriheroes.js" );
 
 	get_header(); 
+	
+	wp_enqueue_script( 'nutriheroes_script', TEMA()."/js/popup_nutriheroes.js" );
 
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
 	$PLANES = "";
