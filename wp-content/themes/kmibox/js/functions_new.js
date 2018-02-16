@@ -469,8 +469,8 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
-	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
 	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
+	HTML += '	 	<div class="solo_movil">El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy+'</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy;

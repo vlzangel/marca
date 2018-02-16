@@ -85,7 +85,7 @@
 				<th class='solo_pc'> <div> Periodicidad </div> </th>
 				<th class='solo_pc'> <div> Mascota </div> </th>
 			</tr>";
-	foreach ($CARRITO["productos"] as $key => $value) {
+/*	foreach ($CARRITO["productos"] as $key => $value) {
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
 		if( isset($value->edad) ){
 			$suscripciones .= "
@@ -105,6 +105,35 @@
 						</div>
 					</td>
 					<td class='periodicidad solo_pc'>".$value->plan."</td>
+					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
+				</tr>
+			";
+		}
+	}
+	$suscripciones .= "</table>";
+*/
+	foreach ($CARRITO["productos"] as $key => $value) {
+		$data = unserialize( $productos[ $value->producto ]->dataextra );
+		if( isset($value->edad) ){
+			$suscripciones .= "
+				<tr>
+					<td>
+						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+					</td>
+					<td class='info'>
+						<div>
+							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
+							<div>".$productos[ $value->producto ]->descripcion."</div>
+							<div>".$productos[ $value->producto ]->peso."</div>
+						</div>
+						<div class='info_3 solo_movil'>
+							El cobro de tu suscripción se hará <label style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."
+							<div>".$value->tamano." - ".$value->edad."</div>
+						</div>
+					</td>
+					<td class='solo_pc'>
+						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>El cobro de tu suscripción se hará <label class='periodicidad' style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+					</td>
 					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
 			";

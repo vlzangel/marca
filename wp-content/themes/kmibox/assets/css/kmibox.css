@@ -1325,15 +1325,7 @@ margin-top: -40%;
 		height: 150px!important;
     	width:  150px!important;
 	}
-	.text-felicidades{
-margin-bottom: 10% !important;
-}
-.text-suscripcionexitosa{
-	margin-bottom: 15% !important;
-}
-.text-tususcripcion{
-	 margin-top: 10% !important;
-}
+
 .text-btnperfil{
 	margin-top: 10% !important;
 
@@ -1433,15 +1425,6 @@ margin-bottom: 10% !important;
 		width: 100%;
 	}
 
-	.text-felicidades{
-margin-bottom: 10% !important;
-}
-.text-suscripcionexitosa{
-	margin-bottom: 15% !important;
-}
-.text-tususcripcion{
-	 margin-top: 10% !important;
-}
 .text-btnperfil{
 	margin-top: 10% !important;
 
@@ -1480,20 +1463,6 @@ margin-bottom: 10% !important;
 	}
 .botonesheader{
 	 margin-top: -7%;
-}
-
-.text-felicidades{
-margin-bottom: 10% !important;
-}
-.text-suscripcionexitosa{
-	margin-bottom: 15% !important;
-}
-.text-tususcripcion{
-	 margin-top: 10% !important;
-}
-.text-btnperfil{
-	margin-top: 10% !important;
-
 }
 
 .headerResponsive{
