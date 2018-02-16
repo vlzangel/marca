@@ -34,6 +34,7 @@
 						</li>
 					</ul>
 					<p class="nutri-parrafo">Para cualquier duda o informaci&oacute;n adicional puedes llamar o escribir al 5540034824 donde con gusto te atenderemos </p>
+					<img class="footer-mobile" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/background-mobile-guydog.png'; ?>">
 				</div>
 				<div class="nutri-column-right nutri-image">
 					<img class="logo"src="<?php echo TEMA() . '/imgs/popup-nutriheroes/logo.png'; ?>">
