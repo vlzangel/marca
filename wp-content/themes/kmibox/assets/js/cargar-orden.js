@@ -2,7 +2,11 @@
 // ***************************************
 // Validar form cargar orden
 // ***************************************
-	var ORDEN_PRODUCTOS;
+	var _MARCAS = [];
+	var _PRODUCTOS = [];
+	var _PLANES = [];
+
+	var productos_filtrados = {};
 
 	$("#codidoasesor")
 			.on("change", function(){
@@ -56,35 +60,7 @@
 		}, 1000);
 	});
 
-	$('[data-load="productos"]').on('change', function(){
-		cargar_datos( $('#tipo').val(), $('#tamano').val(), $('#edad').val()  );
-	});
 
-	$('[name="dir_marcas"]').on('change', function(){
-
-		var planes = '';
-
-		for (var i = ORDEN_PRODUCTOS.length - 1; i >= 0; i--) {
-			var item = ORDEN_PRODUCTOS[i]; 
-			if( item.marca == $('#dir_marcas').val() ){
-
-				$('[name="dir_peso"]').val( item.peso );
-				$('[name="dir_precio"]').val( item.precio );
-
-				$("[data-planes]").css('display', 'none');
-				$.each( item.planes, function(d,s){
-					if( s == 1 ){
-						$("[data-planes='"+d+"']").css('display', 'inline-block');
-					}
-				});
-			}
-		}
-		
-		if( planes == '' ){
-			planes = '<option>No hay planes disponibles</option>';
-		}
-
-	});
 
 	$('#form-cargar-orden')
 		.on('init.field.fv', function(e, data) {
@@ -336,21 +312,82 @@
 				}
 			}).responseText;
 	}
-	
-	function cargar_datos( tipo='', tamano='', edad='' ){
 
+
+	$('[name="dir_marcas"]').on('change', function(){
+
+		var planes = '';
+		jQuery.each( productos_filtrados, function(producto_id, producto){
+			if( jQuery('#dir_marcas').val() == producto.marca ){
+				planes += '<option value="'+producto_id+'"> '+producto.peso+' ( '+producto.nombre+' ) </option>';
+				$('[name="dir_peso"]').val( producto.peso );
+				$('[name="dir_precio"]').val( producto.precio );
+			}
+		});
+
+		if( planes == '' ){
+			planes = '<option>No hay planes disponibles</option>';
+			jQuery('#dir_presentaciones').addAttr('disabled');
+		}else{
+			jQuery('#dir_presentaciones').removeAttr('disabled');
+			planes = '<option>Seleccione una presentaci&oacute;n</option>' + planes;			
+		}
+		jQuery('#dir_presentaciones').html(planes);
+	});
+
+
+
+
+	$('[data-load="productos"]').on('change', function(){
+		cargar_marcas_disponibles( $('#tipo').val(), $('#tamano').val(), $('#edad').val()  );
+	});
+	function cargar_marcas_disponibles( tipo='', tamano='', edad='' ){
 		if( tipo == "" || tamano == "" || edad == "" ){ return;}
 
-		$.post( TEMA+"assets/ajax/busca_data.php", {_tipo:tipo, _tamano:tamano, _edad:edad}, function(data) {
-			ORDEN_PRODUCTOS = $.parseJSON(data);
-			var options = '';
-			for (var i = ORDEN_PRODUCTOS.length - 1; i >= 0; i--) {
-				var item = ORDEN_PRODUCTOS[i]; 
-				options += '<option value="'+item.marca+'">'+item.marca_nombre+'</option>';
-			} 
-			if( options == '' ){
-				options = '<option>No hay marcas disponibles</option>';
+		var options = '';
+		jQuery.each(_MARCAS, function(marca_id, marca){
+			if( marca.tipo == tipo ){ 
+				var add = 0;
+				jQuery.each(_PRODUCTOS, function(producto_id, producto){	 	
+					if( marca_id == producto.marca && producto.tamanos[tamano] == 1 && producto.edades[edad] == 1 ){
+						add = 1;
+						productos_filtrados[producto_id] = producto;
+						return false;
+					}
+				});
+				if( add == 1 ){
+					options += '<option value="'+marca_id+'">'+marca.nombre+'</option>';
+				}
 			}
-			$('#dir_marcas').html(options);
-		});
+
+		}); 
+
+		if( options == '' ){
+			options = '<option>No hay marcas disponibles</option>';
+		}else{
+			options = '<option>Seleccione una marca</option>' + options;
+		}
+		$('#dir_marcas').html(options);
 	}
+
+	function loadDatos(){
+		var options = '';
+		jQuery.post(
+			TEMA+"assets/ajax/productos_planes.php", {},
+			function(data){
+				_MARCAS = data["MARCAS"];
+				_PRODUCTOS = data["PRODUCTOS"]; 
+				_PLANES = data["PLANES"];
+				jQuery.each(_MARCAS, function(i,v){
+					options += '<option value="'+i+'">'+v.nombre+'</option>';
+				});
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
+		if( options == '' ){
+			options = '<option>No hay marcas disponibles</option>';
+		}
+		$('#dir_marcas').html(options);
+	}
+	loadDatos();

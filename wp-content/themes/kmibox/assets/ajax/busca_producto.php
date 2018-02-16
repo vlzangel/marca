@@ -11,7 +11,10 @@ extract($_POST);
 global $wpdb;
 
 $where = '';
-if( $_tamano != '' ){	
+if( $_marca != '' ){
+	$where .= " AND p.marca = '{$_tamano}' ";
+}
+if( $_tamano != '' ){
 	$where .= " AND p.tamanos like '%\"{$_tamano}\";i:1;%' ";
 }
 if( $_edad != '' ){	
