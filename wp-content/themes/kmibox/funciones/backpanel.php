@@ -67,6 +67,15 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'tipos',
                     'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Lista y Suscriptores'),
+                    'short-title'   =>  __('Lista y Suscriptores'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'subscribers',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'subscribers',
+                    'icon'          =>  '',
                 )
             );
 
@@ -138,6 +147,13 @@
         function tipos(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/tipos/tipos.php');
+        }
+    }
+
+    if(!function_exists('subscribers')){
+        function subscribers(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/subscribers/subscribers.php');
         }
     }
 

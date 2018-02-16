@@ -12,8 +12,12 @@
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
 
-	 	$current_user = wp_get_current_user();
-	    $user_id = $current_user->ID;
+	 	if( isset($CARRITO['user_id']) || $CARRITO['user_id'] > 0 ){
+	 		$user_id = $CARRITO['user_id'];
+	 	}else{
+		 	$current_user = wp_get_current_user();
+		    $user_id = $current_user->ID;	 		
+	 	}
 
 	    $email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
 	    $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
@@ -46,7 +50,7 @@
 		$_POST["error"] = "";
 
 		$CARRITO["PDF"] = $dataOpenpay["OPENPAY_URL"]."/paynet-pdf/".$dataOpenpay["MERCHANT_ID"]."/".$charge->payment_method->reference;
-
+		$_POST['order'] = $order_id;
 		$HTML = generarEmail(
 	    	"compra/nuevo/tienda", 
 	    	array(
@@ -151,7 +155,7 @@
 		<aside class="col-md-12 text-center">
 	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">Instrucciones para completar el pago</a>
 		</aside>
-		<aside class="col-md-12  text-center">
+		<aside class="col-md-12  text-center" id="content-profile">
 	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 30px; font-size: 12px;  margin: 0 auto; margin-top:10px!important;">IR A MI PERFIL</a>
 		</aside>
 	</article>

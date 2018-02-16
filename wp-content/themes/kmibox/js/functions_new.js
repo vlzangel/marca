@@ -12,18 +12,8 @@ CARRITO["productos"].push({
 	"subtotal": 0.00
 });
 
-/*CARRITO["productos"].push({
-	"marca": 8,
-	"producto": 6,
-	"tamano": "Pequeño",
-	"edad": "Adulto",
-	"plan": "",
-	"plan_id": "",
-	"cantidad": 1,
-	"precio": 1200,
-	"subtotal": 0.00
-});*/
-
+var mostrar_modal_marca = 1;
+var BUSQUEDA_REGEXP = '';
 var PRODUCTOS = [];
 var MARCAS = [];
 var PLANES = [];
@@ -33,6 +23,17 @@ jQuery(document).ready(function() {
 	if(navigator.platform.substr(0, 2) == 'iP'){
 		jQuery("body").addClass('iOS');
 	}
+
+	jQuery('form[data-target="busqueda"]').on('submit', function(e){
+		e.preventDefault();
+		//var str = jQuery(this).parent().parent().find('input[data-target="search"]').val();
+		var str = jQuery(this).find('input[data-target="search"]').val();
+		jQuery('input[data-target="search"]').val( str );
+		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
+		console.log(BUSQUEDA_REGEXP);
+
+		change_fase(3);
+	});
 
 	jQuery('.carrousel-items').on('click', 'article', function(){
 
@@ -73,6 +74,8 @@ jQuery(document).ready(function() {
 
 	jQuery("#marca_select").on("click", function(e){
 		if( !jQuery(this).hasClass("btn-disable") ){
+			BUSQUEDA_REGEXP = '';
+			jQuery('input[data-target="search"]').val( '' );
 			change_fase(3);
 		}
 	});
@@ -144,7 +147,7 @@ jQuery(document).ready(function() {
 				CART: _json
 			},
 			function(data){
-				location.href = HOME+"/pago-tienda";
+				//location.href = HOME+"/pago-tienda";
 			}, "json"
 		).fail(function(e) {
 			console.log( e );
@@ -164,6 +167,18 @@ jQuery(document).ready(function() {
 		}
 	});
 
+/*	jQuery("#abajo_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			bajarFila(3);
+		}
+	});
+
+	jQuery("#arriba_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			subirFila(3);
+		}
+	});*/
+
 	initProductos_y_Planes();
 
 	if( MODIFICACION == "" ){
@@ -175,9 +190,9 @@ jQuery(document).ready(function() {
 });
 
 function reset_flechas_marcas(){
-	//jQuery("#marca").attr("data-top", 0);
-	//jQuery("#marca > div").animate({top: "0%"}, "slow" );
-	// jQuery(".arriba_marcas").addClass("btn-disable");
+	jQuery("#marca").attr("data-top", 0);
+	jQuery("#marca > div").animate({top: "0%"}, "slow" );
+	jQuery(".arriba_marcas").addClass("btn-disable");
 	var filas = getFilas();
 	if( filas <= 0 ){
 		jQuery(".msg_desplazar").addClass("hidden");
@@ -309,8 +324,30 @@ function loadPresentaciones(){
 	jQuery('#presentaciones').html("");
 	var CANT = 0;
 	var prod_actual = getCarritoActual();
+
 	jQuery.each(PRODUCTOS,  function(key, producto){
-		if( prod_actual["marca"] == producto.marca ){
+
+		/* BEGIN Search */
+			var mostrar = 0;
+
+			/* Integrar los criterios de busqueda */
+			var buscar_por = 
+					producto.nombre + ' ' + 
+					producto.descripcion + ' ' +
+					MARCAS[producto.marca].nombre
+				;
+			console.log(buscar_por);				
+			if( BUSQUEDA_REGEXP != '' ){
+				prod_actual["marca"] = '';
+				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
+				if ( re.test(buscar_por.toLowerCase())) {
+					mostrar = 1;
+				}
+			}
+		/* END Search */
+
+		if( prod_actual["marca"] == producto.marca || mostrar == 1 ){
+
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){
 
@@ -337,7 +374,9 @@ function loadPresentaciones(){
 			}
 		}
 	});
-	jQuery('#cant_precentaciones').html( CANT );	
+	jQuery('#cant_precentaciones').html( CANT );
+
+	BUSQUEDA_REGEXP = '';
 }
 
 function initPresentaciones(){
@@ -417,12 +456,14 @@ function loadFase(fase){
 	switch( fase ){
 		case "1":
 			change_title('Elije el tamaño de tu mascota');
+			mostrar_modal_marca = 1;
 		break;
 		case 1: // Fase #1 - Tamaño
 			change_title('Elije el tamaño de tu mascota');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+			mostrar_modal_marca = 1;
 		break;
 
 
@@ -449,6 +490,13 @@ function loadFase(fase){
 			
 			loadPresentaciones();
 			initPresentaciones();
+
+			if( mostrar_modal_marca == 1){
+				mostrar_modal_marca = 0;
+				setTimeout(function() {
+					jQuery("#modal-contacto-marca").modal('show');
+		        },1500);
+			}
 
 		break;
 		case "4":
