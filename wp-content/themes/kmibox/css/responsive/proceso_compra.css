@@ -340,6 +340,10 @@
 
 @media (max-width: 600px){
 
+	.msg_desplazar {
+	    bottom: 50px;
+	}
+
 	#agregar_plan {
 		display: block;
 	    margin: 25px auto 20px;
@@ -402,6 +406,14 @@
 }
 
 @media ( max-width: 500px ) {
+
+	.msg_desplazar {
+	    bottom: 50px;
+	    text-align: center;
+	    font-size: 12px;
+	    width: 100%;
+	    left: 0px;
+	}
 
 	#abajo_marcas,
 	#arriba_marcas {
@@ -572,12 +584,12 @@
 
 		.cantidad_resultados {
 		    font-size: 11px;
-		    padding: 20px 0px 0px;
+		    padding: 15px 0px 0px;
 		}
 
 		#tipo_mascota {
 		    font-size: 10px;
-		    margin-top: 15px;
+		    margin-top: 10px;
 		}
 
 		.controles_marca_container {
@@ -624,6 +636,10 @@
 } 
 
 @media (max-width: 400px){
+
+	.msg_desplazar {
+	    font-size: 11px;
+	}
 
 	#vlz_titulo {
 	    top: 55px;

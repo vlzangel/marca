@@ -118,7 +118,7 @@
 					<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
 				</div>
 
-				<div class="msg_desplazar">
+				<div id="msg_desplazar_marcas" class="msg_desplazar">
 					Desliza hacia arriba o abajo para ver las opciones
 				</div>
 
@@ -137,6 +137,10 @@
 				</div>
 
 				<div id="presentaciones" class="presentaciones_container"> </div>
+
+				<div id="msg_desplazar_precentaciones" class="msg_desplazar">
+					Desliza hacia arriba o abajo para ver las opciones
+				</div>
 
 				<div class="btn_siguiente_container">
 					<button id="presentacion_select" class="btn_siguiente btn-disable"> Siguente </button>

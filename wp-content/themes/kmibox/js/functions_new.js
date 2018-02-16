@@ -18,6 +18,10 @@ var PRODUCTOS = [];
 var MARCAS = [];
 var PLANES = [];
 
+jQuery( window ).resize(function() {
+  	reset_flechas_marcas();
+});
+
 jQuery(document).ready(function() {
 
 	if(navigator.platform.substr(0, 2) == 'iP'){
@@ -167,7 +171,7 @@ jQuery(document).ready(function() {
 		}
 	});
 
-/*	jQuery("#abajo_marcas_3").on("click", function(e){
+	jQuery("#abajo_marcas_3").on("click", function(e){
 		if( !jQuery(this).hasClass("btn-disable") ){
 			bajarFila(3);
 		}
@@ -177,7 +181,7 @@ jQuery(document).ready(function() {
 		if( !jQuery(this).hasClass("btn-disable") ){
 			subirFila(3);
 		}
-	});*/
+	});
 
 	initProductos_y_Planes();
 
@@ -190,35 +194,83 @@ jQuery(document).ready(function() {
 });
 
 function reset_flechas_marcas(){
-	jQuery("#marca").attr("data-top", 0);
-	jQuery("#marca > div").animate({top: "0%"}, "slow" );
-	jQuery(".arriba_marcas").addClass("btn-disable");
-	var filas = getFilas();
-	if( filas <= 0 ){
-		jQuery(".msg_desplazar").addClass("hidden");
-		// jQuery(".abajo_marcas").addClass("btn-disable");
-	}else{
-		// jQuery(".abajo_marcas").removeClass("btn-disable");
-		jQuery(".msg_desplazar").removeClass("hidden");
+	var seccion = getSeccion();
+	if( seccion != '' ){
+		var filas = getFilas();
+		if( filas <= 0 ){
+			jQuery("#msg_desplazar"+seccion).addClass("hidden");
+		}else{
+			jQuery("#msg_desplazar"+seccion).removeClass("hidden");
+		}
 	}
 }
 
 function getFilas(h){
-	var h = getH();
-	var filas = Math.ceil( parseInt( jQuery("#cant_marcas").html() ) / h );
-	return (filas-4);
+	var seccion = getSeccion();
+	if( seccion != '' ){
+		var filas_h = 0;
+		switch(seccion){
+			case "_marcas":
+				filas_h = 4;
+			break;
+			case "_precentaciones":
+				filas_h = 3;
+			break;
+		}
+
+		var h = getH();
+		if( h != 0 ){
+			var filas = Math.ceil( parseInt( jQuery("#cant"+seccion).html() ) / h );
+			return (filas-filas_h);
+		}else{
+			return 0;
+		}
+	}else{
+		return 0;
+	}
 }
 
 function getH(){
-	var index = jQuery("#arriba_marcas").css("z-index");
-	switch(index){
-		case "101":
-			return 3;
+	var seccion = getSeccion();
+	switch(seccion){
+		case "_marcas":
+			var index = jQuery("#arriba_marcas").css("z-index");
+			switch(index){
+				case "101":
+					return 3;
+				break;
+				case "102":
+					return 2;
+				break;
+			}
 		break;
-		case "102":
-			return 2;
+		case "_precentaciones":
+			var index = jQuery("#arriba_marcas").css("z-index");
+			switch(index){
+				case "101":
+					return 1;
+				break;
+				case "102":
+					return 1;
+				break;
+			}
+		break;
+		case "":
+			return 0;
 		break;
 	}
+	return 0;
+}
+
+function getSeccion(){
+	var seccion = "";
+	if( !jQuery("#fase_2").hasClass("hidden") ){
+		seccion = "_marcas";
+	}
+	if( !jQuery("#fase_3").hasClass("hidden") ){
+		seccion = "_precentaciones";
+	}
+	return seccion;
 }
 
 function subirFila(){
@@ -335,8 +387,7 @@ function loadPresentaciones(){
 					producto.nombre + ' ' + 
 					producto.descripcion + ' ' +
 					MARCAS[producto.marca].nombre
-				;
-			console.log(buscar_por);				
+				;				
 			if( BUSQUEDA_REGEXP != '' ){
 				prod_actual["marca"] = '';
 				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
@@ -377,6 +428,8 @@ function loadPresentaciones(){
 	jQuery('#cant_precentaciones').html( CANT );
 
 	BUSQUEDA_REGEXP = '';
+
+	reset_flechas_marcas();
 }
 
 function initPresentaciones(){
