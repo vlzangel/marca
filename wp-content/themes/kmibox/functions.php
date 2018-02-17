@@ -55,7 +55,7 @@
 		remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 		add_filter( 'tiny_mce_plugins', 'disable_embeds_tiny_mce_plugin' );
 		// Remove all embeds rewrite rules.
-		add_filter( 'rewrite_rules_array', 'disable_embeds_rewrites' );
+		// add_filter( 'rewrite_rules_array', 'disable_embeds_rewrites' );
 		// Remove filter of the oEmbed result before any HTTP requests are made.
 		remove_filter( 'pre_oembed_result', 'wp_filter_pre_oembed_result', 10 );
 	}
@@ -257,4 +257,19 @@
 	    $phpmailer->SMTPSecure = "tls";
 	    $phpmailer->From = "marca@kmimos.la";
 	    $phpmailer->FromName = "Nutriheroes";
+	}
+
+	function get_form_busqueda(){
+		return '
+			<article class="busqueda">
+				<form data-target="busqueda" action="" method="post">
+					<div class="input-group">
+						<input type="text" data-target="search" class="form-control" placeholder="Buscar productos">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit" data-target="filtrar"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+				</form>
+			</article>
+		';
 	}

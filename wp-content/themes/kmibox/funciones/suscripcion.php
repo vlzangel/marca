@@ -84,7 +84,7 @@
 		}
 	}
 
-	function crearPedido(){
+	function crearPedido($tipo = "Tarjeta"){
 		date_default_timezone_set('America/Mexico_City');
 		if( !isset($_SESSION) ){ session_start(); }
 		global $wpdb;
@@ -94,6 +94,8 @@
 	    $hoy = date("Y-m-d H:i:s", time() );
 
 	    $metaData = array();
+
+	    $metaData["tipo_pago"] = $tipo;
 
 	    if( isset($_SESSION["MODIFICACION"]) ){
 			$metaData["es_modificacion_de"] = $_SESSION["MODIFICACION"];
@@ -144,7 +146,8 @@
 	}
 
 	function crearCobro($orden_id, $pago_id){
-		date_default_timezone_set('America/Mexico_City');
+
+    	setZonaHoraria();
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 		global $wpdb;
@@ -195,15 +198,49 @@
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW() );";
+    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";
     		$wpdb->query( $SQL ); 
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
-    		$proximo_cobro = date("Y-m-d H:i:s", strtotime("+".$meses." month"));
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW() );";
-    		$wpdb->query( $SQL ); 
+
+    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
+
+    		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses." day") );
+
+    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
+			$wpdb->query( $SQL ); 
+
     		for ($i=0; $i < $meses; $i++) { 
-    			if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
+    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
+    			if( $i == 0 ){ $mes_actual = date("Y-m-d", time() ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." day") ); }
+    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
+    			$wpdb->query( $SQL );
+    		}
+    	}
+
+	}
+
+
+
+	function crearNewCobro($orden_id, $_time_hoy){
+    	setZonaHoraria();
+		global $wpdb;
+
+		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id = {$orden_id}");
+    	foreach ($items as $key => $item) {
+
+    		$hoy = date("d", $_time_hoy );
+    		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
+
+    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
+    		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d", $_time_hoy)." +".$meses." day") );
+
+    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
+			$wpdb->query( $SQL );
+
+    		for ($i=0; $i < $meses; $i++) { 
+    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
+    			if( $i == 0 ){ $mes_actual = date("Y-m-d", $_time_hoy ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." day", $_time_hoy) ); }
     			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
     			$wpdb->query( $SQL );
     		}
@@ -211,7 +248,7 @@
 	}
 
 	function getOrdenes(){
-    	date_default_timezone_set('America/Mexico_City');
+    	setZonaHoraria();
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
@@ -221,7 +258,7 @@
 	}
 
 	function getSuscripciones(){
-    	date_default_timezone_set('America/Mexico_City');
+    	setZonaHoraria();
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
@@ -265,7 +302,7 @@
 	}
 
 	function getDespachosActivos(){
-    	date_default_timezone_set('America/Mexico_City');
+    	setZonaHoraria();
     	$mes_actual = date("Y-m", time())."-01";
 		$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 		global $wpdb;
@@ -295,13 +332,10 @@
 
 	function getProductosDesglose($id_orden){
 		global $wpdb;
-		
 		$_planes = get_planes();
-
 	    $_productos = array();
 	    $ordenes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$id_orden}");
 	    foreach ($ordenes as $sub_orden) {
-
 	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
     		$dataextra = unserialize($producto->dataextra);
     		$_productos[ $sub_orden->id_producto ] = array(
@@ -312,9 +346,7 @@
     			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
     			"cantidad" => $sub_orden->cantidad
 	    	);
-
 	    }
-
 		return $_productos;
 	}
 

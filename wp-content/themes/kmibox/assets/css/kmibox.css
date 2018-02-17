@@ -46,6 +46,55 @@ h4 .img-center,
 p .img-center{
 	vertical-align: middle;
 }
+
+
+
+
+#modal-contacto-marca .modal-dialog{
+    margin: 150px auto;
+}
+
+.dog-content{
+	top: -135px;
+    position: relative;
+    height: 0px;
+}
+
+#modal-contacto-marca .close{
+	color:#fff;
+    font-weight: lighter;
+    font-size: 12px;
+    height: 23px;
+    font-family: sans-serif;
+}
+#modal-contacto-marca .modal-header{
+	border-bottom: 3px solid #86cc50;
+	height: 60px;
+}
+#modal-contacto-marca .modal-content{
+    background-color: #0c1802;
+    max-width: 550px;
+    margin: 0 auto; 
+}
+#modal-contacto-marca .modal-body p.text-small{
+	font-size: 19px;
+}
+#modal-contacto-marca .modal-body p{
+	color: #fff;
+}
+#modal-contacto-marca .modal-body p span{
+	color: #86cc50;
+}
+.btn-kmibox-send{
+	background: transparent;
+	border: 2px solid #fff; 
+	color: #fff;
+	border-radius: 20px;
+	padding: 5px 30px;
+	margin-top: 10px;
+}
+
+
 .row {
     margin-right: 0px;
     margin-left: 0px;
@@ -472,7 +521,7 @@ select{
 .LoginNuevo{
 background-color: #0b1706;
 height: 850px;
-margin-top: -34%;
+margin-top: -40%;
 }
 
 #tophome{
@@ -531,7 +580,7 @@ margin-top: -34%;
 	background: #181E0D;
 	font-family: cursive;
 	background-size: contain;
-	padding: 45px 0px 45px 0px;
+	padding: 35px 0px 35px 0px;
 }
 
 #section-comment1{
@@ -1276,15 +1325,7 @@ margin-top: -34%;
 		height: 150px!important;
     	width:  150px!important;
 	}
-	.text-felicidades{
-margin-bottom: 10% !important;
-}
-.text-suscripcionexitosa{
-	margin-bottom: 15% !important;
-}
-.text-tususcripcion{
-	 margin-top: 10% !important;
-}
+
 .text-btnperfil{
 	margin-top: 10% !important;
 
@@ -1384,15 +1425,6 @@ margin-bottom: 10% !important;
 		width: 100%;
 	}
 
-	.text-felicidades{
-margin-bottom: 10% !important;
-}
-.text-suscripcionexitosa{
-	margin-bottom: 15% !important;
-}
-.text-tususcripcion{
-	 margin-top: 10% !important;
-}
 .text-btnperfil{
 	margin-top: 10% !important;
 
@@ -1433,24 +1465,39 @@ margin-bottom: 10% !important;
 	 margin-top: -7%;
 }
 
-.text-felicidades{
-margin-bottom: 10% !important;
-}
-.text-suscripcionexitosa{
-	margin-bottom: 15% !important;
-}
-.text-tususcripcion{
-	 margin-top: 10% !important;
-}
-.text-btnperfil{
-	margin-top: 10% !important;
+.headerResponsive{
+	 margin-right: 0% ! important; 
+    margin-top: -4% ! important;
+	}
 
-}
+.headerResponsive-img {
+    margin-right: 0% ! important;
+    margin-top: -5% ! important;
+    margin-left: -2%;
+}	
 	.col-xs-6-1{
-		    width: 60% !important;
+		    width: 45% !important;
 	}
 
 }
+
+@media all and (min-width: 1025px)  {
+	.headerResponsive{
+	 margin-right: 0% ! important; 
+    margin-top: -3% ! important;
+	}
+
+	.headerResponsive-img {
+    margin-right: 0% ! important;
+    margin-top: -5% ! important;
+    margin-left: -2%;
+	}	
+	.col-xs-6-1{
+		    width: 48% !important;
+	}
+}
+
+
 @media all and (max-width:959px) and (min-width:613px) {
 	.h-3x{
 		font-size: 20px;

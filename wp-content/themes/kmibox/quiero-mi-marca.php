@@ -16,6 +16,8 @@
 	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
 
 	get_header(); 
+	
+	wp_enqueue_script( 'nutriheroes_script', TEMA()."/js/popup_nutriheroes.js" );
 
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
 	$PLANES = "";
@@ -37,6 +39,8 @@
 		$tipos .= "<option value='{$tipo->id}' ".selected($tipo->id, $_tipo, false).">".strtoupper($tipo->tipo)."</option>";
 	}
 
+	$form_busqueda = get_form_busqueda();
+
 	$HTML = '
 
 		<a class="controles_generales" id="vlz_atras" href="#">
@@ -56,6 +60,7 @@
 		</div>
 
 		<div class="comprar_container">
+
 			<section id="fase_1">
 
 				<div class="carrousel-items-containers">
@@ -97,6 +102,7 @@
 			<section id="fase_2" class="hidden">
 				
 				<div class="controles_marca_container">
+					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_marcas">0</span> RESULTADOS</div>
 					<div class="tipo_mascota">
 						<select id="tipo_mascota"> '.$tipos.' </select>
@@ -112,29 +118,33 @@
 					<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
 				</div>
 
-				<div class="msg_desplazar">
+				<div id="msg_desplazar_marcas" class="msg_desplazar">
 					Desliza hacia arriba o abajo para ver las opciones
 				</div>
+
 
 				<div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
 				</div>
-
 			</section>
 
 			<section id="fase_3" class="hidden">
 				
 				<div class="controles_presentaciones_container">
+					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_precentaciones">0</span> RESULTADOS</div>
 					<div class="tipo_mascota"></div>
 				</div>
 
 				<div id="presentaciones" class="presentaciones_container"> </div>
 
+				<div id="msg_desplazar_precentaciones" class="msg_desplazar">
+					Desliza hacia arriba o abajo para ver las opciones
+				</div>
+
 				<div class="btn_siguiente_container">
 					<button id="presentacion_select" class="btn_siguiente btn-disable"> Siguente </button>
 				</div>
-
 			</section>
 
 			<section id="fase_4" class="hidden">
@@ -197,7 +207,6 @@
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
 			</section>	
-
 		</div>
 
 		<div id="suscription" class="modal fade img-responsive" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel">
@@ -220,7 +229,7 @@
 			</div>
 		</div>	
 	';
-
+ 
 	echo comprimir($HTML);
 
 	wp_enqueue_script('mascotas', TEMA()."/js/functions_new.js", array(), '1.0.0');
@@ -236,3 +245,32 @@
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
 ?>
 
+
+<!-- Modal -->
+<div class="modal fade" id="modal-contacto-marca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		<div class="dog-content">
+	        <img src="<?php echo TEMA(); ?>/imgs/dog.png" class="img-responsive dog">
+		</div>
+      <div class="modal-header text-center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >Cerrar &times;</span></button>
+      </div>
+      <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados, en breve te ayudamos con tu solicitud</div>
+      <div class="modal-body row text-center">
+      	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
+	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TUS CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
+	      	</p>
+	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
+	      	<form method="post" id="form-contacto" action="#">
+	      		<div class="col-md-10 col-md-offset-1 text-center">
+		      		<input type="text" class="form-control" name="email" id="email" placeholder="mi@email.com">
+		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="000 000 00000">
+		      		<button class="btn-kmibox-send" type="submit">ENVIAR</button>
+	      		</div>
+	      	</form>
+      	</div>
+      </div> 
+    </div>
+  </div>
+</div>

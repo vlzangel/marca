@@ -12,27 +12,32 @@ CARRITO["productos"].push({
 	"subtotal": 0.00
 });
 
-/*CARRITO["productos"].push({
-	"marca": 8,
-	"producto": 6,
-	"tamano": "Pequeño",
-	"edad": "Adulto",
-	"plan": "",
-	"plan_id": "",
-	"cantidad": 1,
-	"precio": 1200,
-	"subtotal": 0.00
-});*/
-
+var mostrar_modal_marca = 1;
+var BUSQUEDA_REGEXP = '';
 var PRODUCTOS = [];
 var MARCAS = [];
 var PLANES = [];
+
+jQuery( window ).resize(function() {
+  	reset_flechas_marcas();
+});
 
 jQuery(document).ready(function() {
 
 	if(navigator.platform.substr(0, 2) == 'iP'){
 		jQuery("body").addClass('iOS');
 	}
+
+	jQuery('form[data-target="busqueda"]').on('submit', function(e){
+		e.preventDefault();
+		//var str = jQuery(this).parent().parent().find('input[data-target="search"]').val();
+		var str = jQuery(this).find('input[data-target="search"]').val();
+		jQuery('input[data-target="search"]').val( str );
+		BUSQUEDA_REGEXP = "("+str.trim().replace(/(\s{1,})/g, "|")+")";
+		console.log(BUSQUEDA_REGEXP);
+
+		change_fase(3);
+	});
 
 	jQuery('.carrousel-items').on('click', 'article', function(){
 
@@ -73,6 +78,8 @@ jQuery(document).ready(function() {
 
 	jQuery("#marca_select").on("click", function(e){
 		if( !jQuery(this).hasClass("btn-disable") ){
+			BUSQUEDA_REGEXP = '';
+			jQuery('input[data-target="search"]').val( '' );
 			change_fase(3);
 		}
 	});
@@ -164,6 +171,18 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	jQuery("#abajo_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			bajarFila(3);
+		}
+	});
+
+	jQuery("#arriba_marcas_3").on("click", function(e){
+		if( !jQuery(this).hasClass("btn-disable") ){
+			subirFila(3);
+		}
+	});
+
 	initProductos_y_Planes();
 
 	if( MODIFICACION == "" ){
@@ -175,35 +194,83 @@ jQuery(document).ready(function() {
 });
 
 function reset_flechas_marcas(){
-	//jQuery("#marca").attr("data-top", 0);
-	//jQuery("#marca > div").animate({top: "0%"}, "slow" );
-	// jQuery(".arriba_marcas").addClass("btn-disable");
-	var filas = getFilas();
-	if( filas <= 0 ){
-		jQuery(".msg_desplazar").addClass("hidden");
-		// jQuery(".abajo_marcas").addClass("btn-disable");
-	}else{
-		// jQuery(".abajo_marcas").removeClass("btn-disable");
-		jQuery(".msg_desplazar").removeClass("hidden");
+	var seccion = getSeccion();
+	if( seccion != '' ){
+		var filas = getFilas();
+		if( filas <= 0 ){
+			jQuery("#msg_desplazar"+seccion).addClass("hidden");
+		}else{
+			jQuery("#msg_desplazar"+seccion).removeClass("hidden");
+		}
 	}
 }
 
 function getFilas(h){
-	var h = getH();
-	var filas = Math.ceil( parseInt( jQuery("#cant_marcas").html() ) / h );
-	return (filas-4);
+	var seccion = getSeccion();
+	if( seccion != '' ){
+		var filas_h = 0;
+		switch(seccion){
+			case "_marcas":
+				filas_h = 4;
+			break;
+			case "_precentaciones":
+				filas_h = 3;
+			break;
+		}
+
+		var h = getH();
+		if( h != 0 ){
+			var filas = Math.ceil( parseInt( jQuery("#cant"+seccion).html() ) / h );
+			return (filas-filas_h);
+		}else{
+			return 0;
+		}
+	}else{
+		return 0;
+	}
 }
 
 function getH(){
-	var index = jQuery("#arriba_marcas").css("z-index");
-	switch(index){
-		case "101":
-			return 3;
+	var seccion = getSeccion();
+	switch(seccion){
+		case "_marcas":
+			var index = jQuery("#arriba_marcas").css("z-index");
+			switch(index){
+				case "101":
+					return 3;
+				break;
+				case "102":
+					return 2;
+				break;
+			}
 		break;
-		case "102":
-			return 2;
+		case "_precentaciones":
+			var index = jQuery("#arriba_marcas").css("z-index");
+			switch(index){
+				case "101":
+					return 1;
+				break;
+				case "102":
+					return 1;
+				break;
+			}
+		break;
+		case "":
+			return 0;
 		break;
 	}
+	return 0;
+}
+
+function getSeccion(){
+	var seccion = "";
+	if( !jQuery("#fase_2").hasClass("hidden") ){
+		seccion = "_marcas";
+	}
+	if( !jQuery("#fase_3").hasClass("hidden") ){
+		seccion = "_precentaciones";
+	}
+	return seccion;
 }
 
 function subirFila(){
@@ -309,8 +376,29 @@ function loadPresentaciones(){
 	jQuery('#presentaciones').html("");
 	var CANT = 0;
 	var prod_actual = getCarritoActual();
+
 	jQuery.each(PRODUCTOS,  function(key, producto){
-		if( prod_actual["marca"] == producto.marca ){
+
+		/* BEGIN Search */
+			var mostrar = 0;
+
+			/* Integrar los criterios de busqueda */
+			var buscar_por = 
+					producto.nombre + ' ' + 
+					producto.descripcion + ' ' +
+					MARCAS[producto.marca].nombre
+				;				
+			if( BUSQUEDA_REGEXP != '' ){
+				prod_actual["marca"] = '';
+				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
+				if ( re.test(buscar_por.toLowerCase())) {
+					mostrar = 1;
+				}
+			}
+		/* END Search */
+
+		if( prod_actual["marca"] == producto.marca || mostrar == 1 ){
+
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){
 
@@ -337,7 +425,11 @@ function loadPresentaciones(){
 			}
 		}
 	});
-	jQuery('#cant_precentaciones').html( CANT );	
+	jQuery('#cant_precentaciones').html( CANT );
+
+	BUSQUEDA_REGEXP = '';
+
+	reset_flechas_marcas();
 }
 
 function initPresentaciones(){
@@ -377,8 +469,8 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 </td>';
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
-	HTML += '	 	<label class="resaltar_desglose solo_movil">'+frecuencia+'</label>';
 	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
+	HTML += '	 	<div class="solo_movil">El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy+'</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy;
@@ -417,12 +509,14 @@ function loadFase(fase){
 	switch( fase ){
 		case "1":
 			change_title('Elije el tamaño de tu mascota');
+			mostrar_modal_marca = 1;
 		break;
 		case 1: // Fase #1 - Tamaño
 			change_title('Elije el tamaño de tu mascota');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+			mostrar_modal_marca = 1;
 		break;
 
 
@@ -449,6 +543,13 @@ function loadFase(fase){
 			
 			loadPresentaciones();
 			initPresentaciones();
+
+			if( mostrar_modal_marca == 1){
+				mostrar_modal_marca = 0;
+				setTimeout(function() {
+					// jQuery("#modal-contacto-marca").modal('show');
+		        },1500);
+			}
 
 		break;
 		case "4":

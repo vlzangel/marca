@@ -14,6 +14,13 @@
 
 wp_enqueue_style( 'home_css', TEMA()."/css/home.css", array(), "1.0.0" );
 
+
+/* BEGIN POPUP Nutriheroes */		
+include_once( 'template/parts/footer/Nutriheroes.php' );
+/* END POPUP Nutriheroes   */		
+
+
+
 get_header(); ?>
 
 	<?php echo MENU(); ?>

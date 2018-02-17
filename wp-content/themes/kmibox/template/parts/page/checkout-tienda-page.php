@@ -6,14 +6,27 @@
  	include_once(dirname(dirname(dirname(__DIR__)))."/lib/openpay/Openpay.php");
 
  	$order_id = time();
+    $CARRITO = unserialize( $_SESSION["CARRITO"] );
+    if( !isset($CARRITO["orden_id"]) ){
+ 		$order_id = crearPedido("Tienda");
+ 		$CARRITO["orden_id"] = $order_id;
+ 		$_SESSION["CARRITO"] = serialize($CARRITO);
+    }else{
+ 		$order_id = $CARRITO["orden_id"];
+    }
 
  	$dataOpenpay = dataOpenpay();
 
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
+	 	Openpay::setProductionMode( $dataOpenpay["OPENPAY_PRUEBAS"] != 1 );
 
-	 	$current_user = wp_get_current_user();
-	    $user_id = $current_user->ID;
+	 	if( isset($CARRITO['user_id']) || $CARRITO['user_id'] > 0 ){
+	 		$user_id = $CARRITO['user_id'];
+	 	}else{
+		 	$current_user = wp_get_current_user();
+		    $user_id = $current_user->ID;	 		
+	 	}
 
 	    $email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
 	    $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
@@ -46,7 +59,7 @@
 		$_POST["error"] = "";
 
 		$CARRITO["PDF"] = $dataOpenpay["OPENPAY_URL"]."/paynet-pdf/".$dataOpenpay["MERCHANT_ID"]."/".$charge->payment_method->reference;
-
+		$_POST['order'] = $order_id;
 		$HTML = generarEmail(
 	    	"compra/nuevo/tienda", 
 	    	array(
@@ -81,7 +94,7 @@
 				<th class='solo_pc'> <div> Periodicidad </div> </th>
 				<th class='solo_pc'> <div> Mascota </div> </th>
 			</tr>";
-	foreach ($CARRITO["productos"] as $key => $value) {
+/*	foreach ($CARRITO["productos"] as $key => $value) {
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
 		if( isset($value->edad) ){
 			$suscripciones .= "
@@ -101,6 +114,35 @@
 						</div>
 					</td>
 					<td class='periodicidad solo_pc'>".$value->plan."</td>
+					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
+				</tr>
+			";
+		}
+	}
+	$suscripciones .= "</table>";
+*/
+	foreach ($CARRITO["productos"] as $key => $value) {
+		$data = unserialize( $productos[ $value->producto ]->dataextra );
+		if( isset($value->edad) ){
+			$suscripciones .= "
+				<tr>
+					<td>
+						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+					</td>
+					<td class='info'>
+						<div>
+							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
+							<div>".$productos[ $value->producto ]->descripcion."</div>
+							<div>".$productos[ $value->producto ]->peso."</div>
+						</div>
+						<div class='info_3 solo_movil'>
+							El cobro de tu suscripción se hará <label style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."
+							<div>".$value->tamano." - ".$value->edad."</div>
+						</div>
+					</td>
+					<td class='solo_pc'>
+						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>El cobro de tu suscripción se hará <label class='periodicidad' style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+					</td>
 					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
 			";
@@ -151,7 +193,7 @@
 		<aside class="col-md-12 text-center">
 	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">Instrucciones para completar el pago</a>
 		</aside>
-		<aside class="col-md-12  text-center">
+		<aside class="col-md-12  text-center" id="content-profile">
 	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 30px; font-size: 12px;  margin: 0 auto; margin-top:10px!important;">IR A MI PERFIL</a>
 		</aside>
 	</article>
@@ -159,6 +201,6 @@
 </section>
 
 <?php
-	//unset($_SESSION["CARRITO"]);
+	unset($_SESSION["CARRITO"]);
 ?>
 
