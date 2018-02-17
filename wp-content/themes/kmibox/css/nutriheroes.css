@@ -157,3 +157,7 @@
 	font-style: arial;
 	font-size: 12px;
 }
+
+.footer-mobile{
+	display: none;
+}

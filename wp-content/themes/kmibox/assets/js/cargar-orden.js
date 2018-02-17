@@ -10,8 +10,7 @@
 
 	$("#codidoasesor")
 			.on("change", function(){
-				console.log($("#codidoasesor").val());
-				console.log(urlbase);
+		 
 				var result;
 				var codigo = {
 					'codasesor' : $("#codidoasesor").val()
@@ -94,7 +93,7 @@
 			$('#login-mensaje').addClass('hidden');
 			
 
-			$.post( TEMA+"/procesos/asesor/cargar_orden.php", $('#form-cargar-orden').serialize()  , function(r) {
+			$.post( TEMA+"procesos/asesor/cargar_orden.php", $('#form-cargar-orden').serialize()  , function(r) {
 				r = $.parseJSON(r);
 				jQuery(".btn-register_").attr("disabled", false);
 				jQuery(".btn-register_").html("Registrarme");
@@ -314,29 +313,54 @@
 	}
 
 
+	$('[name="dir_presentaciones"]').on('change', function(){
+
+		var product = _PRODUCTOS[ jQuery('#dir_presentaciones').val() ];
+/*
+		$('[name="dir_peso"]').val( producto.peso );
+		$('[name="dir_precio"]').val( producto.precio );
+*/
+		var planes = '';
+		jQuery.each( product.planes, function(plan_id, val) {
+console.log(_PLANES[plan_id] );			
+			if( val == 1 ){
+				planes += '<option value="'+plan_id+'">'+_PLANES[plan_id].nombre+'</option>';
+			}
+		});
+		if( planes == '' ){
+			planes = '<option>No hay planes disponibles</option>';
+			jQuery('#dir_planes').attr('disabled', 'disabled');
+		}else{
+			jQuery('#dir_planes').removeAttr('disabled');
+			planes = '<option>Seleccione una planes</option>' + planes;			
+		}
+		jQuery('#dir_planes').html(planes);
+
+	});
 	$('[name="dir_marcas"]').on('change', function(){
 
 		var planes = '';
 		jQuery.each( productos_filtrados, function(producto_id, producto){
 			if( jQuery('#dir_marcas').val() == producto.marca ){
-				planes += '<option value="'+producto_id+'"> '+producto.peso+' ( '+producto.nombre+' ) </option>';
-				$('[name="dir_peso"]').val( producto.peso );
-				$('[name="dir_precio"]').val( producto.precio );
+
+				if( producto.tamanos[$('#tamano').val()] == 1 && producto.edades[$('#edad').val()] == 1 ){
+
+					planes += '<option value="'+producto_id+'"> '+producto.peso+' ( '+producto.nombre+' - '+producto.precio+' ) </option>';
+					
+				}
 			}
 		});
 
 		if( planes == '' ){
-			planes = '<option>No hay planes disponibles</option>';
-			jQuery('#dir_presentaciones').addAttr('disabled');
+			planes = '<option>No hay presentaci&oacute;n disponibles</option>';
+			jQuery('#dir_presentaciones').attr('disabled', 'disabled');
 		}else{
 			jQuery('#dir_presentaciones').removeAttr('disabled');
 			planes = '<option>Seleccione una presentaci&oacute;n</option>' + planes;			
 		}
 		jQuery('#dir_presentaciones').html(planes);
+
 	});
-
-
-
 
 	$('[data-load="productos"]').on('change', function(){
 		cargar_marcas_disponibles( $('#tipo').val(), $('#tamano').val(), $('#edad').val()  );
@@ -349,11 +373,18 @@
 			if( marca.tipo == tipo ){ 
 				var add = 0;
 				jQuery.each(_PRODUCTOS, function(producto_id, producto){	 	
-					if( marca_id == producto.marca && producto.tamanos[tamano] == 1 && producto.edades[edad] == 1 ){
-						add = 1;
-						productos_filtrados[producto_id] = producto;
-						return false;
+
+					if( marca_id == producto.marca ){
+						if( producto.tamanos[tamano] == 1 ) {
+							if( producto.edades[edad] == 1 ) {
+		
+								add = 1;
+								productos_filtrados[producto_id] = producto;
+								
+							}
+						}
 					}
+
 				});
 				if( add == 1 ){
 					options += '<option value="'+marca_id+'">'+marca.nombre+'</option>';
@@ -361,7 +392,6 @@
 			}
 
 		}); 
-
 		if( options == '' ){
 			options = '<option>No hay marcas disponibles</option>';
 		}else{

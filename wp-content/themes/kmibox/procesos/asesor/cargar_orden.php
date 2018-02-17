@@ -83,11 +83,7 @@
 					FROM productos as p
 						INNER JOIN marcas as m ON m.id = p.marca 
 						INNER JOIN planes as pl ON pl.id = {$dir_planes}
-					WHERE
-						m.tipo = {$dir_tipos}
-						AND p.marca = {$dir_marcas}
-					    AND p.tamanos like '%\"{$dir_tamano}\";i:1;%' 
-						AND p.edades like '%\"{$dir_edad}\";i:1;%' 
+					WHERE p.id = {$dir_presentaciones}
 					";	
 
 				$temp_product = $wpdb->get_row($sql_carrito);
