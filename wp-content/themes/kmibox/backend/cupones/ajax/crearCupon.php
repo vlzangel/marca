@@ -6,6 +6,8 @@
 
 	extract($_POST);
 
+	if( !isset($uso_individual) ){ $uso_individual = 0; }
+
 	$data = array(
 	    "precio" => $precio,
 	    "tipo" => $tipo,
@@ -18,11 +20,15 @@
 	);
 	$data = serialize($data);
 
+	$usos = array();
+	$usos = serialize($usos);
+
 	$SQL = "
 		INSERT INTO cupones VALUES (
 			NULL,
 			'$nombre',
-			'$data'
+			'$data',
+			'$usos'
 		);
 	";
 

@@ -179,6 +179,21 @@
 						</thead>
 						<tbody id="cart-items"></tbody>
 					</table>
+
+					<div id="cupones">
+						<table cellspacing=0 cellpadding=0>	
+							<tr>
+								<td> ¿Dispone de un cupón de descuento? </td>
+								<td>
+									<div class="cupon_input_container"> 
+										<input type="text" id="input_cupon" name="input_cupon" />
+										<span>Aplicar</span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
 					<div id="totales">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
@@ -193,6 +208,16 @@
 								<th> IVA </th>
 								<td id="iva"> </td>
 							</tr>
+							<tr id="desgloseDescuentos">
+								<th class="" > 
+									Descuentos 
+									<div id="cupones_desglose"></div>
+								</th>
+								<td class="" > 
+									<div>&nbsp;</div> 
+									<div id="descuentos_desglose"></div> 
+								</td>
+							</tr>
 							<tr>
 								<th class="style_total" > Total </th>
 								<td class="style_total" id="total"> </td>
@@ -202,7 +227,6 @@
 				</div>
 				
 				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
-					
 					<span id="agregar_plan" class="btn-kmibox-link-suscription" ><i class="fa fa-plus"></i>Agregar otro plan</span>
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		

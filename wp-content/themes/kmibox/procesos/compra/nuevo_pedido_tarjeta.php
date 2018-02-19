@@ -1,7 +1,6 @@
 <?php 
 
 	if( !isset($_SESSION) ){ session_start(); }
-
 	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
 
     setZonaHoraria();
@@ -15,6 +14,7 @@
 
  	$_productos = get_productos();
     $CARRITO = unserialize( $_SESSION["CARRITO"] );
+    
     if( !isset($CARRITO["orden_id"]) ){
  		$orden_id = crearPedido();
  		$CARRITO["orden_id"] = $orden_id;
