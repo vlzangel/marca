@@ -22,16 +22,6 @@
 			$exclusivo = "Si";
 		}
 
-/*		$_data = "
-			<div><strong>Tipo:</strong> {$tipo->tipo}</div>
-			<div><strong>Vence:</strong> {$info["vence"]}</div>
-			<div><strong>Limite por usuario:</strong> {$info["uso_por_usuario"]}</div>
-			<div><strong>Limite por cup&oacute;n:</strong> {$info["uso_por_cupon"]}</div>
-			<div><strong>Gasto M&iacute;nimo:</strong> {$info["gasto_minimo"]}</div>
-			<div><strong>Gasto M&aacute;ximo:</strong> {$info["gasto_maximo"]}</div>
-			<div><strong>Es de uso exclusivo:</strong> {$exclusivo}</div>
-		";*/
-
 		$_data = "
 			<div><strong>Tipo:</strong> {$tipo->tipo}</div>
 			<div><strong>Vence:</strong> {$info["vence"]}</div>
@@ -41,10 +31,6 @@
 			<div><strong>Gasto M&aacute;ximo:</strong> {$info["gasto_maximo"]}</div>
 			<div><strong>Es de uso exclusivo:</strong> {$exclusivo}</div>
 		";
-
-		if( $info["vence"] != "" ){
-
-		}
 
 		$data["data"][] = array(
 	        $cupon->id,
@@ -60,7 +46,7 @@
 	        		data-modal='nuevo' 
 	        		class='enlace'
 	        	>Editar</span><br>
-	        	<span onclick='eliminar_marca( jQuery( this ) )' data-id='".$cupon->id."' class='enlace'>Eliminar</span><br>
+	        	<span onclick='eliminar_Cupon( jQuery( this ) )' data-id='".$cupon->id."' class='enlace'>Eliminar</span><br>
 	        "
 	    );
 	}
