@@ -6,6 +6,8 @@
 
 	extract($_POST);
 
+	if( !isset($uso_individual) ){ $uso_individual = 0; }
+
 	$data = array(
 	    "precio" => $precio,
 	    "tipo" => $tipo,

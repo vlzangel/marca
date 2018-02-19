@@ -7,6 +7,8 @@
 	include( __DIR__."/funciones/unico_uso.php" );
 
 	include( __DIR__."/funciones/backpanel.php" );
+
+	include( __DIR__."/funciones/cupones.php" );
     
 	add_filter( 'show_admin_bar', '__return_false' );
 
