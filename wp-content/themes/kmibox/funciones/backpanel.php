@@ -76,6 +76,15 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'subscribers',
                     'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Cupones'),
+                    'short-title'   =>  __('Cupones'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'cupones',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'cupones',
+                    'icon'          =>  '',
                 )
             );
 
@@ -154,6 +163,13 @@
         function subscribers(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/subscribers/subscribers.php');
+        }
+    }
+
+    if(!function_exists('cupones')){
+        function cupones(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/cupones/cupones.php');
         }
     }
 
