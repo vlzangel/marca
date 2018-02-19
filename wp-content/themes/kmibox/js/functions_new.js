@@ -226,7 +226,7 @@ jQuery(document).ready(function() {
 	initProductos_y_Planes();
 
 	if( MODIFICACION == "" ){
-		// change_fase(1);
+		change_fase(1);
 	}else{
 		CARRITO = MODIFICACION;
 	}
@@ -386,8 +386,6 @@ function initProductos_y_Planes(){
 			if( MODIFICACION != "" ){
 				change_fase(5);
 			}
-
-			change_fase(5);
 
 		}, "json"
 	).fail(function(e) {
