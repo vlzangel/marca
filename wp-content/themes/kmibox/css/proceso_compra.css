@@ -791,6 +791,50 @@ div#wpadminbar {
 		text-transform: capitalize;
 	}
 
+	#cupones td{
+	    text-align: right;
+    	padding: 0px 5px;
+	}
+
+	#cupones .cupon_input_container{
+	    overflow: hidden;
+	    position: relative;
+        padding-right: 15px;
+	}
+
+	#cupones .cupon_input_container input{
+		width: 100%;
+		border: solid 1px #AAA;
+		border-radius: 5px;
+		padding: 5px;
+		outline: none;
+	}
+
+	#cupones .cupon_input_container span{    
+		position: absolute;
+	    top: 11px;
+	    right: 24px;
+	    border-left: solid 2px #AAA;
+	    padding-left: 10px;
+	    font-weight: 600;
+	    cursor: pointer;
+	}
+
+	#cupones .cupon_input_container span:hover{
+		color: #567b10;
+	}
+
+	#descuentos_desglose i{
+	    cursor: pointer;
+	    padding-left: 5px;
+	    color: #F00;
+	    font-size: 15px;
+	}
+
+	#desgloseDescuentos{
+		display: none;
+	}
+
 /* Carruseles */
 
 /************************/

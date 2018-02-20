@@ -1,8 +1,13 @@
 var CARRITO = [];
+var CUPONES = [];
+
+CUPONES["cupones"] = [];
+CUPONES["totalDescuento"] = 0;
+
 CARRITO["cantidad"] = 0;
 CARRITO["productos"] = [];
 
-CARRITO["productos"].push({
+/*CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
 	"plan": "",
@@ -10,6 +15,21 @@ CARRITO["productos"].push({
 	"cantidad": 1,
 	"precio": 0.00,
 	"subtotal": 0.00
+});*/
+
+
+CARRITO["cantidad"] = 1;
+CARRITO["total"] = 1500.00;
+CARRITO["productos"].push({
+	"tamano": "Pequeño",
+	"edad": "Cachorro",
+	"marca": "19",
+	"producto": "125",
+	"plan": "Bimestral",
+	"plan_id": "2",
+	"cantidad": 1,
+	"precio": 750.00,
+	"subtotal": 1500
 });
 
 var mostrar_modal_marca = 1;
@@ -107,11 +127,8 @@ jQuery(document).ready(function() {
 		var TIPO = jQuery(this).val();
 		jQuery('#marca > div').css("display", "none");
 		jQuery('#marca > .tipo_'+TIPO).css("display", "block");
-
 		jQuery('#cant_marcas').html( jQuery('#marca > .tipo_'+TIPO).length );
-
 		reset_flechas_marcas();
-
 	});
 
 	jQuery("#agregar_plan").on("click", function(e){
@@ -151,7 +168,7 @@ jQuery(document).ready(function() {
 				CART: _json
 			},
 			function(data){
-				//location.href = HOME+"/pago-tienda";
+				location.href = HOME+"/pago-tienda";
 			}, "json"
 		).fail(function(e) {
 			console.log( e );
@@ -183,6 +200,29 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	jQuery("#cupones .cupon_input_container span").on("click", function(e){
+		jQuery.post(
+			TEMA+"/procesos/compra/cupon.php", {
+				cupon: jQuery("#cupones .cupon_input_container input").val(),
+				cupones: CUPONES["cupones"],
+				totalDescuentos: CUPONES["totalDescuento"],
+				total: CARRITO["total"]
+			},
+			function(data){
+				if( data.error == undefined ){
+					CUPONES["cupones"].push( data.cupon );
+					CUPONES["totalDescuento"] = data.totalDescuentos;
+					jQuery("#input_cupon").val("");
+					desgloseDescuentos();
+				}else{
+					alert(data.error);
+				}
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
+	});
+
 	initProductos_y_Planes();
 
 	if( MODIFICACION == "" ){
@@ -192,6 +232,30 @@ jQuery(document).ready(function() {
 	}
 
 });
+
+function desgloseDescuentos(){
+	var cupones_str = "";
+	var descuentos_str = "";
+	if( CUPONES.cupones.length > 0 ){
+		jQuery.each(CUPONES.cupones, function(key, cupon){
+			cupones_str += "<div>"+cupon[0]+"</div>";
+			descuentos_str += "<div>"+'$ '+FN(cupon[1])+' MXN'+" <i class='fa fa-trash' data-id='"+key+"' onclick='quitarCupon(jQuery(this));'></i> </div>";
+		});
+		jQuery("#desgloseDescuentos").css("display", "table-row");
+	}else{
+		jQuery("#desgloseDescuentos").css("display", "none");
+	}
+	jQuery("#cupones_desglose").html(cupones_str);
+	jQuery("#descuentos_desglose").html(descuentos_str);
+	jQuery("#total").html( '$ '+FN(CARRITO["total"]-CUPONES["totalDescuento"])+' MXN' );
+}
+
+function quitarCupon(cupon){
+	var temp = CUPONES.cupones[ cupon.attr("data-id") ];
+	CUPONES.totalDescuento -= temp[1];
+	CUPONES.cupones.splice(cupon.attr("data-id"), 1);
+	desgloseDescuentos();
+}
 
 function reset_flechas_marcas(){
 	var seccion = getSeccion();
@@ -307,6 +371,7 @@ function get_json_cart(){
 	jQuery.each(CARRITO["productos"],  function(key, producto){
 		_json += JSON.stringify( producto )+"|";
 	});
+	_json += "==="+JSON.stringify( CUPONES.cupones )+"|"+CUPONES.totalDescuento+"===";
 	return _json;
 }
 
@@ -425,6 +490,7 @@ function loadPresentaciones(){
 			}
 		}
 	});
+
 	jQuery('#cant_precentaciones').html( CANT );
 
 	BUSQUEDA_REGEXP = '';

@@ -1,7 +1,6 @@
 <?php 
 
 	if( !isset($_SESSION) ){ session_start(); }
-
 	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
 
     setZonaHoraria();
@@ -15,6 +14,7 @@
 
  	$_productos = get_productos();
     $CARRITO = unserialize( $_SESSION["CARRITO"] );
+    
     if( !isset($CARRITO["orden_id"]) ){
  		$orden_id = crearPedido();
  		$CARRITO["orden_id"] = $orden_id;
@@ -35,6 +35,7 @@
 
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
+	 	Openpay::setProductionMode( $dataOpenpay["OPENPAY_PRUEBAS"] != 1 );
 
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
@@ -101,7 +102,7 @@
 		    'method' 			=> 'card',
 		    'source_id' 		=> $card_id,
 		    'amount' 			=> (float) $CARRITO["total"],
-		    'order_id' 			=> $orden_id,
+		    'order_id' 			=> $orden_id."_CobroInicial_".time(),
 		    'description' 		=> "Tarjeta",
 		    'device_session_id' => $deviceIdHiddenFieldName
 	    );
@@ -113,6 +114,14 @@
 			$respuesta["transaccion"] = $charge->id;
 			$respuesta["cliente"] = $openpay_cliente_id;
 			$respuesta["tarjeta"] = $card->id;
+
+			$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$orden_id}");
+			$data = unserialize( $orden->metadata );
+			$data["card_id"] = $card_id;
+			$data["device"] = $deviceIdHiddenFieldName;
+			$data = serialize($data);
+			$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
+
         } catch (Exception $e) {
         	$error = $e->getErrorCode()." - ".$e->getDescription();
         	$respuesta["error"] = $error;

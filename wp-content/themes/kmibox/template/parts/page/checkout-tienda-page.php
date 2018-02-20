@@ -6,11 +6,20 @@
  	include_once(dirname(dirname(dirname(__DIR__)))."/lib/openpay/Openpay.php");
 
  	$order_id = time();
+    $CARRITO = unserialize( $_SESSION["CARRITO"] );
+    if( !isset($CARRITO["orden_id"]) ){
+ 		$order_id = crearPedido("Tienda");
+ 		$CARRITO["orden_id"] = $order_id;
+ 		$_SESSION["CARRITO"] = serialize($CARRITO);
+    }else{
+ 		$order_id = $CARRITO["orden_id"];
+    }
 
  	$dataOpenpay = dataOpenpay();
 
  	try {
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
+	 	Openpay::setProductionMode( $dataOpenpay["OPENPAY_PRUEBAS"] != 1 );
 
 	 	if( isset($CARRITO['user_id']) || $CARRITO['user_id'] > 0 ){
 	 		$user_id = $CARRITO['user_id'];
@@ -41,7 +50,7 @@
 		    'method' => 'store',
 		    'amount' => (float) $CARRITO["total"],
 		    'description' => 'Tienda',
-		    'order_id' => $order_id,
+		    'order_id' => $orden_id."_CobroInicial_".time(),
 		    'due_date' => $due_date
 		);
 	
@@ -192,6 +201,6 @@
 </section>
 
 <?php
-	//unset($_SESSION["CARRITO"]);
+	unset($_SESSION["CARRITO"]);
 ?>
 
