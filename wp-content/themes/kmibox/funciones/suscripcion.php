@@ -209,6 +209,13 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
+		 	
+	        $headers = array(
+	          'Bcc: veronik.505@gmail.com',
+	          'Bcc: italococchini@gmail.com',
+	        );
+			$subject .= " para los administradores";
+			wp_mail( 'italococchini@gmail.com',"Suscripción Modificada Exitosamente - NutriHeroes", $HTML, $headers ); 
 		}
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");

@@ -155,6 +155,14 @@
 	    );
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
 
+	    
+	        $headers = array(
+	          'Bcc: veronik.505@gmail.com',
+	          'Bcc: italococchini@gmail.com',
+	        );
+			$subject .= " para los administradores";
+			wp_mail( 'italococchini@gmail.com', "Pago Recibido - NutriHeroes", $HTML, $headers ); 
+
 	    crearCobro( $orden_id, $charge->id );
 
     	unset($_SESSION["CARRITO"]);

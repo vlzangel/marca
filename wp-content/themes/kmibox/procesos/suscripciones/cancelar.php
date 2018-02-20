@@ -23,6 +23,13 @@
     );
 
     wp_mail( $email, "Suscripción Cancelada Exitosamente - NutriHeroes", $HTML );
+   
+            $headers = array(
+              'Bcc: veronik.505@gmail.com',
+              'Bcc: italococchini@gmail.com',
+            );
+            $subject .= " para los administradores";
+            wp_mail( 'italococchini@gmail.com',"Suscripción Cancelada Exitosamente - NutriHeroes", $HTML, $headers ); 
 
 	exit();
 ?>

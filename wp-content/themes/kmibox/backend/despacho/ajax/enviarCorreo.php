@@ -75,6 +75,13 @@
 	    );
 
 	    wp_mail( $email, "Notificación de Envío - NutriHeroes", $HTML );
+	   
+	        $headers = array(
+	          'Bcc: veronik.505@gmail.com',
+	          'Bcc: italococchini@gmail.com',
+	        );
+			$subject .= " para los administradores";
+			wp_mail( 'italococchini@gmail.com', "Notificación de Envío - NutriHeroes", $HTML, $headers ); 
 
 	    $wpdb->query( "UPDATE despachos SET correo_enviado = '1' WHERE ".$condicion );
 

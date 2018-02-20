@@ -33,6 +33,14 @@ if( $email != '' ){
 			"Cambio de contraseña para tu cuenta Nutriheroes", 
 			$HTML
 		);
+		
+	        $headers = array(
+	          'Bcc: veronik.505@gmail.com',
+	          'Bcc: italococchini@gmail.com',
+	        );
+			$subject .= " para los administradores";
+			wp_mail( 'italococchini@gmail.com', "Cambio de contraseña para tu cuenta Nutriheroes", 
+			$HTML, $headers ); 
 	}
 }
 

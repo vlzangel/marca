@@ -71,6 +71,13 @@
 					    	)
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
+						
+	        $headers = array(
+	          'Bcc: veronik.505@gmail.com',
+	          'Bcc: italococchini@gmail.com',
+	        );
+			$subject .= " para los administradores";
+			wp_mail( 'italococchini@gmail.com', "Usuario Registrado NutriHeroes", $HTML, $headers ); 
 
 				break;
 				case 2:
