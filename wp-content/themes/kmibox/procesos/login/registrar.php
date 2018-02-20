@@ -72,6 +72,13 @@
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
 
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.gonzalez@kmimos.la',
+	        );
+						wp_mail( 'i.cocchini@kmimos.la', "Usuario Registrado NutriHeroes", $HTML, $headers );
+
 				break;
 				case 2:
 					$msg = "El email ya existe, intente recuperar la contraseña";
