@@ -48,7 +48,7 @@
 	          'Bcc: veronik.505@gmail.com',
 	          'Bcc: italococchini@gmail.com',
 	        );
-			$subject .= " para los administradores";
+			
 			wp_mail( 'italococchini@gmail.com', $subject, $mensaje, $headers ); 
 	    }  
     }  

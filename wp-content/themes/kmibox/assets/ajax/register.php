@@ -40,15 +40,6 @@ if( $user_id < 1 ){
 					$HTML
 				);
 				
-	        $headers = array(
-	          'Bcc: veronik.505@gmail.com',
-	          'Bcc: italococchini@gmail.com',
-	        );
-			$subject .= " para los administradores";
-			wp_mail( 'italococchini@gmail.com', "Usuario registrado NutriHeroes", 
-					$HTML, $headers ); 
-
-			
 				/* Autenticar */
 				if( !empty($password) && !empty($email) ){	
 					$r = kmibox_login([

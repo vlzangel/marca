@@ -102,12 +102,7 @@ $order_id = 0;
 					$HTML
 				);
 				
-		        $headers = array(
-		          'Bcc: veronik.505@gmail.com',
-		          'Bcc: italococchini@gmail.com',
-		        );
-				$subject .= " para los administradores";
-				wp_mail( 'italococchini@gmail.com', $subject, $mensaje, $headers ); 
+		      
 
 				//print_r("PDF".$pdf);
 
