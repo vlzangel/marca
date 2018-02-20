@@ -43,7 +43,7 @@ if( $user_id < 1 ){
 // ----- Copia a los administradores
 			$headers = array(
                'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.gonzalez@kmimos.la',
+               'BCC: r.cuevas@kmimos.la',
 	        );
 				wp_mail(
 					'i.cocchini@kmimos.la', 	
