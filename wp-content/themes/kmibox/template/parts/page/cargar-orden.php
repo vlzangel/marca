@@ -90,6 +90,7 @@
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
 						<select class="form-control col-md-4" name="dir_tamano" id="tamano" data-load="productos">
+							<option value="Pequeño">Selecciona el tamaño de la mascota</option>
 							<option value="Pequeño">Pequeño</option>
 							<option value="Mediano">Mediano</option>
 							<option value="Grande">Grande</option>
@@ -98,6 +99,7 @@
 					<div class="col-md-4 form-group">
 						<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
 						<select class="form-control col-md-4" name="dir_edad" id="edad" data-load="productos">
+							<option value="Pequeño">Selecciona la edad de la mascota</option>
 							<option value="Cachorro">Cachorro</option>
 							<option value="Adulto">Adulto</option>
 							<option value="Maduro">Senior</option>

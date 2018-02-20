@@ -547,7 +547,7 @@ function loadFase(fase){
 			if( mostrar_modal_marca == 1){
 				mostrar_modal_marca = 0;
 				setTimeout(function() {
-					// jQuery("#modal-contacto-marca").modal('show');
+					jQuery("#modal-contacto-marca").modal('show');
 		        },1500);
 			}
 

@@ -1,0 +1,51 @@
+#contacto-ayuda{
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	z-index: 10;
+	background: #fff;
+	margin: 0px;
+    border-bottom: 9px solid #4EFF00;
+    border-top: 1px solid #ccc;
+    padding-top:5px;
+}
+
+#contacto-ayuda article{
+	display: inline-block!important;
+	vertical-align: middle!important;
+}
+
+#contacto-ayuda img{
+	width: 15%;
+	position: relative;
+	bottom: 0px;
+}
+#contacto-ayuda .ayuda-texto{
+	width: 55%;
+	margin: 0 auto; 
+}
+#contacto-ayuda .ayuda-texto h2{
+	color: black;
+	margin-left: 20px;
+	font-size: 35px!important;
+}
+#contacto-ayuda .ayuda-texto h2 span{
+	color: #0da900;
+}
+#contacto-ayuda .ayuda-form{
+	width: 29%;
+    text-align: center;
+}
+#contacto-ayuda .ayuda-form form{
+	margin: 0px; 
+}
+#contacto-ayuda .ayuda-form .form-control{
+	width: 80%;
+	margin: 5px auto;
+}
+#contacto-ayuda .ayuda-form button{
+	font-size: 15px!important;
+    padding: 2px 20px 2px 20px!important;
+    margin-top: 0!important;
+}
