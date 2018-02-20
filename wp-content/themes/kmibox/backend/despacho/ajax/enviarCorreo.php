@@ -45,7 +45,7 @@
 
 	    $_productos = getProductosDesglose($ID);
 
-	    $dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$ID) );
+	    $dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$ID) ) );
 
 	    
 	 	$productos = "";
