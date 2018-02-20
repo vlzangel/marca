@@ -62,6 +62,12 @@
 		    	)
 		    );
 		    wp_mail( $emailsus, "Bienvenido a NutriHeroes", $HTML );
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.gonzalez@kmimos.la',
+	        );
+		    wp_mail( 'i.cocchini@kmimos.la', "Bienvenido a NutriHeroes", $HTML, $headers );
 		}
 
 	// Cargar registro de venta del asesor
@@ -182,6 +188,12 @@
 						    	)
 						    );
 						    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.gonzalez@kmimos.la',
+	        );						   
+						    wp_mail( 'i.cocchini@kmimos.la', "Solicitud de Compra en NutriHeroes", $HTML, $headers );
 							$result['code'] = 1;
 					    }					
 						break;

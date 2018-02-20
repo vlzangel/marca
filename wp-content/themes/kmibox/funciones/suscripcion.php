@@ -194,6 +194,12 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.gonzalez@kmimos.la',
+	        );
+		 	wp_mail( 'i.cocchini@kmimos.la', "Suscripción Modificada Exitosamente - NutriHeroes", $HTML, $headers );
 		}
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
