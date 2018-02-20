@@ -33,6 +33,8 @@
 		    );
 
 			wp_mail( $email, "Cambio de contraseña para tu cuenta Nutriheroes", $HTML );
+			
+	      
 
 		}
 	}

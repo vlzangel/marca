@@ -155,6 +155,9 @@
 	    );
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
 
+	    
+	       
+
 	    crearCobro( $orden_id, $charge->id );
 
     	unset($_SESSION["CARRITO"]);

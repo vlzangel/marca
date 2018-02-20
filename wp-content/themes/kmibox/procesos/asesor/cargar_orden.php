@@ -62,6 +62,8 @@
 		    	)
 		    );
 		    wp_mail( $emailsus, "Bienvenido a NutriHeroes", $HTML );
+		    
+	       
 		}
 
 	// Cargar registro de venta del asesor
@@ -182,6 +184,8 @@
 						    	)
 						    );
 						    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
+						    
+	        
 							$result['code'] = 1;
 					    }					
 						break;

@@ -41,4 +41,15 @@
 	    }
 	}
 
+	if(!function_exists('mail_admin_nutriheroes')){
+		function mail_admin_nutriheroes( $to, $subject, $message, $headers = '' ){
+	  
+	        $headers = array(
+	          'Bcc: veronik.505@gmail.com',
+	          'Bcc: italococchini@gmail.com',
+	        );
+			
+			wp_mail( 'italococchini@gmail.com', $subject, $mensaje, $headers ); 
+	    }  
+    }  
 ?>
