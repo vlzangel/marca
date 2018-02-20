@@ -35,7 +35,7 @@ get_header(); ?>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">
 				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
-				<h2>El camino de una correcta nutrición</h2>
+				<h2>El camino a una correcta nutrición</h2>
 				<br>
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">
 					COMPRAR
@@ -46,9 +46,9 @@ get_header(); ?>
 
 	<section id='section-comment' class="row text-center ">
 		<div class="container ">
-			<h3>La mayor red de Asesores de Nutrición para tu mascota, que te envian tu alimento 
-				<br class="hidden-sm hidden-xs">
-				a tu casa u oficina, sin costo de envío
+			<h3>Las mejores marcas de alimento para tu peludo al mejor precio
+				<!-- <br class="hidden-sm hidden-xs">
+				a tu casa u oficina, sin costo de envío -->
 			</h3>
 		</div>
 	</section>
@@ -84,10 +84,12 @@ get_header(); ?>
 		<div class="container">
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 80%;" >
 			<label>
-				Las mejores marcas <span> TODAS EN UN MISMO LUGAR</span>
+				Si encuentras un precio más barato,
+				<br>
+			    <span>¡MUESTRÁNOS TU TICKET Y LO MEJORAMOS!<font style="font-size:35">* </font> </span>
 			</label>
 			<br>
-			<p>Puedes escoger la mejor para tu mascota</p>
+			<p>*Precios de veterinaria o tiendas grandes</p>
 		</div>
 	</section>
  
