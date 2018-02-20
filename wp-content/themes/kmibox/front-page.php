@@ -80,10 +80,12 @@ get_header(); ?>
 		<div class="container">
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 80%;" >
 			<label>
-				¡Si encuentras un precio más barato, <span> MUESTRÁNOS TU TICKET Y LO MEJORAMOS!</span>
+				Si encuentras un precio más barato,
+				<br>
+			    <span>¡MUESTRÁNOS TU TICKET Y LO MEJORAMOS!<font style="font-size:35">* </font> </span>
 			</label>
 			<br>
-			<p>Precios de veterinaria o tiendas grandes</p>
+			<p>*Precios de veterinaria o tiendas grandes</p>
 		</div>
 	</section>
  
