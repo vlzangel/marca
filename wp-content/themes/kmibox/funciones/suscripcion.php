@@ -209,13 +209,12 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
+		 	
 		}
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";
-echo "-------------";    		
-echo $SQL;    		
     		$wpdb->query( $SQL ); 
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
@@ -225,7 +224,6 @@ echo $SQL;
     		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses." day") );
 
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
-echo $SQL;    		
 			$wpdb->query( $SQL ); 
 
     		for ($i=0; $i < $meses; $i++) { 
