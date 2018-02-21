@@ -17,7 +17,7 @@
 
 	foreach ($despachos as $despacho) {
 
-		$item = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = '{$despacho->sub_orden}' ");
+		$item = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = '{$despacho->sub_orden}' limit 1;");
 		$data_suscripcion = unserialize($item->data);
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = '{$item->id_producto}' ");
 		$user_id = $wpdb->get_var("SELECT cliente FROM ordenes WHERE id = '{$despacho->orden}' ");
@@ -39,9 +39,7 @@
 		$ordenes[ $despacho->orden ]["cliente"] = $cliente;
 		$ordenes[ $despacho->orden ]["status"] = $despacho->status;
 
-		$_descripcion = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso." - ".$data_suscripcion[ "plan" ];
-		//$_descripcion .= '<span class="precio" > $ '.$producto->precio.'</span>';
-		$ordenes[ $despacho->orden ]["productos"][] = $_descripcion;
+		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso." - ".$data_suscripcion[ "plan" ];
 		
 	}
 
