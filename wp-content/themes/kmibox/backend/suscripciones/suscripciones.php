@@ -19,6 +19,7 @@
                 <th>Cliente</th>
                 <th>Producto(s)</th>
                 <th>Proximo Cobro</th>
+                <th>Asesor</th>
             </tr>
         </thead>
         <tbody></tbody>
