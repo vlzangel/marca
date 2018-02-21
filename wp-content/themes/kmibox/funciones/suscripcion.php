@@ -117,6 +117,11 @@
 			$metaData["es_modificacion_de"] = $_SESSION["MODIFICACION"];
 	    }
 	    unset($_SESSION["MODIFICACION"]);
+
+	    // Buscar asesor de registro
+	    $asesor = get_user_meta( $user_id, 'asesor_registro', true );
+		$asesor_id = (isset($asesor->id) )? $asesor->id : 0 ;
+
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
@@ -126,7 +131,7 @@
 		 		'{$hoy}',
 		 		'Pendiente',
 		 		'".serialize($metaData)."',
-		 		NULL
+		 		".$asesor_id."
 	 		)
 	 	";
 	 	$wpdb->query( $SQL_PEDIDO );
