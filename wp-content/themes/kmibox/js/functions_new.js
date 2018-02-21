@@ -339,6 +339,7 @@ function change_fase(fase){
 	}else{
 		location.href = HOME;
 	}
+
 	loadFase(fase);
 }
 
@@ -387,7 +388,9 @@ function loadPresentaciones(){
 					producto.nombre + ' ' + 
 					producto.descripcion + ' ' +
 					MARCAS[producto.marca].nombre
-				;				
+				;
+
+
 			if( BUSQUEDA_REGEXP != '' ){
 				prod_actual["marca"] = '';
 				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
@@ -581,7 +584,7 @@ function loadFase(fase){
 				var plan = PLANES[ producto['plan_id'] ].meses;
 				if( plan == 0 ){ plan = 1; }
 				var _producto = producto["producto"];
-				var precio_plan = producto["precio"]*plan;
+				var precio_plan = producto["precio"];
 				precio = precio_plan;
 				add_item_cart(
 					key,
