@@ -125,7 +125,8 @@
 	 			'{$CARRITO["total"]}',
 		 		'{$hoy}',
 		 		'Pendiente',
-		 		'".serialize($metaData)."'
+		 		'".serialize($metaData)."',
+		 		NULL
 	 		)
 	 	";
 	 	$wpdb->query( $SQL_PEDIDO );
@@ -214,7 +215,7 @@
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";
+    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";    		
     		$wpdb->query( $SQL ); 
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
