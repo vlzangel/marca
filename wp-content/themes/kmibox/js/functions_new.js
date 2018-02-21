@@ -581,7 +581,7 @@ function loadFase(fase){
 				var plan = PLANES[ producto['plan_id'] ].meses;
 				if( plan == 0 ){ plan = 1; }
 				var _producto = producto["producto"];
-				var precio_plan = producto["precio"]*plan;
+				var precio_plan = producto["precio"];
 				precio = precio_plan;
 				add_item_cart(
 					key,

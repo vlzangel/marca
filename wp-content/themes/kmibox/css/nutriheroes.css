@@ -37,6 +37,7 @@
 	max-width: 940px;
 	margin: 0 auto;
 	position: relative;
+	border-radius: 20px
 }
 
 #nutriheroes .nutri-dialog{

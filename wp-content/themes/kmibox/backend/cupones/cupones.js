@@ -42,6 +42,9 @@ function crearCupon(e){
 	var URL = TEMA+"/backend/cupones/ajax/crearCupon.php";
 	if( name == "update" ){ URL = TEMA+"/backend/cupones/ajax/updateCupon.php"; }
 
+	var btn = jQuery("#btn_submit").val();
+	jQuery("#btn_submit").val("Procesando...");
+
 	jQuery.ajax({
         async:true, 
         cache:false, 
@@ -49,6 +52,7 @@ function crearCupon(e){
         url: URL,
         data: jQuery("#cupones").serialize(), 
         success:  function(HTML){
+			jQuery("#btn_submit").val( btn);
             table.ajax.reload();
             cerrar();
         },

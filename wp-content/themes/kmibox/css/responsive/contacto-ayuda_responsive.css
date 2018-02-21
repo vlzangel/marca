@@ -1,0 +1,102 @@
+
+ 
+@media (min-width: 2559px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 55px!important;
+	}
+	#contacto-ayuda .ayuda-form .form-control{
+		height: 60px;
+	    font-size: 28px;
+	}
+	#contacto-ayuda .ayuda-form button {
+	    font-size: 25px!important;
+	    padding: 11px 50px!important;
+	}
+}
+@media (max-width: 2558px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 30px!important;
+	}
+}
+@media (max-width: 1440px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 35px!important;
+	}
+}
+@media (max-width: 1024px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 25px!important;
+	}
+}
+@media (max-width: 992px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 24px!important;
+	}
+}
+@media (max-width: 768px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 23px!important;
+	    text-align: center;
+	    text-align: left;
+	    margin-left: 0px;
+	}
+	#contacto-ayuda .ayuda-texto,
+	#contacto-ayuda .ayuda-form{
+		width: 75%;
+		float: right;
+	}
+	#contacto-ayuda .ayuda-form form{
+		margin-bottom: 1em;
+	}
+	#contacto-ayuda .ayuda-form button{
+	    height: 26px;
+	    float: left;
+
+	}
+	#contacto-ayuda .ayuda-form .form-control{
+		width: 33.3%;
+		margin: 0px 5px 5px 0px;
+	    height: 26px;
+	    float: left;
+	    display: inline-block!important;
+	    vertical-align: middle!important;
+	    float: left;
+	}
+	#contacto-ayuda img {
+	    width: 23%;
+	    position: absolute;
+	    bottom: 0px;
+	}
+}
+@media (max-width: 425px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 13px!important;
+	    margin-top: 2px;
+	}
+	#contacto-ayuda .ayuda-form button{
+	    width: 26%;
+	}
+	#contacto-ayuda img {
+	    width: 27%;
+	}
+	#contacto-ayuda .ayuda-texto, #contacto-ayuda .ayuda-form {
+	    width: 70%;
+	}
+}
+@media (max-width: 375px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 12px!important;
+	}
+	#contacto-ayuda .ayuda-form button {
+	    font-size: 10px!important;
+	}
+}
+@media (max-width: 320px){
+	#contacto-ayuda .ayuda-texto h2 {
+	    font-size: 9px!important;
+	}
+	#contacto-ayuda .ayuda-form button {
+	    font-size: 9px!important;
+	    padding: 2px 5px 2px 5px!important;
+	}
+}

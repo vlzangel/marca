@@ -121,11 +121,11 @@
 
 	<?php if( $ID == "" ){ ?>
 		<div class="botonera_container">
-			<input type='button' value='Crear cup&oacute;n' name='crear' onClick='crearCupon( jQuery( this ) )' class="button button-primary button-large" />
+			<input id='btn_submit' type='button' value='Crear cup&oacute;n' name='crear' onClick='crearCupon( jQuery( this ) )' class="button button-primary button-large" />
 		</div>
 	<?php }else{ ?>
 		<div class="botonera_container">
-			<input type='button' value='Actualizar cup&oacute;n' name='update' onClick='crearCupon( jQuery( this ) )' class="button button-primary button-large" />
+			<input id='btn_submit' type='button' value='Actualizar cup&oacute;n' name='update' onClick='crearCupon( jQuery( this ) )' class="button button-primary button-large" />
 		</div>
 	<?php } ?>
 </form>

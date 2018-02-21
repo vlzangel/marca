@@ -84,24 +84,43 @@
 		}
 	}
 
-	function crearPedido($tipo = "Tarjeta"){
-		date_default_timezone_set('America/Mexico_City');
+	function aplicarDescuentos(){
+		global $wpdb;
 		if( !isset($_SESSION) ){ session_start(); }
+	 	$current_user = wp_get_current_user();
+	    $user_id = $current_user->ID;
+		$CARRITO = unserialize( $_SESSION["CARRITO"] );
+		foreach ($CARRITO["descuentos"] as $descuento) {
+			$cupon = $wpdb->get_row("SELECT * FROM cupones WHERE nombre = '{$descuento[0]}'");
+			if( $cupon->usos == "" ){ 
+				$cupon->usos = array();
+			}else{
+				$cupon->usos = unserialize($cupon->usos);
+			}
+			$cupon->usos[] = array($user_id, $descuento[1]);
+			$cupon->usos = serialize($cupon->usos);
+			$wpdb->query( "UPDATE cupones SET usos = '{$cupon->usos}' WHERE nombre = '{$descuento[0]}';" );
+		}
+	}
+
+	function crearPedido($tipo = "Tarjeta"){
+		setZonaHoraria();
+		if( !isset($_SESSION) ){ session_start(); }
+		$CARRITO = unserialize( $_SESSION["CARRITO"] );
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
-	    $CARRITO = unserialize( $_SESSION["CARRITO"] );
 	    $hoy = date("Y-m-d H:i:s", time() );
-
 	    $metaData = array();
-
 	    $metaData["tipo_pago"] = $tipo;
-
 	    if( isset($_SESSION["MODIFICACION"]) ){
 			$metaData["es_modificacion_de"] = $_SESSION["MODIFICACION"];
 	    }
-
 	    unset($_SESSION["MODIFICACION"]);
+
+	    // Buscar asesor de registro
+	    $asesor = get_user_meta( $user_id, 'asesor_registro', true );
+		$asesor_id = (isset($asesor) )? $asesor : 0 ;
 
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
@@ -111,7 +130,8 @@
 	 			'{$CARRITO["total"]}',
 		 		'{$hoy}',
 		 		'Pendiente',
-		 		'".serialize($metaData)."'
+		 		'".serialize($metaData)."',
+		 		".$asesor_id."
 	 		)
 	 	";
 	 	$wpdb->query( $SQL_PEDIDO );
@@ -200,11 +220,12 @@
                'BCC: r.cuevas@kmimos.la',
 	        );
 		 	wp_mail( 'i.cocchini@kmimos.la', "Suscripción Modificada Exitosamente - NutriHeroes", $HTML, $headers );
+		 	
 		}
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
     	foreach ($items as $key => $item) {
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";
+    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";    		
     		$wpdb->query( $SQL ); 
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");

@@ -11,13 +11,14 @@
 	$mes_actual = date("Y-m", time())."-01";
 	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 
-	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
+	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id ASC");
 	$data["data"] = array();
 	$ordenes = array();
 
 	foreach ($despachos as $despacho) {
 
-		$item = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = '{$despacho->sub_orden}' ");
+		$item = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = '{$despacho->sub_orden}' ;");
+		$data_suscripcion = unserialize($item->data);
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = '{$item->id_producto}' ");
 		$user_id = $wpdb->get_var("SELECT cliente FROM ordenes WHERE id = '{$despacho->orden}' ");
 		$cliente = get_user_meta($user_id, 'first_name', true)." ".get_user_meta($user_id, 'last_name', true);
@@ -37,14 +38,15 @@
 		$ordenes[ $despacho->orden ]["correo_enviado"] = $despacho->correo_enviado;
 		$ordenes[ $despacho->orden ]["cliente"] = $cliente;
 		$ordenes[ $despacho->orden ]["status"] = $despacho->status;
-		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
+
+		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso." - ".$data_suscripcion[ "plan" ];
 		
 	}
 
 	foreach ($ordenes as $orden_id => $_data) {
 		$_productos = "";
 		foreach ($_data["productos"] as $producto) {
-			$_productos .= $producto."<br>";
+			$_productos .= '<div style="margin:2px 0px;">'.$producto."</div>";
 		}
 		
 		$enviar_correo = "---";
@@ -117,6 +119,7 @@
 	        $enviar_correo
 	    );
 	}
+
 
     echo json_encode($data);
 

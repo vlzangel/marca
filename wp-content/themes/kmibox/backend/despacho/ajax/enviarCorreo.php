@@ -42,7 +42,6 @@
 				'.$metas_user[ "dir_codigo_postal" ][0].' - M&eacute;xico 
 			</div>
 	    ';
-
 	    $_productos = getProductosDesglose($ID);
 
 	    $dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$ID) ) );
@@ -75,12 +74,8 @@
 	    );
 
 	    wp_mail( $email, "Notificación de Envío - NutriHeroes", $HTML );
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-	    wp_mail( 'i.cocchini@kmimos.la', "Notificación de Envío - NutriHeroes", $HTML, $headers );
+	   
+	        
 
 	    $wpdb->query( "UPDATE despachos SET correo_enviado = '1' WHERE ".$condicion );
 
