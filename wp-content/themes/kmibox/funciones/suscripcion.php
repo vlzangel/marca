@@ -120,7 +120,7 @@
 
 	    // Buscar asesor de registro
 	    $asesor = get_user_meta( $user_id, 'asesor_registro', true );
-		$asesor_id = (isset($asesor->id) )? $asesor->id : 0 ;
+		$asesor_id = (isset($asesor) )? $asesor : 0 ;
 
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
