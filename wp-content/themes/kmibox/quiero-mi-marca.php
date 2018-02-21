@@ -283,7 +283,7 @@
       <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados, en breve te ayudamos con tu solicitud</div>
       <div class="modal-body row text-center">
       	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
-	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TUS CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
+	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
 	      	</p>
 	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
 	      	<form method="post" id="form-contacto" action="#">
