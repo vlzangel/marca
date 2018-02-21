@@ -85,7 +85,7 @@ get_header(); ?>
 			    <span>¡MUESTRÁNOS TU TICKET Y LO MEJORAMOS!<font style="font-size:35">* </font> </span>
 			</label>
 			<br>
-			<p>*Precios de veterinaria o tiendas grandes</p>
+			<p>*Precios de veterinaria o tiendas</p>
 		</div>
 	</section>
  
