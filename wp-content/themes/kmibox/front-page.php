@@ -31,7 +31,7 @@ get_header(); ?>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">
 				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
-				<h2>El camino a una correcta nutrición</h2>
+				<h2><font style="font-size:21"> El camino a una correcta nutrición</font></h2>
 				<br>
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">
 					COMPRAR
@@ -43,8 +43,6 @@ get_header(); ?>
 	<section id='section-comment' class="row text-center ">
 		<div class="container ">
 			<h3>Las mejores marcas de alimento para tu peludo al mejor precio
-				<!-- <br class="hidden-sm hidden-xs">
-				a tu casa u oficina, sin costo de envío -->
 			</h3>
 		</div>
 	</section>
@@ -79,13 +77,17 @@ get_header(); ?>
 	<section id="home-opciones" class="row text-center ">		
 		<div class="container">
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 80%;" >
-			<label>
-				Si encuentras un precio más barato,
-				<br>
-			    <span>¡MUESTRÁNOS TU TICKET Y LO MEJORAMOS!<font style="font-size:35">* </font> </span>
+			<label >
+				<font style="font-size:30">
+					<span>¡Si encuentras un precio más barato,</span>
+				    muéstranos tu ticket y lo mejoramos!
+				</font>
 			</label>
 			<br>
-			<p>*Precios de veterinaria o tiendas</p>
+			<p><font style="font-size:20">
+					Precios de veterinaria o tiendas*
+				</font>
+			</p>
 		</div>
 	</section>
  

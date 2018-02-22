@@ -453,6 +453,14 @@ function change_title(txt){
 function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
 	var hoy = new Date();
 	hoy = parseInt( hoy.getDate() );
+	var msjFrecuencia;
+
+	if (frecuencia === 'Sólo por esta vez'){
+		msjFrecuencia = 'El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label>';	
+	}else{
+		msjFrecuencia = 'El monto mostrado a continuación se cobrará automáticamente <label class="resaltar_desglose">'+frecuencia+'</label> los días '+hoy+' de cada mes';
+	}
+	
 	//if(hoy < 10){ hoy = "0"+hoy; }
 	var HTML = "";
 	HTML += '<tr>';
@@ -473,10 +481,12 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
-	HTML += '	 	<div class="solo_movil">El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy+'</div>';
+	/*HTML += '	 	<div class="solo_movil">El monto mostrado a continuación se cobrará automáticamente <label class="resaltar_desglose">'+frecuencia+'</label> los días '+hoy+'de cada mes</div>';
+	*/
+	HTML += '	 	<div class="solo_movil"><div class="solo_movil">'+msjFrecuencia+'</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy;
+	HTML += '	 '+msjFrecuencia+'</label>';	
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label>$ '+FN(price)+' MXN</label>';
@@ -582,6 +592,8 @@ function loadFase(fase){
 			var precio = 0;
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 				var plan = PLANES[ producto['plan_id'] ].meses;
+				var descripcion_mes = PLANES[ producto['plan_id'] ].descripcion_mes;
+
 				if( plan == 0 ){ plan = 1; }
 				var _producto = producto["producto"];
 				var precio_plan = producto["precio"];
@@ -590,7 +602,8 @@ function loadFase(fase){
 					key,
 					producto["producto"],
 					PRODUCTOS[ _producto ].nombre,
-					producto['plan'],
+					//producto['plan'],
+					descripcion_mes,
 					TEMA+"/imgs/productos/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
 					precio_plan,
 					PRODUCTOS[ _producto ].descripcion,

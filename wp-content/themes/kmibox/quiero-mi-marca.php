@@ -254,7 +254,7 @@
 	        <img src="<?php echo TEMA(); ?>/imgs/dog.png" class="img-responsive dog">
 		</div>
       <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >Cerrar &times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >&times;</span></button>
       </div>
       <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados, en breve te ayudamos con tu solicitud</div>
       <div class="modal-body row text-center">
@@ -265,7 +265,7 @@
 	      	<form method="post" id="form-contacto" action="#">
 	      		<div class="col-md-10 col-md-offset-1 text-center">
 		      		<input type="text" class="form-control" name="email" id="email" placeholder="mi@email.com">
-		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="000 000 00000">
+		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="Número de teléfono">
 		      		<button class="btn-kmibox-send" type="submit">ENVIAR</button>
 	      		</div>
 	      	</form>
