@@ -4,7 +4,7 @@
     include( $raiz."/wp-load.php" );
 
 	global $wpdb;
-	$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id ASC");
+	$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
 	$data["data"] = array();
 	$ordenes = array();
 
@@ -31,6 +31,7 @@
 		$ordenes[ $suscripcion->id_orden ]["status"] = $suscripcion->status_suscripcion;
 	}
 
+	$index_row=0;
 	foreach ($ordenes as $orden_id => $_data) {
 		$_asesor = '---';
 		$orden = $wpdb->get_results(
@@ -54,7 +55,9 @@
 			$_cobros .= $cobro."<br>";
 		}
 
+		$index_row++;
 		$data["data"][] = array(
+			$index_row,
 	        $orden_id,
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
