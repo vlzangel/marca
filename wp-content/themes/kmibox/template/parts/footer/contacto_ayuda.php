@@ -3,7 +3,7 @@
 	wp_enqueue_style( 'contacto_ayuda', TEMA()."/css/contacto-ayuda.css" );
 
 	wp_enqueue_style( 'contacto_ayuda_responsive', TEMA()."/css/responsive/contacto-ayuda_responsive.css" );
-//	wp_enqueue_script('contacto_ayuda_script', TEMA()."/js/contacto_ayuda.js" );
+	wp_enqueue_script('contacto_ayuda_script', TEMA()."/js/contacto_ayuda.js" );
 ?>
 
 <section id="contacto-ayuda" >
@@ -18,9 +18,11 @@
 		</h2>
 	</article>
 	<article class="ayuda-form">
-		<form>
+		<form id="form-contacto-ayuda">
 			<input type="text" name="email" placeholder="Correo Electr&oacute;nico" class="form-control">
-			<input type="text" name="telef" placeholder="N&uacute;mero tel&eacute;fono" class="form-control">
+			<input type="text" name="phone" placeholder="N&uacute;mero tel&eacute;fono" class="form-control">
+			<input type="hidden" name="mi_marca" value="">
+			<input type="hidden" name="referencia" value="ayuda-home">
 			<button type="submit" class="btn btn-kmibox btn-xs">ENVIAR</button>
 		</form>
 	</article>

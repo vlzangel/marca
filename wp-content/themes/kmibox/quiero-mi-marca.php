@@ -291,6 +291,7 @@
 		      		<input type="text" class="form-control" name="email" id="email" placeholder="mi@email.com">
 		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="000 000 00000">
 		      		<input type="text" class="form-control" name="mi_marca" id="mi_marca" placeholder="Producto o marca">
+  					<input type="hidden" name="referencia" value="no-aparece-mi-marca">
 		      		<button class="btn-kmibox-send" type="submit">ENVIAR</button>
 	      		</div>
 	      	</form>
