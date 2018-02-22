@@ -6,9 +6,11 @@
 //	wp_enqueue_script('contacto_ayuda_script', TEMA()."/js/contacto_ayuda.js" );
 ?>
 
-<section id="contacto-ayuda">
+<section id="contacto-ayuda" >
 	
-	<img src="<?php echo TEMA(); ?>imgs/contacto-ayuda/people.png">
+	<article class="ayuda-imagen">
+		<img src="<?php echo TEMA(); ?>imgs/contacto-ayuda/people_single.png" class="img-responsive">
+	</article>
 	<article class="ayuda-texto">
 		<h2>
 			Si tienes alguna duda de c&oacute;mo comprar,<br class="hidden-xs">
