@@ -7,9 +7,15 @@
 	include( __DIR__."/funciones/unico_uso.php" );
 
 	include( __DIR__."/funciones/backpanel.php" );
-    
-	add_filter( 'show_admin_bar', '__return_false' );
 
+	include( __DIR__."/funciones/cupones.php" );
+    
+
+       
+   
+ 
+
+	add_filter( 'show_admin_bar', '__return_false' );
 	function _remove_script_version( $src ){
 	    $parts = explode( '?ver', $src );
 	    return $parts[0]."?ver=".time();

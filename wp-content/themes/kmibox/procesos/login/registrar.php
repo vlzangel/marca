@@ -71,6 +71,8 @@
 					    	)
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
+						
+	        
 
 				break;
 				case 2:

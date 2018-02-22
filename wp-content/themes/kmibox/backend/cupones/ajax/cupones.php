@@ -32,10 +32,22 @@
 			<div><strong>Es de uso exclusivo:</strong> {$exclusivo}</div>
 		";
 
+		if( $cupon->usos == "" ){
+			$cupon->usos = array();
+		}else{
+			$cupon->usos = unserialize($cupon->usos);
+		}
+
+		$plural = "veces";
+		if( count($cupon->usos) == 1 ){
+			$plural = "vez";
+		}
+
 		$data["data"][] = array(
 	        $cupon->id,
 	        $cupon->nombre,
 	        $info["precio"].$tipo->simbolo,
+	        count($cupon->usos)." ".$plural,
 	        $_data,
 	        "
 	        	<span 

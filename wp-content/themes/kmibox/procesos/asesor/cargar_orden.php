@@ -48,6 +48,7 @@
 			update_user_meta( $user_id, 'dir_estado', 			$dir_estado 		);
 			update_user_meta( $user_id, 'dir_codigo_postal', 	$dir_codigo_postal 	);
 			update_user_meta( $user_id, 'r_address', 			$r_address			);
+			update_user_meta( $user_id, 'asesor_registro', 		$asesor->id			);
 
 			$user = get_user_by('ID', $user_id);
 
@@ -62,6 +63,8 @@
 		    	)
 		    );
 		    wp_mail( $emailsus, "Bienvenido a NutriHeroes", $HTML );
+		    
+	       
 		}
 
 	// Cargar registro de venta del asesor
@@ -93,6 +96,7 @@
 					"productos" => [
 						$temp_product
 					], 
+					"descuentos"=> [],
 					"total"=> $temp_product->subtotal
 				];
 
@@ -104,6 +108,10 @@
 				// Crear Orden
 				$_SESSION['CARRITO'] = serialize($CARRITO);
 				$orden_id = crearPedido();
+
+				// Asignar Asesor a la venta
+				$sql_asesor = "UPDATE ordenes SET asesor = ". $asesor->id. " WHERE id =". $orden_id;
+				query( $sql_asesor );
 
 				// Actualizar Session carrito
 				$CARRITO['orden_id'] = $orden_id;
@@ -182,6 +190,8 @@
 						    	)
 						    );
 						    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
+						    
+	        
 							$result['code'] = 1;
 					    }					
 						break;

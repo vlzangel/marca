@@ -100,7 +100,9 @@ $order_id = 0;
 					$email, 	
 					"Pago tienda por conveniencia", 
 					$HTML
-		);
+				);
+				
+		      
 
 				//print_r("PDF".$pdf);
 

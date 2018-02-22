@@ -22,6 +22,7 @@
                 <th style="width: 50px;">ID</th>
                 <th>Nombre</th>
                 <th>Importe del cup&oacute;n</th>
+                <th>N° de Usos</th>
                 <th>Informaci&oacute;n</th>
                 <th style="width: 80px;">Acciones</th>
             </tr>
