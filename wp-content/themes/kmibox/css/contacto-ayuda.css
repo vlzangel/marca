@@ -1,4 +1,8 @@
-#contacto-ayuda{
+
+/* ************************* *
+ * General
+ * ************************* */
+ #contacto-ayuda{
 	width: 100%;
 	position: fixed;
 	bottom: 0px;
@@ -9,6 +13,7 @@
     border-bottom: 9px solid #4EFF00;
     border-top: 1px solid #ccc;
     padding-top:5px;
+    background: #fff url(../imgs/contacto-ayuda/background.png) no-repeat left bottom;
 }
 
 #contacto-ayuda article{
@@ -16,36 +21,56 @@
 	vertical-align: middle!important;
 }
 
-#contacto-ayuda img{
-	width: 15%;
-	position: relative;
-	bottom: 0px;
+
+/* ************************* *
+ * Seccion #1 - Imagenes 
+ * ************************* */
+#contacto-ayuda .ayuda-imagen{
+    width: 21%;
+    text-align: center;
+    vertical-align: bottom;
 }
+#contacto-ayuda .ayuda-imagen img{
+	width: 80%;
+}
+
+/* ************************* *
+ * Seccion #2 - Textos 
+ * ************************* */
 #contacto-ayuda .ayuda-texto{
-	width: 55%;
+	width: 51%;
 	margin: 0 auto; 
 }
 #contacto-ayuda .ayuda-texto h2{
 	color: black;
 	margin-left: 20px;
-	font-size: 35px!important;
+	/*font-size: 32px;*/
+	font-size: 300%;
 }
 #contacto-ayuda .ayuda-texto h2 span{
 	color: #0da900;
 }
+
+
+/* *************************
+ * Seccion #3 - Formulario
+ * ************************* */
 #contacto-ayuda .ayuda-form{
-	width: 29%;
+	width: 27%;
     text-align: center;
 }
 #contacto-ayuda .ayuda-form form{
 	margin: 0px; 
 }
-#contacto-ayuda .ayuda-form .form-control{
-	width: 80%;
-	margin: 5px auto;
-}
 #contacto-ayuda .ayuda-form button{
 	font-size: 15px!important;
     padding: 2px 20px 2px 20px!important;
     margin-top: 0!important;
+}
+#contacto-ayuda .ayuda-form .form-control{
+	width: 80%;
+	margin: 5px auto;
+	height: 40px;
+	border-radius: 25px;
+	border: 2px solid #848383;
 }
