@@ -15,6 +15,7 @@
         <thead>
             <tr>
                 <th width="30">ID</th>
+                <th width="30">Orden</th>
                 <th width="100">Fecha suscripci&oacute;n</th>
                 <th>Cliente</th>
                 <th>Producto(s)</th>

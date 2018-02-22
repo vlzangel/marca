@@ -11,7 +11,7 @@
 	$mes_actual = date("Y-m", time())."-01";
 	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 
-	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id ASC");
+	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
 	$data["data"] = array();
 	$ordenes = array();
 
@@ -43,6 +43,7 @@
 		
 	}
 
+	$index_row=0;
 	foreach ($ordenes as $orden_id => $_data) {
 		$_productos = "";
 		foreach ($_data["productos"] as $producto) {
@@ -109,7 +110,9 @@
 	        ";
 		}
 
+		$index_row++;
 		$data["data"][] = array(
+			$index_row,
 	        $orden_id,
 	        $_data["cliente"],
 	        $_productos,
