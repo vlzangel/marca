@@ -18,6 +18,7 @@
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Orden</th>
                 <th>Cliente</th>
                 <th>Productos</th>
