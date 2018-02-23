@@ -47,7 +47,7 @@ border:1px solid #ccc;
 					    line-height: 30px;
 					    text-align: justify;
 					    border-bottom: dashed 3px #CCC;
-					    padding: 20px;
+					    padding: 20px 0px;
 					    font-family: 'Gotham';
 					    line-height: 1.4;
 					    box-sizing: border-box;
