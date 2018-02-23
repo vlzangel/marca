@@ -40,7 +40,13 @@
 				if (client.id > 0) {
 					$("#small2").addClass("hidden");
 					$("#user_id").attr("value", client['id']);
-					$("#inputEmail3").attr("value",client['nombre']+' '+client['apellido']);
+
+					if(client['apellido']==null){
+						$("#inputEmail3").attr("value",client['nombre']);
+					}else{
+						$("#inputEmail3").attr("value",client['nombre']+' '+client['apellido']);
+					}
+					
 					$("#telef_movil").attr("value",client['telefono']);
 				}else{
 					$("#small2").removeClass("hidden");
@@ -59,6 +65,12 @@
 		}, 1000);
 	});
 
+	$('#cliente_nuevo_action').on('click', function(){
+		
+		$('#cliente_nuevo').modal('hide');	
+		$('#order_confirmacion').modal('show');
+	});
+
 
 
 	$('#form-cargar-orden')
@@ -73,9 +85,22 @@
 	        }
 	    })
 		.on('error.form.bv', function(e) {
+
+
+
+			 jQuery("input[type=text],input[type=email],select").each(function () {
+
+			   if ((!this.value) || (this.value==0)) {
+			   	 this.focus();
+			  	 return false;
+			   }
+			});
+
+
 			jQuery("#error_registrando").css("display", "block");
 		})
 		.on('success.form.bv', function(e) {
+
 		    // Prevent form submission
 		    e.preventDefault();
 
@@ -94,23 +119,62 @@
 			
 
 			$.post( TEMA+"procesos/asesor/cargar_orden.php", $('#form-cargar-orden').serialize()  , function(r) {
+
 				r = $.parseJSON(r);
 				jQuery(".btn-register_").attr("disabled", false);
 				jQuery(".btn-register_").html("Registrarme");
 
+
 				if(r['code'] == 1){
 					jQuery("#success_registrando").css("display", "block");
+
+
+					$('#cliente_nuevo').find('.modal-title').html('<span style="font-size: 16px;text-transform: uppercase;color: #0ab7aa;"><strong>El cliente fue registrado exitosamente.</strong></span>');
+					
+
 					$('#order_confirmacion').find('.modal-title').html('<span style="font-size: 16px;text-transform: uppercase;color: #0ab7aa;"><strong>Orden generada satisfactoriamente.</strong></span>');
 					
+
+
 					var forma_pago = $('[name="forma_pago"]').val();
 					var body = $('#order_confirmacion').find('.modal-body');
-						body.html(
+					
+				
+
+				if(jQuery("#user_id").val()==0){
+							body.html(
 							"Orden #: "+r['orden_id']+'<br>'+
 							"Cliente: "+r['nombre']+'<br>'+
 							"Estatus: Pendiente de pago<br>"
 						);
+							
+						
+				}else{
+						
+						body.html(
+							"Orden #: "+r['orden_id']+'<br>'+
+							"Cliente: "+r['nombre']+'<br>'+
+							"Estatus: Pendiente de pago<br><br><br>"+
+							"<span style='font-size:12px;'> El cliente ya esta registrado previamente contacta a este teléfono: 5540034824 para entender el detalle.</span>"
+						);
 
-					$('#order_confirmacion').modal('show');
+				}
+
+					var bodycliente = $('#cliente_nuevo').find('.modal-body');
+						bodycliente.html(
+							"A partir de este momento está registrado en tu estructura como asesor."
+						);
+						
+
+						
+					if(jQuery("#user_id").val()==0){
+						$('#cliente_nuevo').modal('show');
+					}else{
+					    $('#order_confirmacion').modal('show');
+
+					}
+					
+				
 				}else{
 					$('#login-mensaje').html(r['msg']);
 					$('#login-mensaje').removeClass('hidden');
@@ -118,15 +182,31 @@
 			});
 		})
 		.bootstrapValidator({
+
 		    feedbackIcons: {
 		        valid: 'glyphicon glyphicon-ok',		        
 		        invalid: 'glyphicon glyphicon-remove',
 		        validating: 'glyphicon glyphicon-refresh'
+
 		    },
 			submitHandler: function(validator, form, submitButton){
 			    validator.defaultSubmit();
+
 			},   
 		    fields: {
+
+		    	'codidoasesor[]': {
+				    
+				    validators: {
+				        notEmpty: {
+				            message: 'Este campo no debe estar vacío'
+				        },
+				        stringLength: {
+	                        message: 'Este campo debe tener menos de 50 caracteres',
+	                        max: 50
+	                    }
+			    	}
+				},
 			    
 				nombre: {
 				    message: 'Error',
@@ -135,7 +215,7 @@
 				            message: 'Este campo no debe estar vacío'
 				        },
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 50 caracteres',
 	                        max: 50
 	                    }
 			    	}
@@ -147,7 +227,7 @@
 							message: 'Este campo no debe estar vacío'
 						},
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 13 caracteres',
 	                        max: 13,
 	                        min: 10
 	                    }
@@ -164,7 +244,7 @@
 	                        message: 'El usuario y su confirmación no son los mismos'
 	                    },
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 200 caracteres',
 	                        max: 200
 	                    }
 					},
@@ -174,17 +254,14 @@
 					validators: {
 						notEmpty: {
 							message: 'Este campo no debe estar vacío'
-						},integer :{
-							message: 'Este campo no debe estar vacío'
 						},
+
 					},
 				},
 				dir_planes: {
 					message: 'Error',
 					validators: {
 						notEmpty: {
-							message: 'Este campo no debe estar vacío'
-						},integer :{
 							message: 'Este campo no debe estar vacío'
 						},
 					},
@@ -196,7 +273,7 @@
 							message: 'Este campo no debe estar vacío'
 						},
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 500 caracteres',
 	                        max: 500,
 	                        min: 20
 	                    }
@@ -219,13 +296,13 @@
 							message: 'Este campo no debe estar vacío'
 						},
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 15 caracteres',
 	                        max: 15
 	                    }					
 					},
 				},
 				casa_oficina: {
-					message: 'Error',
+					/*message: 'Error',*/
 					validators: {
 						notEmpty: {
 							message: 'Este campo no debe estar vacío'
@@ -233,7 +310,7 @@
 					},
 				},
 				forma_pago: {
-					message: 'Error',
+					
 					validators: {
 						notEmpty: {
 							message: 'Este campo no debe estar vacío'
@@ -241,25 +318,25 @@
 					},
 				},
 				nombreasesor: {
-				    message: 'Error',
+				   
 				    validators: {
 				        notEmpty: {
 				            message: 'Este campo no debe estar vacío'
 				        },
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 50 caracteres',
 	                        max: 50
 	                    }
 			    	}
 				},
 				codidoasesor: {
-					message: 'Error',
+					
 					validators: {
 						notEmpty: {
 							message: 'Este campo no debe estar vacío'
 						},
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 50 caracteres',
 	                        max: 50
 
 	                    }					
@@ -276,7 +353,7 @@
 	                        message: 'El usuario y su confirmación no son los mismos'
 	                    },
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 200 caracteres',
 	                        max: 200
 	                    }
 					},
@@ -292,13 +369,17 @@
 	                        message: 'El usuario y su confirmación no son los mismos'
 	                    },
 				        stringLength: {
-	                        message: 'Post content must be less than 120 characters',
+	                        message: 'Este campo debe tener menos de 200 caracteres',
 	                        max: 200
 	                    }
 					},
 				},
 		    }
 		});
+
+
+
+	
 
 	function getData(url,method, datos){
 		return $.ajax({
