@@ -19,7 +19,6 @@
 	<a href="[INSTRUCCIONES]" style="    
 		font-weight: 600;
 	    margin: 20px auto;
-	    width: 300px;
 	    border: solid 1px #CCC;
 	    border-radius: 5px;
 	    padding: 10px;
