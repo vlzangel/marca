@@ -13,6 +13,7 @@
 					position: relative;
 					overflow: hidden;
 					margin-top: 25px;
+					text-align: center;
 					">
 
 						<img src="[IMG_PATH]footer/footer_img.png" style="width: 100%">

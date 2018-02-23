@@ -50,6 +50,6 @@
 
 		</style>
 	</head>
-	<body style="width: 600px; margin: 0 auto;">
+	<body style="text-align: center;">
 
-		<div id="body">
+		<div id="body" style="width: 600px!important; margin: 0 auto;">
