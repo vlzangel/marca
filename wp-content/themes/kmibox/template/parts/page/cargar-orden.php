@@ -2,10 +2,6 @@
 
 <?php 
 
-	// echo "<pre>";
-	// print_r($_SESSION["CARRITO"]);
-	// echo "</pre>";
-
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
 	$PLANES = "";
 	foreach ($data_planes as $plan) {
@@ -18,16 +14,10 @@
 	$tipos = "";
 	foreach ($_tipos as $key => $tipo) {
 		$tipos .= "<option value='{$tipo->id}' ".selected($tipo->id, $_tipo, false).">".strtoupper($tipo->tipo)."</option>";
-	}
-	
+	}	
 
 ?>
 
-<style type="text/css">
-/*.has-error .help-block {
-    display: inline-block !important;*/
-}
-</style>
 
 <article class="row">
 	
