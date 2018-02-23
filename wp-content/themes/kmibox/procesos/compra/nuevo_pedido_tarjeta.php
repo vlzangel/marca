@@ -149,7 +149,6 @@
 	    		"NUMERO" => $_tarjeta,
 	    		"MES" => $exp_month,
 	    		"ANIO" => $exp_year,
-	    		"CVV" => $cvv,
 	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
 	    	)
 	    );
