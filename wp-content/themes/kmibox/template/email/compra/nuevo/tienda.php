@@ -16,7 +16,10 @@
 </div>
 
 <div style="text-align: center; font-size: 17px;">
-	<a href="[INSTRUCCIONES]" style="    
+	<a href="[INSTRUCCIONES]" style="
+		text-decoration: none;
+	    ">
+		<span style="    
 		font-weight: 600;
 	    margin: 20px auto;
 	    border: solid 1px #CCC;
@@ -26,9 +29,9 @@
 	    color: #FFF;
 	    display: block;
 	    font-size: 13px;
-	    text-decoration: none;
 	    text-transform: uppercase;
-	    ">Instrucciones para el pago</a>
+		">Instrucciones para el pago</span>
+	</a>
 </div>
 
 <br>
