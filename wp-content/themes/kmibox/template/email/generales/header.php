@@ -52,4 +52,4 @@
 	</head>
 	<body style="text-align: center;">
 
-		<div id="body" style="width: 600px!important; margin: 0 auto;">
+		<div id="body" style="max-width: 600px!important; margin: 0 auto;">
