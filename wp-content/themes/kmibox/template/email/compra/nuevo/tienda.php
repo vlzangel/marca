@@ -6,7 +6,7 @@
 </div> 
 
 <div>
-	<img src="[IMG_PATH]pago_tarjeta/pago_tarjeta01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
+	<img src="[IMG_PATH]pago_tienda/pago_tienda.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 </div>
 
 <br><br>
@@ -16,10 +16,12 @@
 </div>
 
 <div style="text-align: center; font-size: 17px;">
-	<a href="[INSTRUCCIONES]" style="    
+	<a href="[INSTRUCCIONES]" style="
+		text-decoration: none;
+	    ">
+		<span style="    
 		font-weight: 600;
 	    margin: 20px auto;
-	    width: 300px;
 	    border: solid 1px #CCC;
 	    border-radius: 5px;
 	    padding: 10px;
@@ -27,9 +29,9 @@
 	    color: #FFF;
 	    display: block;
 	    font-size: 13px;
-	    text-decoration: none;
 	    text-transform: uppercase;
-	    ">Instrucciones para el pago</a>
+		">Instrucciones para el pago</span>
+	</a>
 </div>
 
 <br>
