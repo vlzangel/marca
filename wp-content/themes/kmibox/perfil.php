@@ -18,9 +18,9 @@
 			'.cssPAGE("perfil").'
 
 			<ul class="perfil_tabs">
-				<li class="tab_activo" data-tab="2">Mis suscripciones</li>
-				<li data-tab="3">Estatus de envío</li>
-				<li data-tab="1">Mi Información</li>
+				<li style="font-family:GothanMedium_regular" class="tab_activo" data-tab="2">Mis suscripciones</li>
+				<li style="font-family:GothanMedium_regular" data-tab="3">Estatus de envío</li>
+				<li style="font-family:GothanMedium_regular" data-tab="1">Mi Información</li>
 			</ul>
 
 			<div class="secciones_container">';
