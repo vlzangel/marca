@@ -50,12 +50,12 @@
 						    width: 100%;
 						    height: 235px;
 						    text-align: right;
-						    padding: 0px 5px;
+						    padding: 0px 10px;
 						    background-image: url([IMG_PATH]footer/footer_img.png);
 						    background-repeat: no-repeat;
 						    background-size: contain;
 						    position: relative;">
-							<a href="https://kmimos.com.mx">
+							<a href="https://www.kmimos.com.mx">
 								<button style="    
 									padding: 15px;
 								    border-radius: 50px;
@@ -69,6 +69,7 @@
 								    font-family: 'Gotham';
 								    text-decoration: none;
 								    position: absolute;
+								    vertical-align: bottom;
 								    right: 26px;
 								    ">SOLICITAR CUPÓN</button>
 							</a>
