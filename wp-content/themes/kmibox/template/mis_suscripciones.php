@@ -26,7 +26,7 @@
 				$separador = ( empty($productos_list_name) )? '' : ' - ';
 				$productos_list_name .= $separador . $item['nombre'];
 			}
-			$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n Id: ({$value->id}): {$productos_list_name} </option>";
+			$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n (Id: {$value->id}): {$productos_list_name} </option>";
 		}
 	}
 
