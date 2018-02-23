@@ -182,8 +182,16 @@
 	}
 }
 
+
+
+
 @media (max-width: 769px) {
 
+
+	#prueba{
+		position: relative;
+		top: 19px;
+	}
 	.carrousel-items-containers {
 		height: calc( 100% - 155px );
 	    margin: 85px 0px 0px;
@@ -237,6 +245,8 @@
 	.solo_movil{
 		display: block;
 	}
+
+	
 
 	.solo_pc{
 		display: none;
@@ -336,6 +346,11 @@
 		font-size: 11px;
 	}
 
+	#prueba{
+		position: relative;
+		top: 50px;
+	}
+
 }
 
 @media (max-width: 600px){
@@ -369,7 +384,7 @@
 	}
 
 	#desglose td {
-	    padding: 5px 10px;
+	    /*padding: 5px 10px;*/
 	}
 
 	.carrusel_2 > div img {
@@ -540,7 +555,7 @@
 	}
 
 	#desglose td * {
-	    font-size: 8px;
+	    font-size: 14px;
 	}
 
 	#totales table th {

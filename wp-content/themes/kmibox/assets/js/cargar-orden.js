@@ -317,6 +317,43 @@
 						}
 					},
 				},
+
+				dir_tamano: {
+					
+					validators: {
+						notEmpty: {
+							message: 'Este campo no debe estar vacío'
+						}
+					},
+				},
+
+				dir_edad: {
+					
+					validators: {
+						notEmpty: {
+							message: 'Este campo no debe estar vacío'
+						}
+					},
+				},
+
+				dir_presentaciones: {
+					
+					validators: {
+						notEmpty: {
+							message: 'Este campo no debe estar vacío'
+						}
+					},
+				},
+				dir_planes: {
+					
+					validators: {
+						notEmpty: {
+							message: 'Este campo no debe estar vacío'
+						}
+					},
+				},
+
+
 				nombreasesor: {
 				   
 				    validators: {
@@ -413,7 +450,7 @@ console.log(_PLANES[plan_id] );
 			jQuery('#dir_planes').attr('disabled', 'disabled');
 		}else{
 			jQuery('#dir_planes').removeAttr('disabled');
-			planes = '<option>Seleccione una planes</option>' + planes;			
+			planes = '<option value="">Seleccione un plan</option>' + planes;			
 		}
 		jQuery('#dir_planes').html(planes);
 
@@ -437,7 +474,7 @@ console.log(_PLANES[plan_id] );
 			jQuery('#dir_presentaciones').attr('disabled', 'disabled');
 		}else{
 			jQuery('#dir_presentaciones').removeAttr('disabled');
-			planes = '<option>Seleccione una presentaci&oacute;n</option>' + planes;			
+			planes = '<option value="">Seleccione una presentaci&oacute;n</option>' + planes;			
 		}
 		jQuery('#dir_presentaciones').html(planes);
 
@@ -474,9 +511,9 @@ console.log(_PLANES[plan_id] );
 
 		}); 
 		if( options == '' ){
-			options = '<option>No hay marcas disponibles</option>';
+			options = '<option value="">No hay marcas disponibles</option>';
 		}else{
-			options = '<option>Seleccione una marca</option>' + options;
+			options = '<option value="" >Seleccione una marca</option>' + options;
 		}
 		$('#dir_marcas').html(options);
 	}
@@ -497,7 +534,7 @@ console.log(_PLANES[plan_id] );
 			console.log( e );
 	  	});
 		if( options == '' ){
-			options = '<option>No hay marcas disponibles</option>';
+			options = '<option value="">No hay marcas disponibles</option>';
 		}
 		$('#dir_marcas').html(options);
 	}
