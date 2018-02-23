@@ -51,7 +51,7 @@
 						    height: 235px;
 						    text-align: right;
 						    padding: 0px 5px;
-						    background-image: url(https://mx.marca.git/wp-content/themes/kmibox/imgs/mails/footer/footer_img.png);
+						    background-image: url([IMG_PATH]footer/footer_img.png);
 						    background-repeat: no-repeat;
 						    background-size: contain;
 						    position: relative;">
@@ -87,7 +87,7 @@
 							    line-height: 1.4;
 							    box-sizing: border-box;"
 						>
-							<img src="https://mx.marca.git/wp-content/themes/kmibox/imgs/mails/footer/logo-kmimos-color.png" width="100px" /> <strong>es la mayor red de cuidadores certificados de M&eacute;xico</strong>, <span style="font-family: gotham-light;font-weight: lighter;">que cuidan a las mascotas en el hogar del cuidador, totalmente libres de jaulas ni encierros, con mas de 1000 cuidadores registrados.
+							<img src="[IMG_PATH]footer/logo-kmimos-color.png" width="100px" /> <strong>es la mayor red de cuidadores certificados de M&eacute;xico</strong>, <span style="font-family: gotham-light;font-weight: lighter;">que cuidan a las mascotas en el hogar del cuidador, totalmente libres de jaulas ni encierros, con mas de 1000 cuidadores registrados.
 						</td>
 					</tr>
     				<tr>
