@@ -46,31 +46,20 @@
     					margin-top: 25px;
     					max-width: height: 387px;">
     				<tr>
-						<td style="
-						    width: 100%;
-						    height: 235px;
-						    text-align: right;
-						    padding: 0px 10px;
-						    background-image: url([IMG_PATH]footer/footer_img.png);
-						    background-repeat: no-repeat;
-						    background-size: contain;
-						    position: relative;">
+						<td style="text-align: center;">
+							<img src="[IMG_PATH]footer/footer_img.png" style="width: 100%">
 							<a href="https://www.kmimos.com.mx">
 								<button style="    
 									padding: 15px;
 								    border-radius: 50px;
 								    border: 0px; 
 								    background: #34cec0;
-								    bottom: 65px;
 								    color: #fff!important;
 								    cursor: pointer;
 								    font-size: 25px;
 								    font-weight: bold;
 								    font-family: 'Gotham';
 								    text-decoration: none;
-								    position: absolute;
-								    vertical-align: bottom;
-								    right: 26px;
 								    ">SOLICITAR CUPÓN</button>
 							</a>
 						</td>
@@ -78,7 +67,7 @@
     				<tr>
 						<td id="recuerda" style="
 						        width: 100%;
-							    font-size: 19px;
+							    font-size: 17.5px;
 							    line-height: 30px;
 							    text-align: justify;
 							    
