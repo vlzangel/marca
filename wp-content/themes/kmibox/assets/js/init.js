@@ -409,7 +409,9 @@ $(function($){
 			dir_estado: $('[name="dir_estado"]').val(),
 			dir_ciudad: $('[name="dir_ciudad"]').val(),
 			dir_colonia: $('[name="dir_colonia"]').val(),
-			dir_codigo_postal: $('[name="dir_codigo_postal"]').val()
+			dir_codigo_postal: $('[name="dir_codigo_postal"]').val(),
+			codigo_asesor: $('[name="codidoasesor"]').val(),
+			correo_asesor: $('[name="emailasesor"]').val()
 
 		}, function(r) {
 
