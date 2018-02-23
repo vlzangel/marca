@@ -1,4 +1,4 @@
-			<div style="width: 100%">
+			<div>
 
 				<div style="    
 			    		text-align: center;
@@ -15,7 +15,7 @@
 					margin-top: 25px;
 					text-align: center;
 					">
-						<img src="[IMG_PATH]footer/footer_img.png" style="width: 100%">
+						<img src="[IMG_PATH]footer/footer_img.png">
 						<br>
 						<br>
 						<a href="https://www.kmimos.com.mx">
@@ -39,14 +39,13 @@
 					    font-size: 18.5px;
 					    line-height: 30px;
 					    text-align: justify;
-					    
 					    border-bottom: dashed 3px #CCC;
 					    padding: 20px;
 					    font-family: 'Gotham';
 					    line-height: 1.4;
 					    box-sizing: border-box;"
 				>
-					<img src="[IMG_PATH]footer/logo-kmimos-color.png" width="100px" /> <strong>es la mayor red de cuidadores certificados de M&eacute;xico</strong>, <span style="font-family: gotham-light;font-weight: lighter;">que cuidan a las mascotas en el hogar del cuidador, totalmente libres de jaulas ni encierros, con mas de 1000 cuidadores registrados.
+					<img src="[IMG_PATH]footer/logo-kmimos-color.png" /> <strong>es la mayor red de cuidadores certificados de M&eacute;xico</strong>, <span style="font-family: gotham-light;font-weight: lighter;">que cuidan a las mascotas en el hogar del cuidador, totalmente libres de jaulas ni encierros, con mas de 1000 cuidadores registrados.
 				</div>
 
 				<div style="height:35px;padding:0px!important;margin:10px 0px!important;background-color: #000; border-top: 5px solid #a4d031"></div>
