@@ -275,7 +275,7 @@
 		global $wpdb;
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ORDER BY id DESC");
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status in ( 'Activa', 'Pendiente' ) ORDER BY id DESC");
 
 		return $ordenes;
 	}
@@ -286,7 +286,7 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 	    $suscripciones = array();
-		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND status = 'Activa' ");
+		$ordenes = $wpdb->get_results("SELECT * FROM ordenes WHERE cliente = '{$user_id}' AND  status in ( 'Activa', 'Pendiente' ) ");
 		foreach ($ordenes as $orden) {
 			$planes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE  id_orden = ".$orden->id);
 			$suscripciones[ $orden->id ]["cantidad"] = $orden->cantidad;
@@ -306,6 +306,7 @@
 				if( count($_entregas) > 0 ){
 					$_entregados_str = implode(",", $_entregas);
 				}
+				$estatus = ( $orden->status == 'Pendiente' )? 'Por Pagar': $orden->status;
 				$suscripciones[ $orden->id ]["productos"][] = array(
 					"orden" => $plan->id,
 					"plan" => $data["plan"],
@@ -314,7 +315,7 @@
 					"total" => $plan->total,
 					"nombre" => $producto->nombre,
 					"img" => $img,
-					"status" => $orden->status,
+					"status" => $estatus,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
 					"entredagos" => $_entregados_str
 				);
