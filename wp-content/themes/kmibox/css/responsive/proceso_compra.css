@@ -184,7 +184,6 @@
 
 
 
-
 @media (max-width: 769px) {
 
 
@@ -348,7 +347,7 @@
 
 	#prueba{
 		position: relative;
-		top: 50px;
+		top: 57px;
 	}
 
 }
@@ -652,6 +651,11 @@
 
 @media (max-width: 400px){
 
+	#prueba{
+		position: relative;
+		top: 57px;
+	}
+
 	.msg_desplazar {
 	    font-size: 11px;
 	}
@@ -687,6 +691,11 @@
 }
 
 @media (max-width: 350px){
+
+	#prueba{
+		position: relative;
+		top: 96px;
+	}
 
 	#vlz_titulo {
 	    top: 54px;
