@@ -6,7 +6,7 @@
 </div> 
 
 <div>
-	<img src="[IMG_PATH]pago_tarjeta/pago_tarjeta.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
+	<img src="[IMG_PATH]pago_tarjeta/pago_tarjeta.jpg" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 </div>
 
 <br><br>
