@@ -70,7 +70,7 @@ section{
 	color: #000!important;
 	text-align: center;
     font-weight: normal;
-    font-size: 23px!important;
+    font-size: 23px;
     font-family: Gothamlight_Regular!important;
 }
 #home-opciones > div > label {
@@ -182,10 +182,49 @@ section{
 	margin-top: 10px;
 }
 
+/*#asesor a{
+    font-size: 11px;
+}*/
 
 /* ************************ */
 /* Responsive 				*/
 /* ************************ */
+
+@media (max-width: 1200px){
+	#asesor a{
+    	font-size: 11px;
+	}
+
+	#si-encuentras-precio {
+    	font-size: 30px!important;
+	}
+	#precio-vet{
+		font-size:20px!important;
+	}
+	
+
+}
+
+@media (min-width: 992px) and (max-width: 1191px){
+	#si-encuentras-precio {
+    	font-size: 21px!important;
+	}
+	#precio-vet{
+		font-size:14px!important;
+	}
+
+}
+
+@media (max-width: 991px) {
+	#si-encuentras-precio {
+    	font-size: 18px!important;
+	}
+
+	#precio-vet{
+		font-size:15px!important;
+	}
+
+}
 
 
 @media (max-width: 780px) and (orientation: landscape){
@@ -196,12 +235,20 @@ section{
 		width: 50%;
 	}
 	#home-opciones > div > label{
-		font-size: 28px!important;
+		font-size: 28px;
 	}
 	#dog{
 		height: 200px!important;
 	}
+	#si-encuentras-precio {
+    	font-size: 32px!important;
+	}
+
+	#precio-vet{
+		font-size:21px;
+	}
 }
+
 @media (max-width: 780px){
 	#header a{
 		padding: 10px 50px;
@@ -238,6 +285,18 @@ section{
     
 	}
 
+	#asesor a{
+    	font-size: 11px;
+	}
+
+	#si-encuentras-precio {
+    	font-size: 32px!important;
+	}
+
+	#precio-vet{
+		font-size:21px!important;
+	}
+
 }
  
 
@@ -271,6 +330,15 @@ section{
 	    border-right: 0px solid #f3ecec;
 	}
 
+	#asesor a{
+    	font-size: 11px;
+	}
+	
+	#quiero-convertirme-asesor {
+		font-size: 18px!important;
+	}
+
+	
 
 }
 @media (max-width: 653px) and (orientation: landscape){
@@ -280,7 +348,33 @@ section{
 	.col-header-dog {
 	    left: 0;
 	}
+
 } 
+
+@media (max-width: 589px){
+
+	#si-encuentras-precio {
+    	font-size: 25px!important;
+	}
+
+	#precio-vet{
+		font-size:12px!important;
+	}
+
+}
+
+@media (max-width: 466px){
+
+	#si-encuentras-precio {
+    	font-size: 20px!important;
+	}
+
+	#precio-vet{
+		font-size:12px!important;
+	}
+
+}
+
 @media (max-width: 400px){
 	.col-header-dog img{
 		width: 50%;
@@ -292,5 +386,68 @@ section{
 	    padding: 10px 30px;
 	    font-size: 20px;
 	}
+
+	#asesor a{
+    	font-size: 10px!important;
+    	padding: 20px 30px;
+	}
+
+	#quiero-convertirme-asesor {
+		font-size: 16px!important;
+	}
+
+	#si-encuentras-precio {
+    	font-size: 19px!important;
+	}
+
+	#precio-vet{
+		font-size:12px!important;
+	}
 }
+
+@media (max-width: 377px){
+
+	#si-encuentras-precio {
+    	font-size: 17px!important;
+	}
+
+	#precio-vet{
+		font-size:12px!important;
+	}
+
+}
+
+@media (max-width: 327px){
+
+	#si-encuentras-precio {
+    	font-size: 14px!important;
+	}
+
+	#precio-vet{
+		font-size:10px!important;
+	}
+
+}
+
+@media (max-width: 292px){
+
+	#asesor a{
+    	font-size: 8px!important;
+    	padding: 11px 9px;
+	}
+
+	#quiero-convertirme-asesor {
+		font-size: 12px!important;
+	}
+
+	#si-encuentras-precio {
+    	font-size: 12px!important;
+	}
+
+	#precio-vet{
+		font-size:10px!important;
+	}
+}
+
+
 
