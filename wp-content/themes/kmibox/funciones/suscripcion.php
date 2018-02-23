@@ -68,7 +68,8 @@
 		foreach ($_plans as $plan) {
 			$plans[$plan->id] = array(
 				"nombre" => $plan->plan,
-				"meses" => $plan->meses
+				"meses" => $plan->meses,
+				"descripcion_mes" => $plan->descripcion_mes
 			);
 		}
 		return $plans;
