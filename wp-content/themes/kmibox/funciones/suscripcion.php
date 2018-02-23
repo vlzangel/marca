@@ -3,7 +3,7 @@
 	include( dirname(__DIR__)."/lib/openpay/Openpay.php" );
 
 	function dataOpenpay(){
-		$OPENPAY_PRUEBAS = 1;
+		$OPENPAY_PRUEBAS = 0;
 		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
 
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
