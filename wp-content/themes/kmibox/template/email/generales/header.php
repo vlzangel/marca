@@ -50,6 +50,6 @@
 
 		</style>
 	</head>
-	<body>
+	<body style="width: 600px; margin: 0 auto;">
 
 		<div id="body">
