@@ -1,5 +1,5 @@
 <tr>
-	<td style="width: 200px; padding-right: 45px;">
+	<td style="width: 180px; padding-right: 45px;">
 		<img style="width: 100%;" src="[IMG_PRODUCTO]"/>
 	</td>
 	<td>
