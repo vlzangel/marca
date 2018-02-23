@@ -136,9 +136,9 @@
 						<button id="btn-login" type="submit" class="btn btn-sm-kmibox gothan">Iniciar sesion</button>
 						<br>
 						<br>
-						<label style="color: #ffffff; font-size: 10px" class="gothan">¿Aún no tienes perfil Nutriheroes? </label>
+						<label style="color: #ffffff; font-size: 14px" class="gothan">¿Aún no tienes perfil Nutriheroes? </label>
 						
-						<a href="<?php echo get_home_url().'/'; ?>registro" id="link-registro" data-target="inicio-sesion" style="color: #ffffff; font-size: 10px" class="gothan">Registrate aquí						
+						<a href="<?php echo get_home_url().'/'; ?>registro" id="link-registro" data-target="inicio-sesion" style="color: #ffffff; font-size: 14px" class="gothan">Registrate aquí						
 						</a>
 					</div>
 				</div>

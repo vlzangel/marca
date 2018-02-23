@@ -65,11 +65,14 @@
 	    	array(
 	    		"USUARIO" => $nombre,
 	    		"INSTRUCCIONES" => $CARRITO["PDF"],
-	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
+	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.'),
+	    		"FECHA_SUSCRIPCION" => date('d')
 	    	)
 	    );
 
 	    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
+
+	    
 
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();

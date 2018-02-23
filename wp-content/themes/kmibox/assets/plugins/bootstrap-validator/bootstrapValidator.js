@@ -1703,6 +1703,7 @@ if (typeof jQuery === 'undefined') {
 
     // Plugin definition
     $.fn.bootstrapValidator = function(option) {
+        
         var params = arguments;
         return this.each(function() {
             var $this   = $(this),

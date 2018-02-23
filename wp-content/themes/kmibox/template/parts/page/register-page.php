@@ -116,6 +116,7 @@
 					</div>
 				</div>
 
+				
 				<div class="row row-special">					
 					
 					<div class="col-md-8" style="padding: 0px 15px 0px 0px !important;">
@@ -158,16 +159,35 @@
 
 					</div>
 
-					<div class="col-md-4" style="padding-top: 20px;">	
-						<div class="col-sm-offset-1	col-sm-11 text-center">
-							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Registrarme</button>
-							<div id="error_registrando"> Por favor revisar tus datos arriba, hay algún campo incompleto </div> 
-							<div id="success_registrando"> Registro Exitoso </div>
-	 					</div>
-	 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje">Prueba</aside>
+				</div>
+
+					<div class="row">					
+						<h2 class="col-sm-6">INFORMACIÓN DEL ASESOR</h2>
+						
 					</div>
 
-				</div>
+						<div class="row row-special">	
+						
+							<div class="col-md-3 form-group" style="padding-top: 15px;">
+								<i style="padding-top: 15px;" class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<input data-charset="num" type="text" name="codidoasesor" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  maxlength="40" />
+							</div>
+							<div class="col-md-3 form-group" style="padding-top: 15px;">
+								<i style="padding-top: 15px;" class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
+								<input data-charset="xlfnumesp" type="email" name="emailasesor" class="form-control col-md-6" id="emailasesor" placeholder="Correo del asesor"  maxlength="40" >
+							</div>
+						<div class="col-md-4" >	
+							<div class="col-sm-offset-1	col-sm-11 text-center">
+								<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Registrarme</button>
+								<div id="error_registrando"> Por favor revisar tus datos arriba, hay algún campo incompleto </div> 
+								<div id="success_registrando"> Registro Exitoso </div>
+		 					</div>
+		 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje">Prueba</aside>
+						</div>
+
+						
+					</div>
+				
 
 			</form>
 		</div>

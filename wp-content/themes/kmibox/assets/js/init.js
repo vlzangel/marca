@@ -409,7 +409,9 @@ $(function($){
 			dir_estado: $('[name="dir_estado"]').val(),
 			dir_ciudad: $('[name="dir_ciudad"]').val(),
 			dir_colonia: $('[name="dir_colonia"]').val(),
-			dir_codigo_postal: $('[name="dir_codigo_postal"]').val()
+			dir_codigo_postal: $('[name="dir_codigo_postal"]').val(),
+			codigo_asesor: $('[name="codidoasesor"]').val(),
+			correo_asesor: $('[name="emailasesor"]').val()
 
 		}, function(r) {
 
@@ -1018,18 +1020,18 @@ $(function($){
 
 		if( validate == 0 ){
 			jQuery.post(TEMA+'procesos/subscribers/subscribers.php', jQuery('#form-contacto-ayuda').serialize(), function(data){
-					if(data.code==1){
-						jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
-						jQuery('#mensaje').css('display', 'block');
-						setTimeout(function() {
-							jQuery('#mensaje').css('display', 'none');
-				        },5000);
-					}
+				if(data.code==1){
+					jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
+					jQuery('#mensaje').css('display', 'block');
+					setTimeout(function() {
+						jQuery('#mensaje').css('display', 'none');
+			        },5000);
+				}
 			}, "json")
 			.fail(function(e) { console.log( e ); });
-
 			jQuery('#email').val('');
 			jQuery('#phone').val('');
+
 		}
 	});
 	

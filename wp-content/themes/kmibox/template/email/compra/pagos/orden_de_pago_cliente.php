@@ -4,7 +4,7 @@
 	</div> 
 
 	<div>
-		<img src="[IMG_PATH]confirmacion/header.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
+		<img src="[IMG_PATH]confirmacion/header01.png" style="width: 100%; margin: 0px 0px 10px; border-bottom: solid 10px #75e417;" />
 	</div>
 
 	<div style="text-align: center; font-size: 17px; line-height: 100%; margin: 30px 0px 40px;">
