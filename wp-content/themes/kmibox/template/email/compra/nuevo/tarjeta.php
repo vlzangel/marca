@@ -38,11 +38,6 @@
 
 <br>
 
-<div style="text-align: left;font-size: 16px;line-height: 10px;">
-	<h3 class="mayuscula">cvv</h3>
-	<label>[CVV]</label>
-</div>
-
 <br>
 
 <div style="text-align: left;font-size: 17px;line-height: 27px;">
