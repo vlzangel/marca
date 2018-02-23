@@ -5,6 +5,8 @@
  *
  */
 
+wp_enqueue_style( 'cargar-ordenes', TEMA()."/css/ordenes.css", array(), "1.0.0" );
+
 get_header();
 ?>
 

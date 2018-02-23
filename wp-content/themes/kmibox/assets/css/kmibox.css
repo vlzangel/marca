@@ -138,9 +138,11 @@ p .img-center{
 .input-icon input{
 	padding: 6px 34px;
 }
-.help-block{
+
+.has-error .help-block{
 	display: none!important;
 }
+
 .input-icon .inter-input{
     position: absolute;
     bottom: 12px;
