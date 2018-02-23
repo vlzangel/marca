@@ -95,7 +95,7 @@
 						<div class="col-md-4 form-group">
 							<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
 							<select class="form-control col-md-4" name="dir_tamano" id="tamano" data-load="productos">
-								<option value="Pequeño">Selecciona el tamaño de la mascota</option>
+								<option value="">Selecciona el tamaño de la mascota</option>
 								<option value="Pequeño">Pequeño</option>
 								<option value="Mediano">Mediano</option>
 								<option value="Grande">Grande</option>
@@ -104,7 +104,7 @@
 						<div class="col-md-4 form-group">
 							<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>					
 							<select class="form-control col-md-4" name="dir_edad" id="edad" data-load="productos">
-								<option value="Pequeño">Selecciona la edad de la mascota</option>
+								<option value="">Selecciona la edad de la mascota</option>
 								<option value="Cachorro">Cachorro</option>
 								<option value="Adulto">Adulto</option>
 								<option value="Maduro">Senior</option>
@@ -121,8 +121,8 @@
 
 							<div class="col-md-4 form-group">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-								<select class="form-control col-md-4 " disabled="disabled" name="dir_presentaciones" id="dir_presentaciones">
-									<option>Presentaciones</option>
+								<select class="form-control col-md-4 "  name="dir_presentaciones" id="dir_presentaciones">
+									<option value="">Presentaciones</option>
 								</select>
 								<input type="hidden" name="dir_peso"  value="" readonly>
 								<input type="hidden" name="dir_precio"  value="" readonly>
@@ -131,8 +131,8 @@
 							<div class="col-md-4 form-group">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 								<div id="crear_planes"></div>
-								<select class="form-control col-md-4 " disabled="disabled" name="dir_planes" id="dir_planes" >
-									<option value="0">Planes</option>
+								<select class="form-control col-md-4 "  name="dir_planes" id="dir_planes" >
+									<option value="">Planes</option>
 								</select>
 							</div>
 				</div>

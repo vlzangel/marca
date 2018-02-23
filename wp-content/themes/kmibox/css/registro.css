@@ -25,3 +25,11 @@
 aside#login-mensaje {
     margin: 15px 0px;
 }
+
+.form-horizontal .has-feedback .form-control-feedback [data-bv-icon-for="codidoasesor"], [data-bv-icon-for="emailasesor"] {
+    padding-top: 15px; 
+}
+
+.form-horizontal .has-feedback .form-control-feedback [data-bv-icon-for="emailasesor"], [data-bv-icon-for="codidoasesor"] {
+    padding-top: 15px; 
+}
