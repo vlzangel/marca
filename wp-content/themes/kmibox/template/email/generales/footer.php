@@ -48,9 +48,11 @@
     				<tr>
 						<td style="text-align: center;">
 							<img src="[IMG_PATH]footer/footer_img.png" style="width: 100%">
+							<br>
+							<br>
 							<a href="https://www.kmimos.com.mx">
 								<button style="    
-									padding: 15px;
+									padding: 10px 15px;
 								    border-radius: 50px;
 								    border: 0px; 
 								    background: #34cec0;
