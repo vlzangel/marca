@@ -31,7 +31,7 @@
 							    cursor: pointer;
 							    font-size: 25px;
 							    font-weight: bold;
-							    font-family: 'Gotham';
+							    font-family: Gotham, Arial;
 							    text-decoration: none;
 							    ">SOLICITAR CUPÓN</button>
 						</a>
@@ -44,12 +44,12 @@
 					    text-align: justify;
 					    border-bottom: dashed 3px #CCC;
 					    padding: 20px 0px;
-					    font-family: 'Gotham';
+					    font-family: Gotham, Arial;
 					    line-height: 1.4;
 					    box-sizing: border-box;
 
 					    ">
-					<img src="[IMG_PATH]footer/logo-kmimos-color.png" /> <strong>es la mayor red de cuidadores certificados de M&eacute;xico</strong>, <span style="font-family: gotham-light;font-weight: lighter;">que cuidan a las mascotas en el hogar del cuidador, totalmente libres de jaulas ni encierros, con mas de 1000 cuidadores registrados.
+					<img src="[IMG_PATH]footer/logo-kmimos-color.png" /> <strong>es la mayor red de cuidadores certificados de M&eacute;xico</strong>, <span style="font-family: gotham-light, Arial;font-weight: lighter;">que cuidan a las mascotas en el hogar del cuidador, totalmente libres de jaulas ni encierros, con mas de 1000 cuidadores registrados.
 				</div>
 
 				<div style="height:35px;padding:0px!important;margin:10px 0px!important;background-color: #000; border-top: 5px solid #a4d031"></div>
