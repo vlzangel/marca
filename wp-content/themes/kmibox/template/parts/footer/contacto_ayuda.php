@@ -1,10 +1,3 @@
-<?php
-
-	wp_enqueue_style( 'contacto_ayuda', TEMA()."/css/contacto-ayuda.css" );
-
-	wp_enqueue_style( 'contacto_ayuda_responsive', TEMA()."/css/responsive/contacto-ayuda_responsive.css" );
-	// wp_enqueue_script('contacto_ayuda_script', TEMA()."/js/contacto_ayuda.js" );
-?>
 
 <section id="contacto-ayuda" >
 	<div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;"></div>

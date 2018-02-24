@@ -14,6 +14,17 @@
 
 wp_enqueue_style( 'home_css', TEMA()."/css/home.css", array(), "1.0.0" );
 
+/* BEGIN POPUP Nutriheroes */		
+wp_enqueue_style( 'nutriheroes_modal', TEMA()."/css/nutriheroes.css" );
+wp_enqueue_style( 'nutriheroes_responsive', TEMA()."/css/responsive/nutriheroes_responsive.css" );
+/* END POPUP Nutriheroes   */		
+
+/* BEGIN POPUP Nutriheroes */		
+wp_enqueue_style( 'contacto_ayuda', TEMA()."/css/contacto-ayuda.css" );
+wp_enqueue_style( 'contacto_ayuda_responsive', TEMA()."/css/responsive/contacto-ayuda_responsive.css" );
+/* END POPUP Nutriheroes   */		
+
+get_header(); 
 
 /* BEGIN POPUP Nutriheroes */		
 include_once( 'template/parts/footer/Nutriheroes.php' );
@@ -22,10 +33,9 @@ include_once( 'template/parts/footer/Nutriheroes.php' );
 /* BEGIN POPUP Nutriheroes */		
 include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
+?>
 
 
-
-get_header(); ?>
 
 	<?php echo MENU(); ?>
 	<header id="header" class="row">
