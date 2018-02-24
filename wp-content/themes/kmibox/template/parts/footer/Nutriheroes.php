@@ -1,7 +1,3 @@
-<?php
-	wp_enqueue_style( 'nutriheroes_modal', TEMA()."/css/nutriheroes.css" );
-	wp_enqueue_style( 'nutriheroes_responsive', TEMA()."/css/responsive/nutriheroes_responsive.css" );
-?>
 
 	<div role="dialog" id="nutriheroes" style="visibility: hidden;">
 		<div class="nutri-container" 
