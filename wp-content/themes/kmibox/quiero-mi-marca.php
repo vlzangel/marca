@@ -276,9 +276,10 @@
     <div class="modal-content">
 		<div class="dog-content">
 	        <img src="<?php echo TEMA(); ?>/imgs/dog.png" class="img-responsive dog">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >&times;</span></button>
 		</div>
       <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >&times;</span></button>
+        
       </div>
       <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados, en breve te ayudamos con tu solicitud</div>
       <div class="modal-body row text-center">
