@@ -63,9 +63,12 @@ p .img-center{
 #modal-contacto-marca .close{
 	color:#fff;
     font-weight: lighter;
-    font-size: 12px;
+    font-size: 42px;
     height: 23px;
     font-family: sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 2px;
 }
 #modal-contacto-marca .modal-header{
 	border-bottom: 3px solid #86cc50;
@@ -138,9 +141,11 @@ p .img-center{
 .input-icon input{
 	padding: 6px 34px;
 }
-.help-block{
+
+.has-error .help-block{
 	display: none!important;
 }
+
 .input-icon .inter-input{
     position: absolute;
     bottom: 12px;
@@ -1131,7 +1136,7 @@ margin-top: -40%;
 }
 
 #totales{
-	margin-top:20px;
+	margin-top:0px;
 }
 #totales article{
 	border:1px solid #00d8b5;

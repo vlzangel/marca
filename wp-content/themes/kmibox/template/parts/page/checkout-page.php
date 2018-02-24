@@ -18,6 +18,7 @@
 			</tr>";
 	foreach ($CARRITO["productos"] as $key => $value) {
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
+
 		if( isset($value->edad) ){
 			$suscripciones .= "
 				<tr>

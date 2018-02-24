@@ -1,8 +1,13 @@
 var CARRITO = [];
+var CUPONES = [];
+
+CUPONES["cupones"] = [];
+CUPONES["totalDescuento"] = 0;
+
 CARRITO["cantidad"] = 0;
 CARRITO["productos"] = [];
 
-CARRITO["productos"].push({
+/*CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
 	"plan": "",
@@ -10,6 +15,21 @@ CARRITO["productos"].push({
 	"cantidad": 1,
 	"precio": 0.00,
 	"subtotal": 0.00
+});*/
+
+
+CARRITO["cantidad"] = 1;
+CARRITO["total"] = 1500.00;
+CARRITO["productos"].push({
+	"tamano": "Pequeño",
+	"edad": "Cachorro",
+	"marca": "19",
+	"producto": "125",
+	"plan": "Bimestral",
+	"plan_id": "2",
+	"cantidad": 1,
+	"precio": 750.00,
+	"subtotal": 1500
 });
 
 var mostrar_modal_marca = 1;
@@ -107,11 +127,8 @@ jQuery(document).ready(function() {
 		var TIPO = jQuery(this).val();
 		jQuery('#marca > div').css("display", "none");
 		jQuery('#marca > .tipo_'+TIPO).css("display", "block");
-
 		jQuery('#cant_marcas').html( jQuery('#marca > .tipo_'+TIPO).length );
-
 		reset_flechas_marcas();
-
 	});
 
 	jQuery("#agregar_plan").on("click", function(e){
@@ -183,6 +200,29 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	jQuery("#cupones .cupon_input_container span").on("click", function(e){
+		jQuery.post(
+			TEMA+"/procesos/compra/cupon.php", {
+				cupon: jQuery("#cupones .cupon_input_container input").val(),
+				cupones: CUPONES["cupones"],
+				totalDescuentos: CUPONES["totalDescuento"],
+				total: CARRITO["total"]
+			},
+			function(data){
+				if( data.error == undefined ){
+					CUPONES["cupones"].push( data.cupon );
+					CUPONES["totalDescuento"] = data.totalDescuentos;
+					jQuery("#input_cupon").val("");
+					desgloseDescuentos();
+				}else{
+					alert(data.error);
+				}
+			}, "json"
+		).fail(function(e) {
+			console.log( e );
+	  	});
+	});
+
 	initProductos_y_Planes();
 
 	if( MODIFICACION == "" ){
@@ -192,6 +232,30 @@ jQuery(document).ready(function() {
 	}
 
 });
+
+function desgloseDescuentos(){
+	var cupones_str = "";
+	var descuentos_str = "";
+	if( CUPONES.cupones.length > 0 ){
+		jQuery.each(CUPONES.cupones, function(key, cupon){
+			cupones_str += "<div>"+cupon[0]+"</div>";
+			descuentos_str += "<div>"+'$ '+FN(cupon[1])+' MXN'+" <i class='fa fa-trash' data-id='"+key+"' onclick='quitarCupon(jQuery(this));'></i> </div>";
+		});
+		jQuery("#desgloseDescuentos").css("display", "table-row");
+	}else{
+		jQuery("#desgloseDescuentos").css("display", "none");
+	}
+	jQuery("#cupones_desglose").html(cupones_str);
+	jQuery("#descuentos_desglose").html(descuentos_str);
+	jQuery("#total").html( '$ '+FN(CARRITO["total"]-CUPONES["totalDescuento"])+' MXN' );
+}
+
+function quitarCupon(cupon){
+	var temp = CUPONES.cupones[ cupon.attr("data-id") ];
+	CUPONES.totalDescuento -= temp[1];
+	CUPONES.cupones.splice(cupon.attr("data-id"), 1);
+	desgloseDescuentos();
+}
 
 function reset_flechas_marcas(){
 	var seccion = getSeccion();
@@ -307,6 +371,7 @@ function get_json_cart(){
 	jQuery.each(CARRITO["productos"],  function(key, producto){
 		_json += JSON.stringify( producto )+"|";
 	});
+	_json += "==="+JSON.stringify( CUPONES.cupones )+"|"+CUPONES.totalDescuento+"===";
 	return _json;
 }
 
@@ -339,6 +404,7 @@ function change_fase(fase){
 	}else{
 		location.href = HOME;
 	}
+
 	loadFase(fase);
 }
 
@@ -387,7 +453,9 @@ function loadPresentaciones(){
 					producto.nombre + ' ' + 
 					producto.descripcion + ' ' +
 					MARCAS[producto.marca].nombre
-				;				
+				;
+
+
 			if( BUSQUEDA_REGEXP != '' ){
 				prod_actual["marca"] = '';
 				var re = new RegExp(BUSQUEDA_REGEXP.toLowerCase());
@@ -425,6 +493,7 @@ function loadPresentaciones(){
 			}
 		}
 	});
+
 	jQuery('#cant_precentaciones').html( CANT );
 
 	BUSQUEDA_REGEXP = '';
@@ -450,6 +519,14 @@ function change_title(txt){
 function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripcion, peso, cantidad = 1 ){
 	var hoy = new Date();
 	hoy = parseInt( hoy.getDate() );
+	var msjFrecuencia;
+
+	if (frecuencia === 'Sólo por esta vez'){
+		msjFrecuencia = 'El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label>';	
+	}else{
+		msjFrecuencia = 'El monto mostrado a continuación se cobrará automáticamente <label class="resaltar_desglose">'+frecuencia+'</label> los días '+hoy+' de cada mes';
+	}
+	
 	//if(hoy < 10){ hoy = "0"+hoy; }
 	var HTML = "";
 	HTML += '<tr>';
@@ -458,7 +535,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_movil" style="text-align: center;">';
+	HTML += '	 <td class="solo_movil" id= "prueba" style="text-align: center;">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
@@ -470,10 +547,12 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
-	HTML += '	 	<div class="solo_movil">El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy+'</div>';
+	/*HTML += '	 	<div class="solo_movil">El monto mostrado a continuación se cobrará automáticamente <label class="resaltar_desglose">'+frecuencia+'</label> los días '+hoy+'de cada mes</div>';
+	*/
+	HTML += '	 	<div  class="solo_movil"><div class="solo_movil" >'+msjFrecuencia+'</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
-	HTML += '	 	El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label> de manera automática los días '+hoy;
+	HTML += '	 '+msjFrecuencia+'</label>';	
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
 	HTML += '	 	<label>$ '+FN(price)+' MXN</label>';
@@ -579,6 +658,8 @@ function loadFase(fase){
 			var precio = 0;
 			jQuery.each( CARRITO["productos"],  function(key, producto){
 				var plan = PLANES[ producto['plan_id'] ].meses;
+				var descripcion_mes = PLANES[ producto['plan_id'] ].descripcion_mes;
+
 				if( plan == 0 ){ plan = 1; }
 				var _producto = producto["producto"];
 				var precio_plan = producto["precio"];
@@ -587,7 +668,8 @@ function loadFase(fase){
 					key,
 					producto["producto"],
 					PRODUCTOS[ _producto ].nombre,
-					producto['plan'],
+					//producto['plan'],
+					descripcion_mes,
 					TEMA+"/imgs/productos/"+PRODUCTOS[ producto["producto"] ].dataextra.img,
 					precio_plan,
 					PRODUCTOS[ _producto ].descripcion,

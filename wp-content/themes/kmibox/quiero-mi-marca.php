@@ -179,6 +179,21 @@
 						</thead>
 						<tbody id="cart-items"></tbody>
 					</table>
+
+					<div id="cupones">
+						<table cellspacing=0 cellpadding=0>	
+							<tr>
+								<td> ¿Dispone de un cupón de descuento? </td>
+								<td>
+									<div class="cupon_input_container"> 
+										<input type="text" id="input_cupon" name="input_cupon" />
+										<span>Aplicar</span>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+
 					<div id="totales">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
@@ -193,6 +208,16 @@
 								<th> IVA </th>
 								<td id="iva"> </td>
 							</tr>
+							<tr id="desgloseDescuentos">
+								<th class="" > 
+									Descuentos 
+									<div id="cupones_desglose"></div>
+								</th>
+								<td class="" > 
+									<div>&nbsp;</div> 
+									<div id="descuentos_desglose"></div> 
+								</td>
+							</tr>
 							<tr>
 								<th class="style_total" > Total </th>
 								<td class="style_total" id="total"> </td>
@@ -202,7 +227,6 @@
 				</div>
 				
 				<article class="col-md-12 text-center" style="padding-bottom: 20px;">
-					
 					<span id="agregar_plan" class="btn-kmibox-link-suscription" ><i class="fa fa-plus"></i>Agregar otro plan</span>
 					<span class="btn_pagar" href="#" data-toggle="modal" data-target="#suscription">PAGAR</span>
 				</article>		
@@ -252,21 +276,25 @@
     <div class="modal-content">
 		<div class="dog-content">
 	        <img src="<?php echo TEMA(); ?>/imgs/dog.png" class="img-responsive dog">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >&times;</span></button>
 		</div>
       <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >Cerrar &times;</span></button>
+        
       </div>
       <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados, en breve te ayudamos con tu solicitud</div>
       <div class="modal-body row text-center">
       	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
-	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TUS CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
+	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
 	      	</p>
 	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
 	      	<form method="post" id="form-contacto" action="#">
 	      		<div class="col-md-10 col-md-offset-1 text-center">
 		      		<input type="text" class="form-control" name="email" id="email" placeholder="mi@email.com">
-		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="000 000 00000">
+
+		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="Número de teléfono">
 		      		<input type="text" class="form-control" name="mi_marca" id="mi_marca" placeholder="Producto o marca">
+  					<input type="hidden" name="referencia" value="no-aparece-mi-marca">
+
 		      		<button class="btn-kmibox-send" type="submit">ENVIAR</button>
 	      		</div>
 	      	</form>

@@ -19,7 +19,15 @@
 */
 	$opciones = "";
 	foreach ($ordenes as $key => $value) {
-		$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n Id: {$value->id}</option>";
+		$productos_list = $mis_suscripciones[ $value->id ]["productos"];
+		if( !empty($productos_list) ){		
+			$productos_list_name = '';
+			foreach ($productos_list as $item) {
+				$separador = ( empty($productos_list_name) )? '' : ' - ';
+				$productos_list_name .= $separador . $item['nombre'];
+			}
+			$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n (Id: {$value->id}): {$productos_list_name} </option>";
+		}
 	}
 
 	if( count($mis_suscripciones) > 0 ){

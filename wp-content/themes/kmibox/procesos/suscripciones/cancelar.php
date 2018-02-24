@@ -23,6 +23,8 @@
     );
 
     wp_mail( $email, "Suscripción Cancelada Exitosamente - NutriHeroes", $HTML );
+   
+           
 
 // ----- Copia a los administradores
             $headers = array(

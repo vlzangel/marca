@@ -102,6 +102,7 @@ $order_id = 0;
 					$HTML
 				);
 
+
 			// ----- Copia a los administradores
 			$headers = array(
                'BCC: r.rodriguez@kmimos.la',
@@ -113,7 +114,6 @@ $order_id = 0;
 				$HTML,
 				$headers
 			);
-
 				//print_r("PDF".$pdf);
 
 			echo json_encode(array(
