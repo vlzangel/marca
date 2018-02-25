@@ -107,7 +107,7 @@
 
 
 
-	if( $user_id > 0 ){
+	if( $user_id > 0 && 0==9 ){
 
 		// Inicio - Es usuario de Kmimos 
 			$options = array( 
