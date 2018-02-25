@@ -77,6 +77,7 @@
                     'page'          =>  'subscribers',
                     'icon'          =>  '',
                 ),
+/*
                 array(
                     'title'         =>  __('Cupones'),
                     'short-title'   =>  __('Cupones'),
@@ -86,6 +87,7 @@
                     'page'          =>  'cupones',
                     'icon'          =>  '',
                 )
+*/
             );
 
             foreach($opciones_menu_reporte as $opcion){

@@ -3,7 +3,7 @@
 	include( dirname(__DIR__)."/lib/openpay/Openpay.php" );
 
 	function dataOpenpay(){
-		$OPENPAY_PRUEBAS = 0;
+		$OPENPAY_PRUEBAS = 1;
 		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
 
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
@@ -86,6 +86,8 @@
 	}
 
 	function aplicarDescuentos(){
+		return;
+		
 		global $wpdb;
 		if( !isset($_SESSION) ){ session_start(); }
 	 	$current_user = wp_get_current_user();
