@@ -107,7 +107,7 @@
 
 
 
-	if( $user_id > 0 && 0==9 ){
+	if( $user_id > 0 ){
 
 		// Inicio - Es usuario de Kmimos 
 			$options = array( 
@@ -115,6 +115,7 @@
 				'email' => $email
 			);
 			
+/*
 		    Requests::register_autoloader();
 		    $request = Requests::post('http://kmimosmx.sytes.net/QA2/services/users.php', array(), $options );
 		    $is_user_kmimos = "NO";
@@ -122,7 +123,7 @@
 		    	$is_user_kmimos = "SI";
 		    }
 			update_user_meta( $user_id, 'is_user_kmimos', $is_user_kmimos );
-
+*/
 		// Fin - Es usuario de Kmimos 
 
 		// Inicio - Actualizando información del usuario 
