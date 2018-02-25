@@ -1,17 +1,57 @@
+@media (min-width: 651px) and (max-width: 991px){
+	
+	#nutriheroes .nutri-title {
+	    font-size: 25px;
+	    position: relative;
+	    top: 10px;
+	}
+	
+	#nutriheroes .nutri-container {
+		width: 100%;
+    	max-width: 400px;
+	}
+}
 
+@media (min-width: 992px){
+	
+	#nutriheroes .nutri-body {
+	    padding: 0px 10px;
+	    position: relative;
+	    top: 3px;
+	    left: 5px;	
+	}
+
+	#nutriheroes .nutri-title {
+	    position: relative;
+	    top: 10px;
+
+	}
+
+	#nutriheroes .nutri-subtitle {
+	    font-size: 25px;
+	    margin-bottom: 0px;
+	    margin-top: 12px;
+	}
+}
  
+
 @media (max-width: 991px){
 
 	#nutriheroes .nutri-container{
 		width: 100%;
 		max-width: 720px;
+		/*height: 51%;*/
 	}
 	#nutriheroes .nutri-title{
 		font-size: 25px;
+		/*position: relative;
+    	top: 10px*/
 	}
 	#nutriheroes .nutri-subtitle{
 		font-size: 25px;
 		margin-bottom: 0px;
+		margin-top: 12px;
+
 	}
 	.nutri-sin-costo{
 	    width: 70px;
@@ -84,6 +124,8 @@
 		/*
 		height: calc( 100% - 56px );
 		*/
+		position: relative;
+    	top: 10px;
 	}
 	.logo{
 		display: none;
@@ -104,7 +146,7 @@
 	}
 
 	#nutriheroes .nutri-container{
-		width: 100%;
+		width: 91%;
 		max-width: 400px;
 		background: #dfffba url(../../imgs/popup-nutriheroes/background-mobile1.png) no-repeat right bottom!important;
 	}
@@ -151,10 +193,82 @@
 
 
 }
+
+@media(min-width: 366px) and (max-width: 408px){
+
+	.nutri-sin-costo {
+	    width: 53px!important;
+	    left: initial;
+	    position: absolute;
+	    top: 50px;
+	    right: 5px!important;
+	   
+	}
+}
+
+@media (max-width: 365px){
+
+	.nutri-container{
+		width: 91% !important;
+		position: relative;
+    	top: 10px;
+	}
+	.footer-mobile {
+	    position: relative;
+	    bottom: 0px;
+	    right: 6px;
+	    display: inline-block;
+	    width: 100%;
+	    top: -14px
+	}
+
+	
+	.nutri-pasos .nutri-text {
+	    color: black;
+	    background-color: transparent;
+	    font-weight: bold;
+	    font-size: 11px;
+	}
+
+
+	#nutriheroes .nutri-title{
+		font-size: 15px;
+	}
+	#nutriheroes .nutri-subtitle{
+	    font-size: 16px;
+	    margin-top: 0px;	
+	}
+	.nutri-sin-costo {
+	    width: 60px;
+	    top: 25px;
+	}
+}
  
 @media (max-width: 343px){
-	.nutri-pasos .nutri-paso-text {
+
+	.nutri-container{
+		width: 91% !important;
+		position: relative;
+    	top: 10px;
 	}
+	.footer-mobile {
+	    position: relative;
+	    bottom: 0px;
+	    right: 6px;
+	    display: inline-block;
+	    width: 100%;
+	    top: -14px
+	}
+
+	
+	.nutri-pasos .nutri-text {
+	    color: black;
+	    background-color: transparent;
+	    font-weight: bold;
+	    font-size: 10px;
+	}
+
+
 	#nutriheroes .nutri-title{
 		font-size: 15px;
 	}

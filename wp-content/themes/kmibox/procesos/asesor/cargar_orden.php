@@ -100,6 +100,7 @@
 					"productos" => [
 						$temp_product
 					], 
+					"descuentos"=> [],
 					"total"=> $temp_product->subtotal
 				];
 

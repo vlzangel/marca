@@ -14,17 +14,28 @@
 
 wp_enqueue_style( 'home_css', TEMA()."/css/home.css", array(), "1.0.0" );
 
+/* BEGIN POPUP Nutriheroes */		
+wp_enqueue_style( 'nutriheroes_modal', TEMA()."/css/nutriheroes.css" );
+wp_enqueue_style( 'nutriheroes_responsive', TEMA()."/css/responsive/nutriheroes_responsive.css" );
+/* END POPUP Nutriheroes   */		
+
+/* BEGIN POPUP Nutriheroes */		
+wp_enqueue_style( 'contacto_ayuda', TEMA()."/css/contacto-ayuda.css" );
+wp_enqueue_style( 'contacto_ayuda_responsive', TEMA()."/css/responsive/contacto-ayuda_responsive.css" );
+/* END POPUP Nutriheroes   */		
+
+get_header(); 
 
 /* BEGIN POPUP Nutriheroes */		
 include_once( 'template/parts/footer/Nutriheroes.php' );
 /* END POPUP Nutriheroes   */		
 
-/* BEGIN POPUP Nutriheroes */		
+/* BEGIN POPUP Nutriheroes */
+include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
+?>
 
 
-
-get_header(); ?>
 
 	<?php echo MENU(); ?>
 	<header id="header" class="row">
@@ -34,7 +45,7 @@ get_header(); ?>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">
 				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
-				<h2>El camino a una correcta nutrición</h2>
+				<h2 style="font-size:21; position: relative; top: -10px!important;"> El camino a una correcta nutrición</h2>
 				<br>
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">
 					COMPRAR
@@ -45,9 +56,8 @@ get_header(); ?>
 
 	<section id='section-comment' class="row text-center ">
 		<div class="container ">
-			<h3>Las mejores marcas de alimento para tu peludo al mejor precio
-				<!-- <br class="hidden-sm hidden-xs">
-				a tu casa u oficina, sin costo de envío -->
+			<h3>
+				Las mejores marcas de alimento para tu peludo al mejor precio
 			</h3>
 		</div>
 	</section>
@@ -82,13 +92,17 @@ get_header(); ?>
 	<section id="home-opciones" class="row text-center ">		
 		<div class="container">
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 80%;" >
-			<label>
-				Si encuentras un precio más barato,
-				<br>
-			    <span>¡MUESTRÁNOS TU TICKET Y LO MEJORAMOS!<font style="font-size:35">* </font> </span>
+
+			<label id="si-encuentras-precio" >
+					<span>¡Si encuentras un precio más barato,</span>
+				    muéstranos tu ticket y lo mejoramos!
 			</label>
 			<br>
-			<p>*Precios de veterinaria o tiendas</p>
+			<p id="precio-vet">
+					Precios de veterinaria o tiendas*
+				
+			</p>
+
 		</div>
 	</section>
  
@@ -133,21 +147,20 @@ get_header(); ?>
 
 	<section id="regalasela-amigo" class="row text-center">
 		<div class="container">
-			<h2>
-				¡Regálasela a un amigo o un familiar!
+			<h2 id="quiero-convertirme-asesor">
+				Quiero convertirme en asesor
 			</h2>
 			<div class="col-sm-12">
-				<img src="<?php echo get_home_url(); ?>/img/Box-01.svg" id="regalo" class="img-responsive" >
+				<img src="<?php echo get_home_url(); ?>/img/asesor.png" >
 			</div>
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
 				<p>
-					Regala el alimento nutritivo y necesario que todo amiguito peludo necesita,
-					él se nutre y tu amigo o familiar no se preocupa más
+					¿Quieres convertirte en asesor nutricional canino y formar parte de nuestro equipo? Clic aquí y te explicaremos cómo. 
 				</p>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id="asesor">
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" 
-					class="btn-kmibox">COMPRAR</a> 
+					class="btn-kmibox">QUIERO CONVERTIRME EN ASESOR</a> 
 			</div>
 		</div>
 	</section>

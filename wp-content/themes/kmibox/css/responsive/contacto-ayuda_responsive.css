@@ -1,102 +1,362 @@
 
- 
-@media (min-width: 2559px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 55px!important;
-	}
-	#contacto-ayuda .ayuda-form .form-control{
-		height: 60px;
-	    font-size: 28px;
-	}
-	#contacto-ayuda .ayuda-form button {
-	    font-size: 25px!important;
-	    padding: 11px 50px!important;
-	}
-}
-@media (max-width: 2558px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 30px!important;
-	}
-}
-@media (max-width: 1440px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 35px!important;
-	}
-}
-@media (max-width: 1024px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 25px!important;
-	}
-}
-@media (max-width: 992px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 24px!important;
-	}
-}
-@media (max-width: 768px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 23px!important;
-	    text-align: center;
-	    text-align: left;
-	    margin-left: 0px;
-	}
-	#contacto-ayuda .ayuda-texto,
-	#contacto-ayuda .ayuda-form{
-		width: 75%;
-		float: right;
-	}
-	#contacto-ayuda .ayuda-form form{
-		margin-bottom: 1em;
-	}
-	#contacto-ayuda .ayuda-form button{
-	    height: 26px;
-	    float: left;
 
+/* ******************************* *
+ * Large devices
+ * ******************************* */
+	@media (min-width: 2827px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 500%;
+		}
+		#contacto-ayuda .ayuda-form .form-control {
+		    width: 80%;
+		    margin: 5px auto;
+		    height: 80px;
+		    border-radius: 60px;
+		    border: 5px solid #848383;
+		    font-size: 35px;
+		}
+		#contacto-ayuda .ayuda-form button {
+		    font-size: 35px!important;
+		    padding: 2px 39px 2px 40px!important;
+		}
 	}
-	#contacto-ayuda .ayuda-form .form-control{
-		width: 33.3%;
-		margin: 0px 5px 5px 0px;
-	    height: 26px;
-	    float: left;
-	    display: inline-block!important;
-	    vertical-align: middle!important;
-	    float: left;
+	@media (max-width: 2826px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 459%;
+		}
+		#contacto-ayuda .ayuda-form .form-control {
+		    width: 80%;
+		    margin: 5px auto;
+		    height: 80px;
+		    border-radius: 60px;
+		    border: 5px solid #848383;
+		    font-size: 35px;
+		}
+		#contacto-ayuda .ayuda-form button {
+		    font-size: 35px!important;
+		    padding: 2px 39px 2px 40px!important;
+		}
 	}
-	#contacto-ayuda img {
-	    width: 23%;
-	    position: absolute;
-	    bottom: 0px;
+	@media (max-width: 2598px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 429%;
+		}
 	}
-}
-@media (max-width: 425px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 13px!important;
-	    margin-top: 2px;
+	@media (max-width: 2430px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 409%;
+		}
 	}
-	#contacto-ayuda .ayuda-form button{
-	    width: 26%;
+	@media (max-width: 2319px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 389%;
+		}
 	}
-	#contacto-ayuda img {
-	    width: 27%;
+	@media (max-width: 2207px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 360%;
+		}
+		#contacto-ayuda .ayuda-form .form-control {
+		    width: 80%;
+		    margin: 5px auto;
+		    height: 70px;
+		    border-radius: 60px;
+		    border: 5px solid #848383;
+		    font-size: 25px;
+		}
+		#contacto-ayuda .ayuda-form button {
+		    font-size: 35px!important;
+		    padding: 2px 30px 2px 30px!important;
+		}
 	}
-	#contacto-ayuda .ayuda-texto, #contacto-ayuda .ayuda-form {
-	    width: 70%;
+	@media (max-width: 2045px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 340%;
+		}
+		#contacto-ayuda .ayuda-form .form-control {
+		    width: 80%;
+		    margin: 5px auto;
+		    height: 60px;
+		    border-radius: 60px;
+		    border: 5px solid #848383;
+		    font-size: 25px;
+		}
+		#contacto-ayuda .ayuda-form button {
+		    font-size: 25px!important;
+		    padding: 2px 25px 2px 25px!important;
+		}
 	}
-}
-@media (max-width: 375px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 12px!important;
+	@media (max-width: 1934px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 306%;
+		}
 	}
-	#contacto-ayuda .ayuda-form button {
-	    font-size: 10px!important;
+	@media (max-width: 1744px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 274%;
+		}
 	}
-}
-@media (max-width: 320px){
-	#contacto-ayuda .ayuda-texto h2 {
-	    font-size: 9px!important;
+	@media (max-width: 1566px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 254%;
+		}
+		#contacto-ayuda .ayuda-form .form-control {
+		    width: 80%;
+		    margin: 5px auto;
+		    height: 45px;
+		    border-radius: 60px;
+		    border: 5px solid #848383;
+		    font-size: 25px;
+		}
+		#contacto-ayuda .ayuda-form button {
+		    font-size: 20px!important;
+		    padding: 2px 25px 2px 25px!important;
+		}
 	}
-	#contacto-ayuda .ayuda-form button {
-	    font-size: 9px!important;
-	    padding: 2px 5px 2px 5px!important;
+	@media (max-width: 1455px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 229%;
+		}
 	}
-}
+	@media (max-width: 1315px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 215%;
+		}
+	}
+	@media (max-width: 1240px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 200%;
+		}
+		#contacto-ayuda .ayuda-form .form-control {
+		    height: 30px;
+		    font-size: 20px;
+		    border: 3px solid #848383;
+		}
+		#contacto-ayuda .ayuda-form button {
+		    font-size: 15px!important;
+		}
+	}
+
+/* ******************************* *
+ * Medium devices
+ * ******************************* */
+	@media (max-width: 1155px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 180%;
+		}
+	}
+	@media (max-width: 1042px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 25px;
+		}
+	}
+	@media (max-width: 1035px){
+		#contacto-ayuda .ayuda-texto h2 {
+		    font-size: 24px!important;
+		}
+	} 
+	@media (max-width: 995px){
+		#contacto-ayuda .ayuda-texto h2 {
+		    font-size: 23.5px!important;
+		}
+	}
+
+/* ******************************* *
+ * Small devices
+ * ******************************* */
+	@media (max-width: 992px){
+
+		/* ************************* *
+		 * Seccion #1 - Imagenes 
+		 * ************************* */
+		#contacto-ayuda .ayuda-imagen{
+			width: 30%;
+		}
+		#contacto-ayuda .ayuda-imagen img{
+			margin-right: 0px;
+			width: 74%;
+		}
+
+		/* ************************* *
+		 * Seccion #2 - Textos 
+		 * ************************* */
+		#contacto-ayuda .ayuda-texto{
+			width: 69%;
+			margin: 0 auto; 
+		}
+		#contacto-ayuda .ayuda-texto h2 {
+			font-size: 218%!important;
+			margin-bottom: 8px;
+			line-height: 1.4;
+		}
+
+		/* *************************
+		 * Seccion #3 - Formulario
+		 * ************************* */
+		#contacto-ayuda .ayuda-form{
+			width: 100%;
+			text-align: left;
+		}
+		#contacto-ayuda .ayuda-form button{
+			font-size: 15px!important;
+		}
+		#contacto-ayuda .ayuda-form .form-control{
+			width: 41%;
+			margin: 0px 5px 20px 5px;
+			height: 50px;
+			border-radius: 25px;
+			border: 5px solid #848383;
+			display: inline-block;
+		}
+	}
+	@media (max-width: 927px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 180%!important;
+			margin-bottom: 0px;
+			margin-top: 0px;
+		}
+	}
+	@media (max-width: 770px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 176%!important;
+			margin-bottom: 0px;
+			margin-top: 0px;
+		}
+	}
+
+
+/* ******************************* *
+ * Extra Small devices
+ * ******************************* */
+	@media (max-width: 755px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 160%!important;
+			margin-bottom: 0px;
+			margin-top: 0px;
+		}
+	}
+	@media (max-width: 740px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 140%!important;
+			margin-bottom: 0px;
+			margin-top: 0px;
+		}
+		#contacto-ayuda .ayuda-form .form-control{
+			width: 38%;
+		}
+	}
+	@media (max-width: 614px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 140%!important;
+			margin-bottom: 0px;
+			margin-top: 0px;
+		}
+		#contacto-ayuda .ayuda-form .form-control{
+			width: 36%;
+		}
+		#contacto-ayuda .ayuda-form button{
+			width: 19%;
+		}
+	}
+	@media (max-width: 605px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 129%!important;
+		}
+	}
+	@media (max-width: 560px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 114%!important;
+		}
+	}
+	@media (max-width: 499px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 15px!important;
+		}
+		#contacto-ayuda .ayuda-form .form-control{
+			height: 40px;
+			font-size: 16px;
+		}
+		#contacto-ayuda .ayuda-form button{
+			width: 19%;
+		}
+	}
+	@media (max-width: 470px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 13px!important;
+		}
+	}
+	@media (max-width: 423px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 12.5px!important;
+		}
+		#contacto-ayuda .ayuda-form button{
+			padding:2px 10px 2px 11px!important;
+		}
+	}
+	@media (max-width: 399px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 12px!important;
+		}
+	}
+	@media (max-width: 385px){
+		#contacto-ayuda .ayuda-texto{
+			width: 66%;
+			margin: 0 auto; 
+		}
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 9px!important;
+		}
+		#contacto-ayuda .ayuda-form .form-control{
+			font-size: 10px;
+			border-width: 3px;
+			margin:0px 0px 20px 6px;
+		}
+		#contacto-ayuda .ayuda-form button {
+		    font-size: 13px!important;
+		}
+	}
+	@media (max-width: 375px){
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 10px!important;
+		}
+	}
+	@media (max-width: 310px){
+		#contacto-ayuda .ayuda-texto{
+			width: 66%;
+			margin: 0 auto; 
+		}
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 9px!important;
+		}
+		#contacto-ayuda .ayuda-form .form-control{
+			border-width: 3px;
+		}
+		#contacto-ayuda .ayuda-form button{
+			padding:2px 10px 2px 11px!important;
+			font-size: 13px!important;
+		}
+	}
+	@media (max-width: 266px){
+		#contacto-ayuda{
+			background: #fff;
+		}
+		#contacto-ayuda .ayuda-texto{
+			width: 60%;
+			margin: 0 auto; 
+		}
+		#contacto-ayuda .ayuda-texto h2{
+			font-size: 7px!important;
+		}
+		#contacto-ayuda .ayuda-form .form-control{
+			border-width: 3px;
+			height: 29px;
+			width: 48%;
+			margin: 0px 2px 2px 0px;
+		}
+		#contacto-ayuda .ayuda-form button{
+			padding:2px 10px 2px 11px!important;
+			font-size: 13px!important;
+			width: 98%;
+			margin-bottom: 5px;
+		}
+	}

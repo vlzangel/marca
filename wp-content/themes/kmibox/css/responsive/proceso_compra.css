@@ -159,7 +159,7 @@
 		margin: 0 auto;
 	}
 	.modal-dialog {
-	    width: 95%;
+	    width: 88%;
 	}
 
 	.opciones_pago label {
@@ -182,8 +182,15 @@
 	}
 }
 
+
+
 @media (max-width: 769px) {
 
+
+	#prueba{
+		position: relative;
+		top: 19px;
+	}
 	.carrousel-items-containers {
 		height: calc( 100% - 155px );
 	    margin: 85px 0px 0px;
@@ -237,6 +244,8 @@
 	.solo_movil{
 		display: block;
 	}
+
+	
 
 	.solo_pc{
 		display: none;
@@ -336,6 +345,11 @@
 		font-size: 11px;
 	}
 
+	#prueba{
+		position: relative;
+		top: 57px;
+	}
+
 }
 
 @media (max-width: 600px){
@@ -369,7 +383,7 @@
 	}
 
 	#desglose td {
-	    padding: 5px 10px;
+	    /*padding: 5px 10px;*/
 	}
 
 	.carrusel_2 > div img {
@@ -540,7 +554,7 @@
 	}
 
 	#desglose td * {
-	    font-size: 8px;
+	    font-size: 14px;
 	}
 
 	#totales table th {
@@ -637,6 +651,11 @@
 
 @media (max-width: 400px){
 
+	#prueba{
+		position: relative;
+		top: 57px;
+	}
+
 	.msg_desplazar {
 	    font-size: 11px;
 	}
@@ -672,6 +691,11 @@
 }
 
 @media (max-width: 350px){
+
+	#prueba{
+		position: relative;
+		top: 96px;
+	}
 
 	#vlz_titulo {
 	    top: 54px;

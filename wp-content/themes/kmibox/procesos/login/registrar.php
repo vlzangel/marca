@@ -45,6 +45,15 @@
 			        query( $new_user );
 	        		$user_id = insert_id();
 
+
+
+					$new_asesor = "INSERT INTO asesores(codigo_asesor, nombre, email) 
+					VALUES ('".$codigo_asesor."','Sin Nombre Temporal','".$correo_asesor."')";
+					
+			        query( $new_asesor );
+	        		$asesor_id = insert_id();
+
+
 					$user = new WP_User( $user_id );
 		    		$user->set_role( 'subscriber' );
 
@@ -71,6 +80,8 @@
 					    	)
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
+						
+	        
 
 // ----- Copia a los administradores
 			$headers = array(
@@ -131,6 +142,7 @@
 			update_user_meta( $user_id, 'dir_ciudad', 			$dir_ciudad 		);
 			update_user_meta( $user_id, 'dir_colonia', 			$dir_colonia 		);
 			update_user_meta( $user_id, 'dir_codigo_postal', 	$dir_codigo_postal 	);
+			update_user_meta( $user_id, 'asesor_registro', 		$asesor_id			);
 
 			$msg = 'Carga de usuario completo';
 

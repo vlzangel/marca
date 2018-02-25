@@ -1,7 +1,6 @@
 <?php 
 
 	if( !isset($_SESSION) ){ session_start(); }
-
 	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
 
     setZonaHoraria();
@@ -15,6 +14,7 @@
 
  	$_productos = get_productos();
     $CARRITO = unserialize( $_SESSION["CARRITO"] );
+    
     if( !isset($CARRITO["orden_id"]) ){
  		$orden_id = crearPedido();
  		$CARRITO["orden_id"] = $orden_id;
@@ -149,7 +149,6 @@
 	    		"NUMERO" => $_tarjeta,
 	    		"MES" => $exp_month,
 	    		"ANIO" => $exp_year,
-	    		"CVV" => $cvv,
 	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
 	    	)
 	    );
@@ -160,6 +159,9 @@
                'BCC: r.cuevas@kmimos.la',
 	        );
 	    wp_mail( 'i.cocchini@kmimos.la', "Pago Recibido - NutriHeroes", $HTML, $headers );
+
+	    
+	       
 
 	    crearCobro( $orden_id, $charge->id );
 

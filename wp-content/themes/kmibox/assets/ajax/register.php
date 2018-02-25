@@ -51,7 +51,8 @@ if( $user_id < 1 ){
 					$HTML,
 					$headers
 				);
-				/* Autenticar */
+ 
+ 				/* Autenticar */
 				if( !empty($password) && !empty($email) ){	
 					$r = kmibox_login([
 						'user_login' => $email,

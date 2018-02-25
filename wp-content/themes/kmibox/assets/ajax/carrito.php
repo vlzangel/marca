@@ -4,9 +4,15 @@
 
 	$data = explode("===", $_POST["CART"]);
 
+	$descuentos = explode("|", $data[3]);
+	$descuentos[0] = json_decode($descuentos[0]);
+	$descuentos[1] = json_decode($descuentos[1]);
+
 	$info = array(
-		"total" => $data[0],
-		"cantidad" => $data[1]
+		"total" => $data[0]-json_decode($descuentos[1]),
+		"cantidad" => $data[1],
+		"descuentos" => $descuentos[0],
+		"totalDescuentos" => $descuentos[1]
 	);
 
 	$productos = explode("|", $data[2]);
