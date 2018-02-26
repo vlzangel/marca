@@ -44,7 +44,7 @@
 
 		$customer = $openpay->customers->get($openpay_cliente_id);
 
-		$due_date = date('Y-m-d\TH:i:s', strtotime('+ 48 hours'));
+		$due_date = date('Y-m-d\TH:i:s', strtotime('+ 5 day'));
 
 		$chargeRequest = array(
 		    'method' => 'store',
