@@ -122,7 +122,7 @@
 
 				r = $.parseJSON(r);
 				jQuery(".btn-register_").attr("disabled", false);
-				jQuery(".btn-register_").html("Registrarme");
+				jQuery(".btn-register_").html("Enviar Orden");
 
 
 				if(r['code'] == 1){

@@ -1,5 +1,3 @@
-
-
 <?php 
 
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
@@ -184,7 +182,7 @@
 				<div class="row row-special">
 					<div class="col-md-12" style="padding-top: 20px;">	
 						<div class="text-center">
-							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Suscribir</button>
+							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Enviar Orden</button>
 							<!-- div id="error_registrando"> Por favor revisar tus datos arriba, hay algún campo incompleto </div> 
 							<div id="success_registrando"> Datos almacenados </div -->
 	 					</div>
