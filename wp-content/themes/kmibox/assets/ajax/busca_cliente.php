@@ -13,6 +13,10 @@
         $telef_movil = get_user_meta($cliente->id, 'telef_movil', true);
         $first_name =  get_user_meta($cliente->id, 'first_name', true);
         $last_name =  get_user_meta($cliente->id, 'last_name', true);
+        $asesor =  get_user_meta($cliente->id, 'asesor_registro', true);
+
+        if( $asesor == "" ){ $asesor =  get_user_meta($cliente->id, 'asesor', true); }
+        if( $asesor == "" ){ $asesor =  0; }
 
         echo json_encode(
             [
@@ -21,6 +25,7 @@
                 'telefono' => $telef_movil,
                 'nombre' => $first_name,
                 'apellido' => $last_name,
+                'asesor' => $asesor,
             ] 
         );
     }else{

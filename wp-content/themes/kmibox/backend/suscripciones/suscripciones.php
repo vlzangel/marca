@@ -19,8 +19,11 @@
                 <th width="100">Fecha suscripci&oacute;n</th>
                 <th>Cliente</th>
                 <th>Producto(s)</th>
+                <th>Precio(s)</th>
                 <th>Proximo Cobro</th>
+                <th>ID Asesor</th>
                 <th>Asesor</th>
+                <th>Email Asesor</th>
             </tr>
         </thead>
         <tbody></tbody>

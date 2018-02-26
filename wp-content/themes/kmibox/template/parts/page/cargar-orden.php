@@ -36,7 +36,7 @@
 						<div class="row">
 							<div class="col-md-6 form-group">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-								<input data-charset="num" type="text" name="codidoasesor[]" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  maxlength="40" />
+								<input data-charset="num" type="text" name="codidoasesor" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  maxlength="40" />
 							</div>
 							<div class="col-md-6 form-group">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
@@ -64,6 +64,7 @@
 					<small style="font-size:15px"> Campos obligatorios</small>
 				</div>
 				<input type="hidden" class="hidden" value="" name="user_id" id="user_id">
+				<input type="hidden" class="hidden" value="" name="user_asesor_id" id="user_asesor_id">
 				<div class="row row-special campos-obligatorios hidden" id="small2">
 					<span class="fa fa-asterisk" aria-hidden="false" id="fa-asesor"></span>
 					<small id="sin_cliente"></small>
