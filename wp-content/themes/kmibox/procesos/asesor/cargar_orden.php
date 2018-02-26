@@ -63,12 +63,9 @@
 		    	)
 		    );
 		    wp_mail( $emailsus, "Bienvenido a NutriHeroes", $HTML );
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-		    wp_mail( 'i.cocchini@kmimos.la', "Bienvenido a NutriHeroes", $HTML, $headers );
+ 
+		    mail_admin_nutriheroes( "Bienvenido a NutriHeroes", $HTML );
+	 
 		}
 
 	// Cargar registro de venta del asesor
@@ -136,6 +133,13 @@
 						if( $_POST["error"] == '' ){
 							$result['code'] = 1;
 							$result['orden_id'] = $orden_id;
+
+							if( !empty($_POST['EMAIL_NUEVA_COMPRA']) ){
+								$HTML = $_POST['EMAIL_NUEVA_COMPRA'];
+								$asesor_email = get_email_asesor( $orden_id );
+					
+		    					wp_mail( $asesor_email, "Pago en Tienda - NutriHeroes", $HTML );
+							}
 						}  
 						break;
 					
@@ -193,14 +197,12 @@
 						    		"TOTAL" => $temp_product->subtotal,
 						    	)
 						    );
+
+
 						    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );						   
-						    wp_mail( 'i.cocchini@kmimos.la', "Solicitud de Compra en NutriHeroes", $HTML, $headers );
-						    
+ 
+						    $asesor_email = get_email_asesor( $orden->id );
+						    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML, $asesor_email );
 	        
 							$result['code'] = 1;
 					    }					

@@ -218,13 +218,9 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
-
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-		 	wp_mail( 'i.cocchini@kmimos.la', "Suscripción Modificada Exitosamente - NutriHeroes", $HTML, $headers );
+ 
+		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
+ 
 		 	
 		}
 
@@ -361,8 +357,6 @@
 		return $_despachos;
 	}
 
-
-
 	function getProductosDesglose($id_orden){
 		global $wpdb;
 		$_planes = get_planes();
@@ -381,6 +375,21 @@
 	    	);
 	    }
 		return $_productos;
+	}
+
+	function get_email_asesor( $orden_id ){
+		global $wpdb;
+
+		$asesor = $wpdb->get_row( 
+			"select a.email as email from ordenes as o inner join asesores as a ON a.id = o.asesor where o.id = {$orden_id}"
+		);
+
+		$asesor_email = [];
+		if( isset($asesor->email) ){
+			$asesor_email = [ $asesor->email ];
+		}
+
+		return $asesor_email;
 	}
 
 ?>

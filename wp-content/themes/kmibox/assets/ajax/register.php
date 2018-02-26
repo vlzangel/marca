@@ -40,19 +40,10 @@ if( $user_id < 1 ){
 					"Usuario registrado NutriHeroes", 
 					$HTML
 				);
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-				wp_mail(
-					'i.cocchini@kmimos.la', 	
-					"Usuario registrado NutriHeroes", 
-					$HTML,
-					$headers
-				);
- 
- 				/* Autenticar */
+
+				mail_admin_nutriheroes(	"Usuario registrado NutriHeroes", $HTML)				
+				
+				/* Autenticar */
 				if( !empty($password) && !empty($email) ){	
 					$r = kmibox_login([
 						'user_login' => $email,

@@ -55,13 +55,13 @@ jQuery(document).ready(function() {
 		jQuery('input[data-target="search"]').val( str );
 		
 		var REGEXP_SIN_ESPACIO = "";
-		var REGEXP_CON_ESPACIO    = str.trim().replace(/(\s{1,})/g, "|");
+		var REGEXP_CON_ESPACIO = str.trim().replace(/(\s{1,})/g, "|");
 		
 		if( REGEXP_CON_ESPACIO != ""){
 			REGEXP_SIN_ESPACIO = "|"+str.trim().replace(/(\s{1,})/g, "");
 		}
 		BUSQUEDA_REGEXP = "("+REGEXP_CON_ESPACIO+REGEXP_SIN_ESPACIO+")";
-		console.log(BUSQUEDA_REGEXP);
+		//console.log(BUSQUEDA_REGEXP);
 
 		change_fase(3);
 	});

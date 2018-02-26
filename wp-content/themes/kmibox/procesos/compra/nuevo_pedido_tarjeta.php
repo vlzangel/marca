@@ -152,17 +152,13 @@
 	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
 	    	)
 	    );
+
+		
+
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-	    wp_mail( 'i.cocchini@kmimos.la', "Pago Recibido - NutriHeroes", $HTML, $headers );
-
-	    
-	       
-
+ 
+	    mail_admin_nutriheroes( "Pago Recibido - NutriHeroes", $HTML );
+ 
 	    crearCobro( $orden_id, $charge->id );
 
     	unset($_SESSION["CARRITO"]);
