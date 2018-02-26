@@ -22,7 +22,7 @@
 		if( isset($value->edad) ){
 			$suscripciones .= "
 				<tr>
-					<td class=''>
+					<td>
 						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
 						<div class='solo_movil' style='text-transform: uppercase; font-family: GothanMedium_regular;'>
 							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
@@ -36,7 +36,7 @@
 							<div>El cobro de tu suscripción se hará <label style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
 						</div>
 					</td>
-					<td class='info solo_pc'>
+					<td class='info solo_pc' style='min-width: 200px;'>
 						<div>
 							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
 							<div>".$productos[ $value->producto ]->descripcion."</div>
