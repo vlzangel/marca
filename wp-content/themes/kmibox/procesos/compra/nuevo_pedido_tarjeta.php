@@ -155,22 +155,20 @@
 
 		// Buscar email del asesor
 		$asesor = $wpdb->get_var( 
-			"select a.email 
-				from ordenes as o 
-					inner join asesores as a ON a.id = o.asesor
-				where o.id = {$orden_id}" );
+			"select a.email from ordenes as o inner join asesores as a ON a.id = o.asesor where o.id = {$orden_id}", "email" 
+		);
 		if( !empty($asesor) ){
 			$asesor = [$asesor];
 		}else{
 			$asesor = [];
 		}
 
+print_r($asesor);
+
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
+ 
 	    mail_admin_nutriheroes( "Pago Recibido - NutriHeroes", $HTML, $asesor );
-
-	    
-	       
-
+ 
 	    crearCobro( $orden_id, $charge->id );
 
     	unset($_SESSION["CARRITO"]);

@@ -103,7 +103,6 @@ $order_id = 0;
 				);
 				
 				mail_admin_nutriheroes("Pago tienda por conveniencia",$HTML);		      
-
 				//print_r("PDF".$pdf);
 
 			echo json_encode(array(

@@ -85,7 +85,12 @@
 	    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
 	    mail_admin_nutriheroes( "Pago en Tienda - NutriHeroes", $HTML, $asesor );
 
-	    
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.cuevas@kmimos.la',
+	        );
+	    wp_mail( 'i.cocchini@kmimos.la', "Pago en Tienda - NutriHeroes", $HTML, $headers );
 
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();

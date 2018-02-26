@@ -422,7 +422,7 @@
 @media ( max-width: 500px ) {
 
 	.msg_desplazar {
-	    bottom: 50px;
+	    bottom: 40px;
 	    text-align: center;
 	    font-size: 12px;
 	    width: 100%;
@@ -699,7 +699,7 @@
 
 	#vlz_titulo {
 	    top: 54px;
-	    font-size: 12px;
+	    font-size: 11px;
 	    width: calc( 100% - 20px );
 	}
 
@@ -731,4 +731,22 @@
 		#presentaciones .peso_producto_box {
 		    font-size: 14px;
 		}
+}
+
+
+
+@media (max-height: 600px){
+	#presentaciones .title_producto_box {
+	    font-size: 12px !important;
+	}
+	#presentaciones .descripcion_producto_box, #presentaciones .peso_producto_box {
+	    font-size: 10px !important;
+	}
+	#presentaciones .title_producto_box {
+	    font-size: 12px !important;
+	}
+
+	#presentaciones {
+	    height: calc( 100% - 210px ) !important;
+	}
 }

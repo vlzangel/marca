@@ -180,7 +180,7 @@
 						<tbody id="cart-items"></tbody>
 					</table>
 
-					<div id="cupones">
+					<div id="cupones" class="hidden">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
 								<td> ¿Dispone de un cupón de descuento? </td>
@@ -290,9 +290,11 @@
 	      	<form method="post" id="form-contacto" action="#">
 	      		<div class="col-md-10 col-md-offset-1 text-center">
 		      		<input type="text" class="form-control" name="email" id="email" placeholder="mi@email.com">
+
 		      		<input type="text" class="form-control" name="phone" id="phone" placeholder="Número de teléfono">
 		      		<input type="text" class="form-control" name="mi_marca" id="mi_marca" placeholder="Producto o marca">
   					<input type="hidden" name="referencia" value="no-aparece-mi-marca">
+
 		      		<button class="btn-kmibox-send" type="submit">ENVIAR</button>
 	      		</div>
 	      	</form>
