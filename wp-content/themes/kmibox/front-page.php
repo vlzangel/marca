@@ -159,7 +159,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id="asesor">
-				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" 
+				<a href="<?php echo get_home_url(); ?>/quiero-ser-asesor/" 
 					class="btn-kmibox">QUIERO CONVERTIRME EN ASESOR</a> 
 			</div>
 		</div>
