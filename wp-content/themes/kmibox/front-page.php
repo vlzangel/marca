@@ -44,7 +44,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 				<img src="<?php echo get_home_url(); ?>/img/Image_1.jpg" class="img-responsive" width="75%">
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6 text-center">
-				<img src="<?php echo get_home_url(); ?>/img/Logo.png" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/logo_by_kmimos.png" class="img-responsive">
 				<h2 style="font-size:21; position: relative; top: -10px!important;"> El camino a una correcta nutrición</h2>
 				<br>
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">
