@@ -47,8 +47,11 @@
 	        $listas = [
 
 	        	'admin' => [
-					'neo7758@hasdotmail.com',
-					'italococchini@gmail.com',
+	        		'i.cocchini@gmail.com',
+/* Comentado en QA
+					'r.rodriguez@kmimos.la',
+               		'r.cuevas@kmimos.la',
+*/
 	        	],
 
 	        ];

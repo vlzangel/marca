@@ -133,6 +133,13 @@
 						if( $_POST["error"] == '' ){
 							$result['code'] = 1;
 							$result['orden_id'] = $orden_id;
+
+							if( !empty($_POST['EMAIL_NUEVA_COMPRA']) ){
+								$HTML = $_POST['EMAIL_NUEVA_COMPRA'];
+								$asesor_email = get_email_asesor( $orden_id );
+					
+		    					wp_mail( $asesor_email, "Pago en Tienda - NutriHeroes", $HTML );
+							}
 						}  
 						break;
 					

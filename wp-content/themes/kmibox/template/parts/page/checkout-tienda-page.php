@@ -69,11 +69,10 @@
 	    		"FECHA_SUSCRIPCION" => date('d')
 	    	)
 	    );
-
+		$_POST['EMAIL_NUEVA_COMPRA'] = $HTML;
 
 	    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
-		$asesor_email = get_email_asesor( $orden->id );
-	    mail_admin_nutriheroes( "Pago en Tienda - NutriHeroes", $HTML, $asesor_email );
+	    mail_admin_nutriheroes( "Pago en Tienda - NutriHeroes", $HTML );
 
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
