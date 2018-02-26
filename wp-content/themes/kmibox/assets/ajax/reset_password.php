@@ -33,7 +33,8 @@ if( $email != '' ){
 			"Cambio de contraseña para tu cuenta Nutriheroes", 
 			$HTML
 		);
-		
+		mail_admin_nutriheroes("Cambio de contraseña para tu cuenta Nutriheroes", 
+			$HTML);
 	      
 	}
 }

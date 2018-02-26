@@ -42,14 +42,39 @@
 	}
 
 	if(!function_exists('mail_admin_nutriheroes')){
-		function mail_admin_nutriheroes( $to, $subject, $message, $headers = '' ){
-	  
-	        $headers = array(
-	          'Bcc: veronik.505@gmail.com',
-	          'Bcc: italococchini@gmail.com',
-	        );
-			
-			wp_mail( 'italococchini@gmail.com', $subject, $mensaje, $headers ); 
+		function mail_admin_nutriheroes( $subject, $message, $agregar_a_lista = [], $list_name = 'admin' ){
+
+	        $listas = [
+
+	        	'admin' => [
+					'neo7758@hasdotmail.com',
+					'italococchini@gmail.com',
+	        	],
+
+	        ];
+
+	        if( !empty($listas)  ){
+	        	/* ************************************** *
+		         * Cargar lista de distribucion
+	        	 * ************************************** */
+		        $emails = $listas[ $list_name ];
+
+	        	/* ************************************** *
+		         * Agregar copia a administradores
+	        	 * ************************************** */
+		        if( $list_name != 'admin' ){
+					$emails = array_merge( $listas['admin'], $emails ) ;
+				}
+
+	        	/* ************************************** *
+		         * Agregar email adicionales a lista
+	        	 * ************************************** */
+		        if( !empty($agregar_a_lista) ){
+					$emails = array_merge( $agregar_a_lista, $emails );
+				}
+			}
+
+			return wp_mail( $emails, $subject, $message );
 	    }  
-    }  
+    }
 ?>

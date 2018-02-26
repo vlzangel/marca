@@ -74,6 +74,7 @@
 	    );
 
 	    wp_mail( $email, "Notificación de Envío - NutriHeroes", $HTML );
+	    mail_admin_nutriheroes( "Notificación de Envío - NutriHeroes", $HTML );
 	   
 	        
 

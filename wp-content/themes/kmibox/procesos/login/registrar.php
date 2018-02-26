@@ -80,6 +80,7 @@
 					    	)
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
+						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
 						
 	        
 

@@ -216,6 +216,7 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
+		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
 		 	
 		}
 

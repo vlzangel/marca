@@ -63,6 +63,7 @@
 		    	)
 		    );
 		    wp_mail( $emailsus, "Bienvenido a NutriHeroes", $HTML );
+		    mail_admin_nutriheroes( "Bienvenido a NutriHeroes", $HTML );
 		    
 	       
 		}
@@ -190,6 +191,7 @@
 						    	)
 						    );
 						    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
+						    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML );
 						    
 	        
 							$result['code'] = 1;

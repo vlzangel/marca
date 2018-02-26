@@ -152,7 +152,21 @@
 	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
 	    	)
 	    );
+
+		// Buscar email del asesor
+		$asesor = $wpdb->get_var( 
+			"select a.email 
+				from ordenes as o 
+					inner join asesores as a ON a.id = o.asesor
+				where o.id = {$orden_id}" );
+		if( !empty($asesor) ){
+			$asesor = [$asesor];
+		}else{
+			$asesor = [];
+		}
+
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
+	    mail_admin_nutriheroes( "Pago Recibido - NutriHeroes", $HTML, $asesor );
 
 	    
 	       
