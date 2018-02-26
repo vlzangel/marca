@@ -190,9 +190,12 @@
 						    		"TOTAL" => $temp_product->subtotal,
 						    	)
 						    );
+
+
 						    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
  
-						    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML );
+						    $asesor_email = get_email_asesor( $orden->id );
+						    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML, $asesor_email );
 	        
 							$result['code'] = 1;
 					    }					

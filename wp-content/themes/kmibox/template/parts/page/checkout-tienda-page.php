@@ -70,27 +70,10 @@
 	    	)
 	    );
 
-		// Buscar email del asesor
-		$asesor = $wpdb->get_var( 
-			"select a.email 
-				from ordenes as o 
-					inner join asesores as a ON a.id = o.asesor
-				where o.id = {$orden_id}" );
-		if( !empty($asesor) ){
-			$asesor = [$asesor];
-		}else{
-			$asesor = [];
-		}
 
 	    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
-	    mail_admin_nutriheroes( "Pago en Tienda - NutriHeroes", $HTML, $asesor );
-
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-	    wp_mail( 'i.cocchini@kmimos.la', "Pago en Tienda - NutriHeroes", $HTML, $headers );
+		$asesor_email = get_email_asesor( $orden->id );
+	    mail_admin_nutriheroes( "Pago en Tienda - NutriHeroes", $HTML, $asesor_email );
 
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
