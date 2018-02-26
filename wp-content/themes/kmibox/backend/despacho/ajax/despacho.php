@@ -17,7 +17,8 @@
 
 	foreach ($despachos as $despacho) {
 
-		$item = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = '{$despacho->sub_orden}' ");
+		$item = $wpdb->get_row("SELECT * FROM items_ordenes WHERE id = '{$despacho->sub_orden}' ;");
+		$data_suscripcion = unserialize($item->data);
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = '{$item->id_producto}' ");
 		$user_id = $wpdb->get_var("SELECT cliente FROM ordenes WHERE id = '{$despacho->orden}' ");
 		$cliente = get_user_meta($user_id, 'first_name', true)." ".get_user_meta($user_id, 'last_name', true);
@@ -37,14 +38,16 @@
 		$ordenes[ $despacho->orden ]["correo_enviado"] = $despacho->correo_enviado;
 		$ordenes[ $despacho->orden ]["cliente"] = $cliente;
 		$ordenes[ $despacho->orden ]["status"] = $despacho->status;
-		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso;
+
+		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso." - ".$data_suscripcion[ "plan" ];
 		
 	}
 
+	$index_row=0;
 	foreach ($ordenes as $orden_id => $_data) {
 		$_productos = "";
 		foreach ($_data["productos"] as $producto) {
-			$_productos .= $producto."<br>";
+			$_productos .= '<div style="margin:2px 0px;">'.$producto."</div>";
 		}
 		
 		$enviar_correo = "---";
@@ -107,7 +110,9 @@
 	        ";
 		}
 
+		$index_row++;
 		$data["data"][] = array(
+			$index_row,
 	        $orden_id,
 	        $_data["cliente"],
 	        $_productos,
@@ -117,6 +122,7 @@
 	        $enviar_correo
 	    );
 	}
+
 
     echo json_encode($data);
 

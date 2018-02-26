@@ -30,7 +30,6 @@ jQuery(document).ready(function() {
             "type": "POST"
         }
 	});
-
     jQuery("#close_modal").on("click", function(e){
         cerrar(e);
     });

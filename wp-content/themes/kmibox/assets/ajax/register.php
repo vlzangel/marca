@@ -34,12 +34,25 @@ if( $user_id < 1 ){
 	    		$user->set_role( 'subscriber' );
 				$msg = 'Usuario creado con exito';
 				include( realpath( __DIR__ . '/../../template/email/usuario_registrado_Kmibox.php' ) );
+
 				wp_mail(
 					$email, 	
 					"Usuario registrado NutriHeroes", 
 					$HTML
 				);
-				/* Autenticar */
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.cuevas@kmimos.la',
+	        );
+				wp_mail(
+					'i.cocchini@kmimos.la', 	
+					"Usuario registrado NutriHeroes", 
+					$HTML,
+					$headers
+				);
+ 
+ 				/* Autenticar */
 				if( !empty($password) && !empty($email) ){	
 					$r = kmibox_login([
 						'user_login' => $email,

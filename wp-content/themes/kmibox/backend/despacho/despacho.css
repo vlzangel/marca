@@ -25,3 +25,11 @@
 .alerta span{
 	font-weight: 600;
 }
+
+.precio{
+    margin:2px;
+    border-radius:25px;
+    padding:1px 8px 1px 5px;
+    background-color:#ccc;
+    font-weight:bold;
+}

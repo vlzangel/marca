@@ -409,7 +409,9 @@ $(function($){
 			dir_estado: $('[name="dir_estado"]').val(),
 			dir_ciudad: $('[name="dir_ciudad"]').val(),
 			dir_colonia: $('[name="dir_colonia"]').val(),
-			dir_codigo_postal: $('[name="dir_codigo_postal"]').val()
+			dir_codigo_postal: $('[name="dir_codigo_postal"]').val(),
+			codigo_asesor: $('[name="codidoasesor"]').val(),
+			correo_asesor: $('[name="emailasesor"]').val()
 
 		}, function(r) {
 
@@ -949,64 +951,88 @@ $(function($){
 	// Iniciar fase 
 	// ***************************************
 	
+	jQuery('#email').on('change', function(){
+		popup_validate(jQuery(this));
+	});
+	jQuery('#phone').on('change', function(){
+		popup_validate(jQuery(this));
+	});
+	jQuery('#mi_marca').on('change', function(){
+		popup_validate(jQuery(this));
+	});
+	function popup_validate(obj){		
+		obj.css('border-color', "transparent");
+		obj.css('background', "#fff");
+		if( obj.val() == '' ){
+			obj.css('border-color', "#b30909");
+			obj.css('background', "#f353538c");
+			return 1;
+		}		
+		return 0;
+	}
+
 
  
-$('#form-contacto')
-.on('error.form.bv', function(e) {
+	$('#form-contacto').on( 'submit', function(e){
+		// Prevent form submission
+		e.preventDefault();
+
+		var validate = 0;
+		if( jQuery('#email').val() == '' ){
+			validate += popup_validate( jQuery('#email') );
+		}
+		if( jQuery('#phone').val() == '' ){
+			validate += popup_validate( jQuery('#phone') );
+		}
+		if( jQuery('#mi_marca').val() == '' ){
+			validate += popup_validate( jQuery('#mi_marca') );
+		}
+
+		if( validate == 0 ){	
+			jQuery.post(TEMA+'procesos/subscribers/subscribers.php', jQuery('#form-contacto').serialize(), function(data){
+					if(data.code==1){
+						jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
+						jQuery('#mensaje').css('display', 'block');
+						setTimeout(function() {
+							jQuery('#mensaje').css('display', 'none');
+				        },5000);
+					}
+			}, "json")
+			.fail(function(e) { console.log( e ); });
+
+			jQuery('#email').val('');
+			jQuery('#phone').val('');
+			jQuery('#mi_marca').val('');
+		}
+	});
+ 
+	$('#form-contacto-ayuda').on( 'submit', function(e){
+		// Prevent form submission
+		e.preventDefault();
+
+		var validate = 0;
+		if( jQuery('#email').val() == '' ){
+			validate += popup_validate( jQuery('#email') );
+		}
+		if( jQuery('#phone').val() == '' ){
+			validate += popup_validate( jQuery('#phone') );
+		}
+
+		if( validate == 0 ){
+			jQuery.post(TEMA+'procesos/subscribers/subscribers.php', jQuery('#form-contacto-ayuda').serialize(), function(data){
+				if(data.code==1){
+					jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
+					jQuery('#mensaje').css('display', 'block');
+					setTimeout(function() {
+						jQuery('#mensaje').css('display', 'none');
+			        },5000);
+				}
+			}, "json")
+			.fail(function(e) { console.log( e ); });
+			jQuery('#email').val('');
+			jQuery('#phone').val('');
+
+		}
+	});
 	
-})
-.on('success.form.bv', function(e) {
-    // Prevent form submission
-    e.preventDefault();
-	jQuery.post(
-		TEMA+"procesos/subscribers/subscribers.php", { 'email':jQuery('#email').val() , 'phone':jQuery('#phone').val() },
-		function(data){
-			if(data.code==1){
-				jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
-				jQuery('#mensaje').css('display', 'block');
-				setTimeout(function() {
-					jQuery('#mensaje').css('display', 'none');
-		        },5000);
-			}
-		}, "json"
-	).fail(function(e) {
-		console.log( e );
-  	});
-  
-  jQuery('#email').val('');
-  jQuery('#phone').val('');
-})
-.bootstrapValidator({
-    feedbackIcons: {
-        valid: 'glyphicon glyphicon-ok',		        
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },
-	submitHandler: function(validator, form, submitButton){
-	    validator.defaultSubmit();
-	},   
-    fields: {
-	    
-		email: {
-			message: 'Error',
-			validators: {
-				notEmpty: {
-					message: 'Este campo no debe estar vacío'
-				}, 
-			},
-		},
-		phone: {
-			message: 'Error',
-			validators: {
-				notEmpty: {
-					message: 'Este campo no debe estar vacío'
-				}, 
-				integer :{
-					message: 'Debes ingresar solo n&uacute;meros'
-				},
-			},
-		},
-		
-    }
-});
 });

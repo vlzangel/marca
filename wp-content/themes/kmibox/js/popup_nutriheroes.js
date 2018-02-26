@@ -1,4 +1,4 @@
- 
+ /*
  
 $('#form-contacto')
 .on('error.form.bv', function(e) {
@@ -8,8 +8,7 @@ $('#form-contacto')
     // Prevent form submission
     e.preventDefault();
 	jQuery.post(
-		TEMA+"procesos/subscribers/subscribers.php", { 'email':jQuery('#email').val() , 'phone':jQuery('#phone').val() },
-		function(data){
+		TEMA+"procesos/subscribers/subscribers.php", jQuery('#form-contacto').serialize(), function(data){
 			if(data.code==1){
 				jQuery('#mensaje').html('Datos registrados en breve te ayudarte con tu solicitud');
 				jQuery('#mensaje').css('display', 'block');
@@ -53,6 +52,14 @@ $('#form-contacto')
 				},
 			},
 		},
+		mi_marca: {
+			message: 'Error',
+			validators: {
+				notEmpty: {
+					message: 'Este campo no debe estar vacío'
+				},
+			},
+		},
 		
     }
-});
+});*/

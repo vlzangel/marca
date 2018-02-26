@@ -42,10 +42,9 @@
 				'.$metas_user[ "dir_codigo_postal" ][0].' - M&eacute;xico 
 			</div>
 	    ';
-
 	    $_productos = getProductosDesglose($ID);
 
-	    $dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$ID) );
+	    $dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$ID) ) );
 
 	    
 	 	$productos = "";
@@ -75,6 +74,8 @@
 	    );
 
 	    wp_mail( $email, "Notificación de Envío - NutriHeroes", $HTML );
+	   
+	        
 
 	    $wpdb->query( "UPDATE despachos SET correo_enviado = '1' WHERE ".$condicion );
 

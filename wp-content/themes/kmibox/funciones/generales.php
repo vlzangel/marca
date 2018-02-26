@@ -131,7 +131,7 @@
 									<a href="'.$home.get_source_url().'/quiero-mi-marca/"">
 										<i class="fa fa-plus-circle fa-2x"></i>
 										<span class="gothan nav_header" >
-											Quiero mi NutriHeroes
+											Buscar alimento
 										</span>
 									</a>
 								</li>

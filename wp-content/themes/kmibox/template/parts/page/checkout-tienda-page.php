@@ -65,11 +65,19 @@
 	    	array(
 	    		"USUARIO" => $nombre,
 	    		"INSTRUCCIONES" => $CARRITO["PDF"],
-	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.')
+	    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.'),
+	    		"FECHA_SUSCRIPCION" => date('d')
 	    	)
 	    );
 
 	    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
+
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.cuevas@kmimos.la',
+	        );
+	    wp_mail( 'i.cocchini@kmimos.la', "Pago en Tienda - NutriHeroes", $HTML, $headers );
 
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
@@ -124,6 +132,23 @@
 	foreach ($CARRITO["productos"] as $key => $value) {
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
 		if( isset($value->edad) ){
+			
+		$_descripcionPlan = $wpdb->get_results("SELECT descripcion_mes FROM planes WHERE plan ='".$value->plan."'");
+        foreach ($_descripcionPlan as $descplan) {
+        	$planDes=$descplan->descripcion_mes;
+        }
+       
+         if ($planDes =='Sólo por esta vez'){
+        	$msjMovil ="El cobro de tu suscripción será <label style='font-family: GothanMedium_regular; text-transform:uppercase;''>".$planDes."</label>";
+        	$msjPc ="El cobro de tu suscripción será <label class='periodicidad' style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label>";
+        	
+        }else{
+        
+         	$msjMovil ="Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago  <label style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label> de manera automática los días ".(date("d")+0)." de cada mes por el cobro de tu alimento, el cual será enviado una vez sea aprobado el pago.";
+         	$msjPc ="Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago <label class='periodicidad' style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label> de manera automática los días ".(date("d")+0)." de cada mes por el cobro de tu alimento, el cual será enviado una vez sea aprobado el pago.";
+       		
+        }
+
 			$suscripciones .= "
 				<tr>
 					<td>
@@ -136,12 +161,12 @@
 							<div>".$productos[ $value->producto ]->peso."</div>
 						</div>
 						<div class='info_3 solo_movil'>
-							El cobro de tu suscripción se hará <label style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."
+							".$msjMovil."
 							<div>".$value->tamano." - ".$value->edad."</div>
 						</div>
 					</td>
 					<td class='solo_pc'>
-						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>El cobro de tu suscripción se hará <label class='periodicidad' style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>".$msjPc.".</div>
 					</td>
 					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
@@ -191,7 +216,7 @@
 		</aside>
 
 		<aside class="col-md-12 text-center">
-	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox1" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">Instrucciones para completar el pago</a>
+	      	<a href="<?php echo $CARRITO["PDF"]; ?>" target="_blank" class="btn btn-sm-kmibox" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">INSTRUCCIONES PARA COMPLETAR EL PAGO</a>
 		</aside>
 		<aside class="col-md-12  text-center" id="content-profile">
 	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox text-btnperfil" style="padding: 10px 30px; font-size: 12px;  margin: 0 auto; margin-top:10px!important;">IR A MI PERFIL</a>
