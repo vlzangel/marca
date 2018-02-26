@@ -9,6 +9,12 @@
 		$productos[ $value->id ] = $value;
 	}
 
+	$_planes = $wpdb->get_results("SELECT * FROM planes");
+	$planes = array();
+	foreach ($_planes as $key => $value) {
+		$planes[ $value->id ] = $value->descripcion_mes;
+	}
+
 	$suscripciones = "
 		<table cellspacing=0 cellpadding=0 class='desglose_final'>
 			<tr>
@@ -20,6 +26,9 @@
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
 
 		if( isset($value->edad) ){
+
+			$cada = $wpdb->get_var("SELECT descripcion_mes FROM ");
+
 			$suscripciones .= "
 				<tr>
 					<td>
@@ -33,7 +42,7 @@
 								<div>".$productos[ $value->producto ]->peso."</div>
 							</div>
 							<div style='font-family: GothanMedium_regular;'>".$value->tamano." - ".$value->edad."</div>
-							<div>El cobro de tu suscripción se hará <label style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+							<div>El monto mostrado a continuaci&oacute;n se cobrar&aacute; autom&aacute;ticamente <label style='font-family: GothanMedium_regular; text-transform: uppercase;'>".$planes[ $value->plan_id ]."</label> de manera automática los días ".(date("d")+0)."</div>
 						</div>
 					</td>
 					<td class='info solo_pc' style='min-width: 200px;'>
@@ -44,7 +53,7 @@
 						</div>
 					</td>
 					<td class='solo_pc'>
-						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>El cobro de tu suscripción se hará <label class='periodicidad' style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>El monto mostrado a continuaci&oacute;n se cobrar&aacute; autom&aacute;ticamente <label style='font-family: GothanMedium_regular; text-transform: uppercase;'>".$planes[ $value->plan_id ]."</label> de manera automática los días ".(date("d")+0)."</div>
 					</td>
 					<td class='solo_pc' style='font-family: GothanMedium_regular;'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
