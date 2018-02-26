@@ -30,7 +30,7 @@ get_header();
 include_once( 'template/parts/footer/Nutriheroes.php' );
 /* END POPUP Nutriheroes   */		
 
-/* BEGIN POPUP Nutriheroes */		
+/* BEGIN POPUP Nutriheroes */
 include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
 ?>
@@ -92,6 +92,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 	<section id="home-opciones" class="row text-center ">		
 		<div class="container">
 			<img src="<?php echo get_home_url(); ?>/img/Image-5.jpg" class="img-responsive" style="width: 80%;" >
+
 			<label id="si-encuentras-precio" >
 					<span>¡Si encuentras un precio más barato,</span>
 				    muéstranos tu ticket y lo mejoramos!
@@ -101,6 +102,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 					Precios de veterinaria o tiendas*
 				
 			</p>
+
 		</div>
 	</section>
  

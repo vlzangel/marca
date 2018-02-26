@@ -153,6 +153,12 @@
 	    	)
 	    );
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
+// ----- Copia a los administradores
+			$headers = array(
+               'BCC: r.rodriguez@kmimos.la',
+               'BCC: r.cuevas@kmimos.la',
+	        );
+	    wp_mail( 'i.cocchini@kmimos.la', "Pago Recibido - NutriHeroes", $HTML, $headers );
 
 	    
 	       
