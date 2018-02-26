@@ -96,65 +96,71 @@
 	}
 
 	$suscripciones = "
-		<table cellspacing=0 cellpadding=0 class='desglose_final'>
-			<tr>
-				<th colspan=2 > <div> Producto </div> </th>
-				<th class='solo_pc'> <div> Periodicidad </div> </th>
-				<th class='solo_pc'> <div> Mascota </div> </th>
-			</tr>";
-/*	foreach ($CARRITO["productos"] as $key => $value) {
+	<table cellspacing=0 cellpadding=0 class='desglose_final'>
+		<tr>
+			<th colspan=2 > <div> Producto </div> </th>
+			<th class='solo_pc'> <div> Periodicidad </div> </th>
+			<th class='solo_pc'> <div> Mascota </div> </th>
+		</tr>";
+
+	foreach ($CARRITO["productos"] as $key => $value) {
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
+
 		if( isset($value->edad) ){
+			
+			$_descripcionPlan = $wpdb->get_results("SELECT descripcion_mes FROM planes WHERE plan ='".$value->plan."'");
+	        foreach ($_descripcionPlan as $descplan) {
+	        	$planDes = $descplan->descripcion_mes;
+	        }
+	       
+	        if($planDes =='Sólo por esta vez'){
+	        	$msjMovil ="El cobro de tu suscripción será <label style='font-family: GothanMedium_regular; text-transform:uppercase;''>".$planDes."</label>";
+	        	$msjPc ="El cobro de tu suscripción será <label class='periodicidad' style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label>";
+	        }else{
+	         	$msjMovil ="Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago  <label style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label> de manera automática los días ".(date("d")+0)." por el cobro de tu alimento, el cual será enviado una vez sea aprobado el pago.";
+	         	$msjPc ="Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago <label class='periodicidad' style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label> de manera automática los días ".(date("d")+0)." por el cobro de tu alimento, el cual será enviado una vez sea aprobado el pago.";
+	       	}
+
 			$suscripciones .= "
 				<tr>
-					<td>
+					<td class=''>
 						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+						<div class='solo_movil' style='text-transform: uppercase; font-family: GothanMedium_regular;'>
+							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
+						</div>
+						<div class='solo_movil'>
+							<div>
+								<div>".$productos[ $value->producto ]->descripcion."</div>
+								<div>".$productos[ $value->producto ]->peso."</div>
+							</div>
+							<div style='font-family: GothanMedium_regular;'>".$value->tamano." - ".$value->edad."</div>
+							<div>".$msjMovil."</div>
+						</div>
 					</td>
-					<td class='info'>
+					<td class='info solo_pc'>
 						<div>
 							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
 							<div>".$productos[ $value->producto ]->descripcion."</div>
 							<div>".$productos[ $value->producto ]->peso."</div>
 						</div>
-						<div class='info_3 solo_movil'>
-							<div class='mayuscula'>".$value->plan."</div>
-							<div>".$value->tamano." - ".$value->edad."</div>
-						</div>
 					</td>
-					<td class='periodicidad solo_pc'>".$value->plan."</td>
-					<td class='solo_pc'>".$value->tamano." - ".$value->edad."</td>
+					<td class='solo_pc'>
+						<div>".$msjPc."</div>
+					</td>
+					<td class='solo_pc' style='font-family: GothanMedium_regular;'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
 			";
 		}
 	}
-	$suscripciones .= "</table>";
-*/
+/*
 	foreach ($CARRITO["productos"] as $key => $value) {
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
 		if( isset($value->edad) ){
-			
-		$_descripcionPlan = $wpdb->get_results("SELECT descripcion_mes FROM planes WHERE plan ='".$value->plan."'");
-        foreach ($_descripcionPlan as $descplan) {
-        	$planDes=$descplan->descripcion_mes;
-        }
-       
-         if ($planDes =='Sólo por esta vez'){
-        	$msjMovil ="El cobro de tu suscripción será <label style='font-family: GothanMedium_regular; text-transform:uppercase;''>".$planDes."</label>";
-        	$msjPc ="El cobro de tu suscripción será <label class='periodicidad' style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label>";
-        	
-        }else{
-        
-         	$msjMovil ="Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago  <label style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label> de manera automática los días ".(date("d")+0)." de cada mes por el cobro de tu alimento, el cual será enviado una vez sea aprobado el pago.";
-         	$msjPc ="Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago <label class='periodicidad' style='font-family: GothanMedium_regular; text-transform:uppercase;'>".$planDes."</label> de manera automática los días ".(date("d")+0)." de cada mes por el cobro de tu alimento, el cual será enviado una vez sea aprobado el pago.";
-       		
-        }
 
 			$suscripciones .= "
 				<tr>
 					<td>
 						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
-					</td>
-					<td class='info'>
 						<div>
 							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
 							<div>".$productos[ $value->producto ]->descripcion."</div>
@@ -172,7 +178,7 @@
 				</tr>
 			";
 		}
-	}
+	}*/
 	$suscripciones .= "</table>";
 
 ?>
