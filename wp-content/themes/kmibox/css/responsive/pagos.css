@@ -42,6 +42,16 @@
 
 @media (max-width: 500px){
 
+	.desglose_final td {
+	    border-right: solid 1px #CCC;
+	    padding: 5px;
+	}
+
+	.desglose_final td img {
+	    height: 120px;
+	    margin-bottom: 10px;
+	}
+
 	.text-felicidades {
 	    font-size: 25px;
         margin-bottom: 10px;
