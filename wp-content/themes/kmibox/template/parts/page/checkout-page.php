@@ -9,6 +9,12 @@
 		$productos[ $value->id ] = $value;
 	}
 
+	$_planes = $wpdb->get_results("SELECT * FROM planes");
+	$planes = array();
+	foreach ($_planes as $key => $value) {
+		$planes[ $value->id ] = $value->descripcion_mes;
+	}
+
 	$suscripciones = "
 		<table cellspacing=0 cellpadding=0 class='desglose_final'>
 			<tr>
@@ -20,6 +26,12 @@
 		$data = unserialize( $productos[ $value->producto ]->dataextra );
 
 		if( isset($value->edad) ){
+
+			$msj_pago = "El monto mostrado a continuaci&oacute;n se cobrar&aacute; autom&aacute;ticamente <label style='font-family: GothanMedium_regular; text-transform: uppercase;'>".$planes[ $value->plan_id ]."</label> de manera automática los días ".(date("d")+0);
+			if( $value->plan_id == 6 ){
+				$msj_pago = "El monto mostrado a continuaci&oacute;n se cobrar&aacute; <label style='font-family: GothanMedium_regular; text-transform: uppercase;'>".$planes[ $value->plan_id ]."</label>";
+			}
+
 			$suscripciones .= "
 				<tr>
 					<td>
@@ -33,7 +45,7 @@
 								<div>".$productos[ $value->producto ]->peso."</div>
 							</div>
 							<div style='font-family: GothanMedium_regular;'>".$value->tamano." - ".$value->edad."</div>
-							<div>El cobro de tu suscripción se hará <label style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+							<div>".$msj_pago."</div>
 						</div>
 					</td>
 					<td class='info solo_pc' style='min-width: 200px;'>
@@ -44,7 +56,7 @@
 						</div>
 					</td>
 					<td class='solo_pc'>
-						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>El cobro de tu suscripción se hará <label class='periodicidad' style='font-family: GothanMedium_regular;'>".$value->plan."</label> de manera automática los días ".(date("d")+0)."</div>
+						<div style='font-weight: 400; font-family: Gothamlight_Regular;'>".$msj_pago."</div>
 					</td>
 					<td class='solo_pc' style='font-family: GothanMedium_regular;'>".$value->tamano." - ".$value->edad."</td>
 				</tr>
@@ -82,7 +94,7 @@
 	<?php } ?>
 
 	<!-- Mensaje Success -->
-	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center "  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 75px;">
+	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden"  style="border-radius:30px;padding:20px;border:1px solid #ccc; overflow: hidden; margin-top: 75px;">
 		<aside class="col-md-12 text-center">
 			<h1 class="postone text-felicidades">¡Felicidades!</h1>
 			<h4 class="gothan text-suscripcionexitosa">Tu suscripción a Nutriheroes ha sido un éxito</h4>
@@ -117,7 +129,7 @@
 		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
 	</script>
 
-	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center hidden" style="border-radius:30px;padding:20px; margin: 75px 20px 0px; border:1px solid #ccc; width: calc( 100% - 40px );">
+	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin: 75px 20px 0px; border:1px solid #ccc; width: calc( 100% - 40px );">
 
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" method="post" action="#" id="form-pago" >
