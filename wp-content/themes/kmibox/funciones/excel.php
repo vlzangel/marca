@@ -95,6 +95,14 @@
 	        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 	        header('Content-Disposition: attachment;filename="'.$params["file_name"].'.xlsx"');
 	        header('Cache-Control: max-age=0');
+
+
+
+header("Content-type: application/octet-stream");
+header('Content-Disposition: attachment; filename="'.$params["file_name"].'.xlsx"');
+header("Pragma: no-cache");
+header ("Expires: 0");
+
 	        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 	        $objWriter->save('php://output');
 	    exit;
