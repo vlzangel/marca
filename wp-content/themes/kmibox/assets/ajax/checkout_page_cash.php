@@ -101,19 +101,8 @@ $order_id = 0;
 					"Pago tienda por conveniencia", 
 					$HTML
 				);
-
-
-			// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-			wp_mail(
-				'i.cocchini@kmimos.la', 	
-				"Pago tienda por conveniencia", 
-				$HTML,
-				$headers
-			);
+				
+				mail_admin_nutriheroes("Pago tienda por conveniencia",$HTML);		      
 				//print_r("PDF".$pdf);
 
 			echo json_encode(array(
