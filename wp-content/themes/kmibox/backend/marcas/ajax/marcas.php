@@ -10,14 +10,13 @@
 	$marcas = $wpdb->get_results("SELECT * FROM marcas ORDER BY id DESC");
 
 	$data["data"] = array();
+	$excel = array();
 
 	$_tipos = $wpdb->get_results("SELECT * FROM tipo_mascotas");
 	$tipos = array();
 	foreach ($_tipos as $key => $tipo) {
 		$tipos[ $tipo->id ] = $tipo->tipo;
 	}
-
-	$data["data"] = array();
 
 	foreach ($marcas as $marca) {
 
@@ -40,8 +39,32 @@
 	        	<span onclick='eliminar_marca( jQuery( this ) )' data-id='".$marca->id."' class='enlace'>Eliminar</span><br>
 	        "
 	    );
+
+		$excel[] = array(
+	        $marca->id,
+	        $marca->nombre,
+	        $tipos[ $marca->tipo ],
+	        array(
+	        	"tipo" => "img",
+	        	"valor" => $img
+	        )
+	    );
 	}
 
-    echo json_encode($data);
+	if( isset($_GET["excel"]) ){
+    	crearEXCEL(array(
+			"nombre" => "Reporte de Marcas",
+			"file_name" => "marcas",
+			"titulos" => array(
+				"ID",
+                "Marca",
+                "Tipo",
+                "Imagen"
+			),
+			"data" => $excel
+		));
+    }else{
+    	echo json_encode($data);
+    }
 
 ?>
