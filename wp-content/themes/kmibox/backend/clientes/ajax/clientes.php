@@ -10,6 +10,7 @@
 	$clientes = $wpdb->get_results("SELECT * FROM wp_users ORDER BY ID DESC");
 
 	$data["data"] = array();
+	$excel = array();
 
 	foreach ($clientes as $cliente) {
 
@@ -31,14 +32,45 @@
 		$data["data"][] = array(
 	        $cliente->ID,
 	        date("d/m/Y", strtotime($cliente->user_registered)),
-	        "<a href='".get_home_url()."/?i=".md5($_SESSION['id_admin'])."' target='_blank'>".$metadata[ "first_name" ]." ".$metadata[ "last_name" ]."</a>",
+	        "<a href='".get_home_url()."/?i=".md5($cliente->ID)."' target='_blank'>".$metadata[ "first_name" ]." ".$metadata[ "last_name" ]."</a>",
 	        $cliente->user_email,
+	        $metadata[ "telef_movil" ],
+	        strtoupper( $donde ),
+	        $metadata["is_user_kmimos"]
+	    );
+
+		$excel[] = array(
+	        $cliente->ID,
+	        date("d/m/Y", strtotime($cliente->user_registered)),
+	        $metadata[ "first_name" ]." ".$metadata[ "last_name" ],
+	        array(
+	        	"valor" => $cliente->user_email,
+	        	"tipo" => "link",
+	        	"link" => get_home_url()."/?i=".md5($cliente->ID)
+	        ),
 	        $metadata[ "telef_movil" ],
 	        strtoupper( $donde ),
 	        $metadata["is_user_kmimos"]
 	    );
 	}
 
-    echo json_encode($data);
+	if( isset($_GET["excel"]) ){
+    	crearEXCEL(array(
+			"nombre" => "Reporte de Clientes",
+			"file_name" => "clientes",
+			"titulos" => array(
+				"ID",
+                "Fecha Registro",
+                "Nombre y Apellido",
+                "Email",
+                "Teléfono",
+                "Donde nos conocio?",
+                "Usuario Kmimos"
+			),
+			"data" => $excel
+		));
+    }else{
+    	echo json_encode($data);
+    }
 
 ?>

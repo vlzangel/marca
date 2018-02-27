@@ -7,9 +7,9 @@
         <h2>Control de Clientes</h2> <hr>
     </div>
 
-<!-- 	<div class="botones_container">
-	    <input type='button' value='Nuevo' onClick='abrir_link( jQuery(this) )'  data-titulo="Nuevo Producto" data-modulo="productos" data-modal="nuevo" data-id="" class="button button-primary button-large" />
-	</div> -->
+    <div class="botones_container">
+        <input type='button' value='EXCEL' id='excel' data-modulo="clientes" data-file="clientes" class="button button-primary button-large" />
+    </div>
 
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
         <thead>

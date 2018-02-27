@@ -6,6 +6,7 @@
 	global $wpdb;
 	$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
 	$data["data"] = array();
+	$excel = array();
 	$ordenes = array();
 
 	foreach ($suscripciones as $suscripcion) {
@@ -53,19 +54,24 @@
 		}
 
 		$_productos = "";
+		$_productos_excel = array();
 		foreach ($_data["productos"] as $producto) {
 			$_productos .= '<div style="margin:2px 0px;">'.$producto."</div>";
-			$_cobros .= ""."<br>";
+			$_productos_excel[] = $producto;
 		}
 
 		$_precios = "";
+		$_precios_excel = array();
 		foreach ($_data["precio"] as $precio) {
 			$_precios .= $precio."<br>";
+			$_precios_excel[] = $precio;
 		}
 
 		$_cobros = "";
+		$_cobros_excel = array();
 		foreach ($_data["proximo_cobro"] as $cobro) {
 			$_cobros .= $cobro."<br>";
+			$_cobros_excel[] = $cobro;
 		}
 
 		$index_row++;
@@ -81,10 +87,42 @@
 	        $_data["asesor_nombre"],
 	        $_data["asesor_email"]
 	    );
+
+		$excel[] = array(
+			$index_row,
+	        $orden_id,
+	        date("d/m/Y", strtotime( str_replace("/", "-", $_data["fecha_creacion"])))." ",
+	        $_data["cliente"],
+	        implode(PHP_EOL, $_productos_excel),
+	        implode(PHP_EOL, $_precios_excel),
+	        implode(PHP_EOL, $_cobros_excel),
+	        $_data["asesor_id"],
+	        $_data["asesor_nombre"],
+	        $_data["asesor_email"]
+	    );
+
 	}
 
-	//$data['data'] = array_reverse( $data['data'] );  
-
-    echo json_encode($data);
+	if( isset($_GET["excel"]) ){
+    	crearEXCEL(array(
+			"nombre" => "Reporte de Suscripciones",
+			"file_name" => "suscripciones",
+			"titulos" => array(
+				"ID",
+				"Orden",
+				"Fecha suscripción",
+				"Cliente",
+				"Producto(s)",
+				"Precio(s)",
+				"Proximo Cobro",
+				"ID Asesor",
+				"Asesor",
+				"Email Asesor"
+			),
+			"data" => $excel
+		));
+    }else{
+    	echo json_encode($data);
+    }
 
 ?>

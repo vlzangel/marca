@@ -13,6 +13,7 @@
 
 	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
 	$data["data"] = array();
+	$excel = array();
 	$ordenes = array();
 
 	foreach ($despachos as $despacho) {
@@ -46,11 +47,14 @@
 	$index_row=0;
 	foreach ($ordenes as $orden_id => $_data) {
 		$_productos = "";
+		$_productos_excel = array();
 		foreach ($_data["productos"] as $producto) {
 			$_productos .= '<div style="margin:2px 0px;">'.$producto."</div>";
+			$_productos_excel[] = $producto;
 		}
 		
 		$enviar_correo = "---";
+		$enviar_correo_excel = "---";
 
 		if( $_data["guia"] != "Cargar Gu&iacute;a" && $_data["fecha_entrega"] != "Cargar Fecha" && $_data["status"] == "Enviada" ){
 			$enviar_correo = "
@@ -64,10 +68,12 @@
 	        	>
 	        		Enviar Correo
 	        	</span>";
+	        $enviar_correo_excel = "Por enviar el correo";
 		}
 
 		if( $_data["correo_enviado"] == 1 ){
 			$enviar_correo .= "<br><strong>El correo ya ha sido enviado.</strong>";
+	        $enviar_correo_excel = "Correop Enviado";
 		}
 
 		$guia = $_data["guia"];
@@ -98,7 +104,7 @@
 	        		".$_data["fecha_entrega"]."
 	        	</div>";
 
-			$_data["status"] = "
+			$__data["status"] = "
 	        	<span 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$orden_id."' 
@@ -118,12 +124,43 @@
 	        $_productos,
 	        $guia,
 	        $fecha_entrega,
-	        $_data["status"],
+	        $__data["status"],
 	        $enviar_correo
+	    );
+
+		if( $_data["guia"] == "Cargar Gu&iacute;a" ){ $_data["guia"] = "---"; }
+		if( $_data["fecha_entrega"] == "Cargar Fecha" ){ $_data["fecha_entrega"] = "---"; }
+
+		$excel[] = array(
+			$index_row,
+	        $orden_id,
+	        $_data["cliente"],
+	        implode(PHP_EOL, $_productos_excel),
+	        $_data["guia"],
+	        $_data["fecha_entrega"]." ",
+	        $_data["status"],
+	        $enviar_correo_excel
 	    );
 	}
 
-
-    echo json_encode($data);
+	if( isset($_GET["excel"]) ){
+    	crearEXCEL(array(
+			"nombre" => "Reporte de Despachos",
+			"file_name" => "despachos",
+			"titulos" => array(
+				"ID",
+				"Orden",
+				"Cliente",
+				"Productos",
+				"Guía de Rastreo",
+				"Fecha Envio",
+				"Status",
+				"Status Notificación",
+			),
+			"data" => $excel
+		));
+    }else{
+    	echo json_encode($data);
+    }
 
 ?>

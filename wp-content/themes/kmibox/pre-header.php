@@ -1,6 +1,7 @@
 <?php
 
 	if( isset($_GET['i'])){
+		if( !isset($_SESSION) ){ session_start(); }
 		global $current_user;
         $_SESSION['id_admin'] = $current_user->ID;
         $_SESSION['admin_sub_login'] = "YES";
@@ -16,9 +17,17 @@
 		if( isset($_GET['admin']) ){
 	        $_SESSION['id_admin'] 		 = "";
 	        $_SESSION['admin_sub_login'] = "";
-	   		header("location: ".get_home_url()."/wp-admin/admin.php?page=clientes");
+	   		echo "
+	   			<script>
+	   				location.href = '".get_home_url()."/wp-admin/admin.php?page=clientes';
+	   			</script>
+	   		";
 		}else{
-	   		header("location: ".get_home_url()."/perfil/");
+	   		echo "
+	   			<script>
+	   				location.href = '".get_home_url()."/perfil/';
+	   			</script>
+	   		";
 		}
 	}
 
