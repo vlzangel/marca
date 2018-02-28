@@ -90,5 +90,5 @@
 	margin: 30px 0px;
 	display: block;
 ">
-	Si recibiste este correo sin haberte registrado, por favor ignoralo.
+	Si recibiste este correo sin haberte registrado, por favor ign&oacute;ralo.
 </label> 
