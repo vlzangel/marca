@@ -78,7 +78,7 @@
                     'icon'          =>  '',
                 ),
 
-               /* array(
+     /*          array(
                     'title'         =>  __('Cupones'),
                     'short-title'   =>  __('Cupones'),
                     'parent'        =>  'marcas',
