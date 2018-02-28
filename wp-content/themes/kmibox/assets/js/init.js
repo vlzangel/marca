@@ -415,6 +415,8 @@ $(function($){
 
 		}, function(r) {
 
+			console.log(r);
+
 			r = $.parseJSON(r);
 
 			jQuery(".btn-register_").attr("disabled", false);

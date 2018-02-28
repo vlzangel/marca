@@ -1,7 +1,23 @@
+jQuery(document).ready(function() {
+
+    jQuery("#excel").on("click", function(e){
+        /*jQuery.post(
+            TEMA+'/backend/'+jQuery(this).attr("data-modulo")+'/ajax/'+jQuery(this).attr("data-file")+'.php',
+            { "excel": "SI" },
+            function(data){
+                console.log(data);
+            }
+        );*/
+        location.href = TEMA+'/backend/'+jQuery(this).attr("data-modulo")+'/ajax/'+jQuery(this).attr("data-file")+'.php?excel=si';
+    });
+
+} );
+
 function init_modal(data){
 	jQuery(".modal > div > span").html(data["titulo"]);
 	jQuery.ajax({
-        async:true, cache:false, type: 'POST', url: TEMA+"/backend/"+data["modulo"]+"/modales/"+data["modal"]+".php",
+        async:true, cache:false, type: 'POST', 
+        url: TEMA+"/backend/"+data["modulo"]+"/modales/"+data["modal"]+".php",
         data: data["info"], 
         success:  function(HTML){
             jQuery(".modal > div > div").html( HTML );

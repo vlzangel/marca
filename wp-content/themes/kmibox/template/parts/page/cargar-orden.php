@@ -1,5 +1,3 @@
-
-
 <?php 
 
 	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY id ASC");
@@ -38,7 +36,7 @@
 						<div class="row">
 							<div class="col-md-6 form-group">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-								<input data-charset="num" type="text" name="codidoasesor[]" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  maxlength="40" />
+								<input data-charset="num" type="text" name="codidoasesor" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  maxlength="40" />
 							</div>
 							<div class="col-md-6 form-group">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
@@ -66,6 +64,7 @@
 					<small style="font-size:15px"> Campos obligatorios</small>
 				</div>
 				<input type="hidden" class="hidden" value="" name="user_id" id="user_id">
+				<input type="hidden" class="hidden" value="" name="user_asesor_id" id="user_asesor_id">
 				<div class="row row-special campos-obligatorios hidden" id="small2">
 					<span class="fa fa-asterisk" aria-hidden="false" id="fa-asesor"></span>
 					<small id="sin_cliente"></small>
@@ -184,7 +183,7 @@
 				<div class="row row-special">
 					<div class="col-md-12" style="padding-top: 20px;">	
 						<div class="text-center">
-							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Suscribir</button>
+							<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Enviar Orden</button>
 							<!-- div id="error_registrando"> Por favor revisar tus datos arriba, hay algún campo incompleto </div> 
 							<div id="success_registrando"> Datos almacenados </div -->
 	 					</div>

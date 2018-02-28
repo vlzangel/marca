@@ -40,9 +40,9 @@
 	<div style="
 		text-align: left;
 	">
-		Si no has sido tú, ignora este mensaje.
+  		Si no has sido t&uacute;, ignora este mensaje.
 		<strong> Para continuar con la recuperación de la contraseña de tu cuenta haz click en el siguiente enlace:</strong> 
-	</div> 	
+ 	</div> 	
 	
 	<a 	href="[LINK]" style="
 		padding: 15px 50px;

@@ -6,6 +6,8 @@
 	include( __DIR__."/funciones/suscripcion.php" );
 	include( __DIR__."/funciones/unico_uso.php" );
 
+	include( __DIR__."/funciones/excel.php" );
+
 	include( __DIR__."/funciones/backpanel.php" );
 
 	include( __DIR__."/funciones/cupones.php" );

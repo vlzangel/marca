@@ -14,19 +14,19 @@
 				<div class="nutri-column-left">  		
 					<ul class="nutri-pasos">
 						<li> 
-							<span class="nutri-paso"><span class="nutri-paso-text">PASO</span> 1</span><span class="nutri-text">Elige la edad y el tamaño de tu mascota</span>
+							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 1</span><span class="nutri-text">Elige la edad y el tamaño de tu mascota</span>
 						</li>
 						<li> 
-							<span class="nutri-paso"><span class="nutri-paso-text">PASO</span> 2</span><span class="nutri-text">Elige la marca de tu preferencia</span>
+							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 2</span><span class="nutri-text">Elige la marca de tu preferencia</span>
 						</li>
 						<li>
-							<span class="nutri-paso"><span class="nutri-paso-text">PASO</span> 3</span><span class="nutri-text">Escoge la presentaci&oacute;n que deseas</span>
+							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 3</span><span class="nutri-text">Escoge la presentaci&oacute;n que deseas</span>
 						</li>
 						<li> 
-							<span class="nutri-paso"><span class="nutri-paso-text">PASO</span> 4</span><span class="nutri-text">Verifica y realiza tu pago</span>
+							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 4</span><span class="nutri-text">Verifica y realiza tu pago</span>
 						</li>
 						<li> 
-							<span class="nutri-paso nutri-green"><span class="nutri-paso-text">PASO</span> 5</span><span class="nutri-text">Recibe el alimento donde quieres</span>
+							<span class="nutri-paso nutri-green"><span class="nutri-paso-text"></span> PASO 5</span><span class="nutri-text">Recibe el alimento donde quieres</span>
 						</li>
 					</ul>
 					<p class="nutri-parrafo">Para cualquier duda o informaci&oacute;n adicional puedes llamar o escribir al 5540034824 donde con gusto te atenderemos </p>

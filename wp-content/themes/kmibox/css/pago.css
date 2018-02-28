@@ -9,9 +9,10 @@
 }
 
 #pago_exitoso .col-md-8 {
-    width: calc( 100% - 40px );
+    width: 100%;
     float: none;
     margin: 0px auto !important;
+    padding: 0px;
 }
 
 .text-felicidades{
@@ -142,4 +143,8 @@
     font-size: 20px;
     font-size: 25px;
     font-weight: bold;
+}
+
+.btn{
+    white-space: inherit !important;
 }

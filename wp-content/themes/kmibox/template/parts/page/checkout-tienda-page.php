@@ -44,7 +44,7 @@
 
 		$customer = $openpay->customers->get($openpay_cliente_id);
 
-		$due_date = date('Y-m-d\TH:i:s', strtotime('+ 48 hours'));
+		$due_date = date('Y-m-d\TH:i:s', strtotime('+ 5 day'));
 
 		$chargeRequest = array(
 		    'method' => 'store',
@@ -118,7 +118,7 @@
 
 			$suscripciones .= "
 				<tr>
-					<td class=''>
+					<td>
 						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
 						<div class='solo_movil' style='text-transform: uppercase; font-family: GothanMedium_regular;'>
 							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
@@ -132,7 +132,7 @@
 							<div>".$msjMovil."</div>
 						</div>
 					</td>
-					<td class='info solo_pc'>
+					<td class='info solo_pc' style='min-width: 200px;'>
 						<div>
 							<div class='info_2'>".$productos[ $value->producto ]->nombre."</div>
 							<div>".$productos[ $value->producto ]->descripcion."</div>
