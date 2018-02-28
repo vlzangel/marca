@@ -2,7 +2,7 @@
 
 	session_start();
 
-	include( dirname(__DIR__, 5)."/wp-load.php" );
+	include( dirname(dirname(dirname(dirname(dirname(__DIR__)))))."/wp-load.php" );
 
 	global $wpdb;
 

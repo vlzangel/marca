@@ -1,6 +1,7 @@
 <?php
 	if( !isset($_SESSION) ){ session_start(); }
-	include_once( dirname(__DIR__, 5).'/wp-load.php' );
+
+	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
 
 	global $wpdb;
 
