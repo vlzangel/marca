@@ -7,6 +7,10 @@
 
 	<title>Nutriheroes - El camino a una correcta nutrición</title>
 
+	<meta name='description' content='Nutriheroes - El camino a una correcta nutrición'>
+
+	<meta name="keywords" content="alimento, alimentos, mascota, mascotas, nutrición, nutricion, heroes, héroes, kmimos, correcta nutrición, correcta nutricion">
+
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
