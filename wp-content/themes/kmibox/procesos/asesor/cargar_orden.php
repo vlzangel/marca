@@ -203,7 +203,7 @@
 					    );
 					    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
 						// ----- Copia a los administradores
-					    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML );
+					    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML, array( $asesor->email ) );
         
 						$result['code'] = 1;
 				    }					
