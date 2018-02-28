@@ -74,6 +74,10 @@
 	        if( $_asesor == "" ){ $codigo_asesor =  get_user_meta($user_id, 'asesor', true); }else{
 	        	$codigo_asesor = $_asesor;
 	        }
+	        if( $codigo_asesor == "" ){
+	        	update_user_meta( $user_id, 'asesor', $asesor->id );
+	        	$codigo_asesor = $asesor->id;
+	        }
 		}
 
 		// Cargar registro de venta del asesor
