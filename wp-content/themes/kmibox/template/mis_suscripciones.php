@@ -12,11 +12,7 @@
 
 	
 	$ordenes = getOrdenes();
-/*
-	echo "<pre>";
-		print_r($ordenes);
-	echo "</pre>";
-*/
+
 	$opciones = "";
 	foreach ($ordenes as $key => $value) {
 		$productos_list = $mis_suscripciones[ $value->id ]["productos"];
@@ -28,6 +24,18 @@
 			}
 			$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n (Id: {$value->id}): {$productos_list_name} </option>";
 		}
+	}
+
+	
+
+	$opciones_despachos = "";
+	foreach ($mis_despachos as $key => $value) {
+
+/*		echo "<pre>";
+			print_r($value);
+		echo "</pre>";*/
+
+		$opciones_despachos .= "<option value={$value['orden']} data-status='{$value['status']}'>Suscripci&oacute;n (Id: {$value['orden']}): {$value['nombre']} </option>";
 	}
 
 	if( count($mis_suscripciones) > 0 ){
