@@ -6,6 +6,8 @@
 	include( __DIR__."/funciones/suscripcion.php" );
 	include( __DIR__."/funciones/unico_uso.php" );
 
+	include( __DIR__."/funciones/excel.php" );
+
 	include( __DIR__."/funciones/backpanel.php" );
 
 	include( __DIR__."/funciones/cupones.php" );
@@ -59,7 +61,7 @@
 		remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 		// Remove oEmbed-specific JavaScript from the front-end and back-end.
 		remove_action( 'wp_head', 'wp_oembed_add_host_js' );
-		add_filter( 'tiny_mce_plugins', 'disable_embeds_tiny_mce_plugin' );
+		//add_filter( 'tiny_mce_plugins', 'disable_embeds_tiny_mce_plugin' );
 		// Remove all embeds rewrite rules.
 		// add_filter( 'rewrite_rules_array', 'disable_embeds_rewrites' );
 		// Remove filter of the oEmbed result before any HTTP requests are made.

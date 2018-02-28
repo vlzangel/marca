@@ -1,6 +1,6 @@
 <div style="font-size: 25px; background: #0b1805; color: #FFF; text-align: center; padding: 30px 20px; font-weight: 600;">
 	¡Hola [USUARIO]!
-	<div  class="text" style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
+	<div  class="text" style=" color: #FFF !important; font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
 		Haz realizado un pago en tienda
 	</div>
 </div> 
@@ -44,7 +44,7 @@
 <br>
 
 <div style="text-align: center; font-size: 17px;">
-	Tu asesor nutricional te contactará una semana antes de que venza tu suscripción Adicionalmente, se hará un envío de tu orden de pago de manera automática por el cobro de tu alimento. El cual será enviado una vez sea aprobado el pago.
+	Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago de manera automática por el cobro de tu alimento. El cual será enviado una vez sea aprobado el pago.
 </div>
 
 <br><br>

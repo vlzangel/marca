@@ -55,13 +55,13 @@ jQuery(document).ready(function() {
 		jQuery('input[data-target="search"]').val( str );
 		
 		var REGEXP_SIN_ESPACIO = "";
-		var REGEXP_CON_ESPACIO    = str.trim().replace(/(\s{1,})/g, "|");
+		var REGEXP_CON_ESPACIO = str.trim().replace(/(\s{1,})/g, "|");
 		
 		if( REGEXP_CON_ESPACIO != ""){
 			REGEXP_SIN_ESPACIO = "|"+str.trim().replace(/(\s{1,})/g, "");
 		}
 		BUSQUEDA_REGEXP = "("+REGEXP_CON_ESPACIO+REGEXP_SIN_ESPACIO+")";
-		console.log(BUSQUEDA_REGEXP);
+		//console.log(BUSQUEDA_REGEXP);
 
 		change_fase(3);
 	});
@@ -533,7 +533,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	if (frecuencia === 'Sólo por esta vez'){
 		msjFrecuencia = 'El cobro de tu suscripción se hará <label class="resaltar_desglose">'+frecuencia+'</label>';	
 	}else{
-		msjFrecuencia = 'El monto mostrado a continuación se cobrará automáticamente <label class="resaltar_desglose">'+frecuencia+'</label> los días '+hoy+' de cada mes';
+		msjFrecuencia = 'El monto mostrado a continuación se cobrará automáticamente <label class="resaltar_desglose">'+frecuencia+'</label> los días '+hoy;
 	}
 	
 	//if(hoy < 10){ hoy = "0"+hoy; }

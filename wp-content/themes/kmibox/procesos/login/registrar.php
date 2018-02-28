@@ -1,6 +1,6 @@
 <?php 
 
-	include_once( dirname(__DIR__, 5).'/wp-load.php' );
+	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
     
     setZonaHoraria();
 	extract($_POST);
@@ -80,6 +80,7 @@
 					    	)
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
+						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
 						
 	        
 

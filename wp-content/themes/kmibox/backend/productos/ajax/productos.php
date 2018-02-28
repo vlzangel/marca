@@ -27,6 +27,7 @@
 	}
 
 	$data["data"] = array();
+	$excel = array();
 
 	foreach ($productos as $producto) {
 
@@ -93,8 +94,54 @@
 	        	<span onclick='eliminar_producto( jQuery( this ) )' data-id='".$producto->id."' class='enlace'>Eliminar</span><br>
 	        "
 	    );
+
+	    $_origenes = implode(PHP_EOL, $origenes ); if( count($origenes) == 0 ){ $_origenes = ""; }
+
+		$excel[] = array(
+	        $producto->id,
+	        $producto->nombre,
+	        $producto->descripcion,
+	        "$ ".$producto->precio." MXN",
+	        $producto->existencia,
+	        $producto->puntos,
+	        $producto->peso,
+	        $marca,
+	        $_origenes,
+	        implode(PHP_EOL, $tamanos ),
+	        implode(PHP_EOL, $edades ),
+	        implode(PHP_EOL, $planes ),
+	        $producto->status,
+	        array(
+	        	"tipo" => "img",
+	        	"valor" => $img
+	        )
+	    );
 	}
 
-    echo json_encode($data);
+	if( isset($_GET["excel"]) ){
+    	crearEXCEL(array(
+			"nombre" => "Reporte de Presentaciones",
+			"file_name" => "productos",
+			"titulos" => array(
+				"ID",
+                "Nombre",
+                "Descripción",
+                "Precio",
+                "Existencia",
+                "Puntos",
+                "Peso",
+                "Marca",
+                "Ciudad",
+                "Tamaños para",
+                "Edades Para",
+                "Planes",
+                "Status",
+                "Imagen"
+			),
+			"data" => $excel
+		));
+    }else{
+    	echo json_encode($data);
+    }
 
 ?>

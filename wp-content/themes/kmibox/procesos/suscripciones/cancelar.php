@@ -1,5 +1,5 @@
 <?php
-	include( dirname(__DIR__, 5)."/wp-load.php" );
+	include( dirname(dirname(dirname(dirname(dirname(__DIR__)))))."/wp-load.php" );
 
 	global $wpdb;
 
@@ -23,6 +23,7 @@
     );
 
     wp_mail( $email, "Suscripción Cancelada Exitosamente - NutriHeroes", $HTML );
+    mail_admin_nutriheroes( "Suscripción Cancelada Exitosamente - NutriHeroes", $HTML );
    
            
 

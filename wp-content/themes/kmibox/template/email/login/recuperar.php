@@ -40,7 +40,7 @@
 	<div style="
 		text-align: left;
 	">
-		Si no has sido tu, ignora este mensaje.
+		Si no has sido t&uacute;, ignora este mensaje.
 		<strong> Para continuar con la recuperacion de la contraseña de tu cuenta haz click en el siguiente enlace:</strong> 
 	</div> 	
 	

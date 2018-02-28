@@ -3,7 +3,7 @@
 	include( dirname(__DIR__)."/lib/openpay/Openpay.php" );
 
 	function dataOpenpay(){
-		$OPENPAY_PRUEBAS = 0;
+		$OPENPAY_PRUEBAS = 1;
 		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
 
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
@@ -218,13 +218,9 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
-
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-		 	wp_mail( 'i.cocchini@kmimos.la', "Suscripción Modificada Exitosamente - NutriHeroes", $HTML, $headers );
+ 
+		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
+ 
 		 	
 		}
 
@@ -235,24 +231,15 @@
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
 
-    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
-
     		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses." month") );
 
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
-			$wpdb->query( $SQL ); 
+			$wpdb->query( "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );" ); 
 
-    		for ($i=0; $i < $meses; $i++) { 
-    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			if( $i == 0 ){ $mes_actual = date("Y-m-d", time() ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." month") ); }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
-    			$wpdb->query( $SQL );
-    		}
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
     	}
 
 	}
-
-
 
 	function crearNewCobro($orden_id, $_time_hoy){
     	setZonaHoraria();
@@ -264,18 +251,12 @@
     		$hoy = date("d", $_time_hoy );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
 
-    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
     		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d", $_time_hoy)." +".$meses." month") );
 
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
 			$wpdb->query( $SQL );
 
-    		for ($i=0; $i < $meses; $i++) { 
-    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			if( $i == 0 ){ $mes_actual = date("Y-m-d", $_time_hoy ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." month", $_time_hoy) ); }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
-    			$wpdb->query( $SQL );
-    		}
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
     	}
 	}
 
@@ -305,6 +286,7 @@
 				$_data = unserialize( $producto->dataextra );
 				$img = TEMA()."/imgs/productos/".$_data["img"];
 				$anio = date("Y")."-12-31";
+
 				$entregas = $wpdb->get_results("SELECT * FROM despachos WHERE sub_orden = {$plan->id} AND status = 'Recibida' AND mes <= '{$anio}'");
 				$_entregas = array();
 				foreach ($entregas as $value) {
@@ -326,7 +308,7 @@
 					"img" => $img,
 					"status" => $estatus,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
-					"entredagos" => $_entregados_str
+					"entregados" => $_entregados_str
 				);
 			}
 		}
@@ -361,8 +343,6 @@
 		return $_despachos;
 	}
 
-
-
 	function getProductosDesglose($id_orden){
 		global $wpdb;
 		$_planes = get_planes();
@@ -381,6 +361,21 @@
 	    	);
 	    }
 		return $_productos;
+	}
+
+	function get_email_asesor( $orden_id ){
+		global $wpdb;
+
+		$asesor = $wpdb->get_row( 
+			"select a.email as email from ordenes as o inner join asesores as a ON a.id = o.asesor where o.id = {$orden_id}"
+		);
+
+		$asesor_email = [];
+		if( isset($asesor->email) ){
+			$asesor_email = [ $asesor->email ];
+		}
+
+		return $asesor_email;
 	}
 
 ?>

@@ -189,6 +189,19 @@ section{
 /* ************************ */
 /* Responsive 				*/
 /* ************************ */
+@media (max-width: 1600px){
+	#asesor a{
+    	font-size: 11px;
+	}
+
+	#si-encuentras-precio {
+    	font-size: 25px!important;
+	}
+	#precio-vet{
+		font-size:20px!important;
+	}	
+
+}
 
 @media (max-width: 1200px){
 	#asesor a{
@@ -200,8 +213,7 @@ section{
 	}
 	#precio-vet{
 		font-size:20px!important;
-	}
-	
+	}	
 
 }
 

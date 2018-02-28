@@ -19,45 +19,48 @@
 			
 				if (result.id != "NO_ASESOR") {
 					$("#small1").addClass("hidden");
-					$("#nombreasesor").attr("value",result.nombre);
-					$("#emailasesor").attr("value",result.email);					
+					$("#nombreasesor").val(result.nombre);
+					$("#emailasesor").val(result.email);	
+
+					$("#nombreasesor").closest('form').bootstrapValidator('revalidateField', $("#nombreasesor").prop('name'));
+					$("#emailasesor").closest('form').bootstrapValidator('revalidateField', $("#emailasesor").prop('name'));
 				}else{
 					$("#sin_asesor").text(result.msg);
 					$("#small1").removeClass("hidden");
 					$("#nombreasesor").attr("value",null);
-					$("#emailasesor").attr("value",null);
+					$("#emailasesor").attr("value",null);	
 				}
 	});
 	$("#r_usuario")
 		.on("change", function(){
-				var client;
-				var email = { 'email' : $("#r_usuario").val()}
-				
-			$.post(urlbase+"/ajax/busca_cliente.php",email, function(data){
-
+			var client;
+			var email = { 'email' : $("#r_usuario").val()};
+			$.post( urlbase+"/ajax/busca_cliente.php", email, function(data){
 				client = $.parseJSON(data);
- 
 				if (client.id > 0) {
 					$("#small2").addClass("hidden");
 					$("#user_id").attr("value", client['id']);
-
-					if(client['apellido']==null){
-						$("#inputEmail3").attr("value",client['nombre']);
+					$("#user_asesor_id").attr("value", client['asesor']);
+					if( client['apellido'] == null ){
+						$("#inputEmail3").attr( "value", client['nombre'] );
 					}else{
-						$("#inputEmail3").attr("value",client['nombre']+' '+client['apellido']);
+						$("#inputEmail3").attr( "value", client['nombre']+' '+client['apellido'] );
 					}
-					
-					$("#telef_movil").attr("value",client['telefono']);
+					$("#telef_movil").attr( "value", client['telefono'] );
+
+					$("#inputEmail3").closest('form').bootstrapValidator('revalidateField', $("#inputEmail3").prop('name'));
+					$("#telef_movil").closest('form').bootstrapValidator('revalidateField', $("#telef_movil").prop('name'));
 				}else{
 					$("#small2").removeClass("hidden");
-					$("#user_id").attr("value",0);
-					$("#sin_cliente").text(client['msg']);	
-					$("#inputEmail3").attr("value",null);
-					$("#telef_movil").attr("value",null);
+					$("#user_id").attr("value", 0);
+					$("#sin_cliente").text( client['msg'] );	
+					$("#inputEmail3").attr("value", null);
+					$("#telef_movil").attr("value", null);
 				}
 
 			});	
 	});
+
 	$('#orden_action').on('click', function(){
 		$('#order_confirmacion').modal('hide');	
 		setTimeout(function(){
@@ -71,12 +74,9 @@
 		$('#order_confirmacion').modal('show');
 	});
 
-
-
 	$('#form-cargar-orden')
 		.on('init.field.fv', function(e, data) {
 			scroll(0);
-
 	        // data.field   --> The field name
 	        // data.element --> The field element
 	        if (data.field === 'sexo') {
@@ -85,95 +85,71 @@
 	        }
 	    })
 		.on('error.form.bv', function(e) {
-
-
-
-			 jQuery("input[type=text],input[type=email],select").each(function () {
-
+			jQuery("input[type=text],input[type=email],select").each(function () {
 			   if ((!this.value) || (this.value==0)) {
-			   	 this.focus();
-			  	 return false;
+			   	 	this.focus();
+			  	 	return false;
 			   }
 			});
-
-
 			jQuery("#error_registrando").css("display", "block");
 		})
 		.on('success.form.bv', function(e) {
 
-		    // Prevent form submission
 		    e.preventDefault();
 
 			jQuery("#error_registrando").css("display", "none");
-			// jQuery(".btn-register_").attr("disabled", true);
 			jQuery(".btn-register_").html("Procesando...");
 
-		    // Get the form instance
 		    var $form = $(e.target);
-
-		    // Get the FormValidation instance
 		    var bv = $form.data('formValidation');		
 
 			$('#login-mensaje').html('');
 			$('#login-mensaje').addClass('hidden');
 			
-
 			$.post( TEMA+"procesos/asesor/cargar_orden.php", $('#form-cargar-orden').serialize()  , function(r) {
 
 				r = $.parseJSON(r);
-				jQuery(".btn-register_").attr("disabled", false);
-				jQuery(".btn-register_").html("Registrarme");
 
+				console.log( r );
+
+				jQuery(".btn-register_").attr("disabled", false);
+				jQuery(".btn-register_").html("Enviar Orden");
 
 				if(r['code'] == 1){
 					jQuery("#success_registrando").css("display", "block");
 
-
 					$('#cliente_nuevo').find('.modal-title').html('<span style="font-size: 16px;text-transform: uppercase;color: #0ab7aa;"><strong>El cliente fue registrado exitosamente.</strong></span>');
-					
-
 					$('#order_confirmacion').find('.modal-title').html('<span style="font-size: 16px;text-transform: uppercase;color: #0ab7aa;"><strong>Orden generada satisfactoriamente.</strong></span>');
 					
-
-
 					var forma_pago = $('[name="forma_pago"]').val();
 					var body = $('#order_confirmacion').find('.modal-body');
 					
-				
-
-				if(jQuery("#user_id").val()==0){
-							body.html(
-							"Orden #: "+r['orden_id']+'<br>'+
-							"Cliente: "+r['nombre']+'<br>'+
-							"Estatus: Pendiente de pago<br>"
-						);
-							
-						
-				}else{
-						
-						body.html(
-							"Orden #: "+r['orden_id']+'<br>'+
-							"Cliente: "+r['nombre']+'<br>'+
-							"Estatus: Pendiente de pago<br><br><br>"+
-							"<span style='font-size:12px;'> El cliente ya esta registrado previamente contacta a este teléfono: 5540034824 para entender el detalle.</span>"
-						);
-
-				}
+					var asesor_cliente = $("#user_asesor_id").attr("value");
+					var aviso = "";
+					if( 
+						asesor_cliente != 0 &&
+						r['asesor'] != asesor_cliente
+					){
+						aviso = "<span style='font-size:12px;'>El cliente ya está registrado con otro asesor, por favor contacta al número 5540034824  para entender el detalle.</span>";
+					}
+					
+					body.html(
+						"Orden #: "+r['orden_id']+'<br>'+
+						"Cliente: "+r['nombre']+'<br>'+
+						"<div style='margin-bottom: 15px;'>Estatus: Pendiente de pago</div>"+
+						aviso
+					);
 
 					var bodycliente = $('#cliente_nuevo').find('.modal-body');
 						bodycliente.html(
 							"A partir de este momento está registrado en tu estructura como asesor."
 						);
 						
-
-						
 					if(jQuery("#user_id").val()==0){
 						$('#cliente_nuevo').modal('show');
 					}else{
 					    $('#order_confirmacion').modal('show');
-
 					}
-					
 				
 				}else{
 					$('#login-mensaje').html(r['msg']);
@@ -434,13 +410,13 @@
 	$('[name="dir_presentaciones"]').on('change', function(){
 
 		var product = _PRODUCTOS[ jQuery('#dir_presentaciones').val() ];
-/*
+		/*
 		$('[name="dir_peso"]').val( producto.peso );
 		$('[name="dir_precio"]').val( producto.precio );
-*/
+		*/
 		var planes = '';
 		jQuery.each( product.planes, function(plan_id, val) {
-console.log(_PLANES[plan_id] );			
+		console.log(_PLANES[plan_id] );			
 			if( val == 1 ){
 				planes += '<option value="'+plan_id+'">'+_PLANES[plan_id].nombre+'</option>';
 			}

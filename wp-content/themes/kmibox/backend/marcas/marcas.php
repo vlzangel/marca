@@ -8,8 +8,9 @@
     </div>
 
 	<div class="botones_container">
-	    <input type='button' value='Nuevo' onClick='abrir_link( jQuery(this) )'  data-titulo="Nueva Marca" data-modulo="marcas" data-modal="nuevo" data-id="" class="button button-primary button-large" />
-	</div>
+	   <input type='button' value='Nuevo' onClick='abrir_link( jQuery(this) )'  data-titulo="Nueva Marca" data-modulo="marcas" data-modal="nuevo" data-id="" class="button button-primary button-large" />
+	   <input type='button' value='EXCEL' id='excel' data-modulo="marcas" data-file="marcas" class="button button-primary button-large" />
+    </div>
 
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
         <thead>

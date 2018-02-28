@@ -1,6 +1,6 @@
 <?php 
 
-	include_once( dirname(__DIR__, 5).'/wp-load.php' );
+	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
     
     setZonaHoraria();
 
@@ -33,6 +33,7 @@
 		    );
 
 			wp_mail( $email, "Cambio de contraseña para tu cuenta Nutriheroes", $HTML );
+			mail_admin_nutriheroes(  "Cambio de contraseña para tu cuenta Nutriheroes", $HTML );
 			
 	      
 
