@@ -19,13 +19,16 @@
 			
 				if (result.id != "NO_ASESOR") {
 					$("#small1").addClass("hidden");
-					$("#nombreasesor").attr("value",result.nombre);
-					$("#emailasesor").attr("value",result.email);					
+					$("#nombreasesor").val(result.nombre);
+					$("#emailasesor").val(result.email);	
+
+					$("#nombreasesor").closest('form').bootstrapValidator('revalidateField', $("#nombreasesor").prop('name'));
+					$("#emailasesor").closest('form').bootstrapValidator('revalidateField', $("#emailasesor").prop('name'));
 				}else{
 					$("#sin_asesor").text(result.msg);
 					$("#small1").removeClass("hidden");
 					$("#nombreasesor").attr("value",null);
-					$("#emailasesor").attr("value",null);
+					$("#emailasesor").attr("value",null);	
 				}
 	});
 	$("#r_usuario")
@@ -44,6 +47,9 @@
 						$("#inputEmail3").attr( "value", client['nombre']+' '+client['apellido'] );
 					}
 					$("#telef_movil").attr( "value", client['telefono'] );
+
+					$("#inputEmail3").closest('form').bootstrapValidator('revalidateField', $("#inputEmail3").prop('name'));
+					$("#telef_movil").closest('form').bootstrapValidator('revalidateField', $("#telef_movil").prop('name'));
 				}else{
 					$("#small2").removeClass("hidden");
 					$("#user_id").attr("value", 0);
@@ -67,8 +73,6 @@
 		$('#cliente_nuevo').modal('hide');	
 		$('#order_confirmacion').modal('show');
 	});
-
-
 
 	$('#form-cargar-orden')
 		.on('init.field.fv', function(e, data) {
