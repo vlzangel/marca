@@ -73,7 +73,7 @@
 
 		if( $_data["correo_enviado"] == 1 ){
 			$enviar_correo .= "<br><strong>El correo ya ha sido enviado.</strong>";
-	        $enviar_correo_excel = "Correop Enviado";
+	        $enviar_correo_excel = "Correo Enviado";
 		}
 
 		$guia = $_data["guia"];

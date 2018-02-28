@@ -12,6 +12,7 @@
 	function crearEXCEL($params){
 
 		PHPExcel_Cell::setValueBinder( new PHPExcel_Cell_AdvancedValueBinder() );
+		PHPExcel_Settings::setZipClass(PHPExcel_Settings::PCLZIP);
 
 		// Crea un nuevo objeto PHPExcel
 	        $objPHPExcel = new PHPExcel();
@@ -93,7 +94,7 @@
 
 	    // Se modifican los encabezados del HTTP para indicar que se envia un archivo de Excel.
 
-			header('Content-Type: application/vnd.ms-excel');
+			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 	        header('Content-Disposition: attachment;filename="'.$params["file_name"].'.xlsx"');
 	        header('Cache-Control: max-age=0');
 
