@@ -180,7 +180,7 @@
 						<tbody id="cart-items"></tbody>
 					</table>
 
-					<div id="cupones">
+					<div id="cupones" class="hidden">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
 								<td> ¿Dispone de un cupón de descuento? </td>
