@@ -231,24 +231,15 @@
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
 
-    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
-
     		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses." month") );
 
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
-			$wpdb->query( $SQL ); 
+			$wpdb->query( "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );" ); 
 
-    		for ($i=0; $i < $meses; $i++) { 
-    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			if( $i == 0 ){ $mes_actual = date("Y-m-d", time() ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." month") ); }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
-    			$wpdb->query( $SQL );
-    		}
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
     	}
 
 	}
-
-
 
 	function crearNewCobro($orden_id, $_time_hoy){
     	setZonaHoraria();
@@ -260,18 +251,12 @@
     		$hoy = date("d", $_time_hoy );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
 
-    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
     		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d", $_time_hoy)." +".$meses." month") );
 
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
 			$wpdb->query( $SQL );
 
-    		for ($i=0; $i < $meses; $i++) { 
-    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			if( $i == 0 ){ $mes_actual = date("Y-m-d", $_time_hoy ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." month", $_time_hoy) ); }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
-    			$wpdb->query( $SQL );
-    		}
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
     	}
 	}
 
