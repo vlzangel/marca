@@ -14,28 +14,25 @@
 	$ordenes = getOrdenes();
 
 	$opciones = "";
-	foreach ($ordenes as $key => $value) {
-		$productos_list = $mis_suscripciones[ $value->id ]["productos"];
-		if( !empty($productos_list) ){		
-			$productos_list_name = '';
-			foreach ($productos_list as $item) {
-				$separador = ( empty($productos_list_name) )? '' : ' - ';
-				$productos_list_name .= $separador . $item['nombre'];
+	if( count($ordenes) > 0 ){
+		foreach ($ordenes as $key => $value) {
+			$productos_list = $mis_suscripciones[ $value->id ]["productos"];
+			if( !empty($productos_list) ){		
+				$productos_list_name = '';
+				foreach ($productos_list as $item) {
+					$separador = ( empty($productos_list_name) )? '' : ' - ';
+					$productos_list_name .= $separador . $item['nombre'];
+				}
+				$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n (Id: {$value->id}): {$productos_list_name} </option>";
 			}
-			$opciones .= "<option value={$value->id} data-status='{$value->status}'>Suscripci&oacute;n (Id: {$value->id}): {$productos_list_name} </option>";
 		}
 	}
 
-	
-
-	$opciones_despachos = "";
-	foreach ($mis_despachos as $key => $value) {
-
-/*		echo "<pre>";
-			print_r($value);
-		echo "</pre>";*/
-
-		$opciones_despachos .= "<option value={$value['orden']} data-status='{$value['status']}'>Suscripci&oacute;n (Id: {$value['orden']}): {$value['nombre']} </option>";
+	if( count($mis_despachos) > 0 ){
+		$opciones_despachos = "";
+		foreach ($mis_despachos as $key => $value) {
+			$opciones_despachos .= "<option value={$value['orden']} data-status='{$value['status']}'>Suscripci&oacute;n (Id: {$value['orden']}): {$value['nombre']} </option>";
+		}
 	}
 
 	if( count($mis_suscripciones) > 0 ){
