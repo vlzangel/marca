@@ -29,6 +29,15 @@
 			$metadata["is_user_kmimos"] = "NO";
 		}
 
+		$_asesor =  get_user_meta($cliente->ID, 'asesor_registro', true);
+        if( $_asesor == "" ){ $_asesor =  get_user_meta($cliente->ID, 'asesor', true); }
+        if( $_asesor == "" ){ $_asesor =  "No asignado"; }
+
+        if( $_asesor != "No asignado" ){ 
+        	$data_asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id = ".$_asesor); 
+        	$_asesor = "(".$data_asesor->codigo_asesor.") ".$data_asesor->nombre;
+        }
+
 		$data["data"][] = array(
 	        $cliente->ID,
 	        date("d/m/Y", strtotime($cliente->user_registered)),
@@ -36,7 +45,15 @@
 	        $cliente->user_email,
 	        $metadata[ "telef_movil" ],
 	        strtoupper( $donde ),
-	        $metadata["is_user_kmimos"]
+	        $metadata["is_user_kmimos"],
+	        "<span 
+	        		onclick='abrir_link( jQuery( this ) )' 
+	        		data-id='".$cliente->ID."' 
+	        		data-titulo='Asesor Asignado' 
+	        		data-modulo='clientes' 
+	        		data-modal='asignar_asesor' 
+	        		class='enlace' style='text-align: center;'
+	        	>".$_asesor."</span>"
 	    );
 
 		$excel[] = array(
@@ -50,7 +67,8 @@
 	        ),
 	        $metadata[ "telef_movil" ],
 	        strtoupper( $donde ),
-	        $metadata["is_user_kmimos"]
+	        $metadata["is_user_kmimos"],
+	        $_asesor
 	    );
 	}
 
@@ -65,7 +83,8 @@
                 "Email",
                 "Teléfono",
                 "Donde nos conocio?",
-                "Usuario Kmimos"
+                "Usuario Kmimos",
+                "Asesor"
 			),
 			"data" => $excel
 		));

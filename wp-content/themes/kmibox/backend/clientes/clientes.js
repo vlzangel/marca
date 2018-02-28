@@ -36,3 +36,22 @@ jQuery(document).ready(function() {
     });
 
 } );
+
+function actualizarAsesor(){
+	var URL = TEMA+"/backend/clientes/ajax/updateAsesor.php";
+	jQuery.ajax({
+        async:true, 
+        cache:false, 
+        type: 'POST', 
+        url: URL,
+        data: jQuery("#asignar_asesor").serialize(), 
+        success:  function(HTML){
+            table.ajax.reload();
+            cerrar();
+        },
+        beforeSend:function(){},
+        error:function(e){
+        	console.log(e);
+        }
+    });
+}
