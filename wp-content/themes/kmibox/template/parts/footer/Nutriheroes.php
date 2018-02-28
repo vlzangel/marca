@@ -26,7 +26,7 @@
 							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 4</span><span class="nutri-text">Verifica y realiza tu pago</span>
 						</li>
 						<li> 
-							<span class="nutri-paso nutri-green"><span class="nutri-paso-text">PASO</span> 5</span><span class="nutri-text">Recibe el alimento donde quieres</span>
+							<span class="nutri-paso nutri-green"><span class="nutri-paso-text"></span> PASO 5</span><span class="nutri-text">Recibe el alimento donde quieres</span>
 						</li>
 					</ul>
 					<p class="nutri-parrafo">Para cualquier duda o informaci&oacute;n adicional puedes llamar o escribir al 5540034824 donde con gusto te atenderemos </p>
