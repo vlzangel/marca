@@ -286,6 +286,7 @@
 				$_data = unserialize( $producto->dataextra );
 				$img = TEMA()."/imgs/productos/".$_data["img"];
 				$anio = date("Y")."-12-31";
+
 				$entregas = $wpdb->get_results("SELECT * FROM despachos WHERE sub_orden = {$plan->id} AND status = 'Recibida' AND mes <= '{$anio}'");
 				$_entregas = array();
 				foreach ($entregas as $value) {
@@ -307,7 +308,7 @@
 					"img" => $img,
 					"status" => $estatus,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
-					"entredagos" => $_entregados_str
+					"entregados" => $_entregados_str
 				);
 			}
 		}
