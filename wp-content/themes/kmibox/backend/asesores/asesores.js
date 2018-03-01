@@ -28,7 +28,8 @@ jQuery(document).ready(function() {
         "ajax": {
             "url": TEMA+'/backend/asesores/ajax/asesores.php',
             "type": "POST"
-        }
+        },
+        "order": [[ 0, "desc" ]]
 	});
 
     jQuery("#close_modal").on("click", function(e){
