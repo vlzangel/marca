@@ -26,10 +26,9 @@
 		
 
 		$_descripcion = $suscripcion->cantidad." x ".$producto->nombre." - ".$producto->descripcion." - ".$producto->peso." - ".$data_suscripcion[ "plan" ];
-		// $_descripcion .= ', <span class="precio"> $ '.number_format( $suscripcion->total, 2, ',', '.').' MXN</span>';
 		$ordenes[ $suscripcion->id_orden ]["productos"][] = $_descripcion;
 		
-		$ordenes[ $suscripcion->id_orden ]["precio"][] = "$ ".number_format( $suscripcion->total, 2, ',', '.')." MXN";
+		$ordenes[ $suscripcion->id_orden ]["precio"][] = "$ ".number_format( $suscripcion->total+0, 2, ',', '.')." MXN";
 		$ordenes[ $suscripcion->id_orden ]["proximo_cobro"][] = $proximo_cobro;
 		$ordenes[ $suscripcion->id_orden ]["status"] = $suscripcion->status_suscripcion;
 
