@@ -13,6 +13,7 @@
 		$_codigo = $marca->codigo_asesor;
 		$_nombre = $marca->nombre;
 		$_email = $marca->email;
+		$_telefono = $marca->telefono;
 	}
 
 
@@ -52,6 +53,13 @@
 				<div class="input_box">
 					<label>Email:</label>
 					<input type="email" id="email" name="email" value="'.$_email.'" required />
+				</div>
+			</div>
+
+			<div class="celdas_1">
+				<div class="input_box">
+					<label>Tel&eacute;fono:</label>
+					<input type="text" id="telefono" name="telefono" value="'.$_telefono.'" />
 				</div>
 			</div>
 

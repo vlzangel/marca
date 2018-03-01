@@ -19,14 +19,16 @@
 	        $asesor->id,
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
-	        $asesor->email
+	        $asesor->email,
+	        $asesor->telefono
 	    );
 
 		$excel[] = array(
 	        $asesor->id,
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
-	        $asesor->email
+	        $asesor->email,
+	        $asesor->telefono
 	    );
 	}
 
@@ -38,7 +40,8 @@
 				"ID",
                 "Código de Asesor",
                 "Nombre y Apellido",
-                "Email"
+                "Email",
+                "Teléfono"
 			),
 			"data" => $excel
 		));

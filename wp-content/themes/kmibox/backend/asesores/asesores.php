@@ -20,6 +20,7 @@
                 <th>C&oacute;digo</th>
                 <th>Nombre y Apellido</th>
                 <th>Email</th>
+                <th>Tel&eacute;fono</th>
             </tr>
         </thead>
         <tbody></tbody>

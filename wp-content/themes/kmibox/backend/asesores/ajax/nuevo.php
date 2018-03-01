@@ -11,7 +11,8 @@
 				NULL,
 				'$codigo',
 				'$nombre',
-				'$email'
+				'$email',
+				'$telefono'
 			)
 		");
 
