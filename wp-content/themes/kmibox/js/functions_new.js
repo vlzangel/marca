@@ -597,14 +597,12 @@ function loadFase(fase){
 	switch( fase ){
 		case "1":
 			change_title('Elije el tamaño de tu mascota');
-			mostrar_modal_marca = 1;
 		break;
 		case 1: // Fase #1 - Tamaño
 			change_title('Elije el tamaño de tu mascota');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
-			mostrar_modal_marca = 1;
 		break;
 
 
@@ -621,6 +619,19 @@ function loadFase(fase){
 			loadMarcas();
 			initMarcas();
 
+			if( mostrar_modal_marca_1 == "" ){
+				setTimeout(function() {
+					jQuery("#modal-contacto-marca").modal('show');
+					jQuery.post(
+						TEMA+"/procesos/compra/modal_mostrado.php",
+						{ modal: 1 },
+						function(e){
+							console.log(e);
+						}, "json"
+					);
+		        }, 1500);
+			}
+
 		break;
 
 		case "3":
@@ -632,11 +643,17 @@ function loadFase(fase){
 			loadPresentaciones();
 			initPresentaciones();
 
-			if( mostrar_modal_marca == 1){
-				mostrar_modal_marca = 0;
+			if( mostrar_modal_marca_2 == "" ){
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
-		        },1500);
+					jQuery.post(
+						TEMA+"/procesos/compra/modal_mostrado.php",
+						{ modal: 2 },
+						function(e){
+							console.log(e);
+						}, "json"
+					);
+		        }, 1500);
 			}
 
 		break;

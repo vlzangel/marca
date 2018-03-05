@@ -43,6 +43,11 @@
 
 	$HTML = '
 
+		<script>
+			var mostrar_modal_marca_1 = "'.$_SESSION["MODAL_1"].'";
+			var mostrar_modal_marca_2 = "'.$_SESSION["MODAL_2"].'";
+		</script>
+
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
 		</a>
