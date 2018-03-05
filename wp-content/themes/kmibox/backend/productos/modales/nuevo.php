@@ -8,6 +8,7 @@
 	$_nombre = "";
 	$_precio = "";
 	$_marca = "";
+	$_category = "";
 	$_nombre = "";
 	$img_url = "";
 	$img_old = "";
@@ -26,6 +27,7 @@
 		$_marca = $producto->marca;
 		$_existencia = $producto->existencia;
 		$_puntos = $producto->puntos;
+		$_category = $producto->categoria;
 		$_descripcion = $producto->descripcion;
 		$_tamanos = unserialize($producto->tamanos);
 		$_edades = unserialize($producto->edades);
@@ -77,6 +79,12 @@
 			</div>
 		';
 		return $HTML;
+	}
+
+	$_categories = $wpdb->get_results("SELECT * FROM categorias");
+	$categories = "";
+	foreach ($_categories as $key => $category) {
+		$categories .= "<option value='{$category->id}' ".selected($category->id, $_category, false).">{$category->nombre}</option>";
 	}
 
 	$_marcas = $wpdb->get_results("SELECT * FROM marcas");
@@ -137,7 +145,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="celdas_2">
+	<div class="celdas_3">
 		<div class="input_box">
 			<div class="input_text_container">
 
@@ -151,6 +159,12 @@
 					<input type="text" id="puntos" name="puntos" value="<?php echo $_puntos; ?>"> 
 				</div>
 
+				<div class="input_text">
+					<label>Categor&iacute;a</label>
+					<select id="category" name="category">
+						<?php echo $categories; ?>
+					</select>
+				</div>
 			</div>
 		</div>
 	</div>
