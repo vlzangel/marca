@@ -21,7 +21,7 @@
                 <th>Tel&eacute;fono</th>
                 <th>Donde nos conocio?</th>
                 <th>Usuario Kmimos</th>
-                <th>Asesor</th>
+                <th>Es Asesor</th>
             </tr>
         </thead>
         <tbody></tbody>

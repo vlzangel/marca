@@ -21,7 +21,8 @@
 	                NULL,
 	                '".$codidoasesor."',
 	                '".$nombreasesor."',
-	                '".$emailasesor."'
+	                '".$emailasesor."',
+	                NULL
 	            );
 	        ";
 
