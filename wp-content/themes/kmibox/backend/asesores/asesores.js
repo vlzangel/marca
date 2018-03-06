@@ -26,9 +26,10 @@ jQuery(document).ready(function() {
 		},
         "scrollX": true,
         "ajax": {
-            "url": TEMA+'/backend/clientes/ajax/clientes.php',
+            "url": TEMA+'/backend/asesores/ajax/asesores.php',
             "type": "POST"
-        }
+        },
+        "order": [[ 0, "desc" ]]
 	});
 
     jQuery("#close_modal").on("click", function(e){
@@ -37,12 +38,13 @@ jQuery(document).ready(function() {
 
 } );
 
-function actualizarAsesor(){
-	var URL = TEMA+"/backend/clientes/ajax/updateAsesor.php";
-    jQuery.post(
+function crearNuevo(){
+	var URL = TEMA+"/backend/asesores/ajax/nuevo.php";
+	jQuery.post(
 		URL,
 		jQuery("#asignar_asesor").serialize(), 
 		function(data){
+			console.log(data);
         	if( data.code == 0 ){
         		alert(data.msg);
         	}else{
@@ -51,5 +53,23 @@ function actualizarAsesor(){
         	}
 		}, "json"
 	);
+}
 
+function actualizar(){
+	var URL = TEMA+"/backend/asesores/ajax/updateAsesor.php";
+	jQuery.ajax({
+        async:true, 
+        cache:false, 
+        type: 'POST', 
+        url: URL,
+        data: jQuery("#asignar_asesor").serialize(), 
+        success:  function(HTML){
+            table.ajax.reload();
+            cerrar();
+        },
+        beforeSend:function(){},
+        error:function(e){
+        	console.log(e);
+        }
+    });
 }

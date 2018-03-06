@@ -77,6 +77,15 @@
                     'page'          =>  'subscribers',
                     'icon'          =>  '',
                 ),
+                array(
+                    'title'         =>  __('Asesores'),
+                    'short-title'   =>  __('Asesores'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'asesores',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'asesores',
+                    'icon'          =>  '',
+                ),
 
      /*          array(
                     'title'         =>  __('Cupones'),
@@ -172,6 +181,13 @@
         function cupones(){
             include_once( dirname(__DIR__).'/backend/importador.php');
             include_once( dirname(__DIR__).'/backend/cupones/cupones.php');
+        }
+    }
+
+    if(!function_exists('asesores')){
+        function asesores(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/asesores/asesores.php');
         }
     }
 
