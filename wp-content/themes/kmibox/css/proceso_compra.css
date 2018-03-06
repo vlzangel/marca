@@ -894,3 +894,7 @@ div#wpadminbar {
     	font-size: 25px;
     	width: calc( 100% - 40px );
 	}
+
+	#modal-contacto-marca .close {
+	    height: 36px;
+	}

@@ -272,6 +272,9 @@
 	}
 
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
+/*
+	$_SESSION["MODAL_1"] = "";
+	$_SESSION["MODAL_2"] = "";*/
 ?>
 
 
