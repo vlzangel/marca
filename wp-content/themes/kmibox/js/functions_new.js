@@ -238,6 +238,10 @@ jQuery(document).ready(function() {
 		CARRITO = MODIFICACION;
 	}
 
+	jQuery(".imagen_grande span").on("click", function(e){
+		jQuery(".imagen_grande").css("display", "none");
+	});
+
 });
 
 function desgloseDescuentos(){
@@ -486,7 +490,7 @@ function loadPresentaciones(){
 
 					HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
 							'<div class="item_box">'+
-								'<div class="img_box" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
+								'<div class="img_box img_box_click" data-src="'+TEMA+"/imgs/productos/"+producto.dataextra.img+'" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
 								'<div class="info_producto_container">'+
 									'<div class="title_producto_box">'+producto.nombre+'</div>'+
 									'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
@@ -504,6 +508,12 @@ function loadPresentaciones(){
 	});
 
 	jQuery('#cant_precentaciones').html( CANT );
+
+	jQuery(".img_box_click").unbind("click", function(_e){} );
+	jQuery(".img_box_click").bind("click", function(e){
+		jQuery("#img_grande").attr("src", jQuery( this ).attr("data-src") );
+		jQuery(".imagen_grande").css("display", "block");
+	});
 
 	BUSQUEDA_REGEXP = '';
 
@@ -544,7 +554,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_movil" id= "prueba" style="text-align: center;">';
+	HTML += '	 <td class="solo_movil" style="text-align: center;">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
@@ -556,8 +566,6 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 <td class="">';
 	HTML += '	 	<label> <div class="resaltar_desglose">'+name+'</div> <div class="cart_descripcion">'+descripcion+' </div> <div class="">'+peso+' </div></label>';
 	HTML += '	 	<label class="solo_movil">$ '+FN(price)+' MXN</label>';
-	/*HTML += '	 	<div class="solo_movil">El monto mostrado a continuación se cobrará automáticamente <label class="resaltar_desglose">'+frecuencia+'</label> los días '+hoy+'de cada mes</div>';
-	*/
 	HTML += '	 	<div  class="solo_movil"><div class="solo_movil" >'+msjFrecuencia+'</div>';
 	HTML += '	 </td>';
 	HTML += '	 <td class="solo_pc center">';
@@ -620,6 +628,7 @@ function loadFase(fase){
 			initMarcas();
 
 			if( mostrar_modal_marca_1 == "" ){
+				mostrar_modal_marca_1 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 					jQuery.post(
@@ -644,6 +653,7 @@ function loadFase(fase){
 			initPresentaciones();
 
 			if( mostrar_modal_marca_2 == "" ){
+				mostrar_modal_marca_2 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 					jQuery.post(

@@ -272,6 +272,9 @@
 	}
 
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
+/*
+	$_SESSION["MODAL_1"] = "";
+	$_SESSION["MODAL_2"] = "";*/
 ?>
 
 
@@ -307,4 +310,17 @@
       </div> 
     </div>
   </div>
+</div>
+
+<div class='imagen_grande'>
+	<span> <i class="fa fa-chevron-left" aria-hidden="true"></i>  ATR&Aacute;S</span>
+	<table width="100%" height='100%' >
+		<tr>
+			<td style="text-align: center; vertical-align: middle;">
+				
+				<img id='img_grande' src="http://localhost/marca/wp-content/themes/kmibox/imgs/productos/1517908400.png" />
+
+			</td>
+		</tr>
+	</table>
 </div>
