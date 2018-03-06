@@ -68,7 +68,8 @@
 			marca = '{$marca}',
 			tamanos = '{$_tamanos}',
 			edades = '{$_edades}',
-			planes = '{$_planes}' {$_dataextra}
+			planes = '{$_planes}' {$_dataextra},
+			categoria = {$category}
 		WHERE 
 			id = {$ID}
 	";
