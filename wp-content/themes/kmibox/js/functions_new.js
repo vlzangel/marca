@@ -544,7 +544,7 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
 	HTML += '	 </td>';
-	HTML += '	 <td class="solo_movil" id= "prueba" style="text-align: center;">';
+	HTML += '	 <td class="solo_movil" style="text-align: center;">';
 	HTML += '	 	<span onClick="eliminarProducto('+index+')" style="margin-right: 10px;">';
 	HTML += '	 		<i class="fa fa-close"></i> <span class="hidden-sm hidden-md hidden-lg hidden-xs">Remover</span>';
 	HTML += '	 	</span>';
@@ -620,6 +620,7 @@ function loadFase(fase){
 			initMarcas();
 
 			if( mostrar_modal_marca_1 == "" ){
+				mostrar_modal_marca_1 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 					jQuery.post(
@@ -644,6 +645,7 @@ function loadFase(fase){
 			initPresentaciones();
 
 			if( mostrar_modal_marca_2 == "" ){
+				mostrar_modal_marca_2 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 					jQuery.post(
