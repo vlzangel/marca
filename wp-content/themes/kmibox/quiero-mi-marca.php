@@ -44,8 +44,8 @@
 	$HTML = '
 
 		<script>
-			var mostrar_modal_marca_1 = "'.$_SESSION["MODAL_1"].'";
-			var mostrar_modal_marca_2 = "'.$_SESSION["MODAL_2"].'";
+			var mostrar_modal_marca_1 = "";
+			var mostrar_modal_marca_2 = "";
 		</script>
 
 		<a class="controles_generales" id="vlz_atras" href="#">
@@ -292,7 +292,10 @@
       <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados, en breve te ayudamos con tu solicitud</div>
       <div class="modal-body row text-center">
       	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
-	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
+	      	<p>
+	      		SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute;, 
+	      		O SI LA ESTAS COMPRAMDO A UN MENOR PRECIO,
+	      		<span style="display: block;">D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
 	      	</p>
 	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
 	      	<form method="post" id="form-contacto" action="#">

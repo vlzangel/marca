@@ -156,7 +156,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 			</div>
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
 				<p>
-					¿Quieres convertirte en asesor nutricional canino y formar parte de nuestro equipo? Clic aquí y te explicaremos cómo. 
+					¿Quieres convertirte en asesor nutricional canino y formar parte de nuestro equipo? Click aquí y te explicaremos cómo. 
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id="asesor">
