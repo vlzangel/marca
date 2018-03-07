@@ -50,7 +50,7 @@
 		    'method' => 'store',
 		    'amount' => (float) $CARRITO["total"],
 		    'description' => 'Tienda',
-		    'order_id' => $orden_id."_CobroInicial_".time(),
+		    'order_id' => $order_id."_CobroInicial_".time(),
 		    'due_date' => $due_date
 		);
 	
