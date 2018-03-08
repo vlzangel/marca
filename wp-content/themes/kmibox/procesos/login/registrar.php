@@ -52,7 +52,7 @@
 							// VALUES ('".$codigo_asesor."','Sin Nombre Temporal','".$correo_asesor."')";
 					        // query( $new_asesor );
 			        		// $asesor_id = insert_id();
-			        		
+
 			        		$HTML = generarEmail(
 						    	"login/sin_asesor", 
 						    	array(
@@ -60,7 +60,6 @@
 						    		"EMAIL" => $email
 						    	)
 						    );
-							wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
 							mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
 
 			        		$asesor_id = 0;
@@ -75,7 +74,6 @@
 					    		"EMAIL" => $email
 					    	)
 					    );
-						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
 						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
 
 						$asesor_id = 0;
