@@ -173,11 +173,28 @@
 	function crearCobro($orden_id, $pago_id){
 
     	setZonaHoraria();
-	 	$current_user = wp_get_current_user();
-	    $user_id = $current_user->ID;
+
 		global $wpdb;
 
 		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
+
+		$user_id = $orden->cliente;
+			
+		$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
+		$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
+
+		$HTML = generarEmail(
+	    	"notificacion/pago_recibido_tienda", 
+	    	array(
+	    		"USUARIO" => $_name,
+	    		"ORDEN_ID" => $orden_id,
+	    	)
+	    );
+
+	 	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
+	 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
+
+
 
 		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
 		$metaData = deserializar($orden->metadata);
@@ -190,9 +207,6 @@
 			$metaData_vieja = serialize($metaData_vieja);
 
 			$wpdb->query( "UPDATE ordenes SET status = 'Modificada', metadata = '{$metaData_vieja}' WHERE id = {$metaData["es_modificacion_de"]};" );
-			
-			$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
-			$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
 
 		    $total = $wpdb->get_var("SELECT total FROM ordenes WHERE id = {$orden_id}");
 		    $_productos = getProductosDesglose($orden_id);
@@ -219,7 +233,6 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
- 
 		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
  
 		 	
