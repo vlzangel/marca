@@ -336,7 +336,7 @@
 		<tr>
 			<td style="text-align: center; vertical-align: middle;">
 				
-				<img id='img_grande' src="http://localhost/marca/wp-content/themes/kmibox/imgs/productos/1517908400.png" />
+				<img id='img_grande' />
 
 			</td>
 		</tr>
