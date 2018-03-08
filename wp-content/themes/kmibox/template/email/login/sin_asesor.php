@@ -18,13 +18,11 @@
 ">
 	<div style="padding: 50px 0px; text-align: left;">
 		Te notificamos que el usuario <strong>[USUARIO]</strong> se ha registrado sin un c&oacute;digo de asesor con el email
-		<strong>
 		<a href="mailto:[EMAIL]" target="_blank" style="
-			font-weight: 400;
+			font-weight: 600;
 		    color: #000;
 		    text-decoration: none;
-		">[EMAIL]</a>
-		</strong>.
+		">[EMAIL]</a>.
 	</div>
 
 </div>
