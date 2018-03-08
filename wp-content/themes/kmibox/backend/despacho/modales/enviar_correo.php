@@ -58,7 +58,7 @@
 							<span style="font-weight: 600;">Fecha estimada de entrega: </span>
 						</td>
 						<td style="text-align: right;">
-							'.$fecha_estimada.'
+							48-72 Horas
 						</td>
 					</tr>
 				</table>
