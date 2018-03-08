@@ -26,7 +26,7 @@
 
     $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
 
-	echo $HTML = generarEmail(
+	$HTML = generarEmail(
 		"notificacion/pago_recibido_tienda", 
 		array(
 			"USUARIO" => $_name,
@@ -35,6 +35,6 @@
 		)
 	);
 
-	// wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
-	// mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
+	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
+	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
 ?>
