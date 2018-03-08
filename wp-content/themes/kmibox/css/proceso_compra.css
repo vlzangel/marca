@@ -676,6 +676,18 @@ div#wpadminbar {
 	    margin-left: 20%;
 	}
 
+	.fecha_estimada{
+		text-align: left;
+	    font-size: 13px;
+	    padding: 10px 0px 0px 20px;
+	    font-family: GothanMedium_regular;
+	}
+
+	.fecha_estimada span {
+		font-weight: 600;
+	    font-family: Gothamlight_Regular;
+	}
+
 	#totales{
 		overflow: hidden;
 		text-align: right;
