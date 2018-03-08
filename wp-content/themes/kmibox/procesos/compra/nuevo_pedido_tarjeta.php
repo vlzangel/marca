@@ -103,7 +103,7 @@
 		    'source_id' 		=> $card_id,
 		    'amount' 			=> (float) $CARRITO["total"],
 		    'order_id' 			=> $orden_id."_CobroInicial_".time(),
-		    'description' 		=> "Tarjeta",
+		    'description' 		=> "Tarjeta - NutriHeroes",
 		    'device_session_id' => $deviceIdHiddenFieldName
 	    );
 
