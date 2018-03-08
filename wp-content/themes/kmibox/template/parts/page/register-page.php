@@ -169,11 +169,9 @@
 						<div class="row row-special">	
 						
 							<div class="col-md-3 form-group" style="padding-top: 15px;">
-								<i style="padding-top: 15px;" class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 								<input data-charset="num" type="text" name="codidoasesor" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  maxlength="40" />
 							</div>
 							<div class="col-md-3 form-group" style="padding-top: 15px;">
-								<i style="padding-top: 15px;" class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
 								<input data-charset="xlfnumesp" type="email" name="emailasesor" class="form-control col-md-6" id="emailasesor" placeholder="Correo del asesor"  maxlength="40" >
 							</div>
 						<div class="col-md-4" >	
