@@ -185,11 +185,24 @@
 		$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
 
 		if( $metaData["tipo_pago"] == "Tienda" ){
+
+			$hoy = time();
+			$dia_semana_hoy = date("N", $hoy);
+
+			if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(8-$dia_semana_hoy).' day', $hoy); 
+			}else{ $desde = strtotime('+1 day', $hoy);  }
+
+			if( $dia_semana_hoy == 1 ){ $hasta = strtotime('+5 day', $hoy);
+			}else{ $hasta = strtotime('+7 day', $hoy); }
+
+		    $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
+
 			$HTML = generarEmail(
 		    	"notificacion/pago_recibido_tienda", 
 		    	array(
 		    		"USUARIO" => $_name,
 		    		"ORDEN_ID" => $orden_id,
+		    		"FECHAS" => $fecha_estimada,
 		    	)
 		    );
 
