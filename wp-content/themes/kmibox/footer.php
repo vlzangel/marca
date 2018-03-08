@@ -13,9 +13,6 @@
 			if( $post->post_name == "quiero-mi-marca" ){
 			 	wp_footer(); 
 			}
-
-			dataOpenpay();
-			
 			// cargarTablaProductos()
 		?>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
