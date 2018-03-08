@@ -38,6 +38,7 @@ jQuery(document).ready(function() {
 
 } );
 
+
 function crearNuevo(){
 	var URL = TEMA+"/backend/asesores/ajax/nuevo.php";
 	jQuery.post(
@@ -66,6 +67,30 @@ function actualizar(){
         success:  function(HTML){
             table.ajax.reload();
             cerrar();
+        },
+        beforeSend:function(){},
+        error:function(e){
+        	console.log(e);
+        }
+    });
+}
+
+function actualizarParent(){
+	var URL = TEMA+"/backend/asesores/ajax/updateParent.php";
+	jQuery.ajax({
+        async:true, 
+        cache:false, 
+        type: 'POST', 
+        url: URL,
+        data: jQuery("#asignar_parent").serialize(), 
+        success:  function(HTML){
+        	var data = JSON.parse(HTML); 
+        	if( data['code'] == 1 ){
+	            table.ajax.reload();
+	            cerrar();
+        	}else{
+        		jQuery('#mensaje').html( data['msg'] );
+        	}
         },
         beforeSend:function(){},
         error:function(e){
