@@ -4,7 +4,7 @@
 
 	function dataOpenpay(){
 		global $wpdb;
-		echo $OPENPAY_PRUEBAS = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'OPENPAY_PRUEBAS' ");
+		$OPENPAY_PRUEBAS = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'OPENPAY_PRUEBAS' ")+0;
 		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
 
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";

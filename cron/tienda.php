@@ -15,7 +15,7 @@
 		$dataOpenpay = dataOpenpay();
 
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
-		Openpay::setProductionMode( $dataOpenpay["OPENPAY_PRUEBAS"] == 1 );
+		Openpay::setProductionMode( $dataOpenpay["OPENPAY_PRUEBAS"] != 1 );
 		
 		$findDataRequest = array(
 		    'creation[gte]' => $limite,
