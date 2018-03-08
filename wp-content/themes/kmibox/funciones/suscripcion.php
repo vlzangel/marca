@@ -170,35 +170,37 @@
 	 	return $orden_id;
 	}
 
-	function crearCobro($orden_id, $pago_id){
+	function crearCobro($orden_id, $pago_id,){
 
     	setZonaHoraria();
 
 		global $wpdb;
 
 		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
+		$metaData = deserializar($orden->metadata);
 
 		$user_id = $orden->cliente;
 			
 		$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
 		$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
 
-		$HTML = generarEmail(
-	    	"notificacion/pago_recibido_tienda", 
-	    	array(
-	    		"USUARIO" => $_name,
-	    		"ORDEN_ID" => $orden_id,
-	    	)
-	    );
+		if( $metaData["tipo_pago"] == "Tienda" ){
+			$HTML = generarEmail(
+		    	"notificacion/pago_recibido_tienda", 
+		    	array(
+		    		"USUARIO" => $_name,
+		    		"ORDEN_ID" => $orden_id,
+		    	)
+		    );
 
-	 	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
-	 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
+		 	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
+		 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
+		 }
 
 
 
 		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
-		$metaData = deserializar($orden->metadata);
-
+		
 		if( isset($metaData["es_modificacion_de"]) ){
 
 			$orden_vieja = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$metaData["es_modificacion_de"]};" );
