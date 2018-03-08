@@ -41,6 +41,17 @@
 
 	$form_busqueda = get_form_busqueda();
 
+	$hoy = time();
+	$dia_semana_hoy = date("N", $hoy);
+
+	if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(8-$dia_semana_hoy).' day', $hoy); 
+	}else{ $desde = strtotime('+1 day', $hoy);  }
+
+	if( $dia_semana_hoy == 1 ){ $hasta = strtotime('+5 day', $hoy);
+	}else{ $hasta = strtotime('+7 day', $hoy); }
+
+    $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
+
 	$HTML = '
 
 		<script>
@@ -185,6 +196,10 @@
 						<tbody id="cart-items"></tbody>
 					</table>
 
+					<div class="fecha_estimada">
+						Fecha estimada de entrega: <span>'.$fecha_estimada.'</span>
+					</div>
+
 					<div id="cupones" class="hidden">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
@@ -321,7 +336,7 @@
 		<tr>
 			<td style="text-align: center; vertical-align: middle;">
 				
-				<img id='img_grande' src="http://localhost/marca/wp-content/themes/kmibox/imgs/productos/1517908400.png" />
+				<img id='img_grande' />
 
 			</td>
 		</tr>

@@ -519,9 +519,6 @@ $(function($){
 			telef_fijo:{
 				message: 'Error',
 				validators: {
-					notEmpty: {
-						message: 'Este campo no debe estar vacío'
-					},
 			        stringLength: {
                         message: 'Post content must be less than 120 characters',
                         max: 13,

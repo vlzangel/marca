@@ -45,14 +45,40 @@
 			        query( $new_user );
 	        		$user_id = insert_id();
 
+	        		if( $codigo_asesor != "" ){
+	        			$existe_asesor = get_var("SELECT id FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'");
+		        		if( $existe_asesor == null ){
+							// $new_asesor = "INSERT INTO asesores (codigo_asesor, nombre, email) 
+							// VALUES ('".$codigo_asesor."','Sin Nombre Temporal','".$correo_asesor."')";
+					        // query( $new_asesor );
+			        		// $asesor_id = insert_id();
 
+			        		$HTML = generarEmail(
+						    	"login/sin_asesor", 
+						    	array(
+						    		"USUARIO" => $nombre." ".$apellido,
+						    		"EMAIL" => $email
+						    	)
+						    );
+							mail_admin_nutriheroes( "Registro sin Asesor Asociado", $HTML );
 
-					$new_asesor = "INSERT INTO asesores(codigo_asesor, nombre, email) 
-					VALUES ('".$codigo_asesor."','Sin Nombre Temporal','".$correo_asesor."')";
-					
-			        query( $new_asesor );
-	        		$asesor_id = insert_id();
+			        		$asesor_id = 0;
+		        		}else{
+		        			$asesor_id = $existe_asesor;
+		        		}
+	        		}else{
+		        		$HTML = generarEmail(
+					    	"login/sin_asesor", 
+					    	array(
+					    		"USUARIO" => $nombre." ".$apellido,
+					    		"EMAIL" => $email
+					    	)
+					    );
+						mail_admin_nutriheroes( "Registro sin Asesor Asociado", $HTML );
 
+						$asesor_id = 0;
+	        		}
+		        		
 
 					$user = new WP_User( $user_id );
 		    		$user->set_role( 'subscriber' );
