@@ -170,7 +170,7 @@
 	 	return $orden_id;
 	}
 
-	function crearCobro($orden_id, $pago_id,){
+	function crearCobro($orden_id, $pago_id){
 
     	setZonaHoraria();
 
