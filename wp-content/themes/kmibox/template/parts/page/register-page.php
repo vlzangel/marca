@@ -107,10 +107,10 @@
 						<div class="row">
 							<div class="col-md-4">
 								<i class="fa fa-asterisk fa-especial" aria-hidden="true"></i>
-								<input type="text" name="dir_numext" data-charset="num" class="form-control col-md-6" id="dir_numext" placeholder="Número exterior"  minlength="1" maxlength="20">
+								<input type="text" name="dir_numext" data-charset="xlfnumesp" class="form-control col-md-6" id="dir_numext" placeholder="Número exterior"  minlength="1" maxlength="20">
 							</div>
 							<div class="col-md-4">
-								<input type="text" name="dir_numint" data-charset="num" class="form-control col-md-6" id="dir_numint" placeholder="Número interior"  minlength="1" maxlength="20">
+								<input type="text" name="dir_numint" data-charset="xlfnumesp" class="form-control col-md-6" id="dir_numint" placeholder="Número interior"  minlength="1" maxlength="20">
 							</div>
 						</div>
 					</div>
