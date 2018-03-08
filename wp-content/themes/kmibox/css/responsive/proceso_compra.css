@@ -425,6 +425,10 @@
 
 @media ( max-width: 500px ) {
 
+	.fecha_estimada{
+	    font-size: 10px;
+	}
+
 	.msg_desplazar {
 	    bottom: 40px;
 	    text-align: center;
