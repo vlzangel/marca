@@ -16,13 +16,15 @@
 	text-align: center;
 	font-size: 17px;
 ">
-	<div style="padding: 40px 0px 0px;">
+	<div style="padding: 50px 0px; text-align: left;">
 		Te no tificamos que el usuario <strong>[USUARIO]</strong> ha realizado un registro sin un c&oacute;digo de asesor con el email
+		<strong>
 		<a href="mailto:[EMAIL]" target="_blank" style="
 			font-weight: 400;
 		    color: #000;
 		    text-decoration: none;
-		">[EMAIL]</a>.
+		">[EMAIL]</a>
+		</strong>
 	</div>
 
 </div>

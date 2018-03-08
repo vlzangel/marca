@@ -60,7 +60,7 @@
 						    		"EMAIL" => $email
 						    	)
 						    );
-							mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
+							mail_admin_nutriheroes( "Registro sin Asesor Asociado", $HTML );
 
 			        		$asesor_id = 0;
 		        		}else{
@@ -74,7 +74,7 @@
 					    		"EMAIL" => $email
 					    	)
 					    );
-						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
+						mail_admin_nutriheroes( "Registro sin Asesor Asociado", $HTML );
 
 						$asesor_id = 0;
 	        		}
