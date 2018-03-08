@@ -1,6 +1,7 @@
 <?php
 	
 	include( dirname(__DIR__)."/lib/openpay/Openpay.php" );
+	include( dirname(__DIR__)."/lib/numeros_a_letras/numeros_a_letras.php" );
 
 	function dataOpenpay(){
 		global $wpdb;
@@ -378,6 +379,29 @@
 	    $_productos = array();
 	    $ordenes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$id_orden}");
 	    foreach ($ordenes as $sub_orden) {
+
+	    	$_NumeroALetras = new NumeroALetras();
+	    	if ( $_planes[ $sub_orden->plan ]["meses"] > 0 ){
+		    	$__periodo = 'CADA ';
+		    	if ( $_planes[ $sub_orden->plan ]["meses"] > 1 ){    		
+			    	$__periodo .= $_NumeroALetras::convertir( $_planes[ $sub_orden->plan ]["meses"] ); 
+		    	}
+		    	$__periodo .= ( $_planes[ $sub_orden->plan ]["meses"] > 1 )? 'MESES': 'MES'; 
+		    }
+
+	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
+    		$dataextra = unserialize($producto->dataextra);
+    		$_productos[ $sub_orden->id_producto ] = array(
+    			"nombre" => $producto->nombre,
+    			"descripcion" => $producto->descripcion,
+    			"plan" => $_planes[ $sub_orden->plan ]["nombre"],
+    			"plan_meses" => $__periodo,
+    			"precio" => $producto->precio,
+    			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
+    			"cantidad" => $sub_orden->cantidad
+	    	);
+	    }
+	    /*foreach ($ordenes as $sub_orden) {
 	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
     		$dataextra = unserialize($producto->dataextra);
     		$_productos[ $sub_orden->id_producto ] = array(
@@ -388,7 +412,7 @@
     			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
     			"cantidad" => $sub_orden->cantidad
 	    	);
-	    }
+	    }*/
 		return $_productos;
 	}
 
