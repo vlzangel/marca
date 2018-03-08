@@ -49,7 +49,7 @@
 		$chargeRequest = array(
 		    'method' => 'store',
 		    'amount' => (float) $CARRITO["total"],
-		    'description' => 'Tienda',
+		    'description' => 'Tienda - NutriHeroes',
 		    'order_id' => $order_id."_CobroInicial_".time(),
 		    'due_date' => $due_date
 		);
