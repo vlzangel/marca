@@ -375,9 +375,11 @@
 
 	function getProductosDesglose($id_orden){
 		global $wpdb;
+
 		$_planes = get_planes();
-	    $_productos = array();
+	    $_productos = array();	    
 	    $ordenes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$id_orden}");
+
 	    foreach ($ordenes as $sub_orden) {
 
 	    	$_NumeroALetras = new NumeroALetras();

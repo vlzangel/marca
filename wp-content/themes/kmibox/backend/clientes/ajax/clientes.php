@@ -47,12 +47,27 @@
 			$es_asesor_excel = "NO";
 		}
 
+		$estado = utf8_decode( $wpdb->get_var("SELECT name FROM wp_estados WHERE id = '".$metadata[ "dir_estado" ]."' ") );
+		$municipio = utf8_decode( $wpdb->get_var("SELECT name FROM wp_municipios WHERE id = '".$metadata[ "dir_estado" ]."' ") );
+		if( $estado != "" ){ }else{ $estado = ""; }
+		if( $municipio != "" ){ $municipio = ", ".$municipio; }else{ $municipio = ""; }
+		if( $metadata["r_address"] != "" ){ $metadata["r_address"] = ", ".$metadata["r_address"]; }else{ $metadata["r_address"] = ""; }
+		if( $metadata["dir_codigo_postal"] != "" ){ $metadata["dir_codigo_postal"] = " - ".$metadata["dir_codigo_postal"]; }else{ $metadata["dir_codigo_postal"] = ""; }
+		$direccion = $estado.$municipio.$metadata["r_address"].$metadata["dir_codigo_postal"];
+		if( $direccion == "" ){ $direccion = "No registrado"; }
+
+		$telefonos = array();
+		if( $metadata[ "telef_movil" ] != "" ){ $telefonos[] = $metadata[ "telef_movil" ]; }
+		if( $metadata[ "telef_fijo" ] != "" ){ $telefonos[] = $metadata[ "telef_fijo" ]; }
+		if( count($telefonos) > 0 ){ $telefonos = implode(" - ", $telefonos); }else{ $telefonos = "No registrado"; }
+
 		$data["data"][] = array(
 	        $cliente->ID,
 	        date("d/m/Y", strtotime($cliente->user_registered)),
 	        "<a href='".get_home_url()."/?i=".md5($cliente->ID)."' target='_blank'>".$metadata[ "first_name" ]." ".$metadata[ "last_name" ]."</a>",
 	        $cliente->user_email,
-	        $metadata[ "telef_movil" ],
+	        $telefonos,
+	        $direccion,
 	        strtoupper( $donde ),
 	        $metadata["is_user_kmimos"],
 	        $es_asesor
@@ -67,7 +82,8 @@
 	        	"tipo" => "link",
 	        	"link" => get_home_url()."/?i=".md5($cliente->ID)
 	        ),
-	        $metadata[ "telef_movil" ],
+	        $telefonos,
+	        $direccion,
 	        strtoupper( $donde ),
 	        $metadata["is_user_kmimos"],
 	        $es_asesor
@@ -84,6 +100,7 @@
                 "Nombre y Apellido",
                 "Email",
                 "Teléfono",
+                "Dirección",
                 "Donde nos conocio?",
                 "Usuario Kmimos",
                 "Asesor"

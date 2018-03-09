@@ -14,13 +14,26 @@
 
 	foreach ($asesores as $asesor) {
 
+		$parent = ($asesor->parent != 0)? $asesor->parent : '---' ; 
+		$__parent = "
+			<div 
+				onclick='abrir_link( jQuery( this ) )' 
+				data-id='".$asesor->id."' 
+				data-titulo='Actualizar Asesor Padre' 
+				data-modulo='asesores' 
+				data-modal='asignar_parent' 
+				class='enlace' style='text-align: center;'
+			>
+				".$parent."
+			</div>";
 
 		$data["data"][] = array(
 	        $asesor->id,
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
 	        $asesor->email,
-	        $asesor->telefono
+	        $asesor->telefono,
+	        $__parent
 	    );
 
 		$excel[] = array(
@@ -28,7 +41,8 @@
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
 	        $asesor->email,
-	        $asesor->telefono
+	        $asesor->telefono,
+	        $__parent
 	    );
 	}
 
@@ -41,7 +55,8 @@
                 "Código de Asesor",
                 "Nombre y Apellido",
                 "Email",
-                "Teléfono"
+                "Teléfono",
+                "Asesor Padre"
 			),
 			"data" => $excel
 		));
