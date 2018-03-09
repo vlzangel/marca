@@ -2,7 +2,7 @@
 	
 	include( dirname(__DIR__)."/lib/openpay/Openpay.php" );
 	include( dirname(__DIR__)."/lib/numeros_a_letras/numeros_a_letras.php" );
-	
+
 	function dataOpenpay(){
 		global $wpdb;
 		$OPENPAY_PRUEBAS = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'OPENPAY_PRUEBAS' ")+0;
@@ -403,6 +403,18 @@
     			"cantidad" => $sub_orden->cantidad
 	    	);
 	    }
+	    /*foreach ($ordenes as $sub_orden) {
+	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
+    		$dataextra = unserialize($producto->dataextra);
+    		$_productos[ $sub_orden->id_producto ] = array(
+    			"nombre" => $producto->nombre,
+    			"descripcion" => $producto->descripcion,
+    			"plan" => $_planes[ $sub_orden->plan ]["nombre"],
+    			"precio" => $producto->precio,
+    			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
+    			"cantidad" => $sub_orden->cantidad
+	    	);
+	    }*/
 		return $_productos;
 	}
 

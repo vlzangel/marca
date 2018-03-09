@@ -14,7 +14,7 @@
 </div>
 
 <div style="text-align: left; font-size: 17px; padding: 10px 0px;">
-	El despacho de tu pedido ser&aacute; procesado a la brevedad y lo estar&aacute;s recibiendo en las próximas <strong>48-72 horas</strong>
+		El despacho de tu pedido ser&aacute; procesado a la brevedad y lo estar&aacute;s recibiendo en las próximas <strong>48-72 horas</strong>
 <!--  
 	El despacho de tu pedido ser&aacute; procesado a la brevedad y lo estar&aacute;s recibiendo aproximadamente entre <strong>[FECHAS]</strong>
 -->	
