@@ -19,8 +19,9 @@
 	</div>
 
 	<div style="text-align: left; font-size: 15px; line-height: 100%;">
-		<div style="margin: 20px 0px 10px; font-weight: 600; text-transform: uppercase;">Fecha de entrega estimada</div>
-		<label style="color: #535353;">[FECHA_ESTIMADA]</label>
+		<div style="margin: 20px 0px 10px; font-weight: 600; text-transform: uppercase;">Recibiras tu orden en las próximas 48-72 horas.</div>
+		<!-- div style="margin: 20px 0px 10px; font-weight: 600; text-transform: uppercase;">Fecha de entrega estimada</div>
+		<label style="color: #535353;">[FECHA_ESTIMADA]</label -->
 	</div>
 
 	<div style="text-align: left;font-size: 15px;line-height: 100%;">

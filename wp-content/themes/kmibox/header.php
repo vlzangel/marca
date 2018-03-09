@@ -4,6 +4,13 @@
 ?><!DOCTYPE html>
 <html class="">
 <head>
+
+	<title>Nutriheroes - El camino a una correcta nutrición</title>
+
+	<meta name='description' content='Nutriheroes - El camino a una correcta nutrición'>
+
+	<meta name="keywords" content="alimento, alimentos, mascota, mascotas, nutrición, nutricion, heroes, héroes, kmimos, correcta nutrición, correcta nutricion">
+
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,8 +31,8 @@
 	<!-- BEGIN Style - Plugins -->
 	
 	<!-- BEGIN Style -->
-  	<link rel="stylesheet" href="<?php echo TEMA(); ?>/css/globales.css<?php echo VERSION(); ?>">
-	<link rel="stylesheet" href="<?php echo TEMA(); ?>/css/responsive/globales.css<?php echo VERSION(); ?>">
+  	<link rel="stylesheet" href="<?php echo TEMA(); ?>/css/globales.css?v=<?php echo VERSION(); ?>">
+	<link rel="stylesheet" href="<?php echo TEMA(); ?>/css/responsive/globales.css?v=<?php echo VERSION(); ?>">
 
 	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/animate.css">
 	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/kmibox.css">
@@ -40,6 +47,7 @@
 	<link rel="stylesheet" href="<?php echo HOME(); ?>/wp-content/themes/kmibox/assets/css/GothamLightRegular.css">
 
 	<script type="text/javascript" src="<?php echo get_home_url(); ?>/plugins/jquery/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="<?php echo TEMA(); ?>/js/title_imgs.js?v=<?php echo VERSION(); ?>"></script>
 
 	<script type="text/javascript"> 
 		var TEMA = "<?php echo TEMA(); ?>/"; 

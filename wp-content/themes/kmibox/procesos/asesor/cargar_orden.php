@@ -21,7 +21,8 @@
 	                NULL,
 	                '".$codidoasesor."',
 	                '".$nombreasesor."',
-	                '".$emailasesor."'
+	                '".$emailasesor."',
+	                NULL
 	            );
 	        ";
 
@@ -73,6 +74,10 @@
 			$_asesor =  get_user_meta($user_id, 'asesor_registro', true);
 	        if( $_asesor == "" ){ $codigo_asesor =  get_user_meta($user_id, 'asesor', true); }else{
 	        	$codigo_asesor = $_asesor;
+	        }
+	        if( $codigo_asesor == "" ){
+	        	update_user_meta( $user_id, 'asesor', $asesor->id );
+	        	$codigo_asesor = $asesor->id;
 	        }
 		}
 
@@ -199,7 +204,7 @@
 					    );
 					    wp_mail( $emailsus, "Solicitud de Compra en NutriHeroes", $HTML );
 						// ----- Copia a los administradores
-					    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML );
+					    mail_admin_nutriheroes( "Solicitud de Compra en NutriHeroes", $HTML, array( $asesor->email ) );
         
 						$result['code'] = 1;
 				    }					

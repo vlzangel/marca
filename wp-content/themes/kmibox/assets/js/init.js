@@ -415,6 +415,8 @@ $(function($){
 
 		}, function(r) {
 
+			console.log(r);
+
 			r = $.parseJSON(r);
 
 			jQuery(".btn-register_").attr("disabled", false);
@@ -517,9 +519,6 @@ $(function($){
 			telef_fijo:{
 				message: 'Error',
 				validators: {
-					notEmpty: {
-						message: 'Este campo no debe estar vacío'
-					},
 			        stringLength: {
                         message: 'Post content must be less than 120 characters',
                         max: 13,

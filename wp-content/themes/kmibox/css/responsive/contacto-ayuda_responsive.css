@@ -205,7 +205,7 @@
 			margin: 0px 5px 20px 5px;
 			height: 50px;
 			border-radius: 25px;
-			border: 5px solid #848383;
+			border: 1px solid #091705;
 			display: inline-block;
 		}
 	}
@@ -290,7 +290,7 @@
 			font-size: 12.5px!important;
 		}
 		#contacto-ayuda .ayuda-form button{
-			padding:2px 10px 2px 11px!important;
+			padding: 10px !important;
 		}
 	}
 	@media (max-width: 399px){
@@ -308,11 +308,11 @@
 		}
 		#contacto-ayuda .ayuda-form .form-control{
 			font-size: 10px;
-			border-width: 3px;
+			border-width: 2px;
 			margin:0px 0px 20px 6px;
 		}
 		#contacto-ayuda .ayuda-form button {
-		    font-size: 13px!important;
+		    font-size: 10px !important;
 		}
 	}
 	@media (max-width: 375px){

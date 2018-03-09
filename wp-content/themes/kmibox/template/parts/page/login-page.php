@@ -97,7 +97,7 @@
 
 <article id="inicio-sesion" 
 		class="col-md-6 col-xs-12 col-md-offset-6 LoginNuevo" style="    padding-left: 0px !important;">
-			<aside class="col-md-8 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
+			
 		<div class="col-md-10 col-md-offset-1 form-horizontal text-center">
 
 			<aside class="col-md-12 text-center" style="margin-bottom:40px;">
@@ -119,7 +119,7 @@
 					<input type="password" name="clave" class="form-control" id="inputPassword3" placeholder="Clave" maxlength="40" style="    border-radius: 50px;">
 				</div>
 
-				
+				<aside class="hidden alert alert-danger" id="login-mensaje" style="width: 60%; margin: 0px auto 10px;"></aside>
 
 				<div class="form-group text-center">
 					<label style="color: #ffffff; ">

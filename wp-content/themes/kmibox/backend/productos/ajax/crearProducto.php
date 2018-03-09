@@ -53,7 +53,8 @@
 			'".serialize($_edades)."',
 			'".serialize($_planes)."',
 			'".serialize($dataextra)."',
-			'Activo'
+			'Activo',
+			{$category}
 		);
 	";
 

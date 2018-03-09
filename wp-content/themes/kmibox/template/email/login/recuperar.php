@@ -8,7 +8,7 @@
 ">
 	¡Hola <span style="text-transform: capitalize;">[USUARIO]</span>!
 	<div   class="text" style="font-size: 17px; padding: 10px 20px 0px; font-weight: 400;"> 
-		Tu contraseña va a ser recuperada
+		Tú contraseña va a ser recuperada
 	</div>
 </div> 
 
@@ -40,9 +40,9 @@
 	<div style="
 		text-align: left;
 	">
-		Si no has sido tu, ignora este mensaje.
-		<strong> Para continuar con la recuperacion de la contraseña de tu cuenta haz click en el siguiente enlace:</strong> 
-	</div> 	
+  		Si no has sido t&uacute;, ignora este mensaje.
+		<strong> Para continuar con la recuperación de la contraseña de tu cuenta haz click en el siguiente enlace:</strong> 
+ 	</div> 	
 	
 	<a 	href="[LINK]" style="
 		padding: 15px 50px;

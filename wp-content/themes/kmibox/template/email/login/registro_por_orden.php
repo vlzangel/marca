@@ -45,7 +45,7 @@
 		text-transform: uppercase;
 		font-size: 15px;
 		margin: 0px;
-	">La ingresar a tu cuenta es:</h3>
+	">La informaci&oacute;n para ingresar a tu cuenta es:</h3>
 	<label>
 		<a style="
 			font-weight: 400;
@@ -90,5 +90,5 @@
 	margin: 30px 0px;
 	display: block;
 ">
-	Si recibiste este correo sin haberte registrado, por favor ignoralo.
+	Si recibiste este correo sin haberte registrado, por favor cont&aacute;ctanos.
 </label> 
