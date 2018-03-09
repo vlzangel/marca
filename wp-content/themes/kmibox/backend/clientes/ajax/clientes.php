@@ -49,27 +49,17 @@
 
 		$estado = utf8_decode( $wpdb->get_var("SELECT name FROM wp_estados WHERE id = '".$metadata[ "dir_estado" ]."' ") );
 		$municipio = utf8_decode( $wpdb->get_var("SELECT name FROM wp_municipios WHERE id = '".$metadata[ "dir_estado" ]."' ") );
-
 		if( $estado != "" ){ }else{ $estado = ""; }
 		if( $municipio != "" ){ $municipio = ", ".$municipio; }else{ $municipio = ""; }
 		if( $metadata["r_address"] != "" ){ $metadata["r_address"] = ", ".$metadata["r_address"]; }else{ $metadata["r_address"] = ""; }
 		if( $metadata["dir_codigo_postal"] != "" ){ $metadata["dir_codigo_postal"] = " - ".$metadata["dir_codigo_postal"]; }else{ $metadata["dir_codigo_postal"] = ""; }
-
 		$direccion = $estado.$municipio.$metadata["r_address"].$metadata["dir_codigo_postal"];
-
-		if( $direccion == "" ){
-			$direccion = "No registrado";
-		}
+		if( $direccion == "" ){ $direccion = "No registrado"; }
 
 		$telefonos = array();
 		if( $metadata[ "telef_movil" ] != "" ){ $telefonos[] = $metadata[ "telef_movil" ]; }
 		if( $metadata[ "telef_fijo" ] != "" ){ $telefonos[] = $metadata[ "telef_fijo" ]; }
-
-		if( count($telefonos) > 0 ){
-			$telefonos = implode(" - ", $telefonos);
-		}else{
-			$telefonos = "No registrado";
-		}
+		if( count($telefonos) > 0 ){ $telefonos = implode(" - ", $telefonos); }else{ $telefonos = "No registrado"; }
 
 		$data["data"][] = array(
 	        $cliente->ID,

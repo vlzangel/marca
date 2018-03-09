@@ -22,6 +22,7 @@
 		}
 
 		$ordenes[ $suscripcion->id_orden ]["fecha_creacion"] = date("d/m/Y", strtotime($orden->fecha_creacion));
+		$ordenes[ $suscripcion->id_orden ]["cliente_id"] = $orden->cliente;
 		$ordenes[ $suscripcion->id_orden ]["cliente"] = $_meta_cliente[ "first_name" ][0]." ".$_meta_cliente[ "last_name" ][0];
 		
 
@@ -73,12 +74,33 @@
 			$_cobros_excel[] = $cobro;
 		}
 
+		$_metadata = get_user_meta($_data["cliente_id"]);
+		$metadata = array();
+		foreach ($_metadata as $key => $value) {
+			$metadata[ $key ] = $value[0];
+		}
+
+		$estado = utf8_decode( $wpdb->get_var("SELECT name FROM wp_estados WHERE id = '".$metadata[ "dir_estado" ]."' ") );
+		$municipio = utf8_decode( $wpdb->get_var("SELECT name FROM wp_municipios WHERE id = '".$metadata[ "dir_estado" ]."' ") );
+		if( $estado != "" ){ }else{ $estado = ""; }
+		if( $municipio != "" ){ $municipio = ", ".$municipio; }else{ $municipio = ""; }
+		if( $metadata["r_address"] != "" ){ $metadata["r_address"] = ", ".$metadata["r_address"]; }else{ $metadata["r_address"] = ""; }
+		if( $metadata["dir_codigo_postal"] != "" ){ $metadata["dir_codigo_postal"] = " - ".$metadata["dir_codigo_postal"]; }else{ $metadata["dir_codigo_postal"] = ""; }
+		$direccion = $estado.$municipio.$metadata["r_address"].$metadata["dir_codigo_postal"];
+		if( $direccion == "" ){ $direccion = "No registrado"; }
+
+		$telefonos = array();
+		if( $metadata[ "telef_movil" ] != "" ){ $telefonos[] = $metadata[ "telef_movil" ]; }
+		if( $metadata[ "telef_fijo" ] != "" ){ $telefonos[] = $metadata[ "telef_fijo" ]; }
+		if( count($telefonos) > 0 ){ $telefonos = implode(" - ", $telefonos); }else{ $telefonos = "No registrado"; }
+
 		$index_row++;
 		$data["data"][] = array(
 			$index_row,
 	        $orden_id,
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
+	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br><strong>Direcci&oacute;n: </strong>".$direccion,	        
 	        $_productos,
 	        $_precios,
 	        $_cobros,
@@ -92,6 +114,7 @@
 	        $orden_id,
 	        date("d/m/Y", strtotime( str_replace("/", "-", $_data["fecha_creacion"])))." ",
 	        $_data["cliente"],
+	        "Teléfono: ".$telefonos."\nDirección: ".$direccion,
 	        implode(PHP_EOL, $_productos_excel),
 	        implode(PHP_EOL, $_precios_excel),
 	        implode(PHP_EOL, $_cobros_excel),
@@ -111,6 +134,7 @@
 				"Orden",
 				"Fecha suscripción",
 				"Cliente",
+				"Datos del cliente",
 				"Producto(s)",
 				"Precio(s)",
 				"Proximo Cobro",

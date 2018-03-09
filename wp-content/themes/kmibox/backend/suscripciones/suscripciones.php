@@ -20,6 +20,7 @@
                 <th width="30">Orden</th>
                 <th width="100">Fecha suscripci&oacute;n</th>
                 <th>Cliente</th>
+                <th>Datos del cliente</th>
                 <th>Producto(s)</th>
                 <th>Precio(s)</th>
                 <th>Proximo Cobro</th>
