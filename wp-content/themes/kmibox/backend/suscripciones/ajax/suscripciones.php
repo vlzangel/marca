@@ -76,8 +76,10 @@
 
 		$_metadata = get_user_meta($_data["cliente_id"]);
 		$metadata = array();
-		foreach ($_metadata as $key => $value) {
-			$metadata[ $key ] = $value[0];
+		if( count($_metadata) > 0 ){
+			foreach ($_metadata as $key => $value) {
+				$metadata[ $key ] = $value[0];
+			}
 		}
 
 		$estado = utf8_decode( $wpdb->get_var("SELECT name FROM wp_estados WHERE id = '".$metadata[ "dir_estado" ]."' ") );
