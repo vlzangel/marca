@@ -19,6 +19,7 @@
                 <th>Nombre y Apellido</th>
                 <th>Email</th>
                 <th>Tel&eacute;fono</th>
+                <th>Direcci&oacute;n</th>
                 <th>Donde nos conocio?</th>
                 <th>Usuario Kmimos</th>
                 <th>Es Asesor</th>
