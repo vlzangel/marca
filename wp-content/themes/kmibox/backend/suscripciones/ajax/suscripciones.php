@@ -76,7 +76,7 @@
 
 		$_metadata = get_user_meta($_data["cliente_id"]);
 		$metadata = array();
-		if( count($_metadata) > 0 ){
+		if( is_array($_metadata) && count($_metadata) > 0 ){
 			foreach ($_metadata as $key => $value) {
 				$metadata[ $key ] = $value[0];
 			}
