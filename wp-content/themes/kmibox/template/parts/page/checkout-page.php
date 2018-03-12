@@ -70,7 +70,7 @@
 
 	$MERCHANT_ID = $dataOpenpay["MERCHANT_ID"];
 	$OPENPAY_KEY_PUBLIC = $dataOpenpay["OPENPAY_KEY_PUBLIC"];
-	$OPENPAY_PRUEBAS = 1;
+	$OPENPAY_PRUEBAS = $dataOpenpay["OPENPAY_PRUEBAS"];
 
 /*	echo "<pre>";
 		print_r($CARRITO);
