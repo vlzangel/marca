@@ -95,23 +95,17 @@
 		})
 		.on('success.form.bv', function(e) {
 
-		    // Prevent form submission
 		    e.preventDefault();
 
 			jQuery("#error_registrando").css("display", "none");
-			// jQuery(".btn-register_").attr("disabled", true);
 			jQuery(".btn-register_").html("Procesando...");
 
-		    // Get the form instance
 		    var $form = $(e.target);
-
-		    // Get the FormValidation instance
 		    var bv = $form.data('formValidation');		
 
 			$('#login-mensaje').html('');
 			$('#login-mensaje').addClass('hidden');
 			
-
 			$.post( TEMA+"procesos/asesor/cargar_orden.php", $('#form-cargar-orden').serialize()  , function(r) {
 
 				r = $.parseJSON(r);
@@ -120,7 +114,6 @@
 
 				jQuery(".btn-register_").attr("disabled", false);
 				jQuery(".btn-register_").html("Enviar Orden");
-
 
 				if(r['code'] == 1){
 					jQuery("#success_registrando").css("display", "block");

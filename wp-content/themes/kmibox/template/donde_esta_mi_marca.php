@@ -7,7 +7,7 @@
 
 				<div class="selector_container">
 					<div class="titulo_selector">Seleccionar Suscripción:</div>
-					<select id="selector_despachos" class="selector">'.$opciones.'</select>
+					<select id="selector_despachos" class="selector">'.$opciones_despachos.'</select>
 				</div>
 				
 				<div class="form_suscripcion">

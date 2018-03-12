@@ -1,6 +1,6 @@
 <?php 
 
-	include_once( dirname(__DIR__, 5).'/wp-load.php' );
+	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
     
     setZonaHoraria();
 	extract($_POST);
@@ -45,14 +45,40 @@
 			        query( $new_user );
 	        		$user_id = insert_id();
 
+	        		if( $codigo_asesor != "" ){
+	        			$existe_asesor = get_var("SELECT id FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'");
+		        		if( $existe_asesor == null ){
+							// $new_asesor = "INSERT INTO asesores (codigo_asesor, nombre, email) 
+							// VALUES ('".$codigo_asesor."','Sin Nombre Temporal','".$correo_asesor."')";
+					        // query( $new_asesor );
+			        		// $asesor_id = insert_id();
 
+			        		$HTML = generarEmail(
+						    	"login/sin_asesor", 
+						    	array(
+						    		"USUARIO" => $nombre." ".$apellido,
+						    		"EMAIL" => $email
+						    	)
+						    );
+							mail_admin_nutriheroes( "Registro sin Asesor Asociado", $HTML );
 
-					$new_asesor = "INSERT INTO asesores(codigo_asesor, nombre, email) 
-					VALUES ('".$codigo_asesor."','Sin Nombre Temporal','".$correo_asesor."')";
-					
-			        query( $new_asesor );
-	        		$asesor_id = insert_id();
+			        		$asesor_id = 0;
+		        		}else{
+		        			$asesor_id = $existe_asesor;
+		        		}
+	        		}else{
+		        		$HTML = generarEmail(
+					    	"login/sin_asesor", 
+					    	array(
+					    		"USUARIO" => $nombre." ".$apellido,
+					    		"EMAIL" => $email
+					    	)
+					    );
+						mail_admin_nutriheroes( "Registro sin Asesor Asociado", $HTML );
 
+						$asesor_id = 0;
+	        		}
+		        		
 
 					$user = new WP_User( $user_id );
 		    		$user->set_role( 'subscriber' );
@@ -81,15 +107,6 @@
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
 						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
-						
-	        
-
-// ----- Copia a los administradores
-			$headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-	        );
-						wp_mail( 'i.cocchini@kmimos.la', "Usuario Registrado NutriHeroes", $HTML, $headers );
 
 				break;
 				case 2:
@@ -116,7 +133,6 @@
 				'email' => $email
 			);
 			
-/*
 		    Requests::register_autoloader();
 		    $request = Requests::post('http://kmimosmx.sytes.net/QA2/services/users.php', array(), $options );
 		    $is_user_kmimos = "NO";
@@ -124,7 +140,7 @@
 		    	$is_user_kmimos = "SI";
 		    }
 			update_user_meta( $user_id, 'is_user_kmimos', $is_user_kmimos );
-*/
+
 		// Fin - Es usuario de Kmimos 
 
 		// Inicio - Actualizando información del usuario 

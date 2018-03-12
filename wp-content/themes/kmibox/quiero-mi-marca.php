@@ -41,7 +41,23 @@
 
 	$form_busqueda = get_form_busqueda();
 
+	$hoy = time();
+	$dia_semana_hoy = date("N", $hoy);
+
+	if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(8-$dia_semana_hoy).' day', $hoy); 
+	}else{ $desde = strtotime('+1 day', $hoy);  }
+
+	if( $dia_semana_hoy == 1 ){ $hasta = strtotime('+5 day', $hoy);
+	}else{ $hasta = strtotime('+7 day', $hoy); }
+
+    $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
+
 	$HTML = '
+
+		<script>
+			var mostrar_modal_marca_1 = "";
+			var mostrar_modal_marca_2 = "";
+		</script>
 
 		<a class="controles_generales" id="vlz_atras" href="#">
 			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
@@ -180,7 +196,11 @@
 						<tbody id="cart-items"></tbody>
 					</table>
 
-					<div id="cupones">
+					<div class="fecha_estimada">
+						Fecha estimada de entrega: <span>'.$fecha_estimada.'</span>
+					</div>
+
+					<div id="cupones" class="hidden">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
 								<td> ¿Dispone de un cupón de descuento? </td>
@@ -267,6 +287,9 @@
 	}
 
 	//echo comprimir('<script type="text/javascript" src="'.TEMA().'/js/functions_new.js"></script>');
+/*
+	$_SESSION["MODAL_1"] = "";
+	$_SESSION["MODAL_2"] = "";*/
 ?>
 
 
@@ -284,7 +307,10 @@
       <div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;">Datos registrados, en breve te ayudamos con tu solicitud</div>
       <div class="modal-body row text-center">
       	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
-	      	<p>SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute; <span>D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
+	      	<p>
+	      		SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute;, 
+	      		O SI LA ESTAS COMPRAMDO A UN MENOR PRECIO,
+	      		<span style="display: block;">D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
 	      	</p>
 	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
 	      	<form method="post" id="form-contacto" action="#">
@@ -302,4 +328,17 @@
       </div> 
     </div>
   </div>
+</div>
+
+<div class='imagen_grande'>
+	<span> <i class="fa fa-chevron-left" aria-hidden="true"></i>  ATR&Aacute;S</span>
+	<table width="100%" height='100%' >
+		<tr>
+			<td style="text-align: center; vertical-align: middle;">
+				
+				<img id='img_grande' />
+
+			</td>
+		</tr>
+	</table>
 </div>

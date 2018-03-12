@@ -44,17 +44,14 @@
 	if(!function_exists('mail_admin_nutriheroes')){
 		function mail_admin_nutriheroes( $subject, $message, $agregar_a_lista = [], $list_name = 'admin' ){
 
+			$administradores = get_results("SELECT * FROM administradores");
 	        $listas = [
-
-	        	'admin' => [
-	        		'i.cocchini@gmail.com',
-/* Comentado en QA
-					'r.rodriguez@kmimos.la',
-               		'r.cuevas@kmimos.la',
-*/
-	        	],
-
+	        	'admin' => []
 	        ];
+
+	        foreach ($administradores as $key => $value) {
+	        	$listas["admin"][] = $value->email;
+	        }
 
 	        if( !empty($listas)  ){
 	        	/* ************************************** *

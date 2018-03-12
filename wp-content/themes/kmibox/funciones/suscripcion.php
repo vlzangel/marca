@@ -1,9 +1,11 @@
 <?php
 	
 	include( dirname(__DIR__)."/lib/openpay/Openpay.php" );
+	include( dirname(__DIR__)."/lib/numeros_a_letras/numeros_a_letras.php" );
 
 	function dataOpenpay(){
-		$OPENPAY_PRUEBAS = 1;
+		global $wpdb;
+		$OPENPAY_PRUEBAS = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'OPENPAY_PRUEBAS' ")+0;
 		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
 
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
@@ -172,15 +174,47 @@
 	function crearCobro($orden_id, $pago_id){
 
     	setZonaHoraria();
-	 	$current_user = wp_get_current_user();
-	    $user_id = $current_user->ID;
+
 		global $wpdb;
 
 		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
-
-		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
 		$metaData = deserializar($orden->metadata);
 
+		$user_id = $orden->cliente;
+			
+		$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
+		$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
+
+		if( $metaData["tipo_pago"] == "Tienda" ){
+
+			$hoy = time();
+			$dia_semana_hoy = date("N", $hoy);
+
+			if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(8-$dia_semana_hoy).' day', $hoy); 
+			}else{ $desde = strtotime('+1 day', $hoy);  }
+
+			if( $dia_semana_hoy == 1 ){ $hasta = strtotime('+5 day', $hoy);
+			}else{ $hasta = strtotime('+7 day', $hoy); }
+
+		    $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
+
+			$HTML = generarEmail(
+		    	"notificacion/pago_recibido_tienda", 
+		    	array(
+		    		"USUARIO" => $_name,
+		    		"ORDEN_ID" => $orden_id,
+		    		"FECHAS" => $fecha_estimada,
+		    	)
+		    );
+
+		 	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
+		 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
+		 }
+
+
+
+		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
+		
 		if( isset($metaData["es_modificacion_de"]) ){
 
 			$orden_vieja = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$metaData["es_modificacion_de"]};" );
@@ -189,9 +223,6 @@
 			$metaData_vieja = serialize($metaData_vieja);
 
 			$wpdb->query( "UPDATE ordenes SET status = 'Modificada', metadata = '{$metaData_vieja}' WHERE id = {$metaData["es_modificacion_de"]};" );
-			
-			$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
-			$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
 
 		    $total = $wpdb->get_var("SELECT total FROM ordenes WHERE id = {$orden_id}");
 		    $_productos = getProductosDesglose($orden_id);
@@ -218,7 +249,6 @@
 		    );
 
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
- 
 		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
  
 		 	
@@ -231,24 +261,15 @@
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
 
-    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
-
     		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses." month") );
 
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
-			$wpdb->query( $SQL ); 
+			$wpdb->query( "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );" ); 
 
-    		for ($i=0; $i < $meses; $i++) { 
-    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			if( $i == 0 ){ $mes_actual = date("Y-m-d", time() ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." month") ); }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
-    			$wpdb->query( $SQL );
-    		}
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
     	}
 
 	}
-
-
 
 	function crearNewCobro($orden_id, $_time_hoy){
     	setZonaHoraria();
@@ -260,18 +281,12 @@
     		$hoy = date("d", $_time_hoy );
     		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
 
-    		// $proximo_cobro = date("Y-m-d", strtotime("+".$meses." month"));
     		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d", $_time_hoy)." +".$meses." month") );
 
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
 			$wpdb->query( $SQL );
 
-    		for ($i=0; $i < $meses; $i++) { 
-    			// if( $i == 0 ){ $mes_actual = date("Y-m", time() )."-".$hoy; }else{ $mes_actual = date("Y-m", strtotime("+".$i." month") )."-".$hoy; }
-    			if( $i == 0 ){ $mes_actual = date("Y-m-d", $_time_hoy ); }else{ $mes_actual = date("Y-m-d", strtotime("+".$i." month", $_time_hoy) ); }
-    			$SQL = "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$mes_actual}', 'Pendiente', '', NOW(), NULL, 0 );";
-    			$wpdb->query( $SQL );
-    		}
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
     	}
 	}
 
@@ -301,6 +316,7 @@
 				$_data = unserialize( $producto->dataextra );
 				$img = TEMA()."/imgs/productos/".$_data["img"];
 				$anio = date("Y")."-12-31";
+
 				$entregas = $wpdb->get_results("SELECT * FROM despachos WHERE sub_orden = {$plan->id} AND status = 'Recibida' AND mes <= '{$anio}'");
 				$_entregas = array();
 				foreach ($entregas as $value) {
@@ -322,7 +338,7 @@
 					"img" => $img,
 					"status" => $estatus,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
-					"entredagos" => $_entregados_str
+					"entregados" => $_entregados_str
 				);
 			}
 		}
@@ -359,10 +375,35 @@
 
 	function getProductosDesglose($id_orden){
 		global $wpdb;
+
 		$_planes = get_planes();
-	    $_productos = array();
+	    $_productos = array();	    
 	    $ordenes = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$id_orden}");
+
 	    foreach ($ordenes as $sub_orden) {
+
+	    	$_NumeroALetras = new NumeroALetras();
+	    	if ( $_planes[ $sub_orden->plan ]["meses"] > 0 ){
+		    	$__periodo = 'CADA ';
+		    	if ( $_planes[ $sub_orden->plan ]["meses"] > 1 ){    		
+			    	$__periodo .= $_NumeroALetras::convertir( $_planes[ $sub_orden->plan ]["meses"] ); 
+		    	}
+		    	$__periodo .= ( $_planes[ $sub_orden->plan ]["meses"] > 1 )? 'MESES': 'MES'; 
+		    }
+
+	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
+    		$dataextra = unserialize($producto->dataextra);
+    		$_productos[ $sub_orden->id_producto ] = array(
+    			"nombre" => $producto->nombre,
+    			"descripcion" => $producto->descripcion,
+    			"plan" => $_planes[ $sub_orden->plan ]["nombre"],
+    			"plan_meses" => $__periodo,
+    			"precio" => $producto->precio,
+    			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
+    			"cantidad" => $sub_orden->cantidad
+	    	);
+	    }
+	    /*foreach ($ordenes as $sub_orden) {
 	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
     		$dataextra = unserialize($producto->dataextra);
     		$_productos[ $sub_orden->id_producto ] = array(
@@ -373,7 +414,7 @@
     			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
     			"cantidad" => $sub_orden->cantidad
 	    	);
-	    }
+	    }*/
 		return $_productos;
 	}
 

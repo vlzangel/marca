@@ -245,6 +245,10 @@
 		display: block;
 	}
 
+	td.solo_movil{
+		display: table-cell;
+	}
+
 	
 
 	.solo_pc{
@@ -421,6 +425,10 @@
 
 @media ( max-width: 500px ) {
 
+	.fecha_estimada{
+	    font-size: 10px;
+	}
+
 	.msg_desplazar {
 	    bottom: 40px;
 	    text-align: center;
@@ -554,7 +562,7 @@
 	}
 
 	#desglose td * {
-	    font-size: 14px;
+	    font-size: 10px;
 	}
 
 	#totales table th {

@@ -40,17 +40,27 @@
 			$customer = $openpay->customers->add($customerData);
 			$openpay_cliente_id = $customer->id;
 			update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
+	    }else{
+		    try {
+				$customer = $openpay->customers->get($openpay_cliente_id);
+			} catch (Exception $e) {
+		    	$customerData = array(
+			     	'name' => $nombre,
+			     	'email' => $email
+			  	);
+				$customer = $openpay->customers->add($customerData);
+				$openpay_cliente_id = $customer->id;
+				update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
+		    }
 	    }
-
-		$customer = $openpay->customers->get($openpay_cliente_id);
 
 		$due_date = date('Y-m-d\TH:i:s', strtotime('+ 5 day'));
 
 		$chargeRequest = array(
 		    'method' => 'store',
 		    'amount' => (float) $CARRITO["total"],
-		    'description' => 'Tienda',
-		    'order_id' => $orden_id."_CobroInicial_".time(),
+		    'description' => 'Tienda - NutriHeroes',
+		    'order_id' => $order_id."_CobroInicial_".time(),
 		    'due_date' => $due_date
 		);
 	
