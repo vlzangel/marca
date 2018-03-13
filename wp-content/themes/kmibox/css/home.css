@@ -1,3 +1,6 @@
+body{
+    padding-bottom: 180px;
+}
 
 section{
 	margin-bottom: 30px;
@@ -182,9 +185,86 @@ section{
 	margin-top: 10px;
 }
 
-/*#asesor a{
-    font-size: 11px;
-}*/
+/* Pop Up Full */
+	
+	#form-pop-up-home{
+		width: 50%;
+		margin: 0px auto 20px;
+	}
+
+	.input-pop-up-home {
+        width: calc( 50% - 10px );
+	    border: solid 2px;
+	    padding: 7px 10px;
+	    text-align: center;
+	    font-family: Gothamlight_Regular;
+	    outline: none;
+	}
+
+	.separador-pop-up-home{
+		display: inline-block;
+		width: 10px;
+	}
+
+	.btn-pop-up-home {
+	    margin-top: 15px;
+	    cursor: pointer;
+	    background: #091705;
+	    border-radius: 10px;
+	    border: 2px solid #091705;
+	    color: #fff;
+	    font-size: 20px;
+	    padding: 5px 20px;
+	    margin-top: 20px;
+	    font-family: GothanMedium_regular;
+	    text-decoration: none;
+	    outline: none;
+	}
+
+	.btn-pop-up-home:hover {
+        background: #ffffff;
+	    color: #000!important;
+	    text-decoration: none;
+	}
+
+	.nutri-container #mensaje {
+		width: 50%;
+	    font-size: 16px;
+    	margin: 0px auto 60px;
+	    font-family: GothanMedium_regular;
+	    display: none;
+	}
+
+/* Pop Up Footer */
+	
+	#contacto-ayuda{
+		overflow: hidden;
+	}
+	
+	#contacto-ayuda > img.contacto-ayuda-izquierda,
+	#contacto-ayuda > img.contacto-ayuda-derecha {
+		height: 180px;
+	}
+
+	#contacto-ayuda > img.contacto-ayuda-izquierda {
+		float: left;
+		position: relative;
+		z-index: 100;
+	}
+
+	#contacto-ayuda > img.contacto-ayuda-derecha {
+		position: absolute;
+	    bottom: 0px;
+	    right: 0px;
+		z-index: 50;
+	}
+
+	.solo_pc{
+		display: block;
+	}
+	.solo_movil{
+		display: none;
+	}
 
 /* ************************ */
 /* Responsive 				*/
@@ -198,7 +278,7 @@ section{
     	font-size: 25px!important;
 	}
 	#precio-vet{
-		font-size:20px!important;
+		font-size: 20px!important;
 	}	
 
 }
@@ -224,7 +304,6 @@ section{
 	#precio-vet{
 		font-size:14px!important;
 	}
-
 }
 
 @media (max-width: 991px) {
@@ -236,6 +315,16 @@ section{
 		font-size:15px!important;
 	}
 
+}
+
+@media (max-width: 900px) {
+	body{
+	    padding-bottom: 150px;
+	}
+	#contacto-ayuda > img.contacto-ayuda-izquierda,
+	#contacto-ayuda > img.contacto-ayuda-derecha {
+		height: 150px;
+	}
 }
 
 
@@ -363,6 +452,26 @@ section{
 
 } 
 
+@media (max-width: 750px){
+	body{
+	    padding-bottom: 250px;
+	}
+
+	#contacto-ayuda > img.contacto-ayuda-izquierda,
+	#contacto-ayuda > img.contacto-ayuda-derecha {
+		height: 250px;
+	}
+
+	.solo_pc{
+		display: none;
+	}
+
+	.solo_movil{
+		display: block;
+	}
+
+}
+
 @media (max-width: 589px){
 
 	#si-encuentras-precio {
@@ -372,7 +481,6 @@ section{
 	#precio-vet{
 		font-size:12px!important;
 	}
-
 }
 
 @media (max-width: 466px){
@@ -385,6 +493,14 @@ section{
 		font-size:12px!important;
 	}
 
+	body{
+	    padding-bottom: 165px;
+	}
+	#contacto-ayuda > img.contacto-ayuda-izquierda,
+	#contacto-ayuda > img.contacto-ayuda-derecha {
+		height: 165px;
+	}
+	
 }
 
 @media (max-width: 400px){

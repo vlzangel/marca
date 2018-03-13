@@ -9,6 +9,10 @@
 
 	extract($_POST);
 
+	echo json_encode(['code'=>1]);
+
+	exit();
+
 	if( isset($email) && isset($phone) && isset($mi_marca) ){
 
 		$referencia = ( isset($referencia) )? $referencia : '' ;
