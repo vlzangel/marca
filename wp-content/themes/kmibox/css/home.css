@@ -189,7 +189,7 @@ section{
 	
 	#form-pop-up-home{
 		width: 50%;
-		margin: 0px auto 20px;
+		margin: 0px auto 3%;
 	}
 
 	.input-pop-up-home {
@@ -264,6 +264,19 @@ section{
 	}
 	.solo_movil{
 		display: none;
+	}
+
+	.fondo_popup_movil{
+		width: 80%;
+	}
+
+	#nutriheroes {
+	    display: table;
+	}
+
+	.nutri-container {
+	    vertical-align: middle !important;
+	    display: table-cell;
 	}
 
 /* ************************ */
@@ -470,9 +483,36 @@ section{
 		display: block;
 	}
 
+	.fondo_popup_movil {
+	    width: auto;
+	    max-height: 500px;
+	}
+
+	.separador-pop-up-home {
+	    display: none;
+	}
+
+	.input-pop-up-home {
+	    width: 100%;
+	    font-size: 11px;
+	}
+
+	.btn-pop-up-home {
+	    font-size: 14px;
+	}
+
+	#form-pop-up-home {
+	    width: 80%;
+	    margin: 0px auto 145px;
+	}
+
 }
 
 @media (max-width: 589px){
+
+	.fondo_popup_movil{
+		# width: 100% !important;
+	}
 
 	#si-encuentras-precio {
     	font-size: 25px!important;
@@ -500,10 +540,21 @@ section{
 	#contacto-ayuda > img.contacto-ayuda-derecha {
 		height: 165px;
 	}
+
+	.fondo_popup_movil {
+	    width: 100%;
+	    max-height: none;
+	}
+
+	#form-pop-up-home {
+	    width: 80%;
+	    margin: 0px auto 30%;
+	}
 	
 }
 
 @media (max-width: 400px){
+
 	.col-header-dog img{
 		width: 50%;
 	}
@@ -553,6 +604,10 @@ section{
 
 	#precio-vet{
 		font-size:10px!important;
+	}
+
+	#form-pop-up-home {
+	    margin: 0px auto 25%;
 	}
 
 }
