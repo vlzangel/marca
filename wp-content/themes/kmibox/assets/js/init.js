@@ -1068,7 +1068,7 @@ $(function($){
 
 				        setTimeout(function() {
 							jQuery('#nutriheroes').css('display', 'none');
-				        }, 1000);
+				        }, 5000);
 				}
 
 			}, "json")
