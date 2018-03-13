@@ -1,3 +1,11 @@
+
+.input-pop-up-home::-webkit-input-placeholder,
+.input-pop-up-home::-moz-placeholder,
+.input-pop-up-home:-ms-input-placeholder,
+.input-pop-up-home:-moz-placeholder {
+    color: #CCC;
+}
+
 body{
     padding-bottom: 180px;
 }

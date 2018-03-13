@@ -18,9 +18,9 @@
 
 					<form id="form-pop-up-home">
 
-						<input type="text" id="email" name="email" placeholder="Correo Electr&oacute;nico" value="Correo Electr&oacute;nico" class="input-pop-up-home">
+						<input type="text" id="email" name="email" placeholder="Correo Electr&oacute;nico" <!-- value="Correo Electr&oacute;nico" --> class="input-pop-up-home">
 						<div class="separador-pop-up-home"></div>
-						<input type="text" id="phone" name="phone" placeholder="N&uacute;mero de tel&eacute;fono" value="N&uacute;mero de tel&eacute;fono" class="input-pop-up-home" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
+						<input type="text" id="phone" name="phone" placeholder="N&uacute;mero de tel&eacute;fono" <!-- value="N&uacute;mero de tel&eacute;fono" --> class="input-pop-up-home" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
 						<input type="hidden" name="mi_marca" value="">
 						<input type="hidden" name="referencia" value="ayuda-home">
 
