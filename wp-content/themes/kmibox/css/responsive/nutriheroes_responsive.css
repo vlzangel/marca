@@ -148,7 +148,7 @@
 	#nutriheroes .nutri-container{
 		width: 91%;
 		max-width: 400px;
-		background: #dfffba url(../../imgs/popup-nutriheroes/background-mobile1.png) no-repeat right bottom!important;
+		# background: #dfffba url(../../imgs/popup-nutriheroes/background-mobile1.png) no-repeat right bottom!important;
 	}
 
 	.nutri-column-right,

@@ -1,4 +1,3 @@
-
 section{
 	margin-bottom: 30px;
 }
@@ -182,9 +181,55 @@ section{
 	margin-top: 10px;
 }
 
-/*#asesor a{
-    font-size: 11px;
-}*/
+/* Pop Up */
+	
+	#form-pop-up-home{
+		width: 50%;
+		margin: 0px auto 20px;
+	}
+
+	.input-pop-up-home {
+        width: calc( 50% - 10px );
+	    border: solid 2px;
+	    padding: 7px 10px;
+	    text-align: center;
+	    font-family: Gothamlight_Regular;
+	    outline: none;
+	}
+
+	.separador-pop-up-home{
+		display: inline-block;
+		width: 10px;
+	}
+
+	.btn-pop-up-home {
+	    margin-top: 15px;
+	    cursor: pointer;
+	    background: #091705;
+	    border-radius: 10px;
+	    border: 2px solid #091705;
+	    color: #fff;
+	    font-size: 20px;
+	    padding: 5px 20px;
+	    margin-top: 20px;
+	    font-family: GothanMedium_regular;
+	    text-decoration: none;
+	    outline: none;
+	}
+
+	.btn-pop-up-home:hover {
+        background: #ffffff;
+	    color: #000!important;
+	    text-decoration: none;
+	}
+
+	.nutri-container #mensaje {
+		width: 50%;
+	    font-size: 16px;
+    	margin: 0px auto 60px;
+	    font-family: GothanMedium_regular;
+	    display: none;
+	}
 
 /* ************************ */
 /* Responsive 				*/
@@ -198,7 +243,7 @@ section{
     	font-size: 25px!important;
 	}
 	#precio-vet{
-		font-size:20px!important;
+		font-size: 20px!important;
 	}	
 
 }

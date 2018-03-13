@@ -1,50 +1,41 @@
 
 	<div role="dialog" id="nutriheroes" style="visibility: hidden;">
-		<div class="nutri-container" 
-			 style="background: #fff url(<?php echo TEMA().'imgs/popup-nutriheroes/background-1.png'; ?>) no-repeat right bottom;">
-			<div class="nutri-header">
-				<button type="button" class="nutri-close" id="nutri-close" onclick="jQuery('#nutriheroes').css('display', 'none');">×</button>
-				<h4 class="nutri-title">¡EL ALIMENTO DE TU PELUDO</h4>
-				<h3 class="nutri-subtitle">entregado donde quieras!</h3>
-				<img class="nutri-sin-costo" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/sin-costo.png'; ?>">
-				<div class="nutri-sin-costo-text">SIN COSTO ADICIONAL</div>
-			</div>
+		<div class="nutri-container">
 
-			<div class="nutri-body">
-				<div class="nutri-column-left">  		
-					<ul class="nutri-pasos">
-						<li> 
-							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 1</span><span class="nutri-text">Elige la edad y el tamaño de tu mascota</span>
-						</li>
-						<li> 
-							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 2</span><span class="nutri-text">Elige la marca de tu preferencia</span>
-						</li>
-						<li>
-							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 3</span><span class="nutri-text">Escoge la presentaci&oacute;n que deseas</span>
-						</li>
-						<li> 
-							<span class="nutri-paso"><span class="nutri-paso-text"></span> PASO 4</span><span class="nutri-text">Verifica y realiza tu pago</span>
-						</li>
-						<li> 
-							<span class="nutri-paso nutri-green"><span class="nutri-paso-text"></span> PASO 5</span><span class="nutri-text">Recibe el alimento donde quieres</span>
-						</li>
-					</ul>
-					<p class="nutri-parrafo">Para cualquier duda o informaci&oacute;n adicional puedes llamar o escribir al 5540034824 donde con gusto te atenderemos </p>
-					<img class="footer-mobile" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/background-mobile-guydog.png'; ?>">
-				</div>
-				<div class="nutri-column-right nutri-image">
-					<img class="logo"src="<?php echo TEMA() . '/imgs/popup-nutriheroes/logo.png'; ?>">
-					<img class="dog-guy" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/dog-guy.png'; ?>">
-				</div>
-			</div>
+			<button type="button" class="nutri-close" id="nutri-close" onclick="jQuery('#nutriheroes').css('display', 'none');">×</button>
 
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
+			<img src="<?php echo TEMA().'imgs/popup-nutriheroes/full/Pop-Up-Homepage.png'; ?>" style='width: 100%;' />
+
+			<article style="
+				position: absolute;
+			    bottom: 10px;
+			    width: 100%;
+			    text-align: center;
+			">
+
+				<form id="form-pop-up-home">
+
+					<input type="text" id="email" name="email" placeholder="Correo Electr&oacute;nico" class="input-pop-up-home">
+					<div class="separador-pop-up-home"></div>
+					<input type="text" id="phone" name="phone" placeholder="N&uacute;mero tel&eacute;fono" class="input-pop-up-home" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
+					<input type="hidden" name="mi_marca" value="">
+					<input type="hidden" name="referencia" value="ayuda-home">
+
+					<button type="submit" class="btn-pop-up-home">ENVIAR</button>
+				</form>
+
+				<div id="mensaje"></div>
+
+			</article>
+
+		</div>
+	</div>
+
 	<script>
         setTimeout(function() {
             jQuery("#nutriheroes").css("visibility", "visible");
             jQuery("#nutriheroes").css("opacity", "1");
-        },2000);
+        }, 2 );
     </script>
 
 
