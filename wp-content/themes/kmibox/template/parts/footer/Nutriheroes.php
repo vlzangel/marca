@@ -2,31 +2,35 @@
 	<div role="dialog" id="nutriheroes" style="visibility: hidden;">
 		<div class="nutri-container">
 
-			<button type="button" class="nutri-close" id="nutri-close" onclick="jQuery('#nutriheroes').css('display', 'none');">×</button>
+			<div style="display: inline-block; position: relative;">
+				<button type="button" class="nutri-close" id="nutri-close" onclick="jQuery('#nutriheroes').css('display', 'none');">×</button>
 
-			<img src="<?php echo TEMA().'imgs/popup-nutriheroes/full/Pop-Up-Homepage.png'; ?>" style='width: 100%;' />
+				<img  class="solo_pc" src="<?php echo TEMA().'imgs/popup-nutriheroes/full/Pop-Up-Homepage_new.png'; ?>" style='width: 100%;' />
 
-			<article style="
-				position: absolute;
-			    bottom: 10px;
-			    width: 100%;
-			    text-align: center;
-			">
+				<img  class="solo_movil fondo_popup_movil" src="<?php echo TEMA().'imgs/popup-nutriheroes/full/Pop-Up-Homepage-responsive_2.png'; ?>" />
 
-				<form id="form-pop-up-home">
+				<article style="
+					position: absolute;
+				    bottom: 0px;
+				    width: 100%;
+				    text-align: center;
+				">
 
-					<input type="text" id="email" name="email" placeholder="Correo Electr&oacute;nico" value="Correo Electr&oacute;nico" class="input-pop-up-home">
-					<div class="separador-pop-up-home"></div>
-					<input type="text" id="phone" name="phone" placeholder="N&uacute;mero de tel&eacute;fono" value="N&uacute;mero de tel&eacute;fono" class="input-pop-up-home" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
-					<input type="hidden" name="mi_marca" value="">
-					<input type="hidden" name="referencia" value="ayuda-home">
+					<form id="form-pop-up-home">
 
-					<button type="submit" class="btn-pop-up-home">ENVIAR</button>
-				</form>
+						<input type="text" id="email" name="email" placeholder="Correo Electr&oacute;nico" value="Correo Electr&oacute;nico" class="input-pop-up-home">
+						<div class="separador-pop-up-home"></div>
+						<input type="text" id="phone" name="phone" placeholder="N&uacute;mero de tel&eacute;fono" value="N&uacute;mero de tel&eacute;fono" class="input-pop-up-home" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13">
+						<input type="hidden" name="mi_marca" value="">
+						<input type="hidden" name="referencia" value="ayuda-home">
 
-				<div id="mensaje"></div>
+						<button type="submit" class="btn-pop-up-home">ENVIAR</button>
+					</form>
 
-			</article>
+					<div id="mensaje"></div>
+
+				</article>
+			</div>
 
 		</div>
 	</div>
@@ -35,7 +39,7 @@
         setTimeout(function() {
             jQuery("#nutriheroes").css("visibility", "visible");
             jQuery("#nutriheroes").css("opacity", "1");
-        }, 5000 );
+        }, 2 );
     </script>
 
 
