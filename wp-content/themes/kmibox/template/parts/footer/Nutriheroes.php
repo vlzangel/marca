@@ -35,7 +35,7 @@
         setTimeout(function() {
             jQuery("#nutriheroes").css("visibility", "visible");
             jQuery("#nutriheroes").css("opacity", "1");
-        }, 2 );
+        }, 5000 );
     </script>
 
 
