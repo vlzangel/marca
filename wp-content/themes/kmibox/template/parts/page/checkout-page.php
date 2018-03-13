@@ -144,7 +144,7 @@
 			      	<?php echo $disabled; ?> 
 			      	id="inputEmail3" 
 			      	placeholder="Titular de la tarjeta" 
-			      	maxlength="25"
+			      	maxlength="35"
 			      	value=""
 			      	data-charset="xlf"
 			      	data-openpay-card="holder_name" style="border-radius: 50px !important;">
