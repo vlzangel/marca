@@ -1027,7 +1027,21 @@ $(function($){
 			jQuery('#mi_marca').val('');
 		}
 	});
- 
+ 	
+ 	jQuery('input[type="text"]').each(function () {
+        jQuery(this).focus(function () {
+            if (jQuery(this).attr('value') === jQuery(this).attr('placeholder')) {
+                jQuery(this).css('text-transform','lowercase');
+                jQuery(this).attr('value', '');
+            }
+        }).blur(function () {
+            if (jQuery(this).attr('value') === '') {
+                jQuery(this).css('text-transform','uppercase');
+                jQuery(this).attr('value', jQuery(this).attr('placeholder'));
+            }
+        }).blur();
+    });
+
 	$('#form-pop-up-home').on( 'submit', function(e){
 		// Prevent form submission
 		e.preventDefault();
