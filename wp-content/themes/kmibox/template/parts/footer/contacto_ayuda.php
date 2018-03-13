@@ -1,11 +1,20 @@
-<!--
+
 <section id="contacto-ayuda" >
+
+	
+	<img class="solo_pc contacto-ayuda-izquierda" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/footer/izquierda.png'; ?>">
+	<img class="solo_pc contacto-ayuda-derecha" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/footer/derecha.png'; ?>">
+	
+	<img class="solo_movil contacto-ayuda-izquierda" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/footer/movil_izquierda.png'; ?>">
+	<img class="solo_movil contacto-ayuda-derecha" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/footer/movil_derecha.png'; ?>">
+
+	<!--
 	<div class="nutri-header">
-			<h4 class="nutri-title">¡EL ALIMENTO DE TU PELUDO</h4>
-			<h3 class="nutri-subtitle">entregado donde quieras!</h3>
-			<img class="nutri-sin-costo" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/sin-costo.png'; ?>">
-			<div class="nutri-sin-costo-text">SIN COSTO ADICIONAL</div>
-		</div>
+		<h4 class="nutri-title">¡EL ALIMENTO DE TU PELUDO</h4>
+		<h3 class="nutri-subtitle">entregado donde quieras!</h3>
+		<img class="nutri-sin-costo" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/sin-costo.png'; ?>">
+		<div class="nutri-sin-costo-text">SIN COSTO ADICIONAL</div>
+	</div>
 
 		<div class="nutri-body">
 			<div class="nutri-column-left">  		
@@ -34,9 +43,11 @@
 				<img class="dog-guy" src="<?php echo TEMA() . '/imgs/popup-nutriheroes/dog-guy.png'; ?>">
 			</div>
 		</div>
+	-->
+
 </section>
--->
-	
+
+<!--
 <section id="contacto-ayuda" >
 	<div id="mensaje" style="display:none;text-align:center;color:#fff;padding: 5px 0px;background: #699646;"></div>
 	<article class="ayuda-imagen">
@@ -58,3 +69,5 @@
 		</form>
 	</article>
 </section>
+
+-->
