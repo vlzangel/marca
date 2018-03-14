@@ -309,7 +309,7 @@
       	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
 	      	<p>
 	      		SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute;, 
-	      		O SI LA ESTAS COMPRAMDO A UN MENOR PRECIO,
+	      		O SI LA ESTAS COMPRANDO A UN MENOR PRECIO,
 	      		<span style="display: block;">D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
 	      	</p>
 	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>
