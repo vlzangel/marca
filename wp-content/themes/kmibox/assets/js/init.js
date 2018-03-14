@@ -959,14 +959,38 @@ $(function($){
 	jQuery('#mi_marca').on('change', function(){
 		popup_validate(jQuery(this));
 	});
-	function popup_validate(obj){		
-		obj.css('border-color', "transparent");
-		obj.css('background', "#fff");
-		if( obj.val() == '' ){
+
+	function popup_validate(obj){
+		var emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+		var phoneRegex = /^([0-9]*)$/i;
+		var r = 0;
+		obj.css('border-color', "#091705");
+
+		if( obj.val() == '' && r == 0 ){
 			obj.css('border-color', "#b30909");
-			obj.css('background', "#f353538c");
-			return 1;
-		}		
+			r = 1;
+		}	
+
+		if( obj.attr("id") == 'email' ){
+			if( !emailRegex.test( obj.val() ) && r == 0 ){
+				obj.css('border-color', "#b30909");
+				r = 1;
+			}	
+		}	
+
+		if( obj.attr("id") == 'phone' ){
+			if( phoneRegex.test( obj.val() ) == true && r == 0 ){
+				if( obj.val().length != 13 ){
+					obj.css('border-color', "#b30909");
+					r = 1;
+				}	
+			}	
+		}	
+
+		if( r == 1 ){
+			obj.css('border-color', "#b30909");
+		}
+
 		return 0;
 	}
 
@@ -983,12 +1007,12 @@ $(function($){
 		if( jQuery('#phone').val() == '' ){
 			validate += popup_validate( jQuery('#phone') );
 		}
-		if( jQuery('#mi_marca').val() == '' ){
-			validate += popup_validate( jQuery('#mi_marca') );
-		}
-
+		
 		if( validate == 0 ){	
-			jQuery.post(TEMA+'procesos/subscribers/subscribers.php', jQuery('#form-contacto').serialize(), function(data){
+			jQuery.post(
+				TEMA+'procesos/subscribers/subscribers.php', 
+				jQuery('#form-contacto').serialize(), 
+					function(data){
 					if(data.code==1){
 						jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
 						jQuery('#mensaje').css('display', 'block');
@@ -996,18 +1020,34 @@ $(function($){
 							jQuery('#mensaje').css('display', 'none');
 				        },5000);
 					}
-			}, "json")
-			.fail(function(e) { console.log( e ); });
-
+				}, "json"
+			).fail( function(e) { console.log( e ); } );
 			jQuery('#email').val('');
 			jQuery('#phone').val('');
 			jQuery('#mi_marca').val('');
 		}
 	});
- 
-	$('#form-contacto-ayuda').on( 'submit', function(e){
+ 	
+ 	jQuery('input[type="text"]').each(function () {
+        jQuery(this).focus(function () {
+            if (jQuery(this).attr('value') === jQuery(this).attr('placeholder')) {
+                jQuery(this).css('text-transform','lowercase');
+                jQuery(this).attr('value', '');
+            }
+        }).blur(function () {
+            if (jQuery(this).attr('value') === '') {
+                jQuery(this).css('text-transform','uppercase');
+                jQuery(this).attr('value', jQuery(this).attr('placeholder'));
+            }
+        }).blur();
+    });
+
+	$('#form-pop-up-home').on( 'submit', function(e){
 		// Prevent form submission
 		e.preventDefault();
+
+		jQuery(".btn-pop-up-home").attr("disabled", true);
+		jQuery(".btn-pop-up-home").html("Procesando...");
 
 		var validate = 0;
 		if( jQuery('#email').val() == '' ){
@@ -1018,20 +1058,29 @@ $(function($){
 		}
 
 		if( validate == 0 ){
-			jQuery.post(TEMA+'procesos/subscribers/subscribers.php', jQuery('#form-contacto-ayuda').serialize(), function(data){
-				if(data.code==1){
-					jQuery('#mensaje').html('Datos registrados, en breve te ayudamos con tu solicitud.');
-					jQuery('#mensaje').css('display', 'block');
-					setTimeout(function() {
-						jQuery('#mensaje').css('display', 'none');
-			        },5000);
+			jQuery.post(TEMA+'procesos/subscribers/subscribers.php', jQuery('#form-pop-up-home').serialize(), function(data){
+				
+				console.log(data);
+				if(data.code == 1){
+				        jQuery('#mensaje').html('<div>¡GRACIAS!</div>Un asesor nutriheroes te contactar&aacute; a la breveda posible');
+				        jQuery('#form-pop-up-home').css("display", "none");
+				        jQuery('#mensaje').css("display", "block");
+
+				        setTimeout(function() {
+							jQuery('#nutriheroes').css('display', 'none');
+				        }, 5000);
 				}
+
 			}, "json")
 			.fail(function(e) { console.log( e ); });
+
 			jQuery('#email').val('');
 			jQuery('#phone').val('');
 
 		}
+
+		jQuery(".btn-pop-up-home").attr("disabled", false);
+		jQuery(".btn-pop-up-home").html("ENVIAR");
 	});
 	
 });
