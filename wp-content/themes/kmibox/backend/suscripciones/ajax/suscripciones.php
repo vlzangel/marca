@@ -1,7 +1,9 @@
 <?php
-    date_default_timezone_set('America/Mexico_City');
+
     $raiz = dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))));
     include( $raiz."/wp-load.php" );
+
+    setZonaHoraria();
 
 	global $wpdb;
 	$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
@@ -14,12 +16,20 @@
 		$_meta_cliente = get_user_meta($orden->cliente);
 		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = {$suscripcion->id_producto}");
 		$data_suscripcion = unserialize($suscripcion->data);
-		$proximo_cobro = $wpdb->get_var("SELECT fecha_cobro FROM cobros WHERE item_orden = {$suscripcion->id} AND openpay_transaccion_id = '---'");
+		$_proximo_cobro = $wpdb->get_row("SELECT * FROM cobros WHERE item_orden = {$suscripcion->id} AND openpay_transaccion_id = '---'");
+
+		$ordenes[ $suscripcion->id_orden ]["id"] = $suscripcion->id_orden;
+
+		$proximo_cobro = $_proximo_cobro->fecha_cobro;
 		if( $proximo_cobro."" == "" ){
 			$proximo_cobro = "---";
 		}else{
 			$proximo_cobro = date("d/m/Y h:i a", strtotime($proximo_cobro));
 		}
+
+		$hoy = date("Y-m-d", time() );
+
+		$cobro_actual = $wpdb->get_var("SELECT status FROM cobros WHERE item_orden = {$suscripcion->id} AND fecha_cobro < '{$hoy}' ");
 
 		$ordenes[ $suscripcion->id_orden ]["fecha_creacion"] = date("d/m/Y", strtotime($orden->fecha_creacion));
 		$ordenes[ $suscripcion->id_orden ]["cliente_id"] = $orden->cliente;
@@ -31,10 +41,15 @@
 		
 		$ordenes[ $suscripcion->id_orden ]["precio"][] = "$ ".number_format( $suscripcion->total+0, 2, ',', '.')." MXN";
 		$ordenes[ $suscripcion->id_orden ]["proximo_cobro"][] = $proximo_cobro;
+		$ordenes[ $suscripcion->id_orden ]["status_cobro"][] = $cobro_actual;
 		$ordenes[ $suscripcion->id_orden ]["status"] = $suscripcion->status_suscripcion;
 
-		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$orden->asesor);
+		$data_orden = unserialize($orden->metadata);
 
+		$ordenes[ $suscripcion->id_orden ]["tipo_pago"] = $data_orden["tipo_pago"];
+		$ordenes[ $suscripcion->id_orden ]["status"] = $orden->status;
+
+		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$orden->asesor);
 		$ordenes[ $suscripcion->id_orden ]["asesor_id"] = $asesor->id;
 		$ordenes[ $suscripcion->id_orden ]["asesor_nombre"] = $asesor->nombre;
 		$ordenes[ $suscripcion->id_orden ]["asesor_email"] = $asesor->email;
@@ -96,19 +111,27 @@
 		if( $metadata[ "telef_fijo" ] != "" ){ $telefonos[] = $metadata[ "telef_fijo" ]; }
 		if( count($telefonos) > 0 ){ $telefonos = implode(" - ", $telefonos); }else{ $telefonos = "No registrado"; }
 
+		if( $_data["asesor_id"] == "" ){ $_data["asesor_id"] = "---"; }
+	    if( $_data["asesor_nombre"] == "" ){ $_data["asesor_nombre"] = "---"; }
+	    if( $_data["asesor_email"] == "" ){ $_data["asesor_email"] = "---"; }
+
 		$index_row++;
 		$data["data"][] = array(
 			$index_row,
 	        $orden_id,
+	        $_data["status"],
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
-	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br><strong>Direcci&oacute;n: </strong>".$direccion,	        
+	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br><strong>Direcci&oacute;n: </strong>".$direccion,	
+	        $_data["tipo_pago"],        
 	        $_productos,
 	        $_precios,
+	        implode("<br>", $_data["status_cobro"]),
 	        $_cobros,
 	        $_data["asesor_id"],
 	        $_data["asesor_nombre"],
-	        $_data["asesor_email"]
+	        $_data["asesor_email"],
+	        "<span class='enlace' onClick='cancelarSuscripcion(jQuery(this))' data-id='{$_data["id"]}'>Cancelar</span>"
 	    );
 
 		$excel[] = array(
@@ -117,8 +140,10 @@
 	        date("d/m/Y", strtotime( str_replace("/", "-", $_data["fecha_creacion"])))." ",
 	        $_data["cliente"],
 	        "Teléfono: ".$telefonos."\nDirección: ".$direccion,
+	        $_data["tipo_pago"],  
 	        implode(PHP_EOL, $_productos_excel),
 	        implode(PHP_EOL, $_precios_excel),
+	        implode(PHP_EOL, $_data["status_cobro"]),
 	        implode(PHP_EOL, $_cobros_excel),
 	        $_data["asesor_id"],
 	        $_data["asesor_nombre"],
@@ -137,8 +162,10 @@
 				"Fecha suscripción",
 				"Cliente",
 				"Datos del cliente",
+				"Tipo de pago",
 				"Producto(s)",
 				"Precio(s)",
+				"Status Cobro(s)",
 				"Proximo Cobro",
 				"ID Asesor",
 				"Asesor",
