@@ -611,6 +611,10 @@ div#wpadminbar {
 		width: 100%;
 	    font-family: Gothamlight_Regular;
 	}
+	
+	.iOS table{
+		font-family: Arial;
+	}
 
 	#desglose th{    
 		
