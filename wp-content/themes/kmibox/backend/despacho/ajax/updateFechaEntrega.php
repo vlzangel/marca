@@ -13,10 +13,8 @@
 
 	$despacho = $wpdb->get_row("SELECT * FROM despachos WHERE ".$condicion);
 	 if( $despacho->fecha_entrega != $fecha ){
-		$SQL = "UPDATE despachos SET fecha_entrega = '{$fecha}', status = 'En transito' WHERE ".$condicion;
+		$SQL = "UPDATE despachos SET fecha_entregado = '{$fecha}', status = 'Entregado' WHERE ".$condicion;
 		$wpdb->query( $SQL );
-
-	    //wp_mail( $email, "Notificación - NutriHeroes", $HTML );
 	}
 
 ?>

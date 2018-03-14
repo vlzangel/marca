@@ -36,3 +36,25 @@ jQuery(document).ready(function() {
     });
 
 } );
+
+function cancelarSuscripcion(_this){
+	var id_orden = _this.attr("data-id");
+    var confirmed = confirm("Esta seguro de cancelar la suscripci\u00f3n id: "+id_orden+"?");
+    if (confirmed == true) {
+        jQuery.ajax({
+            async:true, 
+            cache:false, 
+            type: 'POST', 
+            url: TEMA+'/procesos/suscripciones/cancelar.php',
+            data: {ID_ORDEN: id_orden}, 
+            success:  function(HTML){
+                alert("Suscripci\u00f3n cancelada exitosamente!");
+                location.reload();
+            },
+            beforeSend:function(){},
+            error:function(e){
+                console.log(e);
+            }
+        });
+    }
+}
