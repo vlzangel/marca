@@ -7,7 +7,10 @@
 
 				<div class="selector_container">
 					<div class="titulo_selector">Seleccionar Suscripción:</div>
-					<select id="selector_despachos" class="selector">'.$opciones_despachos.'</select>
+					<select id="selector_despachos" class="selector">
+						<option value="">Seleccione...</option>
+						'.$opciones_despachos.'
+					</select>
 				</div>
 				
 				<div class="form_suscripcion">
@@ -29,7 +32,7 @@
 										<label> 
 											<i class="fa fa-check-square-o" aria-hidden="true"></i> 
 											<i class="fa fa-square-o" aria-hidden="true"></i>  
-											Enviada
+											En transito
 										</label>
 									</div>
 									<div id="recibida" class="col-xs-12 col-sm-12 col-md-4">
@@ -37,7 +40,7 @@
 										<label> 
 											<i class="fa fa-check-square-o" aria-hidden="true"></i> 
 											<i class="fa fa-square-o" aria-hidden="true"></i> 
-											Recibida
+											Entregado
 										</label>
 									</div>
 								</div>

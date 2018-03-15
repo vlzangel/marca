@@ -16,8 +16,8 @@
 	$status = array(
 		"Pendiente",
 		"Armada",
-		"Enviada",
-		"Recibida"
+		"En transito",
+		"Entregado"
 	);
 
 	$opciones = "";

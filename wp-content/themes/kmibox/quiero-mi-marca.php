@@ -197,7 +197,8 @@
 					</table>
 
 					<div class="fecha_estimada">
-						Fecha estimada de entrega: <span>'.$fecha_estimada.'</span>
+						Tiempo estimado de entrega: <span>48 a 72 horas h&aacute;biles</span>
+						<!-- <span>'.$fecha_estimada.'</span> -->
 					</div>
 
 					<div id="cupones" class="hidden">

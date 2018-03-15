@@ -265,8 +265,8 @@
 
 			$wpdb->query( "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );" ); 
 
-			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, 0 );" );
-			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
     	}
 
 	}
@@ -286,7 +286,7 @@
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
 			$wpdb->query( $SQL );
 
-			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
     	}
 	}
 

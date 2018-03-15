@@ -60,7 +60,7 @@
 		<br>
 	</div> 
 	<div style="text-align: left; font-size: 17px;">
-		<div style="font-size: 25px; display:inline-block;border:4px solid #31a32e;width: 1px; border-radius:50%;background-color: #31a32e;"></div> Recibirás tu producto durante los siguientes 5 días hábiles. <br><br>
+		<div style="font-size: 25px; display:inline-block;border:4px solid #31a32e;width: 1px; border-radius:50%;background-color: #31a32e;"></div> Recibirás tu producto durante las siguientes 48 a 72 horas h&aacute;biles una vez se haya confirmado tu pago. <br><br>
 		<div style="font-size: 25px; display:inline-block;border:4px solid #31a32e;width: 1px; border-radius:50%;background-color: #31a32e;"></div> Un asesor Nutriheroes te contactará una semana antes del día [FECHA_SUSCRIPCION] (éste día es el día de su suscripción) de cada mes para que confirmes si necesitas el alimento. <br><br>
 		<div style="font-size: 25px; display:inline-block;border:4px solid #31a32e;width: 1px; border-radius:50%;background-color: #31a32e;"></div> Si solicitas un nuevo envío a tu asesor se te enviará una nueva orden de pago correspondiente a tu nueva compra. <br><br>
 		<div style="font-size: 25px; display:inline-block;border:4px solid #31a32e;width: 1px; border-radius:50%;background-color: #31a32e;"></div> Una vez pagues el alimento que solicitas llegará nuevamente a tu casa.<br><br>
