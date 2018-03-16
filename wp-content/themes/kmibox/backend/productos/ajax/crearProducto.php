@@ -58,5 +58,17 @@
 		);
 	";
 
+//echo $SQL;
+
 	$wpdb->query( $SQL );
+
+	try{
+		include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
+		$result = $bitrix->addProduct([
+			"nombre" => $nombre, 
+			"precio" => $puntos,
+			"orden" => 1,
+		]);
+		
+	}catch(Exception $e){}
 ?>
