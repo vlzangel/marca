@@ -201,7 +201,7 @@
 						<!-- <span>'.$fecha_estimada.'</span> -->
 					</div>
 
-					<div id="cupones" class="hidden">
+					<div id="cupones">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
 								<td> ¿Dispone de un cupón de descuento? </td>

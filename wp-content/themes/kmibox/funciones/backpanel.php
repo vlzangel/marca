@@ -87,7 +87,7 @@
                     'icon'          =>  '',
                 ),
 
-     /*          array(
+               array(
                     'title'         =>  __('Cupones'),
                     'short-title'   =>  __('Cupones'),
                     'parent'        =>  'marcas',
@@ -95,7 +95,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'cupones',
                     'icon'          =>  '',
-                )*/
+                )
 
             );
 
