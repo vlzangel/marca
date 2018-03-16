@@ -14,6 +14,7 @@
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
         <thead>
             <tr>
+                <th>#</th>
                 <th>ID</th>
                 <th>Fecha Registro</th>
                 <th>Nombre y Apellido</th>
