@@ -12,7 +12,10 @@
 	$data["data"] = array();
 	$excel = array();
 
+	$contador = 0;
 	foreach ($clientes as $cliente) {
+
+		$contador++;
 
 		$_metadata = get_user_meta($cliente->ID);
 		$metadata = array();
@@ -62,6 +65,7 @@
 		if( count($telefonos) > 0 ){ $telefonos = implode(" - ", $telefonos); }else{ $telefonos = "No registrado"; }
 
 		$data["data"][] = array(
+	        $contador,
 	        $cliente->ID,
 	        date("d/m/Y", strtotime($cliente->user_registered)),
 	        "<a href='".get_home_url()."/?i=".md5($cliente->ID)."' target='_blank'>".$metadata[ "first_name" ]." ".$metadata[ "last_name" ]."</a>",
