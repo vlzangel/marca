@@ -52,6 +52,14 @@
 
     $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
 
+    $activar_cupon = getConfig("cupones");
+
+    if( $activar_cupon == "0" ){
+    	$activar_cupon = "hidden";
+    }else{
+    	$activar_cupon = "";
+    }
+
 	$HTML = '
 
 		<script>
@@ -201,7 +209,7 @@
 						<!-- <span>'.$fecha_estimada.'</span> -->
 					</div>
 
-					<div id="cupones">
+					<div id="cupones" class="'.$activar_cupon.'">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
 								<td> ¿Dispone de un cupón de descuento? </td>

@@ -176,5 +176,12 @@
 	    
 	}
 
+	if(!function_exists('getConfig')){
+	    function getConfig($key){
+	    	global $wpdb;
+	        return $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = '{$key}' ");
+	    }
+	}
+
 
 ?>
