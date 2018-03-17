@@ -87,9 +87,7 @@
 		}
 	}
 
-	function aplicarDescuentos(){
-		return;
-		
+	function aplicarDescuentos(){		
 		global $wpdb;
 		if( !isset($_SESSION) ){ session_start(); }
 	 	$current_user = wp_get_current_user();
