@@ -125,12 +125,19 @@
 	    $asesor = get_user_meta( $user_id, 'asesor_registro', true );
 		$asesor_id = ( $asesor > 0 )? $asesor : 0 ;
 
+		$total = $CARRITO["total"]+$CARRITO["totalDescuentos"];
+
+		if( $CARRITO["totalDescuentos"]+0 > 0 ){
+			$metaData["descuento"] = $CARRITO["totalDescuentos"];
+			$metaData["cupones"] = $CARRITO["descuentos"];
+		}
+		
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
 	 			'{$user_id}',
 	 			'{$CARRITO["cantidad"]}',
-	 			'{$CARRITO["total"]}',
+	 			'{$total}',
 		 		'{$hoy}',
 		 		'Pendiente',
 		 		'".serialize($metaData)."',
@@ -233,9 +240,7 @@
 		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
 		}
 
-		echo "<pre>";
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
-
 
     	foreach ($items as $key => $item) {
 

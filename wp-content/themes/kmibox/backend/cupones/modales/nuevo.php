@@ -100,6 +100,23 @@
 		</div>
 	</div>
 
+	<div class="celdas_1" style="margin-top: 10px;">
+		<div class="input_box">
+
+			<div class="input_checkbox_container">
+				<div class="input_checkbox">
+					<?php
+						$checked = "";
+						if( $info["uso_post_suscripcion"] == "1" ){
+							$checked = "checked";
+						}
+					?>
+					<input type="checkbox" id="uso_post_suscripcion" name="uso_post_suscripcion" value="1" <?php echo $checked; ?> > <label for="uso_post_suscripcion">Uso recurrente <span class='msg'>Marca esta casilla si el cupón se debe aplicar en todos los pagos de la suscripción.</span> </label>
+				</div>
+			</div>
+
+		</div>
+	</div>
 
 	<div class="celdas_1">
 		<div class="input_box">

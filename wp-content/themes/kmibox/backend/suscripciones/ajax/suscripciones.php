@@ -29,7 +29,30 @@
 
 		$hoy = date("Y-m-d", time() );
 
-		$cobro_actual = $wpdb->get_var("SELECT status FROM cobros WHERE item_orden = {$suscripcion->id} AND fecha_cobro < '{$hoy}' ");
+		$cobro_actual = $wpdb->get_var("SELECT status FROM cobros WHERE item_orden = {$suscripcion->id} AND fecha_cobro <= '{$hoy}' ");
+
+		$ordenData = unserialize($orden->metadata); 
+
+		$cupones = ""; $cupones_excel = array();
+		foreach ($ordenData["cupones"] as $cupon) {
+			$monto = "$ ".number_format( $cupon[1], 2, ',', '.')." MXN";
+			$cupones .= "<div><strong>{$cupon[0]}: </strong>{$monto}</div>";
+			$cupones_excel[] = "{$cupon[0]}: {$monto}";
+		}
+		if( $cupones == "" ){ 
+			$cupones = "---"; 
+			$cupones_excel = "---";
+		}else{
+			$cupones_excel = implode(PHP_EOL, $cupones_excel);
+		}
+
+		$ordenes[ $suscripcion->id_orden ]["info_pago"] = array(
+			"total" => "$ ".number_format( $orden->total, 2, ',', '.')." MXN",
+			"pago" => "$ ".number_format( $orden->total-$ordenData["descuento"], 2, ',', '.')." MXN",
+			"descuento" => "$ ".number_format( $ordenData["descuento"], 2, ',', '.')." MXN",
+			"cupones" => $cupones,
+			"cupones_excel" => $cupones_excel,
+		);
 
 		$ordenes[ $suscripcion->id_orden ]["fecha_creacion"] = date("d/m/Y", strtotime($orden->fecha_creacion));
 		$ordenes[ $suscripcion->id_orden ]["cliente_id"] = $orden->cliente;
@@ -115,6 +138,14 @@
 	    if( $_data["asesor_nombre"] == "" ){ $_data["asesor_nombre"] = "---"; }
 	    if( $_data["asesor_email"] == "" ){ $_data["asesor_email"] = "---"; }
 
+
+	    $ordenes[ $suscripcion->id_orden ]["info_pago"] = array(
+			"total" => $orden->total,
+			"pago" => $orden->total-$ordenData["descuento"],
+			"descuento" => $ordenData["descuento"],
+			"cupones" => $cupones,
+		);
+
 		$index_row++;
 		$data["data"][] = array(
 			$index_row,
@@ -126,6 +157,12 @@
 	        $_data["tipo_pago"],        
 	        $_productos,
 	        $_precios,
+
+	        $_data["info_pago"]["total"],
+	        $_data["info_pago"]["pago"],
+	        $_data["info_pago"]["descuento"],
+	        $_data["info_pago"]["cupones"],
+
 	        implode("<br>", $_data["status_cobro"]),
 	        $_cobros,
 	        $_data["asesor_id"],
@@ -143,6 +180,12 @@
 	        $_data["tipo_pago"],  
 	        implode(PHP_EOL, $_productos_excel),
 	        implode(PHP_EOL, $_precios_excel),
+
+	        $_data["info_pago"]["total"],
+	        $_data["info_pago"]["pago"],
+	        $_data["info_pago"]["descuento"],
+	        $_data["info_pago"]["cupones_excel"],
+
 	        implode(PHP_EOL, $_data["status_cobro"]),
 	        implode(PHP_EOL, $_cobros_excel),
 	        $_data["asesor_id"],
@@ -165,6 +208,12 @@
 				"Tipo de pago",
 				"Producto(s)",
 				"Precio(s)",
+
+				"Total",
+				"Pago",
+				"Descuento",
+				"Cupones",
+
 				"Status Cobro(s)",
 				"Proximo Cobro",
 				"ID Asesor",

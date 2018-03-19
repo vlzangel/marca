@@ -95,11 +95,16 @@
 
 			$_totalDescuentos = $totalDescuentos+$descuento;
 
+			if( !isset($cupon->data["uso_post_suscripcion"]) ){
+				$cupon->data["uso_post_suscripcion"] = 0;
+			}
+
 			return array(
 				"cupon" => array(
 					$cupon->nombre,
 					$descuento,
-					$cupon->data["uso_individual"]
+					$cupon->data["uso_individual"],
+					$cupon->data["uso_post_suscripcion"]
 				),
 				"totalDescuentos" => $_totalDescuentos
 			);
