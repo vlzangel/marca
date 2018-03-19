@@ -151,58 +151,63 @@
 		return $data;
 	}
 
-	function get_user_info(){
+	function get_user_info( $user_id = 0){
 		$data = [];
-		if(get_current_user_id()>0){
+		if( $user_id == 0 ){
+			$user_id = get_current_user_id();
+		}
+		if($user_id>0){
 
-			$user = get_user_by('id', get_current_user_id());
+			$user = get_user_by('id', $user_id);
+
 
 			$data['email'] = $user->user_email;
 			$data['display_name'] = $user->display_name;
 
-			$d = get_user_meta( get_current_user_id(), 'first_name' );
+
+			$d = get_user_meta( $user_id, 'first_name' );
 			$data['first_name'] = $d[0];
 
-			$d = get_user_meta( get_current_user_id(), 'last_name' );
+			$d = get_user_meta( $user_id, 'last_name' );
 			$data['last_name'] = $d[0];
 
-			$d = get_user_meta( get_current_user_id(), 'telef_movil' );
+			$d = get_user_meta( $user_id, 'telef_movil' );
 			$data['telef_movil'] = $d[0];
 
-			$d =  get_user_meta( get_current_user_id(), 'telef_fijo' );
+			$d =  get_user_meta( $user_id, 'telef_fijo' );
 			$data['telef_fijo'] = $d[0];
 
-			$d = get_user_meta( get_current_user_id(), 'dir_ciudad' );
+			$d = get_user_meta( $user_id, 'dir_ciudad' );
 			$data['city'] = $d[0];
 
-			$d = get_user_meta( get_current_user_id(), 'dir_codigo_postal' );
+			$d = get_user_meta( $user_id, 'dir_codigo_postal' );
 			$data['codigo_postal'] = $d[0];
 
-			$d = get_user_meta( get_current_user_id(), 'dir_estado' );
+			$d = get_user_meta( $user_id, 'dir_estado' );
 			$data['estado'] = $d[0];
 
-			$d = get_user_meta( get_current_user_id(), 'dir_calle' );
+			$d = get_user_meta( $user_id, 'dir_calle' );
 			$data['calle'] = $d[0];
 
-			$d = get_user_meta( get_current_user_id(), 'dir_colonia' );
+			$d = get_user_meta( $user_id, 'dir_colonia' );
 			$data['colonia'] = $d[0];
 
-			$d =  get_user_meta( get_current_user_id(), 'edad' );
+			$d =  get_user_meta( $user_id, 'edad' );
 			$data['edad'] = $d[0];
 
-			$d =  get_user_meta( get_current_user_id(), 'sexo' );
+			$d =  get_user_meta( $user_id, 'sexo' );
 			$data['sexo'] = $d[0];
 
-			$d =  get_user_meta( get_current_user_id(), 'mascota' );
+			$d =  get_user_meta( $user_id, 'mascota' );
 			$data['mascota'] = $d[0];
 
-			$d =  get_user_meta( get_current_user_id(), 'dir_numint' );
+			$d =  get_user_meta( $user_id, 'dir_numint' );
 			$data['dir_numint'] = $d[0];
 
-			$d =  get_user_meta( get_current_user_id(), 'dir_numext' );
+			$d =  get_user_meta( $user_id, 'dir_numext' );
 			$data['dir_numext'] = $d[0];
 
-			$d =  get_user_meta( get_current_user_id(), 'dondo_conociste' );
+			$d =  get_user_meta( $user_id, 'dondo_conociste' );
 			$data['dondo_conociste'] = $d[0];
 
 

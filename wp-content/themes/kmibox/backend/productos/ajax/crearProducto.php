@@ -39,6 +39,23 @@
 		"origen_2" => $origen_2
 	);
 
+	$_BITRIX_PRODUCTO_ID = '';
+	try{
+		include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
+		$respuesta = $bitrix->addProduct([
+			"nombre" => $nombre, 
+			"precio" => $puntos,
+			"orden" => 1,
+			"descripcion" => $descripcion,
+		]);
+		$datos = json_decode($respuesta);
+		if( isset($datos->result) ){
+			$_BITRIX_PRODUCTO_ID = $datos->result;
+		}
+		
+	}catch(Exception $e){}
+
+
 	$SQL = "
 		INSERT INTO productos VALUES (
 			NULL,
@@ -54,21 +71,12 @@
 			'".serialize($_planes)."',
 			'".serialize($dataextra)."',
 			'Activo',
-			{$category}
+			{$category},
+			{$_BITRIX_PRODUCTO_ID}
 		);
 	";
 
-//echo $SQL;
-
 	$wpdb->query( $SQL );
 
-	try{
-		include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
-		$result = $bitrix->addProduct([
-			"nombre" => $nombre, 
-			"precio" => $puntos,
-			"orden" => 1,
-		]);
-		
-	}catch(Exception $e){}
+	
 ?>
