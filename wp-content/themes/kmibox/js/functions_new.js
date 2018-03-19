@@ -7,7 +7,7 @@ CUPONES["totalDescuento"] = 0;
 CARRITO["cantidad"] = 0;
 CARRITO["productos"] = [];
 
-/*CARRITO["productos"].push({
+CARRITO["productos"].push({
 	"tamano": "",
 	"edad": "",
 	"plan": "",
@@ -15,10 +15,10 @@ CARRITO["productos"] = [];
 	"cantidad": 1,
 	"precio": 0.00,
 	"subtotal": 0.00
-});*/
+});
 
 
-CARRITO["cantidad"] = 1;
+/*CARRITO["cantidad"] = 1;
 CARRITO["total"] = 1500.00;
 CARRITO["productos"].push({
 	"tamano": "Pequeño",
@@ -30,7 +30,7 @@ CARRITO["productos"].push({
 	"cantidad": 1,
 	"precio": 750.00,
 	"subtotal": 1500
-});
+});*/
 
 var mostrar_modal_marca = 1;
 var BUSQUEDA_REGEXP = '';
@@ -121,6 +121,15 @@ jQuery(document).ready(function() {
 		var prod_actual = getCarritoActual();
 		prod_actual["plan"] = PLANES[ jQuery(this).attr("data-value") ].nombre;
 		prod_actual["plan_id"] = jQuery(this).attr("data-value");
+		jQuery("#plan article").removeClass("plan_activo");
+		jQuery(this).addClass("plan_activo");
+		change_fase(5);
+	});
+
+	jQuery("#personalizar_plan").on("change", function(e){
+		var prod_actual = getCarritoActual();
+		prod_actual["plan"] = PLANES[ jQuery(this).val() ].nombre;
+		prod_actual["plan_id"] = jQuery(this).val();
 		jQuery("#plan article").removeClass("plan_activo");
 		jQuery(this).addClass("plan_activo");
 		change_fase(5);
@@ -397,6 +406,8 @@ function initProductos_y_Planes(){
 			if( MODIFICACION != "" ){
 				change_fase(5);
 			}
+
+			// change_fase(4);
 
 		}, "json"
 	).fail(function(e) {
