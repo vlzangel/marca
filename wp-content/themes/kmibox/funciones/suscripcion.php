@@ -239,9 +239,7 @@
 
     	foreach ($items as $key => $item) {
 
-			print_r($item);
-
-    		echo $SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";    		
+			$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";    		
     		$wpdb->query( $SQL ); 
     		$hoy = date("d", time() );
     		$meses = $wpdb->get_row("SELECT * FROM planes WHERE id = {$item->plan}");
