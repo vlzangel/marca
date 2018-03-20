@@ -19,7 +19,7 @@
 	
 	wp_enqueue_script( 'nutriheroes_script', TEMA()."/js/popup_nutriheroes.js" );
 
-	$data_planes = $wpdb->get_results("SELECT * FROM planes ORDER BY meses ASC");
+	$data_planes = $wpdb->get_results("SELECT * FROM planes WHERE semanas = 0 ORDER BY meses ASC");
 	$PLANES = "";
 	foreach ($data_planes as $plan) {
 		// $plan->plan = str_replace(" ", "-", $plan->plan);
@@ -30,6 +30,14 @@
 					'.$plan->descripcion.'
 				</div>
 			</article>
+		';
+	}
+
+	$data_planes = $wpdb->get_results("SELECT * FROM planes WHERE semanas > 0 ORDER BY semanas ASC");
+	$PLANES_PERSONALIZADOS = "";
+	foreach ($data_planes as $plan) {
+		$PLANES_PERSONALIZADOS .= '
+			<option value="'.$plan->id.'">'.$plan->plan.'</option>
 		';
 	}
    
@@ -51,6 +59,14 @@
 	}else{ $hasta = strtotime('+7 day', $hoy); }
 
     $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
+
+    $activar_cupon = getConfig("cupones");
+
+    if( $activar_cupon == "0" ){
+    	$activar_cupon = "hidden";
+    }else{
+    	$activar_cupon = "";
+    }
 
 	$HTML = '
 
@@ -78,11 +94,8 @@
 		<div class="comprar_container">
 
 			<section id="fase_1">
-
 				<div class="carrousel-items-containers">
-
 					<div class="carrousel-items">
-
 						<article data-value="Mediano">
 							<div>
 								<div style="background-image: url('.get_home_url().'/img/edad/p_mediano.png);" class="img-responsive img-circle"></div>
@@ -102,7 +115,6 @@
 							</div>
 						</article>
 					</div>
-
 					<div class="selector_edad_container">
 						<label>Selecciona la Edad</label>
 						<div class="selector_edad_box" id="edad">
@@ -111,12 +123,10 @@
 							<span id="edad_Senior" data-value="Senior" class="btn-disable" >Senior</span>
 						</div>
 					</div>
-
 				</div>
 			</section>
 
 			<section id="fase_2" class="hidden">
-				
 				<div class="controles_marca_container">
 					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_marcas">0</span> RESULTADOS</div>
@@ -124,40 +134,31 @@
 						<select id="tipo_mascota"> '.$tipos.' </select>
 					</div>
 				</div>
-
 				<div class="marcas_container">
 					<div id="marca" data-top="0" class="marcas_box"></div>
 				</div>
-
 				<div style="display: none;">
 					<i id="abajo_marcas" class="abajo_marcas fa fa-angle-down"></i>
 					<i id="arriba_marcas" class="arriba_marcas fa fa-angle-up btn-disable"></i>
 				</div>
-
 				<div id="msg_desplazar_marcas" class="msg_desplazar">
 					Desliza hacia arriba o abajo para ver las opciones
 				</div>
-
-
 				<div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
 				</div>
 			</section>
 
 			<section id="fase_3" class="hidden">
-				
 				<div class="controles_presentaciones_container">
 					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_precentaciones">0</span> RESULTADOS</div>
 					<div class="tipo_mascota"></div>
 				</div>
-
 				<div id="presentaciones" class="presentaciones_container"> </div>
-
 				<div id="msg_desplazar_precentaciones" class="msg_desplazar">
 					Desliza hacia arriba o abajo para ver las opciones
 				</div>
-
 				<div class="btn_siguiente_container">
 					<button id="presentacion_select" class="btn_siguiente btn-disable"> Siguente </button>
 				</div>
@@ -166,11 +167,21 @@
 			<section id="fase_4" class="hidden">
 				<div id="plan">
 					<div id="nivel"></div>
-
 					<div id="plan_box">
 						'.$PLANES.'
+						<div class="personalizar_plan">
+							<div class="personalizar_plan_columna">
+								<label>¿Quieres personalizar tu env&iacute;o?</label>
+								<div>Programalo Aqu&iacute;</div>
+							</div>
+							<div class="personalizar_plan_columna">
+								<select id="personalizar_plan" name="personalizar_plan">
+									<option value="">Selecciona un opci&oacute;n</option>
+									'.$PLANES_PERSONALIZADOS.'
+								</select>
+							</div>
+						</div>
 					</div>
-
 				</div>
 			</section>
 
@@ -197,10 +208,11 @@
 					</table>
 
 					<div class="fecha_estimada">
-						Fecha estimada de entrega: <span>'.$fecha_estimada.'</span>
+						Tiempo estimado de entrega: <span>48 a 72 horas h&aacute;biles</span>
+						<!-- <span>'.$fecha_estimada.'</span> -->
 					</div>
 
-					<div id="cupones" class="hidden">
+					<div id="cupones" class="'.$activar_cupon.'">
 						<table cellspacing=0 cellpadding=0>	
 							<tr>
 								<td> ¿Dispone de un cupón de descuento? </td>
@@ -309,7 +321,7 @@
       	<div class="col-xs-12 col-md-10 col-md-offset-1">  		
 	      	<p>
 	      		SI LA MARCA QUE CONSUME TU PELUDO NO APARECE AQU&Iacute;, 
-	      		O SI LA ESTAS COMPRAMDO A UN MENOR PRECIO,
+	      		O SI LA ESTAS COMPRANDO A UN MENOR PRECIO,
 	      		<span style="display: block;">D&Eacute;JANOS TU CORREO O TU N&Uacute;MERO DE TEL&Eacute;FONO</span>
 	      	</p>
 	      	<p class="text-small">y te contactaremos en la pr&oacute;xima hora para ayudarte con tu solicitud</p>

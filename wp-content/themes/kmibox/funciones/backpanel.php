@@ -85,9 +85,14 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'asesores',
                     'icon'          =>  '',
-                ),
+                )
 
-     /*          array(
+            );
+
+            $activar_cupon = getConfig("cupones");
+
+            if( $activar_cupon == "1" ){
+                $opciones_menu_reporte[] = array(
                     'title'         =>  __('Cupones'),
                     'short-title'   =>  __('Cupones'),
                     'parent'        =>  'marcas',
@@ -95,9 +100,8 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'cupones',
                     'icon'          =>  '',
-                )*/
-
-            );
+                );
+            }
 
             foreach($opciones_menu_reporte as $opcion){
                 if( $opcion['parent'] == '' ){

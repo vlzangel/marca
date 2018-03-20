@@ -6,6 +6,9 @@
 
 	extract($_POST);
 
+	$existe = $wpdb->get_var("SELECT * FROM cupones WHERE nombre = '$nombre' ");
+	if( $existe != null ){ echo "existe"; exit(); }
+
 	if( !isset($uso_individual) ){ $uso_individual = 0; }
 
 	$data = array(

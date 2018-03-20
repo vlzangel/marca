@@ -331,6 +331,29 @@
 		    width: calc( 50% - 2px );
 		    padding: 0px 70px;
 		}
+
+		.personalizar_plan {
+		    width: calc( 50% - 2px );
+		    vertical-align: middle;
+		}
+
+		.personalizar_plan_columna {
+		    width: 100%;
+		}
+
+		.personalizar_plan_columna label {
+		    font-size: 17px;
+		    text-align: center;
+		    margin: 0px auto 5px;
+		    display: block;
+		    max-width: 100px;
+		}
+
+		.personalizar_plan_columna div {
+		    font-size: 15px;
+		    text-align: center;
+		    margin-bottom: 10px;
+		}
 }
 
 @media (max-width: 680px){
@@ -460,6 +483,24 @@
 
 		#plan #nivel {
 		    height: auto;
+		}
+
+		.personalizar_plan_columna div {
+		    font-size: 12px;
+		}
+
+		.personalizar_plan_columna label {
+		    font-size: 13px;
+		}
+
+		.personalizar_plan {
+		    padding: 20px 10px;
+		}
+
+		.personalizar_plan_columna select {
+		    border-radius: 5px;
+		    font-size: 11px;
+	        padding: 5px;
 		}
 
 	.carrousel-items > article {

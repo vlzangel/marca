@@ -2,7 +2,7 @@
 	
 	include( dirname(__DIR__)."/lib/openpay/Openpay.php" );
 	include( dirname(__DIR__)."/lib/numeros_a_letras/numeros_a_letras.php" );
-	
+
 	function dataOpenpay(){
 		global $wpdb;
 		$OPENPAY_PRUEBAS = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'OPENPAY_PRUEBAS' ")+0;
@@ -87,9 +87,7 @@
 		}
 	}
 
-	function aplicarDescuentos(){
-		return;
-		
+	function aplicarDescuentos(){		
 		global $wpdb;
 		if( !isset($_SESSION) ){ session_start(); }
 	 	$current_user = wp_get_current_user();
@@ -127,12 +125,19 @@
 	    $asesor = get_user_meta( $user_id, 'asesor_registro', true );
 		$asesor_id = ( $asesor > 0 )? $asesor : 0 ;
 
+		$total = $CARRITO["total"]+$CARRITO["totalDescuentos"];
+
+		if( $CARRITO["totalDescuentos"]+0 > 0 ){
+			$metaData["descuento"] = $CARRITO["totalDescuentos"];
+			$metaData["cupones"] = $CARRITO["descuentos"];
+		}
+		
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
 	 			'{$user_id}',
 	 			'{$CARRITO["cantidad"]}',
-	 			'{$CARRITO["total"]}',
+	 			'{$total}',
 		 		'{$hoy}',
 		 		'Pendiente',
 		 		'".serialize($metaData)."',
@@ -172,32 +177,23 @@
 	}
 
 	function crearCobro($orden_id, $pago_id){
-
     	setZonaHoraria();
-
 		global $wpdb;
-
 		$orden = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$orden_id};" );
 		$metaData = deserializar($orden->metadata);
-
 		$user_id = $orden->cliente;
-			
 		$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
 		$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
 
-		if( $metaData["tipo_pago"] == "Tienda" ){
 
+		if( $metaData["tipo_pago"] == "Tienda" ){
 			$hoy = time();
 			$dia_semana_hoy = date("N", $hoy);
-
 			if( $dia_semana_hoy >= 5 ){ $desde = strtotime('+'.(8-$dia_semana_hoy).' day', $hoy); 
 			}else{ $desde = strtotime('+1 day', $hoy);  }
-
 			if( $dia_semana_hoy == 1 ){ $hasta = strtotime('+5 day', $hoy);
 			}else{ $hasta = strtotime('+7 day', $hoy); }
-
 		    $fecha_estimada = date("d/m/Y", $desde)." y ".date("d/m/Y", $hasta);
-
 			$HTML = generarEmail(
 		    	"notificacion/pago_recibido_tienda", 
 		    	array(
@@ -206,24 +202,17 @@
 		    		"FECHAS" => $fecha_estimada,
 		    	)
 		    );
-
 		 	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
 		 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
-		 }
-
-
+		}
 
 		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
-		
 		if( isset($metaData["es_modificacion_de"]) ){
-
 			$orden_vieja = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$metaData["es_modificacion_de"]};" );
 			$metaData_vieja = deserializar($orden_vieja->metadata);
 			$metaData_vieja["modificada_por"] = $orden_id;
 			$metaData_vieja = serialize($metaData_vieja);
-
 			$wpdb->query( "UPDATE ordenes SET status = 'Modificada', metadata = '{$metaData_vieja}' WHERE id = {$metaData["es_modificacion_de"]};" );
-
 		    $total = $wpdb->get_var("SELECT total FROM ordenes WHERE id = {$orden_id}");
 		    $_productos = getProductosDesglose($orden_id);
 			$productos = "";
@@ -247,26 +236,26 @@
 		    		"TOTAL" => number_format($total, 2, ',', '.'),
 		    	)
 		    );
-
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
 		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
- 
-		 	
 		}
 
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
+
     	foreach ($items as $key => $item) {
-    		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";    		
+
+			$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";    		
     		$wpdb->query( $SQL ); 
     		$hoy = date("d", time() );
-    		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
-
-    		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses." month") );
-
+    		$meses = $wpdb->get_row("SELECT * FROM planes WHERE id = {$item->plan}");
+    		if( $meses->meses > 0 ){
+    			$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses->meses." month") );
+    		}else{
+    			$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses->semanas." week") );
+    		}
 			$wpdb->query( "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );" ); 
-
-			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, 0 );" );
-			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
     	}
 
 	}
@@ -279,14 +268,19 @@
     	foreach ($items as $key => $item) {
 
     		$hoy = date("d", $_time_hoy );
-    		$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
+    		$meses = $wpdb->get_row("SELECT * FROM planes WHERE id = {$item->plan}");
+    		if( $meses->meses > 0 ){
+    			$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses->meses." month") );
+    		}else{
+    			$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses->semanas." week") );
+    		}
 
-    		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d", $_time_hoy)." +".$meses." month") );
+    	/*	$meses = $wpdb->get_var("SELECT meses FROM planes WHERE id = {$item->plan}");
+    		$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d", $_time_hoy)." +".$meses." month") );*/
 
     		$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );";
 			$wpdb->query( $SQL );
-
-			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, 0 );" );
+			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
     	}
 	}
 
@@ -403,6 +397,18 @@
     			"cantidad" => $sub_orden->cantidad
 	    	);
 	    }
+	    /*foreach ($ordenes as $sub_orden) {
+	    	$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = ".$sub_orden->id_producto);
+    		$dataextra = unserialize($producto->dataextra);
+    		$_productos[ $sub_orden->id_producto ] = array(
+    			"nombre" => $producto->nombre,
+    			"descripcion" => $producto->descripcion,
+    			"plan" => $_planes[ $sub_orden->plan ]["nombre"],
+    			"precio" => $producto->precio,
+    			"img" => TEMA()."/imgs/productos/".$dataextra["img"],
+    			"cantidad" => $sub_orden->cantidad
+	    	);
+	    }*/
 		return $_productos;
 	}
 

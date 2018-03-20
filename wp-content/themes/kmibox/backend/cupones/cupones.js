@@ -52,9 +52,14 @@ function crearCupon(e){
         url: URL,
         data: jQuery("#cupones").serialize(), 
         success:  function(HTML){
-			jQuery("#btn_submit").val( btn);
-            table.ajax.reload();
-            cerrar();
+        	if( HTML == "existe" ){
+        		alert("Este nombre de cupón ya existe");
+        	}
+        	if( HTML == "" ){
+	            table.ajax.reload();
+	            cerrar();
+        	}
+        	jQuery("#btn_submit").val( btn);
         },
         beforeSend:function(){},
         error:function(e){

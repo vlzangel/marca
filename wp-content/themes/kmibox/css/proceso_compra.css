@@ -551,6 +551,43 @@ div#wpadminbar {
 	    overflow: auto;
 	}
 
+	.personalizar_plan{
+	    overflow: hidden;
+	    padding: 30px;
+	    background: #0d1804;
+	    display: inline-block;
+	    border-radius: 20px;
+        max-width: 800px;
+    	width: 100%;
+	}
+
+	.personalizar_plan_columna{
+		width: 50%;
+		box-sizing: border-box;
+		float: left;
+	    text-align: left;
+	}
+
+	.personalizar_plan_columna label{
+	    font-family: 'Gothamlight_Regular';
+		color: #FFF;
+	    font-size: 20px;
+	    margin-bottom: 0px;
+	}
+
+	.personalizar_plan_columna div{
+	    font-family: 'Gothamlight_Regular';
+		color: rgb(122, 200, 0);
+		font-size: 17px;
+	}
+
+	.personalizar_plan_columna select{
+	    width: 100%;
+	    outline: none;
+	    padding: 10px;
+	    border-radius: 5px;
+	}
+
 /* Fase 5 */
 
 	#fase_5 {
@@ -610,6 +647,10 @@ div#wpadminbar {
 	table {
 		width: 100%;
 	    font-family: Gothamlight_Regular;
+	}
+	
+	.iOS table{
+		font-family: Arial;
 	}
 
 	#desglose th{    

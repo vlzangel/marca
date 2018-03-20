@@ -17,15 +17,24 @@
         <thead>
             <tr>
                 <th width="30">ID</th>
-                <th width="30">Orden</th>
-                <th width="100">Fecha suscripci&oacute;n</th>
+                <th width="30">Suscripci&oacute;n</th>
+                <th>Status Suscripci&oacute;n</th>
+                <th width="100">Fecha Suscripci&oacute;n</th>
                 <th>Cliente</th>
+                <th>Datos del Cliente</th>
+                <th>Tipo de Pago</th>
                 <th>Producto(s)</th>
                 <th>Precio(s)</th>
+                <th>Total</th>
+                <th>Pago</th>
+                <th>Descuento</th>
+                <th>Cupones</th>
+                <th>Status Cobro</th>
                 <th>Proximo Cobro</th>
                 <th>ID Asesor</th>
                 <th>Asesor</th>
                 <th>Email Asesor</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody></tbody>

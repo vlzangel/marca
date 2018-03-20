@@ -23,7 +23,9 @@
                 <th>Cliente</th>
                 <th>Productos</th>
                 <th>Gu&iacute;a de Rastreo</th>
-                <th>Fecha Envio</th>
+                <th>Fecha Env&iacute;o</th>
+                <th>Fecha Entrega</th>
+                <th>Tiempo de Entrega</th>
                 <th>Status</th>
                 <th>Acciones</th>
             </tr>

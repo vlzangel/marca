@@ -56,7 +56,26 @@ function actualizarStatus(){
 }
 
 function actualizarFecha(){
-	var URL = TEMA+"/backend/despacho/ajax/updateFecha.php";
+    var URL = TEMA+"/backend/despacho/ajax/updateFecha.php";
+    jQuery.ajax({
+        async:true, 
+        cache:false, 
+        type: 'POST', 
+        url: URL,
+        data: jQuery("#status_despacho").serialize(), 
+        success:  function(HTML){
+            table.ajax.reload();
+            cerrar();
+        },
+        beforeSend:function(){},
+        error:function(e){
+            console.log(e);
+        }
+    });
+}
+
+function actualizarFechaEntrega(){
+	var URL = TEMA+"/backend/despacho/ajax/updateFechaEntrega.php";
 	jQuery.ajax({
         async:true, 
         cache:false, 

@@ -77,11 +77,11 @@ jQuery(document).ready(function() {
 			case 'Armada':
 				jQuery("#armada").addClass("paso_completado");
 			break;
-			case 'Enviada':
+			case 'En transito':
 				jQuery("#armada").addClass("paso_completado");
 				jQuery("#enviada").addClass("paso_completado");
 			break;
-			case 'Recibida':
+			case 'Entregado':
 				jQuery("#armada").addClass("paso_completado");
 				jQuery("#enviada").addClass("paso_completado");
 				jQuery("#recibida").addClass("paso_completado");

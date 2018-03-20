@@ -3,6 +3,10 @@
 	global $CARRITO;
 	global $wpdb;
 
+/*	echo "<br><br><br><pre>";
+		print_r($CARRITO);
+	echo "</pre>";*/
+
 	$_productos = $wpdb->get_results("SELECT * FROM productos");
 	$productos = array();
 	foreach ($_productos as $key => $value) {
@@ -70,7 +74,7 @@
 
 	$MERCHANT_ID = $dataOpenpay["MERCHANT_ID"];
 	$OPENPAY_KEY_PUBLIC = $dataOpenpay["OPENPAY_KEY_PUBLIC"];
-	$OPENPAY_PRUEBAS = 1;
+	$OPENPAY_PRUEBAS = $dataOpenpay["OPENPAY_PRUEBAS"];
 
 /*	echo "<pre>";
 		print_r($CARRITO);
@@ -144,7 +148,7 @@
 			      	<?php echo $disabled; ?> 
 			      	id="inputEmail3" 
 			      	placeholder="Titular de la tarjeta" 
-			      	maxlength="25"
+			      	maxlength="35"
 			      	value=""
 			      	data-charset="xlf"
 			      	data-openpay-card="holder_name" style="border-radius: 50px !important;">

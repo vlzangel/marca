@@ -8,7 +8,6 @@
 	
 	#nutriheroes .nutri-container {
 		width: 100%;
-    	max-width: 400px;
 	}
 }
 
@@ -39,13 +38,9 @@
 
 	#nutriheroes .nutri-container{
 		width: 100%;
-		max-width: 720px;
-		/*height: 51%;*/
 	}
 	#nutriheroes .nutri-title{
 		font-size: 25px;
-		/*position: relative;
-    	top: 10px*/
 	}
 	#nutriheroes .nutri-subtitle{
 		font-size: 25px;
@@ -118,14 +113,10 @@
 
 @media (max-width: 650px){
 	#nutriheroes{
-		padding-top: 0px;
+		
 	}
 	.nutri-container{
-		/*
-		height: calc( 100% - 56px );
-		*/
 		position: relative;
-    	top: 10px;
 	}
 	.logo{
 		display: none;
@@ -146,9 +137,7 @@
 	}
 
 	#nutriheroes .nutri-container{
-		width: 91%;
-		max-width: 400px;
-		background: #dfffba url(../../imgs/popup-nutriheroes/background-mobile1.png) no-repeat right bottom!important;
+		
 	}
 
 	.nutri-column-right,
@@ -209,9 +198,7 @@
 @media (max-width: 365px){
 
 	.nutri-container{
-		width: 91% !important;
 		position: relative;
-    	top: 10px;
 	}
 	.footer-mobile {
 	    position: relative;
@@ -247,7 +234,6 @@
 @media (max-width: 343px){
 
 	.nutri-container{
-		width: 91% !important;
 		position: relative;
     	top: 10px;
 	}
