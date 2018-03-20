@@ -34,10 +34,12 @@
 		$ordenData = unserialize($orden->metadata); 
 
 		$cupones = ""; $cupones_excel = array();
-		foreach ($ordenData["cupones"] as $cupon) {
-			$monto = "$ ".number_format( $cupon[1], 2, ',', '.')." MXN";
-			$cupones .= "<div><strong>{$cupon[0]}: </strong>{$monto}</div>";
-			$cupones_excel[] = "{$cupon[0]}: {$monto}";
+		if( is_array($ordenData["cupones"]) && count($ordenData["cupones"]) > 0 ){
+			foreach ($ordenData["cupones"] as $cupon) {
+				$monto = "$ ".number_format( $cupon[1], 2, ',', '.')." MXN";
+				$cupones .= "<div><strong>{$cupon[0]}: </strong>{$monto}</div>";
+				$cupones_excel[] = "{$cupon[0]}: {$monto}";
+			}
 		}
 		if( $cupones == "" ){ 
 			$cupones = "---"; 
