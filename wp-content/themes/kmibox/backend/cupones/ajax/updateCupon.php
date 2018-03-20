@@ -16,6 +16,7 @@
 	    "uso_por_cupon" => $uso_por_cupon,
 	    "gasto_minimo" => $gasto_minimo,
 	    "gasto_maximo" => $gasto_maximo,
+	    "uso_post_suscripcion" => $uso_post_suscripcion,
 	    "uso_individual" => $uso_individual
 	);
 	$data = serialize($data);

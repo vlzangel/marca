@@ -17,10 +17,8 @@
 
 		$tipo = $wpdb->get_row("SELECT * FROM tipo_cupones WHERE id = {$info["tipo"]}");
 
-		$exclusivo = "NO";
-		if( $info["uso_individual"] == "1" ){
-			$exclusivo = "Si";
-		}
+		$exclusivo = "NO"; if( $info["uso_individual"] == "1" ){ $exclusivo = "Si"; }
+		$recurrente = "NO"; if( $info["uso_post_suscripcion"] == "1" ){ $recurrente = "Si"; }
 
 		$_data = "
 			<div><strong>Tipo:</strong> {$tipo->tipo}</div>
@@ -29,6 +27,7 @@
 			<div><strong>Limite por cup&oacute;n:</strong> {$info["uso_por_cupon"]}</div>
 			<div><strong>Gasto M&iacute;nimo:</strong> {$info["gasto_minimo"]}</div>
 			<div><strong>Gasto M&aacute;ximo:</strong> {$info["gasto_maximo"]}</div>
+			<div><strong>Uso recurrente:</strong> {$recurrente}</div>
 			<div><strong>Es de uso exclusivo:</strong> {$exclusivo}</div>
 		";
 
