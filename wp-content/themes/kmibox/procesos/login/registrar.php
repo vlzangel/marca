@@ -108,6 +108,18 @@
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
 						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
 
+					// Bitrix
+						try{
+							$raiz = realpath( __DIR__ . '/../../../../../wp-content/themes/kmibox/lib/bitrix/bitrix.php' );	
+							include_once($raiz);
+							$bitrix->addUser([
+								"email" => $email,
+								'nombre' =>  $nombre,
+								'apellido' => $apellido,
+								'asesor_parent' => $asesor_id,
+							], true);
+						}catch(Exception $e){}						
+
 				break;
 				case 2:
 					$msg = "El email ya existe, intente recuperar la contraseña";
