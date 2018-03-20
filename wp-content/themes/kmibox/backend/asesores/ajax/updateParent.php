@@ -4,7 +4,7 @@
     include( $raiz."/wp-load.php" );
 	global $wpdb;
 
-	$existe_asesor = $wpdb->get_row("SELECT id, nombre, codigo_asesor, bitrix_id FROM asesores WHERE id = '$codigo' ");
+	$existe_asesor = $wpdb->get_row("SELECT id, nombre, codigo_asesor, bitrix_id, bitrix_departamento FROM asesores WHERE id = '$codigo' ");
 
 	if( $parent == $existe_asesor->codigo_asesor ){
 		echo json_encode(array(
@@ -29,12 +29,36 @@
 			// ************************
 			try{
 				include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
-				$departamento =	$bitrix->addDepartament([
-					"departament_name" => $existe_asesor->nombre,
-					"parent_id" => $existe_parent->bitrix_departamento,
-					"admin_user_id" => $existe_asesor->bitrix_id,
-				]);
-				print_r($departamento);
+
+
+				// Verificar Departamento del Asesor "PADRE"
+				if( $existe_parent->bitrix_departamento == 0 ){
+
+					$dpto_parent =	$bitrix->addDepartament([
+						"departament_name" => $existe_parent->nombre,
+						"parent_id" => $existe_parent->bitrix_departamento,
+						"admin_user_id" => $existe_parent->bitrix_id,
+					]);
+					$existe_parent->bitrix_departamento = $dpto_parent;
+				}
+
+				// Verificar Departamento del Asesor "HIJO"
+				if( $existe_asesor->bitrix_departamento > 0 ){
+
+					$bitrix->updateDepartament_parent([
+						'id' => $existe_asesor->bitrix_departamento,
+						"departament_name" => $existe_asesor->nombre,
+						"parent_id" => $existe_parent->bitrix_departamento,
+						"admin_user_id" => $existe_asesor->bitrix_id,
+					]);
+				}else{				
+
+					$departamento =	$bitrix->addDepartament([
+						"departament_name" => $existe_asesor->nombre,
+						"parent_id" => $existe_parent->bitrix_departamento,
+						"admin_user_id" => $existe_asesor->bitrix_id,
+					]);
+				}
 			}catch(Exception $e){}
 
 			echo json_encode(array(

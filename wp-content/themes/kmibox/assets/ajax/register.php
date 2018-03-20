@@ -43,6 +43,8 @@ if( $user_id < 1 ){
 
 				mail_admin_nutriheroes(	"Usuario registrado NutriHeroes", $HTML)				
 				
+				
+				
 				/* Autenticar */
 				if( !empty($password) && !empty($email) ){	
 					$r = kmibox_login([
@@ -51,6 +53,8 @@ if( $user_id < 1 ){
 						'remember' => false 
 					]);
 				}
+
+				
 			}
 		}else{
 			switch ($sts) {
@@ -101,6 +105,8 @@ if( $user_id > 0 ){
 	update_user_meta( $user_id, 'dir_colonia', $_POST['dir_colonia'] );
 	update_user_meta( $user_id, 'dir_codigo_postal', $_POST['dir_codigo_postal'] );
 	$sts = 1;
+
+	
 }
 
 

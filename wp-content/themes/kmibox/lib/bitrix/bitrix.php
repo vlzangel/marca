@@ -63,45 +63,101 @@ class bitrix {
 	// Departamentos
 	// ************************
 	public function addDepartament( $options = [] ){
-		$response = [];
+		$departamento_id = 0;
 		if( !empty($options) ){
+			$options['parent_id'] = ( isset($options['parent_id']) )? $options['parent_id'] : 1 ;
 			$_options = [
-				"NAME" => $options['departament_name'] . '-Cachorro N1',		# Nombre del departamento
+				"NAME" => $options['departament_name'].'-Cachorro N1', # Nombre del departamento
 				"PARENT" => $options['parent_id'],		 	# ID del departamento padre
 				"UF_HEAD" => $options['admin_user_id'], 	# ID del jefe del departamento
 			];
-			$response = $this->execute( 'department.add', $_options );
+			$response = $this->execute( 'department.add', [], $_options );	
+			$response = ( !empty($response) )? json_decode($response) : $response;
+			if( isset($response->result) && $response->result > 0 ){
+				$departamento_id = $response->result;
+			}
 		}
-		return $response;
+		return $departamento_id;
 	}
+
+	public function updateDepartament_parent( $options=[] ){
+		$sts = 0;
+		if( !empty($options) ){
+			$options['parent_id']=(isset($options['parent_id']) && $options['parent_id']>1 )? $options['parent_id'] : 1 ;
+			$_options = [
+				"ID" => $options['id'],
+				"PARENT" => $options['parent_id'],		 	# ID del departamento padre
+				"UF_HEAD" => $options['admin_user_id'], 	# ID del jefe del departamento
+			];
+			$this->execute( 'department.update', [], $_options );			
+			$sts = 1;
+		}
+		return $sts;
+	}
+
+	public function findDepartament( $asesor_id ){
+		global $wpdb;
+		$departamento_id = 0;
+		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id = {$asesor_id}");
+		if( isset($asesor->bitrix_departamento) && $asesor->bitrix_departamento > 0 ){
+			$departamento_id = $asesor->bitrix_departamento;
+		}
+		return $departamento_id;
+	}
+
+	protected function asesor_update_DptoID( $user_email, $dpto_id ){
+		$wpdb->query("update asesores set bitrix_departamento = {$dpto_id} where email = '".$user_email."'");
+	}
+
+
 
 	// ************************
 	// Usuarios
 	// ************************
-	public function addUser( $options = [] ){
-		$response = [];
+	public function addUser( $options = [], $is_client =false ){
+		global $wpdb;
+
+		$id = 0;
 		if( !empty($options) ){
+			$departamento = (isset($options['departamento']))? $options['departamento'] : 1 ;
 			$options = [
-				"EMAIL" => $options['email'],		# Email del usuario
-				"EXTRANET" => "Y",
-				"SONET_GROUP_ID" => '',
+				"EMAIL" => 'kmimos_'.$options['email'],
+				"NAME"=> $options['nombre'],
+		        "LAST_NAME"=> $options['apellido'],
+				"WORK_COMPANY" => 'Kmimos',
+		        "UF_DEPARTMENT" => $departamento,
+				"SONET_GROUP_ID" => '7',
+				"ACTIVE" => 'Activo',
 			];
-			$response = $this->execute( 'user.add', $options );
+			$response = $this->execute( 'user.add', [], $options );
+			$response = ( !empty($response) )? json_decode($response) : $response;
+
+			// Update Bitrix_id en los registros	
+			if( isset($response->result) && $response->result > 0 ){
+				$id = $response->result;
+				$this->updateUser_BitrixID( $options['email'], $id, $is_client );
+			}
 		}
-		return $response;
+		return $id;
+	}
+
+	protected function updateUser_BitrixID( $user_email, $bitrix_id, $is_client=false ){
+		global $wpdb;
+		if( !$is_client ){
+			// Actualizar ID Asesor
+			$wpdb->query("update asesores set bitrix_id = {$bitrix_id} where email = '".$user_email."'");
+		}else{
+			// Actualizar ID Cliente
+			$user = get_user_by('email', $user_email);
+			if( isset($user->id) && $user->id > 0 ){
+				update_usermeta( $user->id, 'bitrix_id', $bitrix_id );
+			}
+		}
 	}
 
 	// ************************
 	// Facturas
 	// ************************
-	public function addInvoice( $options =[] ){
-		$invoice = [];
-		if( !empty($options) ){
-		   	$invoice = $this->execute( 'crm.invoice.add/', $options );
-		}
-		return $invoice;
-	}
-
 	public function loadInvoice_by_asesor( $orden_id ){
 		global $wpdb;
 
@@ -121,14 +177,14 @@ class bitrix {
 						o.asesor as asesor_id,
 						s.bitrix_id as asesor_bitrix
 					FROM ordenes as o
-						left join asesor as s on s.id = o.asesor 
-					WHERE id = {$orden_id}
+						left join asesores as s on s.id = o.asesor 
+					WHERE o.id = {$orden_id}
 				"; 
 				$orden = $wpdb->get_row($_sql_orden);
-			
+
 			if( isset($orden->cliente_id) && isset($orden->asesor_id)){
 				
-				// Datos de la factura
+				// Datos de la Factura
 					$_INVOICE_DATA = [
 						"ORDER_TOPIC"=> "Nutriheroes - Orden No. {$orden_id}",
 			            "STATUS_ID"=> "P",
@@ -173,32 +229,33 @@ class bitrix {
 							i.cantidad,
 							p.bitrix_id,
 							p.id,
-							c.puntos
+							c.niveles
 						FROM items_ordenes as i
 							LEFT JOIN productos as p ON p.id = i.id_producto
 							LEFT JOIN categorias as c ON c.id = p.categoria
 						WHERE i.id_orden = {$orden_id}
 					"; 
+
 					$resultado = $wpdb->get_results($_sql_orden_detalle);
 
-
+				$_limite_niveles = 6; // Limite de niveles de los asesores
 
 		 		// Generar puntos a los asesores
-				$_limite_niveles = 6;
 				for ($nivel = 1; $nivel <= $_limite_niveles; $nivel++) {
 
 					// Cargar nueva factura
 						$this->addPoints( $_INVOICE_DATA, $resultado, $nivel );
-					
+
 					// Cargar nueva data
 						$sql_padre_asesor = " 
-							SELECT a.parent, b.bitrix_id 
+							SELECT a.parent , b.bitrix_id 
 							FROM asesores as a
-								INNER JOIN asesores as b ON b.id = a.parent
+							 left JOIN asesores as b ON b.codigo_asesor = a.parent
 							WHERE a.bitrix_id = ".$_INVOICE_DATA["RESPONSIBLE_ID"];
-						$asesor = $wpdb->get_results($sql_padre_asesor);
-						if( isset($asesor[0]->parent) && $asesor[0]->parent > 0 ){
-				            $_INVOICE_DATA["RESPONSIBLE_ID"] = $asesor[0]->bitrix_id;
+						$asesor = $wpdb->get_row($sql_padre_asesor);
+
+						if( isset($asesor->parent) && $asesor->parent > 0 ){
+				            $_INVOICE_DATA["RESPONSIBLE_ID"] = $asesor->bitrix_id;
 				        }else{
 				        	$nivel += $_limite_niveles; // finalizar contador
 				        }
@@ -208,6 +265,14 @@ class bitrix {
 		}
 	}
 
+	protected function addInvoice( $options = [] ){
+		$invoice = [];
+		if( !empty($options) ){
+		   	$invoice = $this->execute( 'crm.invoice.add', $options );
+		}
+		return $invoice;
+	}
+
 	protected function addPoints( $_INVOICE_DATA, $resultado, $nivel ){
 
 		global $wpdb;
@@ -215,9 +280,9 @@ class bitrix {
 		// Cargar detalle de la Orden
 		$total = 0;
 		foreach ($resultado as $key => $val) {
-			$_categoria = unserialize($val->puntos); 
+			$_categoria = unserialize($val->niveles); 
 			$puntos = $_categoria[$nivel];
-			$total += $puntos;
+			$total += ($puntos * $val->cantidad);
 			$_INVOICE_DATA['PRODUCT_ROWS'][] = [
 				"ID"=> 0, 
 				"PRODUCT_ID"=>$val->bitrix_id,
@@ -229,7 +294,7 @@ class bitrix {
 
 		$r = $this->addInvoice( $_INVOICE_DATA );
 		$datos = json_decode($r);
-		if( isset($r->result) && $r->result > 0){
+		if( isset($datos->result) && $datos->result > 0){
 			$sql = "update asesores set puntos = puntos + {$total} where bitrix_id = ".$_INVOICE_DATA["RESPONSIBLE_ID"];
 			$wpdb->query($sql);
 		}
