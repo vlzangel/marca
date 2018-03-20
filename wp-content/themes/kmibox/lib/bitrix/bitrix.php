@@ -6,10 +6,9 @@ class bitrix {
 
 	protected function config(){
 		$is_test = 1;
-		//$URL = "https://b24-eh6mlq.bitrix24.com/rest/1/ho7sg8864qfmpyci/";
-		$URL = "https://b24-sbapnp.bitrix24.es/rest/1/fsmtqonhm70qb1sb/";
+		$URL = "https://b24-ha5t1l.bitrix24.es/rest/1/p27sln5arukcea22/";
 		if( $is_test == 1 ){
-			$URL = "https://b24-sbapnp.bitrix24.es/rest/1/fsmtqonhm70qb1sb/";
+			$URL = "https://b24-ha5t1l.bitrix24.es/rest/1/p27sln5arukcea22/";
 		}
 		return $URL;
 	}
