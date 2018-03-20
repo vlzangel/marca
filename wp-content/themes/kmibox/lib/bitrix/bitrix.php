@@ -6,9 +6,11 @@ class bitrix {
 
 	protected function config(){
 		$is_test = 1;
+		// Cuenta Italo Test
 		$URL = "https://b24-ha5t1l.bitrix24.es/rest/1/p27sln5arukcea22/";
 		if( $is_test == 1 ){
-			$URL = "https://b24-ha5t1l.bitrix24.es/rest/1/p27sln5arukcea22/";
+			// Cuenta Yrcel
+			$URL = "https://b24-9z3vi9.bitrix24.com/rest/1/66er0e8upgiixv3n/";
 		}
 		return $URL;
 	}
