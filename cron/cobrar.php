@@ -15,6 +15,25 @@
 		$cliente = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$orden->cliente}");
 		$openpay_cliente_id = get_user_meta($orden->cliente, "openpay_id", true);
 
+		$primeraSuscripcion = getPrimeraSuscripcion( $suscripcion->id_orden );
+
+		$total = $suscripcion->total;
+		if( $primeraSuscripcion == $cobro->item_orden ){
+			$data = unserialize($orden->metadata);
+			$cupones = $data["cupones"];
+			$descuento = 0;
+			foreach ($cupones as $cupon) {
+				if( $cupon[3] == 1 ){
+					$descuento += $cupon[1];
+				}
+			}
+			if( $total < $descuento ){
+				$descuento -= $descuento;
+			}else{
+				$total = 0;
+			}
+		}
+
 		$data = unserialize( $orden->metadata );
 
 		$error = "";
@@ -41,7 +60,7 @@
 					$chargeData = array(
 					    'method' 			=> 'card',
 					    'source_id' 		=> $data["card_id"],
-					    'amount' 			=> (float) $suscripcion->total,
+					    'amount' 			=> (float) $total,
 					    'description' 		=> "Cobro de: ".$suscripcion->cantidad." - ".$producto->nombre." ( ".$producto->descripcion." )",
 				    	'order_id' 			=> $suscripcion->id_orden."_CobroSuscripcion_".$time,
 					    'device_session_id' => $data["device"]
@@ -85,7 +104,7 @@
 			    		"USUARIO" => $nombre,
 			    		"PLAN" => $plan,
 			    		"INSTRUCCIONES" => $PDF,
-			    		"TOTAL" => number_format( $suscripcion->total, 2, ',', '.')
+			    		"TOTAL" => number_format( $total, 2, ',', '.')
 			    	)
 			    );
 
