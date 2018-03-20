@@ -1,4 +1,5 @@
 <?php
+	error_reporting(0);
 
     $raiz = dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))));
     include( $raiz."/wp-load.php" );
@@ -79,15 +80,17 @@
 		$ordenes[ $orden->id ]["precio"] = $array_precios;
 		$ordenes[ $orden->id ]["proximo_cobro"] = $array_proximo_cobro;
 		$ordenes[ $orden->id ]["status_cobro"] = $array_status_cobro;
-
-		if( $ordenData["descuento"] == "" && $orden->total < $total_suscripcion ){
-			$ordenData["descuento"] = $orden->total - $total_suscripcion;
-			$orden->total = $total_suscripcion;
+		
+		$total = $orden->total;
+		if( $ordenData["descuento"] == "" && $total < $total_suscripcion ){
+			$ordenData["descuento"] = $total_suscripcion - $total;
+			$cupones .= "<div><strong>Cupon no registrado</strong></div>";
+			$total = $total_suscripcion;
 		}
 
 		$ordenes[ $orden->id ]["info_pago"] = array(
-			"total" => "$ ".number_format( $orden->total, 2, ',', '.')." MXN",
-			"pago" => "$ ".number_format( $orden->total-$ordenData["descuento"], 2, ',', '.')." MXN",
+			"total" => "$ ".number_format( $total+0, 2, ',', '.')." MXN",
+			"pago" => "$ ".number_format( $total-$ordenData["descuento"], 2, ',', '.')." MXN",
 			"descuento" => "$ ".number_format( $ordenData["descuento"], 2, ',', '.')." MXN",
 			"cupones" => $cupones,
 			"cupones_excel" => $cupones_excel,
