@@ -84,7 +84,7 @@
 		$total = $orden->total;
 		if( $ordenData["descuento"] == "" && $total < $total_suscripcion ){
 			$ordenData["descuento"] = $total_suscripcion - $total;
-			$cupones .= "<div><strong>Cupon no registrado</strong></div>";
+			$cupones .= "<div><strong>Cup&oacute;n no registrado</strong></div>";
 			$total = $total_suscripcion;
 		}
 
