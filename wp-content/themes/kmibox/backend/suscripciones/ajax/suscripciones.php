@@ -1,4 +1,5 @@
 <?php
+	error_reporting(0);
 
     $raiz = dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))));
     include( $raiz."/wp-load.php" );
@@ -6,38 +7,34 @@
     setZonaHoraria();
 
 	global $wpdb;
-	$suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes ORDER BY id DESC");
+	$suscripciones = $wpdb->get_results("SELECT * FROM ordenes ORDER BY id DESC");
 	$data["data"] = array();
 	$excel = array();
 	$ordenes = array();
 
-	foreach ($suscripciones as $suscripcion) {
-		$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$suscripcion->id_orden}");
+	foreach ($suscripciones as $orden) {
 		$_meta_cliente = get_user_meta($orden->cliente);
-		$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = {$suscripcion->id_producto}");
-		$data_suscripcion = unserialize($suscripcion->data);
-		$_proximo_cobro = $wpdb->get_row("SELECT * FROM cobros WHERE item_orden = {$suscripcion->id} AND openpay_transaccion_id = '---'");
 
-		$ordenes[ $suscripcion->id_orden ]["id"] = $suscripcion->id_orden;
+		$ordenes[ $orden->id ]["id"] = $orden->id;
 
-		$proximo_cobro = $_proximo_cobro->fecha_cobro;
-		if( $proximo_cobro."" == "" ){
-			$proximo_cobro = "---";
-		}else{
-			$proximo_cobro = date("d/m/Y h:i a", strtotime($proximo_cobro));
-		}
+		$ordenes[ $orden->id ]["fecha_creacion"] = date("d/m/Y", strtotime($orden->fecha_creacion));
+		$ordenes[ $orden->id ]["cliente_id"] = $orden->cliente;
+		$ordenes[ $orden->id ]["cliente"] = $_meta_cliente[ "first_name" ][0]." ".$_meta_cliente[ "last_name" ][0];
+		$ordenes[ $orden->id ]["status"] = $orden->status;
 
-		$hoy = date("Y-m-d", time() );
-
-		$cobro_actual = $wpdb->get_var("SELECT status FROM cobros WHERE item_orden = {$suscripcion->id} AND fecha_cobro <= '{$hoy}' ");
+		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$orden->asesor);
+		$ordenes[ $orden->id ]["asesor_id"] = $asesor->id;
+		$ordenes[ $orden->id ]["asesor_nombre"] = $asesor->nombre;
+		$ordenes[ $orden->id ]["asesor_email"] = $asesor->email;
 
 		$ordenData = unserialize($orden->metadata); 
-
 		$cupones = ""; $cupones_excel = array();
-		foreach ($ordenData["cupones"] as $cupon) {
-			$monto = "$ ".number_format( $cupon[1], 2, ',', '.')." MXN";
-			$cupones .= "<div><strong>{$cupon[0]}: </strong>{$monto}</div>";
-			$cupones_excel[] = "{$cupon[0]}: {$monto}";
+		if( is_array($ordenData["cupones"]) && count($ordenData["cupones"]) > 0 ){
+			foreach ($ordenData["cupones"] as $cupon) {
+				$monto = "$ ".number_format( $cupon[1], 2, ',', '.')." MXN";
+				$cupones .= "<div><strong>{$cupon[0]}: </strong>{$monto}</div>";
+				$cupones_excel[] = "{$cupon[0]}: {$monto}";
+			}
 		}
 		if( $cupones == "" ){ 
 			$cupones = "---"; 
@@ -46,36 +43,59 @@
 			$cupones_excel = implode(PHP_EOL, $cupones_excel);
 		}
 
-		$ordenes[ $suscripcion->id_orden ]["info_pago"] = array(
-			"total" => "$ ".number_format( $orden->total, 2, ',', '.')." MXN",
-			"pago" => "$ ".number_format( $orden->total-$ordenData["descuento"], 2, ',', '.')." MXN",
+		$array_productos = array();
+		$array_precios = array();
+		$array_proximo_cobro = array();
+		$array_status_cobro = array();
+		$total_suscripcion = 0;
+
+		$sub_suscripciones = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = ".$orden->id);
+		foreach ($sub_suscripciones as $suscripcion) {
+
+			$producto = $wpdb->get_row("SELECT * FROM productos WHERE id = {$suscripcion->id_producto}");
+			$data_suscripcion = unserialize($suscripcion->data);
+			$_proximo_cobro = $wpdb->get_row("SELECT * FROM cobros WHERE item_orden = {$suscripcion->id} AND openpay_transaccion_id = '---'");
+
+			$proximo_cobro = $_proximo_cobro->fecha_cobro;
+			if( $proximo_cobro."" == "" ){
+				$proximo_cobro = "---";
+			}else{
+				$proximo_cobro = date("d/m/Y h:i a", strtotime($proximo_cobro));
+			}
+
+			$hoy = date("Y-m-d", time() );
+			$cobro_actual = $wpdb->get_var("SELECT status FROM cobros WHERE item_orden = {$suscripcion->id} AND fecha_cobro <= '{$hoy}' ");
+
+			$_descripcion = $suscripcion->cantidad." x ".$producto->nombre." - ".$producto->descripcion." - ".$producto->peso." - ".$data_suscripcion[ "plan" ];
+			$array_productos[] = $_descripcion;
+			
+			$array_precios[] = "$ ".number_format( $suscripcion->total+0, 2, ',', '.')." MXN";
+			$array_proximo_cobro[] = $proximo_cobro;
+			$array_status_cobro[] = $cobro_actual;
+
+			$total_suscripcion += $suscripcion->total;
+		}
+
+		$ordenes[ $orden->id ]["productos"] = $array_productos;
+		$ordenes[ $orden->id ]["precio"] = $array_precios;
+		$ordenes[ $orden->id ]["proximo_cobro"] = $array_proximo_cobro;
+		$ordenes[ $orden->id ]["status_cobro"] = $array_status_cobro;
+		
+		$total = $orden->total;
+		if( $ordenData["descuento"] == "" && $total < $total_suscripcion ){
+			$ordenData["descuento"] = $total_suscripcion - $total;
+			$cupones .= "<div><strong>Cup&oacute;n no registrado</strong></div>";
+			$total = $total_suscripcion;
+		}
+
+		$ordenes[ $orden->id ]["info_pago"] = array(
+			"total" => "$ ".number_format( $total+0, 2, ',', '.')." MXN",
+			"pago" => "$ ".number_format( $total-$ordenData["descuento"], 2, ',', '.')." MXN",
 			"descuento" => "$ ".number_format( $ordenData["descuento"], 2, ',', '.')." MXN",
 			"cupones" => $cupones,
 			"cupones_excel" => $cupones_excel,
+			"tipo_pago" => $ordenData["tipo_pago"],
 		);
-
-		$ordenes[ $suscripcion->id_orden ]["fecha_creacion"] = date("d/m/Y", strtotime($orden->fecha_creacion));
-		$ordenes[ $suscripcion->id_orden ]["cliente_id"] = $orden->cliente;
-		$ordenes[ $suscripcion->id_orden ]["cliente"] = $_meta_cliente[ "first_name" ][0]." ".$_meta_cliente[ "last_name" ][0];
-		
-
-		$_descripcion = $suscripcion->cantidad." x ".$producto->nombre." - ".$producto->descripcion." - ".$producto->peso." - ".$data_suscripcion[ "plan" ];
-		$ordenes[ $suscripcion->id_orden ]["productos"][] = $_descripcion;
-		
-		$ordenes[ $suscripcion->id_orden ]["precio"][] = "$ ".number_format( $suscripcion->total+0, 2, ',', '.')." MXN";
-		$ordenes[ $suscripcion->id_orden ]["proximo_cobro"][] = $proximo_cobro;
-		$ordenes[ $suscripcion->id_orden ]["status_cobro"][] = $cobro_actual;
-		$ordenes[ $suscripcion->id_orden ]["status"] = $suscripcion->status_suscripcion;
-
-		$data_orden = unserialize($orden->metadata);
-
-		$ordenes[ $suscripcion->id_orden ]["tipo_pago"] = $data_orden["tipo_pago"];
-		$ordenes[ $suscripcion->id_orden ]["status"] = $orden->status;
-
-		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$orden->asesor);
-		$ordenes[ $suscripcion->id_orden ]["asesor_id"] = $asesor->id;
-		$ordenes[ $suscripcion->id_orden ]["asesor_nombre"] = $asesor->nombre;
-		$ordenes[ $suscripcion->id_orden ]["asesor_email"] = $asesor->email;
 	}
 
 	$index_row=0;
@@ -154,7 +174,7 @@
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
 	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br><strong>Direcci&oacute;n: </strong>".$direccion,	
-	        $_data["tipo_pago"],        
+	        $_data["info_pago"]["tipo_pago"],        
 	        $_productos,
 	        $_precios,
 

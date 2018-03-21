@@ -284,6 +284,11 @@
     	}
 	}
 
+	function getPrimeraSuscripcion( $orden_id ){
+		global $wpdb;
+		return $wpdb->get_var("SELECT id FROM items_ordenes WHERE id = {$orden_id} ORDER BY id ASC");
+	}
+
 	function getOrdenes(){
     	setZonaHoraria();
 		global $wpdb;
