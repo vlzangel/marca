@@ -27,25 +27,12 @@ wp_enqueue_style( 'contacto_ayuda_responsive', TEMA()."/css/responsive/contacto-
 get_header(); 
 
 /* BEGIN POPUP Nutriheroes */		
-// include_once( 'template/parts/footer/Nutriheroes.php' );
+include_once( 'template/parts/footer/Nutriheroes.php' );
 /* END POPUP Nutriheroes   */		
 
 /* BEGIN POPUP Nutriheroes */
-// include_once( 'template/parts/footer/contacto_ayuda.php' );
+include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
-
-
-
-
-// ************************
-// Agregar a bitrix
-// ************************
-echo '<pre>';
-try{
-	include_once('wp-content/themes/kmibox/lib/bitrix/bitrix.php');
-	$bitrix->loadInvoice_by_asesor(171);			
-}catch(Exception $e){}
-echo '</pre>';
 
 ?>
 

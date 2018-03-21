@@ -10,29 +10,6 @@
 
 	if( $existe == null ){
 
-		// ************************
-		// BEGIN Agregar a bitrix
-		// ************************
-		$bitrix_id = 0;
-		$bitrix_departamento_id = 0;
-
-		include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
-		$bitrix_id = $bitrix->addUser([
-			"email" => $email,
-			'nombre' => $nombre,
-			'apellido' => '',
-		]);
-
-		$bitrix_departamento_id = $bitrix->addDepartament([
-			"departament_name" => $nombre,
-			'parent_id' => 1,
-			'admin_user_id' => $bitrix_id,
-			"email" => $email,
-		]);
-		// ************************
-		// END bitrix
-		// ************************
-
 		$wpdb->query("
 			INSERT INTO asesores VALUES (
 				NULL,
@@ -41,11 +18,14 @@
 				'$email',
 				'$telefono',
 				0,
-				{$bitrix_id},
-				{$bitrix_departamento_id},
+				0,
+				0,
 				0
 			)
 		");
+
+		include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
+		$bitrix->department($email);
 
 		echo json_encode(array(
 			"code" => 1

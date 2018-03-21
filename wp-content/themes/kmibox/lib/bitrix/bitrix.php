@@ -4,13 +4,16 @@ $bitrix = new bitrix();
 
 class bitrix {
 
+	protected $prefix_email = 'kmimos_';
+
 	protected function config(){
-		$is_test = 1;
+		$is_test = 0;
 		// Cuenta Italo Test
-		$URL = "https://b24-ha5t1l.bitrix24.es/rest/1/p27sln5arukcea22/";
+		$URL = "https://b24-sbapnp.bitrix24.es/rest/1/5zvo252hsmaubs2a/";
 		if( $is_test == 1 ){
+			$URL = "https://b24-sbapnp.bitrix24.es/rest/1/5zvo252hsmaubs2a/";
 			// Cuenta Yrcel
-			$URL = "https://b24-9z3vi9.bitrix24.com/rest/1/66er0e8upgiixv3n/";
+			// $URL = "https://b24-9z3vi9.bitrix24.com/rest/1/66er0e8upgiixv3n/";
 		}
 		return $URL;
 	}
@@ -22,9 +25,14 @@ class bitrix {
 		if(!empty($url)){
 			$data = $extra;
 			$data["fields"] = $options;
-			$request = Requests::post($url.$command, array(), $data );
+			$request = Requests::post($url.$command, array(), $data );		
 		}
-		return ( !empty($request->body) )? $request->body : [] ;
+		$response = [];
+		if ( !empty($request->body) ){
+			$data = json_decode($request->body);
+			$response = ( isset($data->result) )? $data->result : $request->body ;
+		} 
+		return $response;
 	}
 
 	// ************************
@@ -63,32 +71,79 @@ class bitrix {
 	// ************************
 	// Departamentos
 	// ************************
-	public function addDepartament( $options = [] ){
-		$departamento_id = 0;
+	public function department( $asesor_email, $parent=1 ){
+		
+		$department_id = 0;
+
+		// Buscar Id Usuario Bitrix
+		$user = $this->User( $asesor_email );
+
+		// Validar si existe un departamento
+		if( isset($user->id) && $user->id > 0 ){
+			$department_id = $this->getDepartmentId_by_asesorId( $user->id );
+
+			// Crear el departamento 
+			if( $department_id == 0 ){
+				$department_id = $this->addDepartment([
+					'departament_name' => $user->nombre,
+					'admin_user_id' => $user->id,
+					'parent_id' => $parent,
+				]);
+			}
+	
+			// Actualizar ID Departamento en asesores
+			if( $department_id > 0 ){
+				$this->asesor_update_DptoID( $asesor_email, $department_id );
+			}
+
+		}
+	
+		return $department_id;
+	}
+
+	// *************************************************
+	// Actualizar Departamentos Padre en Bitrix
+	// *************************************************
+	public function updateParent( $asesor_email, $parent_email ){
+
+		// ID departamento del padre
+		$department_id_parent = $this->department( $parent_email );
+		// ID departamento del hijo
+		$department_id_asesor = $this->department( $asesor_email );
+
+		$sts =0 ;
+		if( $department_id_asesor > 0 && $department_id_parent > 0 ){
+			$sts = $this->updateDepartment_parent( $department_id_asesor, $department_id_parent );
+		}
+		return $sts;
+	}
+
+	// *************************************************
+	// Agrega Departamentos en Bitrix
+	// *************************************************
+	protected function addDepartment( $options = [] ){
+
 		if( !empty($options) ){
-			$options['parent_id'] = ( isset($options['parent_id']) )? $options['parent_id'] : 1 ;
+			$options['parent_id'] = ( isset($options['parent_id']) && $options['parent_id'] > 0 )? $options['parent_id'] : 1 ;
 			$_options = [
 				"NAME" => $options['departament_name'].'-Cachorro N1', # Nombre del departamento
 				"PARENT" => $options['parent_id'],		 	# ID del departamento padre
 				"UF_HEAD" => $options['admin_user_id'], 	# ID del jefe del departamento
 			];
-			$response = $this->execute( 'department.add', [], $_options );	
-			$response = ( !empty($response) )? json_decode($response) : $response;
-			if( isset($response->result) && $response->result > 0 ){
-				$departamento_id = $response->result;
-			}
+			$departamento_id = $this->execute( 'department.add', [], $_options );
 		}
 		return $departamento_id;
 	}
 
-	public function updateDepartament_parent( $options=[] ){
+	// *************************************************
+	// Actualiza el padre del Departamento en Bitrix
+	// *************************************************	
+	protected function updateDepartment_parent( $id , $parent ){
 		$sts = 0;
-		if( !empty($options) ){
-			$options['parent_id']=(isset($options['parent_id']) && $options['parent_id']>1 )? $options['parent_id'] : 1 ;
+		if( $id>0 && $parent>0 ){
 			$_options = [
-				"ID" => $options['id'],
-				"PARENT" => $options['parent_id'],		 	# ID del departamento padre
-				"UF_HEAD" => $options['admin_user_id'], 	# ID del jefe del departamento
+				"ID" => $id,
+				"PARENT" => $parent,		 	# ID del departamento padre
 			];
 			$this->execute( 'department.update', [], $_options );			
 			$sts = 1;
@@ -96,33 +151,104 @@ class bitrix {
 		return $sts;
 	}
 
-	public function findDepartament( $asesor_id ){
+	// *************************************************
+	// Consulta Departamento por ID del asesor 
+	// en bitrix (bitrix_id)
+	// *************************************************
+	protected function getDepartmentId_by_asesorId( $asesor_id ){
 		global $wpdb;
 		$departamento_id = 0;
-		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id = {$asesor_id}");
-		if( isset($asesor->bitrix_departamento) && $asesor->bitrix_departamento > 0 ){
-			$departamento_id = $asesor->bitrix_departamento;
+		if( $asesor_id > 0 ){
+			$department = $this->execute( 'department.get', [], ['UF_HEAD'=>$asesor_id] );		
+			if( isset($department[0]->ID) && isset($department[0]->ID) ){
+				$departamento_id = $department[0]->ID;
+			}
 		}
 		return $departamento_id;
 	}
 
+	// *************************************************
+	// Actualiza el ID Departamento en el Asesor
+	// *************************************************
 	protected function asesor_update_DptoID( $user_email, $dpto_id ){
+		global $wpdb;
 		$wpdb->query("update asesores set bitrix_departamento = {$dpto_id} where email = '".$user_email."'");
 	}
 
 
 
-	// ************************
+	// *************************************************
 	// Usuarios
-	// ************************
-	public function addUser( $options = [], $is_client =false ){
+	// *************************************************
+	public function User( $email ){
+		global $wpdb;
+		
+		// buscar ID de usuario en bitrix
+		$_user = $this->getUser_by('email', $email);
+		// Agregar el usuario a Bitrix
+		if( isset($_user->ID) || $_user->ID == 0 ){
+
+			// Datos del Asesor
+			$user = $wpdb->get_row("SELECT * FROM asesores WHERE email = '{$email}'");
+			if( !isset($user->id) ){
+				$user = null;
+
+				// Datos del Cliente
+				$user = get_user_by('email', $email);
+				if( isset($user->id) && $user->id > 0 ){
+					$data = [];
+					$data['nombre'] = get_user_meta( $user->id, 'first_name', true );
+					$data['telefono'] = get_user_meta( $user->id, 'telef_movil', true );
+					$data['email'] = $email;
+					$data['id'] = 0;
+
+					$user = (object) $data;
+				}
+
+			}
+
+			// Envir datos de usuario a Bitrix
+			if( isset($user->email) && isset($user->nombre) ){			
+				$id = $this->addUser([
+					'email'=>$user->email,
+					'nombre'=>$user->nombre,
+					'apellido'=> '',
+				]);
+				$user->id = $id;
+			}
+			$_user = $user;
+		}else{
+			$_user = (object) [
+				'email'=> $_user->EMAIL,
+				'nombre'=> $_user->NAME,
+				'id'=> $_user->ID,
+			];
+		}
+
+		// Actualiza el registro del Usuario en Nutriheroes ( Bitrix User_ID )
+		if( isset($_user->id) && $_user->id > 0 ){
+			$this->update_bitrix_id( $email, $_user->id );
+		}else{
+			$_user = null;
+		}		
+		return $_user;
+	}
+
+	// *************************************************
+	// Agrega Usuarios a Bitrix
+	// *************************************************
+	protected function addUser( $options = [], $is_client =false ){
 		global $wpdb;
 
-		$id = 0;
-		if( !empty($options) ){
+		// Validar si el usuario esta registrado en Bitrix
+		$id = $this->getUser_by('email', $options['email'], true);
+
+		// Registrar usuario en Bitrix
+		if( !empty($options) && empty($id) ){
+
 			$departamento = (isset($options['departamento']))? $options['departamento'] : 1 ;
 			$options = [
-				"EMAIL" => 'kmimos_'.$options['email'],
+				"EMAIL" => $this->prefix_email.$options['email'],
 				"NAME"=> $options['nombre'],
 		        "LAST_NAME"=> $options['apellido'],
 				"WORK_COMPANY" => 'Kmimos',
@@ -130,35 +256,60 @@ class bitrix {
 				"SONET_GROUP_ID" => '7',
 				"ACTIVE" => 'Activo',
 			];
-			$response = $this->execute( 'user.add', [], $options );
-			$response = ( !empty($response) )? json_decode($response) : $response;
-
-			// Update Bitrix_id en los registros	
-			if( isset($response->result) && $response->result > 0 ){
-				$id = $response->result;
-				$this->updateUser_BitrixID( $options['email'], $id, $is_client );
+			$id = $this->execute( 'user.add', [], $options );
+			if( isset($id[0]) ){
+				$id = $id[0];
 			}
 		}
-		return $id;
+
+		return ($id > 0)? $id : 0;
 	}
 
-	protected function updateUser_BitrixID( $user_email, $bitrix_id, $is_client=false ){
+	// *************************************************
+	// Actualiza Bitrix_ID de Usuarios en Nutriheroes
+	// *************************************************
+	protected function update_bitrix_id( $email, $bitrix_id ){
 		global $wpdb;
-		if( !$is_client ){
+		$user = $wpdb->get_row("SELECT * FROM asesores WHERE email = '{$email}'");
+		if( isset($user->id) && $user->id > 0 ){
 			// Actualizar ID Asesor
-			$wpdb->query("update asesores set bitrix_id = {$bitrix_id} where email = '".$user_email."'");
+			$wpdb->query("update asesores set bitrix_id = {$bitrix_id} where email = '".$email."'");
 		}else{
 			// Actualizar ID Cliente
-			$user = get_user_by('email', $user_email);
+			$user = get_user_by('email', $email);
 			if( isset($user->id) && $user->id > 0 ){
 				update_usermeta( $user->id, 'bitrix_id', $bitrix_id );
 			}
 		}
+
+		return $this->getUser_by('email', $email);
 	}
 
-	// ************************
+	// *************************************************
+	// Consulta datos de Usuarios en Bitrix
+	// *************************************************
+	protected function getUser_by( $field, $value, $return_id=false){
+		global $wpdb;
+ 		switch ($field) {
+ 			case 'email':
+ 				$value = $this->prefix_email.$value;
+ 				break;
+ 		}
+ 		$filter[ strtoupper($field) ] = $value;
+ 		$user = $this->execute( 'user.get', [], $filter );
+ 		if( $return_id && isset($user[0]->ID) ){
+ 			$user = $user[0]->ID;	
+ 		}
+ 		if(empty($user)){
+ 			$user = null;
+ 		}
+		return $user;
+	}
+
+
+	// *************************************************
 	// Facturas
-	// ************************
+	// *************************************************
 	public function loadInvoice_by_asesor( $orden_id ){
 		global $wpdb;
 
@@ -182,9 +333,12 @@ class bitrix {
 					WHERE o.id = {$orden_id}
 				"; 
 				$orden = $wpdb->get_row($_sql_orden);
+			if( isset($orden->cliente_id) && isset($orden->asesor_id)){		
 
-			if( isset($orden->cliente_id) && isset($orden->asesor_id)){
-				
+				$payment_system_id = $this->getPaymentSystemID();
+
+					$cliente = (object) get_user_info( $orden->cliente_id );
+
 				// Datos de la Factura
 					$_INVOICE_DATA = [
 						"ORDER_TOPIC"=> "Nutriheroes - Orden No. {$orden_id}",
@@ -200,15 +354,16 @@ class bitrix {
 			            "DATE_PAY_BEFORE"=> $nextMonth,
 			            "RESPONSIBLE_ID"=> $orden->asesor_bitrix,
 
+			            "COMMENTS" => $cliente->first_name ." ".$cliente->last_name." (".$cliente->email.")",
+
 			            "UF_DEAL_ID" => 1,
 			            "UF_COMPANY_ID" => 1,
 			            "UF_CONTACT_ID" => 1,
 			            "PERSON_TYPE_ID"=> 1,
-			            "PAY_SYSTEM_ID" => 1,
+			            "PAY_SYSTEM_ID" => $payment_system_id,
 			        ];
 
 				// Datos del CLiente
-					$cliente = (object) get_user_info( $orden->cliente_id );
 					$_INVOICE_DATA['INVOICE_PROPERTIES'] = [
 						"COMPANY"=> $cliente->display_name,                               // Company name
 		                "COMPANY_ADR"=> $cliente->calle .' '. $cliente->colonia,
@@ -243,7 +398,6 @@ class bitrix {
 
 		 		// Generar puntos a los asesores
 				for ($nivel = 1; $nivel <= $_limite_niveles; $nivel++) {
-
 					// Cargar nueva factura
 						$this->addPoints( $_INVOICE_DATA, $resultado, $nivel );
 
@@ -264,6 +418,20 @@ class bitrix {
 			}
 
 		}
+	}
+
+	protected function getPaymentSystemID(){
+		$id = 0;
+		
+		$payment_ist = $this->execute( 'sale.paysystem.list', $options );
+
+		foreach ($payment_ist as $payment) {
+			if( isset($payment->ID) ){
+				$id = $payment->ID;
+				break;
+			}
+		}
+		return $id;
 	}
 
 	protected function addInvoice( $options = [] ){
@@ -294,8 +462,7 @@ class bitrix {
 		}
 
 		$r = $this->addInvoice( $_INVOICE_DATA );
-		$datos = json_decode($r);
-		if( isset($datos->result) && $datos->result > 0){
+		if( isset($r) && $r > 0){
 			$sql = "update asesores set puntos = puntos + {$total} where bitrix_id = ".$_INVOICE_DATA["RESPONSIBLE_ID"];
 			$wpdb->query($sql);
 		}

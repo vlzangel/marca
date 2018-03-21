@@ -42,15 +42,14 @@
 	$_BITRIX_PRODUCTO_ID = '';
 	try{
 		include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
-		$respuesta = $bitrix->addProduct([
+		$producto_id = $bitrix->addProduct([
 			"nombre" => $nombre, 
 			"precio" => $puntos,
 			"orden" => 1,
 			"descripcion" => $descripcion,
 		]);
-		$datos = json_decode($respuesta);
-		if( isset($datos->result) ){
-			$_BITRIX_PRODUCTO_ID = $datos->result;
+		if( isset($producto_id) && $producto_id > 0 ){
+			$_BITRIX_PRODUCTO_ID = $producto_id;
 		}
 		
 	}catch(Exception $e){}
@@ -75,8 +74,7 @@
 			{$category},
 			{$_BITRIX_PRODUCTO_ID}
 		);
-	";
-
+	"; 
 	$wpdb->query( $SQL );
 
 	
