@@ -4,7 +4,7 @@
     include( $raiz."/wp-load.php" );
 	global $wpdb;
 
-	$existe_asesor = $wpdb->get_row("SELECT id, nombre, codigo_asesor, bitrix_id, bitrix_departamento FROM asesores WHERE id = '$codigo' ");
+	$existe_asesor = $wpdb->get_row("SELECT id, nombre, codigo_asesor, email FROM asesores WHERE id = '$codigo' ");
 
 	if( $parent == $existe_asesor->codigo_asesor ){
 		echo json_encode(array(
@@ -14,7 +14,7 @@
 		exit();		
 	}
 	
-	$existe_parent = $wpdb->get_row("SELECT id, bitrix_id, bitrix_departamento FROM asesores WHERE codigo_asesor = '{$parent}' ");
+	$existe_parent = $wpdb->get_row("SELECT id, nombre, email FROM asesores WHERE codigo_asesor = '{$parent}' ");
 	if( isset($existe_parent->id) && $existe_parent->id > 0 ){
 
 		if( isset($existe_asesor->id) && $existe_asesor->id > 0 ){
@@ -27,39 +27,9 @@
 			// ************************
 			// Agregar a bitrix
 			// ************************
-			try{
-				include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
-
-
-				// Verificar Departamento del Asesor "PADRE"
-				if( $existe_parent->bitrix_departamento == 0 ){
-
-					$dpto_parent =	$bitrix->addDepartament([
-						"departament_name" => $existe_parent->nombre,
-						"parent_id" => $existe_parent->bitrix_departamento,
-						"admin_user_id" => $existe_parent->bitrix_id,
-					]);
-					$existe_parent->bitrix_departamento = $dpto_parent;
-				}
-
-				// Verificar Departamento del Asesor "HIJO"
-				if( $existe_asesor->bitrix_departamento > 0 ){
-
-					$bitrix->updateDepartament_parent([
-						'id' => $existe_asesor->bitrix_departamento,
-						"departament_name" => $existe_asesor->nombre,
-						"parent_id" => $existe_parent->bitrix_departamento,
-						"admin_user_id" => $existe_asesor->bitrix_id,
-					]);
-				}else{				
-
-					$departamento =	$bitrix->addDepartament([
-						"departament_name" => $existe_asesor->nombre,
-						"parent_id" => $existe_parent->bitrix_departamento,
-						"admin_user_id" => $existe_asesor->bitrix_id,
-					]);
-				}
-			}catch(Exception $e){}
+			include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
+			$bitrix->updateParent( $existe_asesor->email, $existe_parent->email);
+		
 
 			echo json_encode(array(
 				"code" => 1
