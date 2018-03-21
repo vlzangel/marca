@@ -7,13 +7,13 @@ class bitrix {
 	protected $prefix_email = 'kmimos_';
 
 	protected function config(){
-		$is_test = 0;
+		$is_test = 1;
 		// Cuenta Italo Test
 		$URL = "https://b24-sbapnp.bitrix24.es/rest/1/5zvo252hsmaubs2a/";
 		if( $is_test == 1 ){
-			$URL = "https://b24-sbapnp.bitrix24.es/rest/1/5zvo252hsmaubs2a/";
+			//$URL = "https://b24-sbapnp.bitrix24.es/rest/1/5zvo252hsmaubs2a/";
 			// Cuenta Yrcel
-			// $URL = "https://b24-9z3vi9.bitrix24.com/rest/1/66er0e8upgiixv3n/";
+			$URL = "https://b24-9z3vi9.bitrix24.com/rest/1/66er0e8upgiixv3n/";
 		}
 		return $URL;
 	}
