@@ -39,7 +39,7 @@
 		"origen_2" => $origen_2
 	);
 
-	$_BITRIX_PRODUCTO_ID = '';
+	$producto_id = 0;
 	try{
 		include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
 		$producto_id = $bitrix->addProduct([
@@ -48,10 +48,9 @@
 			"orden" => 1,
 			"descripcion" => $descripcion,
 		]);
-		if( isset($producto_id) && $producto_id > 0 ){
-			$_BITRIX_PRODUCTO_ID = $producto_id;
+		if( empty($producto_id) || $producto_id == 0 ){
+			$producto_id = 0;
 		}
-		
 	}catch(Exception $e){}
 
 
@@ -72,7 +71,7 @@
 			'".serialize($dataextra)."',
 			'Activo',
 			{$category},
-			{$_BITRIX_PRODUCTO_ID}
+			{$producto_id}
 		);
 	"; 
 	$wpdb->query( $SQL );

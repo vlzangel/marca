@@ -1,12 +1,13 @@
 <?php 
 
-	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
-    
+	$raiz = realpath( dirname(dirname(dirname(dirname(dirname(__DIR__))))) );
+	include_once( $raiz.'/wp-load.php' );
+    global $wpdb;
     setZonaHoraria();
 	extract($_POST);
 	$sts = 0; 
 	$user_id = user_id();
-
+	
 	// Inicio - Crear usuario 
 
 		if( $user_id == 0 ){
@@ -46,12 +47,8 @@
 	        		$user_id = insert_id();
 
 	        		if( $codigo_asesor != "" ){
-	        			$existe_asesor = get_var("SELECT id FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'");
+	        			$existe_asesor = get_var("SELECT id FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'", 'id');
 		        		if( $existe_asesor == null ){
-							// $new_asesor = "INSERT INTO asesores (codigo_asesor, nombre, email) 
-							// VALUES ('".$codigo_asesor."','Sin Nombre Temporal','".$correo_asesor."')";
-					        // query( $new_asesor );
-			        		// $asesor_id = insert_id();
 
 			        		$HTML = generarEmail(
 						    	"login/sin_asesor", 
@@ -62,10 +59,11 @@
 						    );
 							mail_admin_nutriheroes( "Registro sin Asesor Asociado", $HTML );
 
-			        		$asesor_id = 0;
+			        		$emailasesor = 0;
 		        		}else{
-		        			$asesor_id = $existe_asesor;
+		        			$asesor_id = $existe_asesor->id;
 		        		}
+
 	        		}else{
 		        		$HTML = generarEmail(
 					    	"login/sin_asesor", 
@@ -106,19 +104,7 @@
 					    	)
 					    );
 						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
-						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );
-
-					// Bitrix
-						try{
-							$raiz = realpath( __DIR__ . '/../../../../../wp-content/themes/kmibox/lib/bitrix/bitrix.php' );	
-							include_once($raiz);
-							$bitrix->addUser([
-								"email" => $email,
-								'nombre' =>  $nombre,
-								'apellido' => $apellido,
-								'asesor_parent' => $asesor_id,
-							], true);
-						}catch(Exception $e){}						
+						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );					
 
 				break;
 				case 2:
@@ -177,10 +163,16 @@
 			$msg = 'Carga de usuario completo';
 
 			$sts = 1;
-
 		// Fin - Actualizando información del usuario 
-	}
 
+		// Bitrix
+		$_parent_email = get_var("SELECT email FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'", 'email');
+		if( !empty($_parent_email) ){
+			include_once( $raiz . '/wp-content/themes/kmibox/lib/bitrix/bitrix.php' );
+			$bitrix->addAsesor_customer( $email, $_parent_email );
+		}
+			
+	}
 
 	echo json_encode( 
 		[
