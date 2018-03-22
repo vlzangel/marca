@@ -34,6 +34,11 @@
 			}
 		}
 
+		if( $total == 0 ){
+			crearNewCobro($cobro->item_orden, $time);
+			exit();
+		}
+
 		$data = unserialize( $orden->metadata );
 
 		$error = "";
