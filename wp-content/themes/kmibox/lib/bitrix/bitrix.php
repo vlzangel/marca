@@ -111,7 +111,7 @@ class bitrix {
 						'parent_id' => $parent,
 					]);
 				}
-		
+
 				// Actualizar ID Departamento en asesores
 				if( $department_id > 0 ){
 					$this->asesor_update_DptoID( $asesor_email, $department_id );
@@ -360,20 +360,20 @@ class bitrix {
 		// *************************************************
 		protected function getUser_by( $field, $value, $return_id=false){
 			global $wpdb;
-	 		switch ($field) {
-	 			case 'email':
-	 				$value = $this->prefix_email.$value;
-	 				break;
-	 		}
-	 		$filter[ strtoupper($field) ] = $value;
-	 		$user = $this->execute( 'user.get', [], $filter );
+				switch ($field) {
+					case 'email':
+						$value = $this->prefix_email.$value;
+						break;
+				}
+				$filter[ strtoupper($field) ] = $value;
+				$user = $this->execute( 'user.get', [], $filter );
 
-	 		if( $return_id && isset($user[0]->ID) ){
-	 			$user = $user[0]->ID;	
-	 		}
-	 		if(empty($user)){
-	 			$user = null;
-	 		}
+				if( $return_id && isset($user[0]->ID) ){
+					$user = $user[0]->ID;	
+				}
+				if(empty($user)){
+					$user = null;
+				}
 			return $user;
 		}
 
@@ -450,7 +450,7 @@ class bitrix {
 			                "ADDRESS"=> $cliente->calle .' '. $cliente->colonia   
 						];
 					
-	    			// Buscar detalles de la orden y categorias
+					// Buscar detalles de la orden y categorias
 						$_sql_orden_detalle = "
 							SELECT 
 								p.nombre,
