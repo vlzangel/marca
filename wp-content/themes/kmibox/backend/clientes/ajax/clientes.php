@@ -64,6 +64,9 @@
 		if( $metadata[ "telef_fijo" ] != "" ){ $telefonos[] = $metadata[ "telef_fijo" ]; }
 		if( count($telefonos) > 0 ){ $telefonos = implode(" - ", $telefonos); }else{ $telefonos = "No registrado"; }
 
+		$asesor_padre = 0;
+		if( $metadata[ "asesor_registro" ] != "" ){ $asesor_padre = $metadata[ "asesor_registro" ]; }
+
 		$data["data"][] = array(
 	        $contador,
 	        $cliente->ID,
@@ -74,7 +77,8 @@
 	        $direccion,
 	        strtoupper( $donde ),
 	        $metadata["is_user_kmimos"],
-	        $es_asesor
+	        $es_asesor,
+	        $asesor_padre
 	    );
 
 		$excel[] = array(
@@ -107,7 +111,7 @@
                 "Dirección",
                 "Donde nos conocio?",
                 "Usuario Kmimos",
-                "Asesor"
+                "Asesor",
 			),
 			"data" => $excel
 		));
