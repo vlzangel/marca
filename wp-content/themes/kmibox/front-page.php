@@ -34,6 +34,10 @@ include_once( 'template/parts/footer/Nutriheroes.php' );
 include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
 
+		include_once('wp-content/themes/kmibox/lib/bitrix/bitrix.php');
+		$bitrix->loadInvoice_by_asesor(226);		
+		
+
 ?>
 
 

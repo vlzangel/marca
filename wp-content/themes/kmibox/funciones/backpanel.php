@@ -85,6 +85,15 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'asesores',
                     'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Organigrama de los Asesores'),
+                    'short-title'   =>  __('Organigrama'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'organigrama',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'organigrama',
+                    'icon'          =>  '',
                 )
 
             );
@@ -194,6 +203,15 @@
             include_once( dirname(__DIR__).'/backend/asesores/asesores.php');
         }
     }
+
+    if(!function_exists('organigrama')){
+        function organigrama(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/organigrama/organigrama.php');
+        }
+    }
+
+
 
     if(!function_exists('guardarImg')){
 
