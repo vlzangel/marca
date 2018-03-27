@@ -25,14 +25,5 @@
     wp_mail( $email, "Suscripción Cancelada Exitosamente - NutriHeroes", $HTML );
     mail_admin_nutriheroes( "Suscripción Cancelada Exitosamente - NutriHeroes", $HTML );
    
-           
-
-// ----- Copia a los administradores
-            $headers = array(
-               'BCC: r.rodriguez@kmimos.la',
-               'BCC: r.cuevas@kmimos.la',
-            );
-    wp_mail( 'i.cocchini@kmimos.la', "Suscripción Cancelada Exitosamente - NutriHeroes", $HTML, $headers );
-
 	exit();
 ?>
