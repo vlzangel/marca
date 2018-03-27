@@ -3,6 +3,10 @@
 	global $CARRITO;
 	global $wpdb;
 
+/*	echo "<br><br><br><pre>";
+		print_r($CARRITO);
+	echo "</pre>";*/
+
 	$_productos = $wpdb->get_results("SELECT * FROM productos");
 	$productos = array();
 	foreach ($_productos as $key => $value) {

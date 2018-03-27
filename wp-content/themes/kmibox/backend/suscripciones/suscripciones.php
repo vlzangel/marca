@@ -25,6 +25,10 @@
                 <th>Tipo de Pago</th>
                 <th>Producto(s)</th>
                 <th>Precio(s)</th>
+                <th>Total</th>
+                <th>Pago</th>
+                <th>Descuento</th>
+                <th>Cupones</th>
                 <th>Status Cobro</th>
                 <th>Proximo Cobro</th>
                 <th>ID Asesor</th>
