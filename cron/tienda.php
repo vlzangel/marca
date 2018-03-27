@@ -1,6 +1,9 @@
 <?php
 	include '../wp-load.php';
 
+    date_default_timezone_set('America/Mexico_City');
+    $limite = date("Y-m-d", strtotime("-4 day"));
+
 	global $wpdb;
 
 	$ordenes_pendientes = $wpdb->get_results("SELECT * FROM ordenes WHERE status = 'Pendiente' AND metadata LIKE '%Tienda%' ");

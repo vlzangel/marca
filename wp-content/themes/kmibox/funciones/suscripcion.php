@@ -202,8 +202,10 @@
 		    		"FECHAS" => $fecha_estimada,
 		    	)
 		    );
-		 	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
-		 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
+		    if( $_SESSION['admin_sub_login'] != "YES" ){
+			 	wp_mail( $email, "Pago Recibido Exitosamente - NutriHeroes", $HTML );
+			 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
+			}
 		}
 
 		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
