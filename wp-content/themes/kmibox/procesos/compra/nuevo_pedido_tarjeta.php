@@ -123,23 +123,24 @@
 			$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
 
         } catch (Exception $e) {
-        	$error = $e->getErrorCode()." - ".$e->getDescription();
-        	$respuesta["error"] = $error;
+	    	$error_code = $e->getErrorCode();
+	    	$error_info = $e->getDescription();
+	    	$respuesta["error"] = array(
+	    		"codigo" => $error_code,
+	    		"info" => $error_info
+	    	);
         }
 		
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
     	$error_info = $e->getDescription();
-
     	$respuesta["error"] = array(
     		"codigo" => $error_code,
     		"info" => $error_info
     	);
-
     }
 
     if( $respuesta["error"] == "" ){
-
     	$_tarjeta = substr($num_card, 0, 2)."********".substr($num_card, -2);
     	$HTML = generarEmail(
 	    	"compra/nuevo/tarjeta", 
@@ -153,14 +154,9 @@
 	    	)
 	    );
 
-		
-
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
- 
 	    mail_admin_nutriheroes( "Pago Recibido - NutriHeroes", $HTML );
- 
 	    crearCobro( $orden_id, $charge->id );
-
     	unset($_SESSION["CARRITO"]);
     }
 
