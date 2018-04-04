@@ -39,6 +39,21 @@
 		"origen_2" => $origen_2
 	);
 
+	$producto_id = 0;
+	try{
+		include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
+		$producto_id = $bitrix->addProduct([
+			"nombre" => $nombre, 
+			"precio" => $puntos,
+			"orden" => 1,
+			"descripcion" => $descripcion,
+		]);
+		if( empty($producto_id) || $producto_id == 0 ){
+			$producto_id = 0;
+		}
+	}catch(Exception $e){}
+
+
 	$SQL = "
 		INSERT INTO productos VALUES (
 			NULL,
@@ -51,12 +66,15 @@
 			'$marca',
 			'".serialize($_tamanos)."',
 			'".serialize($_edades)."',
+			'',
 			'".serialize($_planes)."',
 			'".serialize($dataextra)."',
 			'Activo',
-			{$category}
+			{$category},
+			{$producto_id}
 		);
-	";
-
+	"; 
 	$wpdb->query( $SQL );
+
+	
 ?>

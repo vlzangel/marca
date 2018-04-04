@@ -1,7 +1,8 @@
 <?php 
 
 	if( !isset($_SESSION) ){ session_start(); }
-	include_once( dirname(dirname(dirname(dirname(dirname(__DIR__))))).'/wp-load.php' );
+	$raiz = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+	include_once( $raiz.'/wp-load.php' );
 
     setZonaHoraria();
 
@@ -157,6 +158,12 @@
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
 	    mail_admin_nutriheroes( "Pago Recibido - NutriHeroes", $HTML );
 	    crearCobro( $orden_id, $charge->id );
+
+    	// ************************
+		 // Agregar a bitrix
+		// ************************
+		include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
+		$bitrix->loadInvoice_by_asesor($orden_id);		
     	unset($_SESSION["CARRITO"]);
     }
 

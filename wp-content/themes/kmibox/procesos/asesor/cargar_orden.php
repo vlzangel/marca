@@ -16,15 +16,23 @@
 		$sql_asesor = "SELECT * FROM asesores WHERE codigo_asesor = '{$codidoasesor}'";
 		$asesor = $wpdb->get_row( $sql_asesor );
 		if ( !isset($asesor->id) ) {
+
 			$new_asesor = "
 	            INSERT INTO asesores VALUES (
 	                NULL,
 	                '".$codidoasesor."',
 	                '".$nombreasesor."',
 	                '".$emailasesor."',
-	                NULL
+	                NULL,
+	                0,
+					0,
+					0,
+					0
 	            );
 	        ";
+
+			include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
+			$bitrix->department($email);
 
 	        query( $new_asesor );
 	    	$asesor = $wpdb->get_row( $sql_asesor );

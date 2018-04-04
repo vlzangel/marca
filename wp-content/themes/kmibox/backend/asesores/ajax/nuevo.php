@@ -4,17 +4,31 @@
     include( $raiz."/wp-load.php" );
 	global $wpdb;
 
-	$exite = $wpdb->get_row("SELECT * FROM asesores WHERE codigo_asesor = '$codigo' ");
-	if( $existe == null ){
+	$exite = $wpdb->get_row("SELECT * FROM asesores WHERE email = '{$email}' or codigo_asesor = '{$codigo}' ");
+	if( !isset($exite->id) ){
+
 		$wpdb->query("
 			INSERT INTO asesores VALUES (
 				NULL,
 				'$codigo',
 				'$nombre',
 				'$email',
-				'$telefono'
+				'$telefono',
+				0,
+				0,
+				0,
+				0
 			)
 		");
+		
+		// ************************
+		// BEGIN Agregar a bitrix
+		// ************************
+		include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
+		$bitrix->department($email);
+		// ************************
+		// END bitrix
+		// ************************
 
 		echo json_encode(array(
 			"code" => 1

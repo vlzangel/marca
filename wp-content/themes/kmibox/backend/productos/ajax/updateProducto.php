@@ -53,7 +53,21 @@
 	if( $img != "" ){
 		$_dataextra = ", dataextra = '".serialize($dataextra)."'";
 	}
-	
+
+	// Actualizar datos en bitrix
+	try{
+		$bitrix_id = $wpdb->get_row( "select bitrix_id from productos where id = {$ID}"  );
+		include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
+		$respuesta = $bitrix->updateProduct(
+			$bitrix_id->bitrix_id,
+			[
+				"nombre" => $nombre, 
+				"precio" => $puntos,
+				"descripcion" => $descripcion,
+			]
+		);
+	}catch(Exception $e){}
+
 
 	$SQL = "
 		UPDATE 
@@ -75,4 +89,6 @@
 	";
 
 	$wpdb->query( $SQL );
+
+	
 ?>
