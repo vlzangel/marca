@@ -158,7 +158,7 @@
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar">Numero de Tarjeta</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="16" data-charset="num" value="" data-openpay-card="card_number" style="border-radius: 50px !important;">
+			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="19" data-charset="num" value="" data-openpay-card="card_number" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
@@ -187,29 +187,33 @@
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >CVV</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="3" data-charset="num" data-openpay-card="cvv2" style="border-radius: 50px !important;">
+			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="4" data-charset="num" data-openpay-card="cvv2" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
-			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Total a pagar</label>
-			    <div class="col-sm-8">
-			      <input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>" style="border-radius: 50px !important;">
-			    </div>
+			    	<label for="inputPassword3" class="col-sm-4 control-label caviar" >Total a pagar</label>
+			    	<div class="col-sm-8">
+			      		<input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>" style="border-radius: 50px !important;">
+				      	<div class="errores_box">
+							Error procesando la suscripci&oacute;n<br>
+							Por favor intente nuevamente.<br>
+							Si el error persiste por favor comuniquese con<br>
+							el equipo de soporte de NutriHeroes.
+						</div>
+			    	</div>
 			  </div>
 
-			  <div class="form-group">
-			    <div class="col-sm-offset-4	col-sm-4">
-
-			      <a href="<?php echo get_home_url(); ?>/quiero-mi-kmibox" class="btn  <?php echo (isset($hidden))? '' : 'hidden' ; ?>  btn-sm-kmibox" id="btn_pagar_2 caviar" >Realizar Pago</a>
-
-			      <button id="btn_pagar_1" type="submit" class="btn caviar <?php echo (isset(
-			      	$hidden))? 'hidden' : '' ; ?> btn-sm-kmibox" style="padding: 10px 42px 10px 42px;">Realizar Pago</button>
-			    </div>
-				<div class="col-sm-3">
-			      <a href="<?php echo get_home_url(); ?>/" class="btn btn-sm-kmibox caviar" >Cancelar</a>
-			    </div>
-			  </div>
+			  	<div class="form-group">
+			    	<div class="col-sm-offset-4	col-sm-4">
+			      		<a href="<?php echo get_home_url(); ?>/quiero-mi-kmibox" class="btn  <?php echo (isset($hidden))? '' : 'hidden' ; ?>  btn-sm-kmibox" id="btn_pagar_2 caviar" >Realizar Pago</a>
+			      		<button id="btn_pagar_1" type="submit" class="btn caviar <?php echo (isset(
+			      		$hidden))? 'hidden' : '' ; ?> btn-sm-kmibox" style="padding: 10px 42px 10px 42px;">Realizar Pago</button>
+			    	</div>
+					<div class="col-sm-3">
+			      		<a href="<?php echo get_home_url(); ?>/" class="btn btn-sm-kmibox caviar" >Cancelar</a>
+			    	</div>
+			  	</div>
 
 
 			</form>

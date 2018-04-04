@@ -1,3 +1,15 @@
+.errores_box{
+    #display: none;
+    border-top: solid 2px orange;
+    border-bottom: solid 2px orange;
+    padding: 10px;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #pago_exitoso {
     margin: 3% auto 0px;
     width: calc( 100% - 40px );
