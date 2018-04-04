@@ -1,5 +1,4 @@
   function init() {
-    if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
     var $ = go.GraphObject.make;  // for conciseness in defining templates
 
     myDiagram =
@@ -30,14 +29,12 @@
                 alternatePortSpot: new go.Spot(0.01, 1, 10, 0),
                 alternateChildPortSpot: go.Spot.Left
               }),
-          // support editing the properties of the selected person in HTML
-          "ChangedSelection": onSelectionChanged,
-          "TextEdited": onTextEdited,
           // enable undo & redo
-          "undoManager.isEnabled": true
+          "undoManager.isEnabled": false  
         });
 
     // when the document is modified, add a "*" to the title and enable the "Save" button
+    /*  
     myDiagram.addDiagramListener("Modified", function(e) {
       var button = document.getElementById("SaveButton");
       if (button) button.disabled = !myDiagram.isModified;
@@ -48,22 +45,14 @@
         if (idx >= 0) document.title = document.title.substr(0, idx);
       }
     });
+    */
 
     var graygrad = $(go.Brush, "Linear",
-                     { 0: "rgb(125, 125, 125)", 0.5: "rgb(86, 86, 86)", 1: "rgb(86, 86, 86)" });
+      { 0: "rgb(195, 251, 200)", 0.5: "rgb(176, 252, 183)", 1: "rgb(125, 250, 136)" });
 
     // when a node is double-clicked, add a child to it
     function nodeDoubleClick(e, obj) {
-      var clicked = obj.part;
-      if (clicked !== null) {
-        var thisemp = clicked.data;
-        myDiagram.startTransaction("add employee");
-        var nextkey = (myDiagram.model.nodeDataArray.length + 1).toString();
-        var newemp = { key: nextkey, name: "(new person)", title: "" };
-        myDiagram.model.addNodeData(newemp);
-        myDiagram.model.addLinkData({ from: thisemp.key, to: nextkey });
-        myDiagram.commitTransaction("add employee");
-      }
+     
     }
 
     // this is used to determine feedback during drags
@@ -77,39 +66,12 @@
     // This function provides a common style for most of the TextBlocks.
     // Some of these values may be overridden in a particular TextBlock.
     function textStyle() {
-      return { font: "9pt sans-serif", stroke: "white" };
+      return { font: "9pt sans-serif", stroke: "black" };
     }
 
     // define the Node template
     myDiagram.nodeTemplate =
       $(go.Node, "Auto",
-        { doubleClick: nodeDoubleClick },
-        { // handle dragging a Node onto a Node to (maybe) change the reporting relationship
-          mouseDragEnter: function (e, node, prev) {
-            var diagram = node.diagram;
-            var selnode = diagram.selection.first();
-            if (!mayWorkFor(selnode, node)) return;
-            var shape = node.findObject("SHAPE");
-            if (shape) shape.fill = "darkred";
-          },
-          mouseDragLeave: function (e, node, next) {
-            var shape = node.findObject("SHAPE");
-            if (shape) shape.fill = graygrad;
-          },
-          mouseDrop: function (e, node) {
-            var diagram = node.diagram;
-            var selnode = diagram.selection.first();  // assume just one Node in selection
-            if (mayWorkFor(selnode, node)) {
-              // find any existing link into the selected node
-              var link = selnode.findTreeParentLink();
-              if (link !== null) {  // reconnect any existing link
-                link.fromNode = node;
-              } else {  // else create a new link
-                diagram.toolManager.linkingTool.insertLink(node, node.port, selnode, selnode.port);
-              }
-            }
-          }
-        },
         // for sorting, have the Node.text be the data.name
         new go.Binding("text", "name"),
         // bind the Part.layerName to control the Node's layer depending on whether it isSelected
@@ -118,7 +80,7 @@
         $(go.Shape, "RoundedRectangle",
           {
             name: "SHAPE",
-            fill: graygrad, stroke: "black",
+            fill: graygrad, stroke: "green",
             portId: "", fromLinkable: true, toLinkable: true, cursor: "pointer"
           }),
         // define the panel where the text will appear
@@ -134,11 +96,9 @@
               row: 0, column: 0, columnSpan: 5,
               font: "bold 9pt sans-serif",
               editable: true, isMultiline: false,
-              stroke: "white", minSize: new go.Size(10, 14)
+              stroke: "black", minSize: new go.Size(10, 14)
             },
             new go.Binding("text", "name").makeTwoWay()),
-          $(go.TextBlock, "Title: ", textStyle(),
-            { row: 1, column: 0 }),
           $(go.TextBlock, textStyle(),
             {
               row: 1, column: 1, columnSpan: 4,
@@ -147,13 +107,11 @@
               margin: new go.Margin(0, 0, 0, 3)
             },
             new go.Binding("text", "title").makeTwoWay()),
-          $(go.TextBlock, "ID: ", textStyle(),  // the ID and the boss
+          $(go.TextBlock, "Cod.: ", textStyle(),  // the ID and the boss
             { row: 2, column: 0 }),
           $(go.TextBlock, textStyle(),
             { row: 2, column: 1 },
             new go.Binding("text", "key")),
-          $(go.TextBlock, "Boss: ", textStyle(),
-            { row: 2, column: 3 }),
           $(go.TextBlock, textStyle(),
             { row: 2, column: 4, },
             new go.Binding("text", "parent")),
@@ -163,7 +121,7 @@
               font: "italic 9pt sans-serif",
               wrap: go.TextBlock.WrapFit,
               editable: true,  // by default newlines are allowed
-              stroke: "white",
+              stroke: "black",
               minSize: new go.Size(10, 14)
             },
             new go.Binding("text", "comments").makeTwoWay()),
@@ -178,105 +136,31 @@
         { corner: 5, relinkableFrom: true, relinkableTo: true },
         $(go.Shape, { strokeWidth: 2 }));  // the link shape
 
-    myDiagram.linkTemplateMap.add("Support",
-      $(go.Link, go.Link.Bezier,
-        { isLayoutPositioned: false, isTreeLink: false, curviness: -50 },
-        { relinkableFrom: true, relinkableTo: true },
-        $(go.Shape,
-          { stroke: "green", strokeWidth: 2 }),
-        $(go.Shape,
-          { toArrow: "OpenTriangle", stroke: "green", strokeWidth: 2 }),
-        $(go.TextBlock,
-          new go.Binding("text", "text"),
-          { stroke: "green", background: "rgba(255,255,255,0.75)",
-            maxSize: new go.Size(80, NaN)
-          })));
-
-    myDiagram.linkTemplateMap.add("Motion",
-      $(go.Link, go.Link.Bezier,
-        { isLayoutPositioned: false, isTreeLink: false, curviness: -50 },
-        { relinkableFrom: true, relinkableTo: true },
-        $(go.Shape,
-          { stroke: "orange", strokeWidth: 2 }),
-        $(go.Shape,
-          { toArrow: "OpenTriangle", stroke: "orange", strokeWidth: 2 }),
-        $(go.TextBlock,
-          new go.Binding("text", "text"),
-          { stroke: "orange", background: "rgba(255,255,255,0.75)",
-            maxSize: new go.Size(80, NaN)
-          })));
-
     // read in the JSON-format data from the "mySavedModel" element
     load();
   }
 
-  // Allow the user to edit text when a single node is selected
-  function onSelectionChanged(e) {
-    var node = e.diagram.selection.first();
-    if (node instanceof go.Node) {
-      updateProperties(node.data);
-    } else {
-      updateProperties(null);
-    }
-  }
-
-  // Update the HTML elements for editing the properties of the currently selected node, if any
-  function updateProperties(data) {
-    if (data === null) {
-      document.getElementById("propertiesPanel").style.display = "none";
-      document.getElementById("name").value = "";
-      document.getElementById("title").value = "";
-      document.getElementById("comments").value = "";
-    } else {
-      document.getElementById("propertiesPanel").style.display = "block";
-      document.getElementById("name").value = data.name || "";
-      document.getElementById("title").value = data.title || "";
-      document.getElementById("comments").value = data.comments || "";
-    }
-  }
-
-  // This is called when the user has finished inline text-editing
-  function onTextEdited(e) {
-    var tb = e.subject;
-    if (tb === null || !tb.name) return;
-    var node = tb.part;
-    if (node instanceof go.Node) {
-      updateData(tb.text, tb.name);
-      updateProperties(node.data);
-    }
-  }
-
-  // Update the data fields when the text is changed
-  function updateData(text, field) {
-    var node = myDiagram.selection.first();
-    // maxSelectionCount = 1, so there can only be one Part in this collection
-    var data = node.data;
-    if (node instanceof go.Node && data !== null) {
-      var model = myDiagram.model;
-      model.startTransaction("modified " + field);
-      if (field === "name") {
-        model.setDataProperty(data, "name", text);
-      } else if (field === "title") {
-        model.setDataProperty(data, "title", text);
-      } else if (field === "comments") {
-        model.setDataProperty(data, "comments", text);
-      }
-      model.commitTransaction("modified " + field);
-    }
-  }
-
-  // Show the diagram's model in JSON format
-  function save() {
-    document.getElementById("mySavedModel").value = myDiagram.model.toJson();
-    myDiagram.isModified = false;
-  }
+ 
   function load() {
-    myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
-    init();
+
+    var data = '';
+
+    jQuery.post(
+      TEMA+"/backend/organigrama/ajax/organigrama.php",
+      {}, 
+      function(datos){
+          if( datos != "" ){
+            myDiagram.model = go.Model.fromJson(datos);
+            myDiagram.isModified = false; 
+          }
+      }, "json"
+    );
+  
   }
 
   $(function(){
     $(window).load(function(){
       init();
+      load();
     })
   });

@@ -118,7 +118,7 @@ class bitrix {
 				}
 
 			}
-			
+
 			return $department_id;
 		}
 
@@ -156,6 +156,25 @@ class bitrix {
 			return $departamento_id;
 		}
 
+		// *************************************************
+		// Cant. de clientes por Asesor con Ordenes activas
+		// *************************************************	
+		protected function countClient_by_Asesor( $asesor_email ){
+			global $wpdb;
+			$rows = $wpdb->get_row("SELECT u.user_id, count(o.id) as ordenes
+				FROM asesores as a 
+					INNER JOIN wp_usermeta as u ON u.meta_value = a.id and u.meta_key = 'asesor_registro'
+					INNER JOIN ordenes as o ON o.cliente = u.user_id and o.status = 'Activa' and o.asesor = a.id
+				WHERE a.email = '{$asesor_email}'
+				GROUP BY u.user_id 
+			");
+
+			if( count($rows) > 0 ){ 
+				return count($rows); 
+			}else{ 
+				return 0; 
+			}
+		}
 		// *************************************************
 		// Actualiza el padre del Departamento en Bitrix
 		// *************************************************	
@@ -404,6 +423,7 @@ class bitrix {
 							left join asesores as s on s.id = o.asesor 
 						WHERE o.id = {$orden_id}
 					"; 
+
 					$orden = $wpdb->get_row($_sql_orden);
 				if( isset($orden->cliente_id) && isset($orden->asesor_id) && isset($orden->asesor_bitrix) ){		
 					if( $orden->cliente_id > 0 && $orden->asesor_id > 0 && $orden->asesor_bitrix > 0){		
@@ -417,9 +437,9 @@ class bitrix {
 								"ORDER_TOPIC"=> "Nutriheroes - Orden No. {$orden_id}",
 					            "STATUS_ID"=> "P",
 					            "DATE_INSERT"=> $today,
+					            "DATE_MARKED"=> $today,
 					            "PAY_VOUCHER_DATE"=> $today,
 					            "PAY_VOUCHER_NUM"=> $orden_id,
-					            "DATE_MARKED"=> $today,
 					            "REASON_MARKED"=> ".",
 					            "COMMENTS"=> ".",
 					            "USER_DESCRIPTION"=> ".",
@@ -458,7 +478,8 @@ class bitrix {
 									i.cantidad,
 									p.bitrix_id,
 									p.id,
-									c.niveles
+									c.niveles,
+									i.id_orden
 								FROM items_ordenes as i
 									LEFT JOIN productos as p ON p.id = i.id_producto
 									LEFT JOIN categorias as c ON c.id = p.categoria
@@ -470,40 +491,47 @@ class bitrix {
 						$_limite_niveles = 6; // Limite de niveles de los asesores
 
 				 		// Generar puntos a los asesores
+				 		$asesor_id_orden = $orden->asesor_id;
 						for ($nivel = 1; $nivel <= $_limite_niveles; $nivel++) {
 							// Cargar nueva factura
-								$this->addPoints( $_INVOICE_DATA, $resultado, $nivel );
+								if( $_INVOICE_DATA["RESPONSIBLE_ID"] > 0 ){
+									$this->addPoints( $_INVOICE_DATA, $resultado, $nivel, $asesor_id_orden );
 
-							// Cargar nueva data ( asesor padre )
-								$sql_padre_asesor = " 
-									SELECT a.parent , b.bitrix_id 
-									FROM asesores as a
-									 left JOIN asesores as b ON b.codigo_asesor = a.parent
-									WHERE a.bitrix_id = ".$_INVOICE_DATA["RESPONSIBLE_ID"];
-								$asesor = $wpdb->get_row($sql_padre_asesor);
+									// Cargar nueva data ( asesor padre )
+									$sql_padre_asesor = " 
+										SELECT a.parent , b.bitrix_id, b.id
+										FROM asesores as a
+										 left JOIN asesores as b ON b.codigo_asesor = a.parent
+										WHERE a.bitrix_id = ".$_INVOICE_DATA["RESPONSIBLE_ID"];
+									$asesor = $wpdb->get_row($sql_padre_asesor);
+								}
 
 								if( isset($asesor->parent) && $asesor->parent > 0 ){
-						            $_INVOICE_DATA["RESPONSIBLE_ID"] = $asesor->bitrix_id;
+									if( $asesor->bitrix_id > 0 ){
+							            $_INVOICE_DATA["RESPONSIBLE_ID"] = $asesor->bitrix_id;
+							            $asesor_id_orden = $asesor->id;
+									}
 						        }else{
 						        	$nivel += $_limite_niveles; // finalizar contador
 						        }
 						}
 					}
 				}
-
 			}
 		}
 
 		// *************************************************
 		// Agregar puntos a los productos y asesores
 		// *************************************************
-		protected function addPoints( $_INVOICE_DATA, $resultado, $nivel ){
+		protected function addPoints( $_INVOICE_DATA, $orden_detalle, $nivel, $asesor_id_orden ){
 
 			global $wpdb;
 
 			// Cargar detalle de la Orden
 			$total = 0;
-			foreach ($resultado as $key => $val) {
+			$sql_product = "INSERT INTO `asesores_puntos` (`asesor_id`,`id_factura_bitrix`,`id_orden`,`producto_id`,`puntos`,`cantidad`,`total`) VALUES ";
+			$separador = '';
+			foreach ($orden_detalle as $key => $val) {
 				$_categoria = unserialize($val->niveles); 
 				$puntos = $_categoria[$nivel];
 				$total += ($puntos * $val->cantidad);
@@ -514,10 +542,17 @@ class bitrix {
 					"QUANTITY"=> $val->cantidad, 
 					"PRICE"=> $puntos
 				];
-			}
 
+				$sql_product .= $separador."(".$asesor_id_orden.",@id_factura_bitrix,".$val->id_orden.",".$val->id.",".$puntos.",".$val->cantidad.",".$total.")";
+				$separador = ",";
+			}
+ 
 			$r = $this->addInvoice( $_INVOICE_DATA );
+
 			if( isset($r) && $r > 0){
+				$sql_product = str_replace('@id_factura_bitrix', $r, $sql_product);
+				$wpdb->query($sql_product);
+ 
 				$sql = "update asesores set puntos = puntos + {$total} where bitrix_id = ".$_INVOICE_DATA["RESPONSIBLE_ID"];
 				$wpdb->query($sql);
 			}
