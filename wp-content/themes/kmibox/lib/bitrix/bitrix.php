@@ -16,16 +16,17 @@ class bitrix {
 		// WebHook de Bitrix (App)
 		// ************************
 		protected function config(){
+			global $wpdb;
 			$is_test = 0;
 
-			// Cuenta Italo Test
-			// $URL = "https://b24-sbapnp.bitrix24.es/rest/1/5zvo252hsmaubs2a/";
-			$URL = "https://b24-bcpyzj.bitrix24.es/rest/1/eslp8dpg1j1957o4/";
+			// Cuenta Config
+			$URL = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'BITRIX_URL' ");
 
-			if( $is_test == 1 ){
-				// Cuenta Yrcel
-				$URL = "https://b24-9z3vi9.bitrix24.com/rest/1/66er0e8upgiixv3n/";
-			}
+			/*
+						if( $is_test == 1 ){
+							// Cuenta Yrcel
+							$URL = "https://b24-9z3vi9.bitrix24.com/rest/1/66er0e8upgiixv3n/";
+						}*/
 			return $URL;
 		}
 
@@ -143,11 +144,22 @@ class bitrix {
 		// Agrega Departamentos en Bitrix
 		// *************************************************
 		protected function addDepartment( $options = [] ){
-
+			global $wpdb;
 			if( !empty($options) ){
 				$options['parent_id'] = ( isset($options['parent_id']) && $options['parent_id'] > 0 )? $options['parent_id'] : 1 ;
+
+				$row = $wpdb->get_row("SELECT n.nivel
+					FROM asesores as a
+						INNER JOIN asesores_niveles as n ON a.puntos between n.desde and n.hasta
+					WHERE a.bitrix_id = {$options['admin_user_id']}");
+				if( isset($row->nivel) ){
+					$nivel = $row->nivel;
+				}else{
+					$nivel = ' - Asesor';
+				}
+
 				$_options = [
-					"NAME" => $options['departament_name'].'-Cachorro N1', # Nombre del departamento
+					"NAME" => $options['departament_name'].$nivel, # Nombre del departamento
 					"PARENT" => $options['parent_id'],		 	# ID del departamento padre
 					"UF_HEAD" => $options['admin_user_id'], 	# ID del jefe del departamento
 				];
