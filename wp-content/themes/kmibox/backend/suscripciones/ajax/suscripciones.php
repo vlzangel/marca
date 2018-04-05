@@ -25,7 +25,7 @@
 		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$orden->asesor);
 		if( $asesor == null ){
 			$asesor_padre = 0;
-			if( $metadata[ "asesor_registro" ] != "" ){ $asesor_padre = $metadata[ "asesor_registro" ]; }
+			if( $_meta_cliente[ "asesor_registro" ] != "" ){ $asesor_padre = $_meta_cliente[ "asesor_registro" ][0]; }
 			if( $asesor_padre != "" ){ $asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$asesor_padre); }
 		}
 		$ordenes[ $orden->id ]["asesor_id"] = $asesor->id;
