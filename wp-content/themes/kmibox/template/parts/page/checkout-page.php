@@ -195,12 +195,7 @@
 			    	<label for="inputPassword3" class="col-sm-4 control-label caviar" >Total a pagar</label>
 			    	<div class="col-sm-8">
 			      		<input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>" style="border-radius: 50px !important;">
-				      	<div class="errores_box">
-							Error procesando la suscripci&oacute;n<br>
-							Por favor intente nuevamente.<br>
-							Si el error persiste por favor comuniquese con<br>
-							el equipo de soporte de NutriHeroes.
-						</div>
+				      	<div class="errores_box"></div>
 			    	</div>
 			  </div>
 
