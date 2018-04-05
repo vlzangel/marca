@@ -1,5 +1,5 @@
 .errores_box{
-    #display: none;
+    display: none;
     border-top: solid 2px orange;
     border-bottom: solid 2px orange;
     padding: 10px;
