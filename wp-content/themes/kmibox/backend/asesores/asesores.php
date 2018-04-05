@@ -21,6 +21,7 @@
                 <th>Nombre y Apellido</th>
                 <th>Email</th>
                 <th>Tel&eacute;fono</th>
+                <th>Total Puntos</th>
                 <th>Asesor Padre</th>
             </tr>
         </thead>
