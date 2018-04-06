@@ -166,7 +166,7 @@
 			"cupones" => $cupones,
 		);
 
-	    $migrada = ( isset($ordenData['migrada']) && strtoupper($ordenData['migrada']) == "SI" )? "SI" : "NO" ;
+	    $migrada = ( isset($ordenData['migrada']) && strtoupper($ordenData['migrada']) == "SI" )? "SI" : "---" ;
 
 		$index_row++;
 		$data["data"][] = array(
