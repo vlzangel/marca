@@ -3,7 +3,7 @@
 		<div class="nutri-container">
 
 			<div style="display: inline-block; position: relative;">
-				<button type="button" class="nutri-close" id="nutri-close" onclick="jQuery('#nutriheroes').css('display', 'none');">×</button>
+				<button type="button" class="nutri-close" id="nutri-close" onclick="jQuery('#nutriheroes').css('display', 'none'); jQuery('body').css('overflow', 'auto');">×</button>
 
 				<img  class="solo_pc" src="<?php echo TEMA().'imgs/popup-nutriheroes/full/Pop-Up-Homepage_new.png'; ?>" style='width: 100%;' />
 

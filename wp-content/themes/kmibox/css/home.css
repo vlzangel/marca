@@ -9,6 +9,7 @@
 
 body{
     padding-bottom: 180px;
+    overflow: hidden;
 }
 
 section{
