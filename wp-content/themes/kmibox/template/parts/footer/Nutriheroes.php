@@ -36,8 +36,6 @@
 							<?php echo $marcas_option; ?>
 						</select>
 
-						 
-
 						<input type="hidden" name="referencia" value="ayuda-home">
 
 						<button type="submit" class="btn-pop-up-home">ENVIAR</button>
