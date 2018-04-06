@@ -31,7 +31,7 @@
 							<div class="separador-pop-up-home"></div>
 						<input type="text" id="phone" name="phone" placeholder="N&uacute;mero de tel&eacute;fono" class="input-pop-up-home" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13" />
 
-						<select id="opt_marcas" name="mi_marca" placeholder="Selecciona tu marca" class="input-pop-up-home" style="width: 100%">
+						<select id="opt_marcas" name="mi_marca" placeholder="Selecciona tu marca" class="input-pop-up-home" style="text-align-last:center;width: 100%">
 							<option>Selecciona tu marca</option>
 							<?php echo $marcas_option; ?>
 						</select>
