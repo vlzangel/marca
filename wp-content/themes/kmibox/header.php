@@ -61,7 +61,14 @@
 	<?php wp_head(); ?>
 </head>
 
-<body>
+<?php 
+	if( $is_iOS ){
+		echo "<body class='is_iOS'>";
+	}else{
+		echo "<body>";
+	}
+?>
+
 	<div id="content-primary" class="container-fluid">
 
 
