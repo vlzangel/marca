@@ -35,6 +35,10 @@
     transition: visibility 0s, opacity 1s linear;
 }
 
+.is_iOS #nutriheroes {
+	position: absolute !important;
+}
+
 #nutriheroes .nutri-container{
 	width: 100%;
 	max-width: 940px;
