@@ -1062,7 +1062,7 @@ $(function($){
 				
 				console.log(data);
 				if(data.code == 1){
-				        jQuery('#mensaje').html('<div>¡GRACIAS!</div>Un asesor nutriheroes te contactar&aacute; a la breveda posible');
+				        jQuery('#mensaje').html('<div>¡GRACIAS!</div>Un asesor nutriheroes te contactar&aacute; a la brevedad posible');
 				        jQuery('#form-pop-up-home').css("display", "none");
 				        jQuery('#mensaje').css("display", "block");
 
