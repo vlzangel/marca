@@ -79,7 +79,14 @@
 	        strtoupper( $donde ),
 	        $metadata["is_user_kmimos"],
 	        $es_asesor,
-	        $asesor_padre
+	         "<span 
+        		onclick='abrir_link( jQuery( this ) )' 
+        		data-id='".$cliente->ID."' 
+        		data-titulo='Asociar un Asesor' 
+        		data-modulo='clientes' 
+        		data-modal='asociar_asesor' 
+        		class='enlace' style='text-align: center;'
+        	>$asesor_padre</span>"
 	    );
 
 		$excel[] = array(
