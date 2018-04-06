@@ -18,6 +18,7 @@
             <tr>
                 <th width="30">ID</th>
                 <th width="30">Suscripci&oacute;n</th>
+                <th>Migrada</th>
                 <th>Status Suscripci&oacute;n</th>
                 <th width="100">Fecha Suscripci&oacute;n</th>
                 <th>Cliente</th>
