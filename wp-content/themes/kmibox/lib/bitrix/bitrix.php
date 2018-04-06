@@ -50,6 +50,53 @@ class bitrix {
 			return $response;
 		}
 
+	// Sincronizar
+
+		public function syncProducts(){
+			global $wpdb; 
+			$log = [];
+			$products = $wpdb->get_results("SELECT * FROM productos WHERE bitrix_id = 0 ");
+			foreach( $products as $product ){
+				$producto_id = $this->addProduct([
+					"nombre" => $product->nombre, 
+					"precio" => 0,
+					"orden" => 1,
+					"descripcion" => $product->descripcion,
+				]);
+				if( empty($producto_id) || $producto_id == 0 ){
+					$wpdb->query("UPDATE productos SET bitrix_id = {$producto_id} WHERE id = ".$product->id);
+					$log[$product->id] = "( {$product_id} ) ". $product->nombre;
+				}
+			}
+			return $log;
+		}
+
+		public function syncUsers(){
+			global $wpdb;
+			$log = [];
+			$users = $wpdb->get_results("SELECT u.user_email as email, m.meta_value as bitrix_id 
+				FROM wp_users as u 
+					LEFT JOIN wp_usermeta as m ON m.user_id = u.ID and m.meta_key = 'bitrix_id'
+				WHERE m.meta_value is null");
+			foreach( $users as $user ){
+				$r = $this->User( $user->email );
+				$log[$user->email] = $r;
+			}
+		}
+
+		public function syncAsesores(){
+			global $wpdb;
+			$log = [];
+			$asesores = $wpdb->get_results("SELECT * 
+				FROM asesores
+				WHERE bitrix_id = 0 or bitrix_id is NULL or bitrix_departamento = 0 or bitrix_departamento is NULL");
+			foreach( $asesores as $asesor ){
+				$r = $this->department( $asesor->email );
+				$log[$asesor->email] = $r; 
+			}
+			return $log;
+		}
+
 	// Productos
 
 		// ************************
@@ -272,6 +319,7 @@ class bitrix {
 						'ID' => $cliente->id,
 						'UF_DEPARTMENT' => $department_id
 					] );
+					
 				}
 			}
 		}
@@ -509,6 +557,7 @@ class bitrix {
 								if( $_INVOICE_DATA["RESPONSIBLE_ID"] > 0 ){
 									$this->addPoints( $_INVOICE_DATA, $resultado, $nivel, $asesor_id_orden );
 
+
 									// Cargar nueva data ( asesor padre )
 									$sql_padre_asesor = " 
 										SELECT a.parent , b.bitrix_id, b.id
@@ -526,7 +575,7 @@ class bitrix {
 						        }else{
 						        	$nivel += $_limite_niveles; // finalizar contador
 						        }
-						}
+						}		
 					}
 				}
 			}
@@ -568,6 +617,8 @@ class bitrix {
 				$sql = "update asesores set puntos = puntos + {$total} where bitrix_id = ".$_INVOICE_DATA["RESPONSIBLE_ID"];
 				$wpdb->query($sql);
 			}
+
+			return $asesor_id_orden;
 		}
 
 		// *************************************************

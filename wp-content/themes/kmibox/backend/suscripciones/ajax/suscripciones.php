@@ -171,10 +171,13 @@
 			"cupones" => $cupones,
 		);
 
+	    $migrada = ( isset($ordenData['migrada']) && strtoupper($ordenData['migrada']) == "SI" )? "SI" : "NO" ;
+
 		$index_row++;
 		$data["data"][] = array(
 			$index_row,
 	        $orden_id,
+	        $migrada,
 	        $_data["status"],
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
@@ -202,6 +205,7 @@
 		$excel[] = array(
 			$index_row,
 	        $orden_id,
+	        $migrada,
 	        date("d/m/Y", strtotime( str_replace("/", "-", $_data["fecha_creacion"])))." ",
 	        $_data["cliente"],
 	        "Teléfono: ".$telefonos."\nDirección: ".$direccion,
