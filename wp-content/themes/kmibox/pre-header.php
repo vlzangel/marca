@@ -1,4 +1,6 @@
 <?php
+	
+	session_start();
 
 	if( isset($_GET['i'])){
 		if( !isset($_SESSION) ){ session_start(); }

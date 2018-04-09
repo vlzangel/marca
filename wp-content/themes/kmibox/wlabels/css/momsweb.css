@@ -1,0 +1,42 @@
+.atras:hover, .btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
+    color: #eb008a !important;
+    border: 2px solid #eb008a;
+}
+
+.btn-kmibox {
+    background: #eb008a;
+}
+
+.nav_container > ul > li a {
+    background: #eb008a;
+    border: 2px solid #eb008a;
+}
+
+.nav_container > ul > li a:hover {
+    color: #eb008a;
+    border: 2px solid #eb008a;
+}
+
+#section-comment {
+    background: #eb008a;
+}
+
+#home-dog > div {
+    background: #eb008a;
+}
+#footer {
+    background: #eb008a;
+}
+
+#contacto-ayuda {
+    border-bottom: 9px solid #eb008a;
+}
+
+#home-dog {
+    border-bottom: 15px solid #eb008a;
+}
+
+#como-funciona > div > div > img {
+    margin-bottom: 5%;
+    background: #eb008a;
+}
