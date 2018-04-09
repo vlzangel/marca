@@ -12,9 +12,13 @@
 
 	global $wpdb;
 
+	echo "<pre>";
+		print_r($param);
+	echo "</pre>";
+
 	if( in_array($param[0], $paginas) ){
 		if( file_exists( __DIR__."/wlabels/".$param[0].".php" ) ){
-			include( __DIR__."/wlabels/".$param[0].".php" );
+			//include( __DIR__."/wlabels/".$param[0].".php" );
 		}
 	}else{
 		get_header(); ?> 
