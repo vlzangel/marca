@@ -127,9 +127,9 @@ section{
 	    margin-left: 7% ! important;
 }
 
-#como-consigo-kmibox img{
-	/*margin-top:10px;*/
-	/*height: 70px;*/
+#como-consigo-kmibox img,
+#regalasela-amigo img{
+    background: #9bff00;
 }
 
 #como-consigo-kmibox p{
