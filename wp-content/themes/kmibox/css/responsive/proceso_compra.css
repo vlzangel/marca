@@ -180,6 +180,16 @@
 		display: inline-block;
 		z-index: 101;
 	}
+
+	#cupones {
+	    padding-left: 15px;
+	}
+
+	#cupones td {
+		display: block;
+    	text-align: center;
+    	font-size: 10px;
+	}
 }
 
 
