@@ -95,3 +95,64 @@
 .progress-content img {
     background-color: #eb008a;
 }
+
+#vlz_atras,
+.btn_siguiente_container button {
+    background: #eb008a;
+    border: 1px solid #eb008a;
+}
+
+#vlz_atras:hover,
+.btn_siguiente_container button:hover {
+    color: #eb008a;
+    background: #FFF;
+    border: 2px solid #eb008a;
+}
+
+.selector_edad_container .selector_edad_box span {
+    background: #eb008a;
+}
+
+.selector_edad_container .selector_edad_box span:hover {
+    background: #222222;
+}
+
+.selector_edad_container .selector_edad_box span.btn_activo {
+    background: #222222 !important;
+}
+
+#modal-contacto-marca .modal-content {
+    background-color: #eb008a;
+}
+
+#modal-contacto-marca .modal-content {
+    background-color: #eb008a;
+}
+
+#modal-contacto-marca .modal-body p span {
+    color: #222222;
+}
+
+.carrousel-items article div p {
+    border-top: solid 2px #eb008a;
+}
+
+#modal-contacto-marca .modal-header {
+    border-bottom: 3px solid #ffffff;
+}
+
+#marca > div.item_activo > .item_box {
+    border: solid 2px #eb008a;
+}
+
+#plan img {
+    background-color: #eb008a;
+}
+
+.personalizar_plan {
+    background: #eb008a;
+}
+
+.personalizar_plan_columna div {
+    color: #222;
+}
