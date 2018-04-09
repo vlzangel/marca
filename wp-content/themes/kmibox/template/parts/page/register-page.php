@@ -1,3 +1,4 @@
+<?php if( !isset($_SESSION) ){ session_start(); } ?>
 <article class="row">
 	
 	<div id="register"	class="col-md-12 col-xs-12 col-md-offset-0" style="border-radius:10px; border:1px solid #ccc; margin-bottom: 2%; padding-bottom: 15px;">
@@ -160,33 +161,36 @@
 					</div>
 
 				</div>
-
-					<div class="row">					
+					<?php 
+						$ocultar_asesor = ""; 
+						$asesor = "";
+						$asesor_email = "";
+						if( isset($_SESSION["wlabel"]) ){ 
+							$ocultar_asesor = "display: none;";
+							$asesor = $_SESSION["wlabel"]["codigo"];
+							$asesor_email = $_SESSION["wlabel"]["asesor_email"];
+						} 
+					?>
+					<div class="row" style="<?php echo $ocultar_asesor; ?>">					
 						<h2 class="col-sm-6">INFORMACIÓN DEL ASESOR</h2>
-						
 					</div>
+					<div class="row row-special">	
+						<div class="col-md-3 form-group" style="padding-top: 15px; <?php echo $ocultar_asesor; ?>">
+							<input data-charset="num" type="text" name="codidoasesor" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  value="<?php echo $asesor; ?>" maxlength="40" />
+						</div>
+						<div class="col-md-3 form-group" style="padding-top: 15px; <?php echo $ocultar_asesor; ?>">
+							<input data-charset="xlfnumesp" type="email" name="emailasesor" class="form-control col-md-6" id="emailasesor" placeholder="Correo del asesor"  value="<?php echo $asesor_email; ?>" maxlength="40" >
+						</div>
 
-						<div class="row row-special">	
-						
-							<div class="col-md-3 form-group" style="padding-top: 15px;">
-								<input data-charset="num" type="text" name="codidoasesor" class="form-control col-md-6" id="codidoasesor" placeholder="Código del asesor"  maxlength="40" />
-							</div>
-							<div class="col-md-3 form-group" style="padding-top: 15px;">
-								<input data-charset="xlfnumesp" type="email" name="emailasesor" class="form-control col-md-6" id="emailasesor" placeholder="Correo del asesor"  maxlength="40" >
-							</div>
 						<div class="col-md-4" >	
 							<div class="col-sm-offset-1	col-sm-11 text-center">
-								<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="color: #94d400; border: 2px solid #091705;">Registrarme</button>
+								<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox" style="">Registrarme</button>
 								<div id="error_registrando"> Por favor revisar tus datos arriba, hay algún campo incompleto </div> 
 								<div id="success_registrando"> Registro Exitoso </div>
 		 					</div>
-		 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje">Prueba</aside>
+		 					<aside class="col-md-6 col-xs-12 hidden col-md-offset-3 alert alert-danger" id="login-mensaje"></aside>
 						</div>
-
-						
 					</div>
-				
-
 			</form>
 		</div>
 	</div>
