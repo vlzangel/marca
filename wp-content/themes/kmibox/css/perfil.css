@@ -116,6 +116,10 @@
     text-transform: uppercase;
 }
 
+.progress-content img {
+    background-color: rgb(155, 255, 0);
+}
+
 /* Acciones de las suscripciones */
 
     .acciones_container {
