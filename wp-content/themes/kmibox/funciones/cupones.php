@@ -56,12 +56,21 @@
 					}
 				}
 
+				if( $cupon->data["uso_por_usuario"]+0 > 0 && $cliente+0 == 0 ){
+					echo json_encode(array(
+						"error" => "Debes inicia sesión para poder usar este cupón"
+					));
+					exit;
+				}
+
 				if( $cupon->data["uso_por_usuario"]+0 > 0 ){
-					if( $se_uso >= $cupon->data["uso_por_usuario"]+0 ){
-						echo json_encode(array(
-							"error" => "El cupón ya fue usado"
-						));
-						exit;
+					foreach ($cupon->usos as $user => $value) {
+						if( $user == $cliente ){
+							echo json_encode(array(
+								"error" => "Ya ha usado este cupón"
+							));
+							exit;
+						}
 					}
 				}
 
