@@ -40,3 +40,33 @@
     margin-bottom: 5%;
     background: #eb008a;
 }
+
+#como-consigo-kmibox img {
+    background: #eb008a;
+}
+
+#regalasela-amigo img {
+    background: #eb008a;
+}
+
+.atras {
+    background: #eb008a;
+    border: 1px solid #eb008a;
+}
+
+.btn-sm-kmibox {
+    background: #eb008a;
+}
+
+#btn-register_{
+    color: #FFF; 
+    border: 2px solid #eb008a;
+}
+
+#register i.fa-asterisk:before {
+    color: #eb008a;
+}
+
+.campos-obligatorios span {
+    color: #eb008a;
+}
