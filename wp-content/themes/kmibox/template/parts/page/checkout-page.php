@@ -114,10 +114,10 @@
 				<div class="col-xs-12 col-md-12 desc_name gothan text-tususcripcion">TOTAL SUSCRIPCIÓN:</div>				
 			</div>
 			<div class="col-xs-12 col-md-12 desc_value gothan total">
-					<?php 
-						echo "$".number_format($CARRITO["total"], 2, ',', '.');
-					?>
-				</div>
+				<?php 
+					echo "$".number_format($CARRITO["total"], 2, ',', '.');
+				?>
+			</div>
 		</aside>
 		<aside class="col-md-12">
 	      	<a href="<?php echo get_home_url(); ?>/perfil/" class="btn btn-sm-kmibox gothanligth text-btnperfil" style="">IR A MI PERFIL</a>
@@ -200,14 +200,14 @@
 			  </div>
 
 			  	<div class="form-group">
-			    	<div class="col-sm-offset-4	col-sm-4">
+			    	<div class="col-sm-offset-5	col-sm-5">
 			      		<a href="<?php echo get_home_url(); ?>/quiero-mi-kmibox" class="btn  <?php echo (isset($hidden))? '' : 'hidden' ; ?>  btn-sm-kmibox" id="btn_pagar_2 caviar" >Realizar Pago</a>
 			      		<button id="btn_pagar_1" type="submit" class="btn caviar <?php echo (isset(
 			      		$hidden))? 'hidden' : '' ; ?> btn-sm-kmibox" style="padding: 10px 42px 10px 42px;">Realizar Pago</button>
 			    	</div>
-					<div class="col-sm-3">
+					<!-- <div class="col-sm-3">
 			      		<a href="<?php echo get_home_url(); ?>/" class="btn btn-sm-kmibox caviar" >Cancelar</a>
-			    	</div>
+			    	</div> -->
 			  	</div>
 
 
