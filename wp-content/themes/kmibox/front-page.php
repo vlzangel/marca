@@ -67,21 +67,21 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 	<section id="como-funciona" class="row text-center">
 		<div class="container">
 			<div class="col-xs-12 col-sm-4 col-md-4">
-				<img src="<?php echo get_home_url(); ?>/img/Image-2.svg" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/Imagen-2.png" class="img-responsive">
 				<p>Asesores nutricionales 
 					<br class="hidden-sm hidden-xs">
 					certificados
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 border-lateral">  
-				<img src="<?php echo get_home_url(); ?>/img/Image-3.svg" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/Imagen-3.png" class="img-responsive">
 				<p>Entregado en tu 
 					<br class="hidden-sm hidden-xs">
 					casa sin costo adicional
 				</p>
 		    </div>
 		    <div class="col-xs-12 col-sm-4 col-md-4">  
-				<img src="<?php echo get_home_url(); ?>/img/Image-4.svg" class="img-responsive">
+				<img src="<?php echo get_home_url(); ?>/img/Imagen-4.png" class="img-responsive">
 				<p>Más barato que en una 
 					<br class="hidden-sm hidden-xs">
 					veterinaria
