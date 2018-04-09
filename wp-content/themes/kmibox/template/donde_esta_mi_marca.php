@@ -20,7 +20,7 @@
 							<div class="xborder-curvo col-md-12 text-center">
 								<div class="row">
 									<div id="armada" class="col-xs-12 col-sm-12 col-md-4">
-										<img src="'.TEMA().'/imgs/perfil/Box-01.svg" class="img-responsive" >
+										<img src="'.TEMA().'/imgs/perfil/Box-01.png" class="img-responsive" >
 										<label> 
 											<i class="fa fa-check-square-o" aria-hidden="true"></i>
 											<i class="fa fa-square-o" aria-hidden="true"></i>  
@@ -28,7 +28,7 @@
 										</label>
 									</div>
 									<div id="enviada" class="col-xs-12 col-sm-12 col-md-4">
-									    <img src="'.TEMA().'/imgs/perfil/Truck-02.svg" class="img-responsive" >
+									    <img src="'.TEMA().'/imgs/perfil/Truck-02.png" class="img-responsive" >
 										<label> 
 											<i class="fa fa-check-square-o" aria-hidden="true"></i> 
 											<i class="fa fa-square-o" aria-hidden="true"></i>  
@@ -36,7 +36,7 @@
 										</label>
 									</div>
 									<div id="recibida" class="col-xs-12 col-sm-12 col-md-4">
-										<img src="'.TEMA().'/imgs/perfil/Great-03.svg" class="img-responsive" >
+										<img src="'.TEMA().'/imgs/perfil/Great-03.png" class="img-responsive" >
 										<label> 
 											<i class="fa fa-check-square-o" aria-hidden="true"></i> 
 											<i class="fa fa-square-o" aria-hidden="true"></i> 

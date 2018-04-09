@@ -70,3 +70,28 @@
 .campos-obligatorios span {
     color: #eb008a;
 }
+
+.acciones_container button {
+    border: 2px solid #eb008a;
+}
+
+.perfil_tabs li {
+    background: #222222;
+}
+
+.perfil_tabs li.tab_activo {
+    background-color: #eb008a;
+    color: #ffffff;
+}
+
+.perfil_tabs li.tab_activo:hover {
+    color: #000000;
+}
+
+.perfil_tabs li:hover {
+    color: #eb008a;
+}
+
+.progress-content img {
+    background-color: #eb008a;
+}
