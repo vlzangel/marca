@@ -52,6 +52,9 @@ jQuery(document).ready(function() {
 					}
 			    	jQuery(".errores_box").html(error);
 					jQuery(".errores_box").css("display", "block");
+
+					jQuery("#btn_pagar_1").text("Realizar Pago");
+					jQuery("#btn_pagar_1").prop("disabled", false);
 				}
 			}, "json"
 		).fail(function(e) {
