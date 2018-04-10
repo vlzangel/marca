@@ -1,3 +1,11 @@
+<?php
+	$marcas = $wpdb->get_results("select * from marcas");
+	$marcas_option = '';
+	foreach ($marcas as $marca) {
+		$marcas_option .= '<option value="'.$marca->nombre.'">'.$marca->nombre.'</option>';
+	}
+?>
+
 
 	<div role="dialog" id="nutriheroes" style="visibility: hidden;">
 		<div class="nutri-container">
@@ -22,8 +30,12 @@
 						<input type="text" id="email" name="email" placeholder="Correo Electr&oacute;nico" class="input-pop-up-home" /> 
 							<div class="separador-pop-up-home"></div>
 						<input type="text" id="phone" name="phone" placeholder="N&uacute;mero de tel&eacute;fono" class="input-pop-up-home" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="13" />
-						
-						<input type="hidden" name="mi_marca" value="">
+
+						<select id="opt_marcas" name="mi_marca" placeholder="Selecciona tu marca" class="input-pop-up-home" style="text-align-last:center;width: 100%">
+							<option>Selecciona tu marca</option>
+							<?php echo $marcas_option; ?>
+						</select>
+
 						<input type="hidden" name="referencia" value="ayuda-home">
 
 						<button type="submit" class="btn-pop-up-home">ENVIAR</button>

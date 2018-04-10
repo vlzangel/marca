@@ -27,13 +27,29 @@
 				".$parent."
 			</div>";
 
+		$__puntos = '0';
+		if( $asesor->puntos > 0 ){
+			$__puntos = $asesor->puntos;
+		}
+
+		$__editar = "
+			<div 
+				onclick='abrir_link( jQuery( this ) )' 
+				data-id='".$asesor->id."' 
+				data-titulo='Actualizar datos de asesor' 
+				data-modulo='asesores' 
+				data-modal='nuevo' 
+				class='enlace' style='text-align: center;'
+			>Editar</div>";
+
 		$data["data"][] = array(
 	        $asesor->id,
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
-	        $__parent
+	        $__parent,
+	        $__editar
 	    );
 
 		$excel[] = array(
@@ -42,7 +58,8 @@
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
-	        $__parent
+	        $__parent,
+	        'editar'
 	    );
 	}
 
@@ -56,6 +73,7 @@
                 "Nombre y Apellido",
                 "Email",
                 "Teléfono",
+                "Puntos",
                 "Asesor Padre"
 			),
 			"data" => $excel

@@ -171,10 +171,16 @@
 			"cupones" => $cupones,
 		);
 
+	   	$__meta = $wpdb->get_row("SELECT * FROM ordenes WHERE id = $orden_id" );
+        $__meta_arr = unserialize( $__meta->metadata );
+        $migrada = ( isset( $__meta_arr['migrada'] ) && $__meta_arr['migrada']=='SI'  )? 'SI' : '---';
+
+
 		$index_row++;
 		$data["data"][] = array(
 			$index_row,
 	        $orden_id,
+	        $migrada,
 	        $_data["status"],
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
@@ -202,6 +208,7 @@
 		$excel[] = array(
 			$index_row,
 	        $orden_id,
+	        $migrada,
 	        date("d/m/Y", strtotime( str_replace("/", "-", $_data["fecha_creacion"])))." ",
 	        $_data["cliente"],
 	        "Teléfono: ".$telefonos."\nDirección: ".$direccion,

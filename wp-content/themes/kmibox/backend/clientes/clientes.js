@@ -53,3 +53,19 @@ function actualizarAsesor(){
 	);
 
 }
+
+function asociarAsesor(){
+	var URL = TEMA+"/backend/clientes/ajax/asociarAsesor.php";
+    jQuery.post(
+		URL,
+		jQuery("#asociar_asesor").serialize(),
+		function(data){
+        	if( data.code == 0 ){
+        		alert(data.msg);
+        	}else{
+	            table.ajax.reload();
+	            cerrar();
+        	}
+		}, "json"
+	);
+}

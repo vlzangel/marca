@@ -22,6 +22,7 @@
                 <th>Email</th>
                 <th>Tel&eacute;fono</th>
                 <th>Asesor Padre</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody></tbody>
