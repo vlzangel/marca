@@ -57,7 +57,7 @@ function crearNuevo(){
 }
 
 function actualizar(){
-	var URL = TEMA+"/backend/asesores/ajax/updateAsesor.php";
+	var URL = TEMA+"/backend/asesores/ajax/nuevo.php";
 	jQuery.ajax({
         async:true, 
         cache:false, 
