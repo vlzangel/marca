@@ -175,7 +175,6 @@
         $__meta_arr = unserialize( $__meta->metadata );
         $migrada = ( isset( $__meta_arr['migrada'] ) && $__meta_arr['migrada']=='SI'  )? 'SI' : '';
 
-
 		$index_row++;
 		$data["data"][] = array(
 			$index_row,
@@ -185,7 +184,7 @@
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
 	        "<strong>ID: </strong>".$_data["cliente_id"]."<br>".
-	        "<strong>Email: </strong>".$wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = '".$_data["cliente_id"])."<br>".
+	        "<strong>Email: </strong>".$wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = ".$_data["cliente_id"])."<br>".
 	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br>".
 	        "<strong>Direcci&oacute;n: </strong>".$direccion,	
 	        $_data["info_pago"]["tipo_pago"],        

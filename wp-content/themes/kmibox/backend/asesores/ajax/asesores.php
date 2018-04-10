@@ -32,15 +32,17 @@
 /*			$__puntos = '<a href="'.get_home_url().'/wp-admin/admin.php?page=asesores_puntos&id='.$asesor->id.'" class="enlace">'.$asesor->puntos.'</a>';*/
 			$__puntos = $asesor->puntos;
 		}
-
+    
 		$data["data"][] = array(
 	        $asesor->id,
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
+
 	        $__puntos,
 	        $__parent
+
 	    );
 
 		$excel[] = array(

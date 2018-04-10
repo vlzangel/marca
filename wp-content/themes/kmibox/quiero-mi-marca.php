@@ -188,7 +188,7 @@
 			<section id="fase_5" class="hidden">
 				<div class="factura">
 					<div class="cintillo_factura">
-						<img id="cen" src="'.TEMA().'/imgs/Elemento-1.png" />
+						<img id="cen" src="'.TEMA().'/imgs/Elemento-11.png" />
 					</div>
 					<h5 id="label-mensaje"></h5>
 					<div class="alerta" id="cart-content-alerta">
