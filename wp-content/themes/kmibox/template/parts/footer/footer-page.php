@@ -31,17 +31,17 @@
 	<article class="col-sm-6  text-left">
 			<h3 class="caviar">Búscanos en redes sociales</h3>
 			<ul class="list-inline hidden-lg hidden-md hidden-sm" id="social-network">
-				<li><img src="<?php echo get_home_url(); ?>/img/fb.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/ig.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_fb.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_ig.png"></li>
 				<br>
-				<li><img src="<?php echo get_home_url(); ?>/img/tw.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/yt.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_tw.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_yt.png"></li>
 			</ul>
 			<ul class="list-inline hidden-xs" id="social-network">
-				<li><img src="<?php echo get_home_url(); ?>/img/fb.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/ig.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/tw.png"></li>
-				<li><img src="<?php echo get_home_url(); ?>/img/yt.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_fb.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_ig.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_tw.png"></li>
+				<li><img src="<?php echo get_home_url(); ?>/img/wl_yt.png"></li>
 			</ul>
 		</article>
 

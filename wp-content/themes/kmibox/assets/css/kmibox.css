@@ -403,6 +403,10 @@ select{
 	font-family: Gothamlight_Regular;
 }
 
+.is_iOS .gothanligth{
+	font-family: Arial;
+}
+
 .postone{
 	font-family: PoetsenOne_Regular;
 }
