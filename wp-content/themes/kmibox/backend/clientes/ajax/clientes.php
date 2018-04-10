@@ -79,7 +79,7 @@
 	        strtoupper( $donde ),
 	        $metadata["is_user_kmimos"],
 	        $es_asesor,
-	         "<span 
+	        "<span 
         		onclick='abrir_link( jQuery( this ) )' 
         		data-id='".$cliente->ID."' 
         		data-titulo='Asociar un Asesor' 
@@ -121,6 +121,7 @@
                 "Donde nos conocio?",
                 "Usuario Kmimos",
                 "Asesor",
+                "Asesor Padre",
 			),
 			"data" => $excel
 		));

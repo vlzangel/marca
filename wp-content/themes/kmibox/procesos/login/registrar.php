@@ -7,7 +7,8 @@
 	extract($_POST);
 	$sts = 0; 
 	$user_id = user_id();
-	
+	$asesor_id = 0;
+
 	// Inicio - Crear usuario 
 
 		if( $user_id == 0 ){
@@ -47,8 +48,8 @@
 	        		$user_id = insert_id();
 
 	        		if( $codigo_asesor != "" ){
-	        			$existe_asesor = get_var("SELECT id FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'", 'id');
-		        		if( $existe_asesor == null ){
+	        			$existe_asesor = get_row("SELECT id FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'");
+		        		if( !isset($existe_asesor->id) || $existe_asesor->id == 0 ){
 
 			        		$HTML = generarEmail(
 						    	"login/sin_asesor", 
@@ -167,8 +168,8 @@
 
 		// Bitrix
 		$_parent_email = get_var("SELECT email FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'", 'email');
+		include ( $raiz . '/wp-content/themes/kmibox/lib/bitrix/bitrix.php' );
 		if( !empty($_parent_email) ){
-			include_once( $raiz . '/wp-content/themes/kmibox/lib/bitrix/bitrix.php' );
 			$bitrix->addAsesor_customer( $email, $_parent_email );
 		}
 			

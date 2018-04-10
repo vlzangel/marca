@@ -78,12 +78,39 @@
                     'icon'          =>  '',
                 ),
                 array(
+                    'title'         =>  __('Asesores Niveles'),
+                    'short-title'   =>  __('Asesores Niveles'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'asesores_niveles',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'asesores_niveles',
+                    'icon'          =>  '',
+                ),
+                array(
                     'title'         =>  __('Asesores'),
                     'short-title'   =>  __('Asesores'),
                     'parent'        =>  'marcas',
                     'slug'          =>  'asesores',
                     'access'        =>  'manage_options',
                     'page'          =>  'asesores',
+                    'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Detalle de Puntos'),
+                    'short-title'   =>  __('Detalle de Puntos'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'asesores_puntos',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'asesores_puntos',
+                    'icon'          =>  '',
+                ),
+                array(
+                    'title'         =>  __('Estructura de los Asesores'),
+                    'short-title'   =>  __('Estructura'),
+                    'parent'        =>  'marcas',
+                    'slug'          =>  'organigrama',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'organigrama',
                     'icon'          =>  '',
                 )
 
@@ -194,6 +221,29 @@
             include_once( dirname(__DIR__).'/backend/asesores/asesores.php');
         }
     }
+
+    if(!function_exists('asesores_niveles')){
+        function asesores_niveles(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/asesores_niveles/asesores_niveles.php');
+        }
+    }
+
+    if(!function_exists('asesores_puntos')){
+        function asesores_puntos(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/asesores_puntos/asesores_puntos.php');
+        }
+    }
+
+    if(!function_exists('organigrama')){
+        function organigrama(){
+            include_once( dirname(__DIR__).'/backend/importador.php');
+            include_once( dirname(__DIR__).'/backend/organigrama/organigrama.php');
+        }
+    }
+
+
 
     if(!function_exists('guardarImg')){
 

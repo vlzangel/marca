@@ -29,27 +29,20 @@
 
 		$__puntos = '0';
 		if( $asesor->puntos > 0 ){
+/*			$__puntos = '<a href="'.get_home_url().'/wp-admin/admin.php?page=asesores_puntos&id='.$asesor->id.'" class="enlace">'.$asesor->puntos.'</a>';*/
 			$__puntos = $asesor->puntos;
 		}
-
-		$__editar = "
-			<div 
-				onclick='abrir_link( jQuery( this ) )' 
-				data-id='".$asesor->id."' 
-				data-titulo='Actualizar datos de asesor' 
-				data-modulo='asesores' 
-				data-modal='nuevo' 
-				class='enlace' style='text-align: center;'
-			>Editar</div>";
-
+    
 		$data["data"][] = array(
 	        $asesor->id,
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
-	        $__parent,
-	        $__editar
+
+	        $__puntos,
+	        $__parent
+
 	    );
 
 		$excel[] = array(
@@ -58,8 +51,8 @@
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
-	        $__parent,
-	        'editar'
+	        $__puntos,
+	        $__parent
 	    );
 	}
 

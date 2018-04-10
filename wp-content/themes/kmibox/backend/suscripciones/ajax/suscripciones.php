@@ -173,8 +173,7 @@
 
 	   	$__meta = $wpdb->get_row("SELECT * FROM ordenes WHERE id = $orden_id" );
         $__meta_arr = unserialize( $__meta->metadata );
-        $migrada = ( isset( $__meta_arr['migrada'] ) && $__meta_arr['migrada']=='SI'  )? 'SI' : '---';
-
+        $migrada = ( isset( $__meta_arr['migrada'] ) && $__meta_arr['migrada']=='SI'  )? 'SI' : '';
 
 		$index_row++;
 		$data["data"][] = array(
