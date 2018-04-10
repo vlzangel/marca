@@ -185,7 +185,7 @@
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
 	        "<strong>ID: </strong>".$_data["cliente_id"]."<br>".
-	        "<strong>Email: </strong>".$wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = '".$_data["cliente_id"])."<br>".
+	        "<strong>Email: </strong>".$wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = ".$_data["cliente_id"])."<br>".
 	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br>".
 	        "<strong>Direcci&oacute;n: </strong>".$direccion,	
 	        $_data["info_pago"]["tipo_pago"],        
