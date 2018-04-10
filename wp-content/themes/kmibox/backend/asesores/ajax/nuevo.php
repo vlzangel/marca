@@ -42,12 +42,7 @@
 				telefono = '$telefono'
 			WHERE id = $user_id
 		");
-		echo "UPDATE asesores SET 
-				codigo_asesor = '$codigo',
-				nombre = '$nombre',
-				telefono = '$telefono'
-			WHERE id = $user_id";	
-		
+		 
 		echo json_encode(array(
 			"code" => 1
 		));
