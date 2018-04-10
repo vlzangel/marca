@@ -641,14 +641,7 @@ function loadFase(fase){
 			if( mostrar_modal_marca_1 == "" ){
 				mostrar_modal_marca_1 = 1;
 				setTimeout(function() {
-					jQuery("#modal-contacto-marca").modal('show');
-					/*jQuery.post(
-						TEMA+"/procesos/compra/modal_mostrado.php",
-						{ modal: 1 },
-						function(e){
-							console.log(e);
-						}, "json"
-					);*/
+					// jQuery("#modal-contacto-marca").modal('show');
 		        }, 1500);
 			}
 
@@ -666,14 +659,7 @@ function loadFase(fase){
 			if( mostrar_modal_marca_2 == "" ){
 				mostrar_modal_marca_2 = 1;
 				setTimeout(function() {
-					jQuery("#modal-contacto-marca").modal('show');
-					/*jQuery.post(
-						TEMA+"/procesos/compra/modal_mostrado.php",
-						{ modal: 2 },
-						function(e){
-							console.log(e);
-						}, "json"
-					);*/
+					// jQuery("#modal-contacto-marca").modal('show');
 		        }, 1500);
 			}
 

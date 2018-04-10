@@ -119,12 +119,12 @@
 	    	}
 	        $HTML = '
 	        	<nav class="container nav_container"> 
-	        		<div class="col-xs-6  col-xs-6-1 col-sm-5 col-md-5 pull-left headerResponsive-img" >
-						<a href="'.$home.'">
-							<img src="'.$home.'/img/Image-Header.png" class="img-responsive">
+	        		<div class="col-xs-7 col-sm-5 pull-left" style="padding: 0px;" >
+						<a id="logo" href="'.$home.'" style="background-image: url('.$home.'/img/Image-Header.png);">
+							
 						</a> 
 					</div>
-			    	<ul class="col-xs-6  col-sm-10 col-md-10 pull-right list-inline list-unstyled headerResponsive" >';
+			    	<ul class="col-xs-5 col-sm-7 pull-right list-inline list-unstyled" style="padding: 10px 0px;" >';
 			    		if ( is_user_logged_in() ){
 			    			$HTML .= '
 								<li style="padding-right:0px;padding-left:0px;">
@@ -181,6 +181,21 @@
 	    	global $wpdb;
 	        return $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = '{$key}' ");
 	    }
+	}
+
+	function fechaCastellano ($fecha) {
+		$numeroDia = date('d', $fecha);
+		$dia = date('l', ($fecha));
+		$mes = date('F', ($fecha));
+		$anio = date('Y', ($fecha));
+		$dias_ES = array("Lunes", "Martes", "Mi&eacute;rcoles", "Jueves", "Viernes", "S&aacute;bado", "Domingo");
+		$dias_EN = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+		$nombredia = str_replace($dias_EN, $dias_ES, $dia);
+		$meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+		$meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+		$nombreMes = str_replace($meses_EN, $meses_ES, $mes);
+		// return $nombredia." ".$numeroDia." de ".$nombreMes." de ".$anio;
+		return $nombredia." ".$numeroDia." de ".$nombreMes;
 	}
 
 

@@ -16,6 +16,27 @@ input::placeholder {
 	padding-top: 0px;
 }
 
+#logo,
+#logo_footer {
+    height: 60px;
+    display: block;
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+#logo_footer {
+    height: 80px;
+    background-image: url(../imgs/Image-footer.png) !important;
+}
+
+.text-error{
+    font-size: 40px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 20px;
+}
+
 nav {
 	width: 100%;
 	box-sizing: border-box;
@@ -31,7 +52,6 @@ nav {
     padding: 10px;
     max-width: 1180px;
     width: 100%;
-    margin-top: 5%;
 }
 
 .nav_container > a {
@@ -45,9 +65,11 @@ nav {
 }
 
 .nav_container > ul {
-	display: table-cell;
-	vertical-align: middle;
-	text-align: right;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    padding-top: 10px;
+    margin: 0px;
 }
 
 .nav_container > ul > li {

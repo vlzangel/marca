@@ -71,13 +71,37 @@
 
 			$CARRITO["PDF"] = $dataOpenpay["OPENPAY_URL"]."/paynet-pdf/".$dataOpenpay["MERCHANT_ID"]."/".$charge->payment_method->reference;
 			$_POST['order'] = $order_id;
+
+			$_productos = getProductosDesglose($order_id);
+			$dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$order_id) ) );
+			$productos = "";
+		 	foreach ($_productos as $producto) {
+		 		if( $producto != "" ){
+			 		$temp = getTemplate("/compra/envio/partes/producto");
+			 		$temp = str_replace("[IMG_PRODUCTO]", $producto["img"], $temp);
+			 		$temp = str_replace("[NOMBRE]", $producto["nombre"], $temp);
+			 		$temp = str_replace("[DESCRIPCION]", $producto["descripcion"], $temp);
+			 		$temp = str_replace("[PLAN]", ' Tu asesor nutricional te contactará una semana antes de que venza tu suscripción. Adicionalmente, se hará un envío de tu orden de pago <strong>'.$producto["plan_meses"].'</strong> de manera automática los días <strong>'.$dia_de_cobro.'</strong> por el cobro de tu alimento, el cual será enviado una vez sea aprobado el pago.', $temp);
+			 		$temp = str_replace("[CANTIDAD]", $producto["cantidad"], $temp);
+			 		$temp = str_replace("[PRECIO]", number_format($producto["precio"], 2, ',', '.'), $temp);
+			 		$productos .= $temp;
+			 	}
+		 	}
+
+			$fecha = fechaCastellano ( time() );
+
 			$HTML = generarEmail(
 		    	"compra/nuevo/tienda", 
 		    	array(
+		    		"ID" => $order_id,
+		    		"CODIGO" => $charge->payment_method->reference,
 		    		"USUARIO" => $nombre,
 		    		"INSTRUCCIONES" => $CARRITO["PDF"],
+		    		"SUBTOTAL" => number_format( $CARRITO["total"]-($CARRITO["total"]*0.12), 2, ',', '.'),
 		    		"TOTAL" => number_format( $CARRITO["total"], 2, ',', '.'),
-		    		"FECHA_SUSCRIPCION" => date('d')
+		    		"FECHA_SUSCRIPCION" => date('d'),
+		    		"FECHA_TXT" => $fecha,
+	    			"PRODUCTOS" => $productos,
 		    	)
 		    );
 			$_POST['EMAIL_NUEVA_COMPRA'] = $HTML;
@@ -239,7 +263,7 @@
 			</article>
 
 		</section> <?php
-		// unset($_SESSION["CARRITO"]);
+		unset($_SESSION["CARRITO"]);
 	} 
 ?>
 
