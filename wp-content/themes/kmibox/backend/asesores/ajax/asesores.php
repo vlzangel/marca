@@ -48,7 +48,6 @@
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
-	        $__puntos,
 	        $__parent,
 	        $__editar
 	    );
@@ -59,7 +58,6 @@
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
-	        $__puntos,
 	        $__parent,
 	        'editar'
 	    );
