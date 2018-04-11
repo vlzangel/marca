@@ -9,9 +9,23 @@
 
 	extract($_POST);
 
+
+	// Validar si es administrador
+	$user_info = get_userdata( get_current_user_id() );
+	$user_type = $user_info->roles[0];
+
 	$WHERE ='';
+	if( $user_type != 'administrator' ){
+		$WHERE = ( !empty($WHERE) )? ' AND ':'';
+		$WHERE = " a.email = '{$user_info->user_email}'" ;
+	}
 	if( isset($id) ){ 
-		$WHERE = " WHERE p.asesor_id = {$id}";
+		$WHERE = ( !empty($WHERE) )? ' AND ':'';
+		$WHERE = "p.asesor_id = {$id}";
+	}
+
+	if( !empty($WHERE) ){
+		$WHERE = ' WHERE ' . $WHERE;
 	}
 	$sql = "SELECT p.*, a.codigo_asesor as codigo, a.nombre, a.email, pr.nombre as producto
 		FROM asesores_puntos as p

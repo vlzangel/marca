@@ -23,6 +23,7 @@
                 <th>Tel&eacute;fono</th>
                 <th>Total Puntos</th>
                 <th>Asesor Padre</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody></tbody>

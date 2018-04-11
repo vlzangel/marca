@@ -33,6 +33,20 @@
 		echo json_encode(array(
 			"code" => 1
 		));
+	}else if( isset($exite->id) && $user_id == $exite->id  ){
+
+			$wpdb->query("
+			UPDATE asesores SET 
+				codigo_asesor = '$codigo',
+				nombre = '$nombre',
+				telefono = '$telefono'
+			WHERE id = $user_id
+		");
+	 
+		echo json_encode(array(
+			"code" => 1
+		));
+
 	}else{
 		echo json_encode(array(
 			"code" => 0,
