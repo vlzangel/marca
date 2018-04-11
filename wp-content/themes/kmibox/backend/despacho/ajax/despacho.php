@@ -7,11 +7,24 @@
 
 	global $wpdb;
 
+	// Validar si es administrador
+	$user_info = get_userdata( get_current_user_id() );
+	$user_type = $user_info->roles[0];
+	$WHERE ='';
+	$__asesor_id = '';
+	if( $user_type != 'administrator' ){
+		$__asesor_id = $wpdb->get_var("SELECT id FROM asesores WHERE email = '{$user_info->user_email}' ");
+		$WHERE = "  AND orden IN (SELECT id FROM ordenes WHERE asesor = {$__asesor_id})  " ;
+	}
+
+
+
+
     setZonaHoraria();
 	$mes_actual = date("Y-m", time())."-01";
 	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
 
-	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' ORDER BY id DESC");
+	$despachos = $wpdb->get_results("SELECT * FROM despachos WHERE mes >= '{$mes_actual}' AND mes < '{$mes_siguiente}' {$WHERE} ORDER BY id DESC");
 	$data["data"] = array();
 	$excel = array();
 	$ordenes = array();
@@ -89,6 +102,11 @@
 	        		Enviar Correo
 	        	</span>";
 	        $enviar_correo_excel = "Por enviar el correo";
+
+	        if(!empty($__asesor_id)){
+	        	$enviar_correo = $enviar_correo_excel;
+	        }
+
 		}
 
 		if( $_data["correo_enviado"] == 1 ){
@@ -135,17 +153,10 @@
 	        		class='enlace' style='text-align: center;'
 	        	>".$_data["status"]."</span>
 	        ";
+
 		}
 
-		$index_row++;
-		$data["data"][] = array(
-			$index_row,
-	        $orden_id,
-	        $_data["cliente"],
-	        $_productos,
-	        $guia,
-	        $fecha_entrega,
-	        "
+		$fecha_entregado = "
 	        	<div 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$orden_id."' 
@@ -156,7 +167,27 @@
 	        	>
 	        		".$_data["fecha_entregado"]."
 	        	</div>
-	        ",
+	        ";
+
+
+        if( !empty($__asesor_id) ){
+			$guia = "<div>".$_data["guia"]."</div>";
+			$fecha_entrega = "<div>".$_data["fecha_entrega"]."</div>";
+			$status = "<span>".$_data["status"]."</span>";
+			$fecha_entregado = "<div>".$_data["fecha_entregado"]."</div>";
+        }
+
+
+
+		$index_row++;
+		$data["data"][] = array(
+			$index_row,
+	        $orden_id,
+	        $_data["cliente"],
+	        $_productos,
+	        $guia,
+	        $fecha_entrega,
+	        $fecha_entregado,
 	        $tiempo_entrega,
 	        $status,
 	        $enviar_correo

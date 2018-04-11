@@ -1,5 +1,6 @@
 <?php 	
-	
+	 
+
 	if(!function_exists('marca_menu_reportes')){
         function marca_menu_reportes(){
 
@@ -8,114 +9,125 @@
                     'title'         =>  'Reportes',
                     'short-title'   =>  'Reportes',
                     'parent'        =>  '',
-                    'slug'          =>  'marcas',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'marcas',
-                    'icon'          =>  '',
-                    'position'      =>  4,
-                ),
-                array(
-                    'title'         =>  __('Clientes'),
-                    'short-title'   =>  __('Clientes'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'clientes',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'clientes',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Marcas'),
-                    'short-title'   =>  __('Marcas'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'marcas',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'marcas',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Presentaciones'),
-                    'short-title'   =>  __('Presentaciones'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'productos',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'productos',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Suscripciones'),
-                    'short-title'   =>  __('Suscripciones'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'suscripciones',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'suscripciones',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Despacho'),
-                    'short-title'   =>  __('Despacho'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'despacho',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'despacho',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Tipo de mascotas'),
-                    'short-title'   =>  __('Tipo de mascotas'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'tipos',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'tipos',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Lista y Suscriptores'),
-                    'short-title'   =>  __('Lista y Suscriptores'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'subscribers',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'subscribers',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Asesores Niveles'),
-                    'short-title'   =>  __('Asesores Niveles'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'asesores_niveles',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'asesores_niveles',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Asesores'),
-                    'short-title'   =>  __('Asesores'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'asesores',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'asesores',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Detalle de Puntos'),
-                    'short-title'   =>  __('Detalle de Puntos'),
-                    'parent'        =>  'marcas',
-                    'slug'          =>  'asesores_puntos',
-                    'access'        =>  'manage_options',
-                    'page'          =>  'asesores_puntos',
-                    'icon'          =>  '',
-                ),
-                array(
-                    'title'         =>  __('Estructura de los Asesores'),
-                    'short-title'   =>  __('Estructura'),
-                    'parent'        =>  'marcas',
                     'slug'          =>  'organigrama',
                     'access'        =>  'manage_options',
                     'page'          =>  'organigrama',
                     'icon'          =>  '',
+                    'position'      =>  4,
+                    'add-menu-to'   =>  ['administrator','asesor'],
+                ),
+                array(
+                    'title'         =>  __('Clientes'),
+                    'short-title'   =>  __('Clientes'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'clientes',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'clientes',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],
+                ),
+                array(
+                    'title'         =>  __('Marcas'),
+                    'short-title'   =>  __('Marcas'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'marcas',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'marcas',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],
+                ),
+                array(
+                    'title'         =>  __('Presentaciones'),
+                    'short-title'   =>  __('Presentaciones'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'productos',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'productos',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],
+                ),
+                array(
+                    'title'         =>  __('Suscripciones'),
+                    'short-title'   =>  __('Suscripciones'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'suscripciones',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'suscripciones',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator','asesor'],
+                ),
+                array(
+                    'title'         =>  __('Despacho'),
+                    'short-title'   =>  __('Despacho'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'despacho',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'despacho',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator','asesor'],
+                ),
+                array(
+                    'title'         =>  __('Tipo de mascotas'),
+                    'short-title'   =>  __('Tipo de mascotas'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'tipos',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'tipos',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],
+                ),
+                array(
+                    'title'         =>  __('Lista y Suscriptores'),
+                    'short-title'   =>  __('Lista y Suscriptores'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'subscribers',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'subscribers',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],
+                ),
+                array(
+                    'title'         =>  __('Asesores Niveles'),
+                    'short-title'   =>  __('Asesores Niveles'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'asesores_niveles',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'asesores_niveles',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],
+                ),
+                array(
+                    'title'         =>  __('Asesores'),
+                    'short-title'   =>  __('Asesores'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'asesores',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'asesores',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],
+                ),
+                array(
+                    'title'         =>  __('Detalle de Puntos'),
+                    'short-title'   =>  __('Detalle de Puntos'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'asesores_puntos',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'asesores_puntos',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator','asesor'],
+                ),
+                array(
+                    'title'         =>  __('Estructura de los Asesores'),
+                    'short-title'   =>  __('Estructura'),
+                    'parent'        =>  'organigrama',
+                    'slug'          =>  'organigrama',
+                    'access'        =>  'manage_options',
+                    'page'          =>  'organigrama',
+                    'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator','asesor'],
                 )
 
             );
-
             $activar_cupon = getConfig("cupones");
 
             if( $activar_cupon == "1" ){
@@ -127,34 +139,79 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'cupones',
                     'icon'          =>  '',
+                    'add-menu-to'   =>  ['administrator'],                    
                 );
             }
 
+            $type = get_current_user_role();
             foreach($opciones_menu_reporte as $opcion){
+
                 if( $opcion['parent'] == '' ){
-                    add_menu_page(
-                        $opcion['title'],
-                        $opcion['short-title'],
-                        $opcion['access'],
-                        $opcion['slug'],
-                        $opcion['page'],
-                        $opcion['icon'],
-                        $opcion['position']
-                    );
+                    if( in_array($type, $opcion['add-menu-to']) ){
+                        add_menu_page(
+                            $opcion['title'],
+                            $opcion['short-title'],
+                            $opcion['access'],
+                            $opcion['slug'],
+                            $opcion['page'],
+                            $opcion['icon'],
+                            $opcion['position']
+                        );
+                    }
                 } else{
-                    add_submenu_page(
-                        $opcion['parent'],
-                        $opcion['title'],
-                        $opcion['short-title'],
-                        $opcion['access'],
-                        $opcion['slug'],
-                        $opcion['page']
-                    );
+                    if( in_array($type, $opcion['add-menu-to']) ){
+                        add_submenu_page(
+                            $opcion['parent'],
+                            $opcion['title'],
+                            $opcion['short-title'],
+                            $opcion['access'],
+                            $opcion['slug'],
+                            $opcion['page']
+                        );
+                    }
                 }
             }
         }
 
         add_action('admin_menu','marca_menu_reportes');
+    }
+
+
+
+    if(!function_exists('get_current_codigo_asesor')){
+        function get_current_codigo_asesor(){
+            global $wpdb;
+            $user = get_userdata( get_current_user_id() );
+       
+            $existe = $wpdb->get_var("SELECT codigo_asesor FROM asesores WHERE email = '{$user->user_email}' ");
+            if ( !empty($existe) ){
+                return $existe;
+            }
+            return '';
+        }
+    }
+
+    if(!function_exists('get_current_user_role')){
+        function get_current_user_role(){
+            global $wpdb;
+            $user_info = get_userdata( get_current_user_id() );
+            $type = 'usuario';
+            switch( $user_info->roles[0] ){
+                case 'administrator':
+                    $type = $user_info->roles[0];
+                    break;
+                default:
+                    $existe = get_current_codigo_asesor();
+                    if ( !empty($existe) ){
+                        $role_object = get_role($user_info->roles[0]);
+                        $role_object->add_cap( 'manage_options' );
+                        $type = 'asesor';
+                    }
+                    remove_menu_page( "options-general.php" );
+                    break;
+            }
+            return $type;
+        }
     }
 
     /* Inclucion de paginas */

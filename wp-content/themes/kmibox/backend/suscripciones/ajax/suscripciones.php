@@ -7,7 +7,18 @@
     setZonaHoraria();
 
 	global $wpdb;
-	$suscripciones = $wpdb->get_results("SELECT * FROM ordenes ORDER BY id DESC");
+
+	// Validar si es administrador
+	$user_info = get_userdata( get_current_user_id() );
+	$user_type = $user_info->roles[0];
+
+	$WHERE ='';
+	if( $user_type != 'administrator' ){
+		$__asesor_id = $wpdb->get_var("SELECT id FROM asesores WHERE email = '{$user_info->user_email}' ");
+		$WHERE = " WHERE asesor = {$__asesor_id}" ;
+	}
+
+	$suscripciones = $wpdb->get_results("SELECT * FROM ordenes {$WHERE} ORDER BY id DESC");
 	$data["data"] = array();
 	$excel = array();
 	$ordenes = array();
@@ -28,7 +39,9 @@
 			if( $_meta_cliente[ "asesor_registro" ] != "" ){ $asesor_padre = $_meta_cliente[ "asesor_registro" ][0]; }
 			if( $asesor_padre != "" ){ $asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$asesor_padre); }
 		}
-		$ordenes[ $orden->id ]["asesor_id"] = $asesor->id;
+		$ordenes[ $orden->id ]["asesor_id"] = $asesor->codigo_asesor;
+		//$ordenes[ $orden->id ]["asesor_id"] = $asesor->id;
+
 		$ordenes[ $orden->id ]["asesor_nombre"] = $asesor->nombre;
 		$ordenes[ $orden->id ]["asesor_email"] = $asesor->email;
 
@@ -175,6 +188,11 @@
         $__meta_arr = unserialize( $__meta->metadata );
         $migrada = ( isset( $__meta_arr['migrada'] ) && $__meta_arr['migrada']=='SI'  )? 'SI' : '';
 
+        $btn_cancelar = "<span class='enlace' onClick='cancelarSuscripcion(jQuery(this))' data-id='{$_data["id"]}'>Cancelar</span>";
+        if(!empty($__asesor_id)){
+        	$btn_cancelar = "---";
+        }
+
 		$index_row++;
 		$data["data"][] = array(
 			$index_row,
@@ -201,7 +219,7 @@
 	        $_data["asesor_id"],
 	        $_data["asesor_nombre"],
 	        $_data["asesor_email"],
-	        "<span class='enlace' onClick='cancelarSuscripcion(jQuery(this))' data-id='{$_data["id"]}'>Cancelar</span>"
+	        $btn_cancelar
 	    );
 
 		$excel[] = array(

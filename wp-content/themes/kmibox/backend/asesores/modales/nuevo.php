@@ -14,6 +14,7 @@
 		$_nombre = $marca->nombre;
 		$_email = $marca->email;
 		$_telefono = $marca->telefono;
+		$_codigo_asesor = $marca->codigo_asesor;
 	}
 
 
@@ -62,6 +63,7 @@
 					<input type="text" id="telefono" name="telefono" value="'.$_telefono.'" />
 				</div>
 			</div>
+
 
 			'.$BOTON.'
 		</div>
