@@ -286,13 +286,14 @@
 	}
 
 	function wpdm_filter_siteurl($content) {
+		$host = $_SERVER['http_host'];
 		$current_server = $_SERVER['SERVER_NAME'];
-	   	return "http://".$current_server."/".SUB_PATH;
+	   	return $host."://".$current_server."/".SUB_PATH;
 	}
 
 	function wpdm_filter_home($content) {
 		$current_server = $_SERVER['SERVER_NAME'];
-	   	return "http://".$current_server."/".SUB_PATH;
+	   	return $host."://".$current_server."/".SUB_PATH;
 	}
 
 	function wpdm_conv_tag($content) {
