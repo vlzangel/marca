@@ -285,14 +285,18 @@
 		';
 	}
 
+	function get_protocol(){
+		return ($_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+	}
+
 	function wpdm_filter_siteurl($content) {
 		$current_server = $_SERVER['SERVER_NAME'];
-	   	return "http://".$current_server."/".SUB_PATH;
+	   	return get_protocol().$current_server."/".SUB_PATH;
 	}
 
 	function wpdm_filter_home($content) {
 		$current_server = $_SERVER['SERVER_NAME'];
-	   	return "http://".$current_server."/".SUB_PATH;
+	   	return get_protocol().$current_server."/".SUB_PATH;
 	}
 
 	function wpdm_conv_tag($content) {
