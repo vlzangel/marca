@@ -34,7 +34,14 @@
 		$ordenes[ $orden->id ]["status"] = $orden->status;
 
 		$asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$orden->asesor);
+		if( $asesor == null ){
+			$asesor_padre = 0;
+			if( $_meta_cliente[ "asesor_registro" ] != "" ){ $asesor_padre = $_meta_cliente[ "asesor_registro" ][0]; }
+			if( $asesor_padre != "" ){ $asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id=".$asesor_padre); }
+		}
 		$ordenes[ $orden->id ]["asesor_id"] = $asesor->codigo_asesor;
+		//$ordenes[ $orden->id ]["asesor_id"] = $asesor->id;
+
 		$ordenes[ $orden->id ]["asesor_nombre"] = $asesor->nombre;
 		$ordenes[ $orden->id ]["asesor_email"] = $asesor->email;
 
@@ -194,7 +201,10 @@
 	        $_data["status"],
 	        $_data["fecha_creacion"],
 	        $_data["cliente"],
-	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br><strong>Direcci&oacute;n: </strong>".$direccion,	
+	        "<strong>ID: </strong>".$_data["cliente_id"]."<br>".
+	        "<strong>Email: </strong>".$wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = ".$_data["cliente_id"])."<br>".
+	        "<strong>Tel&eacute;fono: </strong>".$telefonos."<br>".
+	        "<strong>Direcci&oacute;n: </strong>".$direccion,	
 	        $_data["info_pago"]["tipo_pago"],        
 	        $_productos,
 	        $_precios,

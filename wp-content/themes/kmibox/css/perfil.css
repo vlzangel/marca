@@ -1,7 +1,8 @@
 .perfil_tabs{
-	margin: 0px !important;
+    margin: 0px auto !important;
     padding: 0px !important;
     overflow: hidden;
+    max-width: 1180px;
 }
 
 .perfil_tabs li{
@@ -114,6 +115,10 @@
     font-size: 18px;
     color: #000000;
     text-transform: uppercase;
+}
+
+.progress-content img {
+    background-color: rgb(155, 255, 0);
 }
 
 /* Acciones de las suscripciones */

@@ -1,0 +1,245 @@
+.atras:hover, .btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
+    color: #eb008a !important;
+    border: 2px solid #eb008a;
+}
+
+.btn-kmibox {
+    background: #eb008a;
+}
+
+.nav_container > ul > li a {
+    background: #eb008a;
+    border: 2px solid #eb008a;
+}
+
+.nav_container > ul > li a:hover {
+    color: #eb008a;
+    border: 2px solid #eb008a;
+}
+
+#section-comment {
+    background: #eb008a;
+}
+
+#home-dog > div {
+    background: #eb008a;
+}
+#footer {
+    background: #3f3d3e;
+}
+
+#contacto-ayuda {
+    border-bottom: 9px solid #eb008a;
+}
+
+#home-dog {
+    border-bottom: 15px solid #eb008a;
+}
+
+#como-funciona > div > div > img {
+    margin-bottom: 5%;
+    background: #eb008a;
+}
+
+#como-consigo-kmibox img {
+    background: #eb008a;
+}
+
+#regalasela-amigo img {
+    background: #eb008a;
+}
+
+.atras {
+    background: #eb008a;
+    border: 1px solid #eb008a;
+}
+
+.btn-sm-kmibox {
+    background: #eb008a;
+}
+
+#btn-register_{
+    color: #FFF; 
+    border: 2px solid #eb008a;
+}
+
+#register i.fa-asterisk:before {
+    color: #eb008a;
+}
+
+.campos-obligatorios span {
+    color: #eb008a;
+}
+
+.acciones_container button {
+    border: 2px solid #eb008a;
+}
+
+.perfil_tabs li {
+    background: #222222;
+}
+
+.perfil_tabs li.tab_activo {
+    background-color: #eb008a;
+    color: #ffffff;
+}
+
+.perfil_tabs li.tab_activo:hover {
+    color: #000000;
+}
+
+.perfil_tabs li:hover {
+    color: #eb008a;
+}
+
+.progress-content img {
+    background-color: #eb008a;
+}
+
+#vlz_atras,
+.btn_siguiente_container button {
+    background: #eb008a;
+    border: 1px solid #eb008a;
+}
+
+#vlz_atras:hover,
+.btn_siguiente_container button:hover {
+    color: #eb008a;
+    background: #FFF;
+    border: 2px solid #eb008a;
+}
+
+.selector_edad_container .selector_edad_box span {
+    background: #eb008a;
+}
+
+.selector_edad_container .selector_edad_box span:hover {
+    background: #222222;
+}
+
+.selector_edad_container .selector_edad_box span.btn_activo {
+    background: #222222 !important;
+}
+
+#modal-contacto-marca .modal-content {
+    background-color: #eb008a;
+}
+
+#modal-contacto-marca .modal-content {
+    background-color: #eb008a;
+}
+
+#modal-contacto-marca .modal-body p span {
+    color: #222222;
+}
+
+.carrousel-items article div p {
+    border-top: solid 2px #eb008a;
+}
+
+#modal-contacto-marca .modal-header {
+    border-bottom: 3px solid #ffffff;
+}
+
+#marca > div.item_activo > .item_box {
+    border: solid 2px #eb008a;
+}
+
+#plan img {
+    background-color: #eb008a !important;
+}
+
+.personalizar_plan {
+    background: #eb008a;
+}
+
+.personalizar_plan_columna div {
+    color: #222;
+}
+
+#logo {
+    background-image: url(../imgs/momsweb.png) !important;
+    height: 75px;
+}
+
+#logo_footer {
+    height: 80px;
+    background-image: url(../imgs/momsweb.png) !important;
+}
+
+#nutri-container{
+    background: #eb008a;
+}
+
+.input-pop-up-home {
+    border: solid 2px #eb008a;
+}
+
+.btn-pop-up-home {
+    background: #eb008a;
+    border: 2px solid #eb008a;
+}
+
+.cintillo_factura #cen {
+    background-color: #eb008a;
+}
+
+#desglose th span {
+    background-color: #eb008a;
+}
+
+.btn_pagar {
+    background: #eb018a;
+    border: 1px solid #eb018a;
+    border: solid 2px #eb018a;
+}
+
+.btn_pagar:hover {
+    background: #FFF;
+    color: #eb018a;
+    border: solid 2px #eb018a;
+}
+
+#agregar_plan {
+    border: solid 2px #eb018a;
+    color: #eb018a;
+}
+
+#agregar_plan:hover {
+    color: #FFF;
+    background: #eb018a;
+}
+
+#vlz_controles_fases > span {
+    background-color: rgba(235, 1, 138, 0.5);
+}
+
+#vlz_controles_fases span.fase_activa {
+    background-color: #eb018a;
+}
+
+#totales table td {
+    color: #222;
+}
+
+.text-felicidades {
+    color: #eb008a;
+}
+
+#pago_exitoso h2 {
+    color: #eb008a;
+}
+
+.LoginNuevo {
+    background-color: #eb008a;
+}
+
+.btn-kmibox-white {
+    background: #eb008a;
+    border: 1px solid #eb008a;
+    text-transform: uppercase;
+}
+
+.btn-kmibox-white:hover {
+    color: #eb008a;
+}

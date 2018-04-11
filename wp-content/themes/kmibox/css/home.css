@@ -9,6 +9,7 @@
 
 body{
     padding-bottom: 180px;
+    overflow: hidden;
 }
 
 section{
@@ -57,6 +58,7 @@ section{
 
 #como-funciona > div > div > img{
 	margin-bottom: 5%;
+    background: #9bff00;
 }
 
 .border-lateral{
@@ -125,9 +127,9 @@ section{
 	    margin-left: 7% ! important;
 }
 
-#como-consigo-kmibox img{
-	/*margin-top:10px;*/
-	/*height: 70px;*/
+#como-consigo-kmibox img,
+#regalasela-amigo img{
+    background: #9bff00;
 }
 
 #como-consigo-kmibox p{
@@ -204,7 +206,7 @@ section{
 	.input-pop-up-home {
         width: calc( 50% - 10px );
 	    border: solid 2px;
-	    padding: 7px 10px;
+	    padding: 5px 10px;
 	    text-align: center;
 	    outline: none;
 	}
@@ -215,15 +217,14 @@ section{
 	}
 
 	.btn-pop-up-home {
-	    margin-top: 15px;
 	    cursor: pointer;
 	    background: #091705;
 	    border-radius: 10px;
 	    border: 2px solid #091705;
 	    color: #fff;
-	    font-size: 20px;
+	    font-size: 16px;
 	    padding: 5px 20px;
-	    margin-top: 20px;
+	    margin-top: 5px;
 	    font-family: GothanMedium_regular;
 	    text-decoration: none;
 	    outline: none;
@@ -241,6 +242,10 @@ section{
     	margin: 0px auto 60px;
 	    font-family: GothanMedium_regular;
 	    display: none;
+	}
+
+	#nutri-container{
+	    background: #091705;
 	}
 
 /* Pop Up Footer */

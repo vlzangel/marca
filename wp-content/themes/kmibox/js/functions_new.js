@@ -642,13 +642,6 @@ function loadFase(fase){
 				mostrar_modal_marca_1 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
-					/*jQuery.post(
-						TEMA+"/procesos/compra/modal_mostrado.php",
-						{ modal: 1 },
-						function(e){
-							console.log(e);
-						}, "json"
-					);*/
 		        }, 1500);
 			}
 
@@ -667,13 +660,6 @@ function loadFase(fase){
 				mostrar_modal_marca_2 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
-					/*jQuery.post(
-						TEMA+"/procesos/compra/modal_mostrado.php",
-						{ modal: 2 },
-						function(e){
-							console.log(e);
-						}, "json"
-					);*/
 		        }, 1500);
 			}
 

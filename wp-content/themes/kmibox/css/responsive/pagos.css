@@ -42,6 +42,11 @@
 
 @media (max-width: 500px){
 
+	.errores_box {
+	    text-align: left;
+	    font-size: 12px;
+	}
+
 	.desglose_final td {
 	    border-right: solid 1px #CCC;
 	    padding: 5px;

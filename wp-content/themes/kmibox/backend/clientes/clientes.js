@@ -54,7 +54,6 @@ function actualizarAsesor(){
 
 }
 
-
 function asociarAsesor(){
 	var URL = TEMA+"/backend/clientes/ajax/asociarAsesor.php";
     jQuery.post(

@@ -520,7 +520,11 @@ div#wpadminbar {
 	}
 
 	#plan article img{
-		padding: 10px;
+	    background-color: #0d1804;
+	}
+
+	.cintillo_factura #cen {
+	    background-color: #0d1804;
 	}
 
 	#plan article.plan_activo{

@@ -124,23 +124,24 @@
 			$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
 
         } catch (Exception $e) {
-        	$error = $e->getErrorCode()." - ".$e->getDescription();
-        	$respuesta["error"] = $error;
+	    	$error_code = $e->getErrorCode();
+	    	$error_info = $e->getDescription();
+	    	$respuesta["error"] = array(
+	    		"codigo" => $error_code,
+	    		"info" => $error_info
+	    	);
         }
 		
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
     	$error_info = $e->getDescription();
-
     	$respuesta["error"] = array(
     		"codigo" => $error_code,
     		"info" => $error_info
     	);
-
     }
 
     if( $respuesta["error"] == "" ){
-
     	$_tarjeta = substr($num_card, 0, 2)."********".substr($num_card, -2);
     	$HTML = generarEmail(
 	    	"compra/nuevo/tarjeta", 
@@ -155,20 +156,19 @@
 	    );
 
 	    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
- 
 	    mail_admin_nutriheroes( "Pago Recibido - NutriHeroes", $HTML );
- 
 	    crearCobro( $orden_id, $charge->id );
 
     	// ************************
-		// Agregar a bitrix
+		 // Agregar a bitrix
 		// ************************
 		include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
 		$bitrix->loadInvoice_by_asesor($orden_id);		
-		
-
     	unset($_SESSION["CARRITO"]);
     }
+
+    $respuesta["user_id_openpay"] = $openpay_cliente_id;
+    $respuesta["user_id"] = $user_id;
 
     echo json_encode($respuesta);
 
