@@ -14,5 +14,10 @@
   
     <div id="myDiagramDiv"></div>
 
+    <div id="cargando_estructura" class="text-center">
+    	<img src="<?php echo TEMA(); ?>/backend/organigrama/image/estructura.png" class="responsive"><br>
+    	<h1><i class="fa fa-cog fa-spin"></i> Cargando estructura</h1>
+    </div>
+
 </div>
 

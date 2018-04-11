@@ -145,6 +145,8 @@
 
     var data = '';
 
+    jQuery('#cargando_estructura').show();
+    jQuery('#myDiagramDiv').hide();
     jQuery.post(
       TEMA+"/backend/organigrama/ajax/organigrama.php",
       {}, 
@@ -152,6 +154,8 @@
           if( datos != "" ){
             myDiagram.model = go.Model.fromJson(datos);
             myDiagram.isModified = false; 
+            jQuery('#myDiagramDiv').show();
+            jQuery('#cargando_estructura').hide();
           }
       }, "json"
     );
