@@ -5,7 +5,7 @@ jQuery(document).ready(function() {
     OpenPay.setSandboxMode( OPENPAY_PRUEBAS == 1 );
 
     var errores = [];
-    errores["1001"] = "La longitud del CVV2 debe ser de 4 digitos";
+    errores["1001"] = "Error procesando el pago";
     errores["3001"] = "La tarjeta fue rechazada";
     errores["3002"] = "La tarjeta ha expirado";
     errores["3003"] = "La tarjeta no tiene fondos suficientes";

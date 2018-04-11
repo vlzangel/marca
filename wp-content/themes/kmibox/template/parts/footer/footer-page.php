@@ -1,20 +1,20 @@
 <footer id="footer" class="row text-center" style=" margin-bottom: 0%;">
 <div class="container" style="margin-top: 2%">		
 	<div style="float:right;width:50%;"> 
-		<article class="col-sm-8  text-left">			
-			<h3 class="caviar">Navega</h3>
-			<ul class="list-unstyled">
-				<li class="caviar">Nosotros</li>
-				<li class="caviar">Nuestra promesa</li>
-				<li class="caviar">Blog</li>
-				<li class="caviar">Términos y condiciones</li>
-				<li class="caviar">Nuestros aliados</li>
-				<li class="caviar">Preguntas y respuestas</li>
-			</ul>
-		</article>
-		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-sm hidden-md hidden-lg" width="85%" style="margin-top: 34%">
-		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-md hidden-xs hidden-lg" width="85%" style="margin-top: 6%">
-		<img src="<?php echo get_home_url(); ?>/img/Image-footer.png" class="hidden-xs hidden-sm" width="50%" style="margin-top: -46%; margin-left: 55%;">
+		<div style="overflow: hidden;">
+			<article class="col-sm-8  text-left">			
+				<h3 class="caviar">Navega</h3>
+				<ul class="list-unstyled">
+					<li class="caviar">Nosotros</li>
+					<li class="caviar">Nuestra promesa</li>
+					<li class="caviar">Blog</li>
+					<li class="caviar">Términos y condiciones</li>
+					<li class="caviar">Nuestros aliados</li>
+					<li class="caviar">Preguntas y respuestas</li>
+				</ul>
+			</article>
+		</div>
+		<div id="logo_footer"></div>
 	</div>		 	
 	<div style="float:right;width:50%;"> 
 		<article class="col-sm-12  text-left">

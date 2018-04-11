@@ -244,6 +244,10 @@ section{
 	    display: none;
 	}
 
+	#nutri-container{
+	    background: #091705;
+	}
+
 /* Pop Up Footer */
 	
 	#contacto-ayuda{

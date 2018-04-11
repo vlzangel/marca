@@ -167,6 +167,9 @@
     	unset($_SESSION["CARRITO"]);
     }
 
+    $respuesta["user_id_openpay"] = $openpay_cliente_id;
+    $respuesta["user_id"] = $user_id;
+
     echo json_encode($respuesta);
 
 ?>
