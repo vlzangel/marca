@@ -46,7 +46,7 @@
 						</td>
 						<td style="font-size: 12px; padding: 10px 0px">
 							Presiona el botón de "instrucciones de <br>
-							pago, se desplegará el código de barras de tu orden.
+							pago", se desplegará el código de barras de tu orden.
 							Acude con ese código a cualquier tienda afiliada.
 						</td>
 					</tr>
