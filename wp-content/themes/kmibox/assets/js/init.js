@@ -784,7 +784,10 @@ $(function($){
 			clave: $('[name="clave"]').val(),
 			rememberme: $('[name="rememberme"]').val()
 		}, function(r) {
-			if(r==1){
+
+			console.log( r );
+
+			/*if(r==1){
 				window.location.reload();
 			}else{
 				$('#login-mensaje').html('Usuario o Clave invalidos');
@@ -795,7 +798,7 @@ $(function($){
 
 				$('#form-login').bootstrapValidator('revalidateField', 'usuario');
 				$('#form-login').bootstrapValidator('revalidateField', 'clave');
-			}
+			}*/
 		});
 	})
 	.bootstrapValidator({
