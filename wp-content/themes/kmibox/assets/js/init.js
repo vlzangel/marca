@@ -784,6 +784,9 @@ $(function($){
 			clave: $('[name="clave"]').val(),
 			rememberme: $('[name="rememberme"]').val()
 		}, function(r) {
+
+			console.log( r );
+
 			if(r==1){
 				window.location.reload();
 			}else{
