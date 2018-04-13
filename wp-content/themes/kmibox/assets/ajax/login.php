@@ -32,9 +32,9 @@ $info['user_password'] = sanitize_text_field($_POST['clave']);
 $info['remember'] = $rememberme; 
 
 $dat = 0;
-$dat = kmibox_login([
+$dat = login([
 	'user_login' => $username,
-	'user_password' =>  sanitize_text_field($_POST['clave']),
+	'user_password' =>  ($_POST['clave']),
 	'remember' => $rememberme ,
 ]);
 print_r( $dat );
