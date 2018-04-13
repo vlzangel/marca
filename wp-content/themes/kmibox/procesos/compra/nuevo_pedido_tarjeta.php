@@ -23,13 +23,15 @@
     }else{
  		$orden_id = $CARRITO["orden_id"];
     }
+
+
  	$respuesta = array();
  	$respuesta["orden_id"] = $orden_id;
  	$respuesta["error"] = "";
  	$dataOpenpay = dataOpenpay();
 
-    $email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
-    $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
+    $email 				= $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
+    $nombre 			= get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
     $openpay_cliente_id = get_user_meta($user_id, "openpay_id", true);
 
     $charge = "";
@@ -41,96 +43,85 @@
 	 	$current_user = wp_get_current_user();
 	    $user_id = $current_user->ID;
 
-	    if( $openpay_cliente_id == "" ){
-			$customerData = array(
-		     	'name' => $nombre,
-		     	'email' => $email
-		  	);
-			$customer = $openpay->customers->add($customerData);
+	    /* Obtener id de usuario */
+			$customerData = array( 'name' => $nombre, 'email' => $email );
+		    if( $openpay_cliente_id == "" ){
+				$customer = $openpay->customers->add($customerData);
+		    }
+		    try {
+				$customer = $openpay->customers->get($openpay_cliente_id);
+			} catch (Exception $e) {
+				$customer = $openpay->customers->add($customerData);
+		    }
 			$openpay_cliente_id = $customer->id;
 			update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
-	    }
+	    /* Fin obtener id de usuario */
 
-	    try {
-			$customer = $openpay->customers->get($openpay_cliente_id);
-		} catch (Exception $e) {
-	    	$customerData = array(
-		     	'name' => $nombre,
-		     	'email' => $email
-		  	);
-			$customer = $openpay->customers->add($customerData);
-			$openpay_cliente_id = $customer->id;
-			update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
-	    }
 
-	    $card_id = "";
-	    $tarjeta = get_user_meta($user_id, "openpay_card_".md5($num_card), true);
+	    /* Obtener id de tarjeta */
 
-	    if ( strlen($tarjeta) == 0 ) {
-		    $cardDataRequest = array(
-			    'holder_name' => $holder_name,
-			    'card_number' => $num_card,
-			    'cvv2' => $cvv,
-			    'expiration_month' => $exp_month,
-			    'expiration_year' => $exp_year
-			);
-			$card = $customer->cards->add($cardDataRequest);
+		    $cardDataRequest = array( 'holder_name' => $holder_name, 'card_number' => $num_card, 'cvv2' => $cvv, 'expiration_month' => $exp_month, 'expiration_year' => $exp_year );
+			$cardData = array( 'token_id' => $token_id, 'device_session_id' => $deviceIdHiddenFieldName );
+
+	    	$card_id = "";
+	    	$tarjeta = get_user_meta($user_id, "openpay_card_".md5($num_card), true);
+
+		    if ( strlen($tarjeta) == 0 ) {
+				$card = $customer->cards->add($cardData); $card_id = $card->id;
+		    }else{
+		    	$tarjeta = unserialize($tarjeta); $card_id = $tarjeta["id"];
+		    }
+
+		    try{
+		    	$card = $customer->cards->get($card_id);
+		    } catch (Exception $e) {
+				$card = $customer->cards->add($cardData);
+		    }
+			
+		    $cardDataRequest["id"] = $card->id;
 			$card_id = $card->id;
-			$cardDataRequest["id"] = $card->id;
-			update_user_meta($user_id, "openpay_card_".md5($num_card), serialize($cardDataRequest) );
-	    }else{
-	    	$tarjeta = unserialize($tarjeta);
-			$card_id = $tarjeta["id"];
-	    }
 
-	    try{
-	    	$card = $customer->cards->get($card_id);
-	    } catch (Exception $e) {
-	    	$cardDataRequest = array(
-			    'holder_name' => $holder_name,
-			    'card_number' => $num_card,
-			    'cvv2' => $cvv,
-			    'expiration_month' => $exp_month,
-			    'expiration_year' => $exp_year
-			);
-			$card = $customer->cards->add($cardDataRequest);
-			$card_id = $card->id;
-			$cardDataRequest["id"] = $card->id;
-			update_user_meta($user_id, "openpay_card_".md5($num_card), serialize($cardDataRequest) );
-	    }
+	    /* Fin obtener id de tarjeta */
 
-		$chargeData = array(
-		    'method' 			=> 'card',
-		    'source_id' 		=> $card_id,
-		    'amount' 			=> (float) $CARRITO["total"],
-		    'order_id' 			=> $orden_id."_CobroInicial_".time(),
-		    'description' 		=> "Tarjeta - NutriHeroes",
-		    'device_session_id' => $deviceIdHiddenFieldName
-	    );
 
-		$error = "";
+	    /* Crear cargo con tarjeta */
 
-		try {
-            $charge = $customer->charges->create($chargeData);
-			$respuesta["transaccion"] = $charge->id;
-			$respuesta["cliente"] = $openpay_cliente_id;
-			$respuesta["tarjeta"] = $card->id;
+			$chargeData = array(
+			    'method' 			=> 'card',
+			    'source_id' 		=> $card_id,
+			    'amount' 			=> (float) $CARRITO["total"],
+			    'order_id' 			=> $orden_id."_CobroInicial_".time(),
+			    'description' 		=> "Tarjeta - NutriHeroes",
+			    'device_session_id' => $deviceIdHiddenFieldName
+		    );
 
-			$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$orden_id}");
-			$data = unserialize( $orden->metadata );
-			$data["card_id"] = $card_id;
-			$data["device"] = $deviceIdHiddenFieldName;
-			$data = serialize($data);
-			$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
+			$error = "";
 
-        } catch (Exception $e) {
-	    	$error_code = $e->getErrorCode();
-	    	$error_info = $e->getDescription();
-	    	$respuesta["error"] = array(
-	    		"codigo" => $error_code,
-	    		"info" => $error_info
-	    	);
-        }
+			try {
+	            $charge = $customer->charges->create($chargeData);
+				$respuesta["transaccion"] = $charge->id;
+				$respuesta["cliente"] = $openpay_cliente_id;
+				$respuesta["tarjeta"] = $card->id;
+
+				$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$orden_id}");
+				$data = unserialize( $orden->metadata );
+				$data["card_id"] = $card_id;
+				$data["device"] = $deviceIdHiddenFieldName;
+				$data = serialize($data);
+				$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
+
+				update_user_meta($user_id, "openpay_card_".md5($num_card), serialize($cardDataRequest) );
+
+	        } catch (Exception $e) {
+		    	$error_code = $e->getErrorCode();
+		    	$error_info = $e->getDescription();
+		    	$respuesta["error"] = array(
+		    		"codigo" => $error_code,
+		    		"info" => $error_info
+		    	);
+	        }
+
+	    /* Fin creación cargo con tarjeta */
 		
 	} catch (Exception $e) {
     	$error_code = $e->getErrorCode();
