@@ -286,7 +286,11 @@
 	}
 
 	function get_protocol(){
-		return ($_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+		if( isset($_SERVER["HTTPS"]) ){
+			return ($_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+		}else{
+			return "http://";
+		}
 	}
 
 	function wpdm_filter_siteurl($content) {
