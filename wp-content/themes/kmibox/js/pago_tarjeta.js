@@ -6,6 +6,8 @@ jQuery(document).ready(function() {
 
     var errores = [];
     errores["1001"] = "Error procesando el pago";
+    errores["2004"] = "El dígito de verificación del número de tarjeta no es válido";
+    errores["2005"] = "La fecha de vencimiento ya ha pasado";
     errores["3001"] = "La tarjeta fue rechazada";
     errores["3002"] = "La tarjeta ha expirado";
     errores["3003"] = "La tarjeta no tiene fondos suficientes";
@@ -24,22 +26,21 @@ jQuery(document).ready(function() {
 	// ***************************************
 	// Validar form pago
 	// ***************************************
-	jQuery('#form-pago')
-	.on('success.form.bv', function(e) {
-	    e.preventDefault();
 
-	    jQuery("#btn_pagar_1").text("Procesando...");
+	var success_callbak = function(response) {
+		var token_id = response.data.id;
+		jQuery('#token_id').val(token_id);
 
-	    jQuery.post(
+		jQuery("#btn_pagar_1").text("Procesando...");
+		
+		jQuery.post(
 			TEMA+"procesos/compra/nuevo_pedido_tarjeta.php",
-			jQuery(this).serialize(),
+			jQuery('#form-pago').serialize(),
 			function(data){
 				console.log( data );
 				if( data["error"] == "" ){
 					jQuery("#pagar").addClass("hidden");
 					jQuery("#pago_exitoso").removeClass("hidden");
-					jQuery("#btn_pagar_1").text("Realizar Pago");
-
 					jQuery(".controles_generales").css("display", "none");
 				}else{
 					data["error"].codigo += 0;
@@ -52,7 +53,6 @@ jQuery(document).ready(function() {
 					}
 			    	jQuery(".errores_box").html(error);
 					jQuery(".errores_box").css("display", "block");
-
 					jQuery("#btn_pagar_1").text("Realizar Pago");
 					jQuery("#btn_pagar_1").prop("disabled", false);
 				}
@@ -61,6 +61,43 @@ jQuery(document).ready(function() {
 			console.log( e );
 	  	});
 
+	};
+
+	var error_callbak = function(response) {
+		var desc = response.data.description != undefined ? response.data.description : response.message;
+		console.log(response);
+
+		var error = "";
+		if( response.data.error_code == 1001 ){
+			switch( desc ){
+				case "cvv2 length must be 3 digits":
+					error = "La longitud del cvv2 debe ser de 3 dígitos";
+				break;
+				case "cvv2 length must be 4 digits":
+					error = "La longitud del cvv2 debe ser de 4 dígitos";
+				break;
+			}
+		}else{
+			error = errores[ response.data.error_code ];
+		}
+
+		if( error != "" ){
+			var error = "Error: "+error+"<br>";
+		}else{
+			var error = "Error validando los datos de la tarjeta<br>";
+		}
+
+		jQuery(".errores_box").html(error);
+		jQuery(".errores_box").css("display", "block");
+		jQuery("#btn_pagar_1").prop( "disabled", false);
+		jQuery("#btn_pagar_1").text("Realiza Pago");
+	};
+
+	jQuery('#form-pago')
+	.on('success.form.bv', function(e) {
+	    e.preventDefault();
+	    jQuery("#btn_pagar_1").text("Validando...");
+	    OpenPay.token.extractFormAndCreate('form-pago', success_callbak, error_callbak);
 	})
 	.bootstrapValidator({
 	    feedbackIcons: {
