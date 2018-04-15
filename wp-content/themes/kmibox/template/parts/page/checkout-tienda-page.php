@@ -2,8 +2,8 @@
 
 	global $CARRITO;
 	global $wpdb;
-
- 	include_once(dirname(dirname(dirname(__DIR__)))."/lib/openpay/Openpay.php");
+	$dir = dirname(dirname(dirname(__DIR__)));
+ 	include_once($dir."/funciones/suscripcion.php");
 
  	$order_id = time();
     $CARRITO = unserialize( $_SESSION["CARRITO"] );
@@ -16,62 +16,23 @@
     }
 
     if( $_SESSION['admin_sub_login'] != "YES" ){
+    	
+		$due_date = date('Y-m-d\TH:i:s', strtotime('+ 5 day'));
 
-	 	$dataOpenpay = dataOpenpay();
-	 	try {
-		 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
-		 	Openpay::setProductionMode( $dataOpenpay["OPENPAY_PRUEBAS"] != 1 );
+	 	$payment_gateway = get_payment_gateway();	
+	    switch( strtolower( $payment_gateway ) ){
+	    	case "openpay":
+    		 	include_once(dirname(dirname(dirname(__DIR__)))."/procesos/compra/pasarelas/openpay/tienda.php");
+		    	break;
+	    	case "payu":
+    		 	include_once(dirname(dirname(dirname(__DIR__)))."/procesos/compra/pasarelas/payu/tienda.php");
+		    	break;
+		    default:
+				crearCobro( $order_id, time() );
+				break;
+	    }	 	
 
-		 	if( isset($CARRITO['user_id']) || $CARRITO['user_id'] > 0 ){
-		 		$user_id = $CARRITO['user_id'];
-		 	}else{
-			 	$current_user = wp_get_current_user();
-			    $user_id = $current_user->ID;	 		
-		 	}
-
-		    $email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
-		    $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
-		    $openpay_cliente_id = get_user_meta($user_id, "openpay_id", true);
-
-		    if( $openpay_cliente_id == "" ){
-				$customerData = array(
-			     	'name' => $nombre,
-			     	'email' => $email
-			  	);
-				$customer = $openpay->customers->add($customerData);
-				$openpay_cliente_id = $customer->id;
-				update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
-		    }else{
-			    try {
-					$customer = $openpay->customers->get($openpay_cliente_id);
-				} catch (Exception $e) {
-			    	$customerData = array(
-				     	'name' => $nombre,
-				     	'email' => $email
-				  	);
-					$customer = $openpay->customers->add($customerData);
-					$openpay_cliente_id = $customer->id;
-					update_user_meta($user_id, "openpay_id", $openpay_cliente_id);
-			    }
-		    }
-
-			$due_date = date('Y-m-d\TH:i:s', strtotime('+ 5 day'));
-
-			$chargeRequest = array(
-			    'method' => 'store',
-			    'amount' => (float) $CARRITO["total"],
-			    'description' => 'Tienda - NutriHeroes',
-			    'order_id' => $order_id."_CobroInicial_".time(),
-			    'due_date' => $due_date
-			);
-		
-			$charge = $customer->charges->create($chargeRequest);
-
-			$_POST["error"] = "";
-
-			$CARRITO["PDF"] = $dataOpenpay["OPENPAY_URL"]."/paynet-pdf/".$dataOpenpay["MERCHANT_ID"]."/".$charge->payment_method->reference;
-			$_POST['order'] = $order_id;
-
+	    if( $_POST["error"] == "" ){	    	
 			$_productos = getProductosDesglose($order_id);
 			$dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$order_id) ) );
 			$productos = "";
@@ -108,19 +69,16 @@
 
 		    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
 		    mail_admin_nutriheroes( "Pago en Tienda - NutriHeroes", $HTML );
-
-		} catch (Exception $e) {
-	    	$error_code = $e->getErrorCode();
-	    	$error_info = $e->getDescription();
-
-	    	$_POST["error"] = array(
-	    		"codigo" => $error_code,
-	    		"info" => $error_info
-	    	);
 	    }
+
+
 	}else{
 		crearCobro( $order_id, time() );
-	} ?>
+	} 
+
+print_r($_POST["error"]);
+
+	?>
 
 	<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/pago.css?ver=".time(); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo TEMA()."/css/responsive/pagos.css?ver=".time(); ?>"> <?php

@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
 
 	OpenPay.setId( OPENPAY_TOKEN );
     OpenPay.setApiKey(OPENPAY_PK);
-    OpenPay.setSandboxMode( OPENPAY_PRUEBAS == 1 );
+    OpenPay.setSandboxMode( SANDBOX_MODE == 1 );
 
     var errores = [];
     errores["1001"] = "Error procesando el pago";
