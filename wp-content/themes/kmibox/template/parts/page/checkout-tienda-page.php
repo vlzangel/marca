@@ -22,10 +22,10 @@
 	 	$payment_gateway = get_payment_gateway();	
 	    switch( strtolower( $payment_gateway ) ){
 	    	case "openpay":
-    		 	include_once(dirname(dirname(dirname(__DIR__)))."/procesos/compra/pasarelas/openpay/tienda.php");
+    		 	include_once($dir . "/procesos/compra/pasarelas/openpay/tienda.php");
 		    	break;
 	    	case "payu":
-    		 	include_once(dirname(dirname(dirname(__DIR__)))."/procesos/compra/pasarelas/payu/tienda.php");
+    		 	include_once($dir . "/procesos/compra/pasarelas/payu/tienda.php");
 		    	break;
 		    default:
 				crearCobro( $order_id, time() );
@@ -70,13 +70,9 @@
 		    wp_mail( $email, "Pago en Tienda - NutriHeroes", $HTML );
 		    mail_admin_nutriheroes( "Pago en Tienda - NutriHeroes", $HTML );
 	    }
-
-
 	}else{
 		crearCobro( $order_id, time() );
 	} 
-
-print_r($_POST["error"]);
 
 	?>
 

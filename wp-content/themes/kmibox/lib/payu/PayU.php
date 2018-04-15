@@ -248,19 +248,16 @@ class PayU {
 	// -- Enviar solicitud
 	public function request( $url, $data ){
 
-
-		if( class_exists('Requests') ){
+		if( !class_exists('Requests') ){
+			require_once(realpath( dirname(__DIR__)."/Requests/Requests.php" ));
+			Requests::register_autoloader();
 		}
-		include_once(realpath( dirname(__DIR__)."/Requests/Requests.php" ));
-
-		Requests::register_autoloader();
-		
 		$headers = Array(
 			'Content-Type'=> 'application/json; charset=UTF-8',	
 			'Accept'=>'application/json'
 		);
 		$request = Requests::post($url, $headers,  $data );
- 	
+
 		return (isset($request->body))? $request->body : '' ;
 	}
 }
