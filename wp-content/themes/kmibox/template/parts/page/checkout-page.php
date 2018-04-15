@@ -74,7 +74,7 @@
 
 	$MERCHANT_ID = $dataOpenpay["MERCHANT_ID"];
 	$OPENPAY_KEY_PUBLIC = $dataOpenpay["OPENPAY_KEY_PUBLIC"];
-	$OPENPAY_PRUEBAS = $dataOpenpay["OPENPAY_PRUEBAS"];
+	$SANDBOX_MODE = $dataOpenpay["SANDBOX_MODE"];
 
 /*	echo "<pre>";
 		print_r($CARRITO);
@@ -130,7 +130,7 @@
 	<script> 
 		var OPENPAY_TOKEN = '<?php echo $MERCHANT_ID ?>';
 		var OPENPAY_PK = '<?php echo $OPENPAY_KEY_PUBLIC ?>';
-		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
+		var SANDBOX_MODE = <?php echo $SANDBOX_MODE; ?>;
 	</script>
 
 	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin: 75px 20px 0px; border:1px solid #ccc; width: calc( 100% - 40px );">

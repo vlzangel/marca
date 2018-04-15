@@ -5,21 +5,21 @@
 
 	function dataOpenpay(){
 		global $wpdb;
-		$OPENPAY_PRUEBAS = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'OPENPAY_PRUEBAS' ")+0;
-		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
+		$SANDBOX_MODE = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'SANDBOX_MODE' ")+0;
+		$OPENPAY_URL = ( $SANDBOX_MODE == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
 
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
 		$OPENPAY_KEY_SECRET = "sk_b485a174f8d34df3b52e05c7a9d8cb22";
 		$OPENPAY_KEY_PUBLIC = "pk_dacadd3820984bf494e0f5c08f361022";
 
-		if( $OPENPAY_PRUEBAS == 1 ){
+		if( $SANDBOX_MODE == 1 ){
 			$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
 			$OPENPAY_KEY_SECRET = "sk_684a7f8598784911a42ce52fb9df936f";
 			$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
 		}
 		
 		return array(
-			"OPENPAY_PRUEBAS" => $OPENPAY_PRUEBAS,
+			"SANDBOX_MODE" => $SANDBOX_MODE,
 			"OPENPAY_URL" => $OPENPAY_URL,
 			"MERCHANT_ID" => $MERCHANT_ID,
 			"OPENPAY_KEY_SECRET" => $OPENPAY_KEY_SECRET,
@@ -423,4 +423,19 @@
 		return $asesor_email;
 	}
 
+	function get_payment_gateway(){
+		global $wpdb;
+		$result = '';
+		$_valor = $wpdb->get_var( "SELECT valor FROM configuraciones WHERE clave = 'PAYMENT_GATEWAY' " );
+		if( !empty($_valor) ){
+			$_gateway = json_decode($_valor);
+			foreach ($_gateway as $key => $gateway) {
+				if( $gateway == 1 ){
+					$result = $key;
+					break;
+				}
+			}
+		}
+		return $result;
+	}
 ?>
