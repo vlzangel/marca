@@ -74,7 +74,7 @@
 
 	$MERCHANT_ID = $dataOpenpay["MERCHANT_ID"];
 	$OPENPAY_KEY_PUBLIC = $dataOpenpay["OPENPAY_KEY_PUBLIC"];
-	$OPENPAY_PRUEBAS = $dataOpenpay["OPENPAY_PRUEBAS"];
+	$SANDBOX_MODE = $dataOpenpay["SANDBOX_MODE"];
 
 /*	echo "<pre>";
 		print_r($CARRITO);
@@ -130,7 +130,7 @@
 	<script> 
 		var OPENPAY_TOKEN = '<?php echo $MERCHANT_ID ?>';
 		var OPENPAY_PK = '<?php echo $OPENPAY_KEY_PUBLIC ?>';
-		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
+		var SANDBOX_MODE = <?php echo $SANDBOX_MODE; ?>;
 	</script>
 
 	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin: 75px 20px 0px; border:1px solid #ccc; width: calc( 100% - 40px );">
@@ -138,7 +138,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<form class="form-horizontal" method="post" action="#" id="form-pago" >
 				<input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
-				<input type="hidden" name="redirect" value="<?php echo get_home_url(); ?>/pagar-mi-kmibox">
+				<input type="hidden" id="token_id" name="token_id" />
 
 			  <div class="form-group">
 			    <label for="inputEmail3" class="col-sm-4 control-label caviar" >Titular</label>
@@ -154,28 +154,40 @@
 			      	data-openpay-card="holder_name" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-4 control-label caviar" >IFE</label>
+			    <div class="col-sm-8">
+			      <input type="text" name="DNI" 
+			      	class="form-control  <?php echo $disabled; ?> " 
+			      	<?php echo $disabled; ?> 
+			      	id="IFE" 
+			      	placeholder="IFE" 
+			      	maxlength="20"
+			      	value=""
+			      	data-charset="num"
+			      	data-openpay-card="DNI" style="border-radius: 50px !important;">
+			    </div>
+			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar">Numero de Tarjeta</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="num_card" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="19" data-charset="num" value="" data-openpay-card="card_number" style="border-radius: 50px !important;">
+			      <input type="text" name="num_card" data-openpay-card="card_number" class="form-control <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="19" data-charset="num" value="" data-openpay-card="card_number" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Fecha vencimiento</label>
 			    <div class="col-sm-4">
-			    	<select name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" style="border-radius: 50px !important;" >
+			    	<select name="exp_month" data-openpay-card="expiration_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" style="border-radius: 50px !important;" >
 			    		<option>Mes</option>
 			    		<?php for ($i=1; $i <= 12; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
 			    		<?php } ?>
 			    	</select>
-			      <!-- input type="text" name="exp_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="Mes" -->
 			    </div>
 			    <div class="col-sm-4">
-			      <!-- input type="text" name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="Año" -->
-			    	<select name="exp_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year" style="border-radius: 50px !important;" >
+			    	<select name="exp_year" data-openpay-card="expiration_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year" style="border-radius: 50px !important;" >
 			    		<option>Año</option>
 			    		<?php for ($i=date('y'); $i < date('y') + 15; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -201,13 +213,8 @@
 
 			  	<div class="form-group">
 			    	<div class="col-sm-offset-5	col-sm-5">
-			      		<a href="<?php echo get_home_url(); ?>/quiero-mi-kmibox" class="btn  <?php echo (isset($hidden))? '' : 'hidden' ; ?>  btn-sm-kmibox" id="btn_pagar_2 caviar" >Realizar Pago</a>
-			      		<button id="btn_pagar_1" type="submit" class="btn caviar <?php echo (isset(
-			      		$hidden))? 'hidden' : '' ; ?> btn-sm-kmibox" style="padding: 10px 42px 10px 42px;">Realizar Pago</button>
+			      		<button id="btn_pagar_1" type="submit" class="btn caviar <?php echo (isset($hidden))? 'hidden' : '' ; ?> btn-sm-kmibox" style="padding: 10px 42px 10px 42px;">Realizar Pago</button>
 			    	</div>
-					<!-- <div class="col-sm-3">
-			      		<a href="<?php echo get_home_url(); ?>/" class="btn btn-sm-kmibox caviar" >Cancelar</a>
-			    	</div> -->
 			  	</div>
 
 

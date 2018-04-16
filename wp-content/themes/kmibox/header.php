@@ -53,6 +53,7 @@
 		var TEMA = "<?php echo TEMA(); ?>/"; 
 		var HOME = "<?php echo HOME(); ?>/"; 
 		var urlbase = "<?php echo HOME(); ?>/";
+		var paymentGateway = "<?php echo get_payment_gateway(); ?>";
 		var ventana_ancho;
 		var ventana_alto;
 		var orientacion;

@@ -5,21 +5,21 @@
 
 	function dataOpenpay(){
 		global $wpdb;
-		$OPENPAY_PRUEBAS = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'OPENPAY_PRUEBAS' ")+0;
-		$OPENPAY_URL = ( $OPENPAY_PRUEBAS == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
+		$SANDBOX_MODE = $wpdb->get_var("SELECT valor FROM configuraciones WHERE clave = 'SANDBOX_MODE' ")+0;
+		$OPENPAY_URL = ( $SANDBOX_MODE == 1 ) ? "https://sandbox-dashboard.openpay.mx" : "https://dashboard.openpay.mx";
 
 		$MERCHANT_ID = "mbagfbv0xahlop5kxrui";
 		$OPENPAY_KEY_SECRET = "sk_b485a174f8d34df3b52e05c7a9d8cb22";
 		$OPENPAY_KEY_PUBLIC = "pk_dacadd3820984bf494e0f5c08f361022";
 
-		if( $OPENPAY_PRUEBAS == 1 ){
+		if( $SANDBOX_MODE == 1 ){
 			$MERCHANT_ID = "mej4n9f1fsisxcpiyfsz";
 			$OPENPAY_KEY_SECRET = "sk_684a7f8598784911a42ce52fb9df936f";
 			$OPENPAY_KEY_PUBLIC = "pk_3b4f570da912439fab89303ab9f787a1";
 		}
 		
 		return array(
-			"OPENPAY_PRUEBAS" => $OPENPAY_PRUEBAS,
+			"SANDBOX_MODE" => $SANDBOX_MODE,
 			"OPENPAY_URL" => $OPENPAY_URL,
 			"MERCHANT_ID" => $MERCHANT_ID,
 			"OPENPAY_KEY_SECRET" => $OPENPAY_KEY_SECRET,
@@ -120,18 +120,14 @@
 			$metaData["es_modificacion_de"] = $_SESSION["MODIFICACION"];
 	    }
 	    unset($_SESSION["MODIFICACION"]);
-
 	    // Buscar asesor de registro
 	    $asesor = get_user_meta( $user_id, 'asesor_registro', true );
 		$asesor_id = ( $asesor > 0 )? $asesor : 0 ;
-
 		$total = $CARRITO["total"]+$CARRITO["totalDescuentos"];
-
 		if( $CARRITO["totalDescuentos"]+0 > 0 ){
 			$metaData["descuento"] = $CARRITO["totalDescuentos"];
 			$metaData["cupones"] = $CARRITO["descuentos"];
 		}
-		
 	 	$SQL_PEDIDO = "
 	 		INSERT INTO ordenes VALUES (
 	 			NULL,
@@ -146,7 +142,6 @@
 	 	";
 	 	$wpdb->query( $SQL_PEDIDO );
 	 	$orden_id = $wpdb->insert_id;
-
 	 	foreach ($CARRITO["productos"] as $producto) {
 	 		if( $producto->producto != "" ){
 	 			$data = array(
@@ -167,12 +162,10 @@
 			 			'{$producto->plan_id}'
 			 		)
 			 	";
-
 			 	$wpdb->query( $SQL_SUB_PEDIDO );
 	 		}
 	 	}
 	    aplicarDescuentos();
-
 	 	return $orden_id;
 	}
 
@@ -184,8 +177,6 @@
 		$user_id = $orden->cliente;
 		$email = $wpdb->get_var("SELECT user_email FROM wp_users WHERE ID = {$user_id}");
 		$_name = $nombre = get_user_meta($user_id, "first_name", true)." ".get_user_meta($user_id, "last_name", true);
-
-
 		if( $metaData["tipo_pago"] == "Tienda" ){
 			$hoy = time();
 			$dia_semana_hoy = date("N", $hoy);
@@ -207,7 +198,6 @@
 			 	mail_admin_nutriheroes("Pago Recibido Exitosamente - NutriHeroes", $HTML );
 			}
 		}
-
 		$wpdb->query( "UPDATE ordenes SET status = 'Activa' WHERE id = {$orden_id};" );
 		if( isset($metaData["es_modificacion_de"]) ){
 			$orden_vieja = $wpdb->get_row( "SELECT * FROM ordenes WHERE id = {$metaData["es_modificacion_de"]};" );
@@ -241,11 +231,8 @@
 		 	wp_mail( $email, "Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
 		 	mail_admin_nutriheroes("Suscripción Modificada Exitosamente - NutriHeroes", $HTML );
 		}
-
 		$items = $wpdb->get_results("SELECT * FROM items_ordenes WHERE id_orden = {$orden_id}");
-
     	foreach ($items as $key => $item) {
-
 			$SQL = "INSERT INTO cobros VALUES (NULL, {$item->id}, NOW(), '{$pago_id}', 'Pagado', NOW(), '' );";    		
     		$wpdb->query( $SQL ); 
     		$hoy = date("d", time() );
@@ -255,11 +242,13 @@
     		}else{
     			$proximo_cobro = date("Y-m-d", strtotime( date("Y-m-d")." +".$meses->semanas." week") );
     		}
-			$wpdb->query( "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );" ); 
 			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '".date("Y-m-d", time() )."', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
-			$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
+			if(  date("Y-m-d", time() ) != $proximo_cobro ){
+				$wpdb->query( "INSERT INTO cobros VALUES (NULL, {$item->id}, '{$proximo_cobro}', '---', 'Pendiente', NOW(), '' );" ); 
+				$wpdb->query( "INSERT INTO despachos VALUES (NULL, {$user_id}, {$orden_id}, {$item->id}, '{$proximo_cobro}', 'Pendiente', '', NOW(), NULL, NULL, 0 );" );
+			}
+			
     	}
-
 	}
 
 	function crearNewCobro($orden_id, $_time_hoy){
@@ -434,4 +423,19 @@
 		return $asesor_email;
 	}
 
+	function get_payment_gateway(){
+		global $wpdb;
+		$result = '';
+		$_valor = $wpdb->get_var( "SELECT valor FROM configuraciones WHERE clave = 'PAYMENT_GATEWAY' " );
+		if( !empty($_valor) ){
+			$_gateway = json_decode($_valor);
+			foreach ($_gateway as $key => $gateway) {
+				if( $gateway == 1 ){
+					$result = $key;
+					break;
+				}
+			}
+		}
+		return $result;
+	}
 ?>
