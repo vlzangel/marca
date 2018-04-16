@@ -154,6 +154,20 @@
 			      	data-openpay-card="holder_name" style="border-radius: 50px !important;">
 			    </div>
 			  </div>
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-4 control-label caviar" >IFE</label>
+			    <div class="col-sm-8">
+			      <input type="text" name="DNI" 
+			      	class="form-control  <?php echo $disabled; ?> " 
+			      	<?php echo $disabled; ?> 
+			      	id="IFE" 
+			      	placeholder="IFE" 
+			      	maxlength="20"
+			      	value=""
+			      	data-charset="num"
+			      	data-openpay-card="DNI" style="border-radius: 50px !important;">
+			    </div>
+			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar">Numero de Tarjeta</label>

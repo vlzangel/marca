@@ -27,12 +27,7 @@ jQuery(document).ready(function() {
 	// Validar form pago
 	// ***************************************
 
-	var success_callbak = function(response) {
-		var token_id = response.data.id;
-		jQuery('#token_id').val(token_id);
-
-		jQuery("#btn_pagar_1").text("Procesando...");
-		
+	function procesar_pago(){
 		jQuery.post(
 			TEMA+"procesos/compra/nuevo_pedido_tarjeta.php",
 			jQuery('#form-pago').serialize(),
@@ -60,6 +55,15 @@ jQuery(document).ready(function() {
 		).fail(function(e) {
 			console.log( e );
 	  	});
+	}
+
+	var success_callbak = function(response) {
+		var token_id = response.data.id;
+		jQuery('#token_id').val(token_id);
+
+		jQuery("#btn_pagar_1").text("Procesando...");
+		
+		procesar_pago();
 
 	};
 
@@ -97,7 +101,16 @@ jQuery(document).ready(function() {
 	.on('success.form.bv', function(e) {
 	    e.preventDefault();
 	    jQuery("#btn_pagar_1").text("Validando...");
-	    OpenPay.token.extractFormAndCreate('form-pago', success_callbak, error_callbak);
+
+	    switch( paymentGateway ){
+	    	case 'payu':
+		    	procesar_pago();
+		    	break;
+	    	case 'openpay':
+		    	OpenPay.token.extractFormAndCreate('form-pago', success_callbak, error_callbak);
+		    	break;
+	    }
+
 	})
 	.bootstrapValidator({
 	    feedbackIcons: {

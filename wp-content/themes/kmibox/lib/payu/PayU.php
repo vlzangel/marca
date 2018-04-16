@@ -196,11 +196,106 @@ class PayU {
 		return json_decode($r);
 	}
 
+	// -- Cobro con Token
+	public function cobroTokenTDC( $datos ){
+		$config = $this->init(
+			$datos['id_orden'],
+			$datos['monto'],
+			$datos['moneda']
+		);
+
+		$cofg = [];
+		// -- Datos del API
+		$cofg["language"] = "es";
+		$cofg["command"] = "SUBMIT_TRANSACTION";
+		$cofg["merchant"]["apiKey"] = $config['apiKey'];
+		$cofg["merchant"]["apiLogin"] = $config['apiLogin'];
+
+		// -- Datos de la Orden
+		$cofg["transaction"]["order"]["accountId"] = $config['accountId'];
+		$cofg["transaction"]["order"]["referenceCode"] =  $datos['id_orden']."_CobroInicial_".time();
+		$cofg["transaction"]["order"]["description"] = $datos['id_orden']."_Tarjeta - NutriHeroes";
+		$cofg["transaction"]["order"]["language"] = "es";
+		$cofg["transaction"]["order"]["signature"] = $config['signature'];
+		$cofg["transaction"]["order"]["notifyUrl"] = $config['confirmation'].'?order_id='.$datos['code_orden'];
+
+		// -- Datos de Direccion de la Orden
+		$cofg["transaction"]["order"]["shippingAddress"]["street1"] = $datos['cliente']['calle1'];
+		$cofg["transaction"]["order"]["shippingAddress"]["street2"] = $datos['cliente']['calle2'];
+		$cofg["transaction"]["order"]["shippingAddress"]["city"] = $datos['cliente']['ciudad'];
+		$cofg["transaction"]["order"]["shippingAddress"]["state"] = $datos['cliente']['estado'];
+		$cofg["transaction"]["order"]["shippingAddress"]["country"] = $datos['cliente']['pais'];
+		$cofg["transaction"]["order"]["shippingAddress"]["postalCode"] = $datos['cliente']['postal'];
+		$cofg["transaction"]["order"]["shippingAddress"]["phone"] = $datos['cliente']['telef'];
+
+		// -- Datos de Costo de Servicio      
+		$cofg["transaction"]["order"]["additionalValues"]["TX_VALUE"]["value"] = $datos['monto'];
+		$cofg["transaction"]["order"]["additionalValues"]["TX_VALUE"]["currency"] = $datos['moneda'];
+
+		// -- Datos de Comprador
+		$cofg["transaction"]["order"]["buyer"]["merchantBuyerId"] = $datos['cliente']['ID'];
+		$cofg["transaction"]["order"]["buyer"]["fullName"] = $datos['cliente']['name'];
+		$cofg["transaction"]["order"]["buyer"]["emailAddress"] = $datos['cliente']['email'];
+		$cofg["transaction"]["order"]["buyer"]["contactPhone"] = $datos['cliente']['telef'];
+		$cofg["transaction"]["order"]["buyer"]["dniNumber"] = $datos['cliente']['dni'];
+
+		// -- Datos de Comprador - Direccion
+		$cofg["transaction"]["order"]["buyer"]["shippingAddress"]["street1"] = $datos['cliente']['calle1'];
+		$cofg["transaction"]["order"]["buyer"]["shippingAddress"]["street2"] = $datos['cliente']['calle2'];
+		$cofg["transaction"]["order"]["buyer"]["shippingAddress"]["city"] = $datos['cliente']['ciudad'];
+		$cofg["transaction"]["order"]["buyer"]["shippingAddress"]["state"] = $datos['cliente']['estado'];
+		$cofg["transaction"]["order"]["buyer"]["shippingAddress"]["country"] = $datos['cliente']['pais'];
+		$cofg["transaction"]["order"]["buyer"]["shippingAddress"]["postalCode"] = $datos['cliente']['postal'];
+		$cofg["transaction"]["order"]["buyer"]["shippingAddress"]["phone"] = $datos['cliente']['telef'];
+		 
+		// -- Datos de Pagador 
+		$cofg["transaction"]["payer"]["merchantPayerId"] = $datos['cliente']['ID'];
+		$cofg["transaction"]["payer"]["fullName"] = $datos['cliente']['name'];
+		$cofg["transaction"]["payer"]["emailAddress"] = $datos['cliente']['email'];
+		$cofg["transaction"]["payer"]["contactPhone"] = $datos['cliente']['telef'];
+		$cofg["transaction"]["payer"]["dniNumber"] = $datos['cliente']['dni'];
+		$cofg["transaction"]["payer"]["birthdate"] = $datos['cliente']['birthdate'];
+
+		// -- Datos de Pagador - Direccion 
+		$cofg["transaction"]["payer"]["billingAddress"]["street1"] = $datos['cliente']['calle1'];
+		$cofg["transaction"]["payer"]["billingAddress"]["street2"] = $datos['cliente']['calle2'];
+		$cofg["transaction"]["payer"]["billingAddress"]["city"] = $datos['cliente']['ciudad'];
+		$cofg["transaction"]["payer"]["billingAddress"]["state"] = $datos['cliente']['estado'];
+		$cofg["transaction"]["payer"]["billingAddress"]["country"] = $datos['cliente']['pais'];
+		$cofg["transaction"]["payer"]["billingAddress"]["postalCode"] = $datos['cliente']['postal'];
+		$cofg["transaction"]["payer"]["billingAddress"]["phone"] = $datos['cliente']['telef'];
+
+		// -- Datos de Tarjeta de Credito
+		$cofg["transaction"]["creditCardTokenId"] = $datos['creditCard']['token'];
+		$cofg["transaction"]["extraParameters"]["INSTALLMENTS_NUMBER"] = 1;
+		$cofg["transaction"]["paymentMethod"] = $datos['creditCard']['payment_method'];
+
+		if( $datos['creditCard']['payment_method'] == 'AMEX'){
+			$cofg["transaction"]["creditCard"]["securityCode"] = $datos['creditCard']['cvv'];
+     	}
+
+		// -- Datos de Session y Configuracion
+		$cofg["transaction"]["extraParameters"]["INSTALLMENTS_NUMBER"] = "1";
+		$cofg["transaction"]["type"] = "AUTHORIZATION_AND_CAPTURE";
+		$cofg["transaction"]["paymentCountry"] = $datos['pais_cod_iso'];
+		$cofg["transaction"]["deviceSessionId"] = $datos['PayuDeviceSessionId'];
+		$cofg["transaction"]["ipAddress"] = $_SERVER['REMOTE_ADDR'];
+		$cofg["transaction"]["cookie"] = $_COOKIE['PHPSESSID'];
+		$cofg["transaction"]["userAgent"] = $_SERVER['HTTP_USER_AGENT'];
+		$cofg["test"] = $config['isTest'];
+
+		$r = $this->request( 
+			$config['PaymentsCustomUrl'], 
+			json_encode($cofg, JSON_UNESCAPED_UNICODE)
+		);
+		return json_decode($r);
+	}
+
 	// -- Registro de TDC
-	public function createTokenTDC( $datos ){
+	public function getTokenTDC( $datos ){
 		$config = $this->init();
 
-		$cof = [
+		$cofg = [
 		   "language" => "es",
 		   "command" => "CREATE_TOKEN",
 		   "merchant" => [
@@ -212,7 +307,7 @@ class PayU {
 		      "name" => $datos['nombre'],
 		      "identificationNumber" => $datos['DNI'],
 		      "paymentMethod" => $datos['type'],
-		      "number" => $datos['creditCard'],
+		      "number" => $datos['card_number'],
 		      "expirationDate" => $datos['expiredDate']
 		   ]
 		];
@@ -221,6 +316,7 @@ class PayU {
 			$config['PaymentsCustomUrl'], 
 			json_encode($cofg, JSON_UNESCAPED_UNICODE)
 		);
+
 		return json_decode($r);
 	}
 

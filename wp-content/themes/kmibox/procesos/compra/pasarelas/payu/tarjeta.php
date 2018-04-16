@@ -1,8 +1,8 @@
 <?php
 	
-	$dir_lib = dirname(dirname(__DIR__) );
-	$PayU_file = realpath( $dir_lib ."/lib/payu/PayU.php" );
-	$tdc = realpath( $dir_lib ."/lib/payu/validarTDC.php" );
+	$dir_lib = dirname(dirname(dirname(dirname(__DIR__))));
+	$PayU_file = $dir_lib ."/lib/payu/PayU.php";
+	$tdc = $dir_lib ."/lib/payu/validarTDC.php";
 
 	if( file_exists($PayU_file) && file_exists($tdc) ){
 		include( $PayU_file );
@@ -20,11 +20,12 @@
 	$PayuP = [];
 	// -- Orden
 	$PayuP['code_orden'] = $orden_id;
-	$PayuP['orden_id'] = $orden_id.'_'.date('Ymd\THis');
+	$PayuP['orden_id'] = $orden_id."_CobroInicial_".date('Ymd\THis');
 	$PayuP['monto'] =  (float) $CARRITO["total"];
+	$PayuP['descripcion'] =  "Tarjeta - NutriHeroes";
 	// -- Clientes
 	$PayuP['cliente']['ID'] = $user_id;
-	$PayuP['cliente']['dni'] = '';
+	$PayuP['cliente']['dni'] = $DNI;
 	$PayuP['cliente']['name'] = $nombre;
 	$PayuP['cliente']['email'] = $email;
 	$PayuP['cliente']['telef'] = $_telefono;
@@ -41,171 +42,89 @@
 	$PayuP["PayuDeviceSessionId"] = md5(session_id().microtime()); 
 
 	$payu = new PayU();
-	switch ( $pagar->tipo ) {
-		case 'tarjeta':
 
-			$charge = ""; 
-			$error = "";
-			$state = "";
-			$code = "";
+	try { 
 
-			// -- Agregar Parametros Adicionales
-
-			$year_now = '20'.$exp_year; // Temporal 
-			 	
+	    /* Obtener id de tarjeta */
 			$tdc = new fngccvalidator();
 			$tdc_name = $tdc->CreditCard($num_card, '', true);
 
-			$PayuP["creditCard"]["name"] = $holder_name;
-			$PayuP["creditCard"]["number"] = $num_card;
-			$PayuP["creditCard"]["securityCode"] = $cvv;
-			$PayuP["creditCard"]["payment_method"] = strtoupper($tdc_name['type']);
-			$PayuP["creditCard"]["expirationDate"] = $year_now.'/'.$exp_month;
+		    $cardDataRequest = array( 
+		    	'user_id' => $user_id,
+		    	'nombre' => $holder_name, 
+		    	'DNI' => $DNI, 
+		    	'card_number' => $num_card, 
+		    	'cvv2' => $cvv,
+		    	'type' => strtoupper($tdc_name['type']), 
+		    	'expiredDate' => "20{$exp_year}/{$exp_month}", 
+		    );
 
-			try {
-				$charge = $payu->AutorizacionCaptura( $PayuP );	
-				if( $charge->code == 'SUCCESS' ){
-					$state = $charge->transactionResponse->responseCode;
-				}
-	        } catch (Exception $e) {
-				$state = '';
-	        }
+	    	$card_id = "";
 
-			if( $state == 'PENDING_TRANSACTION_REVIEW' || 
-	        	$state == 'PENDING_TRANSACTION_CONFIRMATION' ||
-	        	$state == 'PENDING_TRANSACTION_TRANSMISSION' ||
-	        	$state == 'APPROVED' 
-	        ){
+			$tarjeta = $payu->getTokenTDC( $cardDataRequest );
+			$card_id = $tarjeta->creditCardToken->creditCardTokenId;
 
-				if ( $state == 'APPROVED' ) {
-					if( $deposito["enable"] == "yes" ){
-						$db->query("UPDATE wp_posts SET post_status = 'wc-partially-paid' WHERE ID = {$orden_id};");
-					}else{
-						$db->query("UPDATE wp_posts SET post_status = 'paid' WHERE post_parent = {$orden_id} AND post_type = 'wc_booking';");
-						$db->query("UPDATE wp_posts SET post_status = 'wc-completed' WHERE ID = {$orden_id};");
-					}
-				}else{
-					/*  Reserva_status : PENDING TRANSACTION 
-						Variable para cambiar el texto en la vista Finalizar
-					*/
-		        	$_SESSION['reserva_status'] = 'PENDING_TRANSACTION';
-	        	}
-				
-	            echo json_encode(array(
-					"order_id" => $orden_id
-				));
+	    /* Fin obtener id de tarjeta */
 
-			    if( isset($_SESSION[$id_session] ) ){
-			    	update_cupos( array(
-				    	"servicio" => $_SESSION[$id_session]["servicio"],
-				    	"tipo" => $parametros["pagar"]->tipo_servicio,
-			    		"autor" => $parametros["pagar"]->cuidador,
-				    	"inicio" => strtotime($_SESSION[$id_session]["fechas"]["inicio"]),
-				    	"fin" => strtotime($_SESSION[$id_session]["fechas"]["fin"]),
-				    	"cantidad" => $_SESSION[$id_session]["variaciones"]["cupos"]
-				    ), "-");
-					$_SESSION[$id_session] = "";
-					unset($_SESSION[$id_session]);
-				}
-
-				update_cupos( array(
-			    	"servicio" => $parametros["pagar"]->servicio,
-			    	"tipo" => $parametros["pagar"]->tipo_servicio,
-			    	"autor" => $parametros["pagar"]->cuidador,
-			    	"inicio" => strtotime($parametros["fechas"]->inicio),
-			    	"fin" => strtotime($parametros["fechas"]->fin),
-			    	"cantidad" => $cupos_a_decrementar
-			    ), "+");
-    
-				include(__DIR__."/../emails/index.php");
-
-	        /* ****************************************** *
-	         * Procesar Transacciones: Respuesta de error
-	         * ****************************************** */
-	        }else{
-
-	            echo json_encode(array(
-					"error" => $orden_id,
-					"tipo_error" => $error,
-					"status" => "Error, pago fallido",
-					"code" => $state
-				));
-
-	        }
-
-		break;
-
-		case 'tienda':
-
-			$charge = ""; 
+	    /* Crear cargo con tarjeta */
 			$error = "";
-			$pdf = "";
-			$code = "";
-			$state = "";
-
-			// -- Calcular Fecha limite para pago en tienda
-			$due_date = date('Y-m-d\TH:i:s', strtotime('+ 48 hours'));
-
-			// -- Agregar Parametros Adicionales
-			$PayuP["pais_cod_iso"] =  get_region('pais_cod_iso');
-			$PayuP["paymentMethod"] =  strtoupper($pagar->tienda);
-			$PayuP["expirationDate"] = $due_date;
-
 			try {
-				$charge = $payu->Autorizacion( $PayuP );
-				if( $charge->code == 'SUCCESS' ){
-					$pdf = $charge->transactionResponse->extraParameters->URL_PAYMENT_RECEIPT_PDF;
-					$state = $charge->transactionResponse->responseCode;
-				}			
-	        } catch (Exception $e) {
-				print_r($e);
-	        }
+				if( !empty($card_id) ){
 
-	        if( $state == 'PENDING_TRANSACTION_CONFIRMATION' && !empty($pdf) ){
-				$db->query("UPDATE wp_posts SET post_status = 'wc-on-hold' WHERE ID = {$orden_id};");
-				$db->query("INSERT INTO wp_postmeta VALUES (NULL, {$orden_id}, '_payu_pdf', '{$pdf}');");
-				$db->query("INSERT INTO wp_postmeta VALUES (NULL, {$orden_id}, '_payu_tienda_vence', '{$due_date}');");
+				    /* cargar Datos de tarjeta */
+					$PayuP["creditCard"]["token"] = $card_id;
+					$PayuP["creditCard"]["payment_method"] = strtoupper($tdc_name['type']);
+					$PayuP["creditCard"]["cvv"] = $cvv;
 
-				echo json_encode(array(
-					"user_id" => $pagar->cliente,
-					"pdf" => $pdf,
-					"barcode_url"  => $charge->transactionResponse->extraParameters->REFERENCE,
-					"order_id" => $orden_id
-				));
-		    
-			    if( isset($_SESSION[$id_session] ) ){
-			    	update_cupos( array(
-				    	"servicio" => $_SESSION[$id_session]["servicio"],
-				    	"tipo" => $parametros["pagar"]->tipo_servicio,
-			    		"autor" => $parametros["pagar"]->cuidador,
-				    	"inicio" => strtotime($_SESSION[$id_session]["fechas"]["inicio"]),
-				    	"fin" => strtotime($_SESSION[$id_session]["fechas"]["fin"]),
-				    	"cantidad" => $_SESSION[$id_session]["variaciones"]["cupos"]
-				    ), "-");
-					$_SESSION[$id_session] = "";
-					unset($_SESSION[$id_session]);
+		            $charge = $payu->cobroTokenTDC( $PayuP );
+		            $state = $charge->transactionResponse->state;
+
+	            	if( 
+		            	$state == 'PENDING_TRANSACTION_REVIEW' || 
+			        	$state == 'PENDING_TRANSACTION_CONFIRMATION' ||
+			        	$state == 'PENDING_TRANSACTION_TRANSMISSION' ||
+	            		$state == 'APPROVED' 
+	            	){
+
+						$respuesta["state"] = $state;
+						$respuesta["transaccion"] = $charge->transactionResponse->transactionId;
+						$respuesta["tarjeta"] = $card_id;
+
+						$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$orden_id}");
+						$data = unserialize( $orden->metadata );
+						$data["card_id"] = $card_id;
+						$data["device"] = $PayuP["PayuDeviceSessionId"];
+						$data = serialize($data);
+						$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
+
+						$cardDataRequest["token"] = $card_id;
+						update_user_meta($user_id, "payu_card_".md5($num_card), serialize($cardDataRequest) );
+		            }
+
+				}else{
+			    	$error_code = 404;
+			    	$error_info = "Error al tratar de registrar la tarjeta";
+			    	$respuesta["error"] = array(
+			    		"codigo" => $error_code,
+			    		"info" => $error_info
+			    	);
 				}
-
-				update_cupos( array(
-			    	"servicio" => $parametros["pagar"]->servicio,
-			    	"tipo" => $parametros["pagar"]->tipo_servicio,
-			    	"autor" => $parametros["pagar"]->cuidador,
-			    	"inicio" => strtotime($parametros["fechas"]->inicio),
-			    	"fin" => strtotime($parametros["fechas"]->fin),
-			    	"cantidad" => $cupos_a_decrementar
-			    ), "+");
-
-				include(__DIR__."/../emails/index.php");
-			}else{
-				 echo json_encode(array(
-					"error" => $orden_id,
-					"tipo_error" => $error,
-					"status" => "Error, pago fallido",
-					"code" => $state,
-					"charge" =>$charge
-				));
-			}
-
-		break;
-
+	        } catch (Exception $e) {
+		    	$error_code = $e->getErrorCode();
+		    	$error_info = $e->getDescription();
+		    	$respuesta["error"] = array(
+		    		"codigo" => $error_code,
+		    		"info" => $error_info
+		    	);
+	        }
+	    /* Fin creación cargo con tarjeta */
+		
+	} catch (Exception $e) {
+		$error_code = $e->getErrorCode();
+		$error_info = $e->getDescription();
+		$respuesta["error"] = array(
+			"codigo" => $error_code,
+			"info" => $error_info
+		);
 	}
+
