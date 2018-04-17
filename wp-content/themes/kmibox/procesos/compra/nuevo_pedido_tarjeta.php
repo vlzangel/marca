@@ -102,8 +102,8 @@
 	    	// ************************
 			// Agregar a bitrix
 			// ************************
-//			include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
-//			$bitrix->loadInvoice_by_asesor($orden_id);		
+			include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
+			$bitrix->loadInvoice_by_asesor($orden_id);		
     	}
 
     	unset($_SESSION["CARRITO"]);

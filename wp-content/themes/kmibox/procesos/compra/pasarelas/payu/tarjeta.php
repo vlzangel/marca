@@ -82,6 +82,7 @@ $respuesta[]['datosTarjeta'] = $tarjeta;
 		            $charge = $payu->cobroTokenTDC( $PayuP );
 		            $state = $charge->transactionResponse->state;
 
+					$respuesta["state"] = $state;
 	            	if( 
 		            	$state == 'PENDING_TRANSACTION_REVIEW' || 
 			        	$state == 'PENDING_TRANSACTION_CONFIRMATION' ||
@@ -89,13 +90,11 @@ $respuesta[]['datosTarjeta'] = $tarjeta;
 	            		$state == 'APPROVED' 
 	            	){
 
-						$respuesta["state"] = $state;
 						$respuesta["transaccion"] = $charge->transactionResponse->transactionId;
 						$respuesta["tarjeta"] = $card_id;
-						
 						$respuesta["activo"] = 1;
 
-		            }
+		            } 
 
 				}else{
 			    	$error_code = 404;
