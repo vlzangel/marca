@@ -22,7 +22,8 @@
 	}
 
 	$info["productos"] = $productos;
-
+	$info["tienda_tipo"] = $_POST["TIPO"];
+	
 	$_SESSION["CARRITO"] = serialize($info);
 
 	echo json_encode($info);

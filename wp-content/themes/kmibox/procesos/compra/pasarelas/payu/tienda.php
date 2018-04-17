@@ -17,7 +17,7 @@ if( file_exists($PayU_file) && file_exists($tdc) ){
 	$tipoCobro = ( isset($tipoCobro) && !empty($tipoCobro) )? $tipoCobro : 'CobroInicial' ;
 	// -- Agregar Parametros Adicionales
 	$PayuP["pais_cod_iso"] =  'MX';
-	$PayuP["paymentMethod"] =  'OTHERS_CASH_MX';
+	$PayuP["paymentMethod"] =  (isset($CARRITO["tienda_tipo"]) && !empty($CARRITO["tienda_tipo"]))? $CARRITO["tienda_tipo"] : 'OTHERS_CASH_MX';
 	$PayuP["expirationDate"] = $due_date;
 	// -- Orden
 	$PayuP['code_orden'] = "order_id={$order_id}&periodo={$tipoCobro}";

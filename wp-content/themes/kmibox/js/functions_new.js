@@ -176,12 +176,15 @@ jQuery(document).ready(function() {
 			console.log( e );
 	  	});
 	});
-	jQuery("#tienda").on("click", function(e){
+
+	//jQuery("#tienda").on("click", function(e){
+	jQuery('[data-id="tienda"]').on("click", function(e){
 		e.preventDefault();
 		var _json = get_json_cart();
 		jQuery.post(
 			TEMA+"assets/ajax/carrito.php", {
-				CART: _json
+				CART: _json,
+				TIPO: jQuery(this).attr('data-type')
 			},
 			function(data){
 				location.href = HOME+"/pago-tienda";
