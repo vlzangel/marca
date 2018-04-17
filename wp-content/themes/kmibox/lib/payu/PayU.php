@@ -64,11 +64,11 @@ class PayU {
 
 		// -- Datos de la Orden
 		$cofg["transaction"]["order"]["accountId"] = $config['accountId'];
-		$cofg["transaction"]["order"]["referenceCode"] =  $datos['id_orden']."_CobroInicial_".time();
+		$cofg["transaction"]["order"]["referenceCode"] =  $datos['id_orden'];
 		$cofg["transaction"]["order"]["description"] = $datos['id_orden']."_Tarjeta - NutriHeroes";
 		$cofg["transaction"]["order"]["language"] = "es";
 		$cofg["transaction"]["order"]["signature"] = $config['signature'];
-		$cofg["transaction"]["order"]["notifyUrl"] = $config['confirmation'].'?order_id='.$datos['code_orden'];
+		$cofg["transaction"]["order"]["notifyUrl"] = $config['confirmation'].'?metodo=tarjeta&'.$datos['code_orden'];
 
 		// -- Datos de Direccion de la Orden
 		$cofg["transaction"]["order"]["shippingAddress"]["street1"] = $datos['cliente']['calle1'];
@@ -162,7 +162,7 @@ class PayU {
 		$cofg["transaction"]["order"]["description"] = 'Compra Numero '.$datos['id_orden'];
 		$cofg["transaction"]["order"]["language"] = "es";
 		$cofg["transaction"]["order"]["signature"] = $config['signature'];
-		$cofg["transaction"]["order"]["notifyUrl"] = $config['confirmation'].'?order_id='.$datos['code_orden'];
+		$cofg["transaction"]["order"]["notifyUrl"] = $config['confirmation'].'?metodo=tienda&'.$datos['code_orden'];
 
 		// -- Datos de Costo de Servicio      
 		$cofg["transaction"]["order"]["additionalValues"]["TX_VALUE"]["value"] = str_replace('.', ',', $datos['monto'] );
@@ -193,6 +193,7 @@ class PayU {
 			$config['PaymentsCustomUrl'], 
 			json_encode($cofg, JSON_UNESCAPED_UNICODE)
 		);
+		
 		return json_decode($r);
 	}
 
@@ -213,11 +214,11 @@ class PayU {
 
 		// -- Datos de la Orden
 		$cofg["transaction"]["order"]["accountId"] = $config['accountId'];
-		$cofg["transaction"]["order"]["referenceCode"] =  $datos['id_orden']."_CobroInicial_".time();
-		$cofg["transaction"]["order"]["description"] = $datos['id_orden']."_Tarjeta - NutriHeroes";
+		$cofg["transaction"]["order"]["referenceCode"] =  $datos['id_orden']."_".time();
+		$cofg["transaction"]["order"]["description"] = $datos['id_orden']."_".$datos['descripcion'];
 		$cofg["transaction"]["order"]["language"] = "es";
 		$cofg["transaction"]["order"]["signature"] = $config['signature'];
-		$cofg["transaction"]["order"]["notifyUrl"] = $config['confirmation'].'?order_id='.$datos['code_orden'];
+		$cofg["transaction"]["order"]["notifyUrl"] = $config['confirmation'].'?metodo=tarjeta&'.$datos['code_orden'];
 
 		// -- Datos de Direccion de la Orden
 		$cofg["transaction"]["order"]["shippingAddress"]["street1"] = $datos['cliente']['calle1'];
@@ -357,3 +358,7 @@ class PayU {
 		return (isset($request->body))? $request->body : '' ;
 	}
 }
+
+// Parametros de respuesta PayU: 
+//	[ order_id = < orden_id > 						  ] 
+//	[ periodo  = < CobroInicial - CobroSuscripcion >  ]

@@ -14,25 +14,26 @@ if( file_exists($PayU_file) && file_exists($tdc) ){
 	$email = $current_user->user_email;
 
 	$PayuP = [];
-
+	$tipoCobro = ( isset($tipoCobro) && !empty($tipoCobro) )? $tipoCobro : 'CobroInicial' ;
 	// -- Agregar Parametros Adicionales
 	$PayuP["pais_cod_iso"] =  'MX';
-	$PayuP["paymentMethod"] =  'OTHERS_CASH_MX';
+	$PayuP["paymentMethod"] =  (isset($CARRITO["tienda_tipo"]) && !empty($CARRITO["tienda_tipo"]))? $CARRITO["tienda_tipo"] : 'OTHERS_CASH_MX';
 	$PayuP["expirationDate"] = $due_date;
 	// -- Orden
-	$PayuP['code_orden'] = $order_id;
+	$PayuP['code_orden'] = "order_id={$order_id}&periodo={$tipoCobro}";
 	$PayuP['id_orden'] = $order_id.'_'.date('Ymd\THis');
 	$PayuP['monto'] =  (float) $CARRITO["total"];
+	$PayuP['descripcion'] =  ( isset($__descripcion) && !empty($__descripcion) )? $__descripcion : 'Tarjeta - Nutriheroes';
 	// -- Clientes
 	$PayuP['cliente']['ID'] = $user_id;
 	$PayuP['cliente']['dni'] = '';
 	$PayuP['cliente']['name'] = $nombre;
 	$PayuP['cliente']['email'] = $email;
-	$PayuP['cliente']['telef'] = $_telefono;
 	$PayuP['cliente']['calle1'] = $_direccion;
 	$PayuP['cliente']['calle2'] = '';
 	$PayuP['cliente']['ciudad'] = $_ciudad;
 	$PayuP['cliente']['estado'] = $_estado;
+	$PayuP['cliente']['telef'] = $_telefono;
 	$PayuP['cliente']['telef'] = $_telefono;
 
 	$PayuP['pais'] = 'MX';

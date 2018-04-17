@@ -38,7 +38,7 @@
 	$_direccion = get_user_meta( $user_id, 'dir_calle', true );
 	$_ciudad = get_user_meta( $user_id, 'dir_ciudad', true );
 	$_estado = get_user_meta( $user_id, 'dir_estado', true );
-	$_telefono = get_user_meta( $user_id, 'telef_movil', true );
+	$_telefono  = get_user_meta( $user_id, 'telef_movil', true );
 
     $charge = "";
 
@@ -51,14 +51,39 @@
 		 	include_once("pasarelas/payu/tarjeta.php");
 	    	break;
 	    default:
-			crearCobro( $order_id, time() );
+			$respuesta["error"] = [
+				"error" => $orden_id,
+				"tipo_error" => 404,
+				"status" => "Error, PaymentGateway no definido.",
+				"code" => 0
+			];
+			// crearCobro( $order_id, time() );
 			break;
 	}
 
     if( $respuesta["error"] == "" ){
 
+		if( 
+			 $respuesta["state"] == 'PENDING_TRANSACTION_REVIEW' 		 || 
+			 $respuesta["state"] == 'PENDING_TRANSACTION_CONFIRMATION' ||
+			 $respuesta["state"] == 'PENDING_TRANSACTION_TRANSMISSION' ||
+			 $respuesta["state"] == 'APPROVED' 
+		){
+			$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$orden_id}");
+			$data = unserialize( $orden->metadata );
+			$data["card_id"] = $card_id;
+			$data["device"] = $PayuP["PayuDeviceSessionId"];
+			$data["payu_metadata"] = serialize($PayuP);
+			$data = serialize($data);
+			$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
+			$cardDataRequest["token"] = $card_id;
+			update_user_meta($user_id, "payu_card_".md5($num_card), serialize($cardDataRequest) );
+		}
+
     	if( $respuesta["state"] == "APPROVED" ){
     		
+		    crearCobro( $orden_id, $respuesta["transaccion"] );
+
 	    	$_tarjeta = substr($num_card, 0, 2)."********".substr($num_card, -2);
 	    	$HTML = generarEmail(
 		    	"compra/nuevo/tarjeta", 
@@ -74,12 +99,11 @@
 
 		    wp_mail( $email, "Pago Recibido - NutriHeroes", $HTML );
 		    mail_admin_nutriheroes( "Pago Recibido - NutriHeroes", $HTML );
-		    crearCobro( $orden_id, $charge->id );
 	    	// ************************
 			// Agregar a bitrix
 			// ************************
-			include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
-			$bitrix->loadInvoice_by_asesor($orden_id);		
+//			include_once($raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php');
+//			$bitrix->loadInvoice_by_asesor($orden_id);		
     	}
 
     	unset($_SESSION["CARRITO"]);

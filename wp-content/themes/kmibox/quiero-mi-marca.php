@@ -273,11 +273,20 @@
 						<div style="background-color: #000000; color: #ffffff; text-align: left; padding: 5px 25px; font-family: GothanMedium_regular;">ELIJE TU FORMA DE PAGO</div>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
-							<div style="float:left; width:50%;">								
-								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/Card.svg" style="width: 80%;" /><br><label style="caviar_dreamsregular">Tarjeta d&eacute;bito / cr&eacute;dito</label></a>
+							<div style="text-align:center;float:left; width:20%;">								
+								<a href="#" id="pagar"><img src="'.TEMA().'/imgs/opciones_pago/tarjeta.png" style="width: 90%;" /><br><label style="caviar_dreamsregular">Tarjeta cr&eacute;dito</label></a>
 							</div>
-							<div style="float:left; width:50%;" > 
-								<a href="#" id="tienda"><img src="'.TEMA().'/imgs/opciones_pago/Cash.svg" style="width: 80%;" /><br><label style="caviar_dreamsregular">Efectivo</label></a>
+							<div style="text-align:center;float:left; width:20%;">																
+								<a href="#" data-id="tienda" data-type="OXXO" ><img src="'.TEMA().'/imgs/opciones_pago/OXXO.png" style="width: 90%;" /><br><label style="caviar_dreamsregular"> OXXO</label></a>
+							</div>
+							<div style="text-align:center;float:left; width:20%;">
+								<a href="#" data-id="tienda" data-type="SEVEN_ELEVEN"><img src="'.TEMA().'/imgs/opciones_pago/SEVEN_ELEVEN.png" style="width: 90%;" /><br><label style="caviar_dreamsregular"> SEVEN ELEVEN</label></a>
+							</div>
+							<div style="text-align:center;float:left; width:20%;">								
+								<a href="#" data-id="tienda" data-type="BANK_REFERENCED" ><img src="'.TEMA().'/imgs/opciones_pago/efectivo.png" style="width: 90%;" /><br><label style="caviar_dreamsregular">Banco</label></a>
+							</div>
+							<div style="text-align:center;float:left; width:20%;">
+								<a href="#" data-id="tienda" data-type="OTHERS_CASH_MX"><img src="'.TEMA().'/imgs/opciones_pago/efectivo.png" style="width: 90%;" /><br><label style="caviar_dreamsregular">Efectivo </label></a>
 							</div>		
 						</div>
 					</div>
