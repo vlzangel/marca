@@ -18,11 +18,13 @@
 	}
 
 	$PayuP = [];
+	$tipoCobro = ( isset($tipoCobro) && !empty($tipoCobro) )? $tipoCobro : 'CobroInicial' ;
+
 	// -- Orden
-	$PayuP['code_orden'] = $orden_id;
-	$PayuP['orden_id'] = $orden_id."_CobroInicial_".date('Ymd\THis');
+	$PayuP['code_orden'] = "order_id={$orden_id}&periodo={$tipoCobro}";
+	$PayuP['orden_id'] = $orden_id."_".date('Ymd\THis');
 	$PayuP['monto'] =  (float) $CARRITO["total"];
-	$PayuP['descripcion'] =  "Tarjeta - NutriHeroes";
+	$PayuP['descripcion'] =  ( isset($__descripcion) && !empty($__descripcion) )? $__descripcion : 'Tarjeta - Nutriheroes';
 	// -- Clientes
 	$PayuP['cliente']['ID'] = $user_id;
 	$PayuP['cliente']['dni'] = $DNI;
@@ -46,24 +48,25 @@
 	try { 
 
 	    /* Obtener id de tarjeta */
+		$respuesta['tarjeta'] = $card_id;
+		if( empty($card_id) ){
 			$tdc = new fngccvalidator();
 			$tdc_name = $tdc->CreditCard($num_card, '', true);
 
 		    $cardDataRequest = array( 
 		    	'user_id' => $user_id,
-		    	'nombre' => $holder_name, 
 		    	'DNI' => $DNI, 
+		    	'nombre' => $holder_name, 
 		    	'card_number' => $num_card, 
 		    	'cvv2' => $cvv,
 		    	'type' => strtoupper($tdc_name['type']), 
 		    	'expiredDate' => "20{$exp_year}/{$exp_month}", 
 		    );
 
-	    	$card_id = "";
-
-			$tarjeta = $payu->getTokenTDC( $cardDataRequest );
+			$tarjeta = $payu->getTokenTDC( $cardDataRequest );			
 			$card_id = $tarjeta->creditCardToken->creditCardTokenId;
-
+$respuesta[]['datosTarjeta'] = $tarjeta;
+		}
 	    /* Fin obtener id de tarjeta */
 
 	    /* Crear cargo con tarjeta */
@@ -72,8 +75,8 @@
 				if( !empty($card_id) ){
 
 				    /* cargar Datos de tarjeta */
-					$PayuP["creditCard"]["token"] = $card_id;
 					$PayuP["creditCard"]["payment_method"] = strtoupper($tdc_name['type']);
+					$PayuP["creditCard"]["token"] = $card_id;
 					$PayuP["creditCard"]["cvv"] = $cvv;
 
 		            $charge = $payu->cobroTokenTDC( $PayuP );
@@ -89,16 +92,9 @@
 						$respuesta["state"] = $state;
 						$respuesta["transaccion"] = $charge->transactionResponse->transactionId;
 						$respuesta["tarjeta"] = $card_id;
+						
+						$respuesta["activo"] = 1;
 
-						$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$orden_id}");
-						$data = unserialize( $orden->metadata );
-						$data["card_id"] = $card_id;
-						$data["device"] = $PayuP["PayuDeviceSessionId"];
-						$data = serialize($data);
-						$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$orden_id};");
-
-						$cardDataRequest["token"] = $card_id;
-						update_user_meta($user_id, "payu_card_".md5($num_card), serialize($cardDataRequest) );
 		            }
 
 				}else{
