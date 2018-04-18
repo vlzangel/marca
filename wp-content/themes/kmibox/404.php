@@ -1,5 +1,6 @@
 <?php
 	$paginas = array(
+		"alsea",
 		"momsweb",
 		"quitar",
 	);
