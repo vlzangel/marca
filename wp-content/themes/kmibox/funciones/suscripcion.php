@@ -324,7 +324,7 @@
 					"producto" => $plan->id_producto,
 					"cantidad" => $plan->cantidad,
 					"total" => $plan->total,
-					"nombre" => $producto->nombre,
+					"nombre" => $plan->cantidad." x ".$producto->nombre." (".$producto->peso.", ".$producto->descripcion.")",
 					"img" => $img,
 					"status" => $estatus,
 					"entrega" => date("d/m/Y", strtotime($plan->fecha_entrega)),
