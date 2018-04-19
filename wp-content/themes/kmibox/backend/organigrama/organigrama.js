@@ -101,12 +101,15 @@
             new go.Binding("text", "name").makeTwoWay()),
           $(go.TextBlock, textStyle(),
             {
-              row: 1, column: 1, columnSpan: 4,
+              row: 1, column: 1,
               editable: true, isMultiline: false,
               minSize: new go.Size(10, 14),
               margin: new go.Margin(0, 0, 0, 3)
             },
             new go.Binding("text", "title").makeTwoWay()),
+          $(go.TextBlock, textStyle(),  // the ID and the boss
+            { row: 1, column: 0 },
+            new go.Binding("text", "nivel").makeTwoWay()),
           $(go.TextBlock, "Cod.: ", textStyle(),  // the ID and the boss
             { row: 2, column: 0 }),
           $(go.TextBlock, textStyle(),

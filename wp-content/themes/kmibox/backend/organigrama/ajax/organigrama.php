@@ -9,7 +9,7 @@ global $wpdb;
 
 $sql = '
 	SELECT distinct codigo_asesor, parent,
-		CONCAT(\'{"key":"\', codigo_asesor, \'", "name":"\', nombre, \'"}\') as \'nodeData\',
+		CONCAT(\'{"key":"\', codigo_asesor, \'", "name":"\', nombre, \'", "nivel":"\', nivel, \'"}\') as \'nodeData\',
 		CONCAT(\'{"from":"\', parent, \'", "to":"\', codigo_asesor, \'"}\') as \'linkData\'
 	FROM asesores 
 	group by codigo_asesor
