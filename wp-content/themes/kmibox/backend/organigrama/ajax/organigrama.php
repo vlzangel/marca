@@ -8,13 +8,22 @@ include( $raiz."/wp-load.php" );
 global $wpdb;
 
 $sql = '
-	SELECT distinct codigo_asesor, parent,
-		CONCAT(\'{"key":"\', codigo_asesor, \'", "name":"\', nombre, \'", "nivel":"\', nivel, \'"}\') as \'nodeData\',
+	SELECT distinct codigo_asesor, parent, nivel,
+		CONCAT(\'{"key":"\', codigo_asesor, \'", "name":"\', nombre, \'", "nivel":"[nivel]"}\') as \'nodeData\',
 		CONCAT(\'{"from":"\', parent, \'", "to":"\', codigo_asesor, \'"}\') as \'linkData\'
 	FROM asesores 
 	group by codigo_asesor
 	';
 $asesores = $wpdb->get_results($sql);
+
+$niveles = [];
+$_niveles = $wpdb->get_results( "SELECT id, nivel as nombre, orden FROM asesores_niveles ORDER BY orden ASC" );
+foreach ($_niveles as $key => $nivel) {
+	if( $nivel->orden > 0 ){
+		$counter++;
+		$niveles[ $nivel->id ] = $nivel->nombre;
+	}
+}
 
 $nodeData = '{"key":"0", "name":"Nutriheroes", "by":"Kmimos"}';	
 $linkData = '';	
@@ -24,8 +33,10 @@ $user_type = $user_info->roles[0];
 
 if( $user_type == 'administrator' ){
 	foreach ($asesores as $row) {
+		$nivel = ( array_key_exists($row->nivel, $niveles) )? $niveles[ $row->nivel ] : '' ;
+
 		$separador = (!empty($nodeData))? "," : '' ;
-		$nodeData .= $separador.$row->nodeData;
+		$nodeData .= $separador. str_replace('[nivel]', $nivel, $row->nodeData);
 
 		$separador = (!empty($linkData))? "," : '' ;
 		$linkData .= $separador.$row->linkData;
