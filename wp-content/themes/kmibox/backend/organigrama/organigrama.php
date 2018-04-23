@@ -9,7 +9,9 @@
 <div class="container_listados">
 
     <div class='titulos'>
-		<h2>Estructura de Asesores</h2> <hr>
+        <button id="actualizar" style="font-weight: bold;padding:10px;float:right;">Actualizar Estructura</button>
+        <h2>Estructura de Asesores</h2> 
+        <hr>
     </div>
   
     <div id="myDiagramDiv"></div>
