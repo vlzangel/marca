@@ -85,7 +85,7 @@ class niveles{
 
 				// Buscar Suscripciones activas
 				$cant_susc = $this->get_count_suscription( $item->id );
-				$cant_susc = 2; // forzar las suscripciones solo para depurar
+				//$cant_susc = 2; // forzar las suscripciones solo para depurar
 
 				// Validar si posee el nivel de "Asesor"
 				$nuevo_nivel = ( $cant_susc >= 2 )? 1 : 0; 
@@ -112,7 +112,7 @@ class niveles{
 					}
 
 					// Validar nuevo nivel del asesor
-					$nuevo_nivel = $this->validation_level( $item->codigo_asesor, $hijos_identicos );
+					$nuevo_nivel = $this->validation_level( $hijos_identicos );
 
 					// Asignar Nivel 
 					$status = $this->niveles[ $nuevo_nivel ]['id'];
@@ -153,13 +153,16 @@ class niveles{
 		return $result;
 	}
 
-	protected function validation_level( $cod, $children ){
+	/* ******************************************* *
+	 * Validar Niveles del Asesor
+	 * ******************************************* */
+	protected function validation_level( $children ){
 
-		// verificar si todos tienen la misma cantidad de repeticiones
 		$max = 0;
 		$min = 0;
 		$val = 0;
 		$keys=[];
+
 		if( count($children) > 1 ){	
 			$max_value = max($children);
 			$max = array_keys( $children, $max_value );
