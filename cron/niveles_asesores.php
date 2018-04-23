@@ -85,7 +85,7 @@ class niveles{
 
 				// Buscar Suscripciones activas
 				$cant_susc = $this->get_count_suscription( $item->id );
-				//$cant_susc = 2; // forzar las suscripciones solo para depurar
+				$cant_susc = 2; // forzar las suscripciones solo para depurar
 
 				// Validar si posee el nivel de "Asesor"
 				$nuevo_nivel = ( $cant_susc >= 2 )? 1 : 0; 
@@ -100,18 +100,19 @@ class niveles{
 				$cantHijos = count($datos);
 
 				// Agrupar los Niveles de los Hijos
-				$hijos_identicos = [];
+				$hijos_identicos = []; // Array[ ID ] = Cantidad
+
 				$paso = 'NO'; // solo para depurar
 				if( $cant_susc >= 2 && $cantHijos >= 2 ){
 					$paso = 'SI'; // solo para depurar
 					
 					// Buscar el nivel de cada Hijo
 					foreach ($datos as $key => $boy) {
-						$hijos_identicos[ $boy['nivelID'] ]++;
+						$hijos_identicos[ $boy['nivelID'] ]++; // Array[ ID ] = Cantidad
 					}
 
 					// Validar nuevo nivel del asesor
-					$nuevo_nivel = $this->validar_niveles( $hijos_identicos[ $_id ] );
+					$nuevo_nivel = $this->validation_level( $item->codigo_asesor, $hijos_identicos );
 
 					// Asignar Nivel 
 					$status = $this->niveles[ $nuevo_nivel ]['id'];
@@ -127,13 +128,12 @@ class niveles{
 						"BuscarNivel" => $paso,
 						"GrupoNivel" => $hijos_identicos,
 						"alto" => $nuevo_nivel,
-						"bajo" => $nivel_bajo,
 					],
 					"ID" => $item->id, 
 					"suscripcion" => $cant_susc,
 					"hijoCant" => $cantHijos,
 					"estructura" => $nivel-1, 
-					"nivel" => $status,
+					"nivel" => $this->niveles[ $nuevo_nivel ]['name'],
 					"nivelID" => $nuevo_nivel,
 					"parents" => $parents,
 					"hijo" => $datos,
@@ -153,22 +153,43 @@ class niveles{
 		return $result;
 	}
 
-	protected function validation_level( $children ){
+	protected function validation_level( $cod, $children ){
 
 		// verificar si todos tienen la misma cantidad de repeticiones
-		/*$menor = 0;
-		$mayor = 0;
-		$valor = 0;
-		foreach ($childre as $key => $value) {
-			if(  )
-		}*/
+		$max = 0;
+		$min = 0;
+		$val = 0;
+		$keys=[];
+		if( count($children) > 1 ){	
+			$max_value = max($children);
+			$max = array_keys( $children, $max_value );
 
-			// si es >= a 2 buscar el valor mas alto
-			// si es < 	a 2 buscar el valor mas bajo
+			$min_value = min($children);
+			$min = array_keys( $children, $min_value );
 
-		// buscar el que posea mas repeticiones
+			$val = $max;
+			if( $max_value == $min_value ){
+				foreach ($children as $key => $value) {
+					$keys[] = $key;
+				}
+				$val = min($keys);
+				if( $max_value >= 2 ){
+					$val = max($keys);
+				}
+			}
+		}else{
+			$max = array_keys( $children, min($children) );
+			$val = $max[0];
+		}
 
-		// verificar si es el ultimo nivel
+		$nivel = $val+1;
+
+		$ultimo = count($this->niveles);
+		if( array_key_exists($ultimo, $this->niveles) && $nivel > $ultimo ){
+			$nivel = $ultimo;
+		}
+		
+		return $nivel;
 
 	}
 
