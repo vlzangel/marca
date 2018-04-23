@@ -1,3 +1,232 @@
+nav{
+    padding: 20px;
+    text-align: center;
+    background-color: #091705;
+    overflow: hidden;
+    font-size: 24px;
+    color: #FFF;
+    margin-bottom: 30px;
+}
+
+nav .atras {
+    float: left;
+    border: 1px solid #ffffff;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 99999999999999;
+    position: relative;
+}
+
+nav .atras:hover {
+    border: 1px solid #091705;
+    background-color: #FFF;
+    color: #091705;
+}
+
+nav .titulo_h1{
+    display: block;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0px;
+    left: 0px;
+}
+
+.lock{
+    width: 20px;
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.pago_titulo{
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.pago_subtitulo{
+    font-size: 20px;
+}
+
+.input_box {
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.fecha_vencimiento{
+    overflow: hidden;
+    text-align: right;
+}
+
+.fecha_vencimiento > div{
+    margin-left: 6px;
+}
+
+.fecha_vencimiento input,
+.fecha_vencimiento select
+{
+    float: right;
+    max-width: 80px;
+    border-radius: 4px !important;
+}
+
+.fecha_vencimiento span {
+    font-size: 16px;
+    padding: 6px 0px 0px;
+    display: inline-block;
+    float: left;
+}
+
+.input_box_interno{
+    display: inline-block;
+    position: relative;
+}
+
+.form_info{
+    text-align: right;
+    font-size: 15px;
+}
+
+.form_total{
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.form_total_monto{
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #0b0;
+    padding: 10px 0px;
+}
+
+.btn-pagar{
+    background-color: #0b0;
+    border-radius: 4px;
+    border: solid 1px #0b0;
+    text-transform: uppercase;
+    max-width: 180px;
+    width: 100%;
+    color: #FFF;
+    padding: 6px 0px !important;
+}
+
+.form_btn_container {
+    padding: 30px 0px;
+    overflow: hidden;
+}
+
+.form_btn_container img {
+    padding: 0px 5px;
+}
+
+.input_container {
+    max-width: 440px;
+}
+
+.desglose img {
+    max-width: 80px;
+}
+
+.desglose_direccion{
+    background: #0b0;
+    padding: 20px;
+    border-radius: 4px;
+    color: #FFF;
+}
+
+.desglose_direccion > div {
+    padding: 5px 0px;
+}
+
+table.desglose {
+    width: calc( 100% - 40px );
+    margin: 30px 20px 0px;
+}
+
+.desglose img {
+    max-width: 85px;
+    padding: 0px 15px;
+}
+
+.desglose .item_img{
+    width: 100px;
+}
+
+.desglose .item_info{
+    font-family: Gothamlight_Regular;
+}
+
+.desglose .item_nombre {
+    text-transform: uppercase;
+    font-family: GothanMedium_regular;
+    color: #091705;
+}
+
+.desglose .item_total{
+    width: 140px;
+    text-align: right;
+    font-family: GothanMedium_regular;
+    color: #091705;
+}
+
+.subtotales{
+    border-top: solid 2px #0000006b;
+    border-bottom: solid 2px #0000006b;
+    margin: 20px 0px;
+    padding: 20px;
+}
+
+.subtotales > div {
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.subtotales > div > span {
+    float: right;
+    text-transform: uppercase;
+}
+
+.totales{
+    margin: 0px;
+    padding: 0px 20px;
+}
+
+.totales > div {
+    overflow: hidden;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.totales > div > span {
+    float: right;
+    color: #0b0;
+}
+
+.logo_final{
+    text-align: center;
+}
+
+.logo_final img {
+    margin: 25px 0px 25px;
+    max-height: 150px;
+}
+
+.desglose td {
+    padding: 20px 0px;
+}
+
+.logo_final img {
+    max-width: 100%;
+}
+
+.caviarL{
+    font-family: Gothamlight_Regular;
+}
+
+.caviarM{
+    font-family: GothanMedium_regular;
+}
+
 .errores_box{
     display: none;
     border-top: solid 2px orange;

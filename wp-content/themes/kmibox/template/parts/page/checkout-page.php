@@ -3,7 +3,7 @@
 	global $CARRITO;
 	global $wpdb;
 
-/*	echo "<br><br><br><pre>";
+	/*echo "<br><br><br><pre>";
 		print_r($CARRITO);
 	echo "</pre>";*/
 
@@ -18,6 +18,8 @@
 	foreach ($_planes as $key => $value) {
 		$planes[ $value->id ] = $value->descripcion_mes;
 	}
+
+	$desglose = "<table cellspacing=0 cellpadding=0 class='desglose'>";
 
 	$suscripciones = "
 		<table cellspacing=0 cellpadding=0 class='desglose_final'>
@@ -35,6 +37,22 @@
 			if( $value->plan_id == 6 ){
 				$msj_pago = "El monto mostrado a continuaci&oacute;n se cobrar&aacute; <label style='font-family: GothanMedium_regular; text-transform: uppercase;'>".$planes[ $value->plan_id ]."</label>";
 			}
+
+			$desglose .= "
+				<tr>
+					<td class='item_img'>
+						<img src='".TEMA()."/imgs/productos/".$data["img"]."' />
+					</td>
+					<td class='item_info'>
+						<div class='item_nombre'>".$productos[ $value->producto ]->nombre."</div>
+						<div>".$productos[ $value->producto ]->descripcion." ".$productos[ $value->producto ]->peso."</div>
+						<div>Cant: ".$value->cantidad." - ".$value->plan."</div>
+					</td>
+					<td class='item_total'>
+						$ ".number_format($value->subtotal, 2, ',', '.')." MXN
+					</td>
+				</tr>
+			";
 
 			$suscripciones .= "
 				<tr>
@@ -67,6 +85,8 @@
 			";
 		}
 	}
+
+	$desglose .= "</table>";
 	$suscripciones .= "</table>";
 
 
@@ -133,6 +153,148 @@
 		var OPENPAY_PRUEBAS = <?php echo $OPENPAY_PRUEBAS; ?>;
 	</script>
 
+<article id="pagar" >
+	
+	<nav>
+		<a class="atras" href="<?php echo HOME()."/quiero-mi-marca/"; ?>">Atr&aacute;s</a>
+		<span class="titulo_h1 caviarM">Completa el pago</span>
+	</nav>
+
+	<div class="pago container">
+		
+		<div class="row">
+		  	<div class="col-sm-6 contenedor_formulario">
+		  		
+		  		<div class="pago_titulo caviarM">
+		  			<img src="<?php echo TEMA()."/imgs/pago/padlock.png"; ?>" class="lock" />
+		  			Compra protegida
+		  		</div>
+		  		<div class="pago_subtitulo caviarM">Ingrese los datos solicitados</div>
+
+		  		<form id="form-pago" >
+					<input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
+					<input type="hidden" id="token_id" name="token_id" />
+
+					<div class="input_container">
+
+						<div class="input_box">
+						    <input 
+						    	type="text" 
+						      	class="form-control"
+						    	name="holder_name"
+						      	placeholder="Titular de la tarjeta" 
+						      	maxlength="35"
+						      	value=""
+						      	data-charset="xlf"
+						      	data-openpay-card="holder_name" 
+						    />
+					    </div>
+
+						<div class="input_box">
+						    <input 
+						    	type="text" 
+						      	class="form-control"
+						    	name="card_number"
+						      	placeholder="N&uacute;mero de tarjeta" 
+						      	maxlength="35"
+						      	value=""
+						      	data-charset="num"
+						      	data-openpay-card="card_number" 
+						    />
+					    </div>
+
+						<div class="input_box fecha_vencimiento">
+							<span class="caviarL">Fecha de vencimiento</span>
+
+							<div class="input_box_interno">
+						    	<select name="exp_month" data-openpay-card="expiration_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" >
+						    		<option>Mes</option>
+						    		<?php for ($i=1; $i <= 12; $i++) { ?>
+							    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
+						    		<?php } ?>
+						    	</select>
+						    </div>
+
+							<div class="input_box_interno">
+							   	<select name="exp_year" data-openpay-card="expiration_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year" >
+						    		<option>Año</option>
+						    		<?php for ($i=date('y'); $i < date('y') + 15; $i++) { ?>
+							    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
+						    		<?php } ?>
+						    	</select>
+						    </div>
+
+							<div class="input_box_interno">
+								<input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="4" data-charset="num" data-openpay-card="cvv2">
+						   	</div>
+					    </div>
+
+				    	<div class='form_info caviarL'>Los campos con <span>*</span> son requeridos</div>
+
+				    	<div class="errores_box"></div>
+				    </div>
+
+				    <div class='form_total caviarM'>Total a pagar:</div>
+				    <div class='form_total_monto caviarM'>$ <?php echo number_format($CARRITO["total"], 2, ',', '.'); ?> MXN</div>
+
+				    <div class='form_btn_container'>
+				    	<button id="btn_pagar_1" type="submit" class="btn-pagar caviarM" style="padding: 10px 42px 10px 42px;">Realizar Pago</button>
+				    	<span>
+					    	<img style="width: 60px;" src="<?php echo TEMA()."/imgs/pago/visa.png"; ?>" />
+					    	<img style="width: 125px;" src="<?php echo TEMA()."/imgs/pago/mastercard.png"; ?>" />
+					    	<img style="width: 55px;" src="<?php echo TEMA()."/imgs/pago/american.png"; ?>" />
+					    </span>
+
+				    </div>
+
+				</form>
+
+		  	</div>
+		  	<div class="col-sm-6">
+		  		
+		  		<div class="pago_titulo caviarM">Resumen de Orden</div>
+		  		<?php
+		  			$user = get_user_info();
+		  			$user["estado"] = $wpdb->get_var("SELECT name FROM wp_estados WHERE id = ".$user["estado"]);
+		  			$user["city"] = $wpdb->get_var("SELECT name FROM wp_municipios WHERE id = ".$user["city"]);
+		  		?>
+		  		<div class="desglose_direccion caviarL">
+		  			<div style="font-weight: 600;">DIRECCI&Oacute;N DE ENTREGA</div>
+		  			<div><span>Enviar a:</span> <?php echo $user["first_name"]." ".$user["last_name"]; ?></div>
+		  			<div>
+		  				<?php echo $user["calle"].","; ?>
+		  				<?php echo utf8_decode($user["estado"]).","; ?>
+		  				<?php echo utf8_decode($user["city"]).","; ?>
+		  				<?php echo utf8_decode($user["codigo_postal"]); ?>
+		  				M&eacute;xico
+		  			</div>
+		  		</div>
+		  		<?php echo $desglose; ?>
+
+		  		<div class="subtotales caviarM">
+		  			<div>Subtotal: <span>$ <?php echo number_format( $CARRITO["total"]-($CARRITO["total"]*0.12), 2, ',', '.'); ?> MXN</span></div>
+		  			<div>IVA: <span>$ <?php echo number_format( ($CARRITO["total"]*0.12), 2, ',', '.'); ?> MXN</span></div>
+		  			<div>Env&iacute;o: <span>Gratis</span></div>
+		  		</div>
+
+		  		<div class="totales caviarM">
+		  			<div>Total: <span>$ <?php echo number_format( $CARRITO["total"], 2, ',', '.'); ?> MXN</span></div>
+		  		</div>
+
+		  		<div class="logo_final">
+		  			<img src="<?php echo TEMA()."/imgs/Logo.png"; ?>" />
+		  		</div>
+		  	</div>
+		</div>
+
+	</div>
+
+</section>
+
+
+<?php /*
+
+	
 	<article id="pagar" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px;padding:20px; margin: 75px 20px 0px; border:1px solid #ccc; width: calc( 100% - 40px );">
 
 		<div class="col-md-8 col-md-offset-2">
@@ -151,21 +313,21 @@
 			      	maxlength="35"
 			      	value=""
 			      	data-charset="xlf"
-			      	data-openpay-card="holder_name" style="border-radius: 50px !important;">
+			      	data-openpay-card="holder_name">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar">Numero de Tarjeta</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="num_card" data-openpay-card="card_number" class="form-control <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="19" data-charset="num" value="" data-openpay-card="card_number" style="border-radius: 50px !important;">
+			      <input type="text" name="num_card" data-openpay-card="card_number" class="form-control <?php echo $disabled; ?> " <?php echo $disabled; ?> id="inputPassword3" placeholder="# de tarjeta" maxlength="19" data-charset="num" value="" data-openpay-card="card_number">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >Fecha vencimiento</label>
 			    <div class="col-sm-4">
-			    	<select name="exp_month" data-openpay-card="expiration_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" style="border-radius: 50px !important;" >
+			    	<select name="exp_month" data-openpay-card="expiration_month" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_month" >
 			    		<option>Mes</option>
 			    		<?php for ($i=1; $i <= 12; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -173,7 +335,7 @@
 			    	</select>
 			    </div>
 			    <div class="col-sm-4">
-			    	<select name="exp_year" data-openpay-card="expiration_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year" style="border-radius: 50px !important;" >
+			    	<select name="exp_year" data-openpay-card="expiration_year" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?> data-openpay-card="expiration_year" >
 			    		<option>Año</option>
 			    		<?php for ($i=date('y'); $i < date('y') + 15; $i++) { ?>
 				    		<option><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></option>
@@ -185,14 +347,14 @@
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-4 control-label caviar" >CVV</label>
 			    <div class="col-sm-8">
-			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="4" data-charset="num" data-openpay-card="cvv2" style="border-radius: 50px !important;">
+			      <input type="text" name="cvv" class="form-control  <?php echo $disabled; ?> " <?php echo $disabled; ?>  id="inputPassword3" placeholder="CVV" maxlength="4" data-charset="num" data-openpay-card="cvv2">
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    	<label for="inputPassword3" class="col-sm-4 control-label caviar" >Total a pagar</label>
 			    	<div class="col-sm-8">
-			      		<input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>" style="border-radius: 50px !important;">
+			      		<input type="text" readonly class="form-control disabled" id="inputPassword3" value="$<?php echo number_format($CARRITO["total"], 2, ',', '.'); ?>">
 				      	<div class="errores_box"></div>
 			    	</div>
 			  </div>
@@ -208,5 +370,5 @@
 		</div>
 	</article>
 
-</section>
+*/ ?>
 
