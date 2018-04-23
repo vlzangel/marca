@@ -17,24 +17,6 @@
 ?>
 
 <div style="
-	z-index: 1000;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 70px;
-    background: #FFF;
-">
-	<a class="controles_generales" id="vlz_atras" href="<?php echo get_home_url()."/quiero-mi-marca/"; ?>">
-		<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
-	</a>
-
-	<div class="controles_generales" id="vlz_titulo">
-		Completa el pago
-	</div>
-</div>
-
-<div style="
 	z-index: 500;
 ">
 

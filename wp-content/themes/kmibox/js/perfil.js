@@ -30,7 +30,7 @@ jQuery(document).ready(function() {
 	  			"data-scale='small' data-position='top' >"+
 	  			"	<div>"+
 	  			"		<div class='item_carrusel_img' style='background-image: url("+producto.img+");'></div>"+
-	  			"		<div class='item_carrusel_total'> "+producto.cantidad+" x "+producto.nombre+" </div>"+
+	  			"		<div class='item_carrusel_total'> "+producto.nombre+" </div>"+
 	  			"	</div>"+
 	  		"</div>";
 		});
