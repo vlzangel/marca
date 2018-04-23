@@ -14,6 +14,7 @@ $ar = $r->init();
 /* ******************************************* *
  * Depurar proceso
  * ******************************************* */
+/*
 	// ==================
 	echo '<pre style="width:30%; height:100%; right: 0px; border:1px solid #ccc; position:fixed; top: 0px; padding: 40px 0px 0px 0px">';
 	print_r( $r->niveles );
@@ -27,6 +28,7 @@ $ar = $r->init();
 	print_r( $r->arbol );
 	echo '</pre>';
 	// ==================
+*/
 
 class niveles{
 
@@ -170,7 +172,6 @@ class niveles{
 			$min_value = min($children);
 			$min = array_keys( $children, $min_value );
 
-			$val = $max;
 			if( $max_value == $min_value ){
 				foreach ($children as $key => $value) {
 					$keys[] = $key;
@@ -179,6 +180,11 @@ class niveles{
 				if( $max_value >= 2 ){
 					$val = max($keys);
 				}
+			}else{			
+				foreach ($max as $key => $value) {
+					$keys[] = $value;
+				}
+				$val = max($keys);
 			}
 		}else{
 			$max = array_keys( $children, min($children) );

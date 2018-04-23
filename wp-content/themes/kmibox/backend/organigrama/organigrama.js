@@ -169,5 +169,12 @@
     $(window).load(function(){
       init();
       load();
-    })
+    });
+
+    $('#actualizar').on("click", function(){
+      $.post(TEMA+"../../../cron/niveles_asesores.php",{}, function(r){
+         load();
+      });
+    });
+
   });
