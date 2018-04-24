@@ -197,10 +197,43 @@ section{
 }
 
 /* Pop Up Full */
-	
+
+	.container_txt {
+		position: absolute;
+	    top: 0px;
+	    width: 100%;
+	    max-width: 590px;
+	    text-align: left;
+	    padding: 30px 20px 0px;
+	    box-sizing: border-box;
+	    font-size: 26px;
+		font-family: GothanMedium_regular;
+	}
+
+	.container_txt span {
+		text-transform: uppercase;
+	    background-color: #0b0;
+	    color: #FFF;
+	    padding: 5px 15px;
+	}
+
+	.container_form {
+		position: absolute;
+	    bottom: 0px;
+	    width: 100%;
+	    text-align: center;
+	}
+
+	img.logo_nutri {
+	    position: absolute;
+	    bottom: 25px;
+	    right: 40px;
+	    width: 220px;
+	}
+
 	#form-pop-up-home{
-		width: 50%;
-		margin: 0px auto 3%;
+		width: 60%;
+    	margin: 0px 20px 10px;
 	}
 
 	.input-pop-up-home {
@@ -209,6 +242,7 @@ section{
 	    padding: 5px 10px;
 	    text-align: center;
 	    outline: none;
+	    border-radius: 5px;
 	}
 
 	.separador-pop-up-home{
@@ -246,6 +280,20 @@ section{
 
 	#nutri-container{
 	    background: #091705;
+	}
+
+	#form-pop-up-home > div {
+		overflow: hidden;
+	}
+
+	#form-pop-up-home .popup_izq {
+		float: left;
+		width: calc( 100% - 150px);
+	}
+
+	#form-pop-up-home .popup_der {
+		float: right;
+		width: 150px;
 	}
 
 /* Pop Up Footer */
@@ -350,6 +398,14 @@ section{
 	#contacto-ayuda > img.contacto-ayuda-izquierda,
 	#contacto-ayuda > img.contacto-ayuda-derecha {
 		height: 150px;
+	}
+}
+
+@media (max-width: 845px){
+	.container_txt {
+	    width: 100%;
+	    max-width: 520px;
+	    font-size: 24px;
 	}
 }
 
@@ -515,8 +571,44 @@ section{
 	}
 
 	#form-pop-up-home {
-	    width: 80%;
-	    margin: 0px auto 145px;
+	    width: 55%;
+	    margin: 0px 20px 80px;
+	    background: transparent;
+	}
+
+	.input-pop-up-home {
+	    padding: 12px;
+	    margin-top: 10px;
+	}
+
+	.btn-pop-up-home {
+	    padding: 10px 35px;
+	}
+
+	#form-pop-up-home .popup_izq,
+	#form-pop-up-home .popup_der
+	 {
+	    float: none;
+	    width: 100%;
+	}
+
+	.container_txt {
+	    width: 100%;
+	    max-width: 100%;
+	    font-size: 24px;
+	    margin: 10px auto 0px;
+	    display: block;
+	    text-align: center;
+	}
+
+	.container_txt span {
+	    display: block;
+	    max-width: 245px;
+	    margin: 0px auto;
+	}
+
+	img.logo_nutri {
+	    width: 180px;
 	}
 
 }
@@ -559,9 +651,26 @@ section{
 	    max-height: none;
 	}
 
+	.container_txt {
+	    font-size: 17px;
+	}
+
+	.input-pop-up-home {
+	    padding: 8px;
+	    margin-top: 5px;
+	    background: transparent;
+	}
+
+	.btn-pop-up-home {
+	    padding: 5px 20px;
+	}
+
 	#form-pop-up-home {
-	    width: 80%;
-	    margin: 0px auto 30%;
+	    margin: 0px 20px 40px;
+	}
+
+	img.logo_nutri {
+	    width: 120px;
 	}
 	
 }
@@ -605,6 +714,10 @@ section{
 
 	#precio-vet{
 		font-size:12px!important;
+	}
+
+	#form-pop-up-home {
+	    margin: 0px 20px 20px;
 	}
 
 }
