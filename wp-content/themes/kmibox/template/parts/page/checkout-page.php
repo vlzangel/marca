@@ -47,8 +47,9 @@
 						<div class='item_nombre'>".$productos[ $value->producto ]->nombre."</div>
 						<div>".$productos[ $value->producto ]->descripcion." ".$productos[ $value->producto ]->peso."</div>
 						<div>Cant: ".$value->cantidad." - ".$value->plan."</div>
+						<div class='item_total solo_movil'>$ ".number_format($value->subtotal, 2, ',', '.')." MXN</div>
 					</td>
-					<td class='item_total'>
+					<td class='item_total solo_pc'>
 						$ ".number_format($value->subtotal, 2, ',', '.')." MXN
 					</td>
 				</tr>

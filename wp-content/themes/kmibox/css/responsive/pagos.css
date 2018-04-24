@@ -216,27 +216,38 @@
 	}
 
 	nav .atras {
-	    float: left;
+        float: left;
 	    border: 1px solid #ffffff;
 	    text-transform: uppercase;
 	    cursor: pointer;
 	    z-index: 99999999999999;
 	    position: relative;
 	    padding: 3px;
-	    font-size: 13px;
-	    width: 80px;
+	    font-size: 10px;
+	    width: 65px;
 	    left: 0px;
 	}
 
 	nav .titulo_h1 {
-	    padding: 30px 0 0;
+	    padding: 0px 0 0;
 	    margin: 0px;
 	    left: 0px;
-	    font-size: 20px;
+	    font-size: 14px;
 	}
 
 	nav {
-	    padding: 20px 20px 45px;
+	    padding: 20px 10px 20px;
+	}
+
+	.logo_final img {
+	    max-width: 80%;
+	}
+
+	.desglose .item_total {
+	    width: auto;
+	    text-align: left;
+	    font-family: GothanMedium_regular;
+	    color: #091705;
 	}
 
 }
