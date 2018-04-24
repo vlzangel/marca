@@ -219,7 +219,7 @@ section{
 
 	.container_form {
 		position: absolute;
-	    bottom: 0px;
+	    bottom: 15px;
 	    width: 100%;
 	    text-align: center;
 	}
@@ -626,6 +626,12 @@ section{
 	#precio-vet{
 		font-size:12px!important;
 	}
+
+	img.logo_nutri {
+	    width: 120px;
+	    right: 25px;
+	    bottom: 15px;
+	}
 }
 
 @media (max-width: 466px){
@@ -667,10 +673,6 @@ section{
 
 	#form-pop-up-home {
 	    margin: 0px 20px 40px;
-	}
-
-	img.logo_nutri {
-	    width: 120px;
 	}
 
 	.container_txt {
@@ -722,7 +724,7 @@ section{
 	}
 
 	#form-pop-up-home {
-	    #margin: 0px 20px 20px;
+	    margin: 0px 20px 20px;
 	}
 
 }
@@ -738,7 +740,20 @@ section{
 	}
 
 	#form-pop-up-home {
-	    margin: 0px auto 25%;
+	    margin: 0px 20px 0px;
+	}
+
+	.input-pop-up-home {
+	    padding: 5px;
+	}
+
+	.btn-pop-up-home {
+	    padding: 2px 20px;
+	}
+
+	img.logo_nutri {
+	    width: 110px;
+        bottom: 6px;
 	}
 
 }
