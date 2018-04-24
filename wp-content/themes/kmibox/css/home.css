@@ -672,6 +672,11 @@ section{
 	img.logo_nutri {
 	    width: 120px;
 	}
+
+	.container_txt {
+	    margin: 0px auto 0px;
+	    padding: 20px 20px 0px;
+	}
 	
 }
 
@@ -717,7 +722,7 @@ section{
 	}
 
 	#form-pop-up-home {
-	    margin: 0px 20px 20px;
+	    #margin: 0px 20px 20px;
 	}
 
 }
