@@ -9,7 +9,14 @@
 <div class="container_listados">
 
     <div class='titulos'>
-        <button id="actualizar" style="font-weight: bold;padding:10px;float:right;">Actualizar Estructura</button>
+        <span style="font-weight: bold;padding:10px;float:right;">
+            <h3>Leyenda: 
+                <span class="green"> </span><span>Asesores</span>
+                <span class="orange"></span><span>Clientes</span>
+                <span class="gray">  </span><span>Sin Categoria</span> 
+                <button id="actualizar">Actualizar Estructura</button>
+            </h3> 
+        </span>
         <h2>Estructura de Asesores</h2> 
         <hr>
     </div>

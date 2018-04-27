@@ -8,8 +8,8 @@ include( $raiz."/wp-load.php" );
 global $wpdb;
 
 $sql = '
-	SELECT distinct codigo_asesor, parent, nivel,
-		CONCAT(\'{"key":"\', codigo_asesor, \'", "name":"\', nombre, \'", "nivel":"[nivel]"}\') as \'nodeData\',
+	SELECT distinct codigo_asesor, parent, nivel, id,
+		CONCAT(\'{"key":"\', codigo_asesor, \'", "name":"\', nombre, \'", "nivel":"[nivel]", "category":"asesor"}\') as \'nodeData\',
 		CONCAT(\'{"from":"\', parent, \'", "to":"\', codigo_asesor, \'"}\') as \'linkData\'
 	FROM asesores 
 	group by codigo_asesor
@@ -33,13 +33,23 @@ $user_type = $user_info->roles[0];
 
 if( $user_type == 'administrator' ){
 	foreach ($asesores as $row) {
+
 		$nivel = ( array_key_exists($row->nivel, $niveles) )? $niveles[ $row->nivel ] : '' ;
+		$row->nodeData = str_replace('[nivel]', $nivel, $row->nodeData);
 
 		$separador = (!empty($nodeData))? "," : '' ;
-		$nodeData .= $separador. str_replace('[nivel]', $nivel, $row->nodeData);
+		$nodeData .= $separador.$row->nodeData;
 
 		$separador = (!empty($linkData))? "," : '' ;
 		$linkData .= $separador.$row->linkData;
+
+		$clientes = getClientes( $row->id, $row->codigo_asesor );
+		if( isset($clientes['nodeData']) && isset($clientes['linkData']) ){
+			$separador = (!empty($nodeData))? "," : '' ;
+			$nodeData .= (!empty($clientes['nodeData']))? $separador.$clientes['nodeData'] : '' ;
+			$linkData .= (!empty($clientes['linkData']))? $separador.$clientes['linkData'] : '' ;
+		}
+
 	}
 }else{
 	
@@ -56,6 +66,33 @@ print_r(
 );
 exit();
 
+function getClientes( $asesor_id, $asesor_codigo ){
+	global $wpdb;
+	$sql = 'SELECT distinct m.user_id,
+		CONCAT(\'{"key":"C\', u.ID, \'","name":"[username]", "user_id":"\', u.ID,\'", "category":"cliente"}\') as \'nodeData\',
+		CONCAT(\'{"from":"\', '.$asesor_codigo.', \'", "to":"C\', u.ID, \'"}\') as \'linkData\'
+	FROM wp_users as u
+		INNER JOIN wp_usermeta as m ON m.user_id = u.ID  
+	WHERE m.meta_value = \''.$asesor_id.'\' and m.meta_key = \'asesor_registro\'';
+
+	$clientes = $wpdb->get_results($sql);
+
+	$resultado = [];
+	foreach ($clientes as $cliente) {
+		$separador = (!empty($resultado['nodeData']))? "," : '' ;
+
+		// nombre de usuario
+		$nombre = get_user_meta( $cliente->user_id, 'first_name', true );
+		$nombre .= " ".get_user_meta( $cliente->user_id, 'last_name', true );
+
+		$cliente->nodeData = str_replace('[username]', $nombre, $cliente->nodeData);
+
+		$resultado['nodeData'] .= $separador.$cliente->nodeData;
+		$resultado['linkData'] .= $separador.$cliente->linkData;
+	}
+
+	return $resultado;
+}
 
 function get_hijos( $codigo, $data=[], $result=[] ){
 
@@ -67,6 +104,12 @@ function get_hijos( $codigo, $data=[], $result=[] ){
 
 			$separador = (!empty($result['linkData']))? "," : '' ;
 			$result['linkData'] .= $separador.$item->linkData;
+
+			$clientes = getClientes( $item->id, $item->codigo_asesor );
+			if( isset($clientes['nodeData']) && isset($clientes['linkData']) ){
+				$result['nodeData'] .= (!empty($clientes['nodeData']))? $separador.$clientes['nodeData'] : '' ;
+				$result['linkData'] .= (!empty($clientes['linkData']))? $separador.$clientes['linkData'] : '' ;
+			}
 		}
 		// buscar sus hijos
 		if( $item->parent == $codigo ){

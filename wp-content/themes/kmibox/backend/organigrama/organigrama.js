@@ -33,29 +33,17 @@
           "undoManager.isEnabled": false  
         });
 
-    // when the document is modified, add a "*" to the title and enable the "Save" button
-    /*  
-    myDiagram.addDiagramListener("Modified", function(e) {
-      var button = document.getElementById("SaveButton");
-      if (button) button.disabled = !myDiagram.isModified;
-      var idx = document.title.indexOf("*");
-      if (myDiagram.isModified) {
-        if (idx < 0) document.title += "*";
-      } else {
-        if (idx >= 0) document.title = document.title.substr(0, idx);
-      }
-    });
-    */
 
-    var graygrad = $(go.Brush, "Linear",
+    var green = $(go.Brush, "Linear",
       { 0: "rgb(195, 251, 200)", 0.5: "rgb(176, 252, 183)", 1: "rgb(125, 250, 136)" });
 
-    // when a node is double-clicked, add a child to it
-    function nodeDoubleClick(e, obj) {
-     
-    }
+    var orange = $(go.Brush, "Linear",
+      { 0: "rgb(255, 204, 153)", 0.5: "rgb(255, 191, 128)", 1: "rgb(255, 153, 51)" });
 
-    // this is used to determine feedback during drags
+    var gray = $(go.Brush, "Linear",
+      { 0: "rgb(230, 230, 230)", 0.5: "rgb(204, 204, 204)", 1: "rgb(166, 166, 166)" });
+
+
     function mayWorkFor(node1, node2) {
       if (!(node1 instanceof go.Node)) return false;  // must be a Node
       if (node1 === node2) return false;  // cannot work for yourself
@@ -63,14 +51,12 @@
       return true;
     }
 
-    // This function provides a common style for most of the TextBlocks.
-    // Some of these values may be overridden in a particular TextBlock.
     function textStyle() {
       return { font: "9pt sans-serif", stroke: "black" };
     }
-
-    // define the Node template
-    myDiagram.nodeTemplate =
+    
+    // Template Sin categoria
+    var sinTemplate = 
       $(go.Node, "Auto",
         // for sorting, have the Node.text be the data.name
         new go.Binding("text", "name"),
@@ -80,7 +66,7 @@
         $(go.Shape, "RoundedRectangle",
           {
             name: "SHAPE",
-            fill: graygrad, stroke: "green",
+            fill: gray, stroke: "black",
             portId: "", fromLinkable: true, toLinkable: true, cursor: "pointer"
           }),
         // define the panel where the text will appear
@@ -132,6 +118,123 @@
             { row: 4, columnSpan: 99, alignment: go.Spot.Center })
         )  // end Table Panel
       );  // end Node
+
+    // Template Asesor
+    var asesorTemplate = 
+      $(go.Node, "Auto",
+        // for sorting, have the Node.text be the data.name
+        new go.Binding("text", "name"),
+        // bind the Part.layerName to control the Node's layer depending on whether it isSelected
+        new go.Binding("layerName", "isSelected", function(sel) { return sel ? "Foreground" : ""; }).ofObject(),
+        // define the node's outer shape
+        $(go.Shape, "RoundedRectangle",
+          {
+            name: "SHAPE",
+            fill: green, stroke: "green",
+            portId: "", fromLinkable: true, toLinkable: true, cursor: "pointer"
+          }),
+        // define the panel where the text will appear
+        $(go.Panel, "Table",
+          {
+            maxSize: new go.Size(150, 999),
+            margin: new go.Margin(3, 3, 0, 3),
+            defaultAlignment: go.Spot.Left
+          },
+          $(go.RowColumnDefinition, { column: 2, width: 4 }),
+          $(go.TextBlock,  // the name
+            {
+              row: 0, column: 0, columnSpan: 5,
+              font: "bold 9pt sans-serif",
+              editable: true, isMultiline: false,
+              stroke: "black", minSize: new go.Size(10, 14)
+            },
+            new go.Binding("text", "name").makeTwoWay()),
+          $(go.TextBlock, textStyle(),
+            {
+              row: 1, column: 1,
+              editable: true, isMultiline: false,
+              minSize: new go.Size(10, 14),
+              margin: new go.Margin(0, 0, 0, 3)
+            },
+            new go.Binding("text", "title").makeTwoWay()),
+          $(go.TextBlock, textStyle(),  // the ID and the boss
+            { row: 1, column: 0 },
+            new go.Binding("text", "nivel").makeTwoWay()),
+          $(go.TextBlock, "Cod.: ", textStyle(),  // the ID and the boss
+            { row: 2, column: 0 }),
+          $(go.TextBlock, textStyle(),
+            { row: 2, column: 1 },
+            new go.Binding("text", "key")),
+          $(go.TextBlock, textStyle(),
+            { row: 2, column: 4, },
+            new go.Binding("text", "parent")),
+          $(go.TextBlock,  // the comments
+            {
+              row: 3, column: 0, columnSpan: 5,
+              font: "italic 9pt sans-serif",
+              wrap: go.TextBlock.WrapFit,
+              editable: true,  // by default newlines are allowed
+              stroke: "black",
+              minSize: new go.Size(10, 14)
+            },
+            new go.Binding("text", "comments").makeTwoWay()),
+          $("TreeExpanderButton",
+            { row: 4, columnSpan: 99, alignment: go.Spot.Center })
+        )  // end Table Panel
+      );  // end Node
+
+    // Template Cliente
+    var clienteTemplate =
+      $(go.Node, "Auto",
+        // for sorting, have the Node.text be the data.name
+        new go.Binding("text", "name"),
+        // bind the Part.layerName to control the Node's layer depending on whether it isSelected
+        new go.Binding("layerName", "isSelected", function(sel) { return sel ? "Foreground" : ""; }).ofObject(),
+        // define the node's outer shape
+        $(go.Shape, "RoundedRectangle",
+          {
+            name: "SHAPE",
+            fill: orange, stroke: "#b35900",
+            portId: "", fromLinkable: true, toLinkable: true, cursor: "pointer"
+          }),
+        // define the panel where the text will appear
+        $(go.Panel, "Table",
+          {
+            maxSize: new go.Size(150, 999),
+            margin: new go.Margin(3, 3, 0, 0),
+            defaultAlignment: go.Spot.Left
+          },
+          $(go.RowColumnDefinition, { column: 2, width: 4 }),
+          $(go.TextBlock,  // the name
+            {
+              row: 0, column: 0, columnSpan: 5,
+              font: "bold 9pt sans-serif",
+              editable: true, isMultiline: false,
+              stroke: "black", minSize: new go.Size(10, 14)
+            },
+            new go.Binding("text", "name").makeTwoWay()),
+         
+          $(go.TextBlock, "ID: ", textStyle(),  // the ID and the boss
+            { row: 2, column: 0 }),
+          $(go.TextBlock, textStyle(),
+            { row: 2, column: 1 },
+            new go.Binding("text", "user_id")),
+          $(go.TextBlock, textStyle(),
+            { row: 2, column: 4, },
+            new go.Binding("text", "parent")),
+         
+          $("TreeExpanderButton",
+            { row: 4, columnSpan: 99, alignment: go.Spot.Center })
+        )  // end Table Panel
+      );  // end Node
+
+    // crea el nodeTemplateMap, que contiene tres plantillas de nodos: 
+    var templmap = new go.Map ( "string" , go.Node);
+        templmap.add( "asesor" , asesorTemplate);   // Es un Asesor
+        templmap.add( "cliente" , clienteTemplate); // Es un Cliente
+        templmap.add( "", sinTemplate);    // Sin categoria
+
+    myDiagram.nodeTemplateMap = templmap;
 
     // define the Link template
     myDiagram.linkTemplate =
