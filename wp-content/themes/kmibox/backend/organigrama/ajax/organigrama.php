@@ -107,6 +107,7 @@ function get_hijos( $codigo, $data=[], $result=[] ){
 
 			$clientes = getClientes( $item->id, $item->codigo_asesor );
 			if( isset($clientes['nodeData']) && isset($clientes['linkData']) ){
+				$separador = (!empty($clientes['nodeData']))? "," : '' ;
 				$result['nodeData'] .= (!empty($clientes['nodeData']))? $separador.$clientes['nodeData'] : '' ;
 				$result['linkData'] .= (!empty($clientes['linkData']))? $separador.$clientes['linkData'] : '' ;
 			}
@@ -115,6 +116,6 @@ function get_hijos( $codigo, $data=[], $result=[] ){
 		if( $item->parent == $codigo ){
 			$result = get_hijos( $item->codigo_asesor, $data, $result );
 		}
-	}
-	return $result;
+	}	
+return $result;
 }
