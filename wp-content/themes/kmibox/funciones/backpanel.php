@@ -24,7 +24,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'clientes',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator'],
+                    'add-menu-to'   =>  ['administrator', 'asesor'],
                 ),
                 array(
                     'title'         =>  __('Marcas'),
@@ -203,10 +203,13 @@
                 default:
                     $existe = get_current_codigo_asesor();
                     $role_object = get_role($user_info->roles[0]);
-                    $role_object->remove_cap( 'manage_options' );
-                    if ( !empty($existe) ){
-                        $role_object->add_cap( 'manage_options' );
-                        $type = 'asesor';
+
+                    if(!empty($role_object)){ 
+                        $role_object->remove_cap( 'manage_options' );
+                        if ( !empty($existe) ){
+                            $role_object->add_cap( 'manage_options' );
+                            $type = 'asesor';
+                        }
                     }
                     remove_menu_page( "options-general.php" );
                     remove_menu_page( "profile.php" );
