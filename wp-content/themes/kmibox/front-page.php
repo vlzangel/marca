@@ -13,6 +13,7 @@
  */ #
 
 wp_enqueue_style( 'home_css', TEMA()."/css/home.css", array(), "1.0.0" );
+wp_enqueue_style( 'home_responsive', TEMA()."/css/responsive/home.css" );
 
 /* BEGIN POPUP Nutriheroes */		
 wp_enqueue_style( 'nutriheroes_modal', TEMA()."/css/nutriheroes.css" );
