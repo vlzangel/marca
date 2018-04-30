@@ -7,7 +7,12 @@
 
 	global $wpdb;
 
-	$subscribers = $wpdb->get_results("SELECT * FROM subscribers_list ORDER BY ID DESC");
+	$where='';
+	if( isset($_SESSION["wlabel"]) ){
+		$where = " where referencia = 'momsweb'";
+	}
+
+	$subscribers = $wpdb->get_results("SELECT * FROM subscribers_list {$where} ORDER BY ID DESC");
 
 	$data["data"] = array();
 
@@ -17,6 +22,7 @@
 	        $subscriber->fecha,
 	        $subscriber->email,
 	        $subscriber->phone,
+	        $subscriber->referencia,
 	    );
 	}
 

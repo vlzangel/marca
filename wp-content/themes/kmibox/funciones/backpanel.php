@@ -84,7 +84,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'subscribers',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator'],
+                    'add-menu-to'   =>  ['administrator', 'asesor'],
                 ),
                 array(
                     'title'         =>  __('Asesores Niveles'),
