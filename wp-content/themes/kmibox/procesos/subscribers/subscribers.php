@@ -23,6 +23,19 @@
 	    );
 	    $request = Requests::post('http://kmimos.intaface.com/t/j/s/ekhthj', array(), $options );
 
+
+	    // Registro en la campaing de Mom's
+		if( $referencia == 'momsweb' ){
+			$options = array(
+		        'cm-skutlh-skutlh' => $email,
+		        'cm-f-jjhluii' => $phone,
+		        'cm-f-jjhlutd' => $mi_marca,
+		    );
+		    $request = Requests::post('http://kmimos.intaface.com/t/j/s/skutlh', array(), $options );		
+		}	    
+
+
+
 	    exit();
 	}
 

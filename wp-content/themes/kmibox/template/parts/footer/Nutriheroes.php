@@ -4,6 +4,12 @@
 	foreach ($marcas as $marca) {
 		$marcas_option .= '<option value="'.$marca->nombre.'">'.$marca->nombre.'</option>';
 	}
+
+	$referencia = 'ayuda-home';
+	if( isset($_SESSION["wlabel"]) ){
+		$referencia = 'momsweb';
+	}
+
 ?>
 
 
@@ -37,7 +43,7 @@
 									<option>Selecciona tu marca</option>
 									<?php echo $marcas_option; ?>
 								</select>
-								<input type="hidden" name="referencia" value="ayuda-home">
+								<input type="hidden" name="referencia" value="<?php echo $referencia; ?>">
 							</div>
 							<div class="popup_der">
 								<button type="submit" class="btn-pop-up-home">ENVIAR</button>
