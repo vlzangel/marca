@@ -8,7 +8,9 @@
 	global $wpdb;
 
 	$where='';
-	if( isset($_SESSION["wlabel"]) ){
+
+	$wlabel = get_user_meta( get_current_user_id(), 'user_wlabel', true );;
+	if( !empty($wlabel) ){
 		$where = " where referencia = 'momsweb'";
 	}
 

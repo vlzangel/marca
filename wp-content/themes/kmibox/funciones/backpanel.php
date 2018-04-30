@@ -14,7 +14,7 @@
                     'page'          =>  'organigrama',
                     'icon'          =>  '',
                     'position'      =>  4,
-                    'add-menu-to'   =>  ['administrator','asesor'],
+                    'add-menu-to'   =>  ['administrator','asesor', 'asesor-wlabel'],
                 ),
                 array(
                     'title'         =>  __('Clientes'),
@@ -24,7 +24,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'clientes',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator', 'asesor'],
+                    'add-menu-to'   =>  ['administrator', 'asesor', 'asesor-wlabel'],
                 ),
                 array(
                     'title'         =>  __('Marcas'),
@@ -54,7 +54,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'suscripciones',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator','asesor'],
+                    'add-menu-to'   =>  ['administrator','asesor', 'asesor-wlabel'],
                 ),
                 array(
                     'title'         =>  __('Despacho'),
@@ -64,7 +64,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'despacho',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator','asesor'],
+                    'add-menu-to'   =>  ['administrator','asesor', 'asesor-wlabel'],
                 ),
                 array(
                     'title'         =>  __('Tipo de mascotas'),
@@ -84,7 +84,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'subscribers',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator', 'asesor'],
+                    'add-menu-to'   =>  ['administrator', 'asesor-wlabel'],
                 ),
                 array(
                     'title'         =>  __('Asesores Niveles'),
@@ -114,7 +114,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'asesores_puntos',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator','asesor'],
+                    'add-menu-to'   =>  ['administrator','asesor', 'asesor-wlabel'],
                 ),
                 array(
                     'title'         =>  __('Estructura de los Asesores'),
@@ -124,7 +124,7 @@
                     'access'        =>  'manage_options',
                     'page'          =>  'organigrama',
                     'icon'          =>  '',
-                    'add-menu-to'   =>  ['administrator','asesor'],
+                    'add-menu-to'   =>  ['administrator','asesor', 'asesor-wlabel'],
                 )
 
             );
@@ -196,6 +196,11 @@
             global $wpdb;
             $user_info = get_userdata( get_current_user_id() );
             $type = 'usuario';
+
+            //verificar si es usuario momsweb
+            $wlabel = get_user_meta( $user_info->ID, 'user_wlabel', true );
+            
+
             switch( $user_info->roles[0] ){
                 case 'administrator':
                     $type = $user_info->roles[0];
@@ -209,8 +214,12 @@
                         if ( !empty($existe) ){
                             $role_object->add_cap( 'manage_options' );
                             $type = 'asesor';
+                            if( !empty($wlabel) ){
+                                $type = 'asesor-wlabel';
+                            }
                         }
                     }
+
                     remove_menu_page( "options-general.php" );
                     remove_menu_page( "profile.php" );
                     break;
