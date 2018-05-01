@@ -243,6 +243,7 @@ section{
 	    text-align: center;
 	    outline: none;
 	    border-radius: 5px;
+	    background: transparent;
 	}
 
 	.separador-pop-up-home{

@@ -10,7 +10,7 @@ nav{
 
 nav .atras {
     float: left;
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
     text-transform: uppercase;
     cursor: pointer;
     z-index: 99999999999999;

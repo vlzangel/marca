@@ -243,3 +243,25 @@
 .btn-kmibox-white:hover {
     color: #eb008a;
 }
+
+
+#pagar nav {
+    background-color: #eb008a;
+}
+
+.desglose_direccion {
+    background: #eb008a;
+}
+
+.btn-pagar {
+    background-color: #eb008a;
+    border: solid 1px #eb008a;
+}
+
+.form_total_monto {
+    color: #eb008a;
+}
+
+.totales > div > span {
+    color: #eb008a;
+}
