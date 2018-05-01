@@ -1,8 +1,24 @@
 <?php
 	$paginas = array(
-		"alsea",
-		"momsweb",
-		"quitar",
+		"momsweb" => array(
+			"wl" => "momsweb",
+			"codigo" => "1000001",
+			"asesor" => "momsweb.mx",
+			"asesor_email" => "momsweb.mx@mail.com",
+		),
+		"alsea" => array(
+			"wl" => "alsea",
+			"codigo" => "1000002",
+			"asesor" => "alsea.mx",
+			"asesor_email" => "alsea.mx@mail.com",
+		),
+		"jj" => array(
+			"wl" => "jj",
+			"codigo" => "1000003",
+			"asesor" => "jj.mx",
+			"asesor_email" => "jj.mx@mail.com",
+		),
+		"quitar" => array(),
 	);
 
 	$url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
@@ -13,10 +29,15 @@
 
 	global $wpdb;
 
-	if( in_array($param[0], $paginas) ){
-		if( file_exists( __DIR__."/wlabels/".$param[0].".php" ) ){
-			include( __DIR__."/wlabels/".$param[0].".php" );
+	if( array_key_exists ($param[0], $paginas) ){
+		session_start();
+		if( $param[0] == "quitar"){
+			unset($_SESSION["wlabel"]);
+		}else{
+			$_SESSION["wlabel"] = $paginas[ $param[0] ];
 		}
+
+		header( "location: ".get_home_url() );
 	}else{
 		get_header(); ?> 
 		<div class="wrap">
