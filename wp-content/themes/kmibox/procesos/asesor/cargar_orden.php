@@ -101,9 +101,10 @@
 						p.marca,
 						pl.plan,
 						pl.id as plan_id,
-						p.precio,
+						p.precio as precio,
 						p.id as producto,
-						( p.precio * pl.meses ) as subtotal,
+						pl.meses as meses,
+						pl.semanas as semanas,
 						'{$dir_tamano}' as tamano
 					FROM productos as p
 						INNER JOIN marcas as m ON m.id = p.marca 
@@ -112,6 +113,18 @@
 					";	
 
 				$temp_product = $wpdb->get_row($sql_carrito);
+
+				$total = 0;
+				if( $temp_product->meses == 0 && $temp_product->semanas == 0 ){
+					$total = $temp_product->precio;
+				}
+				if( $temp_product->meses == 0 && $temp_product->semanas > 0 ){
+					$total = $temp_product->precio*$temp_product->semanas;
+				}
+				if( $temp_product->meses > 0 && $temp_product->semanas == 0 ){
+					$total = $temp_product->precio*$temp_product->meses;
+				}
+
 				$CARRITO = [
 					"user_id" => $user->ID,
 					"cantidad"=> 1, 
@@ -119,7 +132,7 @@
 						$temp_product
 					], 
 					"descuentos"=> [],
-					"total"=> $temp_product->subtotal
+					"total"=> $total
 				];
 
 	
