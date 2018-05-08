@@ -20,9 +20,8 @@
 		<article class="col-sm-12  text-left">
 			<h3 class="caviar">Contáctanos</h3>
 			<ul class="list-unstyled">
-				<li class="caviar" style="color: #ffffff">+52 (55) 1791.4931</li>
 				<li class="caviar" style="color: #ffffff">+52 (55) 66319264</li>
-				<li class="caviar" style="color: #ffffff">Llamada Sin Costo: (01) 800 056 4667</li>
+				<li class="caviar" style="color: #ffffff">+52 (55) 40034824</li>
 				<li class="caviar">Email: contactomex@kmimos.la</li>
 			</ul>
 		</article>
