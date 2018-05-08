@@ -264,3 +264,7 @@
 .totales > div > span {
     color: #f30617;
 }
+
+.nutri-container .container_txt span {
+    background: #f30617;
+}
