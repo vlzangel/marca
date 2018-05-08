@@ -28,19 +28,7 @@
 				<img  class="solo_movil fondo_popup_movil" src="<?php echo TEMA().'imgs/popup-nutriheroes/full/Pop-Up-Homepage-responsive_4.png'; ?>" />
 
 				<article class="container_txt" >
-					Ingresa tus datos y <span>recibe 
-					<?php
-						if( !isset($_SESSION) ){ session_start(); }
-						if( isset( $_SESSION["wlabel"] ) ){
-							if( $_SESSION["wlabel"]["wl"] == "momsweb" ){
-								echo "$100";
-							}else{
-								echo "$50";
-							}
-						}else{
-							echo "$50";
-						}
-					?> MXN</span> de descuento en tu primera compra en NUTRIHEROES
+					Ingresa tus datos y <span>recibe $100 MXN</span> de descuento en tu primera compra en NUTRIHEROES
 				</article>
 				<article class="container_form" >
 
