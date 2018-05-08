@@ -1,0 +1,44 @@
+#myDiagramDiv{
+	background-color: white; 
+	border: solid 0px #cfcfcf; 
+	height: 500px;	
+	display:none;
+}
+
+#cargando_estructura{
+    width: 100%;
+    text-align: center;
+    top: 20%;
+    margin: 0 auto;
+    padding: 10% 0px;
+    display: block;
+}
+
+h3{
+
+}
+h3 span {
+    margin: 0px 4px;
+    width:5px;
+    height:5px;
+    border-radius: 10px 50px;
+    padding:2px 4px;
+    font-size: 10px;
+}
+.green{
+    background: green;
+    border: 2px solid green;
+
+}
+.orange{
+    background: orange;
+    border: 2px solid orange;
+
+}
+.gray{
+    background: gray;
+    border: 2px solid gray;
+
+}
+
+
