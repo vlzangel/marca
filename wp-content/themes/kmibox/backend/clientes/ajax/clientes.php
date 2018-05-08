@@ -7,7 +7,22 @@
 
 	global $wpdb;
 
-	$clientes = $wpdb->get_results("SELECT * FROM wp_users ORDER BY ID DESC");
+	$clientes = [];
+
+	$user_info = get_userdata( get_current_user_id() );
+	$user_type = $user_info->roles[0];
+	$_soy_asesor =  $wpdb->get_row("SELECT * FROM asesores WHERE email = '{$user_info->user_email}' ");
+	if( $user_type == 'administrator' ){
+		$clientes = $wpdb->get_results("SELECT * FROM wp_users ORDER BY ID DESC");
+	}else{
+		if( $_soy_asesor != null ){
+			$clientes = $wpdb->get_results("
+				SELECT u.* FROM wp_users as u 
+					INNER JOIN wp_usermeta as m ON m.user_id = u.ID 
+				WHERE m.meta_value = {$_soy_asesor->id} and m.meta_key = 'asesor_registro'
+				ORDER BY ID DESC");
+		}
+	}
 
 	$data["data"] = array();
 	$excel = array();
@@ -39,7 +54,10 @@
 			$es_asesor = $_es_asesor->codigo_asesor;
 			$es_asesor_excel = $_es_asesor->codigo_asesor;
 		}else{
-			$es_asesor = "<span 
+			$es_asesor_excel = "NO";
+			$es_asesor = "NO";
+			if( $user_type == 'administrator' ){
+				$es_asesor = "<span 
 	        		onclick='abrir_link( jQuery( this ) )' 
 	        		data-id='".$cliente->ID."' 
 	        		data-titulo='Convertir en Asesor' 
@@ -47,7 +65,7 @@
 	        		data-modal='asignar_asesor' 
 	        		class='enlace' style='text-align: center;'
 	        	>NO</span>";
-			$es_asesor_excel = "NO";
+	    	}
 		}
 
 		$estado = utf8_decode( $wpdb->get_var("SELECT name FROM wp_estados WHERE id = '".$metadata[ "dir_estado" ]."' ") );
@@ -68,25 +86,33 @@
 		$__asesor = $wpdb->get_row("SELECT * FROM asesores WHERE id = ".$metadata[ "asesor_registro" ]);
 		if( $metadata[ "asesor_registro" ] > 0 ){ $asesor_padre = $__asesor->codigo_asesor; }
 
-		$data["data"][] = array(
-	        $contador,
-	        $cliente->ID,
-	        date("d/m/Y", strtotime($cliente->user_registered)),
-	        "<a href='".get_home_url()."/?i=".md5($cliente->ID)."' target='_blank'>".$metadata[ "first_name" ]." ".$metadata[ "last_name" ]."</a>",
-	        $cliente->user_email,
-	        $telefonos,
-	        $direccion,
-	        strtoupper( $donde ),
-	        $metadata["is_user_kmimos"],
-	        $es_asesor,
-	         "<span 
+		if( $user_type == 'administrator' ){
+			$_asesor_padre = "<span 
         		onclick='abrir_link( jQuery( this ) )' 
         		data-id='".$cliente->ID."' 
         		data-titulo='Asociar un Asesor' 
         		data-modulo='clientes' 
         		data-modal='asociar_asesor' 
         		class='enlace' style='text-align: center;'
-        	>$asesor_padre</span>"
+        		>$asesor_padre</span>";
+        	$cliente_nombre = "<a href='".get_home_url()."/?i=".md5($cliente->ID)."' target='_blank'>".$metadata[ "first_name" ]." ".$metadata[ "last_name" ]."</a>";
+    	}else{
+        	$cliente_nombre = $metadata[ "first_name" ]." ".$metadata[ "last_name" ];
+			$_asesor_padre = "<span style='text-align: center;'>$asesor_padre</span>";
+    	}
+
+		$data["data"][] = array(
+	        $contador,
+	        $cliente->ID,
+	        date("d/m/Y", strtotime($cliente->user_registered)),
+	        $cliente_nombre,
+	        $cliente->user_email,
+	        $telefonos,
+	        $direccion,
+	        strtoupper( $donde ),
+	        $metadata["is_user_kmimos"],
+	        $es_asesor,
+	        $_asesor_padre
 	    );
 
 		$excel[] = array(
@@ -96,7 +122,7 @@
 	        array(
 	        	"valor" => $cliente->user_email,
 	        	"tipo" => "link",
-	        	"link" => get_home_url()."/?i=".md5($cliente->ID)
+	        	"link" => ( $user_type == 'administrator' )? get_home_url()."/?i=".md5($cliente->ID) : '' 
 	        ),
 	        $telefonos,
 	        $direccion,
@@ -121,6 +147,7 @@
                 "Donde nos conocio?",
                 "Usuario Kmimos",
                 "Asesor",
+                "Asesor Padre",
 			),
 			"data" => $excel
 		));
