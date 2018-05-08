@@ -41,13 +41,14 @@
 				data-modal='nuevo' 
 				class='enlace' style='text-align: center;'
 			>Editar</div>";
-
+ 
 		$data["data"][] = array(
 	        $asesor->id,
 	        $asesor->codigo_asesor,
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
+	        $__puntos,
 	        $__parent,
 	        $__editar
 	    );
@@ -58,6 +59,7 @@
 	        $asesor->nombre,
 	        $asesor->email,
 	        $asesor->telefono,
+	        $__puntos,
 	        $__parent,
 	        'editar'
 	    );

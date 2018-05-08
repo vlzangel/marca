@@ -27,9 +27,9 @@
 			// ************************
 			// Agregar a bitrix
 			// ************************
-			include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
+/*			include $raiz.'/wp-content/themes/kmibox/lib/bitrix/bitrix.php';
 			$bitrix->updateParent( $existe_asesor->email, $existe_parent->email);
-		
+*/		
 
 			echo json_encode(array(
 				"code" => 1
