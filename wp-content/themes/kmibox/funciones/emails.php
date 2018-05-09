@@ -47,7 +47,7 @@
 
 			if( !isset($_SESSION) ){ session_start(); }
 			if( isset( $_SESSION["wlabel"] ) ) {
-				$subject = $_SESSION["wlabel"]." - ".$subject;
+				$subject = $_SESSION["wlabel"]["wl"]." - ".$subject;
 			}
 
 			$administradores = get_results("SELECT * FROM administradores");
