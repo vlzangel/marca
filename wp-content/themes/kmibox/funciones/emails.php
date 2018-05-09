@@ -44,6 +44,11 @@
 	if(!function_exists('mail_admin_nutriheroes')){
 		function mail_admin_nutriheroes( $subject, $message, $agregar_a_lista = [], $list_name = 'admin' ){
 
+			if( !isset($_SESSION) ){ session_start(); }
+			if( isset( $_SESSION["wlabel"] ) {
+				$subject = $_SESSION["wlabel"]." - ".$subject;
+			}
+
 			$administradores = get_results("SELECT * FROM administradores");
 	        $listas = [
 	        	'admin' => []
