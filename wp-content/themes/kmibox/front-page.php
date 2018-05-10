@@ -54,13 +54,6 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 		</div>
 	</header>
 
-	<?php
-		echo "<pre>";
-			unset($_SESSION['is_wlabel']);
-			print_r($_SESSION);
-		echo "</pre>";
-	?>
-
 	<section id='section-comment' class="row text-center ">
 		<div class="container ">
 			<h3>
