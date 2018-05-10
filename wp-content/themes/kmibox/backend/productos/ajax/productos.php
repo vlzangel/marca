@@ -113,7 +113,7 @@
 	        $producto->status,
 	        array(
 	        	"tipo" => "img",
-	        	"valor" => $img
+	        	"valor" => dirname(dirname(dirname(__DIR__)))."/imgs/productos/".$dataextra["img"]
 	        )
 	    );
 	}

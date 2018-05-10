@@ -20,7 +20,7 @@
 
 	foreach ($marcas as $marca) {
 
-		$img = TEMA()."/imgs/marcas/".$marca->img;
+		$img = TEMA()."/imgs/marcas".$marca->img;
 
 		$data["data"][] = array(
 	        $marca->id,
@@ -46,7 +46,7 @@
 	        $tipos[ $marca->tipo ],
 	        array(
 	        	"tipo" => "img",
-	        	"valor" => $img
+	        	"valor" => dirname(dirname(dirname(__DIR__)))."/imgs/marcas/".$marca->img
 	        )
 	    );
 	}
