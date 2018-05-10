@@ -37,9 +37,6 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 	
 
 ?>
-
-
-
 	<?php echo MENU(); ?>
 	<header id="header" class="row">
 		<div class="container">
@@ -56,6 +53,13 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 			</div>
 		</div>
 	</header>
+
+	<?php
+		echo "<pre>";
+			unset($_SESSION['is_wlabel']);
+			print_r($_SESSION);
+		echo "</pre>";
+	?>
 
 	<section id='section-comment' class="row text-center ">
 		<div class="container ">

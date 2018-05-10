@@ -1,25 +1,5 @@
 <?php
-	$paginas = array(
-		"momsweb" => array(
-			"wl" => "momsweb",
-			"codigo" => "1000001",
-			"asesor" => "momsweb.mx",
-			"asesor_email" => "momsweb.mx@mail.com",
-		),
-		"alsea" => array(
-			"wl" => "alsea",
-			"codigo" => "1000002",
-			"asesor" => "alsea.mx",
-			"asesor_email" => "alsea.mx@mail.com",
-		),
-		"jj" => array(
-			"wl" => "jj",
-			"codigo" => "1000003",
-			"asesor" => "jj.mx",
-			"asesor_email" => "jj.mx@mail.com",
-		),
-		"quitar" => array(),
-	);
+	$paginas = getAllWlabel();
 
 	$url = $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 
