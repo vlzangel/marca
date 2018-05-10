@@ -75,58 +75,86 @@
 			var mostrar_modal_marca_2 = "";
 		</script>
 
-		<a class="controles_generales" id="vlz_atras" href="#">
-			<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
-		</a>
+		<div class="controles_container">
+			<a class="" id="vlz_atras" href="#">
+				<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
+			</a>
 
-		<div class="controles_generales" id="vlz_titulo">
-			Elije el tamaño de tu mascota
-		</div>
+			<div class="" id="vlz_titulo">
+				Elije el tamaño de tu mascota
+			</div>
 
-		<div class="controles_generales" id="vlz_controles_fases">
-			<span id="fase_indicador_1" class="fase_activa"> <span>Paso 1</span> </span>
-			<span id="fase_indicador_2" > <span>Paso 2</span> </span>
-			<span id="fase_indicador_3" > <span>Paso 3</span> </span>
-			<span id="fase_indicador_4" > <span>Paso 4</span> </span>
-			<span id="fase_indicador_5" > <span>Paso 5</span> </span>
+			<div class="breadcrumb">
+				<span>Tama&ntilde;o</span> >
+				<span>Edad</span> >
+				<span>Marca</span> >
+				<span>Precentaci&oacute;n</span> >
+				<span>Periodicidad</span>
+			</div>
 		</div>
 
 		<div class="comprar_container">
+
+			<div class="controles_generales" id="vlz_controles_fases">
+				<span id="fase_indicador_1" class="fase_activa"> <span>Paso 1</span> </span>
+				<span id="fase_indicador_2" > <span>Paso 2</span> </span>
+				<span id="fase_indicador_3" > <span>Paso 3</span> </span>
+				<span id="fase_indicador_4" > <span>Paso 4</span> </span>
+				<span id="fase_indicador_5" > <span>Paso 5</span> </span>
+				<span id="fase_indicador_6" > <span>Paso 6</span> </span>
+			</div>
 
 			<section id="fase_1">
 				<div class="carrousel-items-containers">
 					<div class="carrousel-items">
 						<article data-value="Mediano">
 							<div>
-								<div style="background-image: url('.get_home_url().'/img/edad/p_mediano.png);" class="img-responsive img-circle"></div>
+								<div style="background-image: url('.get_home_url().'/img/tamanos/p_mediano.png);" class="img-responsive img-circle"></div>
 								<p class="col-md-12">Mediano</p>
 							</div>
 						</article>
 						<article data-value="Pequeño">
 							<div>
-								<div style="background-image: url('.get_home_url().'/img/edad/p_pequeno_1.png);" class="img-responsive img-circle"></div>
+								<div style="background-image: url('.get_home_url().'/img/tamanos/p_pequeno_1.png);" class="img-responsive img-circle"></div>
 								<p class="col-md-12">Pequeño</p>
 							</div>
 						</article>
 						<article data-value="Grande">
 							<div>
-								<div style="background-image: url('.get_home_url().'/img/edad/p_adulto.png);" class="img-responsive img-circle"></div>
+								<div style="background-image: url('.get_home_url().'/img/tamanos/p_adulto.png);" class="img-responsive img-circle"></div>
 								<p class="col-md-12">Grande</p>
 							</div>
 						</article>
 					</div>
-					<div class="selector_edad_container">
-						<label>Selecciona la Edad</label>
-						<div class="selector_edad_box" id="edad">
-							<span id="edad_Cachorro" data-value="Cachorro" class="btn-disable" >Cachorro</span>
-							<span id="edad_Adulto" data-value="Adulto" class="btn-disable" >Adulto</span>
-							<span id="edad_Senior" data-value="Senior" class="btn-disable" >Senior</span>
-						</div>
+				</div>
+			</section>
+
+			<section id="fase_2">
+				<div class="carrousel-items-containers">
+					<div class="carrousel-items">
+						<article data-value="Cachorro">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/Cachorro.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Cachorro</p>
+							</div>
+						</article>
+						<article data-value="Adulto">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/Adulto.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Adulto</p>
+							</div>
+						</article>
+						<article data-value="Senior">
+							<div>
+								<div style="background-image: url('.get_home_url().'/img/edad/Senior.png);" class="img-responsive img-circle"></div>
+								<p class="col-md-12">Senior</p>
+							</div>
+						</article>
 					</div>
 				</div>
 			</section>
 
-			<section id="fase_2" class="hidden">
+			<section id="fase_3" class="hidden">
 				<div class="controles_marca_container">
 					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_marcas">0</span> RESULTADOS</div>
@@ -144,12 +172,12 @@
 				<div id="msg_desplazar_marcas" class="msg_desplazar">
 					Desliza hacia arriba o abajo para ver las opciones
 				</div>
-				<div class="btn_siguiente_container">
+				<!-- <div class="btn_siguiente_container">
 					<button id="marca_select" class="btn_siguiente btn-disable" > Siguente </button>
-				</div>
+				</div> -->
 			</section>
 
-			<section id="fase_3" class="hidden">
+			<section id="fase_4" class="hidden">
 				<div class="controles_presentaciones_container">
 					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_precentaciones">0</span> RESULTADOS</div>
@@ -159,12 +187,12 @@
 				<div id="msg_desplazar_precentaciones" class="msg_desplazar">
 					Desliza hacia arriba o abajo para ver las opciones
 				</div>
-				<div class="btn_siguiente_container">
+				<!-- <div class="btn_siguiente_container">
 					<button id="presentacion_select" class="btn_siguiente btn-disable"> Siguente </button>
-				</div>
+				</div> -->
 			</section>
 
-			<section id="fase_4" class="hidden">
+			<section id="fase_5" class="hidden">
 				<div id="plan">
 					<div id="nivel"></div>
 					<div id="plan_box">
@@ -185,7 +213,7 @@
 				</div>
 			</section>
 
-			<section id="fase_5" class="hidden">
+			<section id="fase_6" class="hidden">
 				<div class="factura">
 					<div class="cintillo_factura">
 						<img id="cen" src="'.TEMA().'/imgs/Elemento-11.png" />
