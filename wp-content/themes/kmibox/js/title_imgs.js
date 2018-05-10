@@ -8,4 +8,7 @@ jQuery(document).ready(function() {
 		jQuery( window ).scrollTop( 0 );
 	}, 200);
 	
+	jQuery(".cerrar_modal_footer").on("click", function(e){
+		jQuery("#contacto-ayuda").fadeOut();
+	});
 });
