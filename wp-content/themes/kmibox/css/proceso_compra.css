@@ -47,8 +47,9 @@ div#wpadminbar {
 .controles_generales{
 	position: fixed;
     padding: 5px 15px 5px 15px;
-	top: 90px;
+	top: 115px;
 	box-sizing: border-box;
+	z-index: 999;
 }
 
 #vlz_atras {
@@ -93,12 +94,22 @@ div#wpadminbar {
 
 .breadcrumb{
 	position: absolute;
-    top: 85px;
+    bottom: -45px;
     width: 70%;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
+.breadcrumb > div {
+	width: 720px;
 }
 
 .breadcrumb span {
 	# cursor: pointer;
+}
+
+.breadcrumb span.establecido {
+	font-weight: 600;
 }
 
 #vlz_controles_fases {
@@ -230,11 +241,11 @@ div#wpadminbar {
 	}
 
 	.marcas_container {
-	    height: calc( 100% - 230px );
-	    position: fixed;
-	    width: 100%;
-	    top: 160px;
-	    overflow: auto;
+		height: calc( 100% - 245px );
+		position: fixed;
+		width: 100%;
+		top: 205px;
+		overflow: auto;
 	}
 
 	.abajo_marcas {
@@ -290,7 +301,7 @@ div#wpadminbar {
 	}
 
 	.controles_marca_container {
-	    margin: 75px 100px 0px 70px;
+	    margin: 120px 100px 0px 70px;
 	    overflow: hidden;
 	}
 
@@ -511,9 +522,11 @@ div#wpadminbar {
 	    width: 100%;
 	    box-sizing: border-box;
 	    position: fixed;
-	    top: 100px;
 	    height: calc( 100% - 100px );
 	    overflow: auto;
+
+        bottom: 0px;
+    	height: calc( 100% - 122px );
 	}
 
 	#plan #nivel{
@@ -666,7 +679,7 @@ div#wpadminbar {
 	}
 
 	.factura{
-		margin: 120px auto 50px;
+		margin: 130px auto 50px;
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
 	    max-width: 900px;

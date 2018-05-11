@@ -266,13 +266,13 @@
 	}
 
 	#vlz_atras {
-	    width: 85px;
+	    width: 100px;
 	    font-size: 10px;
 	}
 
 	#vlz_titulo {
 	    top: 45px;
-	    width: 93%;
+	    width: 100%;
 	    text-align: center;
 	    font-family: GothanMedium_regular;
 	    font-size: 16px;
@@ -295,8 +295,13 @@
 		}
 
 		.controles_marca_container {
-		    margin: 75px 73px 0px 20px;
+		    margin: 105px 100px 0px 20px;
 		    overflow: hidden;
+		}
+
+		.breadcrumb {
+	        position: absolute;
+		    width: calc( 100% - 40px );
 		}
 
 		.cantidad_resultados {
@@ -368,7 +373,7 @@
 
 @media (max-width: 680px){
 	.busqueda .input-group{
-		width: 90%;
+		width: 100%;
 		margin: 0 auto;
 	}
 	.carrusel_2{
@@ -458,12 +463,31 @@
 
 @media ( max-width: 500px ) {
 
+	#vlz_atras {
+	    position: relative;
+	    padding: 6px 15px;
+	    display: block;
+	}
+
+	.breadcrumb {
+	    width: 100%;
+	    font-size: 12px;
+	    left: 0px;
+	    box-sizing: border-box;
+	    border-radius: 0px;
+	    bottom: -32px;
+	}
+
+	.controles_generales{
+		top: 125px;
+	}
+
 	.fecha_estimada{
 	    font-size: 10px;
 	}
 
 	.msg_desplazar {
-	    bottom: 40px;
+	    bottom: 12px;
 	    text-align: center;
 	    font-size: 12px;
 	    width: 100%;
@@ -626,7 +650,17 @@
 	}
 
 	.factura {
-	    margin: 100px auto 10px;
+	    margin: 120px auto 10px;
+	}
+
+	.cintillo_factura {
+	    text-align: left;
+	}
+
+	.cintillo_factura #cen {
+	    width: calc( 100% - 20px );
+	    box-sizing: border-box;
+	    margin: 10px;
 	}
 
 	.cantidad_controls i {
@@ -666,7 +700,7 @@
 		}
 
 		.controles_marca_container {
-		    margin: 80px 20px 0px 20px;
+		    margin: 120px 75px 0px 15px;
 		}
 
 		.btn_siguiente_container {
@@ -698,6 +732,13 @@
 		#presentaciones .descripcion_producto_box,
 		#presentaciones .peso_producto_box {
 		    font-size: 18px;
+		}
+
+	/* Planes */
+
+		#plan article {
+		    width: calc( 50% - 2px );
+		    padding: 0px 15px;
 		}
 
 	/* Desglose */
@@ -751,6 +792,10 @@
 
 @media (max-width: 350px){
 
+	.controles_container {
+	    padding: 10px 20px;
+	}
+
 	#prueba{
 		position: relative;
 		top: 96px;
@@ -758,8 +803,33 @@
 
 	#vlz_titulo {
 	    top: 54px;
-	    font-size: 11px;
+	    font-size: 12px;
 	    width: calc( 100% - 20px );
+	    padding: 10px 0px;
+	}
+
+	.controles_generales {
+	    top: 115px;
+	}
+
+	.breadcrumb {
+	    padding: 8px;
+	}
+
+	.carrousel-items-containers {
+	    margin: 140px 0px 0px;
+	}
+
+	#plan{
+    	padding: 30px 20px !important;
+	}
+
+	.info_producto_container {
+	    padding-left: 15px;
+	}
+
+	.marcas_container {
+	    top: 215px;
 	}
 
 	.selector_edad_container .selector_edad_box span {

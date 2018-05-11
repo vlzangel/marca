@@ -85,11 +85,13 @@
 			</div>
 
 			<div class="breadcrumb">
-				<span>Tama&ntilde;o</span> >
-				<span>Edad</span> >
-				<span>Marca</span> >
-				<span>Precentaci&oacute;n</span> >
-				<span>Periodicidad</span>
+				<div>
+					<span id="breadcrumb_tamano" >Tama&ntilde;o</span> >
+					<span id="breadcrumb_edad" >Edad</span> >
+					<span id="breadcrumb_marca" >Marca</span> >
+					<span id="breadcrumb_presentacion" >Presentaci&oacute;n</span> >
+					<span id="breadcrumb_periodicidad" >Periodicidad</span>
+				</div>
 			</div>
 		</div>
 
@@ -178,7 +180,7 @@
 			</section>
 
 			<section id="fase_4" class="hidden">
-				<div class="controles_presentaciones_container">
+				<div class="controles_marca_container">
 					'.$form_busqueda.'
 					<div class="cantidad_resultados"><span id="cant_precentaciones">0</span> RESULTADOS</div>
 					<div class="tipo_mascota"></div>

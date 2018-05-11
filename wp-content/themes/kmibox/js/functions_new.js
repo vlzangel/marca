@@ -133,7 +133,7 @@ jQuery(document).ready(function() {
 		prod_actual["plan_id"] = jQuery(this).val();
 		jQuery("#plan article").removeClass("plan_activo");
 		jQuery(this).addClass("plan_activo");
-		change_fase(5);
+		change_fase(6);
 	});
 
 	jQuery("#vlz_atras").on("click", function(e){
@@ -162,6 +162,7 @@ jQuery(document).ready(function() {
 		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = undefined;
 		jQuery("button").removeClass("vlz_activo");
 		change_fase( 1 );
+		resetEstablecerBreadcrumb();
 	});
 	jQuery("#pagar").on("click", function(e){
 		e.preventDefault();
@@ -422,6 +423,13 @@ function change_fase(fase){
 	jQuery(".comprar_container section").addClass("hidden");
 	jQuery("#fase_"+fase).addClass("bounceInRight animated");
 	jQuery("#fase_"+fase).removeClass('hidden');
+
+	if( fase == 6 ){
+		jQuery("#vlz_controles_fases").css("display", "none");
+	}else{
+		jQuery("#vlz_controles_fases").css("display", "block");
+	}
+
 	if( fase > 0 ){
 		jQuery("#vlz_atras").attr("data-value", fase-1);
 	}else{
@@ -608,6 +616,56 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	jQuery( '#cart-items' ).append(HTML);
 }
 
+function establecerBreadcrumb(paso){
+	if( !jQuery("#"+paso).hasClass("establecido") ){
+		jQuery("#"+paso).addClass("establecido");
+	}
+}
+
+function resetEstablecerBreadcrumb(){
+	jQuery(".breadcrumb span").removeClass("establecido");
+	jQuery("#breadcrumb_tamano").html( "Tama&ntilde;o" );
+	jQuery("#breadcrumb_edad").html( "Edad" ); 
+	jQuery("#breadcrumb_marca").html( "Marca" ); 
+	jQuery("#breadcrumb_presentacion").html( "Presentaci&oacute;n" );
+	jQuery("#breadcrumb_periodicidad").html( "Periodicidad" ); 
+}
+
+function updateBreadcrumb(){
+	var prod_actual = getCarritoActual();
+
+	if( prod_actual["tamano"] != "" ){ 
+		jQuery("#breadcrumb_tamano").html( prod_actual["tamano"] );
+		establecerBreadcrumb("breadcrumb_tamano");
+	}
+
+	if( prod_actual["edad"] != "" ){ 
+		jQuery("#breadcrumb_edad").html( prod_actual["edad"] ); 
+		establecerBreadcrumb("breadcrumb_edad");
+	}
+
+	if( prod_actual["marca"] != undefined && prod_actual["marca"] != "" ){ 
+		jQuery("#breadcrumb_marca").html( MARCAS[ prod_actual["marca"] ]["nombre"] ); 
+		establecerBreadcrumb("breadcrumb_marca");
+	}
+
+	if( prod_actual["producto"] != undefined && prod_actual["producto"] != "" ){ 
+		jQuery("#breadcrumb_presentacion").html( 
+			PRODUCTOS[ prod_actual["producto"] ]["nombre"]+
+			" ( "+
+				PRODUCTOS[ prod_actual["producto"] ]["descripcion"]+" - "+
+				PRODUCTOS[ prod_actual["producto"] ]["peso"]+
+			" )" 
+		); 
+		establecerBreadcrumb("breadcrumb_presentacion");
+	}
+
+	if( prod_actual["plan"] != undefined && prod_actual["plan"] != "" ){ 
+		jQuery("#breadcrumb_periodicidad").html( prod_actual["plan"] ); 
+		establecerBreadcrumb("breadcrumb_periodicidad");
+	}
+}
+
 function loadFase(fase){
 
 	if( parseInt(fase) == 4 ){
@@ -671,9 +729,9 @@ function loadFase(fase){
 
 			if( mostrar_modal_marca_2 == "" ){
 				mostrar_modal_marca_2 = 1;
-				setTimeout(function() {
+				/*setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
-		        }, 1500);
+		        }, 1500);*/
 			}
 
 		break;
@@ -740,6 +798,10 @@ function loadFase(fase){
 			CARRITO["total"] = total;
 			CARRITO["cantidad"] = cant_item;
 		break;
+	}
+
+	if( MARCAS.length != 0 ){
+		updateBreadcrumb();
 	}
 }
 
