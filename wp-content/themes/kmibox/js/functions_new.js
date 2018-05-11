@@ -63,57 +63,58 @@ jQuery(document).ready(function() {
 		BUSQUEDA_REGEXP = "("+REGEXP_CON_ESPACIO+REGEXP_SIN_ESPACIO+")";
 		//console.log(BUSQUEDA_REGEXP);
 
-		change_fase(3);
+		change_fase(4);
 	});
 
-	jQuery('.carrousel-items').on('click', 'article', function(){
-
-		if( !jQuery(".carrousel-items-containers").hasClass("hover_carrousel_item") ){
-			jQuery(".carrousel-items-containers").addClass("hover_carrousel_item");
-			jQuery("#edad span").removeClass("btn-disable");
-		}
+	jQuery('#fase_1 .carrousel-items').on('click', 'article', function(){
 
 		var index = jQuery(this).index() + 1; 
 		if( index ==  1 ){
-			jQuery(".carrousel-items article:last").insertBefore( jQuery(".carrousel-items article:first") );
+			jQuery("#fase_1 .carrousel-items article:last").insertBefore( jQuery("#fase_1 .carrousel-items article:first") );
 		}
-		if( index == jQuery('.carrousel-items article').length ){
-			jQuery(".carrousel-items article:first").insertAfter( jQuery(".carrousel-items article:last") );
+		if( index == jQuery('#fase_1 .carrousel-items article').length ){
+			jQuery("#fase_1 .carrousel-items article:first").insertAfter( jQuery("#fase_1 .carrousel-items article:last") );
 		}
 		var prod_actual = getCarritoActual();
-		prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+		prod_actual["tamano"] = jQuery("#fase_1 .carrousel-items article:nth-child(2)").attr("data-value");
+
+		change_fase(2);
+
+	});
+
+	jQuery('#fase_2 .carrousel-items').on('click', 'article', function(){
+
+		var index = jQuery(this).index() + 1; 
+		if( index ==  1 ){
+			jQuery("#fase_2 .carrousel-items article:last").insertBefore( jQuery("#fase_2 .carrousel-items article:first") );
+		}
+		if( index == jQuery('#fase_2 .carrousel-items article').length ){
+			jQuery("#fase_2 .carrousel-items article:first").insertAfter( jQuery("#fase_2 .carrousel-items article:last") );
+		}
+		var prod_actual = getCarritoActual();
+		prod_actual["edad"] = jQuery("#fase_2 .carrousel-items article:nth-child(2)").attr("data-value");
+
+		jQuery("#descripcion_producto").html( "RAZA "+prod_actual["tamano"]+" "+prod_actual["edad"]+" <span><span>" );
+
+		change_fase(3);
 
 	});
 	jQuery('.tamano-list').on('click', 'li', function(){
 		jQuery('.tamano-list li').removeClass('selected');
 		jQuery(this).addClass('selected');
 	});
-	jQuery("#edad span").on("click", function(e){
-
-		if( !jQuery(this).hasClass("btn-disable") ){
-			jQuery("#edad span").removeClass("btn_activo");
-			jQuery(this).addClass("btn_activo");
-			var prod_actual = getCarritoActual();
-			prod_actual["edad"] = jQuery(this).attr("data-value");
-			jQuery("#descripcion_producto").html( "RAZA "+prod_actual["tamano"]+" "+prod_actual["edad"]+" <span><span>" );
-			change_fase(2);
-		}else{
-			alert("Debe seleccionar un tamaño primero");
-		}
-
-	});
 
 	jQuery("#marca_select").on("click", function(e){
 		if( !jQuery(this).hasClass("btn-disable") ){
 			BUSQUEDA_REGEXP = '';
 			jQuery('input[data-target="search"]').val( '' );
-			change_fase(3);
+			change_fase(4);
 		}
 	});
 
 	jQuery("#presentacion_select").on("click", function(e){
 		if( !jQuery(this).hasClass("btn-disable") ){
-			change_fase(4);
+			change_fase(5);
 		}
 	});
 
@@ -123,7 +124,7 @@ jQuery(document).ready(function() {
 		prod_actual["plan_id"] = jQuery(this).attr("data-value");
 		jQuery("#plan article").removeClass("plan_activo");
 		jQuery(this).addClass("plan_activo");
-		change_fase(5);
+		change_fase(6);
 	});
 
 	jQuery("#personalizar_plan").on("change", function(e){
@@ -132,7 +133,7 @@ jQuery(document).ready(function() {
 		prod_actual["plan_id"] = jQuery(this).val();
 		jQuery("#plan article").removeClass("plan_activo");
 		jQuery(this).addClass("plan_activo");
-		change_fase(5);
+		change_fase(6);
 	});
 
 	jQuery("#vlz_atras").on("click", function(e){
@@ -161,6 +162,7 @@ jQuery(document).ready(function() {
 		CARRITO["productos"][ (CARRITO["productos"].length-1) ]["actual"] = undefined;
 		jQuery("button").removeClass("vlz_activo");
 		change_fase( 1 );
+		resetEstablecerBreadcrumb();
 	});
 	jQuery("#pagar").on("click", function(e){
 		e.preventDefault();
@@ -421,6 +423,13 @@ function change_fase(fase){
 	jQuery(".comprar_container section").addClass("hidden");
 	jQuery("#fase_"+fase).addClass("bounceInRight animated");
 	jQuery("#fase_"+fase).removeClass('hidden');
+
+	if( fase == 6 ){
+		jQuery("#vlz_controles_fases").css("display", "none");
+	}else{
+		jQuery("#vlz_controles_fases").css("display", "block");
+	}
+
 	if( fase > 0 ){
 		jQuery("#vlz_atras").attr("data-value", fase-1);
 	}else{
@@ -456,6 +465,7 @@ function initMarcas(){
 		jQuery("#marca > div").removeClass("item_activo");
 		jQuery(this).addClass("item_activo");
 		jQuery("#marca_select").removeClass("btn-disable");
+		change_fase(4);
 	});
 	jQuery("#tipo_mascota").change();
 }
@@ -539,6 +549,7 @@ function initPresentaciones(){
 		jQuery("#presentaciones > div").removeClass("item_activo");
 		jQuery(this).addClass("item_activo");
 		jQuery("#presentacion_select").removeClass("btn-disable");
+		change_fase(5);
 	});
 }
 
@@ -605,6 +616,56 @@ function add_item_cart( index, ID, name, frecuencia, thumnbnail, price, descripc
 	jQuery( '#cart-items' ).append(HTML);
 }
 
+function establecerBreadcrumb(paso){
+	if( !jQuery("#"+paso).hasClass("establecido") ){
+		jQuery("#"+paso).addClass("establecido");
+	}
+}
+
+function resetEstablecerBreadcrumb(){
+	jQuery(".breadcrumb span").removeClass("establecido");
+	jQuery("#breadcrumb_tamano").html( "Tama&ntilde;o" );
+	jQuery("#breadcrumb_edad").html( "Edad" ); 
+	jQuery("#breadcrumb_marca").html( "Marca" ); 
+	jQuery("#breadcrumb_presentacion").html( "Presentaci&oacute;n" );
+	jQuery("#breadcrumb_periodicidad").html( "Periodicidad" ); 
+}
+
+function updateBreadcrumb(){
+	var prod_actual = getCarritoActual();
+
+	if( prod_actual["tamano"] != "" ){ 
+		jQuery("#breadcrumb_tamano").html( prod_actual["tamano"] );
+		establecerBreadcrumb("breadcrumb_tamano");
+	}
+
+	if( prod_actual["edad"] != "" ){ 
+		jQuery("#breadcrumb_edad").html( prod_actual["edad"] ); 
+		establecerBreadcrumb("breadcrumb_edad");
+	}
+
+	if( prod_actual["marca"] != undefined && prod_actual["marca"] != "" ){ 
+		jQuery("#breadcrumb_marca").html( MARCAS[ prod_actual["marca"] ]["nombre"] ); 
+		establecerBreadcrumb("breadcrumb_marca");
+	}
+
+	if( prod_actual["producto"] != undefined && prod_actual["producto"] != "" ){ 
+		jQuery("#breadcrumb_presentacion").html( 
+			PRODUCTOS[ prod_actual["producto"] ]["nombre"]+
+			" ( "+
+				PRODUCTOS[ prod_actual["producto"] ]["descripcion"]+" - "+
+				PRODUCTOS[ prod_actual["producto"] ]["peso"]+
+			" )" 
+		); 
+		establecerBreadcrumb("breadcrumb_presentacion");
+	}
+
+	if( prod_actual["plan"] != undefined && prod_actual["plan"] != "" ){ 
+		jQuery("#breadcrumb_periodicidad").html( prod_actual["plan"] ); 
+		establecerBreadcrumb("breadcrumb_periodicidad");
+	}
+}
+
 function loadFase(fase){
 
 	if( parseInt(fase) == 4 ){
@@ -615,42 +676,52 @@ function loadFase(fase){
 
 	switch( fase ){
 		case "1":
-			change_title('Elije el tamaño de tu mascota');
+			change_title('Elije el <span>tamaño</span> de tu mascota');
 		break;
 		case 1: // Fase #1 - Tamaño
-			change_title('Elije el tamaño de tu mascota');
+			change_title('Elije el <span>tamaño</span> de tu mascota');
+			
+			var prod_actual = getCarritoActual();
+			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
+		break;
+
+		case "2":
+			change_title('Elije la <span>edad</span> de tu mascota');
+		break;
+		case 2: // Fase #1 - Tamaño
+			change_title('Elije la <span>edad</span> de tu mascota');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
 		break;
 
 
-		case "2":
+		case "3":
 			change_title('Escoge la marca de tu preferencia');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
 
 		break;
-		case 2: // Fase #2 - Producto
+		case 3: // Fase #2 - Producto
 
 			change_title('Escoge la marca de tu preferencia');
 			loadMarcas();
 			initMarcas();
 
-			if( mostrar_modal_marca_1 == "" ){
+			/*if( mostrar_modal_marca_1 == "" ){
 				mostrar_modal_marca_1 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 		        }, 1500);
-			}
+			}*/
 
 		break;
 
-		case "3":
+		case "4":
 			change_title('Selecciona la presentaci&oacute;n del alimento');
 		break;
-		case 3: // Fase #3 - Presentación
+		case 4: // Fase #3 - Presentación
 			change_title('Selecciona la presentaci&oacute;n del alimento');
 			
 			loadPresentaciones();
@@ -658,16 +729,16 @@ function loadFase(fase){
 
 			if( mostrar_modal_marca_2 == "" ){
 				mostrar_modal_marca_2 = 1;
-				setTimeout(function() {
+				/*setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
-		        }, 1500);
+		        }, 1500);*/
 			}
 
 		break;
-		case "4":
+		case "5":
 			change_title('Selecciona el tiempo de suscripción');
 		break;
-		case 4: // Fase #4 - Plan
+		case 5: // Fase #4 - Plan
 			change_title('Selecciona el tiempo de suscripción');
 			jQuery("#plan article").css("display", "none");
 			var actual = getCarritoActual();
@@ -678,10 +749,10 @@ function loadFase(fase){
 			});
 		break;
 
-		case "5":
+		case "6":
 			change_title('Verifica tu compra');
 		break;
-		case 5: // Fase #5 - Resumen de Compra
+		case 6: // Fase #5 - Resumen de Compra
 			change_title('Verifica tu compra');
 			var subtotal = 0;
 			var iva = 0;
@@ -727,6 +798,10 @@ function loadFase(fase){
 			CARRITO["total"] = total;
 			CARRITO["cantidad"] = cant_item;
 		break;
+	}
+
+	if( MARCAS.length != 0 ){
+		updateBreadcrumb();
 	}
 }
 
