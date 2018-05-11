@@ -738,7 +738,7 @@
 
 		#plan article {
 		    width: calc( 100% - 2px );
-		    padding: 0px 15px;
+		    padding: 0px 40px;
 		}
 
 		.personalizar_plan {
