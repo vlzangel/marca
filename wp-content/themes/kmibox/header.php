@@ -7,7 +7,7 @@
 
 	<title>Nutriheroes - El camino a una correcta nutrición</title>
 
-	<meta name='description' content='Nutriheroes - El camino a una correcta nutrición'>
+	<meta name='description' content='Nutriheroes - El camino a la correcta nutrición de tu mascota'>
 
 	<meta name="keywords" content="alimento, alimentos, mascota, mascotas, nutrición, nutricion, heroes, héroes, kmimos, correcta nutrición, correcta nutricion">
 
