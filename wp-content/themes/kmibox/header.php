@@ -5,7 +5,7 @@
 <html class="">
 <head>
 
-	<title>Nutriheroes - El camino a una correcta nutrición</title>
+	<title>Nutriheroes - El camino a la correcta nutrición de tu mascota</title>
 
 	<meta name='description' content='Nutriheroes - El camino a la correcta nutrición de tu mascota'>
 
