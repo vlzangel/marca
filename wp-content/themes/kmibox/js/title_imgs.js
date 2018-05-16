@@ -9,6 +9,7 @@ jQuery(document).ready(function() {
 	}, 200);
 	
 	jQuery(".cerrar_modal_footer").on("click", function(e){
+		jQuery("body").css("padding-bottom", 0);
 		jQuery("#contacto-ayuda").fadeOut();
 	});
 });

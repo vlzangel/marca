@@ -39,7 +39,7 @@ div#wpadminbar {
 	position: fixed;
 	z-index: 10;
 	background: #091705;
-	padding: 20px;
+	padding: 10px;
 	width: 100%;
 	box-sizing: border-box;
 }
@@ -95,13 +95,13 @@ div#wpadminbar {
 .breadcrumb{
 	position: absolute;
     bottom: -45px;
-    width: 70%;
+    #width: 70%;
     margin-bottom: 0px;
     overflow: hidden;
 }
 
 .breadcrumb > div {
-	width: 720px;
+	# width: 720px;
 }
 
 .breadcrumb span {
@@ -244,7 +244,7 @@ div#wpadminbar {
 		height: calc( 100% - 245px );
 		position: fixed;
 		width: 100%;
-		top: 205px;
+		top: 215px;
 		overflow: auto;
 	}
 
@@ -464,6 +464,7 @@ div#wpadminbar {
 	    width: calc( 100% - 180px );
 	    float: right;
 	    text-align: left;
+	    height: 100%;
 	}
 
 	#presentaciones .img_box {

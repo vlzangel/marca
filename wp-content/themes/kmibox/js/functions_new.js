@@ -509,10 +509,10 @@ function loadPresentaciones(){
 						existencia = "Agotado";
 					}
 
-					HTML = '<div id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
+					HTML = '<div>'+
 							'<div class="item_box">'+
 								'<div class="img_box img_box_click" data-src="'+TEMA+"/imgs/productos/"+producto.dataextra.img+'" style="background-image: url('+TEMA+"/imgs/productos/"+producto.dataextra.img+');"></div>'+
-								'<div class="info_producto_container">'+
+								'<div class="info_producto_container" id="item_'+key+'" data-id="'+key+'" data-name="'+producto.nombre+'">'+
 									'<div class="title_producto_box">'+producto.nombre+'</div>'+
 									'<div class="descripcion_producto_box">'+producto.descripcion+'</div>'+
 									'<div class="peso_producto_box">'+producto.peso+'</div>'+
@@ -542,7 +542,7 @@ function loadPresentaciones(){
 }
 
 function initPresentaciones(){
-	jQuery("#presentaciones > div").on("click", function(e){
+	jQuery("#presentaciones > div .info_producto_container").on("click", function(e){
 		var prod_actual = getCarritoActual();
 		prod_actual["producto"] = jQuery(this).attr("data-id");
 		prod_actual["precio"] = PRODUCTOS[ jQuery(this).attr("data-id") ].precio;
@@ -729,9 +729,9 @@ function loadFase(fase){
 
 			if( mostrar_modal_marca_2 == "" ){
 				mostrar_modal_marca_2 = 1;
-				/*setTimeout(function() {
+				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
-		        }, 1500);*/
+		        }, 1500);
 			}
 
 		break;
