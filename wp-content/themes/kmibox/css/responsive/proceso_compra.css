@@ -203,7 +203,7 @@
 	}
 	.carrousel-items-containers {
 		height: calc( 100% - 155px );
-	    margin: 85px 0px 0px;
+	    margin: 145px 0px 0px;
 	}
 
 	.carrousel-items > article {
@@ -271,12 +271,13 @@
 	}
 
 	#vlz_titulo {
-	    top: 45px;
-	    width: 100%;
+	    top: 54px;
+	    width: calc( 100% - 20px );
 	    text-align: center;
 	    font-family: GothanMedium_regular;
-	    font-size: 16px;
+	    font-size: 12px;
 	    font-weight: bold;
+	    padding: 5px 0px 15px;
 	}
 
     .header_titulo {
@@ -479,7 +480,7 @@
 	}
 
 	.controles_generales{
-		top: 125px;
+		top: 120px;
 	}
 
 	.fecha_estimada{
@@ -650,7 +651,7 @@
 	}
 
 	.factura {
-	    margin: 120px auto 10px;
+	    margin: 140px auto 10px;
 	}
 
 	.cintillo_factura {
@@ -691,16 +692,16 @@
 
 		.cantidad_resultados {
 		    font-size: 11px;
-		    padding: 15px 0px 0px;
+		    padding: 10px 0px 0px;
 		}
 
 		#tipo_mascota {
 		    font-size: 10px;
-		    margin-top: 10px;
+		    margin-top: 5px;
 		}
 
 		.controles_marca_container {
-		    margin: 120px 75px 0px 15px;
+		    margin: 130px 75px 0px 15px;
 		}
 
 		.btn_siguiente_container {
@@ -738,7 +739,7 @@
 
 		#plan article {
 		    width: calc( 100% - 2px );
-		    padding: 0px 40px;
+		    padding: 0px 10px;
 		}
 
 		.personalizar_plan {
@@ -803,13 +804,6 @@
 	#prueba{
 		position: relative;
 		top: 96px;
-	}
-
-	#vlz_titulo {
-	    top: 54px;
-	    font-size: 12px;
-	    width: calc( 100% - 20px );
-	    padding: 10px 0px;
 	}
 
 	.controles_generales {

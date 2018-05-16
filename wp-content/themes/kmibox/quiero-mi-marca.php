@@ -378,7 +378,7 @@
 		<tr>
 			<td style="text-align: center; vertical-align: middle;">
 				
-				<img id='img_grande' />
+				<img id='img_grande' style="max-width: 80%; max-height: 80%;" />
 
 			</td>
 		</tr>
