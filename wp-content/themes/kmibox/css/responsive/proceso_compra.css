@@ -470,6 +470,10 @@
 	    display: block;
 	}
 
+	.is_iOS #vlz_atras {
+	    padding: 8px 15px 0px;
+	}
+
 	.breadcrumb {
 	    width: 100%;
 	    font-size: 12px;
@@ -488,7 +492,7 @@
 	}
 
 	.msg_desplazar {
-	    bottom: 12px;
+	    bottom: 5px;
 	    text-align: center;
 	    font-size: 12px;
 	    width: 100%;
@@ -752,6 +756,36 @@
 			font-size: 10px !important;
 		}
 
+	.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+	    max-width: 70%;
+	}
+
+	#modal-contacto-marca .modal-dialog {
+	    margin: 80px auto;
+	}
+
+	.dog-content {
+	    top: -70px;
+	}
+
+	.modal-dialog p{
+		font-size: 11px !important;
+	}
+
+	#modal-contacto-marca .modal-body p.text-small {
+	    font-size: 12px;
+	}
+
+	.btn-kmibox-send {
+	    font-size: 10px;
+	}
+
+	.form-control {
+	    height: 30px;
+	    padding: 6px 12px;
+	    font-size: 12px;
+	}
+
 } 
 
 @media (max-width: 400px){
@@ -874,6 +908,6 @@
 	}
 
 	#presentaciones {
-	    height: calc( 100% - 210px ) !important;
+	    height: calc( 100% - 225px ) !important;
 	}
 }

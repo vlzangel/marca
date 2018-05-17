@@ -518,6 +518,7 @@ function loadPresentaciones(){
 									'<div class="peso_producto_box">'+producto.peso+'</div>'+
 									'<div class="existencia_producto_box">'+existencia+'</div>'+
 									'<div class="title_producto_box">'+FN(producto.precio)+" MXN"+'</div>'+
+									'<div class="comprar_producto_box"> <div class="">COMPRAR</div> </div>'+
 								'</div>'+
 							'</div>'+
 						'</div>';

@@ -483,6 +483,22 @@ div#wpadminbar {
 	    font-family: GothanMedium_regular;
 	}
 
+	#presentaciones .comprar_producto_box {
+	    text-align: right;
+	}
+
+	#presentaciones .comprar_producto_box > div {
+	    border: solid 1px #091705;
+	    text-align: center;
+	    margin: 10px 10px 0px 0px;
+	    border-radius: 8px;
+	    padding: 4px 20px;
+	    background: #091705;
+	    color: #FFF;
+	    max-width: 115px;
+	    display: inline-block;
+	}
+
 	#presentaciones .descripcion_producto_box {
 	    font-weight: 400;
 	    color: #888;
