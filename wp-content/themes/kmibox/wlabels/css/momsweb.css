@@ -269,3 +269,16 @@
 .nutri-container .container_txt span {
     background: #eb008a;
 }
+
+.controles_container {
+    background: #eb008a;
+}
+
+#vlz_titulo span {
+    color: #484848;
+}
+
+#presentaciones .comprar_producto_box > div {
+    border: solid 1px #eb008a;
+    background: #eb008a;
+}

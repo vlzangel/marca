@@ -189,25 +189,25 @@
 }
 
 .btn_pagar {
-    background: #eb018a;
-    border: 1px solid #eb018a;
-    border: solid 2px #eb018a;
+    background: #00aae7;
+    border: 1px solid #00aae7;
+    border: solid 2px #00aae7;
 }
 
 .btn_pagar:hover {
     background: #FFF;
-    color: #eb018a;
-    border: solid 2px #eb018a;
+    color: #00aae7;
+    border: solid 2px #00aae7;
 }
 
 #agregar_plan {
-    border: solid 2px #eb018a;
-    color: #eb018a;
+    border: solid 2px #00aae7;
+    color: #00aae7;
 }
 
 #agregar_plan:hover {
     color: #FFF;
-    background: #eb018a;
+    background: #00aae7;
 }
 
 #vlz_controles_fases > span {
@@ -215,7 +215,7 @@
 }
 
 #vlz_controles_fases span.fase_activa {
-    background-color: #eb018a;
+    background-color: #00aae7;
 }
 
 #totales table td {
@@ -267,5 +267,18 @@
 }
 
 .nutri-container .container_txt span {
+    background: #00aae7;
+}
+
+.controles_container {
+    background: #00aae7;
+}
+
+#vlz_titulo span {
+    color: #484848;
+}
+
+#presentaciones .comprar_producto_box > div {
+    border: solid 1px #00aae7;
     background: #00aae7;
 }
