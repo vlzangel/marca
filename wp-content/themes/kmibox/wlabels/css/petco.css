@@ -1,0 +1,271 @@
+.atras:hover, .btn-sm-kmibox:hover, .btn-sm-kmibox-price:hover, .btn-kmibox:hover {
+    color: #00aae7 !important;
+    border: 2px solid #00aae7;
+}
+
+.btn-kmibox {
+    background: #00aae7;
+}
+
+.nav_container > ul > li a {
+    background: #00aae7;
+    border: 2px solid #00aae7;
+}
+
+.nav_container > ul > li a:hover {
+    color: #00aae7;
+    border: 2px solid #00aae7;
+}
+
+#section-comment {
+    background: #00aae7;
+}
+
+#home-dog > div {
+    background: #00aae7;
+}
+#footer {
+    background: #3f3d3e;
+}
+
+#contacto-ayuda {
+    border-bottom: 9px solid #00aae7;
+}
+
+#home-dog {
+    border-bottom: 15px solid #00aae7;
+}
+
+#como-funciona > div > div > img {
+    margin-bottom: 5%;
+    background: #00aae7;
+}
+
+#como-consigo-kmibox img {
+    background: #00aae7;
+}
+
+#regalasela-amigo img {
+    background: #00aae7;
+}
+
+.atras {
+    background: #00aae7;
+    border: 1px solid #00aae7;
+}
+
+.btn-sm-kmibox {
+    background: #00aae7;
+}
+
+#btn-register_{
+    color: #FFF; 
+    border: 2px solid #00aae7;
+}
+
+#register i.fa-asterisk:before {
+    color: #00aae7;
+}
+
+.campos-obligatorios span {
+    color: #00aae7;
+}
+
+.acciones_container button {
+    border: 2px solid #00aae7;
+}
+
+.perfil_tabs li {
+    background: #222222;
+}
+
+.perfil_tabs li.tab_activo {
+    background-color: #00aae7;
+    color: #ffffff;
+}
+
+.perfil_tabs li.tab_activo:hover {
+    color: #000000;
+}
+
+.perfil_tabs li:hover {
+    color: #00aae7;
+}
+
+.progress-content img {
+    background-color: #00aae7;
+}
+
+#vlz_atras,
+.btn_siguiente_container button {
+    background: #00aae7;
+    border: 1px solid #00aae7;
+}
+
+#vlz_atras:hover,
+.btn_siguiente_container button:hover {
+    color: #00aae7;
+    background: #FFF;
+    border: 2px solid #00aae7;
+}
+
+.selector_edad_container .selector_edad_box span {
+    background: #00aae7;
+}
+
+.selector_edad_container .selector_edad_box span:hover {
+    background: #222222;
+}
+
+.selector_edad_container .selector_edad_box span.btn_activo {
+    background: #222222 !important;
+}
+
+#modal-contacto-marca .modal-content {
+    background-color: #00aae7;
+}
+
+#modal-contacto-marca .modal-content {
+    background-color: #00aae7;
+}
+
+#modal-contacto-marca .modal-body p span {
+    color: #222222;
+}
+
+.carrousel-items article div p {
+    border-top: solid 2px #00aae7;
+}
+
+#modal-contacto-marca .modal-header {
+    border-bottom: 3px solid #ffffff;
+}
+
+#marca > div.item_activo > .item_box {
+    border: solid 2px #00aae7;
+}
+
+#plan img {
+    background-color: #00aae7 !important;
+}
+
+.personalizar_plan {
+    background: #00aae7;
+}
+
+.personalizar_plan_columna div {
+    color: #222;
+}
+
+#logo {
+    background-image: url(../imgs/petco.png) !important;
+    height: 75px;
+}
+
+#logo_footer {
+    height: 80px;
+    background-image: url(../imgs/petco.png) !important;
+}
+
+#nutri-container{
+    background: #00aae7;
+}
+
+.input-pop-up-home {
+    border: solid 2px #00aae7;
+}
+
+.btn-pop-up-home {
+    background: #00aae7;
+    border: 2px solid #00aae7;
+}
+
+.cintillo_factura #cen {
+    background-color: #00aae7;
+}
+
+#desglose th span {
+    background-color: #00aae7;
+}
+
+.btn_pagar {
+    background: #eb018a;
+    border: 1px solid #eb018a;
+    border: solid 2px #eb018a;
+}
+
+.btn_pagar:hover {
+    background: #FFF;
+    color: #eb018a;
+    border: solid 2px #eb018a;
+}
+
+#agregar_plan {
+    border: solid 2px #eb018a;
+    color: #eb018a;
+}
+
+#agregar_plan:hover {
+    color: #FFF;
+    background: #eb018a;
+}
+
+#vlz_controles_fases > span {
+    background-color: rgba(235, 1, 138, 0.5);
+}
+
+#vlz_controles_fases span.fase_activa {
+    background-color: #eb018a;
+}
+
+#totales table td {
+    color: #222;
+}
+
+.text-felicidades {
+    color: #00aae7;
+}
+
+#pago_exitoso h2 {
+    color: #00aae7;
+}
+
+.LoginNuevo {
+    background-color: #00aae7;
+}
+
+.btn-kmibox-white {
+    background: #00aae7;
+    border: 1px solid #00aae7;
+    text-transform: uppercase;
+}
+
+.btn-kmibox-white:hover {
+    color: #00aae7;
+}
+
+
+#pagar nav {
+    background-color: #00aae7;
+}
+
+.desglose_direccion {
+    background: #00aae7;
+}
+
+.btn-pagar {
+    background-color: #00aae7;
+    border: solid 1px #00aae7;
+}
+
+.form_total_monto {
+    color: #00aae7;
+}
+
+.totales > div > span {
+    color: #00aae7;
+}
+
+.nutri-container .container_txt span {
+    background: #00aae7;
+}

@@ -20,6 +20,12 @@
 				"asesor" => "jj.mx",
 				"asesor_email" => "jj.mx@mail.com",
 			),
+			"petco" => array(
+				"wl" => "petco",
+				"codigo" => "1000004",
+				"asesor" => "petco.mx",
+				"asesor_email" => "petco.mx@mail.com",
+			),
 			"quitar" => array(),
 		);
 	}
