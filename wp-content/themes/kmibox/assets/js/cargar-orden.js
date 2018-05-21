@@ -439,7 +439,7 @@
 
 				if( producto.tamanos[$('#tamano').val()] == 1 && producto.edades[$('#edad').val()] == 1 ){
 
-					planes += '<option value="'+producto_id+'"> '+producto.peso+' ( '+producto.nombre+' - '+producto.precio+' ) </option>';
+					planes += '<option value="'+producto_id+'"> '+producto.nombre+' ( '+producto.descripcion+' - '+producto.peso+' ) </option>';
 					
 				}
 			}
