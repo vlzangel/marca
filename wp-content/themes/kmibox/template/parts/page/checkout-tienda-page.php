@@ -72,6 +72,17 @@
 			$CARRITO["PDF"] = $dataOpenpay["OPENPAY_URL"]."/paynet-pdf/".$dataOpenpay["MERCHANT_ID"]."/".$charge->payment_method->reference;
 			$_POST['order'] = $order_id;
 
+			$data = $wpdb->get_var("SELECT metadata FROM ordenes WHERE id = {$order_id}");
+			$data = unserialize($data);
+
+			$data["PDF"] = $CARRITO["PDF"];
+			$data["cliente"] = $openpay_cliente_id;
+			$data["transaccion_id"] = $charge->id;
+
+			$data = serialize($data);
+
+			$wpdb->query("UPDATE ordenes SET metadata = '{$data}' WHERE id = {$order_id};");
+
 			$_productos = getProductosDesglose($order_id);
 			$dia_de_cobro = end( explode("-", $wpdb->get_var("SELECT fecha_creacion FROM ordenes WHERE id = ".$order_id) ) );
 			$productos = "";
