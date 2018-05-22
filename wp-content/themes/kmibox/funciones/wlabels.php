@@ -43,7 +43,7 @@
 	
 	function wlabel(){
 		if( !isset($_SESSION) ){ session_start(); }
-		if( isset( $_SESSION["wlabel"] ) ){
+		if( isset( $_SESSION["wlabel"] ) && isset( $_SESSION["wlabel"]["wl"] ) ){
 			echo '<link rel="stylesheet" href="'.TEMA().'wlabels/css/'.$_SESSION["wlabel"]["wl"].'.css?v='.time().'">';
 		}
 	}
