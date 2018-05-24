@@ -471,6 +471,7 @@
 
 	#presentaciones .comprar_producto_box > div {
 	    font-size: 9px;
+    	padding: 4px 15px 1px;
 	}
 
 	#vlz_atras {
