@@ -284,9 +284,9 @@ function reset_flechas_marcas(){
 	if( seccion != '' ){
 		var filas = getFilas();
 		if( filas <= 0 ){
-			jQuery("#msg_desplazar"+seccion).addClass("hidden");
+			// jQuery("#msg_desplazar"+seccion).addClass("hidden");
 		}else{
-			jQuery("#msg_desplazar"+seccion).removeClass("hidden");
+			// jQuery("#msg_desplazar"+seccion).removeClass("hidden");
 		}
 	}
 }

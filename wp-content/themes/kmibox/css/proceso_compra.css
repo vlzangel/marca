@@ -484,19 +484,20 @@ div#wpadminbar {
 	}
 
 	#presentaciones .comprar_producto_box {
-	    text-align: right;
+	    text-align: left;
 	}
 
 	#presentaciones .comprar_producto_box > div {
-	    border: solid 1px #091705;
-	    text-align: center;
-	    margin: 10px 10px 0px 0px;
-	    border-radius: 8px;
-	    padding: 4px 20px;
-	    background: #091705;
-	    color: #FFF;
-	    max-width: 115px;
-	    display: inline-block;
+		border: solid 1px #091705;
+		text-align: center;
+		margin: 10px 10px 0px 0px;
+		border-radius: 8px;
+		padding: 4px 15px;
+		background: #091705;
+		color: #FFF;
+		max-width: 115px;
+		display: inline-block;
+		font-size: 12px;
 	}
 
 	#presentaciones .descripcion_producto_box {
