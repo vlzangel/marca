@@ -15,6 +15,7 @@
 	wp_enqueue_style( 'proceso_compra', TEMA()."/css/proceso_compra.css", array(), "1.0.0" );
 	wp_enqueue_style( 'responsive_proceso_compra', TEMA()."/css/responsive/proceso_compra.css", array(), "1.0.0" );
 
+
 	get_header(); 
 	
 	wp_enqueue_script( 'nutriheroes_script', TEMA()."/js/popup_nutriheroes.js" );
@@ -77,7 +78,7 @@
 
 		<div class="controles_container">
 			<a class="" id="vlz_atras" href="#">
-				<i class="fa fa-chevron-left" aria-hidden="true"></i> ATR&Aacute;S	
+				<i class="fa fa-chevron-left" aria-hidden="true"></i> <div>ATR&Aacute;S</div>	
 			</a>
 
 			<div class="" id="vlz_titulo">

@@ -75,8 +75,7 @@ div#wpadminbar {
 }
 
 #vlz_atras i {
-	margin-right: 5px;
-    position: absolute;
+	position: absolute;
     left: 10px;
     top: 25%;
 }

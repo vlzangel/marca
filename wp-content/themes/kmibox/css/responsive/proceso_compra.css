@@ -480,6 +480,7 @@
 	#presentaciones .comprar_producto_box > div {
 	    font-size: 9px;
     	padding: 4px 15px 1px;
+    	margin-top: 5px!important; 
 	}
 
 	#vlz_atras {
@@ -489,7 +490,16 @@
 	}
 
 	.is_iOS #vlz_atras {
-	    padding: 8px 15px 0px;
+	    padding: 5px 15px 0px;
+	    height: 20px;
+	}
+	.is_iOS #vlz_atras span{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		left: 0px;
+		top: 0px;
+		z-index: 999;
 	}
 
 	.breadcrumb {
@@ -916,6 +926,12 @@
 		}
 }
 
+@media (max-height: 321px){
+	#presentaciones > div{
+		height: 44.333%;
+	}
+
+}
 
 
 @media (max-height: 600px){
