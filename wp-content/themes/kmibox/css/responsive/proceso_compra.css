@@ -27,8 +27,8 @@
 
 @media (min-width: 1440px) {
 	#presentaciones > div {
-        height: 190px;
-        min-height: 190px;
+        height: 43.333%;
+        min-height: 43.333%;
 	}
 }
 
@@ -329,8 +329,8 @@
 
     	#presentaciones > div {
 		    width: 100%;
-		    height: 190px;
-		    min-height: 190px;
+		    height: 41.3333%;
+		    min-height: 41.3333%;
 		}
 
     	#presentaciones .img_box {
@@ -909,6 +909,10 @@
 		#presentaciones .descripcion_producto_box,
 		#presentaciones .peso_producto_box {
 		    font-size: 14px;
+		}
+
+		#presentaciones > div{
+			height: 45.333%;
 		}
 }
 
