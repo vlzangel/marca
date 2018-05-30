@@ -727,14 +727,14 @@ function loadFase(fase){
 			
 			loadPresentaciones();
 			initPresentaciones();
-
+			/*
 			if( mostrar_modal_marca_2 == "" ){
 				mostrar_modal_marca_2 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 		        }, 1500);
 			}
-
+			*/
 		break;
 		case "5":
 			change_title('Selecciona el tiempo de suscripción');
