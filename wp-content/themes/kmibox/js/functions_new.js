@@ -710,12 +710,12 @@ function loadFase(fase){
 			loadMarcas();
 			initMarcas();
 
-			/*if( mostrar_modal_marca_1 == "" ){
+			if( mostrar_modal_marca_1 == "" ){
 				mostrar_modal_marca_1 = 1;
 				setTimeout(function() {
 					jQuery("#modal-contacto-marca").modal('show');
 		        }, 1500);
-			}*/
+			}
 
 		break;
 
