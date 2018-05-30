@@ -76,6 +76,9 @@ div#wpadminbar {
 
 #vlz_atras i {
 	margin-right: 5px;
+    position: absolute;
+    left: 10px;
+    top: 25%;
 }
 
 #vlz_titulo {
@@ -439,7 +442,7 @@ div#wpadminbar {
 	    width: 50%;
 	    box-sizing: border-box;
 	    padding: 5px;
-        height: 33.3333%;
+        height: 120px;
         overflow: hidden;
         border-bottom: solid 1px #CCC;
 	}
