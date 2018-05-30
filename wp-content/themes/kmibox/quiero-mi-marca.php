@@ -136,7 +136,7 @@
 					<div class="carrousel-items">
 						<article data-value="Cachorro">
 							<div>
-								<div style="background-image: url('.get_home_url().'/img/edad/Cachorro.png);" class="img-responsive img-circle"></div>
+								<div style="background-image: url('.get_home_url().'/img/edad/Cachorro-2.png);" class="img-responsive img-circle"></div>
 								<p class="col-md-12">Cachorro</p>
 							</div>
 						</article>
