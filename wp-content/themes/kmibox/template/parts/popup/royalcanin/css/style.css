@@ -20,3 +20,11 @@
 .backdrop-popup {
     display: table;
 }
+
+
+@media (min-width: 620px){
+    .backdrop-popup i{
+        right: 10px;
+        color: #000;
+    }    
+}
