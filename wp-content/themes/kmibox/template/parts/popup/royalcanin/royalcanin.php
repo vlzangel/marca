@@ -8,7 +8,7 @@
 				</a>	
 				
 				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>">
-					<img src="<?php echo TEMA(); ?>/imgs/popup-royalcanin/popup-royalcanin.png" class="img-responsive" style="width:80%;">
+					<img src="<?php echo TEMA(); ?>/imgs/popup-royalcanin/popup-royalcanin.png" class="img-responsive" style="width:90%;">
 				</a>	
 			</div>
 		</div>
