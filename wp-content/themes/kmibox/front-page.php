@@ -25,11 +25,22 @@ wp_enqueue_style( 'contacto_ayuda', TEMA()."/css/contacto-ayuda.css" );
 wp_enqueue_style( 'contacto_ayuda_responsive', TEMA()."/css/responsive/contacto-ayuda_responsive.css" );
 /* END POPUP Nutriheroes   */		
 
+/* BEGIN POPUP RoyalCanin */
+wp_enqueue_style( 'popup_royalcanin', TEMA()."/template/parts/popup/royalcanin/css/style.css" ); 
+/* END POPUP RoyalCanin   */
+
+
 get_header(); 
 
-/* BEGIN POPUP Nutriheroes */		
+
+
+/* BEGIN POPUP Royal Canin */
+include_once( 'template/parts/popup/royalcanin/royalcanin.php' );
+/* END POPUP Royal Canin   */
+
+/* BEGIN POPUP Nutriheroes */
 include_once( 'template/parts/footer/Nutriheroes.php' );
-/* END POPUP Nutriheroes   */		
+/* END POPUP Nutriheroes   */
 
 /* BEGIN POPUP Nutriheroes */
 include_once( 'template/parts/footer/contacto_ayuda.php' );
@@ -47,7 +58,8 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 				<img src="<?php echo get_home_url(); ?>/img/logo_by_kmimos.png" class="img-responsive">
 				<h2 style="font-size:21; position: relative; top: -10px!important;"> El camino a una correcta nutrición</h2>
 				<br>
-				<a href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" class="btn-kmibox">
+				<a id="popup-royalcanin" class="btn-kmibox">
+					<!-- href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" -->
 					COMPRAR
 				</a>
 			</div>
@@ -166,6 +178,18 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 	</section>
  
 	<?php get_template_part( 'template/parts/footer/footer', 'page' ); ?>
+
+	<script type="text/javascript">
+		jQuery('#popup-royalcanin').on('click', function(){
+			jQuery('#royalcanin').css( 'display', 'block' );
+		});
+		/*
+		jQuery('#popup-cerrar').on('click', function(){
+			jQuery('#royalcanin').css( 'display', 'none' );
+		});
+		*/
+	</script>
+
 
 <?php get_footer(); ?>
 
