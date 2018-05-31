@@ -25,6 +25,6 @@
 
 @media (max-width: 720px){
     .backdrop-popup img{
-        width: 95%;
+        width: 100%;
     }
 }
