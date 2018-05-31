@@ -58,7 +58,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 				<img src="<?php echo get_home_url(); ?>/img/logo_by_kmimos.png" class="img-responsive">
 				<h2 style="font-size:21; position: relative; top: -10px!important;"> El camino a una correcta nutrición</h2>
 				<br>
-				<a id="popup-royalcanin" class="btn-kmibox">
+				<a id="popup-royalcanin" class="btn-kmibox" style="cursor:pointer;">
 					<!-- href="<?php echo get_home_url(); ?>/quiero-mi-marca/<?php echo get_source_url(); ?>" -->
 					COMPRAR
 				</a>

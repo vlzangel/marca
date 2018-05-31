@@ -11,9 +11,11 @@
 .backdrop-popup i{
     font-size: 25px;
     color: white;
+    position: absolute;
+    right: 0px;
 }
 .backdrop-popup div{
-    top: 15%;
+    top: 7%;
 }
 .backdrop-popup {
     display: table;
