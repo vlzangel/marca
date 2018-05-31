@@ -8,11 +8,12 @@
     top: 0;
     z-index: 999;
 }
+
 .backdrop-popup i{
     font-size: 25px;
     color: white;
     position: absolute;
-    right: 0px;
+    right: 10px;
 }
 .backdrop-popup div{
     top: 7%;
@@ -22,9 +23,8 @@
 }
 
 
-@media (min-width: 620px){
-    .backdrop-popup i{
-        right: 10px;
-        color: #000;
-    }    
+@media (max-width: 720px){
+    .backdrop-popup img{
+        width: 95%;
+    }
 }
