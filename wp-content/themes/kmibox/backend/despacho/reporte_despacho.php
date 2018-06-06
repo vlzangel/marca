@@ -22,6 +22,7 @@
                 <th>Orden</th>
                 <th>Cliente</th>
                 <th>Productos</th>
+                <th>Compa&ntilde;ia de Env&iacute;o</th>
                 <th>Gu&iacute;a de Rastreo</th>
                 <th>Fecha Env&iacute;o</th>
                 <th>Fecha Entrega</th>
