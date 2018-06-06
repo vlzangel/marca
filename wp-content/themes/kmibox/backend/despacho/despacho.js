@@ -37,13 +37,32 @@ jQuery(document).ready(function() {
 } );
 
 function actualizarStatus(){
-	var URL = TEMA+"/backend/despacho/ajax/updateStatus.php";
-	jQuery.ajax({
+    var URL = TEMA+"/backend/despacho/ajax/updateStatus.php";
+    jQuery.ajax({
         async:true, 
         cache:false, 
         type: 'POST', 
         url: URL,
         data: jQuery("#status_despacho").serialize(), 
+        success:  function(HTML){
+            table.ajax.reload();
+            cerrar();
+        },
+        beforeSend:function(){},
+        error:function(e){
+            console.log(e);
+        }
+    });
+}
+
+function actualizarAgencia(){
+	var URL = TEMA+"/backend/despacho/ajax/updateAgencia.php";
+	jQuery.ajax({
+        async:true, 
+        cache:false, 
+        type: 'POST', 
+        url: URL,
+        data: jQuery("#status_agencia").serialize(), 
         success:  function(HTML){
             table.ajax.reload();
             cerrar();

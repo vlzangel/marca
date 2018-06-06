@@ -61,13 +61,16 @@
 		 	}
 	 	}
 
+	 	$despacho->guia = unserialize($despacho->guia);
+
 	 	$HTML = generarEmail(
 	    	"compra/envio/index", 
 	    	array(
 	    		"USUARIO" => $nombre,
 	    		"DIRECCION" => $direccion,
 	    		"FECHA_ESTIMADA" => $fecha_estimada,
-	    		"GUIA" => $despacho->guia,
+	    		"GUIA" => $despacho->guia["I0"],
+	    		"AGENCIA" => $despacho->guia["I1"],
 	    		"TOTAL" => number_format($wpdb->get_var("SELECT total FROM ordenes WHERE id = ".$ID), 2, ',', '.'),
 	    		"PRODUCTOS" => $productos,
 	    	)

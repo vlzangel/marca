@@ -17,9 +17,6 @@
 		$WHERE = "  AND orden IN (SELECT id FROM ordenes WHERE asesor = {$__asesor_id})  " ;
 	}
 
-
-
-
     setZonaHoraria();
 	$mes_actual = date("Y-m", time())."-01";
 	$mes_siguiente = date("Y-m", strtotime("+1 month"))."-01";
@@ -37,6 +34,10 @@
 		$user_id = $wpdb->get_var("SELECT cliente FROM ordenes WHERE id = '{$despacho->orden}' ");
 		$cliente = get_user_meta($user_id, 'first_name', true)." ".get_user_meta($user_id, 'last_name', true);
 
+		$_temp = $_data = unserialize($despacho->guia);
+		$guia = $_temp["I0"];
+		$agencia = $_temp["I1"];
+
 		if( $despacho->fecha_entrega == null ){
 			$despacho->fecha_entrega = "Cargar Fecha de Envío";
 		}else{
@@ -49,16 +50,21 @@
 			$despacho->fecha_entregado = date("d/m/Y", strtotime( $despacho->fecha_entregado ) );
 		}
 
-		if( $despacho->guia == "" ){
-			$despacho->guia = "Cargar Gu&iacute;a";
+		if( $guia == "" ){
+			$guia = "Cargar Gu&iacute;a";
+		}
+
+		if( $agencia == "" ){
+			$agencia = "Cargar Compa&ntilde;ia";
 		}
 
 		$ordenes[ $despacho->orden ]["fecha_entrega"] = $despacho->fecha_entrega;
 		$ordenes[ $despacho->orden ]["fecha_entregado"] = $despacho->fecha_entregado;
-		$ordenes[ $despacho->orden ]["guia"] = $despacho->guia;
+		$ordenes[ $despacho->orden ]["guia"] = $guia;
 		$ordenes[ $despacho->orden ]["correo_enviado"] = $despacho->correo_enviado;
 		$ordenes[ $despacho->orden ]["cliente"] = $cliente;
 		$ordenes[ $despacho->orden ]["status"] = $despacho->status;
+		$ordenes[ $despacho->orden ]["agencia"] = $agencia;
 
 		$ordenes[ $despacho->orden ]["productos"][] = $item->cantidad." x ".$producto->nombre.", ".$producto->descripcion.", ".$producto->peso." - ".$data_suscripcion[ "plan" ];
 		
@@ -107,6 +113,22 @@
 	        	$enviar_correo = $enviar_correo_excel;
 	        }
 
+		}
+
+		if( $_data["agencia"] == "Cargar Compa&ntilde;ia" ){
+			$agencia = "
+				<span 
+	        		onclick='abrir_link( jQuery( this ) )' 
+	        		data-id='".$orden_id."' 
+	        		data-titulo='Compa&ntilde;ia de Env&iacute;o' 
+	        		data-modulo='despacho' 
+	        		data-modal='agencia' 
+	        		class='enlace' style='text-align: center;'
+	        	>
+	        		{$_data["agencia"]}
+	        	</span>";
+		}else{
+			$agencia = $_data["agencia"];
 		}
 
 		if( $_data["correo_enviado"] == 1 ){
@@ -185,6 +207,7 @@
 	        $orden_id,
 	        $_data["cliente"],
 	        $_productos,
+	        $agencia,
 	        $guia,
 	        $fecha_entrega,
 	        $fecha_entregado,

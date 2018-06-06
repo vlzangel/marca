@@ -35,7 +35,7 @@
 	</div>
 
 	<div style="text-align: center; font-size: 14px; line-height: 100%; margin: 30px 0px; border-bottom: solid 2px #CCC; padding: 0px 3px 10px;">
-		<label style="color: #535353;">Entra en <strong style="color: #101705;">www.aeroflash.com.mx</strong> e ingresa tu n&uacute;mero de gu&iacute;a para monitorear tu entrega.</label>
+		<label style="color: #535353;">Entra en <strong style="color: #101705;">[AGENCIA]</strong> e ingresa tu n&uacute;mero de gu&iacute;a para monitorear tu entrega.</label>
 	</div>
 
 	<div style="font-size: 15px;">
