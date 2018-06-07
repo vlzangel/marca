@@ -26,7 +26,7 @@
 
 	<div style="text-align: left;font-size: 15px;line-height: 100%;">
 		<div style="margin: 20px 0px 10px; font-weight: 600; text-transform: uppercase;">tipo de env&iacute;o</div>
-		<label style="color: #535353;">Aeroflash</label>
+		<label style="color: #535353;">[AGENCIA]</label>
 	</div>
 
 	<div style="text-align: left;font-size: 15px;line-height: 100%;">
