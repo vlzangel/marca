@@ -222,10 +222,14 @@
 	    cursor: pointer;
 	    z-index: 99999999999999;
 	    position: relative;
-	    padding: 3px;
+	    padding: 5px 3px 2px;
 	    font-size: 10px;
 	    width: 65px;
 	    left: 0px;
+	}
+
+	.is_iOS nav .atras {
+	    padding: 8px 15px 0px;
 	}
 
 	nav .titulo_h1 {
