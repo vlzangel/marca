@@ -110,11 +110,11 @@
 	        implode(PHP_EOL, $tamanos ),
 	        implode(PHP_EOL, $edades ),
 	        implode(PHP_EOL, $planes ),
-	        $producto->status,
+	        $producto->status/*,
 	        array(
 	        	"tipo" => "img",
 	        	"valor" => dirname(dirname(dirname(__DIR__)))."/imgs/productos/".$dataextra["img"]
-	        )
+	        )*/
 	    );
 	}
 
@@ -135,8 +135,8 @@
                 "Tamaños para",
                 "Edades Para",
                 "Planes",
-                "Status",
-                "Imagen"
+                "Status"/*,
+                "Imagen"*/
 			),
 			"data" => $excel
 		));
