@@ -774,7 +774,8 @@
 	    max-width: 70%;
 	}
 
-	div#suscription {
+	div#suscription,
+	div#suscription img.img-responsive {
 	    max-width: 100% !important;
 	}
 
