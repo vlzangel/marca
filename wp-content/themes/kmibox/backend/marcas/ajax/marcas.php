@@ -20,7 +20,7 @@
 
 	foreach ($marcas as $marca) {
 
-		$img = TEMA()."/imgs/marcas".$marca->img;
+		$img = TEMA()."/imgs/marcas/".$marca->img;
 
 		$data["data"][] = array(
 	        $marca->id,
