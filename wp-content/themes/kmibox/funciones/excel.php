@@ -58,7 +58,7 @@
 	        				break;
 	        				case 'img':
 	        					if( file_exists($_valor["valor"]) ){
-		        					$gdImage = imagecreatefrompng($_valor["valor"]);
+		        					$gdImage = imagecreatefromstring( file_get_contents( $_valor["valor"] ) );
 									$objDrawing = new PHPExcel_Worksheet_MemoryDrawing();
 									$objDrawing->setName('Sample image');
 									$objDrawing->setDescription('Sample image');
@@ -97,10 +97,10 @@
 	    // Se modifican los encabezados del HTTP para indicar que se envia un archivo de Excel.
 
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-	        header('Content-Disposition: attachment;filename="'.$params["file_name"].'.xlsx"');
+	        header('Content-Disposition: attachment;filename="'.$params["file_name"].'.xls"');
 	        header('Cache-Control: max-age=0');
 
-	        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+	        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 	        $objWriter->save('php://output');
 	    exit;
 
