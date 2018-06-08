@@ -228,6 +228,10 @@
 	    left: 0px;
 	}
 
+	.is_iOS nav .atras {
+	    padding: 8px 15px 0px;
+	}
+
 	nav .titulo_h1 {
 	    padding: 0px 0 0;
 	    margin: 0px;
