@@ -774,6 +774,10 @@
 	    max-width: 70%;
 	}
 
+	div#suscription {
+	    max-width: 100% !important;
+	}
+
 	#modal-contacto-marca .modal-dialog {
 	    margin: 80px auto;
 	}
