@@ -351,8 +351,8 @@ section{
 	    display: table-cell;
 	}
 
-	#section-comment h3 {
-		line-height: 100% !important;
+	.iOS  #section-comment h3 {
+		font-family: Arial !important;
 	}
 
 /* ************************ */
