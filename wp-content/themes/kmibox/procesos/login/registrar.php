@@ -92,20 +92,7 @@
 									'remember' 		=> false 
 								]
 							);
-						}
-
-					// Enviar Email 
-
-				        $HTML = generarEmail(
-					    	"login/registro", 
-					    	array(
-					    		"USUARIO" => $nombre,
-					    		"EMAIL" => $email,
-					    		"LINK" => get_home_url()."/perfil/"
-					    	)
-					    );
-						wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
-						mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );					
+						}				
 
 				break;
 				case 2:
@@ -167,11 +154,33 @@
 		// Fin - Actualizando información del usuario 
 
 		// Bitrix
-		$_parent_email = get_var("SELECT email FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'", 'email');
-		include ( $raiz . '/wp-content/themes/kmibox/lib/bitrix/bitrix.php' );
-		if( !empty($_parent_email) ){
-			$bitrix->addAsesor_customer( $email, $_parent_email );
-		}
+			$_parent_email = get_var("SELECT email FROM asesores WHERE codigo_asesor = '{$codigo_asesor}'", 'email');
+			include ( $raiz . '/wp-content/themes/kmibox/lib/bitrix/bitrix.php' );
+			if( !empty($_parent_email) ){
+				$bitrix->addAsesor_customer( $email, $_parent_email );
+			}
+
+		// wLabel
+
+			if( !isset($_SESSION) ){ session_start(); }
+			if( !isset( $_SESSION["is_wlabel"] ) ) {
+				$email_asesor = $wpdb->get_var( "SELECT email FROM asesores WHERE id = ".$asesor_id );
+				$is_wlabel = is_wlabel($email_asesor);
+				$_SESSION["is_wlabel"] = ( $is_wlabel !== false ) ? $is_wlabel : "";
+			}
+
+		// Enviar Email 
+
+	        $HTML = generarEmail(
+		    	"login/registro", 
+		    	array(
+		    		"USUARIO" => $nombre,
+		    		"EMAIL" => $email,
+		    		"LINK" => get_home_url()."/perfil/"
+		    	)
+		    );
+			wp_mail( $email, "Usuario Registrado NutriHeroes", $HTML );
+			mail_admin_nutriheroes( "Usuario Registrado NutriHeroes", $HTML );	
 			
 	}
 

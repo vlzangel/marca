@@ -35,26 +35,37 @@ div#wpadminbar {
 	height: 100%;
 }
 
-.controles_generales{
+.controles_container{
 	position: fixed;
-	#background: #CCC;
-    padding: 5px 15px 5px 15px;
-	top: 15px;
+	z-index: 10;
+	background: #091705;
+	padding: 10px;
+	width: 100%;
 	box-sizing: border-box;
 }
 
+.controles_generales{
+	position: fixed;
+    padding: 5px 15px 5px 15px;
+	top: 115px;
+	box-sizing: border-box;
+	z-index: 999;
+}
+
 #vlz_atras {
-	left: 20px;
+	position: absolute;
     width: 140px;
     background: #091705;
     border-radius: 40px;
-    border: 1px solid #091705;
+    border: 1px solid #ffffff;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
     text-decoration: none !important;
     z-index: 99;
+    font-family: Gothamlight_Regular;
+    padding: 3px;
 }
 
 #vlz_atras:hover {
@@ -68,14 +79,37 @@ div#wpadminbar {
 }
 
 #vlz_titulo {
-/*    width: calc( 100% - 230px );
-    left: 140px;*/
     width: 100%;
-    top: 13px;
     text-align: center;
-    font-size: 20px;
     font-size: 25px;
     font-weight: bold;
+    color: #FFF;
+    font-family: Gothamlight_Regular;
+}
+
+#vlz_titulo span {
+    text-transform: uppercase;
+    color: #00bb00;
+}
+
+.breadcrumb{
+	position: absolute;
+    bottom: -45px;
+    #width: 70%;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+
+.breadcrumb > div {
+	# width: 720px;
+}
+
+.breadcrumb span {
+	# cursor: pointer;
+}
+
+.breadcrumb span.establecido {
+	font-weight: 600;
 }
 
 #vlz_controles_fases {
@@ -207,11 +241,11 @@ div#wpadminbar {
 	}
 
 	.marcas_container {
-	    height: calc( 100% - 230px );
-	    position: fixed;
-	    width: 100%;
-	    top: 150px;
-	    overflow: auto;
+		height: calc( 100% - 245px );
+		position: fixed;
+		width: 100%;
+		top: 215px;
+		overflow: auto;
 	}
 
 	.abajo_marcas {
@@ -267,7 +301,7 @@ div#wpadminbar {
 	}
 
 	.controles_marca_container {
-	    margin: 75px 73px 0px 70px;
+	    margin: 120px 100px 0px 70px;
 	    overflow: hidden;
 	}
 
@@ -292,7 +326,7 @@ div#wpadminbar {
 
 	.busqueda{
 		width: 100%;
-		margin: 0 auto;
+		margin: 10px auto 0px;
 	}
 	.busqueda .input-group input:focus,
 	.busqueda .input-group input{
@@ -374,6 +408,9 @@ div#wpadminbar {
 	    outline: none !important;
 	    box-shadow: 0px 0px 0px #000 !important;
 	    cursor: pointer;
+        position: absolute;
+	    bottom: 20px;
+	    right: 20px;
 	}
 
 	.btn_siguiente_container button:hover{
@@ -381,11 +418,10 @@ div#wpadminbar {
 	    color: #091705;
 	}
 
-/* Fase 3 */
+/* Fase 4 */
 	
 	.controles_presentaciones_container {
-	    /*margin: 75px 73px 0px 20px;*/
-	    margin: 80px 25px 0px 20px;
+	    margin: 80px 25px 0px 110px;
 	    overflow: hidden;
 	}
 
@@ -428,6 +464,7 @@ div#wpadminbar {
 	    width: calc( 100% - 180px );
 	    float: right;
 	    text-align: left;
+	    height: 100%;
 	}
 
 	#presentaciones .img_box {
@@ -444,6 +481,23 @@ div#wpadminbar {
 	    text-transform: uppercase;
 	    font-size: 24px;
 	    font-family: GothanMedium_regular;
+	}
+
+	#presentaciones .comprar_producto_box {
+	    text-align: left;
+	}
+
+	#presentaciones .comprar_producto_box > div {
+		border: solid 1px #091705;
+		text-align: center;
+		margin: 10px 10px 0px 0px;
+		border-radius: 8px;
+		padding: 4px 15px;
+		background: #091705;
+		color: #FFF;
+		max-width: 115px;
+		display: inline-block;
+		font-size: 12px;
 	}
 
 	#presentaciones .descripcion_producto_box {
@@ -470,7 +524,7 @@ div#wpadminbar {
 	    color: red;
 	}
 
-/* Fase 4 */
+/* Fase 5 */
 
 	.comprar_box > span{
 	    vertical-align: middle;
@@ -479,16 +533,18 @@ div#wpadminbar {
 	    display: inline-block;
 	}
 
-	#fase_4 > div {
+	#fase_5 > div {
 	    vertical-align: middle;
-	    padding: 20px;
+	    padding: 20px 80px;
 	    display: block;
 	    width: 100%;
 	    box-sizing: border-box;
 	    position: fixed;
-	    top: 100px;
 	    height: calc( 100% - 100px );
 	    overflow: auto;
+
+        bottom: 0px;
+    	height: calc( 100% - 122px );
 	}
 
 	#plan #nivel{
@@ -551,7 +607,7 @@ div#wpadminbar {
 	    width: 100% !important;
 	}
 
-	section#fase_4 {
+	section#fase_5 {
 	    overflow: auto;
 	}
 
@@ -592,9 +648,9 @@ div#wpadminbar {
 	    border-radius: 5px;
 	}
 
-/* Fase 5 */
+/* Fase 6 */
 
-	#fase_5 {
+	#fase_6 {
 		overflow: auto !important;
 	}
 
@@ -641,7 +697,7 @@ div#wpadminbar {
 	}
 
 	.factura{
-		margin: 120px auto 50px;
+		margin: 130px auto 50px;
 	    background-color: #FFF;
 	    box-shadow: 1px 5px 10px #8c8c8c;
 	    max-width: 900px;
@@ -899,14 +955,14 @@ div#wpadminbar {
 /************************/
 
 	.carrousel-items-containers{
-	    display: table;
+		display: table;
 	    width: 100%;
-	    height: calc( 100% - 180px );
-	    margin: 65px auto 0px;
+	    height: calc( 100% - 75px );
+	    margin: 75px auto 0px;
 	    max-width: 1000px;
 	}
 
-	.hover_carrousel_item article:nth-child(2) {
+	.carrousel-items article:nth-child(2) {
 	    background: #e9e9e9;
 	}
 
@@ -922,6 +978,7 @@ div#wpadminbar {
 	    display: inline-block;
 	    float: left;
 	    padding: 20px 0px;
+	    cursor: pointer;
 	}
 
 	.carrousel-items > article > div{

@@ -44,6 +44,24 @@
 	if(!function_exists('mail_admin_nutriheroes')){
 		function mail_admin_nutriheroes( $subject, $message, $agregar_a_lista = [], $list_name = 'admin' ){
 
+			if( !isset($_SESSION) ){ session_start(); }
+			if( !isset( $_SESSION["is_wlabel"] ) ) {
+				global $wpdb;
+				global $current_user;
+				$current_user = wp_get_current_user();
+				$user_id = $current_user->ID;
+				if( $user_id+0 > 0){
+					$asesor = get_user_meta($user_id, "asesor_registro", true);
+					$email_asesor = $wpdb->get_var( "SELECT email FROM asesores WHERE id = ".$asesor );
+					$is_wlabel = is_wlabel($email_asesor);
+					$_SESSION["is_wlabel"] = ( $is_wlabel !== false ) ? $is_wlabel : "";
+				}
+			}
+
+			if( $_SESSION["is_wlabel"] != "" ) {
+				$subject = $_SESSION["is_wlabel"]." - ".$subject;
+			}
+
 			$administradores = get_results("SELECT * FROM administradores");
 	        $listas = [
 	        	'admin' => []
