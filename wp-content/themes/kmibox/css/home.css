@@ -351,6 +351,10 @@ section{
 	    display: table-cell;
 	}
 
+	#section-comment h3 {
+		line-height: 100% !important;
+	}
+
 /* ************************ */
 /* Responsive 				*/
 /* ************************ */
