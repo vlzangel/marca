@@ -916,6 +916,12 @@
 
 
 @media (max-height: 600px){
+
+	#marca > div {
+	    width: 33.333333334%;
+	    height: 33.333333334%;
+	}
+
 	#presentaciones .descripcion_producto_box, #presentaciones .peso_producto_box {
 	    font-size: 8px !important;
 	}
