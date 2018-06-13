@@ -351,6 +351,10 @@ section{
 	    display: table-cell;
 	}
 
+	.iOS  #section-comment h3 {
+		font-family: Arial !important;
+	}
+
 /* ************************ */
 /* Responsive 				*/
 /* ************************ */

@@ -795,6 +795,11 @@
 	    max-width: 70%;
 	}
 
+	div#suscription,
+	div#suscription img.img-responsive {
+	    max-width: 100% !important;
+	}
+
 	#modal-contacto-marca .modal-dialog {
 	    margin: 80px auto;
 	}
@@ -942,17 +947,24 @@
 
 
 @media (max-height: 600px){
-	#presentaciones .title_producto_box {
-	    font-size: 12px !important;
+
+	#marca > div {
+	    width: 33.333333334%;
+	    height: 33.333333334%;
 	}
+
 	#presentaciones .descripcion_producto_box, #presentaciones .peso_producto_box {
 	    font-size: 10px !important;
 	}
 	#presentaciones .title_producto_box {
-	    font-size: 12px !important;
+	    font-size: 9px !important;
 	}
 
 	#presentaciones {
 	    height: calc( 100% - 225px ) !important;
+	}
+
+	#presentaciones .comprar_producto_box > div {
+	    margin: 2px 10px 0px 0px;
 	}
 }
