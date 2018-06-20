@@ -47,4 +47,11 @@
 			echo '<link rel="stylesheet" href="'.TEMA().'wlabels/css/'.$_SESSION["wlabel"]["wl"].'.css?v='.time().'">';
 		}
 	}
+
+	function parametros_wlabel(){
+		if( !isset($_SESSION) ){ session_start(); }
+		if( $_SESSION["wlabel"]["wl"] == 'momsweb' && isset( $_SESSION["wlabel"] ) && isset( $_SESSION["wlabel"]["wl"] ) ){
+			require_once(  '../wlabels/parametros/'. $_SESSION["wlabel"]["wl"] . '.php' );
+		}
+	}
 ?>
