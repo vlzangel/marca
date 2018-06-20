@@ -47,7 +47,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
 	
 
-include_once( 'wlabels/parametros/momsweb.php' );
+parametros_wlabel();
 
 ?>
 	<?php echo MENU(); ?>
