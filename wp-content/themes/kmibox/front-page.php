@@ -47,6 +47,8 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
 	
 
+parametros_wlabel();
+
 ?>
 	<?php echo MENU(); ?>
 	<header id="header" class="row">
@@ -78,7 +80,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 		<div class="container">
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<img src="<?php echo get_home_url(); ?>/img/Imagen-2.png" class="img-responsive">
-				<p>Asesores nutricionales 
+				<p><?php ( echo isset($wl_param['asesores']) )? $wl_param['asesores'] : 'Asesores' ; ?> nutricionales 
 					<br class="hidden-sm hidden-xs">
 					certificados
 				</p>
@@ -130,7 +132,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 				<div class="col-xs-12 col-sm-4 col-md-4"> 	
 					<span class="marca-circle_2">2</span>
 					<img src="<?php echo get_home_url(); ?>/img/Icon-2.png" class="img-responsive">
-					<p>Brindale a tu asesor nutricional tu información básica para el envío </p>
+					<p>Brindale a tu <?php echo ( isset($wl_param['asesor']) )? $wl_param['asesor'] : 'asesor' ; ?> nutricional tu información básica para el envío </p>
 				</div>	
 				<div class="col-xs-12 col-sm-4 col-md-4"> 
 					<span class="marca-circle_2" >3</span>
@@ -160,19 +162,19 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 	<section id="regalasela-amigo" class="row text-center">
 		<div class="container">
 			<h2 id="quiero-convertirme-asesor">
-				Quiero convertirme en asesor
+				Quiero convertirme en <?php echo ( isset($wl_param['asesor']) )? $wl_param['asesor'] : 'asesor' ; ?>
 			</h2>
 			<div class="col-sm-12">
 				<img src="<?php echo get_home_url(); ?>/img/asesor_2.png" >
 			</div>
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
 				<p>
-					¿Quieres convertirte en asesor nutricional canino y formar parte de nuestro equipo? Click aquí y te explicaremos cómo. 
+					¿Quieres convertirte en <?php echo ( isset($wl_param['asesor']) )? $wl_param['asesor'] : 'asesor' ; ?> nutricional canino y formar parte de nuestro equipo? Click aquí y te explicaremos cómo. 
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3" id="asesor">
 				<a href="<?php echo get_home_url(); ?>/quiero-ser-asesor/" 
-					class="btn-kmibox">QUIERO CONVERTIRME EN ASESOR</a> 
+					class="btn-kmibox">QUIERO CONVERTIRME EN <?php echo ( isset($wl_param['asesor']) )? strtoupper($wl_param['asesor']) : 'ASESOR' ; ?></a> 
 			</div>
 		</div>
 	</section>
