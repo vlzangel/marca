@@ -80,7 +80,7 @@ parametros_wlabel();
 		<div class="container">
 			<div class="col-xs-12 col-sm-4 col-md-4">
 				<img src="<?php echo get_home_url(); ?>/img/Imagen-2.png" class="img-responsive">
-				<p><?php ( echo isset($wl_param['asesores']) )? $wl_param['asesores'] : 'Asesores' ; ?> nutricionales 
+				<p><?php echo ( isset($wl_param['asesores']) )? $wl_param['asesores'] : 'Asesores' ; ?> nutricionales 
 					<br class="hidden-sm hidden-xs">
 					certificados
 				</p>

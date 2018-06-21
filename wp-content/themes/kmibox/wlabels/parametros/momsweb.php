@@ -1,6 +1,6 @@
 <?php
 
 	$wl_param = [
-		'asesores' = 'Promotores',
-		'asesor' = 'promotor',
+		'asesores' => 'Promotores',
+		'asesor' => 'promotor',
 	];
