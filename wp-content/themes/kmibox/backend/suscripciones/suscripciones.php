@@ -8,8 +8,6 @@
     </div>
 
  	<div class="botones_container">
-	    <input type='button' value='Nuevo' onClick='abrir_link( jQuery(this) )'  data-titulo="Nuevo Producto" data-modulo="productos" data-modal="nuevo" data-id="" class="button button-primary button-large" />
-
         <input type='button' value='EXCEL' id='excel' data-modulo="suscripciones" data-file="suscripciones" class="button button-primary button-large" />
 	</div> 
 

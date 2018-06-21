@@ -35,7 +35,7 @@
 	<link rel="stylesheet" href="<?php echo TEMA(); ?>/css/responsive/globales.css?v=<?php echo VERSION(); ?>">
 
 	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/animate.css">
-	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/kmibox.css">
+	<link rel="stylesheet" href="<?php echo HOME(); ?>/css/kmibox.css?v=<?php echo time(); ?>">
 	<!-- END Style -->
 
 	<!-- BEGIN Font -->

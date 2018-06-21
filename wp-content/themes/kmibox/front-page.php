@@ -37,9 +37,6 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 	
 
 ?>
-
-
-
 	<?php echo MENU(); ?>
 	<header id="header" class="row">
 		<div class="container">

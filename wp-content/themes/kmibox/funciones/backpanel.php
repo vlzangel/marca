@@ -134,7 +134,7 @@
                 $opciones_menu_reporte[] = array(
                     'title'         =>  __('Cupones'),
                     'short-title'   =>  __('Cupones'),
-                    'parent'        =>  'marcas',
+                    'parent'        =>  'organigrama',
                     'slug'          =>  'cupones',
                     'access'        =>  'manage_options',
                     'page'          =>  'cupones',

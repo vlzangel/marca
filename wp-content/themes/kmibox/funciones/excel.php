@@ -57,23 +57,25 @@
 	        					);
 	        				break;
 	        				case 'img':
-	        					$gdImage = imagecreatefrompng($_valor["valor"]);
-								$objDrawing = new PHPExcel_Worksheet_MemoryDrawing();
-								$objDrawing->setName('Sample image');
-								$objDrawing->setDescription('Sample image');
-								$objDrawing->setImageResource($gdImage);
-								$objDrawing->setRenderingFunction(PHPExcel_Worksheet_MemoryDrawing::RENDERING_JPEG);
-								$objDrawing->setMimeType(PHPExcel_Worksheet_MemoryDrawing::MIMETYPE_DEFAULT);
-								$objDrawing->setCoordinates($letras[$_j].$i); 
-								$objDrawing->setOffsetX(10);               
-								$objDrawing->setOffsetY(10);              
-								$objDrawing->setHeight(60); 
-								$objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
+	        					if( file_exists($_valor["valor"]) ){
+		        					$gdImage = imagecreatefromstring( file_get_contents( $_valor["valor"] ) );
+									$objDrawing = new PHPExcel_Worksheet_MemoryDrawing();
+									$objDrawing->setName('Sample image');
+									$objDrawing->setDescription('Sample image');
+									$objDrawing->setImageResource($gdImage);
+									$objDrawing->setRenderingFunction(PHPExcel_Worksheet_MemoryDrawing::RENDERING_JPEG);
+									$objDrawing->setMimeType(PHPExcel_Worksheet_MemoryDrawing::MIMETYPE_DEFAULT);
+									$objDrawing->setCoordinates($letras[$_j].$i); 
+									$objDrawing->setOffsetX(10);               
+									$objDrawing->setOffsetY(10);              
+									$objDrawing->setHeight(60); 
+									$objDrawing->setWorksheet($objPHPExcel->getActiveSheet());
 
-								$objPHPExcel->setActiveSheetIndex(0);
-								$objPHPExcel->getActiveSheet()->getRowDimension($i)->setRowHeight(60);
-	           					$objPHPExcel->getActiveSheet()->getColumnDimension($letras[$_j])->setAutoSize(false);
-								$objPHPExcel->getActiveSheet()->getColumnDimension($letras[$_j])->setWidth(50);
+									$objPHPExcel->setActiveSheetIndex(0);
+									$objPHPExcel->getActiveSheet()->getRowDimension($i)->setRowHeight(60);
+		           					$objPHPExcel->getActiveSheet()->getColumnDimension($letras[$_j])->setAutoSize(false);
+									$objPHPExcel->getActiveSheet()->getColumnDimension($letras[$_j])->setWidth(50);
+	        					}
 	        				break;
 	        				
 	        				default:

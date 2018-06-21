@@ -30,7 +30,7 @@
 			$order_id = $temp[0];
 			if( in_array($order_id, $ordenes) ){
 				unset($ordenes[ $order_id ]);
-				if( $value->status == "in_progress" && ( $hoy > strtotime($value->due_date) ) ){
+				/*if( $value->status == "in_progress" && ( $hoy > strtotime($value->due_date) ) ){
 					$value->status = "cancelled";
 				}
 				switch ($value->status) {
@@ -58,19 +58,26 @@
 							break;
 						}
 					break;
-				}
+				}*/
 			}
 		}
 
 		if( count($ordenes) > 0 ){
 			$transacciones = array();
 			foreach ($ordenes as $orden_id) {
-				$data = unserialize( $wpdb->get_var("SELECT metadata FROM ordenes WHERE id = {$order_id}") );
+				$data = unserialize( $wpdb->get_var("SELECT metadata FROM ordenes WHERE id = {$orden_id}") );
 				$transacciones[] = array(
 					"transac" => $data["cliente"],
 					"cliente" => $data["transaccion_id"]
 				);
+
+				echo "<pre>";
+					print_r($transacciones);
+				echo "</pre>";
 			}
+
+			exit();
+
 			foreach ( $transacciones as $order_id => $transaccion ) {
 				$customer = $openpay->customers->get( $transaccion["cliente"] );
 				$value = $customer->charges->get( $transaccion["transac"] );

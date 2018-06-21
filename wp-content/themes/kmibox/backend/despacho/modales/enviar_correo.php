@@ -29,6 +29,8 @@
 		$correo_enviado .= "<strong style='padding: 5px 10px; display: inline-block;'>El correo ya ha sido enviado.</strong> ";
 	}
 
+	$_data->guia = unserialize($_data->guia);
+
 	$HTML = '
 		<form id="status_despacho">
 			<input type="hidden" id="ID" name="ID" value="'.$ID.'">
@@ -42,7 +44,15 @@
 							<span style="font-weight: 600;">No de GUIA: </span>
 						</td>
 						<td style="text-align: right;">
-							'.$_data->guia.'
+							'.$_data->guia["I0"].'
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span style="font-weight: 600;">Compa&ntilde;ia de Env&iacute;o: </span>
+						</td>
+						<td style="text-align: right;">
+							'.$_data->guia["I1"].'
 						</td>
 					</tr>
 					<tr>

@@ -46,7 +46,7 @@
 	        $tipos[ $marca->tipo ],
 	        array(
 	        	"tipo" => "img",
-	        	"valor" => $img
+	        	"valor" => dirname(dirname(dirname(__DIR__)))."/imgs/marcas/".$marca->img
 	        )
 	    );
 	}
