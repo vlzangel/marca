@@ -47,7 +47,7 @@ include_once( 'template/parts/footer/contacto_ayuda.php' );
 /* END POPUP Nutriheroes   */		
 	
 
-parametros_wlabel();
+$wl_param = parametros_wlabel();
 
 ?>
 	<?php echo MENU(); ?>
