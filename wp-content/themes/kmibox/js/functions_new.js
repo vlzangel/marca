@@ -677,20 +677,20 @@ function loadFase(fase){
 
 	switch( fase ){
 		case "1":
-			change_title('Elije el <span>tamaño</span> de tu mascota');
+			change_title('Elige el <span>tamaño</span> de tu mascota');
 		break;
 		case 1: // Fase #1 - Tamaño
-			change_title('Elije el <span>tamaño</span> de tu mascota');
+			change_title('Elige el <span>tamaño</span> de tu mascota');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
 		break;
 
 		case "2":
-			change_title('Elije la <span>edad</span> de tu mascota');
+			change_title('Elige la <span>edad</span> de tu mascota');
 		break;
 		case 2: // Fase #1 - Tamaño
-			change_title('Elije la <span>edad</span> de tu mascota');
+			change_title('Elige la <span>edad</span> de tu mascota');
 			
 			var prod_actual = getCarritoActual();
 			prod_actual["tamano"] = jQuery(".carrousel-items article:nth-child(2)").attr("data-value");
