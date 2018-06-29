@@ -81,7 +81,7 @@
 			</a>
 
 			<div class="" id="vlz_titulo">
-				Elije el tamaño de tu mascota
+				Elige el tamaño de tu mascota
 			</div>
 
 			<div class="breadcrumb">
@@ -300,7 +300,7 @@
 				<div class="Modal content text-center" >			     
 					<div style=" background-color:#ffffff; border-color:#fffff1;">
 						<img src="'.TEMA().'/imgs/opciones_pago/fondo.jpg" class="img-responsive" />
-						<div style="background-color: #000000; color: #ffffff; text-align: left; padding: 5px 25px; font-family: GothanMedium_regular;">ELIJE TU FORMA DE PAGO</div>
+						<div style="background-color: #000000; color: #ffffff; text-align: left; padding: 5px 25px; font-family: GothanMedium_regular;">ELIGE TU FORMA DE PAGO</div>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="btn_cerrar">X</button>
 						<div class="opciones_pago" >
 							<div style="float:left; width:50%;">								
