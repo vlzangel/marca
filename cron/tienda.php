@@ -1,6 +1,7 @@
 <?php
 	include '../wp-load.php';
 
+
     date_default_timezone_set('America/Mexico_City');
     $limite = date("Y-m-d", strtotime("-4 day"));
 
@@ -64,13 +65,21 @@
 
 		if( count($ordenes) > 0 ){
 			$transacciones = array();
-			foreach ($ordenes as $orden_id) {
+			foreach ($ordenes as $order_id) {
 				$data = unserialize( $wpdb->get_var("SELECT metadata FROM ordenes WHERE id = {$order_id}") );
 				$transacciones[] = array(
-					"transac" => $data["cliente"],
-					"cliente" => $data["transaccion_id"]
+					"transac" => $data["transaccion_id"],
+					"cliente" => $data["cliente"]
 				);
 			}
+
+	/*		echo "<pre>";
+				print_r($ordenes);
+				print_r($transacciones);
+			echo "</pre>";
+
+			exit();*/
+
 			foreach ( $transacciones as $order_id => $transaccion ) {
 				$customer = $openpay->customers->get( $transaccion["cliente"] );
 				$value = $customer->charges->get( $transaccion["transac"] );
