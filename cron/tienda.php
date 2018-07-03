@@ -1,9 +1,8 @@
 <?php
 	include '../wp-load.php';
-
-
+	
     date_default_timezone_set('America/Mexico_City');
-    $limite = date("Y-m-d", strtotime("-4 day"));
+    $limite = date("Y-m-d", strtotime("-2 day"));
 
 	global $wpdb;
 
@@ -15,7 +14,6 @@
 		foreach ($ordenes_pendientes as $f) { $ordenes[$f->id] = $f->id; }
 
 		$dataOpenpay = dataOpenpay();
-
 	 	$openpay = Openpay::getInstance($dataOpenpay["MERCHANT_ID"], $dataOpenpay["OPENPAY_KEY_SECRET"]);
 		Openpay::setProductionMode( $dataOpenpay["OPENPAY_PRUEBAS"] != 1 );
 		
@@ -67,18 +65,11 @@
 			$transacciones = array();
 			foreach ($ordenes as $order_id) {
 				$data = unserialize( $wpdb->get_var("SELECT metadata FROM ordenes WHERE id = {$order_id}") );
-				$transacciones[] = array(
+				$transacciones[ $order_id ] = array(
 					"transac" => $data["transaccion_id"],
 					"cliente" => $data["cliente"]
 				);
 			}
-
-	/*		echo "<pre>";
-				print_r($ordenes);
-				print_r($transacciones);
-			echo "</pre>";
-
-			exit();*/
 
 			foreach ( $transacciones as $order_id => $transaccion ) {
 				$customer = $openpay->customers->get( $transaccion["cliente"] );
@@ -87,6 +78,7 @@
 				if( $value->status == "in_progress" && ( $hoy > strtotime($value->due_date) ) ){
 					$value->status = "cancelled";
 				}
+
 				switch ($value->status) {
 					case 'cancelled':
 						$orden = $wpdb->get_row("SELECT * FROM ordenes WHERE id = {$order_id}");
