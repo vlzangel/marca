@@ -2,7 +2,7 @@
 	include '../wp-load.php';
 	
     date_default_timezone_set('America/Mexico_City');
-    $limite = date("Y-m-d", strtotime("-2 day"));
+    $limite = date("Y-m-d", strtotime("-4 day"));
 
 	global $wpdb;
 
