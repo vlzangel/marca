@@ -39,3 +39,13 @@
 <?php
     include_once( dirname(__DIR__).'/recursos/modal.php' );
 ?>
+
+<script type="text/javascript">
+    <?php
+        $url = "var URL_DESPACHOS = TEMA+'/backend/despacho/ajax/despacho.php';";
+        if( $_GET["all"] == "yes" ){
+            $url = "var URL_DESPACHOS = TEMA+'/backend/despacho/ajax/despacho.php?all=yes';";
+        }
+        echo $url;
+    ?>
+</script>
