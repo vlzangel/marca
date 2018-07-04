@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
 		},
         "scrollX": true,
         "ajax": {
-            "url": TEMA+'/backend/despacho/ajax/despacho.php',
+            "url": URL_DESPACHOS,
             "type": "POST"
         }
 	});
