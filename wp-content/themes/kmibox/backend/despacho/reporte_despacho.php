@@ -13,6 +13,7 @@
 
 	<div class="botones_container">
         <input type='button' value='EXCEL' id='excel' data-modulo="despacho" data-file="despacho" class="button button-primary button-large" />
+        <input type='button' value='HISTORICO' onclick="location.href = '<?php echo HOME()."/wp-admin/admin.php?page=despacho&all=yes"; ?>';" class="button button-primary button-large" />
     </div>
 
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
