@@ -160,11 +160,17 @@
 
 		$estado = utf8_decode( $wpdb->get_var("SELECT name FROM wp_estados WHERE id = '".$metadata[ "dir_estado" ]."' ") );
 		$municipio = utf8_decode( $wpdb->get_var("SELECT name FROM wp_municipios WHERE id = '".$metadata[ "dir_estado" ]."' ") );
-		if( $estado != "" ){ }else{ $estado = ""; }
+		if( $estado != "" ){ $estado = ", ".$estado; }else{ $estado = ""; }
 		if( $municipio != "" ){ $municipio = ", ".$municipio; }else{ $municipio = ""; }
-		if( $metadata["r_address"] != "" ){ $metadata["r_address"] = ", ".$metadata["r_address"]; }else{ $metadata["r_address"] = ""; }
+
+		if( $metadata["dir_colonia"] != "" ){ $metadata["dir_colonia"] = ", ".$metadata["dir_colonia"]; }else{ $metadata["dir_colonia"] = ""; }
+		if( $metadata["dir_calle"] != "" ){ $metadata["dir_calle"] = $metadata["dir_calle"]; }else{ $metadata["dir_calle"] = ""; }
+		if( $metadata["dir_numint"] != "" ){ $metadata["dir_numint"] = ", Int: ".$metadata["dir_numint"]; }else{ $metadata["dir_numint"] = ""; }
+		if( $metadata["dir_numext"] != "" ){ $metadata["dir_numext"] = ", Ext: ".$metadata["dir_numext"]; }else{ $metadata["dir_numext"] = ""; }
 		if( $metadata["dir_codigo_postal"] != "" ){ $metadata["dir_codigo_postal"] = " - ".$metadata["dir_codigo_postal"]; }else{ $metadata["dir_codigo_postal"] = ""; }
-		$direccion = $estado.$municipio.$metadata["r_address"].$metadata["dir_codigo_postal"];
+
+		$direccion = $metadata["dir_calle"].$metadata["dir_numint"].$metadata["dir_numext"].$metadata["dir_colonia"].$municipio.$estado.$metadata["dir_codigo_postal"];
+
 		if( $direccion == "" ){ $direccion = "No registrado"; }
 
 		$telefonos = array();
