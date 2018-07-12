@@ -13,7 +13,7 @@
 
 	<div class="botones_container">
         <input type='button' value='EXCEL' id='excel' data-modulo="despacho" data-file="despacho" class="button button-primary button-large" />
-        <input type='button' value='HISTORICO' onclick="location.href = '<?php echo HOME()."/wp-admin/admin.php?page=despacho&all=yes"; ?>';" class="button button-primary button-large" />
+        <input type='button' value='HISTORICO' onclick="location.href = '<?php echo HOME()."wp-admin/admin.php?page=despacho&all=yes"; ?>';" class="button button-primary button-large" />
     </div>
 
     <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" style="min-width: 100%;" >
@@ -39,3 +39,13 @@
 <?php
     include_once( dirname(__DIR__).'/recursos/modal.php' );
 ?>
+
+<script type="text/javascript">
+    <?php
+        $url = "var URL_DESPACHOS = TEMA+'/backend/despacho/ajax/despacho.php';";
+        if( $_GET["all"] == "yes" ){
+            $url = "var URL_DESPACHOS = TEMA+'/backend/despacho/ajax/despacho.php?all=yes';";
+        }
+        echo $url;
+    ?>
+</script>
