@@ -130,7 +130,7 @@
 						asesor_cliente != 0 &&
 						r['asesor'] != asesor_cliente
 					){
-						aviso = "<span style='font-size:12px;'>El cliente ya está registrado con otro asesor, por favor contacta al número 5540034824  para entender el detalle.</span>";
+						aviso = "<span style='font-size:12px;'>El cliente ya está registrado con otro asesor, por favor contacta al número 55 7661 7210  para entender el detalle.</span>";
 					}
 					
 					body.html(
