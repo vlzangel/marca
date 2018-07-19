@@ -501,7 +501,7 @@ function loadPresentaciones(){
 			}
 		/* END Search */
 
-		if( prod_actual["marca"] == producto.marca || mostrar == 1 ){
+		if( ( prod_actual["marca"] == producto.marca || mostrar == 1 ) && MARCAS[producto.marca].agotado != "si" ){
 
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){
