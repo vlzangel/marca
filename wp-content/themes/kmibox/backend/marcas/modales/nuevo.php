@@ -15,6 +15,9 @@
 		$marca = $wpdb->get_row("SELECT * FROM marcas WHERE id = ".$ID);
 		$_nombre = $marca->nombre;
 		$_tipo = $marca->tipo;
+
+		$_extradata = json_decode( $marca->extradata );
+
 		$img_url = TEMA()."/imgs/marcas/".$marca->img;
 		$img_old = $marca->img;
 		$ID_UPDATE = '<input type="hidden" id="ID" name="ID" value="'.$ID.'" />';
@@ -24,6 +27,15 @@
 	$tipos = "";
 	foreach ($_tipos as $key => $tipo) {
 		$tipos .= "<option value='{$tipo->id}' ".selected($tipo->id, $_tipo, false).">{$tipo->tipo}</option>";
+	}
+
+	$opciones_agotado = array(
+		"si" => "SI",
+		"no" => "NO",
+	);
+	$agotados = "";
+	foreach ($opciones_agotado as $key => $valor) {
+		$agotados .= "<option value='{$key}' ".selected($_extradata->agotado, $key, false).">{$valor}</option>";
 	}
 
 ?>
@@ -40,6 +52,15 @@
 			<label>Tipo de Mascotas:</label>
 			<select id="tipo" name="tipo">
 				<?php echo $tipos; ?>
+			</select>
+		</div>
+	</div>
+	<div class="celdas_1">
+		<div class="input_box">
+			<label>Agotado:</label>
+			<select id="agotado" name="agotado">
+				<option value="">Seleccione un opci&oacute;n</option>
+				<?php echo $agotados; ?>
 			</select>
 		</div>
 	</div>
