@@ -445,14 +445,16 @@ function loadMarcas(){
 	jQuery('#marca').html("");
 	var CANT = 0;
 	jQuery.each(MARCAS,  function(key, marca){
-		jQuery('#marca').append(
-			'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
-				'<div class="item_box">'+
-					'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
-				'</div>'+
-			'</div>'
-		);
-		CANT++;
+		if( marca.agotado != "si" ){
+			jQuery('#marca').append(
+				'<div id="item_'+key+'" data-id="'+key+'" data-name="'+marca.nombre+'" class="tipo_'+marca.tipo+'">'+
+					'<div class="item_box">'+
+						'<div class="img_box" style="background-image: url('+marca.img+');"></div>'+
+					'</div>'+
+				'</div>'
+			);
+			CANT++;
+		}
 	});
 
 	jQuery('#cant_marcas').html( CANT );	
@@ -499,7 +501,7 @@ function loadPresentaciones(){
 			}
 		/* END Search */
 
-		if( prod_actual["marca"] == producto.marca || mostrar == 1 ){
+		if( ( prod_actual["marca"] == producto.marca || mostrar == 1 ) && MARCAS[producto.marca].agotado != "si" ){
 
 			if( producto.tamanos[ prod_actual["tamano"] ] == 1 ){
 				if( producto.edades[ prod_actual["edad"] ] == 1 ){

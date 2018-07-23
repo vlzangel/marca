@@ -54,10 +54,17 @@
 		$_marcas = $wpdb->get_results("SELECT * FROM marcas");
 		$marcas = array();
 		foreach ($_marcas as $marca) {
+
+			$data = (object) array("agotado" => "no");
+			if( $marca->extradata != "" ){
+				$data = json_decode($marca->extradata);
+			}
+				
 			$marcas[$marca->id] = array(
 				"nombre" => $marca->nombre,
 				"img" => TEMA()."/imgs/marcas/".$marca->img,
-				"tipo" => $marca->tipo
+				"tipo" => $marca->tipo,
+				"agotado" => $data->agotado,
 			);
 		}
 		return $marcas;

@@ -12,5 +12,5 @@
 <br><br>
 
 <div  style="text-align: center;font-size: 16px; margin: 0px 0px 35px;">
-	Se colocó una orden para el cliente <strong>[CLIENTE]</strong> con otro asesor, contacta al número 5540034824 para entender el detalle.
+	Se colocó una orden para el cliente <strong>[CLIENTE]</strong> con otro asesor, contacta al número 55 7661 7210 para entender el detalle.
 </div>

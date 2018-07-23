@@ -296,6 +296,8 @@ div#wpadminbar {
 	    font-size: 15px;
 	}
 
+/* Fase 3 */
+
 	#marca {
 	    height: 100%;
 	    padding: 0px 10px;
@@ -371,6 +373,8 @@ div#wpadminbar {
 	    padding: 0px;
 	    cursor: pointer;
 	    height: 100%;
+	    overflow: hidden;
+	    position: relative;
 	}
 
 	#marca > div > .item_box:hover {
@@ -386,6 +390,17 @@ div#wpadminbar {
 	    background-size: contain;
 	    background-repeat: no-repeat;
 	    background-position: center;
+	}
+
+	.class_agotado{
+		transform: rotate(45deg);
+	    position: absolute;
+	    top: 18px;
+	    right: -30px;
+	    background: #33b8ff;
+	    color: #FFF;
+	    padding: 4px 25px;
+	    font-size: 13px;
 	}
 
 	.btn_siguiente_container{

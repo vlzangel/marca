@@ -21,12 +21,18 @@
 		$_dataextra = ", img = '{$img}'";
 	}
 	
+	$extradata = array(
+		"agotado" => $agotado
+	);
+	$extradata = json_encode($extradata);
+
 
 	$SQL = "
 		UPDATE 
 			marcas 
 		SET 
 			nombre = '{$nombre}',
+			extradata = '{$extradata}',
 			tipo = '{$tipo}' {$_dataextra}
 		WHERE 
 			id = {$ID}
