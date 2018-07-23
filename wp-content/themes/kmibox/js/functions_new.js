@@ -824,7 +824,7 @@ function mas_cantidad(index){
 	jQuery("#cant_"+index).html(valor);
 	CARRITO["productos"][index]["cantidad"] = valor;
 	CARRITO["cantidad"]++;
-	loadFase(5);
+	loadFase(6);
 	}else{
 		jQuery('#mensaje').modal('show');
 		jQuery('#label-mensaje').html('Excedio la cantidad maxima de productos nutriheoes permitido');
@@ -839,7 +839,7 @@ function menos_cantidad(index){
 		jQuery("#cant_"+index).html(valor);
 		CARRITO["productos"][index]["cantidad"] = valor;
 		CARRITO["cantidad"]--;
-		loadFase(5);
+		loadFase(6);
 	}
 }
 
