@@ -47,7 +47,7 @@
 
 					foreach ($camposObligatorios_2 as $key => $campo ) {
 						if( $cliente["metas"][ $key ][0] == "" ){
-							$camposTXT[] = 'Su Dirección (O parte de ella)';
+							$camposTXT[] = 'Su Dirección (o parte de ella)';
 							break;
 						}
 					}
