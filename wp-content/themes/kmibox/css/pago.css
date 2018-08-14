@@ -1,3 +1,33 @@
+/*
+    Errores o Validaciones
+*/
+
+    .parrafo{
+        color: #000;
+        font-size: 17px;
+        margin: 5px auto 15px;
+        max-width: 700px;
+    }
+
+    .lista_faltantes{
+        margin: 0px auto 15px;
+        list-style: none;
+        text-align: center;
+        padding: 0px;
+        border: solid 1px #CCC;
+        border-radius: 5px;
+        padding: 10px;
+        font-weight: 600;
+    }
+
+    #pago_exitoso .btn:focus {
+        color: #FFF !important;
+    }
+
+    #pago_exitoso .btn:hover {
+        color: #333 !important;
+    }
+
 nav{
     padding: 20px;
     text-align: center;

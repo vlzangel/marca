@@ -13,7 +13,7 @@
 
 	$HTML .= '
 		<section id="tab_1">
-			<form id="form-registro">
+			<form id="form-registro_2">
 				<div id="register" 
 					class="col-md-8 col-xs-12 col-md-offset-2" 
 					style="border-radius:10px; border:1px solid #ccc; margin-top:20px;">
@@ -166,7 +166,7 @@
 						
 						<div class="col-md-12">
 							<div class="col-sm-12 text-center" style="padding-bottom:20px;">
-								<button id="btn-register_" class="btn btn-sm-kmibox">Guardar</button>
+								<button id="btn-register_" class="btn-register_ btn btn-sm-kmibox">Guardar</button>
 							</div>
 						</div>
 

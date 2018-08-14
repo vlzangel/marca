@@ -31,7 +31,40 @@
 			</aside>
 		<?php	
 			}else{
-				get_template_part( 'template/parts/page/checkout', 'page' ); 
+			 	$current_user = wp_get_current_user();
+			    $user_id = $current_user->ID;	
+
+				$cliente = array(
+					"user" => $wpdb->get_row("SELECT * FROM {$wpdb->prefix}users WHERE ID = ".$user_id),
+					"metas" => get_user_meta( $user_id )
+				);
+
+				$camposObligatoris = array(
+					'first_name',
+					'telef_movil',
+					'dir_estado',
+					'dir_ciudad',
+					'dir_colonia',
+					'dir_calle',
+					'dir_codigo_postal',
+					'dir_numext',
+					'dir_numint'
+				);
+
+				$permitido = true;
+				foreach ($camposObligatoris as $campo ) {
+					if( $cliente["metas"][ $campo ][0] == "" ){
+						$permitido = false;
+						break;
+					}
+				}
+
+				if( $permitido ){
+					get_template_part( 'template/parts/page/checkout', 'page' ); 
+				}else{
+					$PAGE_ACTUAL = "pagar-mi-marca";
+					get_template_part( 'template/parts/page/faltan-datos', 'page' ); 
+				}
 			}
 		?>
 	</section>

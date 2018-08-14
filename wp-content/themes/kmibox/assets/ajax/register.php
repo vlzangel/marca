@@ -41,9 +41,7 @@ if( $user_id < 1 ){
 					$HTML
 				);
 
-				mail_admin_nutriheroes(	"Usuario registrado NutriHeroes", $HTML)				
-				
-				
+				mail_admin_nutriheroes(	"Usuario registrado NutriHeroes", $HTML);	
 				
 				/* Autenticar */
 				if( !empty($password) && !empty($email) ){	
