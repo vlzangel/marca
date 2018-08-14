@@ -122,7 +122,7 @@ jQuery(document).ready(function() {
 
 	});
 
-	jQuery('#form-registro')
+	jQuery('#form-registro_2')
 	.on('init.field.fv', function(e, data) {
 		scroll(0);
         if (data.field === 'sexo') {
@@ -135,6 +135,13 @@ jQuery(document).ready(function() {
 	    e.preventDefault();
 	    var $form = jQuery(e.target);
 	    var bv = $form.data('formValidation');	
+
+		console.log( "Hola" );
+
+		jQuery(".btn-register_").attr("disabled", true);
+		jQuery(".btn-register_").html("Procesando...");
+
+
 		jQuery('#login-mensaje').html('');
 		jQuery('#login-mensaje').addClass('hidden');
 		jQuery.post( urlbase+"/ajax/register.php", {
@@ -159,6 +166,7 @@ jQuery(document).ready(function() {
 			dir_colonia: jQuery('[name="dir_colonia"]').val(),
 			dir_codigo_postal: jQuery('[name="dir_codigo_postal"]').val()
 		}, function(r) {
+			console.log(r);
 			r = jQuery.parseJSON(r);
 			if(r['code']==1){
 				var redirect = jQuery('[name="redirect"]').val();
@@ -171,9 +179,10 @@ jQuery(document).ready(function() {
 					window.location.reload();				
 				}			
 			}else{
+				jQuery(".btn-register_").attr("disabled", false);
+				jQuery(".btn-register_").html("Registrarme");
 				jQuery('#login-mensaje').html(r['msg']);
 				jQuery('#login-mensaje').removeClass('hidden');
-
 			}
 		});
 	})
