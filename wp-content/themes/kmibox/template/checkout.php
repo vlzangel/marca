@@ -60,6 +60,7 @@
 				}
 
 				if( $permitido ){
+					$_SESSION["COMPRA_INCOMPLETA"] = "";
 					get_template_part( 'template/parts/page/checkout', 'page' ); 
 				}else{
 					$PAGE_ACTUAL = "pagar-mi-marca";
@@ -83,10 +84,6 @@
 		$('#link-login').attr( 'href','#inicio-sesion' );
 	});
 </script>
-
-<?php
-	$_SESSION["COMPRA_INCOMPLETA"] = "";
-?>
 
 <?php
 	get_footer(); 
