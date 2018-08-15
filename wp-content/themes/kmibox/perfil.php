@@ -31,5 +31,19 @@
 
 		echo comprimir($HTML);
 
+		if( $_SESSION["COMPRA_INCOMPLETA"] != "" ){
+			echo '
+				<script>
+					var VER_INFO = "YES";
+				</script>
+			';
+		}else{
+			echo '
+				<script>
+					var VER_INFO = "NO";
+				</script>
+			';
+		}
+
 	get_footer(); 
 ?>

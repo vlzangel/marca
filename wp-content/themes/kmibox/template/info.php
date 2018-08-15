@@ -10,10 +10,16 @@
 		$donde_conociste_str .= '<option value="'.$key.'" '.selected($key, $user['dondo_conociste'], false).' >'.$value.'</option>';
 	}
 
+	$redirect = "";
+	if( $_SESSION["COMPRA_INCOMPLETA"] != "" ){
+		$redirect = "<input type='hidden' name='redirect' value='".get_home_url()."/".$_SESSION["COMPRA_INCOMPLETA"]."' />";
+	}
+
 
 	$HTML .= '
 		<section id="tab_1">
 			<form id="form-registro_2">
+				'.$redirect.'
 				<div id="register" 
 					class="col-md-8 col-xs-12 col-md-offset-2" 
 					style="border-radius:10px; border:1px solid #ccc; margin-top:20px;">
