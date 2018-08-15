@@ -63,7 +63,7 @@
 		</div>
 
 		<div class="parrafo">
-			Por favor, presione <strong>ACTUALIZAR DATOS</strong> y actualice la información faltante en la sección <strong>MI INFORMACIÓN</strong> de su perfil.
+			Por favor, presione <strong>ACTUALIZAR DATOS</strong> y actualice la información faltante de su perfil.
 		</div>
 
 		<div class="parrafo">
