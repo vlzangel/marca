@@ -6,10 +6,10 @@
 	<article id="pago_exitoso" class="col-md-10 col-xs-12 col-md-offset-1 text-center" style="border-radius:30px; border:1px solid #ccc; overflow: hidden; margin-top: 3%;">
 		<aside class="col-md-12 text-center">
 			<h1 class="postone text-felicidades">¡Perfil Incompleto!</h1>
-			<h4 class="gothan text-suscripcionexitosa">Perdona las molestias, pero para poder generar su orden de forma satisfactoria, es necesario que complete los datos de su perfil de usuario.</h4>
+			<h4 class="gothan text-suscripcionexitosa">Perdone las molestias, pero para poder generar su orden de forma satisfactoria, es necesario que complete los datos de su perfil de usuario.</h4>
 		</aside>
 		<div style="text-align: center;">
-			<h2 class="text-quedebohacer">¿QUÉ INFORMACIÓN NECESARIA FALTA?</h2>
+			<h2 class="text-quedebohacer">¿QUÉ INFORMACIÓN FALTA?</h2>
 			<div style="max-width: 400px; text-align: left; margin: 0px auto; font-size: 17px;">
 				<?php
 
@@ -63,11 +63,11 @@
 		</div>
 
 		<div class="parrafo">
-			Por favor, presione <strong>ACTUALIZAR DATOS</strong> y actualice la información faltante de su perfil.
+			Por favor, presione <strong>ACTUALIZAR DATOS</strong> y complete la información que falta en su perfil.
 		</div>
 
 		<div class="parrafo">
-			Una vez complete la actualización, será redirigido al proceso de compra.
+			Una vez completada su información, será redirigido al proceso de compra.
 		</div>
 
 		<aside class="col-md-12 text-center" style="padding-bottom: 10px; color: #FFF !important;">
