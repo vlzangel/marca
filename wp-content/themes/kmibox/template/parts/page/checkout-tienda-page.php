@@ -1,5 +1,7 @@
 <?php
 
+	$_SESSION["COMPRA_INCOMPLETA"] = "";
+
 	global $CARRITO;
 	global $wpdb;
 

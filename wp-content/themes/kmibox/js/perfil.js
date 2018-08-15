@@ -397,6 +397,10 @@ jQuery(document).ready(function() {
 	    }
 	});
 
+	if( VER_INFO == "YES" ){
+		jQuery('[data-tab="1"]').click();
+	}
+
 });
 
 function cancelarSuscripcion(id_orden){

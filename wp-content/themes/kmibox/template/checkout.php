@@ -85,5 +85,9 @@
 </script>
 
 <?php
+	$_SESSION["COMPRA_INCOMPLETA"] = "";
+?>
+
+<?php
 	get_footer(); 
 ?>

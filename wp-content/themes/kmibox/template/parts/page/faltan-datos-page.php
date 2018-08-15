@@ -63,21 +63,21 @@
 		</div>
 
 		<div class="parrafo">
-			Por favor, ingrese a su perfil a través del botón <strong>ACTUALIZAR DATOS</strong> y actualice la información faltante en la sección <strong>MI INFORMACIÓN</strong> de su perfil.
+			Por favor, presione <strong>ACTUALIZAR DATOS</strong> y actualice la información faltante en la sección <strong>MI INFORMACIÓN</strong> de su perfil.
 		</div>
 
 		<div class="parrafo">
-			Luego puede regresar a esta pestaña y haga click en el botón <strong>YA ACTUALICE MIS DATOS</strong> para continuar con su pedido.
+			Una vez complete la actualización, será redirigido al proceso de compra.
 		</div>
 
 		<aside class="col-md-12 text-center" style="padding-bottom: 10px; color: #FFF !important;">
-	      	<a href="<?php echo HOME(); ?>/perfil/" target="_blank" class="btn btn-sm-kmibox" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">ACTUALIZAR DATOS</a>
-		</aside>
-
-		<aside class="col-md-12 text-center" style="padding-bottom: 25px; color: #FFF !important;">
-	      	<a href="<?php echo HOME()."/{$PAGE_ACTUAL}/"; ?>" class="btn btn-sm-kmibox" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">YA ACTUALICE MIS DATOS</a>
+	      	<a href="<?php echo HOME(); ?>/perfil/" class="btn btn-sm-kmibox" style="padding: 10px 30px; margin:0 auto; font-size: 12px;">ACTUALIZAR DATOS</a>
 		</aside>
 
 	</article>
 
 </section>
+
+<?php
+	$_SESSION["COMPRA_INCOMPLETA"] = "$PAGE_ACTUAL";
+?>
